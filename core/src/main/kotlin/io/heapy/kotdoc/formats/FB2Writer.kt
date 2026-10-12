@@ -19,7 +19,7 @@ sealed interface MathMethod {
 }
 
 /** The FB2 writer consults only writerMathMethod from Pandoc's WriterOptions. */
-data class FB2WriterOptions(val mathMethod: MathMethod = MathMethod.PlainMath)
+data class FB2WriterOptions(val mathMethod: MathMethod = MathMethod.MathML)
 sealed interface WriterMessage {
     data class InlineNotRendered(val inline: Inline) : WriterMessage
     data class BlockNotRendered(val block: Block) : WriterMessage

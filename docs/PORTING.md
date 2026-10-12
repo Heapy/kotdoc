@@ -102,6 +102,15 @@ then HTML and the remaining formats. Also continue Walk list properties and comp
 generator/shrinker coverage. FB2's writer-specific math option is implemented;
 the shared WriterOptions record and full CLI option handling are still pending.
 
+Start the options layer from `Text.Pandoc.Extensions`, `Text.Pandoc.Options`
+and `Text.Pandoc.Format`: preserve custom extensions, set ordering, complete
+format defaults/support tables, extension-diff parsing and validation, all
+ReaderOptions fields/JSON/defaults and WriterOptions fields/defaults. WriterOptions
+depends on template/context, highlighting and syntax-map types; these dependencies
+must be ported rather than replacing the record with a subset. CLI `App.Opt` is
+a separate layer. The upstream writer math default is MathML (also used by the
+current FB2 writer options); FB2 renders non-WebTeX methods identically.
+
 Current verification: 5,484 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
