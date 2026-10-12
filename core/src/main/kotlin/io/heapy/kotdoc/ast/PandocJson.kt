@@ -5,7 +5,10 @@ package io.heapy.kotdoc.ast
 import kotlinx.serialization.json.*
 
 /** Pandoc's tagged JSON protocol, not Kotlin's default polymorphic encoding. */
-object PandocJson {
+object PandocJson : PandocJsonCodec()
+
+/** The Native parser reuses the schema with native signed-zero semantics. */
+open class PandocJsonCodec internal constructor(private val nativeFloatingPoint: Boolean = false) {
     val apiVersion: List<Long> = listOf(1, 23, 1, 2)
 
     fun decode(input: String): Pandoc = decode(Json.parseToJsonElement(input))
@@ -188,7 +191,12 @@ object PandocJson {
     }
     fun encodeColWidth(value: ColWidth): JsonElement = when (value) {
         ColWidth.Default -> tagged("ColWidthDefault")
-        is ColWidth.Width -> tagged("ColWidth", JsonPrimitive(value.value))
+        is ColWidth.Width -> tagged("ColWidth", when {
+            value.value.isNaN() -> JsonNull
+            value.value == Double.POSITIVE_INFINITY -> str("+inf")
+            value.value == Double.NEGATIVE_INFINITY -> str("-inf")
+            else -> JsonPrimitive(value.value)
+        })
     }
     fun decodeColSpec(json: JsonElement): ColSpec = json.tuple(2).let { ColSpec(enum(it[0]), decodeColWidth(it[1])) }
     fun encodeColSpec(value: ColSpec): JsonElement = arr(tagged(value.alignment.name), encodeColWidth(value.width))
@@ -228,9 +236,15 @@ object PandocJson {
     private fun JsonElement.bool(): Boolean = jsonPrimitive.also {
         require(!it.isString) { "Expected JSON boolean, found $it" }
     }.boolean
-    private fun JsonElement.number(): Double = jsonPrimitive.also {
-        require(!it.isString) { "Expected JSON number, found $it" }
-    }.double.also { require(it.isFinite()) { "Expected finite JSON number" } }
+    private fun JsonElement.number(): Double = when {
+        this == JsonNull -> Double.NaN
+        jsonPrimitive.isString -> when (jsonPrimitive.content) {
+            "+inf" -> Double.POSITIVE_INFINITY
+            "-inf" -> Double.NEGATIVE_INFINITY
+            else -> error("Expected JSON number or Aeson infinity encoding, found $this")
+        }
+        else -> jsonPrimitive.double.let { if (!nativeFloatingPoint && it == 0.0) 0.0 else it }
+    }
     inline fun <reified E : Enum<E>> decodeEnum(json: JsonElement): E {
         val tag = json.jsonObject.getValue("t").jsonPrimitive
         require(tag.isString) { "Expected string constructor tag" }

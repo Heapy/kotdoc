@@ -14,12 +14,18 @@ jobs:
           distribution: temurin
           java-version: '21'
       - run: python3 tools/import-pandoc-json-fixtures.py --check
+      - run: python3 tools/import-native-fixtures.py --check-source
       - run: ./gradlew test :cli:installDist --no-daemon
       - name: Exercise installed CLI
         run: |
           printf '%s\n' '{"pandoc-api-version":[1,23,1,2],"meta":{},"blocks":[]}' > /tmp/input.json
           cli/build/install/cli/bin/cli --from json --to json /tmp/input.json -o /tmp/output.json
           cmp /tmp/input.json /tmp/output.json
+          printf '%s\n' 'Str "hello"' > /tmp/input.native
+          cli/build/install/cli/bin/cli -f native -t json /tmp/input.native -o /tmp/from-native.json
+          cli/build/install/cli/bin/cli -f json -t native /tmp/from-native.json -o /tmp/roundtrip.native
+          printf '%s\n' '[ Plain [ Str "hello" ] ]' > /tmp/expected.native
+          cmp /tmp/expected.native /tmp/roundtrip.native
           if cli/build/install/cli/bin/cli --from unknown /tmp/input.json; then
             echo 'Unsupported formats must fail'
             exit 1

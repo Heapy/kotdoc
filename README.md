@@ -19,10 +19,13 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 172 tests, no skipped tests.
+  roundtrip tests. Current suite: 1,582 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
-- Initial JSON-to-JSON CLI. Other input/output formats are not implemented yet.
+- Native reader/writer and JSON ↔ Native CLI conversion with standalone output
+  and configurable column width. Verified against all 266 upstream Native fixtures.
+- GHC-compatible number and string display, with additional lexical/layout cases.
+  Other input/output formats are not implemented yet.
 
 See [the porting ledger](docs/PORTING.md) for the full remaining scope and caveats.
 Pinned upstream sources and original tests live in Git submodules; preserving
@@ -36,13 +39,15 @@ Requires JDK 21 and Python 3 for source-fixture verification.
 git clone --recurse-submodules https://github.com/Heapy/kotdoc.git
 cd kotdoc
 python3 tools/import-pandoc-json-fixtures.py --check
+python3 tools/import-native-fixtures.py --check-source
 ./gradlew test :cli:installDist
-cli/build/install/cli/bin/cli --from json --to json input.json --output output.json
+cli/build/install/cli/bin/cli --from native --to json input.native --output output.json
+cli/build/install/cli/bin/cli --from json --to native --standalone --columns 80 output.json
 ```
 
 The installed launcher is currently called `cli`. Use `-` or omit the input
 filename to read standard input. Errors are written to standard error and return
-a nonzero exit status. Only `json` is supported at this stage.
+a nonzero exit status. The implemented formats are `json` and `native`.
 
 ## Upstream baselines and licensing
 
@@ -56,4 +61,5 @@ Project license: GPL-3.0-only; see [LICENSE](LICENSE). The existing ported
 `pandoc-types` model and JSON tests retain their BSD-3-Clause notices. Original
 Pandoc sources are GPL-2.0-or-later; calibre has GPLv3 and per-file notices.
 Upstream notices are retained in the source submodules and [licenses](licenses).
+GHC decimal conversion retains the BSD notice in `licenses/GHC-base-BSD-3-Clause.txt`.
 Every subsequent port must preserve the applicable source attribution.
