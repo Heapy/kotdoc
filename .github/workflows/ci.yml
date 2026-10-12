@@ -22,10 +22,12 @@ jobs:
       - run: python3 tools/import-media-operations.py --check-source
       - run: python3 tools/import-extension-tables.py --check
       - run: python3 tools/import-extension-fixtures.py --check-source
+      - run: python3 tools/import-option-fixtures.py --check-source
       - run: ./gradlew test :cli:installDist --no-daemon
       - run: python3 tools/check-fb2-cli.py
       - run: python3 tools/check-media-cli.py
       - run: python3 tools/check-extension-cli.py
+      - run: python3 tools/check-math-cli.py
       - name: Exercise installed CLI
         run: |
           printf '%s\n' '{"pandoc-api-version":[1,23,1,2],"meta":{},"blocks":[]}' > /tmp/input.json

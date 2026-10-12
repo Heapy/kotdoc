@@ -1,0 +1,1317 @@
+{
+  "sources": {
+    "upstream/pandoc/src/Text/Pandoc/Options.hs": "b7eaa83bc90b01477a09b17e23fa28b3c87fb4f78324088870d6fe37eb5733d1",
+    "upstream/pandoc/src/Text/Pandoc/App/CommandLineOptions.hs": "acbbe450ba80a8f2c7d3aba62e8f445306b11c3004c6b26945c9030db947b477",
+    "upstream/pandoc/src/Text/Pandoc/Writers/FB2.hs": "1a57a23b16c324b6906093d17d8ae3caec083b511f32e2b7db23ce9732caaff9"
+  },
+  "cases": [
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--math-method=plain"
+      ],
+      "input": "[Para [Math InlineMath \"x + y\",Space,Math DisplayMath \"x^2\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p><code>x + y</code> <code>x^2</code></p></section></body></FictionBook>\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--math-method=mathml"
+      ],
+      "input": "[Para [Math InlineMath \"x + y\",Space,Math DisplayMath \"x^2\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p><code>x + y</code> <code>x^2</code></p></section></body></FictionBook>\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--math-method=gladtex"
+      ],
+      "input": "[Para [Math InlineMath \"x + y\",Space,Math DisplayMath \"x^2\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p><code>x + y</code> <code>x^2</code></p></section></body></FictionBook>\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--math-method=mathjax"
+      ],
+      "input": "[Para [Math InlineMath \"x + y\",Space,Math DisplayMath \"x^2\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p><code>x + y</code> <code>x^2</code></p></section></body></FictionBook>\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--math-method=katex"
+      ],
+      "input": "[Para [Math InlineMath \"x + y\",Space,Math DisplayMath \"x^2\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p><code>x + y</code> <code>x^2</code></p></section></body></FictionBook>\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--math-method=webtex:missing-"
+      ],
+      "input": "[Para [Math InlineMath \"x + y\",Space,Math DisplayMath \"x^2\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p>x + y x^2</p></section></body></FictionBook>\n",
+        "stderr": "[WARNING] Could not fetch resource missing-x%5E2: PandocResourceNotFound \"missing-x^2\"\n[WARNING] Could not fetch resource missing-x%20%2B%20y: PandocResourceNotFound \"missing-x + y\"\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "plain"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=plain"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "mathml"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=mathml"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "mathjax"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=mathjax"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "katex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=katex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "gladtex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=gladtex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "unknown"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'unknown'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=unknown"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'unknown'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        ""
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method ''.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method="
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method ''.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "WEBTEX"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'WEBTEX'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=WEBTEX"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'WEBTEX'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:true"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:true"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex="
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex="
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:https://example.org?q=a:b=c"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:https://example.org?q=a:b=c"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "plain:anything"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=plain:anything"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "mathml=ignored"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=mathml=ignored"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:Привет"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:Привет'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:Привет"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:Привет'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:é"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:é'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:é"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:é'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:😀"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:😀'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:😀"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:😀'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:a\nb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:a\nb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:a\tb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:a\tb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:a\bb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:a\bb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:a\fb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:a\fb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:a\rb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:a\rb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:a\u000bb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:a\u000bb'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:a\u000bb"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:a\u000bb'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:a\u0007b"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:a\u0007b'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:a\u0007b"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:a\u0007b'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:\u0001"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:\u0001'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:\u0001"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:\u0001'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "",
+        "stderr": "Unknown math-method 'webtex:'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:\\"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:\\"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method",
+        "webtex:\""
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--math-method=webtex:\""
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--mathml"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --mathml. Use --math-method=mathml instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--gladtex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --gladtex. Use --math-method=gladtex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--webtex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --webtex. Use --math-method=webtex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--webtex="
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --webtex. Use --math-method=webtex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--webtex=true"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --webtex. Use --math-method=webtex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--webtex=https://example.org/x"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --webtex. Use --math-method=webtex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--webtex=Привет"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --webtex. Use --math-method=webtex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--mathjax"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--mathjax="
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--mathjax=true"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--mathjax=https://example.org/x"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--mathjax=Привет"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--katex"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --katex. Use --math-method=katex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--katex="
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --katex. Use --math-method=katex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--katex=true"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --katex. Use --math-method=katex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--katex=https://example.org/x"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --katex. Use --math-method=katex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "native",
+        "--katex=Привет"
+      ],
+      "input": "[]",
+      "expected": {
+        "stdout": "[]\n",
+        "stderr": "[WARNING] Deprecated: --katex. Use --math-method=katex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--mathml",
+        "--mathml"
+      ],
+      "input": "[Para [Math InlineMath \"x\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p><code>x</code></p></section></body></FictionBook>\n",
+        "stderr": "[WARNING] Deprecated: --mathml. Use --math-method=mathml instead.\n[WARNING] Deprecated: --mathml. Use --math-method=mathml instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--webtex=missing-",
+        "--math-method=plain"
+      ],
+      "input": "[Para [Math InlineMath \"x\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p><code>x</code></p></section></body></FictionBook>\n",
+        "stderr": "[WARNING] Deprecated: --webtex. Use --math-method=webtex[:URL] instead.\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--math-method=plain",
+        "--webtex=missing-"
+      ],
+      "input": "[Para [Math InlineMath \"x\"]]",
+      "expected": {
+        "stdout": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\"><description><title-info><genre>unrecognised</genre></title-info><document-info><program-used>pandoc</program-used></document-info></description><body><title><p /></title><section><p>x</p></section></body></FictionBook>\n",
+        "stderr": "[WARNING] Deprecated: --webtex. Use --math-method=webtex[:URL] instead.\n[WARNING] Could not fetch resource missing-x: PandocResourceNotFound \"missing-x\"\n",
+        "exit": 0
+      }
+    },
+    {
+      "args": [
+        "-f",
+        "native",
+        "-t",
+        "fb2",
+        "--mathjax",
+        "--math-method=unknown"
+      ],
+      "input": "[Para [Math InlineMath \"x\"]]",
+      "expected": {
+        "stdout": "",
+        "stderr": "[WARNING] Deprecated: --mathjax. Use --math-method=mathjax[:URL] instead.\nUnknown math-method 'unknown'.  Expected one of: plain, mathml, webtex, mathjax, katex, gladtex.\n",
+        "exit": 6
+      }
+    }
+  ]
+}

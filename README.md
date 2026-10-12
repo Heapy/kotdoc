@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 6,077 tests, no skipped tests.
+  roundtrip tests. Current suite: 6,418 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -48,6 +48,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   composition, ordering, validation and CLI errors; path inference includes URI
   paths and the original filename rules. Registry entries do not imply that the
   corresponding reader/writer has been ported.
+- ReaderOptions: all ten fields, library defaults, JSON codecs and syntax-extension
+  queries. Shared citation, wrapping, caption, slide and math option types include
+  their original JSON aliases and URL defaults. CLI math methods are connected to
+  FB2 output, with original deprecated-option warnings and invalid-option errors.
 
 See [the porting ledger](docs/PORTING.md) for the full remaining scope and caveats.
 Pinned upstream sources and original tests live in Git submodules; preserving
@@ -69,6 +73,7 @@ python3 tools/import-media-fixtures.py --check-source
 python3 tools/import-media-operations.py --check-source
 python3 tools/import-extension-tables.py --check
 python3 tools/import-extension-fixtures.py --check-source
+python3 tools/import-option-fixtures.py --check-source
 ./gradlew test :cli:installDist
 python3 tools/check-fb2-cli.py
 python3 tools/check-media-cli.py

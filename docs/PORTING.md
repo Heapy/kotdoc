@@ -40,6 +40,7 @@ format is implemented explicitly in Kotlin.
 | zip-archive media serialization dependency | `resources/MediaZip.kt` | Complete ZIP-byte comparison against Pandoc (headers, CRC, compression, order, collisions); independent JDK decompression |
 | XML.Light parsing foundation and xml-conduit tokenizer dependency | `xml/XmlLight.kt` | Namespace-aware names, duplicate attributes, entity expansion, content forests, direct text and malformed input; oracle cases and six focused tests |
 | `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
+| `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -242,5 +243,48 @@ This does not implement the Lua runtime. The installed CLI accepts modifiers
 for the three implemented formats, including `--from=`/`--to=`, and matches
 69 original CLI executions in stdout, stderr and exit status. Complete CLI
 format inference/defaults, reader/writer dispatch, options and scripting remain.
-ReaderOptions and the full WriterOptions dependencies are the next common
-infrastructure work; no reduced WriterOptions placeholder is counted as a port.
+Full WriterOptions and its dependencies remain common infrastructure work; no
+reduced WriterOptions placeholder is counted as a port.
+
+## Reader and common option evidence
+
+ReaderOptions includes extensions, standalone, columns, tab stop, indented-code
+classes, abbreviations, default image extension, track changes, comment stripping
+and ordered Typst input pairs. Its library defaults are independently captured
+through `pandoc.utils.run_json_filter`, whose default filter environment exposes
+the original Aeson encoding as `PANDOC_READER_OPTIONS`. Thirteen captures also
+exercise application configurations. Library defaults (80 columns, 28
+abbreviations) deliberately differ from application defaults (72 columns and the
+external abbreviation data file). These captures do not mean that the complete
+application option pipeline has been ported.
+
+The reader record JSON requires all fields, ignores unknown fields, validates
+types and pairs, and uses signed 64-bit integers. Explicit Kotlin values are
+compared with independently captured JSON, rather than only testing round trips.
+Record decoding follows the upstream `deriveJSON` declaration; complete Aeson
+dependency coverage and exact nested JSON error paths/messages remain unfinished.
+
+The common citation, email-obfuscation, track-changes, wrapping, top-level-division,
+reference-location and caption types preserve JSON aliases and canonical output.
+MathMethod retains all six variants, optional/default URLs and its intentionally
+noninvertible empty-URL encoding. HTMLSlideVariant expectations are translated
+from its JSON deriving declaration; they are not presented as binary-oracle cases.
+EPUBVersion has no JSON instance upstream and none is invented here.
+
+`tools/import-option-fixtures.py` forces Lua option userdata back through the
+original constructors before checking results: merely assigning and reading a
+Lua property bypasses the deferred Haskell decoder. The 297 codec cases cover
+acceptance, canonical values and available decoder error messages. This remains
+a Kotlin API port, not a Lua runtime implementation.
+
+`--math-method` and the original deprecated math flags are connected to FB2Writer.
+Eighty-five original CLI captures compare full output, warnings, errors and exit
+status, including repeated flags, empty URLs and real inline/display math. The
+new option's Haskell-Show-to-JSON path intentionally rejects some Unicode/control
+URLs that are valid through the JSON API or deprecated URL flags, matching the
+pinned implementation. No network calls are needed to run these comparisons.
+
+Full WriterOptions still requires Template, Context, PathTemplate, HighlightMethod
+and Skylighting Style/SyntaxMap dependencies. ReaderOptions integration into all
+readers, complete CLI option validation, full generic Haskell Read/Show behavior
+and scripting tests also remain part of the overall objective.

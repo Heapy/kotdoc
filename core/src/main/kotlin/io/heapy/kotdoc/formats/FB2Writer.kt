@@ -4,19 +4,11 @@
 package io.heapy.kotdoc.formats
 
 import io.heapy.kotdoc.ast.*
+import io.heapy.kotdoc.options.MathMethod
 import io.heapy.kotdoc.resources.*
 import io.heapy.kotdoc.xml.*
 import java.util.Base64
 import java.util.Locale
-
-sealed interface MathMethod {
-    data object PlainMath : MathMethod
-    data class WebTeX(val url: String) : MathMethod
-    data object GladTeX : MathMethod
-    data object MathML : MathMethod
-    data class MathJax(val url: String) : MathMethod
-    data class KaTeX(val url: String) : MathMethod
-}
 
 /** The FB2 writer consults only writerMathMethod from Pandoc's WriterOptions. */
 data class FB2WriterOptions(val mathMethod: MathMethod = MathMethod.MathML)

@@ -2,6 +2,7 @@
 package io.heapy.kotdoc.formats
 
 import io.heapy.kotdoc.ast.*
+import io.heapy.kotdoc.options.MathMethod
 import io.heapy.kotdoc.resources.*
 import io.heapy.kotdoc.xml.XmlParseException
 import kotlinx.serialization.json.*

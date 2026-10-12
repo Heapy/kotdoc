@@ -3,6 +3,7 @@ package io.heapy.kotdoc.cli
 import io.heapy.kotdoc.ast.PandocJson
 import io.heapy.kotdoc.formats.FB2Reader
 import io.heapy.kotdoc.formats.FB2Writer
+import io.heapy.kotdoc.formats.FB2WriterOptions
 import io.heapy.kotdoc.formats.NativeReader
 import io.heapy.kotdoc.formats.NativeWriter
 import io.heapy.kotdoc.formats.ReaderMessage
@@ -11,6 +12,11 @@ import io.heapy.kotdoc.options.ExtensionRegistry
 import io.heapy.kotdoc.options.FlavoredFormat
 import io.heapy.kotdoc.options.FormatSpecificationException
 import io.heapy.kotdoc.options.UnsupportedExtensionException
+import io.heapy.kotdoc.options.MathMethod
+import io.heapy.kotdoc.options.MathMethodArgumentException
+import io.heapy.kotdoc.options.DEFAULT_WEB_TEX_URL
+import io.heapy.kotdoc.options.DEFAULT_MATH_JAX_URL
+import io.heapy.kotdoc.options.DEFAULT_KA_TEX_URL
 import io.heapy.kotdoc.resources.MediaBag
 import io.heapy.kotdoc.resources.MediaOperations
 import io.heapy.kotdoc.resources.ResourceContext
@@ -22,7 +28,7 @@ import kotlin.system.exitProcess
 /** Entry point for ported formats. Full Pandoc CLI parity is tracked in docs/PORTING.md. */
 fun main(args: Array<String>) {
     if (args.toList() == listOf("--help")) {
-        println("Usage: kotdoc [--from fb2|json|native] [--to fb2|json|native] [--standalone] [--columns N] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
+        println("Usage: kotdoc [--from fb2|json|native] [--to fb2|json|native] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
         return
     }
     if (args.toList() == listOf("--list-input-formats")) {
@@ -40,6 +46,20 @@ fun main(args: Array<String>) {
         var to = "json"
         var columns = 72
         var standalone = false
+        var mathMethod: MathMethod = MathMethod.MathML
+        fun legacyMath(option: String, url: String? = null): MathMethod {
+            val name = option.removePrefix("--")
+            val suffix = if (name == "mathml") "" else "[:URL]"
+            System.err.println("[WARNING] Deprecated: $option. Use --math-method=$name$suffix instead.")
+            return when (name) {
+                "mathml" -> MathMethod.MathML
+                "gladtex" -> MathMethod.GladTeX
+                "webtex" -> MathMethod.WebTeX(url ?: DEFAULT_WEB_TEX_URL)
+                "mathjax" -> MathMethod.MathJax(url ?: DEFAULT_MATH_JAX_URL)
+                "katex" -> MathMethod.KaTeX(url ?: DEFAULT_KA_TEX_URL)
+                else -> error("Unknown legacy math option: $option")
+            }
+        }
         var extractMedia: String? = null
         var resourcePaths = listOf(Path.of("."))
         fun addResourcePaths(value: String) {
@@ -53,11 +73,17 @@ fun main(args: Array<String>) {
                 "--output", "-o" -> output = args.getOrNull(i++) ?: error("Missing output filename")
                 "--columns" -> columns = (args.getOrNull(i++) ?: error("Missing column count")).toInt()
                 "--standalone", "-s" -> standalone = true
+                "--math-method" -> mathMethod = MathMethod.fromArgument(args.getOrNull(i++) ?: error("Missing math method"))
+                "--mathml", "--gladtex", "--webtex", "--mathjax", "--katex" -> mathMethod = legacyMath(arg)
                 "--extract-media" -> extractMedia = args.getOrNull(i++) ?: error("Missing media output path")
                 "--resource-path" -> addResourcePaths(args.getOrNull(i++) ?: error("Missing resource search path"))
                 else -> {
                     if (arg.startsWith("--from=")) { from = arg.substringAfter('='); continue }
                     if (arg.startsWith("--to=")) { to = arg.substringAfter('='); continue }
+                    if (arg.startsWith("--math-method=")) { mathMethod = MathMethod.fromArgument(arg.substringAfter('=')); continue }
+                    if (listOf("--webtex=", "--mathjax=", "--katex=").any(arg::startsWith)) {
+                        mathMethod = legacyMath(arg.substringBefore('='), arg.substringAfter('=')); continue
+                    }
                     if (arg.startsWith("--columns=")) { columns = arg.substringAfter('=').toInt(); continue }
                     if (arg.startsWith("--extract-media=")) { extractMedia = arg.substringAfter('='); continue }
                     if (arg.startsWith("--resource-path=")) { addResourcePaths(arg.substringAfter('=')); continue }
@@ -94,7 +120,7 @@ fun main(args: Array<String>) {
         val rendered = when (to) {
             "json" -> PandocJson.encode(document)
             "native" -> NativeWriter.write(document, columns, standalone)
-            else -> FB2Writer.writeWithEffects(document, resources = resources).also { result ->
+            else -> FB2Writer.writeWithEffects(document, FB2WriterOptions(mathMethod), resources = resources).also { result ->
                 for (message in result.messages) when (message) {
                     is WriterMessage.CouldNotFetchResource -> System.err.println("[WARNING] Could not fetch resource ${message.path}" +
                         if (message.message.isEmpty()) "" else ": ${message.message}")
@@ -105,6 +131,9 @@ fun main(args: Array<String>) {
         }
         val converted = if (rendered.endsWith('\n')) rendered else "$rendered\n"
         if (output == null || output == "-") print(converted) else File(output).writeText(converted)
+    } catch (e: MathMethodArgumentException) {
+        System.err.println(e.message)
+        exitProcess(6)
     } catch (e: FormatSpecificationException) {
         System.err.println(e.message)
         exitProcess(20)

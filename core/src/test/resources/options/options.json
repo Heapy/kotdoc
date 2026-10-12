@@ -1,0 +1,3246 @@
+{
+  "sources": {
+    "upstream/pandoc/src/Text/Pandoc/Options.hs": "b7eaa83bc90b01477a09b17e23fa28b3c87fb4f78324088870d6fe37eb5733d1",
+    "upstream/pandoc/src/Text/Pandoc/App.hs": "c3b7cab2b2ae4e981b055198211e2912ad78fdff33e16f2b46abc7f166163ffb",
+    "upstream/pandoc/data/abbreviations": "5fc9590bdbf5010e2c3197a263c73a9ff83aa8f83d84aed7707c7481c279e0db",
+    "upstream/pandoc/src/Text/Pandoc/Filter/JSON.hs": "5ee4ecd802e2a20940d889bd2aab95bd9cc66ab83853b2d49b6167838a766697",
+    "upstream/pandoc/pandoc-lua-engine/src/Text/Pandoc/Lua/Marshal/ReaderOptions.hs": "fba63a225cb88f5b18ee64deeb59912810e0b26ce961aeb32ee02f6d1f649b87",
+    "upstream/pandoc/pandoc-lua-engine/src/Text/Pandoc/Lua/Marshal/WriterOptions.hs": "865ee8bf62db1629fbb560114e66f6b36ca4efbe08d517a403f820a222f27f4a",
+    "upstream/pandoc/pandoc-lua-engine/src/Text/Pandoc/Lua/Module/Utils.hs": "2f11c49151fe5372d7d54c08db9f7e0817367623396af790f70d73218a427e11",
+    "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc.lua": "aac7c559585722162cecff4353b3a2d11b58d48d8484a7a9b40c4ea3cde2cc17"
+  },
+  "choices": [
+    {
+      "accepted": true,
+      "expected": "citeproc",
+      "field": "cite_method",
+      "input": "citeproc"
+    },
+    {
+      "accepted": true,
+      "expected": "natbib",
+      "field": "cite_method",
+      "input": "natbib"
+    },
+    {
+      "accepted": true,
+      "expected": "biblatex",
+      "field": "cite_method",
+      "input": "biblatex"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"CITEPROC\"",
+      "field": "cite_method",
+      "input": "CITEPROC"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"NATBIB\"",
+      "field": "cite_method",
+      "input": "NATBIB"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"BIBLATEX\"",
+      "field": "cite_method",
+      "input": "BIBLATEX"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"citeproc \"",
+      "field": "cite_method",
+      "input": "citeproc "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"natbib \"",
+      "field": "cite_method",
+      "input": "natbib "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"biblatex \"",
+      "field": "cite_method",
+      "input": "biblatex "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: null",
+      "field": "cite_method",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: true",
+      "field": "cite_method",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: false",
+      "field": "cite_method",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: 0",
+      "field": "cite_method",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: 1",
+      "field": "cite_method",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: {}",
+      "field": "cite_method",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: []",
+      "field": "cite_method",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: {\"value\":\"none\"}",
+      "field": "cite_method",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"\"",
+      "field": "cite_method",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown citation method: \"unknown\"",
+      "field": "cite_method",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "none",
+      "field": "email_obfuscation",
+      "input": "none"
+    },
+    {
+      "accepted": true,
+      "expected": "references",
+      "field": "email_obfuscation",
+      "input": "references"
+    },
+    {
+      "accepted": true,
+      "expected": "javascript",
+      "field": "email_obfuscation",
+      "input": "javascript"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"NONE\"",
+      "field": "email_obfuscation",
+      "input": "NONE"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"REFERENCES\"",
+      "field": "email_obfuscation",
+      "input": "REFERENCES"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"JAVASCRIPT\"",
+      "field": "email_obfuscation",
+      "input": "JAVASCRIPT"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"none \"",
+      "field": "email_obfuscation",
+      "input": "none "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"references \"",
+      "field": "email_obfuscation",
+      "input": "references "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"javascript \"",
+      "field": "email_obfuscation",
+      "input": "javascript "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method null",
+      "field": "email_obfuscation",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method true",
+      "field": "email_obfuscation",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method false",
+      "field": "email_obfuscation",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method 0",
+      "field": "email_obfuscation",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method 1",
+      "field": "email_obfuscation",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method {}",
+      "field": "email_obfuscation",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method []",
+      "field": "email_obfuscation",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method {\"value\":\"none\"}",
+      "field": "email_obfuscation",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"\"",
+      "field": "email_obfuscation",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown obfuscation method \"unknown\"",
+      "field": "email_obfuscation",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "accept-changes",
+      "field": "track_changes",
+      "input": "accept"
+    },
+    {
+      "accepted": true,
+      "expected": "reject-changes",
+      "field": "track_changes",
+      "input": "reject"
+    },
+    {
+      "accepted": true,
+      "expected": "all-changes",
+      "field": "track_changes",
+      "input": "all"
+    },
+    {
+      "accepted": true,
+      "expected": "accept-changes",
+      "field": "track_changes",
+      "input": "accept-changes"
+    },
+    {
+      "accepted": true,
+      "expected": "reject-changes",
+      "field": "track_changes",
+      "input": "reject-changes"
+    },
+    {
+      "accepted": true,
+      "expected": "all-changes",
+      "field": "track_changes",
+      "input": "all-changes"
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "ACCEPT"
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "REJECT"
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "ALL"
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "ACCEPT-CHANGES"
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "REJECT-CHANGES"
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "ALL-CHANGES"
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "accept "
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "reject "
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "all "
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "accept-changes "
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "reject-changes "
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "all-changes "
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "all choices failed",
+      "field": "track_changes",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "wrap-auto",
+      "field": "wrap_text",
+      "input": "auto"
+    },
+    {
+      "accepted": true,
+      "expected": "wrap-none",
+      "field": "wrap_text",
+      "input": "none"
+    },
+    {
+      "accepted": true,
+      "expected": "wrap-preserve",
+      "field": "wrap_text",
+      "input": "preserve"
+    },
+    {
+      "accepted": true,
+      "expected": "wrap-auto",
+      "field": "wrap_text",
+      "input": "wrap-auto"
+    },
+    {
+      "accepted": true,
+      "expected": "wrap-none",
+      "field": "wrap_text",
+      "input": "wrap-none"
+    },
+    {
+      "accepted": true,
+      "expected": "wrap-preserve",
+      "field": "wrap_text",
+      "input": "wrap-preserve"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"AUTO\"",
+      "field": "wrap_text",
+      "input": "AUTO"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"NONE\"",
+      "field": "wrap_text",
+      "input": "NONE"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"PRESERVE\"",
+      "field": "wrap_text",
+      "input": "PRESERVE"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"WRAP-AUTO\"",
+      "field": "wrap_text",
+      "input": "WRAP-AUTO"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"WRAP-NONE\"",
+      "field": "wrap_text",
+      "input": "WRAP-NONE"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"WRAP-PRESERVE\"",
+      "field": "wrap_text",
+      "input": "WRAP-PRESERVE"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"auto \"",
+      "field": "wrap_text",
+      "input": "auto "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"none \"",
+      "field": "wrap_text",
+      "input": "none "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"preserve \"",
+      "field": "wrap_text",
+      "input": "preserve "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"wrap-auto \"",
+      "field": "wrap_text",
+      "input": "wrap-auto "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"wrap-none \"",
+      "field": "wrap_text",
+      "input": "wrap-none "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"wrap-preserve \"",
+      "field": "wrap_text",
+      "input": "wrap-preserve "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method null",
+      "field": "wrap_text",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method true",
+      "field": "wrap_text",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method false",
+      "field": "wrap_text",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method 0",
+      "field": "wrap_text",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method 1",
+      "field": "wrap_text",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method {}",
+      "field": "wrap_text",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method []",
+      "field": "wrap_text",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method {\"value\":\"none\"}",
+      "field": "wrap_text",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"\"",
+      "field": "wrap_text",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown wrap method \"unknown\"",
+      "field": "wrap_text",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-part",
+      "field": "top_level_division",
+      "input": "part"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-chapter",
+      "field": "top_level_division",
+      "input": "chapter"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-section",
+      "field": "top_level_division",
+      "input": "section"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-default",
+      "field": "top_level_division",
+      "input": "default"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-part",
+      "field": "top_level_division",
+      "input": "top-level-part"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-chapter",
+      "field": "top_level_division",
+      "input": "top-level-chapter"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-section",
+      "field": "top_level_division",
+      "input": "top-level-section"
+    },
+    {
+      "accepted": true,
+      "expected": "top-level-default",
+      "field": "top_level_division",
+      "input": "top-level-default"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"PART\"",
+      "field": "top_level_division",
+      "input": "PART"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"CHAPTER\"",
+      "field": "top_level_division",
+      "input": "CHAPTER"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"SECTION\"",
+      "field": "top_level_division",
+      "input": "SECTION"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"DEFAULT\"",
+      "field": "top_level_division",
+      "input": "DEFAULT"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"TOP-LEVEL-PART\"",
+      "field": "top_level_division",
+      "input": "TOP-LEVEL-PART"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"TOP-LEVEL-CHAPTER\"",
+      "field": "top_level_division",
+      "input": "TOP-LEVEL-CHAPTER"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"TOP-LEVEL-SECTION\"",
+      "field": "top_level_division",
+      "input": "TOP-LEVEL-SECTION"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"TOP-LEVEL-DEFAULT\"",
+      "field": "top_level_division",
+      "input": "TOP-LEVEL-DEFAULT"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"part \"",
+      "field": "top_level_division",
+      "input": "part "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"chapter \"",
+      "field": "top_level_division",
+      "input": "chapter "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"section \"",
+      "field": "top_level_division",
+      "input": "section "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"default \"",
+      "field": "top_level_division",
+      "input": "default "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"top-level-part \"",
+      "field": "top_level_division",
+      "input": "top-level-part "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"top-level-chapter \"",
+      "field": "top_level_division",
+      "input": "top-level-chapter "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"top-level-section \"",
+      "field": "top_level_division",
+      "input": "top-level-section "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"top-level-default \"",
+      "field": "top_level_division",
+      "input": "top-level-default "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division null",
+      "field": "top_level_division",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division true",
+      "field": "top_level_division",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division false",
+      "field": "top_level_division",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division 0",
+      "field": "top_level_division",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division 1",
+      "field": "top_level_division",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division {}",
+      "field": "top_level_division",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division []",
+      "field": "top_level_division",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division {\"value\":\"none\"}",
+      "field": "top_level_division",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"\"",
+      "field": "top_level_division",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown top level division \"unknown\"",
+      "field": "top_level_division",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "end-of-block",
+      "field": "reference_location",
+      "input": "block"
+    },
+    {
+      "accepted": true,
+      "expected": "end-of-section",
+      "field": "reference_location",
+      "input": "section"
+    },
+    {
+      "accepted": true,
+      "expected": "end-of-document",
+      "field": "reference_location",
+      "input": "document"
+    },
+    {
+      "accepted": true,
+      "expected": "end-of-block",
+      "field": "reference_location",
+      "input": "end-of-block"
+    },
+    {
+      "accepted": true,
+      "expected": "end-of-section",
+      "field": "reference_location",
+      "input": "end-of-section"
+    },
+    {
+      "accepted": true,
+      "expected": "end-of-document",
+      "field": "reference_location",
+      "input": "end-of-document"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"BLOCK\"",
+      "field": "reference_location",
+      "input": "BLOCK"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"SECTION\"",
+      "field": "reference_location",
+      "input": "SECTION"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"DOCUMENT\"",
+      "field": "reference_location",
+      "input": "DOCUMENT"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"END-OF-BLOCK\"",
+      "field": "reference_location",
+      "input": "END-OF-BLOCK"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"END-OF-SECTION\"",
+      "field": "reference_location",
+      "input": "END-OF-SECTION"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"END-OF-DOCUMENT\"",
+      "field": "reference_location",
+      "input": "END-OF-DOCUMENT"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"block \"",
+      "field": "reference_location",
+      "input": "block "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"section \"",
+      "field": "reference_location",
+      "input": "section "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"document \"",
+      "field": "reference_location",
+      "input": "document "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"end-of-block \"",
+      "field": "reference_location",
+      "input": "end-of-block "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"end-of-section \"",
+      "field": "reference_location",
+      "input": "end-of-section "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"end-of-document \"",
+      "field": "reference_location",
+      "input": "end-of-document "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location null",
+      "field": "reference_location",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location true",
+      "field": "reference_location",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location false",
+      "field": "reference_location",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location 0",
+      "field": "reference_location",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location 1",
+      "field": "reference_location",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location {}",
+      "field": "reference_location",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location []",
+      "field": "reference_location",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location {\"value\":\"none\"}",
+      "field": "reference_location",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"\"",
+      "field": "reference_location",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown reference location \"unknown\"",
+      "field": "reference_location",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "above",
+      "field": "figure_caption_position",
+      "input": "above"
+    },
+    {
+      "accepted": true,
+      "expected": "below",
+      "field": "figure_caption_position",
+      "input": "below"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"ABOVE\"",
+      "field": "figure_caption_position",
+      "input": "ABOVE"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"BELOW\"",
+      "field": "figure_caption_position",
+      "input": "BELOW"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"above \"",
+      "field": "figure_caption_position",
+      "input": "above "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"below \"",
+      "field": "figure_caption_position",
+      "input": "below "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position null",
+      "field": "figure_caption_position",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position true",
+      "field": "figure_caption_position",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position false",
+      "field": "figure_caption_position",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position 0",
+      "field": "figure_caption_position",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position 1",
+      "field": "figure_caption_position",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position {}",
+      "field": "figure_caption_position",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position []",
+      "field": "figure_caption_position",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position {\"value\":\"none\"}",
+      "field": "figure_caption_position",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"\"",
+      "field": "figure_caption_position",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"unknown\"",
+      "field": "figure_caption_position",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "above",
+      "field": "table_caption_position",
+      "input": "above"
+    },
+    {
+      "accepted": true,
+      "expected": "below",
+      "field": "table_caption_position",
+      "input": "below"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"ABOVE\"",
+      "field": "table_caption_position",
+      "input": "ABOVE"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"BELOW\"",
+      "field": "table_caption_position",
+      "input": "BELOW"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"above \"",
+      "field": "table_caption_position",
+      "input": "above "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"below \"",
+      "field": "table_caption_position",
+      "input": "below "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position null",
+      "field": "table_caption_position",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position true",
+      "field": "table_caption_position",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position false",
+      "field": "table_caption_position",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position 0",
+      "field": "table_caption_position",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position 1",
+      "field": "table_caption_position",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position {}",
+      "field": "table_caption_position",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position []",
+      "field": "table_caption_position",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position {\"value\":\"none\"}",
+      "field": "table_caption_position",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"\"",
+      "field": "table_caption_position",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown caption position \"unknown\"",
+      "field": "table_caption_position",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "plain",
+      "field": "html_math_method",
+      "input": "plain"
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "webtex",
+        "url": "https://latex.codecogs.com/png.latex?"
+      },
+      "field": "html_math_method",
+      "input": "webtex"
+    },
+    {
+      "accepted": true,
+      "expected": "gladtex",
+      "field": "html_math_method",
+      "input": "gladtex"
+    },
+    {
+      "accepted": true,
+      "expected": "mathml",
+      "field": "html_math_method",
+      "input": "mathml"
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "mathjax",
+        "url": "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+      },
+      "field": "html_math_method",
+      "input": "mathjax"
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "katex",
+        "url": "https://cdn.jsdelivr.net/npm/katex@latest/dist/"
+      },
+      "field": "html_math_method",
+      "input": "katex"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"PLAIN\"",
+      "field": "html_math_method",
+      "input": "PLAIN"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"WEBTEX\"",
+      "field": "html_math_method",
+      "input": "WEBTEX"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"GLADTEX\"",
+      "field": "html_math_method",
+      "input": "GLADTEX"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"MATHML\"",
+      "field": "html_math_method",
+      "input": "MATHML"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"MATHJAX\"",
+      "field": "html_math_method",
+      "input": "MATHJAX"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"KATEX\"",
+      "field": "html_math_method",
+      "input": "KATEX"
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"plain \"",
+      "field": "html_math_method",
+      "input": "plain "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"webtex \"",
+      "field": "html_math_method",
+      "input": "webtex "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"gladtex \"",
+      "field": "html_math_method",
+      "input": "gladtex "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"mathml \"",
+      "field": "html_math_method",
+      "input": "mathml "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"mathjax \"",
+      "field": "html_math_method",
+      "input": "mathjax "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"katex \"",
+      "field": "html_math_method",
+      "input": "katex "
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method null",
+      "field": "html_math_method",
+      "input": null
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method true",
+      "field": "html_math_method",
+      "input": true
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method false",
+      "field": "html_math_method",
+      "input": false
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method 0",
+      "field": "html_math_method",
+      "input": 0
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method 1",
+      "field": "html_math_method",
+      "input": 1
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {}",
+      "field": "html_math_method",
+      "input": {}
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method []",
+      "field": "html_math_method",
+      "input": []
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"value\":\"none\"}",
+      "field": "html_math_method",
+      "input": {
+        "value": "none"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"\"",
+      "field": "html_math_method",
+      "input": ""
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method \"unknown\"",
+      "field": "html_math_method",
+      "input": "unknown"
+    },
+    {
+      "accepted": true,
+      "expected": "plain",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": null
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "plain",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": ""
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "plain",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "plain",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"plain\",\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"plain\",\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"plain\",\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"plain\",\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain",
+        "url": {}
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "plain",
+      "field": "html_math_method",
+      "input": {
+        "method": "plain"
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "webtex",
+        "url": "https://latex.codecogs.com/png.latex?"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": null
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "webtex",
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": ""
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "webtex",
+        "url": "https://example.org/tex?q="
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "webtex",
+        "url": "Привет 😀"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"webtex\",\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"webtex\",\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"webtex\",\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"webtex\",\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex",
+        "url": {}
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "webtex",
+        "url": "https://latex.codecogs.com/png.latex?"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "webtex"
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "gladtex",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": null
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "gladtex",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": ""
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "gladtex",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "gladtex",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"gladtex\",\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"gladtex\",\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"gladtex\",\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"gladtex\",\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex",
+        "url": {}
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "gladtex",
+      "field": "html_math_method",
+      "input": {
+        "method": "gladtex"
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "mathml",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": null
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "mathml",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": ""
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "mathml",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "mathml",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathml\",\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathml\",\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathml\",\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathml\",\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml",
+        "url": {}
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "mathml",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathml"
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "mathjax",
+        "url": "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": null
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "mathjax",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": ""
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "mathjax",
+        "url": "https://example.org/tex?q="
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "mathjax",
+        "url": "Привет 😀"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathjax\",\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathjax\",\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathjax\",\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"mathjax\",\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax",
+        "url": {}
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "mathjax",
+        "url": "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "mathjax"
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "katex",
+        "url": "https://cdn.jsdelivr.net/npm/katex@latest/dist/"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": null
+      }
+    },
+    {
+      "accepted": true,
+      "expected": "katex",
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": ""
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "katex",
+        "url": "https://example.org/tex?q="
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "katex",
+        "url": "Привет 😀"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"katex\",\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"katex\",\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"katex\",\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"katex\",\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": "katex",
+        "url": {}
+      }
+    },
+    {
+      "accepted": true,
+      "expected": {
+        "method": "katex",
+        "url": "https://cdn.jsdelivr.net/npm/katex@latest/dist/"
+      },
+      "field": "html_math_method",
+      "input": {
+        "method": "katex"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":null}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": null
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":\"\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": ""
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":\"https://example.org/tex?q=\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":\"Привет 😀\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\",\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown",
+        "url": {}
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":\"unknown\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": "unknown"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":null}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": null
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":\"\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": ""
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":\"https://example.org/tex?q=\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":\"Привет 😀\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null,\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": null,
+        "url": {}
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":null}",
+      "field": "html_math_method",
+      "input": {
+        "method": null
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":null}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": null
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":\"\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": ""
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":\"https://example.org/tex?q=\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": "https://example.org/tex?q="
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":\"Привет 😀\"}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": "Привет 😀"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":false}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": false
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":5}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": 5
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":[]}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": []
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42,\"url\":{}}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42,
+        "url": {}
+      }
+    },
+    {
+      "accepted": false,
+      "error": "failed to decode: Unknown HTML math method {\"method\":42}",
+      "field": "html_math_method",
+      "input": {
+        "method": 42
+      }
+    }
+  ],
+  "reader": [
+    {
+      "name": "library defaults",
+      "args": null,
+      "expected": {
+        "extensions": [],
+        "standalone": false,
+        "columns": 80,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Capt.",
+          "Dr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "M.A.",
+          "M.D.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sgt.",
+          "St.",
+          "cf.",
+          "ch.",
+          "cp.",
+          "e.g.",
+          "i.e.",
+          "p.",
+          "pp.",
+          "sec.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "application defaults",
+      "args": [],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "columns and tabs",
+      "args": [
+        "--columns=66",
+        "--tab-stop=8"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 66,
+        "tab-stop": 8,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "standalone",
+      "args": [
+        "--standalone"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": true,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "comments and image extension",
+      "args": [
+        "--strip-comments",
+        "--default-image-extension=png"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "png",
+        "track-changes": "accept-changes",
+        "strip-comments": true,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "code classes",
+      "args": [
+        "--indented-code-classes=kotlin,sourceCode,kotlin"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [
+          "kotlin",
+          "sourceCode",
+          "kotlin"
+        ],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "reject changes",
+      "args": [
+        "--track-changes=reject"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "reject-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "all changes",
+      "args": [
+        "--track-changes=all"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "all-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "typst inputs preserve repeated keys",
+      "args": [
+        "--typst-input=k=v",
+        "--typst-input=k=other",
+        "--typst-input=empty=",
+        "--typst-input=unicode=Привет 😀"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": [
+          [
+            "unicode",
+            "Привет 😀"
+          ],
+          [
+            "empty",
+            ""
+          ],
+          [
+            "k",
+            "other"
+          ],
+          [
+            "k",
+            "v"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "extensions",
+      "args": [
+        "--from=native+east_asian_line_breaks"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers",
+          "east_asian_line_breaks"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "custom abbreviations",
+      "args": [
+        "--abbreviations=$ABBREVS"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "foo.",
+          ".",
+          "😀."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "empty abbreviations",
+      "args": [
+        "--abbreviations=$EMPTY"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 72,
+        "tab-stop": 4,
+        "indented-code-classes": [],
+        "abbreviations": [],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    },
+    {
+      "name": "large columns",
+      "args": [
+        "--columns=2147483648",
+        "--tab-stop=17"
+      ],
+      "expected": {
+        "extensions": [
+          "auto_identifiers"
+        ],
+        "standalone": false,
+        "columns": 2147483648,
+        "tab-stop": 17,
+        "indented-code-classes": [],
+        "abbreviations": [
+          "Apr.",
+          "Aug.",
+          "Bros.",
+          "Capt.",
+          "Co.",
+          "Corp.",
+          "Dec.",
+          "Dr.",
+          "Feb.",
+          "Fr.",
+          "Gen.",
+          "Gov.",
+          "Hon.",
+          "Inc.",
+          "Jan.",
+          "Jr.",
+          "Jul.",
+          "Jun.",
+          "Ltd.",
+          "M.A.",
+          "M.D.",
+          "Mar.",
+          "Mr.",
+          "Mrs.",
+          "Ms.",
+          "No.",
+          "Nov.",
+          "Oct.",
+          "Ph.D.",
+          "Pres.",
+          "Prof.",
+          "Rep.",
+          "Rev.",
+          "Sen.",
+          "Sep.",
+          "Sept.",
+          "Sgt.",
+          "Sr.",
+          "St.",
+          "aet.",
+          "aetat.",
+          "al.",
+          "bk.",
+          "c.",
+          "cf.",
+          "ch.",
+          "chap.",
+          "chs.",
+          "col.",
+          "cp.",
+          "d.",
+          "e.g.",
+          "ed.",
+          "eds.",
+          "esp.",
+          "f.",
+          "fasc.",
+          "ff.",
+          "fig.",
+          "fl.",
+          "fol.",
+          "fols.",
+          "i.e.",
+          "ill.",
+          "incl.",
+          "n.",
+          "n.b.",
+          "nn.",
+          "p.",
+          "pp.",
+          "pt.",
+          "q.v.",
+          "s.v.",
+          "s.vv.",
+          "saec.",
+          "sec.",
+          "univ.",
+          "viz.",
+          "vol.",
+          "vs."
+        ],
+        "default-image-extension": "",
+        "track-changes": "accept-changes",
+        "strip-comments": false,
+        "typst-inputs": []
+      }
+    }
+  ],
+  "htmlSlides": [
+    {
+      "constructor": "S5Slides",
+      "expected": "s5slides"
+    },
+    {
+      "constructor": "SlidySlides",
+      "expected": "slidyslides"
+    },
+    {
+      "constructor": "SlideousSlides",
+      "expected": "slideousslides"
+    },
+    {
+      "constructor": "DZSlides",
+      "expected": "dzslides"
+    },
+    {
+      "constructor": "RevealJsSlides",
+      "expected": "revealjsslides"
+    },
+    {
+      "constructor": "NoSlides",
+      "expected": "noslides"
+    }
+  ]
+}
