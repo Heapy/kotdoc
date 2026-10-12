@@ -19,13 +19,17 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 1,582 tests, no skipped tests.
+  roundtrip tests. Current suite: 1,788 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
   and configurable column width. Verified against all 266 upstream Native fixtures.
 - GHC-compatible number and string display, with additional lexical/layout cases.
-  Other input/output formats are not implemented yet.
+- FB2 reader: metadata, sections, notes, poetry, images, diagnostics and binary
+  insertion effects. All six original reader goldens, all 14 upstream FB2 files,
+  and 180 independent oracle cases, including lenient Base64 decoding.
+- XML parsing follows Pandoc/xml-conduit namespace, entity and token rules.
+  FB2 output and other input/output formats are not implemented yet.
 
 See [the porting ledger](docs/PORTING.md) for the full remaining scope and caveats.
 Pinned upstream sources and original tests live in Git submodules; preserving
@@ -40,14 +44,18 @@ git clone --recurse-submodules https://github.com/Heapy/kotdoc.git
 cd kotdoc
 python3 tools/import-pandoc-json-fixtures.py --check
 python3 tools/import-native-fixtures.py --check-source
+python3 tools/import-fb2-fixtures.py --check-source
 ./gradlew test :cli:installDist
 cli/build/install/cli/bin/cli --from native --to json input.native --output output.json
 cli/build/install/cli/bin/cli --from json --to native --standalone --columns 80 output.json
+cli/build/install/cli/bin/cli --from fb2 --to native --standalone book.fb2
 ```
 
 The installed launcher is currently called `cli`. Use `-` or omit the input
 filename to read standard input. Errors are written to standard error and return
-a nonzero exit status. The implemented formats are `json` and `native`.
+a nonzero exit status. Input formats are `fb2`, `json` and `native`; output formats
+are `json` and `native`. FB2's reader API exposes embedded media insertion effects;
+application media extraction and general MediaBag handling are still pending.
 
 ## Upstream baselines and licensing
 
@@ -62,4 +70,5 @@ Project license: GPL-3.0-only; see [LICENSE](LICENSE). The existing ported
 Pandoc sources are GPL-2.0-or-later; calibre has GPLv3 and per-file notices.
 Upstream notices are retained in the source submodules and [licenses](licenses).
 GHC decimal conversion retains the BSD notice in `licenses/GHC-base-BSD-3-Clause.txt`.
+XML tokenization retains `licenses/xml-conduit-MIT.txt`.
 Every subsequent port must preserve the applicable source attribution.

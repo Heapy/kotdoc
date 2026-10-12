@@ -15,6 +15,7 @@ jobs:
           java-version: '21'
       - run: python3 tools/import-pandoc-json-fixtures.py --check
       - run: python3 tools/import-native-fixtures.py --check-source
+      - run: python3 tools/import-fb2-fixtures.py --check-source
       - run: ./gradlew test :cli:installDist --no-daemon
       - name: Exercise installed CLI
         run: |
@@ -26,6 +27,8 @@ jobs:
           cli/build/install/cli/bin/cli -f json -t native /tmp/from-native.json -o /tmp/roundtrip.native
           printf '%s\n' '[ Plain [ Str "hello" ] ]' > /tmp/expected.native
           cmp /tmp/expected.native /tmp/roundtrip.native
+          cli/build/install/cli/bin/cli -f fb2 -t native --standalone upstream/pandoc/test/fb2/reader/notes.fb2 -o /tmp/notes.native
+          cmp upstream/pandoc/test/fb2/reader/notes.native /tmp/notes.native
           if cli/build/install/cli/bin/cli --from unknown /tmp/input.json; then
             echo 'Unsupported formats must fail'
             exit 1
