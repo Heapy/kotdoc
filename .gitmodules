@@ -1,0 +1,9 @@
+[submodule "upstream/pandoc"]
+	path = upstream/pandoc
+	url = https://github.com/jgm/pandoc.git
+[submodule "upstream/pandoc-types"]
+	path = upstream/pandoc-types
+	url = https://github.com/jgm/pandoc-types.git
+[submodule "upstream/calibre"]
+	path = upstream/calibre
+	url = https://github.com/kovidgoyal/calibre.git

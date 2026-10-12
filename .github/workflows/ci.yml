@@ -1,0 +1,26 @@
+name: Kotlin port tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          submodules: true
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: python3 tools/import-pandoc-json-fixtures.py --check
+      - run: ./gradlew test :cli:installDist --no-daemon
+      - name: Exercise installed CLI
+        run: |
+          printf '%s\n' '{"pandoc-api-version":[1,23,1,2],"meta":{},"blocks":[]}' > /tmp/input.json
+          cli/build/install/cli/bin/cli --from json --to json /tmp/input.json -o /tmp/output.json
+          cmp /tmp/input.json /tmp/output.json
+          if cli/build/install/cli/bin/cli --from unknown /tmp/input.json; then
+            echo 'Unsupported formats must fail'
+            exit 1
+          fi
