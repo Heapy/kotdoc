@@ -30,6 +30,11 @@ format is implemented explicitly in Kotlin.
 | `Readers.Native` and `Writers.Native` | `formats/NativeReader.kt`, `NativeWriter.kt` | All 266 upstream `.native` files; reader, exact fragment/standalone layout, both upstream roundtrip properties over that corpus |
 | GHC floating-point display dependency | `formats/HaskellDouble.kt` | Decimal specialization of GHC 9.12.2 `floatToDigits`; 517 numeric boundary/random values at eight widths |
 | `Readers.FB2` document semantics and effects | `formats/FB2Reader.kt` | All six original exact Native goldens, all 14 tracked FB2 files and 180 independent oracle cases; AST, diagnostic ordering and binary bytes |
+| `Writers.FB2` | `formats/FB2Writer.kt` | All three original examples; byte-exact XML and ordered diagnostics for all 266 Native documents and 205 edge cases |
+| Shared writer helpers | `ast/DocumentShared.kt` | Original legacy-table and section examples, 500 section-idempotence samples, 471 independent section and 471 block-flattening comparisons |
+| XML.Light output | `xml/XmlOutput.kt` | Original FB2 goldens and explicit pretty-print, raw content, CDATA and escaping checks |
+| MediaBag and MIME tables | `resources/MediaBag.kt`, `MimeTypes.kt` | 2,172 original-Pandoc comparisons, including every MIME extension and reverse MIME type |
+| Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | XML.Light parsing foundation and xml-conduit tokenizer dependency | `xml/XmlLight.kt` | Namespace-aware names, duplicate attributes, entity expansion, content forests, direct text and malformed input; oracle cases and six focused tests |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
@@ -50,7 +55,7 @@ also compared with an independently translated upstream expectation.
 3. Port every Pandoc reader and writer and its Haskell, command, golden,
    Lua/filter, and integration tests. Preserve options and default behavior.
 4. Port the full CLI/application behavior and test it against the pinned upstream
-   binary. The current CLI supports JSON/Native input/output and FB2 input, with standalone/columns
+   binary. The current CLI supports JSON/Native/FB2 input/output, with standalone/columns
    options, not the complete Pandoc CLI contract.
 5. Port calibre ebook infrastructure and MOBI reader/writer paths (MOBI6/KF8,
    containers, compression, metadata, navigation, images), with original tests
@@ -89,15 +94,17 @@ also remain to audit; no claim of complete pandoc-types parity is made.
 
 ## Next execution step
 
-Port the FB2 writer and its original tests, including common writer options,
-section construction, XML rendering, image fetching and MediaBag handling. Then
-continue HTML and the remaining formats, alongside Walk list properties and
-complete upstream generator/shrinker coverage.
+Continue common media operations (fill/extract and data URI creation), full
+options/logging infrastructure and HTTP/URI dependency semantics, then HTML and
+the remaining formats. Also continue Walk list properties and complete upstream
+generator/shrinker coverage. FB2's writer-specific math option is implemented;
+the shared WriterOptions record and full CLI option handling are still pending.
 
-Current verification: 1,788 Kotlin tests pass locally. Every push runs source
+Current verification: 5,411 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
-`.github/workflows/ci.yml`. Both source import scripts and the Native edge-case
-oracle generator are committed for reproducibility.
+`.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
+for reproducibility. CI also checks installed CLI stdout/stderr for the complete
+14-file FB2 corpus, including embedded binary images.
 
 ## FB2 evidence and remaining infrastructure
 
@@ -111,13 +118,39 @@ Kotlin library or CLI. CI checks the complete FB2 source inventory and hashes.
 The reader deliberately matches upstream omissions: tables are dropped, most
 element IDs are ignored, and `xml:lang` does not match its unbound QName lookup.
 Notes are parsed first and resolved in declaration order, not recursively after
-all definitions. Base64 ignores every non-alphabet byte, including padding.
+all definitions. The reader's lazy ByteString Base64 decoder skips non-alphabet bytes, including
+padding. Pandoc's strict ByteString decoder used for data URI resources stops at
+padding; these distinct upstream behaviors are preserved.
 
 `ReaderResult` records `insertMedia` requests in order, before MediaBag's
-canonicalization, MIME/path inference and extraction policy. That general
-application infrastructure remains unported; the current CLI emits JSON/Native
-and has no media extraction option. Default warning output is implemented;
+canonicalization, MIME/path inference and extraction policy. MediaBag now applies
+that inference, and the CLI transfers reader media to the FB2 writer. There is
+still no media extraction option. Default warning output is implemented;
 general logging options and exact XML error messages/positions remain pending.
+
+The FB2 writer preserves upstream evaluation order and quirks, including notes
+in metadata, nested-note state replacement, reverse image insertion order,
+missing-image replacement scope, raw XML handling and case-sensitive data URI
+image MIME policy. Expected output comes only from the original Pandoc binary.
+`tools/import-fb2-writer-fixtures.py --check-source` verifies the entire source
+inventory, hashes and independently captured input ASTs. Kotlin does not invoke
+Pandoc at runtime or during ordinary tests.
+
+Resource runtime tables contain 1,025 entries from mime-types 0.1.2.2 followed by
+184 Pandoc overrides, plus 268 known URI schemes. Their full dependency source,
+MIT license and import script are retained. Earlier mime-types tables differ for
+JavaScript; the 0.1.2.2 mapping matches the pinned oracle across the entire table.
+Resource tests cover percent-encoded octets, MIME parameters, padding behavior,
+path canonicalization, hash-derived extraction names, redirects, relative URLs,
+custom headers, gzip and missing MIME/HTTP status failures.
+
+This does not establish complete PandocIO or network-uri parity. JVM URI parsing
+still needs a complete upstream dependency test corpus. HTTP proxy environment
+handling, certificate options, exact upstream IO/HTTP error strings and all
+request behavior remain to port. Media fill/extract operations, shared logging
+and options, further Shared helpers and full XML output/error tests also remain.
+The local HTTP test verifies the implemented boundary behavior; it is not a
+substitute for those upstream tests.
 
 The XML layer derives from Pandoc's XML.Light and xml-conduit 1.10.1.0
 [`Text.XML.Stream.Parse`](https://hackage-content.haskell.org/package/xml-conduit-1.10.1.0/src/src/Text/XML/Stream/Parse.hs)

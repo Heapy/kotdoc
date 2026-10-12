@@ -2,16 +2,20 @@ package io.heapy.kotdoc.cli
 
 import io.heapy.kotdoc.ast.PandocJson
 import io.heapy.kotdoc.formats.FB2Reader
+import io.heapy.kotdoc.formats.FB2Writer
 import io.heapy.kotdoc.formats.NativeReader
 import io.heapy.kotdoc.formats.NativeWriter
 import io.heapy.kotdoc.formats.ReaderMessage
+import io.heapy.kotdoc.formats.WriterMessage
+import io.heapy.kotdoc.resources.MediaBag
+import io.heapy.kotdoc.resources.ResourceContext
 import java.io.File
 import kotlin.system.exitProcess
 
 /** Entry point for ported formats. Full Pandoc CLI parity is tracked in docs/PORTING.md. */
 fun main(args: Array<String>) {
     if (args.toList() == listOf("--help")) {
-        println("Usage: kotdoc [--from fb2|json|native] [--to json|native] [--standalone] [--columns N] [--output FILE] [FILE|-]")
+        println("Usage: kotdoc [--from fb2|json|native] [--to fb2|json|native] [--standalone] [--columns N] [--output FILE] [FILE|-]")
         return
     }
     if (args.toList() == listOf("--list-input-formats")) {
@@ -19,7 +23,7 @@ fun main(args: Array<String>) {
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
-        println("json\nnative")
+        println("fb2\njson\nnative")
         return
     }
     try {
@@ -45,18 +49,31 @@ fun main(args: Array<String>) {
                 }
             }
         }
-        require(from in listOf("fb2", "json", "native") && to in listOf("json", "native")) { "Supported input formats: fb2, json, native; output formats: json, native (requested $from -> $to)" }
+        require(from in listOf("fb2", "json", "native") && to in listOf("fb2", "json", "native")) { "Supported input/output formats: fb2, json, native (requested $from -> $to)" }
         require(columns > 0) { "Column count must be positive" }
         val text = if (input == null || input == "-") System.`in`.bufferedReader(Charsets.UTF_8).readText() else File(input).readText()
+        val media = MediaBag()
         val document = when (from) {
             "json" -> PandocJson.decode(text)
             "native" -> NativeReader.read(text)
             else -> FB2Reader.readWithEffects(text.removePrefix("\uFEFF")).also { result ->
+                result.mediaInsertions.forEach(media::insert)
                 for (message in result.messages) if (message is ReaderMessage.UnexpectedXmlElement)
                     System.err.println("[WARNING] Unexpected XML element ${message.name} in ${message.parent}")
             }.document
         }
-        val rendered = if (to == "json") PandocJson.encode(document) else NativeWriter.write(document, columns, standalone)
+        val rendered = when (to) {
+            "json" -> PandocJson.encode(document)
+            "native" -> NativeWriter.write(document, columns, standalone)
+            else -> FB2Writer.writeWithEffects(document, resources = ResourceContext(media)).also { result ->
+                for (message in result.messages) when (message) {
+                    is WriterMessage.CouldNotFetchResource -> System.err.println("[WARNING] Could not fetch resource ${message.path}" +
+                        if (message.message.isEmpty()) "" else ": ${message.message}")
+                    is WriterMessage.CouldNotDetermineMimeType -> System.err.println("[WARNING] Could not determine mime type for ${message.path}")
+                    else -> Unit // Other FB2 writer messages have INFO severity upstream.
+                }
+            }.text
+        }
         val converted = if (rendered.endsWith('\n')) rendered else "$rendered\n"
         if (output == null || output == "-") print(converted) else File(output).writeText(converted)
     } catch (e: Exception) {

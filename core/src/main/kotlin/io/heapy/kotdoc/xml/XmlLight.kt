@@ -1,4 +1,5 @@
-// Ports Text.Pandoc.XML.Light (John MacFarlane, GPL-2.0-or-later) and the
+// Ports Text.Pandoc.XML.Light (copyright 2007 Galois, Inc.; 2021-2024 John
+// MacFarlane, GPL-2.0-or-later) and the
 // tokenizer/namespace/entity rules of xml-conduit 1.10.1.0 Text.XML.Stream.Parse.
 // xml-conduit copyright Michael Snoyman, Aristid Breitkreuz; MIT, see licenses/.
 package io.heapy.kotdoc.xml
@@ -15,7 +16,9 @@ class XmlName(val local: String, val uri: String? = null, val prefix: String? = 
 }
 
 sealed interface XmlContent
-data class XmlText(val text: String) : XmlContent
+enum class XmlTextKind { Text, Verbatim, Raw }
+data class XmlText(val text: String, val kind: XmlTextKind = XmlTextKind.Text) : XmlContent
+data class XmlCRef(val reference: String) : XmlContent
 data class XmlAttribute(val name: XmlName, val value: String)
 data class XmlElement(val name: XmlName, val attributes: List<XmlAttribute>, val content: List<XmlContent>) : XmlContent {
     val localName: String get() = name.local
