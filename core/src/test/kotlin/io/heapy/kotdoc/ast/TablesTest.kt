@@ -7,7 +7,7 @@ import kotlin.random.Random
 import kotlin.test.*
 
 class TablesTest {
-    private fun cell(id: String, height: Int, width: Int) = Cell(Attr(id), Alignment.AlignDefault, height, width, emptyList())
+    private fun cell(id: String, height: Int, width: Int) = Cell(Attr(id), Alignment.AlignDefault, height.toLong(), width.toLong(), emptyList())
     private fun rows(vararg cells: List<Cell>) = cells.map { Row(Attr(), it) }
 
     @Test
@@ -75,7 +75,7 @@ class TablesTest {
             val (newHead, newBody) = splitAtWidth(normalized.body.first().cells, headWidth)
             val (oldHead, oldBody) = splitAtWidth(body.body.first().cells, headWidth)
             assertEquals(headWidth, newHead.sumOf { it.colSpan })
-            assertEquals(width, headWidth + newBody.sumOf { it.colSpan })
+            assertEquals(width.toLong(), headWidth + newBody.sumOf { it.colSpan })
             assertCellsSubset(newHead, oldHead)
             assertCellsSubset(newBody, oldBody)
         }
@@ -104,7 +104,7 @@ class TablesTest {
         repeat(500) {
             val width = random.nextInt(0, 17)
             val rows = randomRows(random, malformed = true)
-            val body = Tables.normalizeBody(width, TableBody(Attr(), random.nextInt(-10, 25), rows, rows))
+            val body = Tables.normalizeBody(width, TableBody(Attr(), random.nextLong(-10, 25), rows, rows))
             assertGrid(width, Tables.normalizeHead(width, TableHead(Attr(), rows)).rows)
             assertGrid(width, body.head)
             assertGrid(width, body.body)
@@ -131,7 +131,7 @@ class TablesTest {
         repeat(500) {
             val width = random.nextInt(2, 17)
             val rows = randomRows(random)
-            check(width, rows, TableBody(Attr("body"), random.nextInt(0, 20), randomRows(random), randomRows(random)))
+            check(width, rows, TableBody(Attr("body"), random.nextLong(0, 20), randomRows(random), randomRows(random)))
         }
     }
 
@@ -142,7 +142,7 @@ class TablesTest {
     }
 
     private fun assertFirstWidth(width: Int, rows: List<Row>) {
-        rows.firstOrNull()?.let { assertEquals(width, it.cells.sumOf { c -> c.colSpan }) }
+        rows.firstOrNull()?.let { assertEquals(width.toLong(), it.cells.sumOf { c -> c.colSpan }) }
     }
 
     private fun assertRowsSubset(normalized: List<Row>, original: List<Row>) {
@@ -166,8 +166,8 @@ class TablesTest {
         }
     }
 
-    private fun splitAtWidth(cells: List<Cell>, width: Int): Pair<List<Cell>, List<Cell>> {
-        var count = 0
+    private fun splitAtWidth(cells: List<Cell>, width: Long): Pair<List<Cell>, List<Cell>> {
+        var count = 0L
         var index = 0
         while (count < width && index < cells.size) count += cells[index++].colSpan
         return cells.take(index) to cells.drop(index)
@@ -182,11 +182,11 @@ class TablesTest {
                 while (column < width && occupied[rowIndex][column]) column++
                 assertTrue(cell.rowSpan >= 1 && cell.colSpan >= 1)
                 assertTrue(rowIndex + cell.rowSpan <= rows.size && column + cell.colSpan <= width)
-                for (r in rowIndex until rowIndex + cell.rowSpan) for (c in column until column + cell.colSpan) {
+                for (r in rowIndex until rowIndex + cell.rowSpan.toInt()) for (c in column until column + cell.colSpan.toInt()) {
                     assertFalse(occupied[r][c], "Overlapping cell at $r/$c")
                     occupied[r][c] = true
                 }
-                column += cell.colSpan
+                column += cell.colSpan.toInt()
             }
         }
         assertTrue(occupied.all { row -> row.all { it } }, "Unoccupied grid slot")

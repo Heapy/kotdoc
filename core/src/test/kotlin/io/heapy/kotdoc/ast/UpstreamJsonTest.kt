@@ -71,9 +71,9 @@ class UpstreamJsonTest {
         "t_tablebody" to TableBody(attr, 3, listOf(Row(attr, emptyList())), listOf(Row(Attr("id'", listOf("kls'"), attr.keyValues), emptyList()))),
         "t_tablefoot" to TableFoot(attr, listOf(Row(attr, emptyList()))),
         "t_cell" to Cell(attr, Alignment.AlignLeft, 1, 1, p("bar")),
-        "t_rowheadcolumns" to 1,
-        "t_rowspan" to 1,
-        "t_colspan" to 1,
+        "t_rowheadcolumns" to 1L,
+        "t_rowspan" to 1L,
+        "t_colspan" to 1L,
         "t_table" to upstreamTable(),
         "t_figure" to Figure(attr, Caption(listOf(Str("hello")), p("cap content")), p("fig content")),
         "t_div" to Div(attr, p("Hello")),
@@ -136,10 +136,10 @@ class UpstreamJsonTest {
             "TableBody" -> encodeTableBody(value as TableBody)
             "TableFoot" -> encodeTableFoot(value as TableFoot)
             "Cell" -> encodeCell(value as Cell)
-            // Haskell newtypes are represented as Int properties in Kotlin; exercise their real field codecs.
-            "RowHeadColumns" -> encodeTableBody(TableBody(Attr(), value as Int, emptyList(), emptyList())).jsonArray[1]
-            "RowSpan" -> encodeCell(Cell(Attr(), Alignment.AlignDefault, value as Int, 1, emptyList())).jsonArray[2]
-            "ColSpan" -> encodeCell(Cell(Attr(), Alignment.AlignDefault, 1, value as Int, emptyList())).jsonArray[3]
+            // Haskell newtypes are represented as Long properties in Kotlin; exercise their real field codecs.
+            "RowHeadColumns" -> encodeTableBody(TableBody(Attr(), value as Long, emptyList(), emptyList())).jsonArray[1]
+            "RowSpan" -> encodeCell(Cell(Attr(), Alignment.AlignDefault, value as Long, 1, emptyList())).jsonArray[2]
+            "ColSpan" -> encodeCell(Cell(Attr(), Alignment.AlignDefault, 1, value as Long, emptyList())).jsonArray[3]
             else -> error("Unported fixture type $type")
         }
     }

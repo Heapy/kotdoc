@@ -13,9 +13,9 @@ object Tables {
         foot.copy(rows = normalizeSection(width, foot.rows))
 
     fun normalizeBody(width: Int, body: TableBody): TableBody {
-        val headWidth = maxOf(0, minOf(width, body.rowHeadColumns))
-        var headHang = List(headWidth) { 1 }
-        var bodyHang = List(maxOf(0, width - headWidth)) { 1 }
+        val headWidth = maxOf(0, minOf(width.toLong(), body.rowHeadColumns))
+        var headHang = List(headWidth.toInt()) { 1L }
+        var bodyHang = List(maxOf(0, width - headWidth.toInt())) { 1L }
         val rows = clipRows(body.body).map { row ->
             val cells = padded(row.cells)
             val head = placeRowSection(headHang, cells)
@@ -44,17 +44,17 @@ object Tables {
 
     /** Row spans are bounded by the remaining height of this section, never the whole table. */
     fun clipRows(rows: List<Row>): List<Row> = rows.mapIndexed { index, row ->
-        row.copy(cells = row.cells.map { cell -> cell.copy(rowSpan = cell.rowSpan.coerceIn(1, rows.size - index)) })
+        row.copy(cells = row.cells.map { cell -> cell.copy(rowSpan = cell.rowSpan.coerceIn(1, (rows.size - index).toLong())) })
     }
 
-    data class Placement(val overhang: List<Int>, val cells: List<Cell>)
+    data class Placement(val overhang: List<Long>, val cells: List<Cell>)
 
     /**
      * Consume cells only when they fit; leave remaining iterator elements for the next section.
      * Iterative translation of placeRowSection avoids a stack frame per table column.
      */
-    fun placeRowSection(previous: List<Int>, cells: Iterator<Cell>): Placement {
-        val next = mutableListOf<Int>()
+    fun placeRowSection(previous: List<Long>, cells: Iterator<Cell>): Placement {
+        val next = mutableListOf<Long>()
         val placed = mutableListOf<Cell>()
         var column = 0
         while (column < previous.size) {
@@ -65,14 +65,14 @@ object Tables {
                 continue
             }
             // Upstream stops on invalid nonpositive overhang, without consuming a cell.
-            if (hang != 1 || !cells.hasNext()) break
+            if (hang != 1L || !cells.hasNext()) break
             val cell = cells.next()
             val requestedWidth = maxOf(1, cell.colSpan)
             var actualWidth = 0
-            while (actualWidth < requestedWidth && column + actualWidth < previous.size && previous[column + actualWidth] == 1) {
+            while (actualWidth < requestedWidth && column + actualWidth < previous.size && previous[column + actualWidth] == 1L) {
                 actualWidth++
             }
-            placed += cell.copy(colSpan = actualWidth)
+            placed += cell.copy(colSpan = actualWidth.toLong())
             repeat(actualWidth) { next += cell.rowSpan }
             column += actualWidth
         }
@@ -80,7 +80,7 @@ object Tables {
     }
 
     private fun normalizeSection(width: Int, rows: List<Row>): List<Row> {
-        var hang = List(maxOf(0, width)) { 1 }
+        var hang = List(maxOf(0, width)) { 1L }
         return clipRows(rows).map { row ->
             val placed = placeRowSection(hang, padded(row.cells))
             hang = placed.overhang

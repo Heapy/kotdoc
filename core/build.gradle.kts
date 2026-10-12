@@ -3,6 +3,7 @@ plugins { kotlin("jvm") }
 kotlin { jvmToolchain(21) }
 
 dependencies {
+    implementation("com.ibm.icu:icu4j:78.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")

@@ -19,7 +19,9 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 142 tests, no skipped tests.
+  roundtrip tests. Current suite: 172 tests, no skipped tests.
+- Pandoc builders, metadata helpers and both legacy/modern figure representations.
+- Full Unicode raw-format case folding and 64-bit AST integers.
 - Initial JSON-to-JSON CLI. Other input/output formats are not implemented yet.
 
 See [the porting ledger](docs/PORTING.md) for the full remaining scope and caveats.

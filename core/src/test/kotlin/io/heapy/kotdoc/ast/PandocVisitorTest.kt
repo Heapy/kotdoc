@@ -111,11 +111,11 @@ class PandocVisitorTest {
     @Test
     fun `block query matches generic header query`() {
         documents().forEach { doc ->
-            val found = mutableListOf<Int>()
+            val found = mutableListOf<Long>()
             object : PandocVisitor() {
                 override fun visitBlock(value: Block) { if (value is Block.Header) found += value.level }
             }.walk(doc)
-            assertEquals(query(PandocJson.toJson(doc), "Header").map { it.getValue("c").jsonArray[0].jsonPrimitive.int }, found)
+            assertEquals(query(PandocJson.toJson(doc), "Header").map { it.getValue("c").jsonArray[0].jsonPrimitive.long }, found)
         }
     }
 

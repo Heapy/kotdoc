@@ -23,7 +23,7 @@ data class Attr(
 enum class ListNumberStyle { DefaultStyle, Example, Decimal, LowerRoman, UpperRoman, LowerAlpha, UpperAlpha }
 enum class ListNumberDelim { DefaultDelim, Period, OneParen, TwoParens }
 data class ListAttributes(
-    val start: Int = 1,
+    val start: Long = 1,
     val style: ListNumberStyle = ListNumberStyle.DefaultStyle,
     val delimiter: ListNumberDelim = ListNumberDelim.DefaultDelim,
 )
@@ -38,8 +38,8 @@ data class Citation(
     val citationPrefix: List<Inline> = emptyList(),
     val citationSuffix: List<Inline> = emptyList(),
     val citationMode: CitationMode = CitationMode.NormalCitation,
-    val citationNoteNum: Int = 0,
-    val citationHash: Int = 0,
+    val citationNoteNum: Long = 0,
+    val citationHash: Long = 0,
 )
 
 sealed interface ColWidth {
@@ -49,9 +49,9 @@ sealed interface ColWidth {
 data class ColSpec(val alignment: Alignment, val width: ColWidth)
 data class Caption(val short: List<Inline>?, val long: List<Block>)
 data class Row(val attr: Attr, val cells: List<Cell>)
-data class Cell(val attr: Attr, val alignment: Alignment, val rowSpan: Int, val colSpan: Int, val blocks: List<Block>)
+data class Cell(val attr: Attr, val alignment: Alignment, val rowSpan: Long, val colSpan: Long, val blocks: List<Block>)
 data class TableHead(val attr: Attr, val rows: List<Row>)
-data class TableBody(val attr: Attr, val rowHeadColumns: Int, val head: List<Row>, val body: List<Row>)
+data class TableBody(val attr: Attr, val rowHeadColumns: Long, val head: List<Row>, val body: List<Row>)
 data class TableFoot(val attr: Attr, val rows: List<Row>)
 
 sealed interface Block {
@@ -59,12 +59,14 @@ sealed interface Block {
     data class Para(val content: List<Inline>) : Block
     data class LineBlock(val lines: List<List<Inline>>) : Block
     data class CodeBlock(val attr: Attr, val text: String) : Block
-    data class RawBlock(val format: String, val text: String) : Block
+    data class RawBlock(val format: Format, val text: String) : Block {
+        constructor(format: String, text: String) : this(Format(format), text)
+    }
     data class BlockQuote(val blocks: List<Block>) : Block
     data class OrderedList(val attributes: ListAttributes, val items: List<List<Block>>) : Block
     data class BulletList(val items: List<List<Block>>) : Block
     data class DefinitionList(val items: List<Pair<List<Inline>, List<List<Block>>>>) : Block
-    data class Header(val level: Int, val attr: Attr, val content: List<Inline>) : Block
+    data class Header(val level: Long, val attr: Attr, val content: List<Inline>) : Block
     data object HorizontalRule : Block
     data class Table(
         val attr: Attr,
@@ -94,7 +96,9 @@ sealed interface Inline {
     data object SoftBreak : Inline
     data object LineBreak : Inline
     data class Math(val type: MathType, val text: String) : Inline
-    data class RawInline(val format: String, val text: String) : Inline
+    data class RawInline(val format: Format, val text: String) : Inline {
+        constructor(format: String, text: String) : this(Format(format), text)
+    }
     data class Link(val attr: Attr, val content: List<Inline>, val target: Target) : Inline
     data class Image(val attr: Attr, val content: List<Inline>, val target: Target) : Inline
     data class Note(val blocks: List<Block>) : Inline

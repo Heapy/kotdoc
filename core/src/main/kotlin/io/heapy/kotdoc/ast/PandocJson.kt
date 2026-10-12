@@ -6,14 +6,14 @@ import kotlinx.serialization.json.*
 
 /** Pandoc's tagged JSON protocol, not Kotlin's default polymorphic encoding. */
 object PandocJson {
-    val apiVersion: List<Int> = listOf(1, 23, 1, 2)
+    val apiVersion: List<Long> = listOf(1, 23, 1, 2)
 
     fun decode(input: String): Pandoc = decode(Json.parseToJsonElement(input))
     fun encode(document: Pandoc): String = toJson(document).toString()
 
     fun decode(json: JsonElement): Pandoc {
         val obj = json.jsonObject
-        val version = obj.required("pandoc-api-version").jsonArray.map { it.int() }
+        val version = obj.required("pandoc-api-version").jsonArray.map { it.integer() }
         require(version.size >= 2 && version.take(2) == apiVersion.take(2)) {
             "Incompatible pandoc-api-version: $version; expected ${apiVersion.take(2)}"
         }
@@ -32,7 +32,7 @@ object PandocJson {
         json.jsonObject.mapValues { decodeMetaValue(it.value) }
 
     fun encodeMeta(meta: Map<String, MetaValue>): JsonObject =
-        JsonObject(meta.toSortedMap().mapValues { encodeMetaValue(it.value) })
+        JsonObject(meta.toSortedMap(UnicodeTextOrder).mapValues { encodeMetaValue(it.value) })
 
     fun decodeMetaValue(json: JsonElement): MetaValue = when (val t = json.tag()) {
         "MetaMap" -> MetaValue.MetaMap(decodeMeta(json.content()))
@@ -100,7 +100,7 @@ object PandocJson {
         Inline.SoftBreak -> tagged("SoftBreak")
         Inline.LineBreak -> tagged("LineBreak")
         is Inline.Math -> tagged("Math", arr(tagged(value.type.name), str(value.text)))
-        is Inline.RawInline -> tagged("RawInline", arr(str(value.format), str(value.text)))
+        is Inline.RawInline -> tagged("RawInline", arr(str(value.format.value), str(value.text)))
         is Inline.Link -> tagged("Link", arr(encodeAttr(value.attr), list(value.content, ::encodeInline), encodeTarget(value.target)))
         is Inline.Image -> tagged("Image", arr(encodeAttr(value.attr), list(value.content, ::encodeInline), encodeTarget(value.target)))
         is Inline.Note -> tagged("Note", list(value.blocks, ::encodeBlock))
@@ -123,7 +123,7 @@ object PandocJson {
             "DefinitionList" -> Block.DefinitionList(c.jsonArray.map { entry ->
                 entry.tuple(2).let { inlines(it[0]) to it[1].jsonArray.map(::blocks) }
             })
-            "Header" -> c.tuple(3).let { Block.Header(it[0].int(), decodeAttr(it[1]), inlines(it[2])) }
+            "Header" -> c.tuple(3).let { Block.Header(it[0].integer(), decodeAttr(it[1]), inlines(it[2])) }
             "Table" -> c.tuple(6).let {
                 Block.Table(decodeAttr(it[0]), decodeCaption(it[1]), it[2].jsonArray.map(::decodeColSpec),
                     decodeTableHead(it[3]), it[4].jsonArray.map(::decodeTableBody), decodeTableFoot(it[5]))
@@ -139,7 +139,7 @@ object PandocJson {
         is Block.Para -> tagged("Para", list(value.content, ::encodeInline))
         is Block.LineBlock -> tagged("LineBlock", list(value.lines) { list(it, ::encodeInline) })
         is Block.CodeBlock -> tagged("CodeBlock", arr(encodeAttr(value.attr), str(value.text)))
-        is Block.RawBlock -> tagged("RawBlock", arr(str(value.format), str(value.text)))
+        is Block.RawBlock -> tagged("RawBlock", arr(str(value.format.value), str(value.text)))
         is Block.BlockQuote -> tagged("BlockQuote", list(value.blocks, ::encodeBlock))
         is Block.OrderedList -> tagged("OrderedList", arr(encodeListAttributes(value.attributes), list(value.items) { list(it, ::encodeBlock) }))
         is Block.BulletList -> tagged("BulletList", list(value.items) { list(it, ::encodeBlock) })
@@ -165,12 +165,12 @@ object PandocJson {
     fun decodeTarget(json: JsonElement): Target = json.tuple(2).let { Target(it[0].string(), it[1].string()) }
     fun encodeTarget(value: Target): JsonElement = arr(str(value.url), str(value.title))
 
-    fun decodeListAttributes(json: JsonElement): ListAttributes = json.tuple(3).let { ListAttributes(it[0].int(), enum(it[1]), enum(it[2])) }
+    fun decodeListAttributes(json: JsonElement): ListAttributes = json.tuple(3).let { ListAttributes(it[0].integer(), enum(it[1]), enum(it[2])) }
     fun encodeListAttributes(value: ListAttributes): JsonElement = arr(JsonPrimitive(value.start), tagged(value.style.name), tagged(value.delimiter.name))
 
     fun decodeCitation(json: JsonElement): Citation = json.jsonObject.let {
         Citation(it.required("citationId").string(), inlines(it.required("citationPrefix")), inlines(it.required("citationSuffix")),
-            enum(it.required("citationMode")), it.required("citationNoteNum").int(), it.required("citationHash").int())
+            enum(it.required("citationMode")), it.required("citationNoteNum").integer(), it.required("citationHash").integer())
     }
     fun encodeCitation(value: Citation): JsonElement = buildJsonObject {
         put("citationId", str(value.citationId))
@@ -198,11 +198,11 @@ object PandocJson {
 
     fun decodeRow(json: JsonElement): Row = json.tuple(2).let { Row(decodeAttr(it[0]), it[1].jsonArray.map(::decodeCell)) }
     fun encodeRow(value: Row): JsonElement = arr(encodeAttr(value.attr), list(value.cells, ::encodeCell))
-    fun decodeCell(json: JsonElement): Cell = json.tuple(5).let { Cell(decodeAttr(it[0]), enum(it[1]), it[2].int(), it[3].int(), blocks(it[4])) }
+    fun decodeCell(json: JsonElement): Cell = json.tuple(5).let { Cell(decodeAttr(it[0]), enum(it[1]), it[2].integer(), it[3].integer(), blocks(it[4])) }
     fun encodeCell(value: Cell): JsonElement = arr(encodeAttr(value.attr), tagged(value.alignment.name), JsonPrimitive(value.rowSpan), JsonPrimitive(value.colSpan), list(value.blocks, ::encodeBlock))
     fun decodeTableHead(json: JsonElement): TableHead = json.tuple(2).let { TableHead(decodeAttr(it[0]), it[1].jsonArray.map(::decodeRow)) }
     fun encodeTableHead(value: TableHead): JsonElement = arr(encodeAttr(value.attr), list(value.rows, ::encodeRow))
-    fun decodeTableBody(json: JsonElement): TableBody = json.tuple(4).let { TableBody(decodeAttr(it[0]), it[1].int(), it[2].jsonArray.map(::decodeRow), it[3].jsonArray.map(::decodeRow)) }
+    fun decodeTableBody(json: JsonElement): TableBody = json.tuple(4).let { TableBody(decodeAttr(it[0]), it[1].integer(), it[2].jsonArray.map(::decodeRow), it[3].jsonArray.map(::decodeRow)) }
     fun encodeTableBody(value: TableBody): JsonElement = arr(encodeAttr(value.attr), JsonPrimitive(value.rowHeadColumns), list(value.head, ::encodeRow), list(value.body, ::encodeRow))
     fun decodeTableFoot(json: JsonElement): TableFoot = json.tuple(2).let { TableFoot(decodeAttr(it[0]), it[1].jsonArray.map(::decodeRow)) }
     fun encodeTableFoot(value: TableFoot): JsonElement = arr(encodeAttr(value.attr), list(value.rows, ::encodeRow))
@@ -222,9 +222,9 @@ object PandocJson {
     private fun JsonElement.string(): String = jsonPrimitive.also {
         require(it.isString) { "Expected JSON string, found $it" }
     }.content
-    private fun JsonElement.int(): Int = jsonPrimitive.also {
+    private fun JsonElement.integer(): Long = jsonPrimitive.also {
         require(!it.isString) { "Expected JSON integer, found $it" }
-    }.int
+    }.content.toBigDecimal().longValueExact()
     private fun JsonElement.bool(): Boolean = jsonPrimitive.also {
         require(!it.isString) { "Expected JSON boolean, found $it" }
     }.boolean

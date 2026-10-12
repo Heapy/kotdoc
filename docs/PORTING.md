@@ -31,13 +31,16 @@ checked against the pinned original by CI. A fixture is not considered covered
 merely because decode/encode returns the same input: the decoded typed model is
 also compared with an independently translated upstream expectation.
 
+| Builder constructors and inline concatenation | `Builder.kt` | Whitespace, boundary merging, composition, metadata conversion and original Figure property |
+| Definition metadata, legacy figure, Format and integers | `Metadata.kt`, `Format.kt`, AST/JSON | Grouped author extraction, Unicode folding/order, 64-bit boundaries and exact numeric decoding |
+
 ## Remaining scope
 
 1. Finish pandoc-types semantics and tests: full walker/list property generators,
-   builders, inline normalization, figures, metadata operations, full generators.
-   Preserve Haskell Format case-fold equality and machine-Int semantics; current
-   raw format fields use String and numeric fields use JVM Int. These are known
-   parity gaps, not deliberate simplifications of the final objective.
+   structural ordering and full generators/shrinkers. Raw formats now use full
+   Unicode case folding via ICU4J 78.1; AST integer fields use signed Long to match
+   64-bit Haskell Int. Unicode database version parity remains to be audited
+   against the actual upstream text library used by the pinned release.
 2. Port Pandoc common infrastructure: options and extensions, parsing, sources,
    URI/XML handling, media bag, templates, resource embedding, errors, logging,
    Unicode, syntax highlighting, bibliography/citations, filters and scripting.
@@ -60,14 +63,13 @@ also compared with an independently translated upstream expectation.
 
 ## Next execution step
 
-Finish `Text.Pandoc.Builder` and Definition operations (including Format and
-numeric parity), port the remaining Walk list properties and Figure property,
-then start Pandoc readers/writers against the shared model. The visitor currently
+Port the remaining Walk list properties and full generator/shrinker coverage;
+start Native reader/writer against the shared model and pinned Pandoc executable. The visitor currently
 has 10 tests over upstream fixtures and targeted cases; this is not the complete
 QuickCheck domain from upstream. Use differential checks against upstream as well
 as original golden expectations.
 
-Current verification: 142 Kotlin tests pass locally; the initial 118-test commit
+Current verification: 172 Kotlin tests pass locally; the preceding 142-test commit
 also passed GitHub Linux CI. Every push runs the fixture check, Kotlin tests and
 installed CLI smoke checks in `.github/workflows/ci.yml`.
 

@@ -74,7 +74,7 @@ class PandocJsonTest {
             2 -> Block.Div(Attr("section"), randomBlocks(r, depth - 1))
             3 -> Block.Figure(Attr(), Caption(randomInlines(r, depth - 1), randomBlocks(r, depth - 1)), randomBlocks(r, depth - 1))
             4 -> Block.HorizontalRule
-            5 -> Block.OrderedList(ListAttributes(r.nextInt(), ListNumberStyle.entries.random(r), ListNumberDelim.entries.random(r)), listOf(randomBlocks(r, depth - 1)))
+            5 -> Block.OrderedList(ListAttributes(r.nextLong(), ListNumberStyle.entries.random(r), ListNumberDelim.entries.random(r)), listOf(randomBlocks(r, depth - 1)))
             else -> Block.Para(randomInlines(r, depth - 1))
         }
     }

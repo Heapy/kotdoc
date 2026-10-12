@@ -30,7 +30,7 @@ open class PandocVisitor {
     }
 
     private fun walkMetaEntries(meta: Map<String, MetaValue>): Map<String, MetaValue> =
-        meta.toSortedMap().mapValues { walkMetaValue(it.value) }
+        meta.toSortedMap(UnicodeTextOrder).mapValues { walkMetaValue(it.value) }
 
     fun walkMetaValue(value: MetaValue): MetaValue {
         visitMetaValue(value)
