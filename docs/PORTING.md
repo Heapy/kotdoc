@@ -23,6 +23,8 @@ format is implemented explicitly in Kotlin.
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
 | `prop_roundtrip` | `PandocJsonTest.kt` | 500 seeded recursive documents (not identical to upstream QuickCheck generator) |
+| `Builder.hs` table normalization and simpleTable | `Tables.kt` | Both original examples, nine upstream properties with 500 samples each, independent occupancy oracle |
+| `Walk.hs` traversal order and child selection | `PandocVisitor.kt` | Node transforms/queries checked against independent generic JSON traversal over upstream fixtures; list hooks and ordering checks |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -31,8 +33,8 @@ also compared with an independently translated upstream expectation.
 
 ## Remaining scope
 
-1. Finish pandoc-types semantics and tests: walkers/queries/list transforms,
-   builders, normalization, tables, figures, metadata operations, full generators.
+1. Finish pandoc-types semantics and tests: full walker/list property generators,
+   builders, inline normalization, figures, metadata operations, full generators.
    Preserve Haskell Format case-fold equality and machine-Int semantics; current
    raw format fields use String and numeric fields use JVM Int. These are known
    parity gaps, not deliberate simplifications of the final objective.
@@ -58,9 +60,16 @@ also compared with an independently translated upstream expectation.
 
 ## Next execution step
 
-Port tree walking and table normalization from pandoc-types with their original
-properties/examples, then start Pandoc readers/writers against the shared model.
-Use differential checks against upstream as well as original golden expectations.
+Finish `Text.Pandoc.Builder` and Definition operations (including Format and
+numeric parity), port the remaining Walk list properties and Figure property,
+then start Pandoc readers/writers against the shared model. The visitor currently
+has 10 tests over upstream fixtures and targeted cases; this is not the complete
+QuickCheck domain from upstream. Use differential checks against upstream as well
+as original golden expectations.
+
+Current verification: 142 Kotlin tests pass locally; the initial 118-test commit
+also passed GitHub Linux CI. Every push runs the fixture check, Kotlin tests and
+installed CLI smoke checks in `.github/workflows/ci.yml`.
 
 ## Completion gate
 

@@ -14,8 +14,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   API version validation, and ordered/duplicate attributes.
 - All 56 literal JSON examples from `pandoc-types`, with independent typed Kotlin
   expectations and byte-for-byte encoder checks (112 individual checks).
+- Bottom-up AST transforms and preorder queries, including metadata, citation
+  affixes, captions, tables, notes, and list-level hooks.
+- Table normalization and simple tables, with the original examples and nine
+  upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 118 tests, no skipped tests.
+  roundtrip tests. Current suite: 142 tests, no skipped tests.
 - Initial JSON-to-JSON CLI. Other input/output formats are not implemented yet.
 
 See [the porting ledger](docs/PORTING.md) for the full remaining scope and caveats.
