@@ -1,0 +1,962 @@
+[
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native+east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native+east_asian_line_breaks"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native-east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native-east_asian_line_breaks"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native+east_asian_line_breaks-east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native+east_asian_line_breaks-east_asian_line_breaks"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native-east_asian_line_breaks+east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native-east_asian_line_breaks+east_asian_line_breaks"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native+smart",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'smart' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native+smart"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'smart' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native+",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native+"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native++",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native++"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native+z+table_attributes+header_attributes",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'header_attributes' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native+z+table_attributes+header_attributes"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'header_attributes' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native+lhs",
+      "-t",
+      "native"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'literate_haskell' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "native+lhs"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'literate_haskell' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "--from=NATIVE",
+      "--to=NATIVE"
+    ],
+    "input": "[Para [Str \"hello\"]]",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json+east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native+east_asian_line_breaks"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json-east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native-east_asian_line_breaks"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json+east_asian_line_breaks-east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native+east_asian_line_breaks-east_asian_line_breaks"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json-east_asian_line_breaks+east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native-east_asian_line_breaks+east_asian_line_breaks"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json+smart",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'smart' is not supported for json.\nUse --list-extensions=json to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native+smart"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'smart' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json+",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for json.\nUse --list-extensions=json to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native+"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json++",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for json.\nUse --list-extensions=json to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native++"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json+z+table_attributes+header_attributes",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'header_attributes' is not supported for json.\nUse --list-extensions=json to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native+z+table_attributes+header_attributes"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'header_attributes' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json+lhs",
+      "-t",
+      "native"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'literate_haskell' is not supported for json.\nUse --list-extensions=json to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "native+lhs"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'literate_haskell' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "--from=JSON",
+      "--to=NATIVE"
+    ],
+    "input": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Para\",\"c\":[{\"t\":\"Str\",\"c\":\"hello\"}]}]}",
+    "expected": {
+      "stdout": "[ Para [ Str \"hello\" ] ]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2+east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native+east_asian_line_breaks"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2-east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native-east_asian_line_breaks"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2+east_asian_line_breaks-east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native+east_asian_line_breaks-east_asian_line_breaks"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2-east_asian_line_breaks+east_asian_line_breaks",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native-east_asian_line_breaks+east_asian_line_breaks"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2+smart",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'smart' is not supported for fb2.\nUse --list-extensions=fb2 to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native+smart"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'smart' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2+",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for fb2.\nUse --list-extensions=fb2 to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native+"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2++",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for fb2.\nUse --list-extensions=fb2 to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native++"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2+z+table_attributes+header_attributes",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'header_attributes' is not supported for fb2.\nUse --list-extensions=fb2 to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native+z+table_attributes+header_attributes"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'header_attributes' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2+lhs",
+      "-t",
+      "native"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'literate_haskell' is not supported for fb2.\nUse --list-extensions=fb2 to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "fb2",
+      "-t",
+      "native+lhs"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "",
+      "stderr": "The extension 'literate_haskell' is not supported for native.\nUse --list-extensions=native to list supported extensions.\n",
+      "exit": 23
+    }
+  },
+  {
+    "args": [
+      "--from=FB2",
+      "--to=NATIVE"
+    ],
+    "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<FictionBook xmlns=\"http://www.gribuser.ru/xml/fictionbook/2.0\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n\t<body>\n\t\t<section>\n\t\t\t<p>Note <a l:href=\"#n1\" type=\"note\">1</a>.</p>\n\t\t\t<p>Second note <a l:href=\"#n2\" type=\"note\">2</a>.</p>\n\t\t</section>\n\t</body>\n\t<body name=\"notes\">\n\t\t<section id=\"n1\">\n\t\t\t<title><p>1</p></title>\n\t\t\t<p>Note contents</p>\n\t\t</section>\n\t\t<section id=\"n2\">\n\t\t\t<title><p>2</p></title>\n\t\t\t<p>Second note contents.</p>\n\t\t</section>\n\t</body>\n</FictionBook>\n",
+    "expected": {
+      "stdout": "[ Div\n    ( \"\" , [ \"section\" ] , [] )\n    [ Para\n        [ Str \"Note\"\n        , Space\n        , Note [ Para [ Str \"Note\" , Space , Str \"contents\" ] ]\n        , Str \".\"\n        ]\n    , Para\n        [ Str \"Second\"\n        , Space\n        , Str \"note\"\n        , Space\n        , Note\n            [ Para\n                [ Str \"Second\"\n                , Space\n                , Str \"note\"\n                , Space\n                , Str \"contents.\"\n                ]\n            ]\n        , Str \".\"\n        ]\n    ]\n]\n",
+      "stderr": "",
+      "exit": 0
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "",
+      "-t",
+      "native"
+    ],
+    "input": "[]",
+    "expected": {
+      "stdout": "",
+      "stderr": "Error parsing format '': (line 1, column 1):\nunexpected end of input\n",
+      "exit": 20
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      ""
+    ],
+    "input": "[]",
+    "expected": {
+      "stdout": "",
+      "stderr": "Error parsing format '': (line 1, column 1):\nunexpected end of input\n",
+      "exit": 20
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "+smart",
+      "-t",
+      "native"
+    ],
+    "input": "[]",
+    "expected": {
+      "stdout": "",
+      "stderr": "Error parsing format '+smart': (line 1, column 1):\nunexpected '+'\n",
+      "exit": 20
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "+smart"
+    ],
+    "input": "[]",
+    "expected": {
+      "stdout": "",
+      "stderr": "Error parsing format '+smart': (line 1, column 1):\nunexpected '+'\n",
+      "exit": 20
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "-smart",
+      "-t",
+      "native"
+    ],
+    "input": "[]",
+    "expected": {
+      "stdout": "",
+      "stderr": "Error parsing format '-smart': (line 1, column 1):\nunexpected '-'\n",
+      "exit": 20
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "-smart"
+    ],
+    "input": "[]",
+    "expected": {
+      "stdout": "",
+      "stderr": "Error parsing format '-smart': (line 1, column 1):\nunexpected '-'\n",
+      "exit": 20
+    }
+  }
+]

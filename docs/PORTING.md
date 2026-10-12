@@ -39,6 +39,7 @@ format is implemented explicitly in Kotlin.
 | `SelfContained.makeDataURI` | `resources/ResourceUri.kt` | 56 independent MIME/UTF-8/BOM/CR/binary cases, including original rejection of invalid text UTF-8 |
 | zip-archive media serialization dependency | `resources/MediaZip.kt` | Complete ZIP-byte comparison against Pandoc (headers, CRC, compression, order, collisions); independent JDK decompression |
 | XML.Light parsing foundation and xml-conduit tokenizer dependency | `xml/XmlLight.kt` | Namespace-aware names, duplicate attributes, entity expansion, content forests, direct text and malformed input; oracle cases and six focused tests |
+| `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -52,7 +53,7 @@ also compared with an independently translated upstream expectation.
    Unicode case folding via ICU4J 78.1; AST integer fields use signed Long to match
    64-bit Haskell Int. Unicode database version parity remains to be audited
    against the actual upstream text library used by the pinned release.
-2. Port Pandoc common infrastructure: options and extensions, parsing, sources,
+2. Port Pandoc common infrastructure: options, parsing, sources,
    URI/XML handling, media bag, templates, resource embedding, errors, logging,
    Unicode, syntax highlighting, bibliography/citations, filters and scripting.
 3. Port every Pandoc reader and writer and its Haskell, command, golden,
@@ -212,3 +213,34 @@ every output file byte. `--resource-path` retains the default current directory,
 prepends each later flag's components, and preserves empty-component behavior.
 This is coverage of these options for the implemented formats, not complete
 Pandoc application/CLI or Lua runtime parity.
+
+## Extension and format evidence
+
+The full extension registry is generated from pinned `Extensions.hs`, and its
+default/supported sets are independently compared to the original binary's Lua
+API for 96 names. Set and JSON order follow Haskell constructor order, including
+the non-alphabetical positions of table attributes and raw Markdown. Custom
+constructors remain distinct from built-ins even when their displayed names match.
+Extension reading retains the exact `lhs` alias and Haskell Read trailing-space
+behavior. Tables are source-verified in CI; runtime code does not invoke Pandoc.
+
+Format parsing preserves case when a filename extension is present, performs
+context-independent Unicode lowercasing otherwise, and accepts empty custom
+extension names. Parsing repeated `+`/`-` modifiers keeps both sets; applying
+them enables an extension present in both. Composing two diffs instead gives
+later changes precedence. Unsupported extensions are reported in constructor
+order. Real upstream custom-reader executions supply independent expectations.
+
+Path inference covers all 66 original mappings, first-recognized selection,
+`.lhs` modifiers, manual-page suffixes and URI paths. The original unreachable
+`.Rmd` entry is deliberately preserved. This path uses the current JVM URI
+adapter: complete network-uri dependency semantics and cross-platform FilePath
+behavior still require their upstream corpora, as described above.
+
+All original `pandoc-format.lua` examples are translated into Kotlin API tests.
+This does not implement the Lua runtime. The installed CLI accepts modifiers
+for the three implemented formats, including `--from=`/`--to=`, and matches
+69 original CLI executions in stdout, stderr and exit status. Complete CLI
+format inference/defaults, reader/writer dispatch, options and scripting remain.
+ReaderOptions and the full WriterOptions dependencies are the next common
+infrastructure work; no reduced WriterOptions placeholder is counted as a port.

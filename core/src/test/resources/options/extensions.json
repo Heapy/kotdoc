@@ -1,0 +1,6620 @@
+{
+  "formats": [
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "MARKDOWN",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "Markdown",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "ansi",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "asciidoc",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "asciidoc_legacy",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "asciidoctor",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bbcode",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bbcode_fluxbb",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bbcode_hubzilla",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bbcode_phpbb",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bbcode_steam",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bbcode_xenforo",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "gfm_auto_identifiers": false,
+        "latex_macros": true,
+        "literate_haskell": false,
+        "raw_tex": false,
+        "smart": true,
+        "task_lists": false
+      },
+      "defaults": [
+        "auto_identifiers",
+        "latex_macros",
+        "smart"
+      ],
+      "name": "beamer",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "gfm_auto_identifiers",
+        "latex_macros",
+        "literate_haskell",
+        "raw_tex",
+        "smart",
+        "task_lists"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "biblatex",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bibtex",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "bits",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "chunkedhtml",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "alerts": false,
+        "ascii_identifiers": false,
+        "attributes": false,
+        "autolink_bare_uris": false,
+        "bracketed_spans": false,
+        "definition_lists": false,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "fancy_lists": false,
+        "fenced_divs": false,
+        "footnotes": false,
+        "gfm_auto_identifiers": false,
+        "hard_line_breaks": false,
+        "implicit_figures": false,
+        "implicit_header_references": false,
+        "pipe_tables": false,
+        "raw_attribute": false,
+        "raw_html": true,
+        "rebase_relative_paths": false,
+        "smart": false,
+        "sourcepos": false,
+        "strikeout": false,
+        "subscript": false,
+        "superscript": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_gfm": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": false
+      },
+      "defaults": [
+        "raw_html"
+      ],
+      "name": "commonmark",
+      "supported": [
+        "alerts",
+        "ascii_identifiers",
+        "attributes",
+        "autolink_bare_uris",
+        "bracketed_spans",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "fancy_lists",
+        "fenced_divs",
+        "footnotes",
+        "gfm_auto_identifiers",
+        "hard_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "rebase_relative_paths",
+        "smart",
+        "sourcepos",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_gfm",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "alerts": true,
+        "ascii_identifiers": false,
+        "attributes": true,
+        "autolink_bare_uris": false,
+        "bracketed_spans": true,
+        "definition_lists": true,
+        "east_asian_line_breaks": false,
+        "emoji": true,
+        "fancy_lists": true,
+        "fenced_divs": true,
+        "footnotes": true,
+        "gfm_auto_identifiers": true,
+        "hard_line_breaks": false,
+        "implicit_figures": false,
+        "implicit_header_references": true,
+        "pipe_tables": true,
+        "raw_attribute": true,
+        "raw_html": true,
+        "rebase_relative_paths": false,
+        "smart": true,
+        "sourcepos": false,
+        "strikeout": true,
+        "subscript": true,
+        "superscript": true,
+        "task_lists": true,
+        "tex_math_dollars": true,
+        "tex_math_gfm": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": true
+      },
+      "defaults": [
+        "alerts",
+        "attributes",
+        "bracketed_spans",
+        "definition_lists",
+        "emoji",
+        "fancy_lists",
+        "fenced_divs",
+        "footnotes",
+        "gfm_auto_identifiers",
+        "implicit_header_references",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "smart",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "tex_math_dollars",
+        "yaml_metadata_block"
+      ],
+      "name": "commonmark_x",
+      "supported": [
+        "alerts",
+        "ascii_identifiers",
+        "attributes",
+        "autolink_bare_uris",
+        "bracketed_spans",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "fancy_lists",
+        "fenced_divs",
+        "footnotes",
+        "gfm_auto_identifiers",
+        "hard_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "rebase_relative_paths",
+        "smart",
+        "sourcepos",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_gfm",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false,
+        "ntb": false,
+        "raw_tex": false,
+        "smart": true,
+        "tagging": false
+      },
+      "defaults": [
+        "auto_identifiers",
+        "smart"
+      ],
+      "name": "context",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers",
+        "ntb",
+        "raw_tex",
+        "smart",
+        "tagging"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "creole",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "csljson",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "csv",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "sourcepos": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "djot",
+      "supported": [
+        "east_asian_line_breaks",
+        "sourcepos"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "docbook",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "docbook4",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "docbook5",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "citations": false,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "gfm_auto_identifiers": false,
+        "native_numbering": false,
+        "styles": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "docx",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "citations",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "gfm_auto_identifiers",
+        "native_numbering",
+        "styles"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false,
+        "raw_html": false,
+        "smart": true,
+        "tex_math_dollars": false
+      },
+      "defaults": [
+        "smart"
+      ],
+      "name": "dokuwiki",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers",
+        "raw_html",
+        "smart",
+        "tex_math_dollars"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "dzslides",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "endnotexml",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "epub_html_exts": true,
+        "gfm_auto_identifiers": false,
+        "line_blocks": false,
+        "literate_haskell": false,
+        "native_divs": true,
+        "native_spans": true,
+        "raw_html": true,
+        "raw_tex": false,
+        "smart": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false
+      },
+      "defaults": [
+        "epub_html_exts",
+        "native_divs",
+        "native_spans",
+        "raw_html"
+      ],
+      "name": "epub",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "epub_html_exts",
+        "gfm_auto_identifiers",
+        "line_blocks",
+        "literate_haskell",
+        "native_divs",
+        "native_spans",
+        "raw_html",
+        "raw_tex",
+        "smart",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "epub_html_exts": true,
+        "gfm_auto_identifiers": false,
+        "line_blocks": false,
+        "literate_haskell": false,
+        "native_divs": true,
+        "native_spans": true,
+        "raw_html": true,
+        "raw_tex": false,
+        "smart": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false
+      },
+      "defaults": [
+        "epub_html_exts",
+        "native_divs",
+        "native_spans",
+        "raw_html"
+      ],
+      "name": "epub2",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "epub_html_exts",
+        "gfm_auto_identifiers",
+        "line_blocks",
+        "literate_haskell",
+        "native_divs",
+        "native_spans",
+        "raw_html",
+        "raw_tex",
+        "smart",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "epub_html_exts": true,
+        "gfm_auto_identifiers": false,
+        "line_blocks": false,
+        "literate_haskell": false,
+        "native_divs": true,
+        "native_spans": true,
+        "raw_html": true,
+        "raw_tex": false,
+        "smart": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false
+      },
+      "defaults": [
+        "epub_html_exts",
+        "native_divs",
+        "native_spans",
+        "raw_html"
+      ],
+      "name": "epub3",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "epub_html_exts",
+        "gfm_auto_identifiers",
+        "line_blocks",
+        "literate_haskell",
+        "native_divs",
+        "native_spans",
+        "raw_html",
+        "raw_tex",
+        "smart",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "fb2",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "gfm_auto_identifiers": false,
+        "native_numbering": false,
+        "xrefs_name": false,
+        "xrefs_number": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "fodt",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "gfm_auto_identifiers",
+        "native_numbering",
+        "xrefs_name",
+        "xrefs_number"
+      ]
+    },
+    {
+      "config": {
+        "alerts": true,
+        "ascii_identifiers": false,
+        "attributes": false,
+        "auto_identifiers": true,
+        "autolink_bare_uris": true,
+        "bracketed_spans": false,
+        "definition_lists": false,
+        "east_asian_line_breaks": false,
+        "emoji": true,
+        "fancy_lists": false,
+        "fenced_divs": false,
+        "footnotes": true,
+        "gfm_auto_identifiers": true,
+        "hard_line_breaks": false,
+        "implicit_figures": false,
+        "implicit_header_references": false,
+        "pipe_tables": true,
+        "raw_attribute": false,
+        "raw_html": true,
+        "rebase_relative_paths": false,
+        "smart": false,
+        "sourcepos": false,
+        "strikeout": true,
+        "subscript": false,
+        "superscript": false,
+        "task_lists": true,
+        "tex_math_dollars": true,
+        "tex_math_gfm": true,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": true
+      },
+      "defaults": [
+        "alerts",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "emoji",
+        "footnotes",
+        "gfm_auto_identifiers",
+        "pipe_tables",
+        "raw_html",
+        "strikeout",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_gfm",
+        "yaml_metadata_block"
+      ],
+      "name": "gfm",
+      "supported": [
+        "alerts",
+        "ascii_identifiers",
+        "attributes",
+        "autolink_bare_uris",
+        "bracketed_spans",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "fancy_lists",
+        "fenced_divs",
+        "footnotes",
+        "gfm_auto_identifiers",
+        "hard_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "rebase_relative_paths",
+        "smart",
+        "sourcepos",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_gfm",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "haddock",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "epub_html_exts": false,
+        "gfm_auto_identifiers": false,
+        "line_blocks": true,
+        "literate_haskell": false,
+        "native_divs": true,
+        "native_spans": true,
+        "raw_html": false,
+        "raw_tex": false,
+        "smart": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false
+      },
+      "defaults": [
+        "auto_identifiers",
+        "line_blocks",
+        "native_divs",
+        "native_spans"
+      ],
+      "name": "html",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "epub_html_exts",
+        "gfm_auto_identifiers",
+        "line_blocks",
+        "literate_haskell",
+        "native_divs",
+        "native_spans",
+        "raw_html",
+        "raw_tex",
+        "smart",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "epub_html_exts": false,
+        "gfm_auto_identifiers": false,
+        "line_blocks": true,
+        "literate_haskell": false,
+        "native_divs": true,
+        "native_spans": true,
+        "raw_html": false,
+        "raw_tex": false,
+        "smart": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false
+      },
+      "defaults": [
+        "auto_identifiers",
+        "line_blocks",
+        "native_divs",
+        "native_spans"
+      ],
+      "name": "html4",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "epub_html_exts",
+        "gfm_auto_identifiers",
+        "line_blocks",
+        "literate_haskell",
+        "native_divs",
+        "native_spans",
+        "raw_html",
+        "raw_tex",
+        "smart",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "epub_html_exts": false,
+        "gfm_auto_identifiers": false,
+        "line_blocks": true,
+        "literate_haskell": false,
+        "native_divs": true,
+        "native_spans": true,
+        "raw_html": false,
+        "raw_tex": false,
+        "smart": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false
+      },
+      "defaults": [
+        "auto_identifiers",
+        "line_blocks",
+        "native_divs",
+        "native_spans"
+      ],
+      "name": "html5",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "epub_html_exts",
+        "gfm_auto_identifiers",
+        "line_blocks",
+        "literate_haskell",
+        "native_divs",
+        "native_spans",
+        "raw_html",
+        "raw_tex",
+        "smart",
+        "task_lists",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "icml",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": false,
+        "alerts": false,
+        "all_symbols_escapable": true,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "autolink_bare_uris": true,
+        "backtick_code_blocks": true,
+        "blank_before_blockquote": false,
+        "blank_before_header": false,
+        "bracketed_spans": false,
+        "citations": false,
+        "definition_lists": false,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "escaped_line_breaks": false,
+        "example_lists": false,
+        "fancy_lists": false,
+        "fenced_code_attributes": false,
+        "fenced_code_blocks": true,
+        "fenced_divs": false,
+        "footnotes": false,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": true,
+        "grid_tables": false,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": false,
+        "ignore_line_breaks": false,
+        "implicit_figures": false,
+        "implicit_header_references": false,
+        "inline_code_attributes": false,
+        "inline_notes": false,
+        "intraword_underscores": true,
+        "latex_macros": false,
+        "line_blocks": false,
+        "link_attributes": false,
+        "lists_without_preceding_blankline": true,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": false,
+        "markdown_in_html_blocks": false,
+        "mmd_header_identifiers": false,
+        "mmd_link_attributes": false,
+        "mmd_title_block": false,
+        "multiline_tables": false,
+        "native_divs": false,
+        "native_spans": false,
+        "old_dashes": false,
+        "pandoc_title_block": false,
+        "pipe_tables": true,
+        "raw_attribute": false,
+        "raw_html": true,
+        "raw_markdown": false,
+        "raw_tex": false,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": false,
+        "shortcut_reference_links": true,
+        "simple_tables": false,
+        "smart": false,
+        "space_in_atx_header": true,
+        "spaced_reference_links": false,
+        "startnum": false,
+        "strikeout": true,
+        "subscript": false,
+        "superscript": false,
+        "table_attributes": false,
+        "table_captions": false,
+        "task_lists": true,
+        "tex_math_dollars": true,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": false
+      },
+      "defaults": [
+        "all_symbols_escapable",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "fenced_code_blocks",
+        "gfm_auto_identifiers",
+        "intraword_underscores",
+        "lists_without_preceding_blankline",
+        "pipe_tables",
+        "raw_html",
+        "shortcut_reference_links",
+        "space_in_atx_header",
+        "strikeout",
+        "task_lists",
+        "tex_math_dollars"
+      ],
+      "name": "ipynb",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "raw_markdown",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "element_citations": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "jats",
+      "supported": [
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "element_citations"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "element_citations": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "jats_archiving",
+      "supported": [
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "element_citations"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "element_citations": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "jats_articleauthoring",
+      "supported": [
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "element_citations"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "element_citations": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "jats_publishing",
+      "supported": [
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "element_citations"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "jira",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "json",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "gfm_auto_identifiers": false,
+        "latex_macros": true,
+        "literate_haskell": false,
+        "raw_tex": false,
+        "smart": true,
+        "task_lists": false
+      },
+      "defaults": [
+        "auto_identifiers",
+        "latex_macros",
+        "smart"
+      ],
+      "name": "latex",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "gfm_auto_identifiers",
+        "latex_macros",
+        "literate_haskell",
+        "raw_tex",
+        "smart",
+        "task_lists"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "man",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": false,
+        "alerts": false,
+        "all_symbols_escapable": true,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "autolink_bare_uris": false,
+        "backtick_code_blocks": true,
+        "blank_before_blockquote": true,
+        "blank_before_header": true,
+        "bracketed_spans": true,
+        "citations": true,
+        "definition_lists": true,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "escaped_line_breaks": true,
+        "example_lists": true,
+        "fancy_lists": true,
+        "fenced_code_attributes": true,
+        "fenced_code_blocks": true,
+        "fenced_divs": true,
+        "footnotes": true,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": false,
+        "grid_tables": true,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": true,
+        "ignore_line_breaks": false,
+        "implicit_figures": true,
+        "implicit_header_references": true,
+        "inline_code_attributes": true,
+        "inline_notes": true,
+        "intraword_underscores": true,
+        "latex_macros": true,
+        "line_blocks": true,
+        "link_attributes": true,
+        "lists_without_preceding_blankline": false,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": false,
+        "markdown_in_html_blocks": true,
+        "mmd_header_identifiers": false,
+        "mmd_link_attributes": false,
+        "mmd_title_block": false,
+        "multiline_tables": true,
+        "native_divs": true,
+        "native_spans": true,
+        "old_dashes": false,
+        "pandoc_title_block": true,
+        "pipe_tables": true,
+        "raw_attribute": true,
+        "raw_html": true,
+        "raw_tex": true,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": false,
+        "shortcut_reference_links": true,
+        "simple_tables": true,
+        "smart": true,
+        "space_in_atx_header": true,
+        "spaced_reference_links": false,
+        "startnum": true,
+        "strikeout": true,
+        "subscript": true,
+        "superscript": true,
+        "table_attributes": true,
+        "table_captions": true,
+        "task_lists": true,
+        "tex_math_dollars": true,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": true
+      },
+      "defaults": [
+        "all_symbols_escapable",
+        "auto_identifiers",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "grid_tables",
+        "header_attributes",
+        "table_attributes",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "markdown_in_html_blocks",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "yaml_metadata_block"
+      ],
+      "name": "markdown",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "markdown+smart",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": false,
+        "alerts": true,
+        "all_symbols_escapable": true,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "autolink_bare_uris": true,
+        "backtick_code_blocks": true,
+        "blank_before_blockquote": false,
+        "blank_before_header": false,
+        "bracketed_spans": false,
+        "citations": false,
+        "definition_lists": false,
+        "east_asian_line_breaks": false,
+        "emoji": true,
+        "escaped_line_breaks": false,
+        "example_lists": false,
+        "fancy_lists": false,
+        "fenced_code_attributes": false,
+        "fenced_code_blocks": true,
+        "fenced_divs": false,
+        "footnotes": true,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": true,
+        "grid_tables": false,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": false,
+        "ignore_line_breaks": false,
+        "implicit_figures": false,
+        "implicit_header_references": false,
+        "inline_code_attributes": false,
+        "inline_notes": false,
+        "intraword_underscores": true,
+        "latex_macros": false,
+        "line_blocks": false,
+        "link_attributes": false,
+        "lists_without_preceding_blankline": true,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": false,
+        "markdown_in_html_blocks": false,
+        "mmd_header_identifiers": false,
+        "mmd_link_attributes": false,
+        "mmd_title_block": false,
+        "multiline_tables": false,
+        "native_divs": false,
+        "native_spans": false,
+        "old_dashes": false,
+        "pandoc_title_block": false,
+        "pipe_tables": true,
+        "raw_attribute": false,
+        "raw_html": true,
+        "raw_tex": false,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": false,
+        "shortcut_reference_links": true,
+        "simple_tables": false,
+        "smart": false,
+        "space_in_atx_header": true,
+        "spaced_reference_links": false,
+        "startnum": false,
+        "strikeout": true,
+        "subscript": false,
+        "superscript": false,
+        "table_attributes": false,
+        "table_captions": false,
+        "task_lists": true,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": false
+      },
+      "defaults": [
+        "alerts",
+        "all_symbols_escapable",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "emoji",
+        "fenced_code_blocks",
+        "footnotes",
+        "gfm_auto_identifiers",
+        "intraword_underscores",
+        "lists_without_preceding_blankline",
+        "pipe_tables",
+        "raw_html",
+        "shortcut_reference_links",
+        "space_in_atx_header",
+        "strikeout",
+        "task_lists"
+      ],
+      "name": "markdown_github",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": false,
+        "alerts": false,
+        "all_symbols_escapable": true,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "autolink_bare_uris": false,
+        "backtick_code_blocks": true,
+        "blank_before_blockquote": false,
+        "blank_before_header": false,
+        "bracketed_spans": false,
+        "citations": false,
+        "definition_lists": true,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "escaped_line_breaks": false,
+        "example_lists": false,
+        "fancy_lists": false,
+        "fenced_code_attributes": false,
+        "fenced_code_blocks": false,
+        "fenced_divs": false,
+        "footnotes": true,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": false,
+        "grid_tables": false,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": false,
+        "ignore_line_breaks": false,
+        "implicit_figures": true,
+        "implicit_header_references": true,
+        "inline_code_attributes": false,
+        "inline_notes": false,
+        "intraword_underscores": true,
+        "latex_macros": false,
+        "line_blocks": false,
+        "link_attributes": false,
+        "lists_without_preceding_blankline": false,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": true,
+        "markdown_in_html_blocks": false,
+        "mmd_header_identifiers": true,
+        "mmd_link_attributes": true,
+        "mmd_title_block": true,
+        "multiline_tables": false,
+        "native_divs": false,
+        "native_spans": false,
+        "old_dashes": false,
+        "pandoc_title_block": false,
+        "pipe_tables": true,
+        "raw_attribute": true,
+        "raw_html": true,
+        "raw_tex": false,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": true,
+        "shortcut_reference_links": true,
+        "simple_tables": false,
+        "smart": false,
+        "space_in_atx_header": false,
+        "spaced_reference_links": true,
+        "startnum": false,
+        "strikeout": false,
+        "subscript": true,
+        "superscript": true,
+        "table_attributes": false,
+        "table_captions": false,
+        "task_lists": false,
+        "tex_math_dollars": true,
+        "tex_math_double_backslash": true,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": false
+      },
+      "defaults": [
+        "all_symbols_escapable",
+        "auto_identifiers",
+        "backtick_code_blocks",
+        "definition_lists",
+        "footnotes",
+        "implicit_figures",
+        "implicit_header_references",
+        "intraword_underscores",
+        "markdown_attribute",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "spaced_reference_links",
+        "subscript",
+        "superscript",
+        "tex_math_dollars",
+        "tex_math_double_backslash"
+      ],
+      "name": "markdown_mmd",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": true,
+        "alerts": false,
+        "all_symbols_escapable": false,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "autolink_bare_uris": false,
+        "backtick_code_blocks": false,
+        "blank_before_blockquote": false,
+        "blank_before_header": false,
+        "bracketed_spans": false,
+        "citations": false,
+        "definition_lists": true,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "escaped_line_breaks": false,
+        "example_lists": false,
+        "fancy_lists": false,
+        "fenced_code_attributes": false,
+        "fenced_code_blocks": true,
+        "fenced_divs": false,
+        "footnotes": true,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": false,
+        "grid_tables": false,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": true,
+        "ignore_line_breaks": false,
+        "implicit_figures": false,
+        "implicit_header_references": false,
+        "inline_code_attributes": false,
+        "inline_notes": false,
+        "intraword_underscores": true,
+        "latex_macros": false,
+        "line_blocks": false,
+        "link_attributes": true,
+        "lists_without_preceding_blankline": false,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": true,
+        "markdown_in_html_blocks": false,
+        "mmd_header_identifiers": false,
+        "mmd_link_attributes": false,
+        "mmd_title_block": false,
+        "multiline_tables": false,
+        "native_divs": false,
+        "native_spans": false,
+        "old_dashes": false,
+        "pandoc_title_block": false,
+        "pipe_tables": true,
+        "raw_attribute": false,
+        "raw_html": true,
+        "raw_tex": false,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": false,
+        "shortcut_reference_links": true,
+        "simple_tables": false,
+        "smart": false,
+        "space_in_atx_header": false,
+        "spaced_reference_links": true,
+        "startnum": false,
+        "strikeout": false,
+        "subscript": false,
+        "superscript": false,
+        "table_attributes": false,
+        "table_captions": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": false
+      },
+      "defaults": [
+        "abbreviations",
+        "definition_lists",
+        "fenced_code_blocks",
+        "footnotes",
+        "header_attributes",
+        "intraword_underscores",
+        "link_attributes",
+        "markdown_attribute",
+        "pipe_tables",
+        "raw_html",
+        "shortcut_reference_links",
+        "spaced_reference_links"
+      ],
+      "name": "markdown_phpextra",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": false,
+        "alerts": false,
+        "all_symbols_escapable": false,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "autolink_bare_uris": false,
+        "backtick_code_blocks": false,
+        "blank_before_blockquote": false,
+        "blank_before_header": false,
+        "bracketed_spans": false,
+        "citations": false,
+        "definition_lists": false,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "escaped_line_breaks": false,
+        "example_lists": false,
+        "fancy_lists": false,
+        "fenced_code_attributes": false,
+        "fenced_code_blocks": false,
+        "fenced_divs": false,
+        "footnotes": false,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": false,
+        "grid_tables": false,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": false,
+        "ignore_line_breaks": false,
+        "implicit_figures": false,
+        "implicit_header_references": false,
+        "inline_code_attributes": false,
+        "inline_notes": false,
+        "intraword_underscores": false,
+        "latex_macros": false,
+        "line_blocks": false,
+        "link_attributes": false,
+        "lists_without_preceding_blankline": false,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": false,
+        "markdown_in_html_blocks": false,
+        "mmd_header_identifiers": false,
+        "mmd_link_attributes": false,
+        "mmd_title_block": false,
+        "multiline_tables": false,
+        "native_divs": false,
+        "native_spans": false,
+        "old_dashes": false,
+        "pandoc_title_block": false,
+        "pipe_tables": false,
+        "raw_attribute": false,
+        "raw_html": true,
+        "raw_tex": false,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": false,
+        "shortcut_reference_links": true,
+        "simple_tables": false,
+        "smart": false,
+        "space_in_atx_header": false,
+        "spaced_reference_links": true,
+        "startnum": false,
+        "strikeout": false,
+        "subscript": false,
+        "superscript": false,
+        "table_attributes": false,
+        "table_captions": false,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": false
+      },
+      "defaults": [
+        "raw_html",
+        "shortcut_reference_links",
+        "spaced_reference_links"
+      ],
+      "name": "markdown_strict",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "east_asian_line_breaks": false
+      },
+      "defaults": [],
+      "name": "markua",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "mdoc",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false,
+        "smart": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "mediawiki",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers",
+        "smart"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "mobi",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "ms",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "amuse": true,
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false
+      },
+      "defaults": [
+        "amuse",
+        "auto_identifiers"
+      ],
+      "name": "muse",
+      "supported": [
+        "amuse",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "native",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "gfm_auto_identifiers": false,
+        "native_numbering": false,
+        "xrefs_name": false,
+        "xrefs_number": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "odt",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "gfm_auto_identifiers",
+        "native_numbering",
+        "xrefs_name",
+        "xrefs_number"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "empty_paragraphs": false,
+        "native_numbering": false,
+        "xrefs_name": false,
+        "xrefs_number": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "opendocument",
+      "supported": [
+        "east_asian_line_breaks",
+        "empty_paragraphs",
+        "native_numbering",
+        "xrefs_name",
+        "xrefs_number"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": false,
+        "alerts": false,
+        "all_symbols_escapable": true,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "autolink_bare_uris": false,
+        "backtick_code_blocks": true,
+        "blank_before_blockquote": true,
+        "blank_before_header": true,
+        "bracketed_spans": true,
+        "citations": true,
+        "definition_lists": true,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "escaped_line_breaks": true,
+        "example_lists": true,
+        "fancy_lists": true,
+        "fenced_code_attributes": true,
+        "fenced_code_blocks": true,
+        "fenced_divs": true,
+        "footnotes": true,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": false,
+        "grid_tables": true,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": true,
+        "ignore_line_breaks": false,
+        "implicit_figures": true,
+        "implicit_header_references": true,
+        "inline_code_attributes": true,
+        "inline_notes": true,
+        "intraword_underscores": true,
+        "latex_macros": true,
+        "line_blocks": true,
+        "link_attributes": true,
+        "lists_without_preceding_blankline": false,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": false,
+        "markdown_in_html_blocks": true,
+        "mmd_header_identifiers": false,
+        "mmd_link_attributes": false,
+        "mmd_title_block": false,
+        "multiline_tables": true,
+        "native_divs": true,
+        "native_spans": true,
+        "old_dashes": false,
+        "pandoc_title_block": true,
+        "pipe_tables": true,
+        "raw_attribute": true,
+        "raw_html": true,
+        "raw_tex": true,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": false,
+        "shortcut_reference_links": true,
+        "simple_tables": true,
+        "smart": true,
+        "space_in_atx_header": true,
+        "spaced_reference_links": false,
+        "startnum": true,
+        "strikeout": true,
+        "subscript": true,
+        "superscript": true,
+        "table_attributes": true,
+        "table_captions": true,
+        "task_lists": true,
+        "tex_math_dollars": true,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": true
+      },
+      "defaults": [
+        "all_symbols_escapable",
+        "auto_identifiers",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "grid_tables",
+        "header_attributes",
+        "table_attributes",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "markdown_in_html_blocks",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "yaml_metadata_block"
+      ],
+      "name": "opml",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "citations": true,
+        "east_asian_line_breaks": false,
+        "fancy_lists": false,
+        "gfm_auto_identifiers": false,
+        "smart": false,
+        "smart_quotes": false,
+        "special_strings": true,
+        "task_lists": true
+      },
+      "defaults": [
+        "auto_identifiers",
+        "citations",
+        "special_strings",
+        "task_lists"
+      ],
+      "name": "org",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "citations",
+        "east_asian_line_breaks",
+        "fancy_lists",
+        "gfm_auto_identifiers",
+        "smart",
+        "smart_quotes",
+        "special_strings",
+        "task_lists"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "pdf",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "abbreviations": false,
+        "alerts": false,
+        "all_symbols_escapable": false,
+        "angle_brackets_escapable": false,
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "autolink_bare_uris": false,
+        "backtick_code_blocks": false,
+        "blank_before_blockquote": true,
+        "blank_before_header": true,
+        "bracketed_spans": false,
+        "citations": false,
+        "definition_lists": true,
+        "east_asian_line_breaks": false,
+        "emoji": false,
+        "escaped_line_breaks": false,
+        "example_lists": true,
+        "fancy_lists": true,
+        "fenced_code_attributes": false,
+        "fenced_code_blocks": false,
+        "fenced_divs": false,
+        "footnotes": false,
+        "four_space_rule": false,
+        "gfm_auto_identifiers": false,
+        "grid_tables": true,
+        "gutenberg": false,
+        "hard_line_breaks": false,
+        "header_attributes": false,
+        "ignore_line_breaks": false,
+        "implicit_figures": true,
+        "implicit_header_references": false,
+        "inline_code_attributes": false,
+        "inline_notes": false,
+        "intraword_underscores": true,
+        "latex_macros": true,
+        "line_blocks": false,
+        "link_attributes": false,
+        "lists_without_preceding_blankline": false,
+        "literate_haskell": false,
+        "mark": false,
+        "markdown_attribute": false,
+        "markdown_in_html_blocks": false,
+        "mmd_header_identifiers": false,
+        "mmd_link_attributes": false,
+        "mmd_title_block": false,
+        "multiline_tables": true,
+        "native_divs": false,
+        "native_spans": false,
+        "old_dashes": false,
+        "pandoc_title_block": false,
+        "pipe_tables": false,
+        "raw_attribute": false,
+        "raw_html": false,
+        "raw_tex": false,
+        "rebase_relative_paths": false,
+        "short_subsuperscripts": false,
+        "shortcut_reference_links": false,
+        "simple_tables": true,
+        "smart": false,
+        "space_in_atx_header": false,
+        "spaced_reference_links": false,
+        "startnum": true,
+        "strikeout": true,
+        "subscript": false,
+        "superscript": false,
+        "table_attributes": false,
+        "table_captions": true,
+        "task_lists": false,
+        "tex_math_dollars": false,
+        "tex_math_double_backslash": false,
+        "tex_math_single_backslash": false,
+        "wikilinks_title_after_pipe": false,
+        "wikilinks_title_before_pipe": false,
+        "yaml_metadata_block": false
+      },
+      "defaults": [
+        "blank_before_blockquote",
+        "blank_before_header",
+        "definition_lists",
+        "example_lists",
+        "fancy_lists",
+        "grid_tables",
+        "implicit_figures",
+        "intraword_underscores",
+        "latex_macros",
+        "multiline_tables",
+        "simple_tables",
+        "startnum",
+        "strikeout",
+        "table_captions"
+      ],
+      "name": "plain",
+      "supported": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "emoji",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "pod",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "pptx",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "revealjs",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "ris",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false,
+        "literate_haskell": false,
+        "smart": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "rst",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers",
+        "literate_haskell",
+        "smart"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "rtf",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "s5",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "slideous",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "slidy",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "t2t",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "tei",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "texinfo",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false,
+        "old_dashes": true,
+        "raw_html": true,
+        "raw_tex": false,
+        "smart": true
+      },
+      "defaults": [
+        "auto_identifiers",
+        "old_dashes",
+        "raw_html",
+        "smart"
+      ],
+      "name": "textile",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers",
+        "old_dashes",
+        "raw_tex",
+        "smart"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "tikiwiki",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "tsv",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false,
+        "smart": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "twiki",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers",
+        "smart"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": false,
+        "citations": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false,
+        "smart": true
+      },
+      "defaults": [
+        "citations",
+        "smart"
+      ],
+      "name": "typst",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "citations",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers",
+        "smart"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "unknown",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "vimdoc",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "ascii_identifiers": false,
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false,
+        "gfm_auto_identifiers": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "vimwiki",
+      "supported": [
+        "ascii_identifiers",
+        "auto_identifiers",
+        "east_asian_line_breaks",
+        "gfm_auto_identifiers"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "x.lua",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "xlsx",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "xml",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "xwiki",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "config": {
+        "auto_identifiers": true,
+        "east_asian_line_breaks": false
+      },
+      "defaults": [
+        "auto_identifiers"
+      ],
+      "name": "zimwiki",
+      "supported": [
+        "east_asian_line_breaks"
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "expected": false,
+      "input": [
+        "book.Rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "/tmp/book.Rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "..Rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "https://example.org/books/book.Rmd"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "book.adoc"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "/tmp/book.adoc"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "..adoc"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "https://example.org/books/book.adoc"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "book.asciidoc"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "/tmp/book.asciidoc"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "..asciidoc"
+      ]
+    },
+    {
+      "expected": "asciidoc",
+      "input": [
+        "https://example.org/books/book.asciidoc"
+      ]
+    },
+    {
+      "expected": "biblatex",
+      "input": [
+        "book.bib"
+      ]
+    },
+    {
+      "expected": "biblatex",
+      "input": [
+        "/tmp/book.bib"
+      ]
+    },
+    {
+      "expected": "biblatex",
+      "input": [
+        "..bib"
+      ]
+    },
+    {
+      "expected": "biblatex",
+      "input": [
+        "https://example.org/books/book.bib"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "book.context"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "/tmp/book.context"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "..context"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "https://example.org/books/book.context"
+      ]
+    },
+    {
+      "expected": "csv",
+      "input": [
+        "book.csv"
+      ]
+    },
+    {
+      "expected": "csv",
+      "input": [
+        "/tmp/book.csv"
+      ]
+    },
+    {
+      "expected": "csv",
+      "input": [
+        "..csv"
+      ]
+    },
+    {
+      "expected": "csv",
+      "input": [
+        "https://example.org/books/book.csv"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "book.ctx"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "/tmp/book.ctx"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "..ctx"
+      ]
+    },
+    {
+      "expected": "context",
+      "input": [
+        "https://example.org/books/book.ctx"
+      ]
+    },
+    {
+      "expected": "docbook",
+      "input": [
+        "book.db"
+      ]
+    },
+    {
+      "expected": "docbook",
+      "input": [
+        "/tmp/book.db"
+      ]
+    },
+    {
+      "expected": "docbook",
+      "input": [
+        "..db"
+      ]
+    },
+    {
+      "expected": "docbook",
+      "input": [
+        "https://example.org/books/book.db"
+      ]
+    },
+    {
+      "expected": "djot",
+      "input": [
+        "book.dj"
+      ]
+    },
+    {
+      "expected": "djot",
+      "input": [
+        "/tmp/book.dj"
+      ]
+    },
+    {
+      "expected": "djot",
+      "input": [
+        "..dj"
+      ]
+    },
+    {
+      "expected": "djot",
+      "input": [
+        "https://example.org/books/book.dj"
+      ]
+    },
+    {
+      "expected": "djvu",
+      "input": [
+        "book.djvu"
+      ]
+    },
+    {
+      "expected": "djvu",
+      "input": [
+        "/tmp/book.djvu"
+      ]
+    },
+    {
+      "expected": "djvu",
+      "input": [
+        "..djvu"
+      ]
+    },
+    {
+      "expected": "djvu",
+      "input": [
+        "https://example.org/books/book.djvu"
+      ]
+    },
+    {
+      "expected": "doc",
+      "input": [
+        "book.doc"
+      ]
+    },
+    {
+      "expected": "doc",
+      "input": [
+        "/tmp/book.doc"
+      ]
+    },
+    {
+      "expected": "doc",
+      "input": [
+        "..doc"
+      ]
+    },
+    {
+      "expected": "doc",
+      "input": [
+        "https://example.org/books/book.doc"
+      ]
+    },
+    {
+      "expected": "docx",
+      "input": [
+        "book.docx"
+      ]
+    },
+    {
+      "expected": "docx",
+      "input": [
+        "/tmp/book.docx"
+      ]
+    },
+    {
+      "expected": "docx",
+      "input": [
+        "..docx"
+      ]
+    },
+    {
+      "expected": "docx",
+      "input": [
+        "https://example.org/books/book.docx"
+      ]
+    },
+    {
+      "expected": "dokuwiki",
+      "input": [
+        "book.dokuwiki"
+      ]
+    },
+    {
+      "expected": "dokuwiki",
+      "input": [
+        "/tmp/book.dokuwiki"
+      ]
+    },
+    {
+      "expected": "dokuwiki",
+      "input": [
+        "..dokuwiki"
+      ]
+    },
+    {
+      "expected": "dokuwiki",
+      "input": [
+        "https://example.org/books/book.dokuwiki"
+      ]
+    },
+    {
+      "expected": "epub",
+      "input": [
+        "book.epub"
+      ]
+    },
+    {
+      "expected": "epub",
+      "input": [
+        "/tmp/book.epub"
+      ]
+    },
+    {
+      "expected": "epub",
+      "input": [
+        "..epub"
+      ]
+    },
+    {
+      "expected": "epub",
+      "input": [
+        "https://example.org/books/book.epub"
+      ]
+    },
+    {
+      "expected": "fb2",
+      "input": [
+        "book.fb2"
+      ]
+    },
+    {
+      "expected": "fb2",
+      "input": [
+        "/tmp/book.fb2"
+      ]
+    },
+    {
+      "expected": "fb2",
+      "input": [
+        "..fb2"
+      ]
+    },
+    {
+      "expected": "fb2",
+      "input": [
+        "https://example.org/books/book.fb2"
+      ]
+    },
+    {
+      "expected": "fodt",
+      "input": [
+        "book.fodt"
+      ]
+    },
+    {
+      "expected": "fodt",
+      "input": [
+        "/tmp/book.fodt"
+      ]
+    },
+    {
+      "expected": "fodt",
+      "input": [
+        "..fodt"
+      ]
+    },
+    {
+      "expected": "fodt",
+      "input": [
+        "https://example.org/books/book.fodt"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "book.htm"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "/tmp/book.htm"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "..htm"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "https://example.org/books/book.htm"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "book.html"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "/tmp/book.html"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "..html"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "https://example.org/books/book.html"
+      ]
+    },
+    {
+      "expected": "icml",
+      "input": [
+        "book.icml"
+      ]
+    },
+    {
+      "expected": "icml",
+      "input": [
+        "/tmp/book.icml"
+      ]
+    },
+    {
+      "expected": "icml",
+      "input": [
+        "..icml"
+      ]
+    },
+    {
+      "expected": "icml",
+      "input": [
+        "https://example.org/books/book.icml"
+      ]
+    },
+    {
+      "expected": "ipynb",
+      "input": [
+        "book.ipynb"
+      ]
+    },
+    {
+      "expected": "ipynb",
+      "input": [
+        "/tmp/book.ipynb"
+      ]
+    },
+    {
+      "expected": "ipynb",
+      "input": [
+        "..ipynb"
+      ]
+    },
+    {
+      "expected": "ipynb",
+      "input": [
+        "https://example.org/books/book.ipynb"
+      ]
+    },
+    {
+      "expected": "json",
+      "input": [
+        "book.json"
+      ]
+    },
+    {
+      "expected": "json",
+      "input": [
+        "/tmp/book.json"
+      ]
+    },
+    {
+      "expected": "json",
+      "input": [
+        "..json"
+      ]
+    },
+    {
+      "expected": "json",
+      "input": [
+        "https://example.org/books/book.json"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "book.latex"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "/tmp/book.latex"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "..latex"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "https://example.org/books/book.latex"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.lhs"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.lhs"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..lhs"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.lhs"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "book.ltx"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "/tmp/book.ltx"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "..ltx"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "https://example.org/books/book.ltx"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.markdown"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.markdown"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..markdown"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.markdown"
+      ]
+    },
+    {
+      "expected": "markua",
+      "input": [
+        "book.markua"
+      ]
+    },
+    {
+      "expected": "markua",
+      "input": [
+        "/tmp/book.markua"
+      ]
+    },
+    {
+      "expected": "markua",
+      "input": [
+        "..markua"
+      ]
+    },
+    {
+      "expected": "markua",
+      "input": [
+        "https://example.org/books/book.markua"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.mdown"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.mdown"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..mdown"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.mdown"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.mdwn"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.mdwn"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..mdwn"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.mdwn"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.mkd"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.mkd"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..mkd"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.mkd"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.mkdn"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.mkdn"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..mkdn"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.mkdn"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "book.ms"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "/tmp/book.ms"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "..ms"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "https://example.org/books/book.ms"
+      ]
+    },
+    {
+      "expected": "muse",
+      "input": [
+        "book.muse"
+      ]
+    },
+    {
+      "expected": "muse",
+      "input": [
+        "/tmp/book.muse"
+      ]
+    },
+    {
+      "expected": "muse",
+      "input": [
+        "..muse"
+      ]
+    },
+    {
+      "expected": "muse",
+      "input": [
+        "https://example.org/books/book.muse"
+      ]
+    },
+    {
+      "expected": "native",
+      "input": [
+        "book.native"
+      ]
+    },
+    {
+      "expected": "native",
+      "input": [
+        "/tmp/book.native"
+      ]
+    },
+    {
+      "expected": "native",
+      "input": [
+        "..native"
+      ]
+    },
+    {
+      "expected": "native",
+      "input": [
+        "https://example.org/books/book.native"
+      ]
+    },
+    {
+      "expected": "ods",
+      "input": [
+        "book.ods"
+      ]
+    },
+    {
+      "expected": "ods",
+      "input": [
+        "/tmp/book.ods"
+      ]
+    },
+    {
+      "expected": "ods",
+      "input": [
+        "..ods"
+      ]
+    },
+    {
+      "expected": "ods",
+      "input": [
+        "https://example.org/books/book.ods"
+      ]
+    },
+    {
+      "expected": "odp",
+      "input": [
+        "book.odp"
+      ]
+    },
+    {
+      "expected": "odp",
+      "input": [
+        "/tmp/book.odp"
+      ]
+    },
+    {
+      "expected": "odp",
+      "input": [
+        "..odp"
+      ]
+    },
+    {
+      "expected": "odp",
+      "input": [
+        "https://example.org/books/book.odp"
+      ]
+    },
+    {
+      "expected": "odf",
+      "input": [
+        "book.odf"
+      ]
+    },
+    {
+      "expected": "odf",
+      "input": [
+        "/tmp/book.odf"
+      ]
+    },
+    {
+      "expected": "odf",
+      "input": [
+        "..odf"
+      ]
+    },
+    {
+      "expected": "odf",
+      "input": [
+        "https://example.org/books/book.odf"
+      ]
+    },
+    {
+      "expected": "odt",
+      "input": [
+        "book.odt"
+      ]
+    },
+    {
+      "expected": "odt",
+      "input": [
+        "/tmp/book.odt"
+      ]
+    },
+    {
+      "expected": "odt",
+      "input": [
+        "..odt"
+      ]
+    },
+    {
+      "expected": "odt",
+      "input": [
+        "https://example.org/books/book.odt"
+      ]
+    },
+    {
+      "expected": "opml",
+      "input": [
+        "book.opml"
+      ]
+    },
+    {
+      "expected": "opml",
+      "input": [
+        "/tmp/book.opml"
+      ]
+    },
+    {
+      "expected": "opml",
+      "input": [
+        "..opml"
+      ]
+    },
+    {
+      "expected": "opml",
+      "input": [
+        "https://example.org/books/book.opml"
+      ]
+    },
+    {
+      "expected": "org",
+      "input": [
+        "book.org"
+      ]
+    },
+    {
+      "expected": "org",
+      "input": [
+        "/tmp/book.org"
+      ]
+    },
+    {
+      "expected": "org",
+      "input": [
+        "..org"
+      ]
+    },
+    {
+      "expected": "org",
+      "input": [
+        "https://example.org/books/book.org"
+      ]
+    },
+    {
+      "expected": "pdf",
+      "input": [
+        "book.pdf"
+      ]
+    },
+    {
+      "expected": "pdf",
+      "input": [
+        "/tmp/book.pdf"
+      ]
+    },
+    {
+      "expected": "pdf",
+      "input": [
+        "..pdf"
+      ]
+    },
+    {
+      "expected": "pdf",
+      "input": [
+        "https://example.org/books/book.pdf"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "book.pl"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "/tmp/book.pl"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "..pl"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "https://example.org/books/book.pl"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "book.pm"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "/tmp/book.pm"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "..pm"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "https://example.org/books/book.pm"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "book.pod"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "/tmp/book.pod"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "..pod"
+      ]
+    },
+    {
+      "expected": "pod",
+      "input": [
+        "https://example.org/books/book.pod"
+      ]
+    },
+    {
+      "expected": "pptx",
+      "input": [
+        "book.pptx"
+      ]
+    },
+    {
+      "expected": "pptx",
+      "input": [
+        "/tmp/book.pptx"
+      ]
+    },
+    {
+      "expected": "pptx",
+      "input": [
+        "..pptx"
+      ]
+    },
+    {
+      "expected": "pptx",
+      "input": [
+        "https://example.org/books/book.pptx"
+      ]
+    },
+    {
+      "expected": "ris",
+      "input": [
+        "book.ris"
+      ]
+    },
+    {
+      "expected": "ris",
+      "input": [
+        "/tmp/book.ris"
+      ]
+    },
+    {
+      "expected": "ris",
+      "input": [
+        "..ris"
+      ]
+    },
+    {
+      "expected": "ris",
+      "input": [
+        "https://example.org/books/book.ris"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "book.roff"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "/tmp/book.roff"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "..roff"
+      ]
+    },
+    {
+      "expected": "ms",
+      "input": [
+        "https://example.org/books/book.roff"
+      ]
+    },
+    {
+      "expected": "rst",
+      "input": [
+        "book.rst"
+      ]
+    },
+    {
+      "expected": "rst",
+      "input": [
+        "/tmp/book.rst"
+      ]
+    },
+    {
+      "expected": "rst",
+      "input": [
+        "..rst"
+      ]
+    },
+    {
+      "expected": "rst",
+      "input": [
+        "https://example.org/books/book.rst"
+      ]
+    },
+    {
+      "expected": "rtf",
+      "input": [
+        "book.rtf"
+      ]
+    },
+    {
+      "expected": "rtf",
+      "input": [
+        "/tmp/book.rtf"
+      ]
+    },
+    {
+      "expected": "rtf",
+      "input": [
+        "..rtf"
+      ]
+    },
+    {
+      "expected": "rtf",
+      "input": [
+        "https://example.org/books/book.rtf"
+      ]
+    },
+    {
+      "expected": "s5",
+      "input": [
+        "book.s5"
+      ]
+    },
+    {
+      "expected": "s5",
+      "input": [
+        "/tmp/book.s5"
+      ]
+    },
+    {
+      "expected": "s5",
+      "input": [
+        "..s5"
+      ]
+    },
+    {
+      "expected": "s5",
+      "input": [
+        "https://example.org/books/book.s5"
+      ]
+    },
+    {
+      "expected": "t2t",
+      "input": [
+        "book.t2t"
+      ]
+    },
+    {
+      "expected": "t2t",
+      "input": [
+        "/tmp/book.t2t"
+      ]
+    },
+    {
+      "expected": "t2t",
+      "input": [
+        "..t2t"
+      ]
+    },
+    {
+      "expected": "t2t",
+      "input": [
+        "https://example.org/books/book.t2t"
+      ]
+    },
+    {
+      "expected": "tei",
+      "input": [
+        "book.tei"
+      ]
+    },
+    {
+      "expected": "tei",
+      "input": [
+        "/tmp/book.tei"
+      ]
+    },
+    {
+      "expected": "tei",
+      "input": [
+        "..tei"
+      ]
+    },
+    {
+      "expected": "tei",
+      "input": [
+        "https://example.org/books/book.tei"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "book.tex"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "/tmp/book.tex"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "..tex"
+      ]
+    },
+    {
+      "expected": "latex",
+      "input": [
+        "https://example.org/books/book.tex"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "book.texi"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "/tmp/book.texi"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "..texi"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "https://example.org/books/book.texi"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "book.texinfo"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "/tmp/book.texinfo"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "..texinfo"
+      ]
+    },
+    {
+      "expected": "texinfo",
+      "input": [
+        "https://example.org/books/book.texinfo"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.text"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.text"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..text"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.text"
+      ]
+    },
+    {
+      "expected": "textile",
+      "input": [
+        "book.textile"
+      ]
+    },
+    {
+      "expected": "textile",
+      "input": [
+        "/tmp/book.textile"
+      ]
+    },
+    {
+      "expected": "textile",
+      "input": [
+        "..textile"
+      ]
+    },
+    {
+      "expected": "textile",
+      "input": [
+        "https://example.org/books/book.textile"
+      ]
+    },
+    {
+      "expected": "tsv",
+      "input": [
+        "book.tsv"
+      ]
+    },
+    {
+      "expected": "tsv",
+      "input": [
+        "/tmp/book.tsv"
+      ]
+    },
+    {
+      "expected": "tsv",
+      "input": [
+        "..tsv"
+      ]
+    },
+    {
+      "expected": "tsv",
+      "input": [
+        "https://example.org/books/book.tsv"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "book.txt"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "/tmp/book.txt"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "..txt"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/books/book.txt"
+      ]
+    },
+    {
+      "expected": "typst",
+      "input": [
+        "book.typ"
+      ]
+    },
+    {
+      "expected": "typst",
+      "input": [
+        "/tmp/book.typ"
+      ]
+    },
+    {
+      "expected": "typst",
+      "input": [
+        "..typ"
+      ]
+    },
+    {
+      "expected": "typst",
+      "input": [
+        "https://example.org/books/book.typ"
+      ]
+    },
+    {
+      "expected": "mediawiki",
+      "input": [
+        "book.wiki"
+      ]
+    },
+    {
+      "expected": "mediawiki",
+      "input": [
+        "/tmp/book.wiki"
+      ]
+    },
+    {
+      "expected": "mediawiki",
+      "input": [
+        "..wiki"
+      ]
+    },
+    {
+      "expected": "mediawiki",
+      "input": [
+        "https://example.org/books/book.wiki"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "book.xhtml"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "/tmp/book.xhtml"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "..xhtml"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "https://example.org/books/book.xhtml"
+      ]
+    },
+    {
+      "expected": "xls",
+      "input": [
+        "book.xls"
+      ]
+    },
+    {
+      "expected": "xls",
+      "input": [
+        "/tmp/book.xls"
+      ]
+    },
+    {
+      "expected": "xls",
+      "input": [
+        "..xls"
+      ]
+    },
+    {
+      "expected": "xls",
+      "input": [
+        "https://example.org/books/book.xls"
+      ]
+    },
+    {
+      "expected": "xlsx",
+      "input": [
+        "book.xlsx"
+      ]
+    },
+    {
+      "expected": "xlsx",
+      "input": [
+        "/tmp/book.xlsx"
+      ]
+    },
+    {
+      "expected": "xlsx",
+      "input": [
+        "..xlsx"
+      ]
+    },
+    {
+      "expected": "xlsx",
+      "input": [
+        "https://example.org/books/book.xlsx"
+      ]
+    },
+    {
+      "expected": "xml",
+      "input": [
+        "book.xml"
+      ]
+    },
+    {
+      "expected": "xml",
+      "input": [
+        "/tmp/book.xml"
+      ]
+    },
+    {
+      "expected": "xml",
+      "input": [
+        "..xml"
+      ]
+    },
+    {
+      "expected": "xml",
+      "input": [
+        "https://example.org/books/book.xml"
+      ]
+    },
+    {
+      "expected": "zip",
+      "input": [
+        "book.zip"
+      ]
+    },
+    {
+      "expected": "zip",
+      "input": [
+        "/tmp/book.zip"
+      ]
+    },
+    {
+      "expected": "zip",
+      "input": [
+        "..zip"
+      ]
+    },
+    {
+      "expected": "zip",
+      "input": [
+        "https://example.org/books/book.zip"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "book.1"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "/tmp/book.1"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "..1"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "https://example.org/books/book.1"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "book.9"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "/tmp/book.9"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "..9"
+      ]
+    },
+    {
+      "expected": "man",
+      "input": [
+        "https://example.org/books/book.9"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "book.0"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "/tmp/book.0"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "..0"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "https://example.org/books/book.0"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "book.10"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "/tmp/book.10"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "..10"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "https://example.org/books/book.10"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "book.unknown"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "/tmp/book.unknown"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "..unknown"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "https://example.org/books/book.unknown"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "book.rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "/tmp/book.rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "..rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "https://example.org/books/book.rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        ""
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "/"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "https://example.org"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "https://example.org/"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "https://example.org/?x=.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/a.md?x=.html#file.epub"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "https://example.org/a%2Emd"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/a.MD"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/é.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "https://example.org/a b.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "mailto:a.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "data:a.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "file:///a.md"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "//example.org/a.md?x=.html"
+      ]
+    },
+    {
+      "expected": "html",
+      "input": [
+        "a.md?x=.html"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "/a.md/"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "a.md/."
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "a\\b.md"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "a.MD"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "a.Rmd"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "a.rmd"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        ".md"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        ".."
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "foo."
+      ]
+    },
+    {
+      "expected": "ipynb",
+      "input": [
+        "a.İPYNB"
+      ]
+    },
+    {
+      "expected": "markdown",
+      "input": [
+        "a.unknown",
+        "b.md",
+        "c.rst"
+      ]
+    },
+    {
+      "expected": "rst",
+      "input": [
+        "a.rst",
+        "b.md"
+      ]
+    },
+    {
+      "expected": false,
+      "input": [
+        "a.unknown"
+      ]
+    },
+    {
+      "expected": false,
+      "input": []
+    }
+  ],
+  "read": [
+    {
+      "expected": [
+        "abbreviations"
+      ],
+      "input": [
+        "abbreviations"
+      ]
+    },
+    {
+      "expected": [
+        "alerts"
+      ],
+      "input": [
+        "alerts"
+      ]
+    },
+    {
+      "expected": [
+        "all_symbols_escapable"
+      ],
+      "input": [
+        "all_symbols_escapable"
+      ]
+    },
+    {
+      "expected": [
+        "amuse"
+      ],
+      "input": [
+        "amuse"
+      ]
+    },
+    {
+      "expected": [
+        "angle_brackets_escapable"
+      ],
+      "input": [
+        "angle_brackets_escapable"
+      ]
+    },
+    {
+      "expected": [
+        "ascii_identifiers"
+      ],
+      "input": [
+        "ascii_identifiers"
+      ]
+    },
+    {
+      "expected": [
+        "auto_identifiers"
+      ],
+      "input": [
+        "auto_identifiers"
+      ]
+    },
+    {
+      "expected": [
+        "attributes"
+      ],
+      "input": [
+        "attributes"
+      ]
+    },
+    {
+      "expected": [
+        "auto_identifiers"
+      ],
+      "input": [
+        "auto_identifiers"
+      ]
+    },
+    {
+      "expected": [
+        "autolink_bare_uris"
+      ],
+      "input": [
+        "autolink_bare_uris"
+      ]
+    },
+    {
+      "expected": [
+        "backtick_code_blocks"
+      ],
+      "input": [
+        "backtick_code_blocks"
+      ]
+    },
+    {
+      "expected": [
+        "blank_before_blockquote"
+      ],
+      "input": [
+        "blank_before_blockquote"
+      ]
+    },
+    {
+      "expected": [
+        "blank_before_header"
+      ],
+      "input": [
+        "blank_before_header"
+      ]
+    },
+    {
+      "expected": [
+        "bracketed_spans"
+      ],
+      "input": [
+        "bracketed_spans"
+      ]
+    },
+    {
+      "expected": [
+        "citations"
+      ],
+      "input": [
+        "citations"
+      ]
+    },
+    {
+      "expected": [
+        "definition_lists"
+      ],
+      "input": [
+        "definition_lists"
+      ]
+    },
+    {
+      "expected": [
+        "east_asian_line_breaks"
+      ],
+      "input": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "expected": [
+        "element_citations"
+      ],
+      "input": [
+        "element_citations"
+      ]
+    },
+    {
+      "expected": [
+        "emoji"
+      ],
+      "input": [
+        "emoji"
+      ]
+    },
+    {
+      "expected": [
+        "empty_paragraphs"
+      ],
+      "input": [
+        "empty_paragraphs"
+      ]
+    },
+    {
+      "expected": [
+        "epub_html_exts"
+      ],
+      "input": [
+        "epub_html_exts"
+      ]
+    },
+    {
+      "expected": [
+        "escaped_line_breaks"
+      ],
+      "input": [
+        "escaped_line_breaks"
+      ]
+    },
+    {
+      "expected": [
+        "example_lists"
+      ],
+      "input": [
+        "example_lists"
+      ]
+    },
+    {
+      "expected": [
+        "fancy_lists"
+      ],
+      "input": [
+        "fancy_lists"
+      ]
+    },
+    {
+      "expected": [
+        "fenced_code_attributes"
+      ],
+      "input": [
+        "fenced_code_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "fenced_code_blocks"
+      ],
+      "input": [
+        "fenced_code_blocks"
+      ]
+    },
+    {
+      "expected": [
+        "fenced_divs"
+      ],
+      "input": [
+        "fenced_divs"
+      ]
+    },
+    {
+      "expected": [
+        "footnotes"
+      ],
+      "input": [
+        "footnotes"
+      ]
+    },
+    {
+      "expected": [
+        "four_space_rule"
+      ],
+      "input": [
+        "four_space_rule"
+      ]
+    },
+    {
+      "expected": [
+        "gfm_auto_identifiers"
+      ],
+      "input": [
+        "gfm_auto_identifiers"
+      ]
+    },
+    {
+      "expected": [
+        "auto_identifiers"
+      ],
+      "input": [
+        "auto_identifiers"
+      ]
+    },
+    {
+      "expected": [
+        "grid_tables"
+      ],
+      "input": [
+        "grid_tables"
+      ]
+    },
+    {
+      "expected": [
+        "gutenberg"
+      ],
+      "input": [
+        "gutenberg"
+      ]
+    },
+    {
+      "expected": [
+        "hard_line_breaks"
+      ],
+      "input": [
+        "hard_line_breaks"
+      ]
+    },
+    {
+      "expected": [
+        "header_attributes"
+      ],
+      "input": [
+        "header_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "table_attributes"
+      ],
+      "input": [
+        "table_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "ignore_line_breaks"
+      ],
+      "input": [
+        "ignore_line_breaks"
+      ]
+    },
+    {
+      "expected": [
+        "implicit_figures"
+      ],
+      "input": [
+        "implicit_figures"
+      ]
+    },
+    {
+      "expected": [
+        "implicit_header_references"
+      ],
+      "input": [
+        "implicit_header_references"
+      ]
+    },
+    {
+      "expected": [
+        "inline_code_attributes"
+      ],
+      "input": [
+        "inline_code_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "inline_notes"
+      ],
+      "input": [
+        "inline_notes"
+      ]
+    },
+    {
+      "expected": [
+        "intraword_underscores"
+      ],
+      "input": [
+        "intraword_underscores"
+      ]
+    },
+    {
+      "expected": [
+        "latex_macros"
+      ],
+      "input": [
+        "latex_macros"
+      ]
+    },
+    {
+      "expected": [
+        "line_blocks"
+      ],
+      "input": [
+        "line_blocks"
+      ]
+    },
+    {
+      "expected": [
+        "link_attributes"
+      ],
+      "input": [
+        "link_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "lists_without_preceding_blankline"
+      ],
+      "input": [
+        "lists_without_preceding_blankline"
+      ]
+    },
+    {
+      "expected": [
+        "literate_haskell"
+      ],
+      "input": [
+        "literate_haskell"
+      ]
+    },
+    {
+      "expected": [
+        "mark"
+      ],
+      "input": [
+        "mark"
+      ]
+    },
+    {
+      "expected": [
+        "markdown_attribute"
+      ],
+      "input": [
+        "markdown_attribute"
+      ]
+    },
+    {
+      "expected": [
+        "markdown_in_html_blocks"
+      ],
+      "input": [
+        "markdown_in_html_blocks"
+      ]
+    },
+    {
+      "expected": [
+        "mmd_header_identifiers"
+      ],
+      "input": [
+        "mmd_header_identifiers"
+      ]
+    },
+    {
+      "expected": [
+        "mmd_link_attributes"
+      ],
+      "input": [
+        "mmd_link_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "mmd_title_block"
+      ],
+      "input": [
+        "mmd_title_block"
+      ]
+    },
+    {
+      "expected": [
+        "multiline_tables"
+      ],
+      "input": [
+        "multiline_tables"
+      ]
+    },
+    {
+      "expected": [
+        "native_divs"
+      ],
+      "input": [
+        "native_divs"
+      ]
+    },
+    {
+      "expected": [
+        "native_spans"
+      ],
+      "input": [
+        "native_spans"
+      ]
+    },
+    {
+      "expected": [
+        "native_numbering"
+      ],
+      "input": [
+        "native_numbering"
+      ]
+    },
+    {
+      "expected": [
+        "ntb"
+      ],
+      "input": [
+        "ntb"
+      ]
+    },
+    {
+      "expected": [
+        "old_dashes"
+      ],
+      "input": [
+        "old_dashes"
+      ]
+    },
+    {
+      "expected": [
+        "pandoc_title_block"
+      ],
+      "input": [
+        "pandoc_title_block"
+      ]
+    },
+    {
+      "expected": [
+        "pipe_tables"
+      ],
+      "input": [
+        "pipe_tables"
+      ]
+    },
+    {
+      "expected": [
+        "raw_attribute"
+      ],
+      "input": [
+        "raw_attribute"
+      ]
+    },
+    {
+      "expected": [
+        "raw_html"
+      ],
+      "input": [
+        "raw_html"
+      ]
+    },
+    {
+      "expected": [
+        "raw_tex"
+      ],
+      "input": [
+        "raw_tex"
+      ]
+    },
+    {
+      "expected": [
+        "raw_markdown"
+      ],
+      "input": [
+        "raw_markdown"
+      ]
+    },
+    {
+      "expected": [
+        "rebase_relative_paths"
+      ],
+      "input": [
+        "rebase_relative_paths"
+      ]
+    },
+    {
+      "expected": [
+        "short_subsuperscripts"
+      ],
+      "input": [
+        "short_subsuperscripts"
+      ]
+    },
+    {
+      "expected": [
+        "shortcut_reference_links"
+      ],
+      "input": [
+        "shortcut_reference_links"
+      ]
+    },
+    {
+      "expected": [
+        "simple_tables"
+      ],
+      "input": [
+        "simple_tables"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart"
+      ]
+    },
+    {
+      "expected": [
+        "smart_quotes"
+      ],
+      "input": [
+        "smart_quotes"
+      ]
+    },
+    {
+      "expected": [
+        "special_strings"
+      ],
+      "input": [
+        "special_strings"
+      ]
+    },
+    {
+      "expected": [
+        "sourcepos"
+      ],
+      "input": [
+        "sourcepos"
+      ]
+    },
+    {
+      "expected": [
+        "space_in_atx_header"
+      ],
+      "input": [
+        "space_in_atx_header"
+      ]
+    },
+    {
+      "expected": [
+        "spaced_reference_links"
+      ],
+      "input": [
+        "spaced_reference_links"
+      ]
+    },
+    {
+      "expected": [
+        "startnum"
+      ],
+      "input": [
+        "startnum"
+      ]
+    },
+    {
+      "expected": [
+        "strikeout"
+      ],
+      "input": [
+        "strikeout"
+      ]
+    },
+    {
+      "expected": [
+        "subscript"
+      ],
+      "input": [
+        "subscript"
+      ]
+    },
+    {
+      "expected": [
+        "superscript"
+      ],
+      "input": [
+        "superscript"
+      ]
+    },
+    {
+      "expected": [
+        "styles"
+      ],
+      "input": [
+        "styles"
+      ]
+    },
+    {
+      "expected": [
+        "tagging"
+      ],
+      "input": [
+        "tagging"
+      ]
+    },
+    {
+      "expected": [
+        "task_lists"
+      ],
+      "input": [
+        "task_lists"
+      ]
+    },
+    {
+      "expected": [
+        "table_captions"
+      ],
+      "input": [
+        "table_captions"
+      ]
+    },
+    {
+      "expected": [
+        "tex_math_dollars"
+      ],
+      "input": [
+        "tex_math_dollars"
+      ]
+    },
+    {
+      "expected": [
+        "tex_math_gfm"
+      ],
+      "input": [
+        "tex_math_gfm"
+      ]
+    },
+    {
+      "expected": [
+        "tex_math_double_backslash"
+      ],
+      "input": [
+        "tex_math_double_backslash"
+      ]
+    },
+    {
+      "expected": [
+        "tex_math_single_backslash"
+      ],
+      "input": [
+        "tex_math_single_backslash"
+      ]
+    },
+    {
+      "expected": [
+        "wikilinks_title_after_pipe"
+      ],
+      "input": [
+        "wikilinks_title_after_pipe"
+      ]
+    },
+    {
+      "expected": [
+        "wikilinks_title_before_pipe"
+      ],
+      "input": [
+        "wikilinks_title_before_pipe"
+      ]
+    },
+    {
+      "expected": [
+        "xrefs_name"
+      ],
+      "input": [
+        "xrefs_name"
+      ]
+    },
+    {
+      "expected": [
+        "xrefs_number"
+      ],
+      "input": [
+        "xrefs_number"
+      ]
+    },
+    {
+      "expected": [
+        "yaml_metadata_block"
+      ],
+      "input": [
+        "yaml_metadata_block"
+      ]
+    },
+    {
+      "expected": [
+        "literate_haskell"
+      ],
+      "input": [
+        "lhs"
+      ]
+    },
+    {
+      "expected": [
+        "lhs "
+      ],
+      "input": [
+        "lhs "
+      ]
+    },
+    {
+      "expected": [
+        " smart"
+      ],
+      "input": [
+        " smart"
+      ]
+    },
+    {
+      "expected": [
+        "SMART"
+      ],
+      "input": [
+        "SMART"
+      ]
+    },
+    {
+      "expected": [
+        "smart()"
+      ],
+      "input": [
+        "smart()"
+      ]
+    },
+    {
+      "expected": [
+        "(smart)"
+      ],
+      "input": [
+        "(smart)"
+      ]
+    },
+    {
+      "expected": [
+        "smart -- comment"
+      ],
+      "input": [
+        "smart -- comment"
+      ]
+    },
+    {
+      "expected": [
+        "smart {- comment -}"
+      ],
+      "input": [
+        "smart {- comment -}"
+      ]
+    },
+    {
+      "expected": [
+        ""
+      ],
+      "input": [
+        ""
+      ]
+    },
+    {
+      "expected": [
+        "custom"
+      ],
+      "input": [
+        "custom"
+      ]
+    },
+    {
+      "expected": [
+        "😀"
+      ],
+      "input": [
+        "😀"
+      ]
+    },
+    {
+      "expected": [
+        ""
+      ],
+      "input": [
+        ""
+      ]
+    },
+    {
+      "expected": [
+        "table_attributes"
+      ],
+      "input": [
+        "table_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "header_attributes"
+      ],
+      "input": [
+        "header_attributes"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart\t"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart\n"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart\u000b"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart\f"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart\r"
+      ]
+    },
+    {
+      "expected": [
+        "smart\u001c"
+      ],
+      "input": [
+        "smart\u001c"
+      ]
+    },
+    {
+      "expected": [
+        "smart\u001d"
+      ],
+      "input": [
+        "smart\u001d"
+      ]
+    },
+    {
+      "expected": [
+        "smart\u001e"
+      ],
+      "input": [
+        "smart\u001e"
+      ]
+    },
+    {
+      "expected": [
+        "smart\u001f"
+      ],
+      "input": [
+        "smart\u001f"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart᠎"
+      ],
+      "input": [
+        "smart᠎"
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart​"
+      ],
+      "input": [
+        "smart​"
+      ]
+    },
+    {
+      "expected": [
+        "smart "
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart "
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "smart"
+      ],
+      "input": [
+        "smart　"
+      ]
+    },
+    {
+      "expected": [
+        "abbreviations",
+        "alerts",
+        "all_symbols_escapable",
+        "amuse",
+        "angle_brackets_escapable",
+        "ascii_identifiers",
+        "attributes",
+        "auto_identifiers",
+        "autolink_bare_uris",
+        "backtick_code_blocks",
+        "blank_before_blockquote",
+        "blank_before_header",
+        "bracketed_spans",
+        "citations",
+        "definition_lists",
+        "east_asian_line_breaks",
+        "element_citations",
+        "emoji",
+        "empty_paragraphs",
+        "epub_html_exts",
+        "escaped_line_breaks",
+        "example_lists",
+        "fancy_lists",
+        "fenced_code_attributes",
+        "fenced_code_blocks",
+        "fenced_divs",
+        "footnotes",
+        "four_space_rule",
+        "gfm_auto_identifiers",
+        "grid_tables",
+        "gutenberg",
+        "hard_line_breaks",
+        "header_attributes",
+        "table_attributes",
+        "ignore_line_breaks",
+        "implicit_figures",
+        "implicit_header_references",
+        "inline_code_attributes",
+        "inline_notes",
+        "intraword_underscores",
+        "latex_macros",
+        "line_blocks",
+        "link_attributes",
+        "lists_without_preceding_blankline",
+        "literate_haskell",
+        "mark",
+        "markdown_attribute",
+        "markdown_in_html_blocks",
+        "mmd_header_identifiers",
+        "mmd_link_attributes",
+        "mmd_title_block",
+        "multiline_tables",
+        "native_divs",
+        "native_spans",
+        "native_numbering",
+        "ntb",
+        "old_dashes",
+        "pandoc_title_block",
+        "pipe_tables",
+        "raw_attribute",
+        "raw_html",
+        "raw_tex",
+        "raw_markdown",
+        "rebase_relative_paths",
+        "short_subsuperscripts",
+        "shortcut_reference_links",
+        "simple_tables",
+        "smart",
+        "smart_quotes",
+        "special_strings",
+        "sourcepos",
+        "space_in_atx_header",
+        "spaced_reference_links",
+        "startnum",
+        "strikeout",
+        "subscript",
+        "superscript",
+        "styles",
+        "tagging",
+        "task_lists",
+        "table_captions",
+        "tex_math_dollars",
+        "tex_math_gfm",
+        "tex_math_double_backslash",
+        "tex_math_single_backslash",
+        "wikilinks_title_after_pipe",
+        "wikilinks_title_before_pipe",
+        "xrefs_name",
+        "xrefs_number",
+        "yaml_metadata_block",
+        "custom",
+        "",
+        "😀"
+      ],
+      "input": [
+        "yaml_metadata_block",
+        "xrefs_number",
+        "xrefs_name",
+        "wikilinks_title_before_pipe",
+        "wikilinks_title_after_pipe",
+        "tex_math_single_backslash",
+        "tex_math_double_backslash",
+        "tex_math_gfm",
+        "tex_math_dollars",
+        "table_captions",
+        "task_lists",
+        "tagging",
+        "styles",
+        "superscript",
+        "subscript",
+        "strikeout",
+        "startnum",
+        "spaced_reference_links",
+        "space_in_atx_header",
+        "sourcepos",
+        "special_strings",
+        "smart_quotes",
+        "smart",
+        "simple_tables",
+        "shortcut_reference_links",
+        "short_subsuperscripts",
+        "rebase_relative_paths",
+        "raw_markdown",
+        "raw_tex",
+        "raw_html",
+        "raw_attribute",
+        "pipe_tables",
+        "pandoc_title_block",
+        "old_dashes",
+        "ntb",
+        "native_numbering",
+        "native_spans",
+        "native_divs",
+        "multiline_tables",
+        "mmd_title_block",
+        "mmd_link_attributes",
+        "mmd_header_identifiers",
+        "markdown_in_html_blocks",
+        "markdown_attribute",
+        "mark",
+        "literate_haskell",
+        "lists_without_preceding_blankline",
+        "link_attributes",
+        "line_blocks",
+        "latex_macros",
+        "intraword_underscores",
+        "inline_notes",
+        "inline_code_attributes",
+        "implicit_header_references",
+        "implicit_figures",
+        "ignore_line_breaks",
+        "table_attributes",
+        "header_attributes",
+        "hard_line_breaks",
+        "gutenberg",
+        "grid_tables",
+        "auto_identifiers",
+        "gfm_auto_identifiers",
+        "four_space_rule",
+        "footnotes",
+        "fenced_divs",
+        "fenced_code_blocks",
+        "fenced_code_attributes",
+        "fancy_lists",
+        "example_lists",
+        "escaped_line_breaks",
+        "epub_html_exts",
+        "empty_paragraphs",
+        "emoji",
+        "element_citations",
+        "east_asian_line_breaks",
+        "definition_lists",
+        "citations",
+        "bracketed_spans",
+        "blank_before_header",
+        "blank_before_blockquote",
+        "backtick_code_blocks",
+        "autolink_bare_uris",
+        "auto_identifiers",
+        "attributes",
+        "auto_identifiers",
+        "ascii_identifiers",
+        "angle_brackets_escapable",
+        "amuse",
+        "all_symbols_escapable",
+        "alerts",
+        "abbreviations",
+        "custom",
+        "😀",
+        "",
+        "lhs",
+        "smart "
+      ]
+    },
+    {
+      "expected": [
+        "literate_haskell",
+        "smart"
+      ],
+      "input": [
+        "smart",
+        "smart ",
+        "lhs",
+        "literate_haskell",
+        "smart\t"
+      ]
+    },
+    {
+      "expected": [
+        "",
+        "custom",
+        "other"
+      ],
+      "input": [
+        "custom",
+        "custom",
+        "other",
+        ""
+      ]
+    }
+  ],
+  "specs": [
+    {
+      "spec": "",
+      "accepted": false,
+      "error": "Error parsing format '': (line 1, column 1):\nunexpected end of input"
+    },
+    {
+      "spec": "+smart",
+      "accepted": false,
+      "error": "Error parsing format '+smart': (line 1, column 1):\nunexpected '+'"
+    },
+    {
+      "spec": "-smart",
+      "accepted": false,
+      "error": "Error parsing format '-smart': (line 1, column 1):\nunexpected '-'"
+    },
+    {
+      "spec": "native",
+      "accepted": true,
+      "error": ""
+    },
+    {
+      "spec": "NATIVE",
+      "accepted": true,
+      "error": ""
+    },
+    {
+      "spec": "native+east_asian_line_breaks",
+      "accepted": true,
+      "error": ""
+    },
+    {
+      "spec": "native-east_asian_line_breaks",
+      "accepted": true,
+      "error": ""
+    },
+    {
+      "spec": "native+east_asian_line_breaks-east_asian_line_breaks",
+      "accepted": true,
+      "error": ""
+    },
+    {
+      "spec": "native-east_asian_line_breaks+east_asian_line_breaks",
+      "accepted": true,
+      "error": ""
+    },
+    {
+      "spec": "native+",
+      "accepted": false,
+      "error": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions."
+    },
+    {
+      "spec": "native++",
+      "accepted": false,
+      "error": "The extension '' is not supported for native.\nUse --list-extensions=native to list supported extensions."
+    },
+    {
+      "spec": "native+smart",
+      "accepted": false,
+      "error": "The extension 'smart' is not supported for native.\nUse --list-extensions=native to list supported extensions."
+    },
+    {
+      "spec": "native+z+table_attributes+header_attributes",
+      "accepted": false,
+      "error": "The extension 'header_attributes' is not supported for native.\nUse --list-extensions=native to list supported extensions."
+    },
+    {
+      "spec": "native+SMART",
+      "accepted": false,
+      "error": "The extension 'smart' is not supported for native.\nUse --list-extensions=native to list supported extensions."
+    },
+    {
+      "spec": "native+lhs",
+      "accepted": false,
+      "error": "The extension 'literate_haskell' is not supported for native.\nUse --list-extensions=native to list supported extensions."
+    },
+    {
+      "spec": "native+smart ",
+      "accepted": false,
+      "error": "The extension 'smart' is not supported for native.\nUse --list-extensions=native to list supported extensions."
+    },
+    {
+      "spec": "native+foo.bar",
+      "accepted": false,
+      "error": "Unknown input format 'native+foo.bar'"
+    }
+  ],
+  "custom": [
+    {
+      "suffix": "",
+      "accepted": true,
+      "expected": [
+        "smart"
+      ]
+    },
+    {
+      "suffix": "+smart",
+      "accepted": true,
+      "expected": [
+        "smart"
+      ]
+    },
+    {
+      "suffix": "-smart",
+      "accepted": true,
+      "expected": []
+    },
+    {
+      "suffix": "+smart-smart",
+      "accepted": true,
+      "expected": [
+        "smart"
+      ]
+    },
+    {
+      "suffix": "-smart+smart",
+      "accepted": true,
+      "expected": [
+        "smart"
+      ]
+    },
+    {
+      "suffix": "+citations",
+      "accepted": true,
+      "expected": [
+        "citations",
+        "smart"
+      ]
+    },
+    {
+      "suffix": "-citations+citations-citations",
+      "accepted": true,
+      "expected": [
+        "citations",
+        "smart"
+      ]
+    },
+    {
+      "suffix": "+custom",
+      "accepted": true,
+      "expected": [
+        "smart",
+        "custom"
+      ]
+    },
+    {
+      "suffix": "+custom-custom",
+      "accepted": true,
+      "expected": [
+        "smart",
+        "custom"
+      ]
+    },
+    {
+      "suffix": "+east_asian_line_breaks-smart",
+      "accepted": true,
+      "expected": [
+        "east_asian_line_breaks"
+      ]
+    },
+    {
+      "suffix": "+SMART",
+      "accepted": false,
+      "error": "The extension 'SMART' is not supported for custom-reader+name.lua.\nUse --list-extensions=custom-reader+name.lua to list supported extensions."
+    },
+    {
+      "suffix": "+unknown",
+      "accepted": false,
+      "error": "The extension 'unknown' is not supported for custom-reader+name.lua.\nUse --list-extensions=custom-reader+name.lua to list supported extensions."
+    },
+    {
+      "suffix": "+",
+      "accepted": false,
+      "error": "The extension '' is not supported for custom-reader+name.lua.\nUse --list-extensions=custom-reader+name.lua to list supported extensions."
+    },
+    {
+      "suffix": "++smart",
+      "accepted": false,
+      "error": "The extension '' is not supported for custom-reader+name.lua.\nUse --list-extensions=custom-reader+name.lua to list supported extensions."
+    }
+  ],
+  "sources": {
+    "upstream/pandoc/src/Text/Pandoc/Extensions.hs": "aff8e4128451626756b736111a1151abcfc2ba8cfd35e09fcc3186cf95c07976",
+    "upstream/pandoc/src/Text/Pandoc/Format.hs": "5acad750957556a3d5684cebce8952645115b701a6ff117a3547b591d3c7f77c",
+    "upstream/pandoc/pandoc-lua-engine/src/Text/Pandoc/Lua/Marshal/Format.hs": "6f72a17fb3d8348b0776c82a77708ed26f8293e1eba45b5395f98429febc0777",
+    "upstream/pandoc/pandoc-lua-engine/src/Text/Pandoc/Lua/Module/Format.hs": "56505900f836543749b86fbfe76edf78212e62b92d00998c024cbea3fcbc8701",
+    "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-format.lua": "d00ae4c43fab82d52a117066714365c5db11f3f6e21a8a80f76fa1f32129e7e6"
+  }
+}

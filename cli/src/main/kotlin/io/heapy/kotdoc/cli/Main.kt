@@ -7,6 +7,10 @@ import io.heapy.kotdoc.formats.NativeReader
 import io.heapy.kotdoc.formats.NativeWriter
 import io.heapy.kotdoc.formats.ReaderMessage
 import io.heapy.kotdoc.formats.WriterMessage
+import io.heapy.kotdoc.options.ExtensionRegistry
+import io.heapy.kotdoc.options.FlavoredFormat
+import io.heapy.kotdoc.options.FormatSpecificationException
+import io.heapy.kotdoc.options.UnsupportedExtensionException
 import io.heapy.kotdoc.resources.MediaBag
 import io.heapy.kotdoc.resources.MediaOperations
 import io.heapy.kotdoc.resources.ResourceContext
@@ -52,6 +56,8 @@ fun main(args: Array<String>) {
                 "--extract-media" -> extractMedia = args.getOrNull(i++) ?: error("Missing media output path")
                 "--resource-path" -> addResourcePaths(args.getOrNull(i++) ?: error("Missing resource search path"))
                 else -> {
+                    if (arg.startsWith("--from=")) { from = arg.substringAfter('='); continue }
+                    if (arg.startsWith("--to=")) { to = arg.substringAfter('='); continue }
                     if (arg.startsWith("--columns=")) { columns = arg.substringAfter('=').toInt(); continue }
                     if (arg.startsWith("--extract-media=")) { extractMedia = arg.substringAfter('='); continue }
                     if (arg.startsWith("--resource-path=")) { addResourcePaths(arg.substringAfter('=')); continue }
@@ -61,7 +67,13 @@ fun main(args: Array<String>) {
                 }
             }
         }
-        require(from in listOf("fb2", "json", "native") && to in listOf("fb2", "json", "native")) { "Supported input/output formats: fb2, json, native (requested $from -> $to)" }
+        val inputFormat = FlavoredFormat.parse(from)
+        val outputFormat = FlavoredFormat.parse(to)
+        require(inputFormat.name in listOf("fb2", "json", "native") && outputFormat.name in listOf("fb2", "json", "native")) { "Supported input/output formats: fb2, json, native (requested $from -> $to)" }
+        ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
+        ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
+        from = inputFormat.name
+        to = outputFormat.name
         require(columns > 0) { "Column count must be positive" }
         val text = if (input == null || input == "-") System.`in`.bufferedReader(Charsets.UTF_8).readText() else File(input).readText()
         val media = MediaBag()
@@ -93,6 +105,12 @@ fun main(args: Array<String>) {
         }
         val converted = if (rendered.endsWith('\n')) rendered else "$rendered\n"
         if (output == null || output == "-") print(converted) else File(output).writeText(converted)
+    } catch (e: FormatSpecificationException) {
+        System.err.println(e.message)
+        exitProcess(20)
+    } catch (e: UnsupportedExtensionException) {
+        System.err.println(e.message)
+        exitProcess(23)
     } catch (e: Exception) {
         System.err.println("kotdoc: ${e.message}")
         exitProcess(1)
