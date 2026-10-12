@@ -8,14 +8,17 @@ import io.heapy.kotdoc.formats.NativeWriter
 import io.heapy.kotdoc.formats.ReaderMessage
 import io.heapy.kotdoc.formats.WriterMessage
 import io.heapy.kotdoc.resources.MediaBag
+import io.heapy.kotdoc.resources.MediaOperations
 import io.heapy.kotdoc.resources.ResourceContext
+import io.heapy.kotdoc.resources.ResourceEvent
 import java.io.File
+import java.nio.file.Path
 import kotlin.system.exitProcess
 
 /** Entry point for ported formats. Full Pandoc CLI parity is tracked in docs/PORTING.md. */
 fun main(args: Array<String>) {
     if (args.toList() == listOf("--help")) {
-        println("Usage: kotdoc [--from fb2|json|native] [--to fb2|json|native] [--standalone] [--columns N] [--output FILE] [FILE|-]")
+        println("Usage: kotdoc [--from fb2|json|native] [--to fb2|json|native] [--standalone] [--columns N] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
         return
     }
     if (args.toList() == listOf("--list-input-formats")) {
@@ -33,6 +36,11 @@ fun main(args: Array<String>) {
         var to = "json"
         var columns = 72
         var standalone = false
+        var extractMedia: String? = null
+        var resourcePaths = listOf(Path.of("."))
+        fun addResourcePaths(value: String) {
+            resourcePaths = value.split(File.pathSeparatorChar).map { Path.of(it.ifEmpty { "." }) } + resourcePaths
+        }
         var i = 0
         while (i < args.size) {
             when (val arg = args[i++]) {
@@ -41,8 +49,12 @@ fun main(args: Array<String>) {
                 "--output", "-o" -> output = args.getOrNull(i++) ?: error("Missing output filename")
                 "--columns" -> columns = (args.getOrNull(i++) ?: error("Missing column count")).toInt()
                 "--standalone", "-s" -> standalone = true
+                "--extract-media" -> extractMedia = args.getOrNull(i++) ?: error("Missing media output path")
+                "--resource-path" -> addResourcePaths(args.getOrNull(i++) ?: error("Missing resource search path"))
                 else -> {
                     if (arg.startsWith("--columns=")) { columns = arg.substringAfter('=').toInt(); continue }
+                    if (arg.startsWith("--extract-media=")) { extractMedia = arg.substringAfter('='); continue }
+                    if (arg.startsWith("--resource-path=")) { addResourcePaths(arg.substringAfter('=')); continue }
                     require(arg == "-" || !arg.startsWith("-")) { "Unsupported option: $arg" }
                     require(input == null) { "Only one input file is currently supported" }
                     input = arg
@@ -53,7 +65,7 @@ fun main(args: Array<String>) {
         require(columns > 0) { "Column count must be positive" }
         val text = if (input == null || input == "-") System.`in`.bufferedReader(Charsets.UTF_8).readText() else File(input).readText()
         val media = MediaBag()
-        val document = when (from) {
+        var document = when (from) {
             "json" -> PandocJson.decode(text)
             "native" -> NativeReader.read(text)
             else -> FB2Reader.readWithEffects(text.removePrefix("\uFEFF")).also { result ->
@@ -62,10 +74,15 @@ fun main(args: Array<String>) {
                     System.err.println("[WARNING] Unexpected XML element ${message.name} in ${message.parent}")
             }.document
         }
+        val resources = ResourceContext(media, resourcePaths)
+        extractMedia?.let { destination ->
+            document = MediaOperations.fill(document, media, resources, ::reportResource)
+            document = MediaOperations.extract(destination, document, media, ::reportResource)
+        }
         val rendered = when (to) {
             "json" -> PandocJson.encode(document)
             "native" -> NativeWriter.write(document, columns, standalone)
-            else -> FB2Writer.writeWithEffects(document, resources = ResourceContext(media)).also { result ->
+            else -> FB2Writer.writeWithEffects(document, resources = resources).also { result ->
                 for (message in result.messages) when (message) {
                     is WriterMessage.CouldNotFetchResource -> System.err.println("[WARNING] Could not fetch resource ${message.path}" +
                         if (message.message.isEmpty()) "" else ": ${message.message}")
@@ -80,4 +97,13 @@ fun main(args: Array<String>) {
         System.err.println("kotdoc: ${e.message}")
         exitProcess(1)
     }
+}
+
+private fun reportResource(event: ResourceEvent) {
+    val message = when (event) {
+        is ResourceEvent.CouldNotFetch -> "Could not fetch resource ${event.path}" + if (event.message.isEmpty()) "" else ": ${event.message}"
+        is ResourceEvent.IgnoredIOError -> "IO Error (ignored): ${event.message}"
+        else -> return
+    }
+    System.err.println("[WARNING] " + message.replace("\n", "\n  "))
 }

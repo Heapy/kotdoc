@@ -14,3 +14,13 @@ It also imports the known URI schemes from `Text.Pandoc.URI`.
 Use `--check` to verify generated Kotlin runtime resources without a network
 connection or an installed Pandoc executable. The original Haskell source is
 retained for attribution and reproducibility; it is not used at runtime.
+
+`zip-archive-0.5/Zip.hs` is the original `src/Codec/Archive/Zip.hs` from:
+https://hackage.haskell.org/package/zip-archive-0.5/zip-archive-0.5.tar.gz
+
+Pandoc 3.12.1 requires `zip-archive >= 0.5 && < 0.6`. The Kotlin media ZIP
+writer ports the serialization path used by `extractMedia`: `toEntry`,
+`addEntryToArchive`, local/central headers and the end record. This is not yet
+a port of the complete ZIP library. The source is BSD-3-Clause licensed;
+see `licenses/zip-archive-BSD-3-Clause.txt`. Expected complete ZIP bytes are
+generated independently by Pandoc, and decompression is also checked with JDK ZIP.

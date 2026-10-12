@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 5,411 tests, no skipped tests.
+  roundtrip tests. Current suite: 5,484 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -36,6 +36,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - MediaBag, complete MIME/URI tables, data URI decoding, local resource paths,
   and HTTP resource fetching. Verified with 2,172 independent MediaBag/MIME cases,
   18 data URI cases and a local HTTP integration test.
+- Media filling and extraction into directories or deterministic ZIP archives,
+  with image-link updates, missing-image placeholders and typed resource failures.
+  All original Haskell MediaBag and Lua media API examples are translated into
+  Kotlin API tests; this does not yet provide the Lua scripting engine.
+- Data URI creation preserves upstream UTF-8, BOM, CR and MIME behavior.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 
@@ -56,20 +61,25 @@ python3 tools/import-fb2-fixtures.py --check-source
 python3 tools/import-fb2-writer-fixtures.py --check-source
 python3 tools/import-resource-tables.py --check
 python3 tools/import-media-fixtures.py --check-source
+python3 tools/import-media-operations.py --check-source
 ./gradlew test :cli:installDist
 python3 tools/check-fb2-cli.py
+python3 tools/check-media-cli.py
 cli/build/install/cli/bin/cli --from native --to json input.native --output output.json
 cli/build/install/cli/bin/cli --from json --to native --standalone --columns 80 output.json
 cli/build/install/cli/bin/cli --from fb2 --to native --standalone book.fb2
 cli/build/install/cli/bin/cli --from fb2 --to fb2 book.fb2 --output converted.fb2
+cli/build/install/cli/bin/cli --from fb2 --to json --extract-media media.zip book.fb2
 ```
 
 The installed launcher is currently called `cli`. Use `-` or omit the input
 filename to read standard input. Errors are written to standard error and return
 a nonzero exit status. Input formats are `fb2`, `json` and `native`; output formats
-are also `fb2`, `json` and `native`. Resource fetching and embedded media transfer
-are implemented; media extraction, general CLI resource/logging options, and
-complete HTTP/URI dependency parity remain pending.
+are also `fb2`, `json` and `native`. `--extract-media` fills and extracts media,
+then rewrites image links; a `.zip` destination creates an archive.
+`--resource-path` accepts platform-separated directories and can be repeated;
+later flags are searched first. General CLI options, logging, and complete
+HTTP/URI dependency parity remain pending.
 
 ## Upstream baselines and licensing
 
@@ -86,4 +96,5 @@ Upstream notices are retained in the source submodules and [licenses](licenses).
 GHC decimal conversion retains the BSD notice in `licenses/GHC-base-BSD-3-Clause.txt`.
 XML tokenization retains `licenses/xml-conduit-MIT.txt`. The full MIME table
 retains `licenses/mime-types-MIT.txt`; source provenance is in `vendor/README.md`.
+Media ZIP serialization retains `licenses/zip-archive-BSD-3-Clause.txt`.
 Every subsequent port must preserve the applicable source attribution.

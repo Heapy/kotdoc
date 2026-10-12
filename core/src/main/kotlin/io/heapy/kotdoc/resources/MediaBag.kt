@@ -31,6 +31,7 @@ class MediaBag {
     fun insert(effect: MediaInsertion) = insert(effect.path, effect.mimeType, effect.contents)
     operator fun get(path: String): MediaItem? = entries[canonicalize(path)]
     fun delete(path: String) { entries.remove(canonicalize(path)) }
+    fun clear() { entries.clear() }
     fun items(): List<MediaItem> = entries.values.toList()
     /** Map's Semigroup union is left-biased. */
     operator fun plus(other: MediaBag): MediaBag = MediaBag().also { it.entries.putAll(other.entries); it.entries.putAll(entries) }

@@ -16,8 +16,17 @@ data class FetchedResource(val contents: ByteArray, val mimeType: String?)
 sealed interface ResourceEvent {
     data class Loaded(val requested: String, val found: String) : ResourceEvent
     data class Fetching(val url: String) : ResourceEvent
+    data class Extracting(val path: String) : ResourceEvent
+    data class CouldNotFetch(val path: String, val message: String) : ResourceEvent
+    data class IgnoredIOError(val message: String) : ResourceEvent
 }
-class ResourceException(val description: String, cause: Exception? = null) : Exception(description, cause)
+open class ResourceException(val description: String, cause: Exception? = null) : Exception(description, cause)
+class ResourceNotFound(val path: String, cause: Exception? = null) :
+    ResourceException("PandocResourceNotFound ${HaskellString.quote(path)}", cause)
+class ResourceIOError(val path: String, val detail: String, cause: Exception? = null) :
+    ResourceException("PandocIOError ${HaskellString.quote(path)} $detail", cause)
+class ResourceHttpError(val url: String, val detail: String, cause: Exception? = null) :
+    ResourceException("PandocHttpError ${HaskellString.quote(url)} $detail", cause)
 
 fun interface ResourceAccess {
     fun fetch(url: String, report: (ResourceEvent) -> Unit): FetchedResource
@@ -55,11 +64,14 @@ class ResourceContext(
 
     private fun readFile(path: String, original: String, report: (ResourceEvent) -> Unit): FetchedResource {
         val requested = try { Path.of(path) } catch (e: java.nio.file.InvalidPathException) {
-            throw ResourceException("PandocResourceNotFound ${HaskellString.quote(path)}", e)
+            throw ResourceNotFound(path, e)
         }
         val locations = if (requested.isAbsolute) listOf(requested) else resourcePaths.map { it.resolve(requested) }
         for (location in locations) {
-            val bytes = try { Files.readAllBytes(location) } catch (_: IOException) { continue }
+            val bytes = try { Files.readAllBytes(location) } catch (e: IOException) {
+                if (requested.isAbsolute) throw ResourceIOError(path, e.toString(), e)
+                continue
+            }
             val found = location.toString().removePrefix("./")
             report(ResourceEvent.Loaded(path, found))
             val decoded = ResourceUri.unescape(original)
@@ -67,7 +79,7 @@ class ResourceContext(
             val mimePath = when (ext) { ".gz" -> decoded.dropLast(3); ".svgz" -> decoded.dropLast(5) + ".svg"; else -> ext }
             return FetchedResource(bytes, MimeTypes.get(mimePath))
         }
-        throw ResourceException("PandocResourceNotFound ${HaskellString.quote(path)}")
+        throw ResourceNotFound(path)
     }
 
     private fun openUrl(url: String, report: (ResourceEvent) -> Unit): FetchedResource {
@@ -80,14 +92,14 @@ class ResourceContext(
             val builder = HttpRequest.newBuilder(URI(url)).GET().header("Accept-Encoding", "gzip")
             for ((name, value) in requestHeaders) builder.header(name, value)
             val response = httpClient.send(builder.build(), HttpResponse.BodyHandlers.ofByteArray())
-            if (response.statusCode() !in 200..299) throw ResourceException("PandocHttpError ${HaskellString.quote(url)} HTTP ${response.statusCode()}")
+            if (response.statusCode() !in 200..299) throw ResourceHttpError(url, "HTTP ${response.statusCode()}")
             val content = if (response.headers().firstValue("Content-Encoding").orElse("").equals("gzip", ignoreCase = true))
                 GZIPInputStream(response.body().inputStream()).use { it.readBytes() } else response.body()
             return FetchedResource(content, response.headers().firstValue("Content-Type").orElse(null))
         } catch (e: IOException) {
-            throw ResourceException("PandocHttpError ${HaskellString.quote(url)} ${e.message}", e)
+            throw ResourceHttpError(url, e.message.orEmpty(), e)
         } catch (e: IllegalArgumentException) {
-            throw ResourceException("PandocHttpError ${HaskellString.quote(url)} ${e.message}", e)
+            throw ResourceHttpError(url, e.message.orEmpty(), e)
         }
     }
 }

@@ -8,6 +8,19 @@ import java.net.URISyntaxException
 import java.util.Locale
 
 object ResourceUri {
+    /** Text.Pandoc.SelfContained.makeDataURI, including UTF8.toString normalization. */
+    fun makeDataUri(mime: String, contents: ByteArray): String {
+        if (mime.startsWith("text/")) {
+            val start = if (contents.size >= 3 && contents[0] == 0xef.toByte() &&
+                contents[1] == 0xbb.toByte() && contents[2] == 0xbf.toByte()) 3 else 0
+            val normalized = contents.copyOfRange(start, contents.size).filter { it != 13.toByte() }.toByteArray()
+            val text = Charsets.UTF_8.newDecoder().decode(java.nio.ByteBuffer.wrap(normalized)).toString()
+            val type = if (';' in mime) mime else "$mime;charset=utf-8"
+            return "data:$type,${urlEncode(text)}"
+        }
+        val bytes = if (mime.endsWith("+xml")) contents.filter { it != 13.toByte() }.toByteArray() else contents
+        return "data:$mime;base64,${java.util.Base64.getEncoder().encodeToString(bytes)}"
+    }
     private val schemes = checkNotNull(javaClass.getResource("/io/heapy/kotdoc/uri-schemes.txt")).readText().lines().toSet()
     private val restrictedName = Regex("[A-Za-z0-9][A-Za-z0-9!#$&^_.+-]*")
 

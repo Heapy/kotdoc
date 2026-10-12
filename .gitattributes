@@ -1,1 +1,4 @@
 core/src/test/resources/** linguist-generated=true
+vendor/** linguist-vendored=true
+# Keep the upstream source byte-for-byte, including its final empty line.
+vendor/zip-archive-0.5/Zip.hs whitespace=-blank-at-eof
