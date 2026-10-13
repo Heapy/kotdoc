@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 158,809 tests, no skipped tests.
+  roundtrip tests. Current suite: 162,009 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -124,8 +124,13 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   DCT, quantization, DC prediction, Huffman coding and complete frame output.
   Verified by 5,153 independent original captures: all Word8 quality values,
   edges, metadata frame integration and all 31 original JPEGs re-encoded at
-  qualities 50, 90 and 100. Float referenceDct and remaining cross-format/color-
-  conversion test branches are still pending.
+  qualities 50, 90 and 100. Remaining cross-format/color-conversion test branches
+  are still pending.
+- The Float diagnostic referenceDct, preserving the original summation order,
+  Float rounding and truncation. All 4,382,720 coefficients across 68,480 blocks
+  match the original exactly in 3,200 captures, including every Int16 constant
+  level, full-domain ramps, impulses, random blocks and preserved vector tails.
+  Both exported functions of the original FastDct module are now implemented.
 - Typed image metadata storage, ordered right-biased union, lookup/delete/folds,
   Word64 DPI conversions and complete JFIF/TIFF metadata transformations. JPEG
   encoding and lazy metadata decoding use these shared types; TIFF size/DPI

@@ -7,6 +7,28 @@ internal enum class JpgEncodingColor(val components: Int, val maximumSampling: I
 }
 
 internal object JpegEncoder {
+    private val referenceCosines by lazy {
+        FloatArray(64) { index ->
+            val position = (index / 8).toFloat()
+            val frequency = (index % 8).toFloat()
+            kotlin.math.cos((2 * position + 1) * frequency * Math.PI.toFloat() / 16)
+        }
+    }
+
+    /** Original Float diagnostic DCT: no level shift and no fixed-point approximation. */
+    fun referenceDct(work: IntArray, samples: ShortArray): IntArray {
+        val zeroScale = 1 / kotlin.math.sqrt(2f)
+        for (u in 0..<8) for (v in 0..<8) {
+            var sum = 0f
+            // Preserve x-major summation and each Float operation's rounding.
+            for (x in 0..<8) for (y in 0..<8) {
+                sum += samples[y * 8 + x].toFloat() * referenceCosines[x * 8 + u] * referenceCosines[y * 8 + v]
+            }
+            work[v * 8 + u] = (0.25f * (if (u == 0) zeroScale else 1f) * (if (v == 0) zeroScale else 1f) * sum).toInt()
+        }
+        return work
+    }
+
     /** Int32 fixed-point arithmetic, including overflow and both original biases. */
     fun fastDct(work: IntArray, samples: ShortArray): IntArray {
         fun transform(column: Boolean, offset: Int) {

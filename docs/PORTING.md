@@ -1522,3 +1522,45 @@ does not complete the image dependency port or the overall objective. Remaining
 work includes Float referenceDct, color conversions and cross-format image tests,
 other codecs and image API integration, the remaining Pandoc formats/application
 surface, and Calibre MOBI and additional formats. The full goal stays active.
+
+## Float reference DCT — 2026-10-13
+
+`JpegEncoder.referenceDct` ports the remaining exported transform from
+Codec.Picture.Jpg.Internal.FastDct. It implements the original Float formula:
+frequency loops u then v, sample summation x then y, Float cosine angles and
+products, zero-frequency normalization, and truncation to Int32. The diagnostic
+function does not apply the encoder's level shift. It returns the supplied
+workspace, updates exactly the first 64 coefficients in v*8+u order, and leaves
+all input samples and any workspace tail untouched.
+
+The 64 fixed position/frequency cosine values are computed with Float angles
+and cached lazily. This preserves the finite domain and arithmetic of the
+original formula while avoiding repeated trigonometric calls; the summation and
+normalization remain Float operations in the original order. There is no
+Double accumulation, reassociation or approximate-result tolerance.
+
+A separate oracle compiles unchanged original source and calls referenceDct
+directly. It freezes the returned workspace and input; it contains no transform,
+trigonometry or rounding implementation. Its 3,200 captures cover 68,480 blocks
+and 4,382,720 transformed coefficients, all compared exactly:
+
+- Every one of the 65,536 signed Int16 constant levels, grouped into 256 fixtures.
+- Every signed Int16 value across 1,024 consecutive ramp blocks.
+- 576 impulses spanning all 64 positions and nine signed/byte boundary values.
+- 32 alternating extreme-value blocks.
+- 1,024 seeded full-range Int16 blocks and 256 seeded byte blocks.
+- 32 larger vectors with nonzero initial workspaces and preserved input/output
+  tails. Tests also require the returned workspace to be the same Kotlin array.
+
+The importer hashes the original source, upstream test runner, frozen harness
+and its own implementation. CI verifies this manifest. Coefficients match the
+pinned GHC 9.12.2/JuicyPixels 3.3.9 build; arbitrary other native libm/compiler
+implementations are not claimed identical. Vectors shorter than 64 would enter
+unchecked native memory access and are not used as portable reference outputs.
+Both exported functions of FastDct are now implemented; the fixed-point encoder
+continues to use its existing fastDct path.
+
+All 162,009 Kotlin tests pass without failures, errors or skips. Remaining work
+includes color conversion and cross-format upstream image tests, other pixel
+codecs, general image API integration, remaining Pandoc formats/application
+behavior, and Calibre MOBI/additional formats. The full objective remains active.
