@@ -52,6 +52,7 @@ format is implemented explicitly in Kotlin.
 | JuicyPixels GIF metadata consumer path | `images/GifMetadata.kt` | 4,980 independent Pandoc results: 2,274 sizes and 2,706 exact GIF-component failures, all 12 dependency GIF files plus Pandoc's GIF; direct signature and long-input tests |
 | JuicyPixels TIFF metadata consumer path | `images/TiffMetadata.kt` | 8,390 original outcomes: 1,263 sizes, 7,123 exact TIFF-component errors and four arithmetic exceptions; all 68 retained TIFFs, format matrices, nested Exif, duplicate/overlap/endian cases and direct type-gate/cancellation tests |
 | JuicyPixels PNG fallback metadata consumer | `images/PngMetadata.kt` | 6,329 independent captures: 4,425 sizes, 1,858 exact PNG-component errors, 45 uncaught exceptions and one explicitly non-equivalent unsafe-memory case; all 176 retained PNG inputs probed through fallback |
+| JuicyPixels shared bit readers/writers | `images/ImageBitStream.kt` | 12,853 direct original-Haskell captures: 10,245 reader/state operations and 2,608 writer sequences, including widths through 256, JPEG markers, alignment, stuffing and 256 KiB output boundaries |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -125,7 +126,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 59,153 Kotlin tests pass locally. Every push runs source
+Current verification: 72,006 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -847,3 +848,71 @@ Remaining work includes JPEG and the other generic decoder branches, their exact
 aggregate diagnostics and full imageSize dispatch; public PNG pixels, encoding,
 broad textual metadata APIs and original full-image tests; writer consumers,
 full WriterOptions and Lua. The all-Pandoc-then-Calibre objective is unchanged.
+
+## Image bit-stream dependency evidence
+
+`ImageBitReader` and `ImageBitWriter` translate `Codec.Picture.BitWriter` from
+JuicyPixels 3.3.9. This is shared infrastructure for the actual JPEG, GIF and
+other pixel codecs. It does not replace JPEG's forced entropy decode with a
+header-only implementation. The original module has no isolated assertions in
+the retained `test-src/main.hs`; its callers are exercised by full-image tests,
+which still need the corresponding codecs.
+
+Readers preserve generic LSB and MSB state, JPEG MSB bits/signed Int32 fields,
+reset operations, JPEG byte alignment, and EOF zero extension. JPEG skips every
+FF/nonzero pair, not only restart markers; FF/00 yields one literal FF byte.
+Marker chains are handled iteratively. The original initial empty JPEG state
+has bit index zero, unlike a later empty reset's index seven; a trailing FF has
+its own index-seven behavior. Independent copied continuations provide the
+observable immutable-state reuse of `runBoolReaderWith` and `execBoolReader`.
+Input byte arrays are owned copies, corresponding to immutable ByteString input.
+
+Readers accept nonnegative bit counts, including corrupt-field widths exceeding
+32. The original 64-bit GHC Word32 shift path performs a machine-word shift
+before narrowing. For wide LSB fields this differs from Kotlin UInt's modulo-32
+shift count. The port uses 64-bit shifts/narrowing, tested for every width 33–256.
+The JPEG Int32 accumulator retains its signed overflow behavior. Negative read
+counts are rejected as outside the supported domain; the original unchecked
+negative-count paths can diverge or invoke undefined shifts. Writers accept the
+original documented widths 1–32, plus the original effective no-op width zero;
+other widths are explicitly rejected instead of promising undefined shifts.
+
+The writer preserves MSB JPEG output, FF/00 stuffing, LSB GIF output, low-bit
+masking, partial-byte padding, and operations interleaved on the shared state.
+Original finalization flushes a partial byte without clearing the accumulator;
+repeated finalization and later writes retain that behavior. Kotlin returns the
+same flattened bytes without exposing Haskell's internal lazy ByteString chunk
+representation. Large oracle cases cross both sides of the original 256 KiB
+buffer boundary, including an FF byte/stuffing pair crossing the boundary.
+
+The test-only `tools/haskell-reference/BitStream.hs` adapter imports and executes
+the original retained module unchanged. Its Cabal executable compiles that file,
+`VectorByteConversion` and `Types` directly from the vendor tree, using GHC 9.12.2,
+vector 0.13.2.0 and primitive 0.9.1.0. A checked-in Cabal freeze file pins its
+reference dependencies and Hackage index state. This enables direct tests of
+internal codec helpers that Pandoc's Lua API does not expose. The temporary
+compiler/tool/cache installation is outside the repository; no Haskell binary
+or external converter is needed by Kotlin at runtime or by ordinary CI tests.
+The reference README records commands and verified official archive checksums.
+
+`tools/import-image-bitstream-fixtures.py` captures 12,853 independent command
+sequences: 10,245 reader cases and 2,608 writer cases. Coverage includes every
+single input byte with boundary widths, offsets 0–7 and widths 0–32, widths
+33–256, every FF marker follower at six alignment positions, state reset and
+save/restore, EOF, 10,000-marker chains, 1,000 seeded reader programs, all writer
+widths with extreme Word32 values and partial prefixes, repeated finalization,
+eight large buffer-boundary cases and 1,000 seeded mixed writer programs.
+Small output arrays are retained verbatim; large outputs use independent length
+and SHA-256 comparisons. Source hashes cover the importer, reference adapter,
+configuration/freeze file and full retained JuicyPixels tree. CI verifies both
+source and result hashes without executing an oracle or generating expectations
+from Kotlin. All 12,853 comparisons pass. Dynamic test closures retain source lines and parse
+JSON on execution, rather than retaining every JSON tree. The complete 72,006
+case suite exceeds Gradle's default 512 MiB worker heap, so the test task now
+explicitly allows 1 GiB; no cases are excluded or skipped.
+
+Remaining JPEG work includes Huffman tables and trees, frame/state parsing,
+baseline and progressive scan decoding, IDCT and pixel placement, color-space
+and Exif metadata, complete fallback/dispatcher integration and original pixel
+tests. Original GIF LZW/animation/encoder tests and the remaining Pandoc/Calibre
+scope are still open. A full transfer is not inferred from this dependency port.

@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 59,153 tests, no skipped tests.
+  roundtrip tests. Current suite: 72,006 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -83,6 +83,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   6,329 independent captures, including fallback probes of all 176 retained PNGs.
   One original unsafe memory read gets a bounded exception in Kotlin; pixel
   decoding/encoding and the complete imageSize dispatcher are still pending.
+- Shared image bit readers/writers: JPEG marker handling, alignment and byte
+  stuffing, LSB/MSB reads, GIF output and reader-state continuations. Verified by
+  12,853 direct captures from the unmodified JuicyPixels Haskell module, including
+  32-bit overflow, wide malformed fields and output buffer boundaries. This is a
+  dependency for JPEG/GIF pixel codecs, which remain in progress.
 - Identifier generation, ASCII conversion and complete emoji lookup/replacement
   tables. Every Unicode scalar is checked against Pandoc in four identifier modes.
   Case conversion uses Haskell text's Unicode 16 tables, including full expansions,
@@ -127,6 +132,7 @@ python3 tools/import-image-dimension-fixtures.py --check-source
 python3 tools/import-gif-metadata-fixtures.py --check-source
 python3 tools/import-tiff-metadata-fixtures.py --check-source
 python3 tools/import-png-metadata-fixtures.py --check-source
+python3 tools/import-image-bitstream-fixtures.py --check-source
 ./gradlew test :cli:installDist
 python3 tools/check-fb2-cli.py
 python3 tools/check-media-cli.py
