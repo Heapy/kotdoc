@@ -2096,3 +2096,91 @@ Pandoc readers/writers/application behavior and all Calibre MOBI/additional-form
 work. The full objective remains active.
 
 All 224,715 Kotlin tests pass with no failures, errors or skips.
+
+## Applicative imagePixels/imageIPixels traversals and lazy foldMap operands
+
+`RasterTraversal` ports Types.hs imagePixels/imageIPixels through a generic
+`RasterApplicative` interface, with a higher-kinded effect carrier and deferred
+operands/values. Callers can collect effects, fail, short-circuit or branch without
+requiring source pixels or output storage. The implementation does not replace
+Applicative traversal with pixelMap. A native Identity instance is available;
+tests supply separate IO, Maybe, list and Const Applicative instances.
+
+imagePixels visits linear component indices below the wrapped Int64 product
+width*height*sourceComponents. imageIPixels instead follows row/column guards.
+Both accumulate the original left-associated Applicative expression, with deferred
+callback application as well as deferred pixel values. The final map can return
+an image's dimensions without even constructing the effect tree for Identity.
+Other effects can need the tree while still ignoring its image result. Const Any
+and Const Last demand different operands and can skip callback failures.
+
+Original GenST allocation/writes are represented by immutable write plans. Their
+execution is deferred in imageData, with allocation before pixel-value demand
+and writes in original raster order. IO effects can therefore finish before an
+output allocation or pixel-value error occurs. An effect failure stops the IO
+prefix; a deferred value failure retains all preceding/completed IO actions.
+A list Applicative yields every Cartesian branch in original order, with separate
+output buffers. Replaying an IO action runs effects again and allocates a fresh
+result. Plan execution is iterative, so a large Identity traversal does not need
+one JVM call frame per write.
+
+The Last cases also exposed a prior pixelFoldMap fidelity bug: RasterMonoid had
+a strict left operand, forcing a callback value even when Last selected a later
+value. Thirty independent original cases returned the final pixel while Kotlin
+incorrectly raised `prefix forced`. RasterMonoid now receives thunks for both
+operands, and the default fold delays transform itself. The original Any behavior
+and right association remain intact; the stack-safe opt-in is documented for pure
+append operations that demand both operands.
+
+A new frozen harness compiles unchanged JuicyPixels 3.3.9 with GHC 9.12.2 and
+original base Applicative instances. Only the adapter disables automatic
+specialization/SpecConstr to avoid code duplication across dispatch combinations;
+source modules remain compiled with -O2. The adapter supplies callbacks, serializes
+results and captures IO traces; it has no traversal, allocation, write or
+Applicative algorithm. The retained original test runner has no assertions for
+imagePixels/imageIPixels; these are independent original-call observations,
+not claimed translations of nonexistent literal tests.
+
+All 35,670 observations pass: 29,265 successes and 6,405 original errors, with
+379,086 serialized image bytes:
+
+- 17,670 imagePixels and 17,460 imageIPixels observations cover all 225
+  source/destination pairs under each of eight effects: Identity, IO, Maybe,
+  lists, Const list, Const Any, Const Last and Const bracket. The intentionally
+  non-associative bracket monoid verifies left association, contrasting with
+  pixelFoldMap's right association.
+- Metadata-only observations distinguish effect construction, pixel-value demand
+  and deferred output allocation. Tests include ignored erroneous source vectors,
+  callback-construction failures, IO-action failures, deferred pixel failures,
+  empty/signed/Int64-overflow dimensions, component views and unused tails.
+- 7,200 cross-type Int64-minimum-height captures demand metadata or data. No
+  source pixel is read: source products wrap to zero or a negative value.
+  Odd destination component counts still request a negative allocation, exposing
+  exactly when each effect demands the output buffer.
+- IO observations preserve complete action order and 270 partial failure prefixes.
+  Maybe includes successful, absent and short-circuiting results. Lists compare all
+  branch images, preserving ordering and all component bytes. Float components
+  compare raw bits without NaN normalization or epsilon tolerances.
+- 540 original pixelFoldMap/Last observations cover all 15 source types, empty,
+  positive and both-negative linear shapes, ignored source errors and invalid
+  initial callback values. All thirty previously failing cases now match the
+  original final value; legitimate last-value/source failures remain errors.
+
+Additional tests execute a 100,000-pixel Identity traversal into RGBA16, verify
+branch-buffer independence after mutation and verify IO replay with fresh buffers.
+All earlier generic raster and monoid observations also pass after the lazy-left
+correction. The importer retains full outputs, hashes itself, frozen harness and
+dependencies, original source and the test runner. CI verifies every
+operation/effect/source/destination combination against the retained manifest.
+
+Native uninitialized output data and unsafe accesses outside storage are excluded.
+Impractically large indexed effects that actually traverse all coordinates are
+excluded, while Identity metadata and wrapped empty linear products remain
+observable. Physical storage still has JVM array limits. Stack behavior of a
+caller's arbitrary Applicative implementation is its responsibility; iterative
+write-plan execution and the provided Identity path are independently checked.
+Dynamic/paletted image operations, remaining image codecs and integrations,
+remaining Pandoc formats/application behavior and all Calibre MOBI/additional
+formats remain pending. The full objective remains active.
+
+All 260,387 Kotlin tests pass with no failures, errors or skips.

@@ -86,17 +86,17 @@ class RasterTest {
                 "foldmap" -> when (mode) {
                     "any" -> result["bool"] = JsonPrimitive(RasterOps.pixelFoldMap(src, object : RasterMonoid<Boolean> {
                         override fun empty() = false
-                        override fun append(left: Boolean, right: () -> Boolean) = left || right()
+                        override fun append(left: () -> Boolean, right: () -> Boolean) = left() || right()
                     }) { true })
                     "bracket" -> result["value"] = JsonPrimitive(RasterOps.pixelFoldMap(src, object : RasterMonoid<String> {
                         override val strictTail = true
                         override fun empty() = "E"
-                        override fun append(left: String, right: () -> String) = "($left|${right()})"
+                        override fun append(left: () -> String, right: () -> String) = "(${left()}|${right()})"
                     }) { fingerprint(it()).toString() })
                     else -> state(RasterOps.pixelFoldMap(src, object : RasterMonoid<BigInteger> {
                         override val strictTail = true
                         override fun empty() = zero
-                        override fun append(left: BigInteger, right: () -> BigInteger) = left + right()
+                        override fun append(left: () -> BigInteger, right: () -> BigInteger) = left() + right()
                     }) { if (mode == "ignore") BigInteger.ONE else fingerprint(it()) })
                 }
                 "zip" -> {
@@ -214,12 +214,12 @@ class RasterTest {
         assertEquals(100_000L, RasterOps.pixelFoldMap(image, object : RasterMonoid<Long> {
             override val strictTail = true
             override fun empty() = 0L
-            override fun append(left: Long, right: () -> Long) = left + right()
+            override fun append(left: () -> Long, right: () -> Long) = left() + right()
         }) { it().toLong() })
         var callbacks = 0
         assertTrue(RasterOps.pixelFoldMap(image, object : RasterMonoid<Boolean> {
             override fun empty() = false
-            override fun append(left: Boolean, right: () -> Boolean) = left || right()
+            override fun append(left: () -> Boolean, right: () -> Boolean) = left() || right()
         }) { callbacks++; it() == 1u.toUByte() })
         assertEquals(1, callbacks)
     }

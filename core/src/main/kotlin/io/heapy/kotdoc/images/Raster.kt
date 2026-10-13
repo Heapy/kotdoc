@@ -75,13 +75,14 @@ internal class RasterImage<P : Any, C : Any, A : Any>(val width: Long, val heigh
 internal class MutableRasterImage<P : Any, C : Any, A : Any>(val width: Long, val height: Long, val codec: RasterCodec<P, C, A>, val vector: RasterVector<C, A>)
 
 /**
- * A lazy tail preserves short-circuit monoids. Set strictTail only for a pure
- * append that always demands its tail; this permits a stack-safe right fold.
+ * Lazy operands preserve short-circuit monoids, including Any and Last. Set
+ * strictTail only for a pure append that always demands both operands; this
+ * permits a stack-safe right fold.
  */
 internal interface RasterMonoid<M> {
     val strictTail: Boolean get() = false
     fun empty(): M
-    fun append(left: M, right: () -> M): M
+    fun append(left: () -> M, right: () -> M): M
 }
 
 internal class RasterFoldResult<S, P : Any, C : Any, A : Any>(width: Long, height: Long, codec: RasterCodec<P, C, A>, compute: () -> Pair<S, RasterVector<C, A>>) {
@@ -181,14 +182,15 @@ internal object RasterOps {
             var index = 0L
             while (index < count) { val at = index; val pixel = lazy { readAt(image.codec, image.vector, at, false) }; values.add(transform { pixel.value }); index += image.codec.components }
             var result = monoid.empty()
-            for (i in values.indices.reversed()) { val tail = result; result = monoid.append(values[i]) { tail } }
+            for (i in values.indices.reversed()) { val tail = result; result = monoid.append({ values[i] }) { tail } }
             return result
         }
         fun folder(index: Long): M {
             if (index >= count) return monoid.empty()
             val pixel = lazy { readAt(image.codec, image.vector, index, false) }
             val tail = lazy { folder(index + image.codec.components) }
-            return monoid.append(transform { pixel.value }) { tail.value }
+            val head = lazy { transform { pixel.value } }
+            return monoid.append({ head.value }) { tail.value }
         }
         return folder(0)
     }
