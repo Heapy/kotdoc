@@ -41,6 +41,7 @@ format is implemented explicitly in Kotlin.
 | XML.Light parsing foundation and xml-conduit tokenizer dependency | `xml/XmlLight.kt` | Namespace-aware names, duplicate attributes, entity expansion, content forests, direct text and malformed input; oracle cases and six focused tests |
 | `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
+| Skylighting style JSON, built-in themes and `Options.HighlightMethod` | `highlighting/HighlightStyle.kt`, `HighlightStyles.kt`, `options/HighlightMethod.kt` | All four original style JSON tests, 6,168 direct original-Haskell observations and 25 actual Pandoc theme lookups; eight complete original theme tables |
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
@@ -123,16 +124,18 @@ then HTML and the remaining formats. Also continue Walk list properties and comp
 generator/shrinker coverage. FB2's writer-specific math option is implemented;
 the shared WriterOptions record and full CLI option handling are still pending.
 
-Start the options layer from `Text.Pandoc.Extensions`, `Text.Pandoc.Options`
-and `Text.Pandoc.Format`: preserve custom extensions, set ordering, complete
-format defaults/support tables, extension-diff parsing and validation, all
-ReaderOptions fields/JSON/defaults and WriterOptions fields/defaults. WriterOptions
-depends on template/context, highlighting and syntax-map types; these dependencies
-must be ported rather than replacing the record with a subset. CLI `App.Opt` is
+Continue the options layer from `Text.Pandoc.Options`. The extension tables,
+format parsing, ReaderOptions fields/JSON/defaults and HighlightMethod/style JSON
+are implemented; the complete WriterOptions record and defaults still need its
+template/context and syntax-map dependencies, plus remaining highlighting
+behavior. These dependencies must be ported rather than replacing the record
+with a subset. The next dependencies are pinned doclayout 0.6 and doctemplates
+0.11.1, including their original wrapping/rendering and template tests. Context
+values and Template literals contain structured DocLayout documents. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 127,916 Kotlin tests pass locally. Every push runs source
+Current verification is recorded at the end of this ledger. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -2504,3 +2507,72 @@ Calibre MOBI/additional formats remain pending. The full objective remains activ
 
 All 303,744 Kotlin tests pass with no failures, errors or skips. All 49 source/
 fixture manifests verify; all 234 installed-CLI comparisons pass.
+
+
+## Highlighting style and HighlightMethod layer
+
+The Kotlin style layer translates the pinned skylighting-core 0.15 Color,
+TokenType, TokenStyle and Style JSON behavior, structural equality/order, native
+Show rendering and the string/Int/byte-channel/Double-channel color conversions.
+All 31 token constructors retain their original ordering. TokenType deliberately
+preserves the original distinction between generic toJSON ("KeywordTok") and its
+custom toEncoding ("Keyword"); style map keys use the latter spelling.
+
+All eight complete built-in themes are generated from the unchanged literal
+Skylighting.Styles source, independently of expected outputs: pygments, tango,
+espresso, zenburn, kate, monochrome, breezedark and haddock. The default is pygments.
+The Pandoc lookup layer preserves Unicode lowercasing of built-in names,
+case-sensitive .theme suffix selection and the original unknown-style and invalid
+file-theme option messages, including malformed UTF-8 files. Filesystem IO failures currently retain JVM exception
+behavior; full Pandoc error-framework integration remains pending.
+
+Theme decoding preserves first-member-wins duplicate JSON semantics, including
+escaped duplicate keys and nested maps. Every member is validated even if it is
+unknown or subsequently discarded. Lone Unicode surrogate escapes and malformed
+number literals are rejected. Style decoding retains field demand order, optional
+null/default behavior, editor-color fallbacks, exact raw Normal fallback, unknown
+style names mapping to OtherTok and ascending raw-key collision precedence.
+Schema errors retain original Aeson JSONPath spelling, including quoted
+punctuation/underscore keys and Unicode letter/number categories. The shared ICU
+category helper also replaces the identical private TagSoup predicates.
+
+Color strings count Unicode scalar values, ignore the two ARGB alpha characters,
+and preserve original reads partial-consumption behavior rather than enforcing a
+stricter CSS-color parser. In particular, a single hex digit followed by Haskell
+whitespace is accepted, and the final channel can terminate with a closing
+parenthesis. Double conversions preserve original range guards, floor-based
+quantization, NaN/infinity rejection and exact returned IEEE-754 channel bits.
+HighlightMethod includes all four constructors, their JSON aliases and original
+Show representation; booleans and null retain the original decoding defaults.
+
+The complete immutable skylighting-core release (284 original files) is retained
+with provenance and BSD license. Original tokenizer, regex, syntax parser and
+formatter tests are retained but are not counted as Kotlin test ports. Aeson
+2.2.3.0's original error-formatting module and license are retained separately;
+this is not an Aeson port. All 303 source/harness/provenance files are hashed.
+
+A frozen GHC 9.12.2/Aeson 2.2.3.0 test-only oracle calls unchanged Skylighting
+modules and the exact original Pandoc HighlightMethod excerpt. Reproduce captures
+with `python3 tools/import-highlight-style-fixtures.py --oracle PATH`; build
+instructions are in `tools/haskell-highlight-style-reference/README.md`.
+The independent corpus has 6,168 observations: 2,531 accepted results, 2,320
+rejections and 1,317 ordering/equality comparisons. It covers every token,
+eight themes, color/channel boundaries, map collisions, duplicate JSON members,
+field/type errors, Unicode paths and HighlightMethod aliases. All four original
+Skylighting JSON assertions are translated directly. Actual Pandoc 3.12.1 CLI
+output independently verifies all eight themes and 25 name/file lookups.
+Together these provide 6,197 Kotlin tests. CI checks both the literal table
+generation and the captured source/fixture manifests.
+
+JSON object member order is compared semantically. Invalid raw JSON is checked
+for rejection, but exact Aeson syntax-error wording is not yet implemented;
+the original wording remains in the independent fixtures. Schema and Pandoc
+option errors are compared exactly. Colour-package conversions, derived Binary/
+Read interfaces, SyntaxMap/parser/tokenizer/formatters, template/context engines,
+the full 39-field WriterOptions record/defaults, Lua integration and full CLI
+highlighting behavior remain pending. No reduced WriterOptions placeholder is
+introduced. Remaining Pandoc infrastructure, readers/writers and all Calibre
+MOBI/additional-format work remain in the original objective.
+
+All 309,941 Kotlin tests pass locally with no failures, errors or skips. All 51
+source/fixture checks verify; all 234 installed-CLI comparisons pass.

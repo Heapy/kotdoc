@@ -1,0 +1,4 @@
+Original Aeson JSONPath error formatter; no claim of a complete Aeson port.
+Source: https://hackage.haskell.org/package/aeson-2.2.3.0/aeson-2.2.3.0.tar.gz
+Archive SHA256: daa25cf428256ad05d21f2bfa44077c1b14d6c784b7930a202ee901f11cc6baa
+Original module: src/Data/Aeson/Types/Internal.hs

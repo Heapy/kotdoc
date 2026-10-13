@@ -1,0 +1,34 @@
+cabal-version: 3.0
+name: kotdoc-highlight-style-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+
+executable highlight-style-reference
+  main-is: HighlightStyle.hs
+  hs-source-dirs: ., ../../vendor/skylighting-core-0.15/src
+  other-modules:
+    PandocHighlightMethod
+    Skylighting.Types
+    Skylighting.Styles
+    Skylighting.Regex
+    Regex.KDE
+    Regex.KDE.Regex
+    Regex.KDE.Match
+    Regex.KDE.Compile
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends:
+    base >=4.21 && <4.22,
+    aeson ==2.2.3.0,
+    attoparsec,
+    base64-bytestring,
+    binary,
+    bytestring,
+    case-insensitive,
+    colour,
+    containers,
+    mtl,
+    safe,
+    text,
+    utf8-string

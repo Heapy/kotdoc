@@ -3,7 +3,7 @@
 package io.heapy.kotdoc.html
 
 import com.ibm.icu.lang.UCharacter
-import com.ibm.icu.lang.UCharacterCategory
+import io.heapy.kotdoc.ast.UnicodeCharacters
 import io.heapy.kotdoc.formats.HaskellString
 
 object TagSoup {
@@ -61,12 +61,8 @@ private class Tokenizer(private val input: String, private val positions: Boolea
     private fun want(text: String) { output.add(Out(Kind.WARN, "Expected " + HaskellString.quote(text))) }
     private fun wantEnd() { want(if (type == TagType.XML) "?>" else ">") }
     private fun white() = char in " \t\n\u000c\r" && !eof
-    private fun alpha(point: Int = cp) = UCharacter.isLetter(point)
-    private fun alphaNum(point: Int) = alpha(point) || when (UCharacter.getType(point)) {
-        UCharacterCategory.DECIMAL_DIGIT_NUMBER.toInt(), UCharacterCategory.LETTER_NUMBER.toInt(),
-        UCharacterCategory.OTHER_NUMBER.toInt() -> true
-        else -> false
-    }
+    private fun alpha(point: Int = cp) = UnicodeCharacters.isAlpha(point)
+    private fun alphaNum(point: Int) = UnicodeCharacters.isAlphaNum(point)
     private fun digit(hex: Boolean, point: Int = cp) = point in 48..57 || hex && (point in 65..70 || point in 97..102)
     private fun scriptAt(start: Int): Boolean {
         var cursor = start

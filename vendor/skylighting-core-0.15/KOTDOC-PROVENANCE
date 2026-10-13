@@ -1,0 +1,4 @@
+Immutable Hackage release skylighting-core 0.15.
+Source: https://hackage.haskell.org/package/skylighting-core-0.15/skylighting-core-0.15.tar.gz
+SHA256: 485721e90b3f5e52369a11f08994969a224c038ae4c812734233ff3b30b6fa61
+Version pinned by upstream/pandoc/stack.yaml and pandoc.cabal.
