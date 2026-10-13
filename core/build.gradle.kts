@@ -13,7 +13,7 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
     // JUnit retains descriptors for the full independent upstream corpus.
-    // The 72k-case suite exceeds Gradle's default 512 MiB worker heap.
+    // The growing upstream suite exceeds Gradle's default 512 MiB worker heap.
     maxHeapSize = "1g"
     systemProperty("kotdoc.root", rootProject.projectDir.absolutePath)
 }

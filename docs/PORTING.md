@@ -53,6 +53,7 @@ format is implemented explicitly in Kotlin.
 | JuicyPixels TIFF metadata consumer path | `images/TiffMetadata.kt` | 8,390 original outcomes: 1,263 sizes, 7,123 exact TIFF-component errors and four arithmetic exceptions; all 68 retained TIFFs, format matrices, nested Exif, duplicate/overlap/endian cases and direct type-gate/cancellation tests |
 | JuicyPixels PNG fallback metadata consumer | `images/PngMetadata.kt` | 6,329 independent captures: 4,425 sizes, 1,858 exact PNG-component errors, 45 uncaught exceptions and one explicitly non-equivalent unsafe-memory case; all 176 retained PNG inputs probed through fallback |
 | JuicyPixels shared bit readers/writers | `images/ImageBitStream.kt` | 12,853 direct original-Haskell captures: 10,245 reader/state operations and 2,608 writer sequences, including widths through 256, JPEG markers, alignment, stuffing and 256 KiB output boundaries |
+| JuicyPixels JPEG Huffman and quantisation helpers | `images/JpegHuffman.kt`, `JpegDefaultTables.kt` | 5,450 direct Haskell captures: trees, packed arrays, inverse codes, sequential symbols, all default tables, complete Int16 coefficient domain at 13 qualities; three JVM bounds/cancellation tests |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -126,7 +127,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 72,006 Kotlin tests pass locally. Every push runs source
+Current verification: 77,459 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -911,8 +912,70 @@ JSON on execution, rather than retaining every JSON tree. The complete 72,006
 case suite exceeds Gradle's default 512 MiB worker heap, so the test task now
 explicitly allows 1 GiB; no cases are excluded or skipped.
 
-Remaining JPEG work includes Huffman tables and trees, frame/state parsing,
+Remaining JPEG work includes frame/state parsing,
 baseline and progressive scan decoding, IDCT and pixel placement, color-space
 and Exif metadata, complete fallback/dispatcher integration and original pixel
 tests. Original GIF LZW/animation/encoder tests and the remaining Pandoc/Calibre
 scope are still open. A full transfer is not inferred from this dependency port.
+
+
+## JPEG Huffman and quantisation evidence
+
+`JpegHuffman.kt` and `JpegDefaultTables.kt` translate the operations and constants
+of JuicyPixels 3.3.9 `Codec.Picture.Jpg.Internal.DefaultTable`: DCT component
+selection, tree construction, all four default DC/AC trees and source tables,
+512-entry packed decoding arrays, inverse writer codes, bit-driven symbol
+lookup, both default quantisation matrices, quality scaling and macro-block
+construction. These are internal helpers for the remaining JPEG codec, not a
+claim of complete image decoding or encoding.
+
+The original left-first insertion order, partially empty trees, duplicate
+symbols and oversubscribed-tree failure are preserved. Packed decoding always
+consumes a bit, including a root leaf or empty tree. Its empty flag takes
+precedence over its leaf flag; leaf payloads use the low eight bits. Continuation
+checks compare 32 bits after decoding each symbol sequence, rather than only
+checking decoded symbols. Inverse writer codes retain wrapping Word8 depths and
+Word16 codes. The upstream inverse array really has 255 entries: symbol 255
+raises an index error, and repeated symbols are overwritten in traversal order.
+
+Quality calculations use signed 64-bit wrapping multiplication followed by
+Haskell floor division and clamping to 1–255. Negative quality is treated as
+zero. Input coefficients retain the full signed Int16 domain, including zero
+and negative values. `makeMacroBlock` truncates to 64 elements without padding a
+short list; this was verified directly against vector 0.13.2.0.
+
+`tools/haskell-jpeg-reference` compiles the unmodified vendored DefaultTable,
+BitWriter, Types and VectorByteConversion modules using the frozen GHC 9.12.2,
+vector 0.13.2.0 and primitive 0.9.1.0 environment. The adapter only selects source
+operations, serializes outputs and forces exceptions. It does not compute
+expectations itself. `tools/import-jpeg-table-fixtures.py` retains 5,450 captures:
+1,679 sequential decode cases, 1,066 trees, 1,066 inverse tables, 1,054 packed
+tables, 567 quality cases, 12 macro-block lengths, four default Huffman tables
+and two default quantisation tables. The 51 original failures comprise nine
+oversubscribed-tree failures and 42 inverse-table bounds errors; their original
+diagnostic strings are retained. Kotlin compares exact tree-construction
+messages and the bounds-error category (the JVM's diagnostic text differs).
+
+Coverage includes all 256 byte prefixes with each default code table, EOF and
+JPEG stuffing/restart handling through the shared bit reader, all 256 root leaf
+symbols, singleton trees at depths 1–32, explicit branch shapes and missing
+children, depth/code overflow through depth 300, 300 seeded canonical tables,
+300 seeded arbitrary trees, and packed flag precedence. Quantisation covers
+every Int16 value at 13 quality settings, quality boundaries for both default
+matrices, and 300 seeded arbitrary matrices and signed 64-bit qualities. Source
+and fixture checksums are verified in CI; expected results never come from Kotlin.
+
+Original packed-array reads/writes are unsafe outside allocated storage. Kotlin
+uses checked array access and raises bounds exceptions; these cases are explicitly
+not asserted equivalent to arbitrary original memory reads or corruption.
+Two direct tests cover those bounds and a third covers cancellation of malformed
+cyclic decoding. Cycles otherwise retain the original nonterminating traversal;
+there is no invented EOF success or arbitrary symbol-depth cutoff. Finite tree
+operations are recursive, as upstream; pathological depth can exhaust the JVM
+stack and is not promised to reproduce GHC resource limits.
+
+The retained JuicyPixels test runner has full-image JPEG decode/re-encode and
+metadata exercises, not standalone DefaultTable assertions. Those original
+image tests still require frame parsing, baseline/progressive scans, IDCT,
+color conversion, metadata and encoding. They have not been counted as ported.
+The complete Pandoc and subsequent Calibre scope remains open.
