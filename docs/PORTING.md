@@ -1296,3 +1296,72 @@ Remaining JPEG work includes the frame-fold decoder state and scan-parameter
 construction, baseline decoding, complete colorspace/metadata integration,
 encoding, and original image decode/re-encode tests. Full Pandoc and Calibre
 scope remains unchanged and incomplete.
+
+
+## Complete JPEG file-to-pixel decoding — 2026-10-13
+
+`JpegDecoder.kt` connects the original JPEG frame parser, Huffman/quantization
+helpers, IDCT/pixel placement and progressive unpacker into the decodeJpeg path.
+It accepts JPEG bytes and returns the decoded image kind, dimensions and raw
+samples, or the original parser/kind/colorspace failure. Exceptions from invalid
+internal state remain exceptions, as in the source. Metadata extraction and
+JPEG encoding are not part of this milestone; the decoder is currently internal.
+
+The frame-state fold preserves four default DC/AC table slots, four default
+quantization matrices, table replacement/destination bounds, component-selector
+lookup, restart state, latest frame/APP metadata markers and per-scan snapshots.
+Baseline, extended sequential and progressive DCT Huffman frame kinds retain
+the original single-recognized-frame rule. Scan parameters retain sampling,
+approximation/range, reader and block indices. Parameter list elements are
+memoized lazily, but both Huffman tree fields are forced when an element is
+observed, matching the original strict record. Discarded/replaced tables remain
+unforced. This was verified against malformed selected and unused tables.
+
+Baseline decoding adds AC zero-run handling, DC prediction and complete MCU
+traversal, with restart prediction reset and the original counter spanning
+scans. Interior grayscale/YCbCr/horizontal-duplication writers retain the source
+strides and branch selection; edge MCUs use the bounded generic pixel writer.
+The shared scratch IDCT block is reused. Color selection preserves Adobe marker
+precedence and component-name/count fallbacks. YCCK-to-CMYK preserves initial
+byte inversion and the original Float arithmetic/clamping. Unsupported color
+errors occur after scan decoding, matching runST's evaluation of the state/result
+pair, rather than being short-circuited before malformed selected tables.
+
+Noncanonical baseline AC symbols `(run,0)` with run 1 through 14 reach
+`decodeInt(0)` in the original. They request -1 remaining bits, returning a bit
+cursor position one bit earlier. The shared JPEG reader now supports that
+reachable count, and coefficient decoding accepts zero. Eighty-four independent
+complete-image captures exercise this behavior with an EOB leaf before any
+unchecked out-of-allocation write. The old direct test's unsupported-width
+boundary now covers negative widths; zero is proven by original decoder output.
+
+The oracle compiles 16 unchanged original modules and calls the exported
+`decodeJpeg` directly. Its adapter only describes dynamic images and writes raw
+samples; it does not duplicate frame folding or decoding algorithms. There are
+2,401 captures: 2,020 successful images, 343 returned errors and 38 original
+exceptions (including 24 checked table-vector bounds, eight malformed Huffman
+trees, four invalid selectors and two empty-component maxima). Bounds failures
+compare exception categories; other deterministic failures retain exact text.
+Small outputs compare every byte, dimensions and kind. Large original outputs
+compare SHA256 and length over all raw samples.
+
+All 31 retained upstream JPEGs decode identically, totaling 127,028,638 sample
+bytes. This includes every jpegValidTests input, the 4928x3264 huge photograph,
+the 4614x3076 broken progressive photograph, CMYK/RGB/grayscale files, multiple
+MCU restart variants and the Samsung Exif sample. Other cases span interleaved
+and separate scans, seven sampling layouts, clipped edges, three supported
+frame kinds, all 16 selector indices, APP14/name colorspace choices, complete
+file truncations, table destination bounds and 200 seeded complete images.
+
+Native uninitialized output or unchecked out-of-allocation reads/writes on
+malformed images are not portable reference values. Successful synthetic
+baseline inputs initialize all output components; JVM allocations are zeroed
+and out-of-bounds accesses throw. No claim of equivalence is made for native
+undefined memory. The original decode/re-encode image tests remain incomplete
+until the JPEG encoder is ported.
+
+All 148,892 Kotlin tests pass locally with no failures, errors or skips.
+Remaining work includes full metadata extraction, the imageSize/general-image
+API integration, JPEG encoding and original encoder assertions, other image
+codecs, the remaining Pandoc formats/application surface, and Calibre's MOBI
+and additional formats. The complete goal remains active.

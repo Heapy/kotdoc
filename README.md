@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 146,491 tests, no skipped tests.
+  roundtrip tests. Current suite: 148,892 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -91,12 +91,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - JPEG Huffman trees, packed decoding tables, inverse encoder codes, standard
   DC/AC and quantisation tables, quality scaling and macro-block construction.
   Verified against 5,450 direct original-Haskell outcomes, including every Int16
-  coefficient at 13 quality settings and malformed table errors. Full JPEG scans,
-  pixels and encoding remain pending.
+  coefficient at 13 quality settings and malformed table errors. JPEG encoding
+  remains pending.
 - JPEG block decoding helpers: integer IDCT, dequantisation, zig-zag ordering,
   coefficient decoding and pixel placement. Verified by 14,233 direct Haskell
   captures, including mutations and aliasing, all signed Int16 level shifts and
-  malformed coefficient widths. Complete JPEG frame/scan decoding is pending.
+  malformed coefficient widths.
 - JPEG binary structures: marker/header/table readers and writers, JFIF/Adobe
   records, restart intervals and both entropy-segment parsers. Verified against
   20,043 original Haskell outcomes, including malformed lengths, exact parser
@@ -108,13 +108,18 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - JPEG frame/image assembly: strict and legacy semi-lazy parsing, early header
   lookup, frame locations, all frame writers and macroblock debug printers.
   Verified by 9,819 original Haskell captures, including all 31 retained original
-  JPEG photographs, truncations and deferred Huffman failures. Pixel decoding
-  and the original decode/re-encode image tests remain pending.
+  JPEG photographs, truncations and deferred Huffman failures. The original
+  decode/re-encode tests still need the encoder.
 - Progressive JPEG unpacking: first/refined DC and AC coefficients, EOB runs,
   scan continuations, restart counters, subsampling and clipped pixel placement.
   All 8,754 independent original-Haskell cases match, including complete pixel
-  arrays. Frame-to-scan orchestration, baseline decoding, final color/metadata
-  integration and JPEG encoding remain pending.
+  arrays. Full JPEG metadata extraction and encoding remain pending.
+- Complete JPEG-to-pixel decoding for baseline, extended sequential and progressive
+  DCT Huffman images, including frame state, table updates, restarts, component
+  mapping and grayscale/YA/RGB/YCbCr/CMYK/YCCK finalization. Verified by 2,401
+  independent original decodeJpeg captures; all 31 upstream JPEGs match the full
+  127 MB of decoded samples. Metadata extraction, encoding and public image
+  format dispatch remain outstanding.
 - Identifier generation, ASCII conversion and complete emoji lookup/replacement
   tables. Every Unicode scalar is checked against Pandoc in four identifier modes.
   Case conversion uses Haskell text's Unicode 16 tables, including full expansions,

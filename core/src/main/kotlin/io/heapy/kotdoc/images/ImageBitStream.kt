@@ -62,7 +62,9 @@ class ImageBitReader private constructor(
     }
 
     fun readJpegInt(count: Int): Int {
-        require(count >= 0)
+        // Noncanonical baseline AC (run, 0) calls decodeInt(0), which asks
+        // for -1 remaining bits and moves the bit cursor back one position.
+        require(count >= -1)
         var remaining = count
         var acc = 0
         while (remaining != 0) {

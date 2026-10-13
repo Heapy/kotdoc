@@ -39,7 +39,7 @@ internal object JpegBlocks {
     fun unpackInt(reader: ImageBitReader, count: Int): Int = reader.readJpegInt(count)
 
     fun decodeInt(reader: ImageBitReader, count: Int): Int {
-        require(count > 0)
+        require(count >= 0)
         val sign = reader.readJpegBit()
         val range = (1L shl (count - 1)).toInt()
         val rest = unpackInt(reader, count - 1)

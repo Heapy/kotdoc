@@ -134,8 +134,8 @@ class JpegBlocksTest {
         }
     }
 
-    @Test fun `nonpositive signed field width is outside the supported domain`() {
-        for (width in listOf(-1, 0, Int.MIN_VALUE)) {
+    @Test fun `negative signed field width is outside the supported domain`() {
+        for (width in listOf(-1, Int.MIN_VALUE)) {
             assertFailsWith<IllegalArgumentException> { JpegBlocks.decodeInt(ImageBitReader.jpeg(byteArrayOf()), width) }
         }
     }
