@@ -2254,3 +2254,75 @@ Pandoc formats/application behavior and all Calibre MOBI/additional formats.
 The full objective remains active.
 
 All 265,290 Kotlin tests pass with no failures, errors or skips.
+
+## HDR gamma correction and tone mapping
+
+`ImageHdr` ports Types.hs gammaCorrection/toneMapping for generic RGBF rasters,
+including Int64 dimensions, logical vector views and lazy image data/parameters.
+Gamma computes a Float exponent 1/gamma and applies the original float32 power
+primitive to each raster component. Tone preserves the exact Float operation
+order in exposure*(exposure/maxBrightness+1)/(exposure+1). Brightness is obtained
+by original-style raster pixelFold and RGBF luma. Float max uses <= selection,
+ignoring a NaN candidate and selecting the right signed zero; Kotlin math.max
+would change these cases. Scaling maps the complete logical source vector,
+including nonpixel tails, while the brightness fold only scans raster pixels.
+An empty output vector does not demand exposure or brightness, even when image
+dimensions claim missing pixels.
+
+Float power is a platform runtime primitive, as in GHC. A diagnostic over 900,018
+positive finite components at nine gamma values found 4,266 one-ULP differences
+between original macOS gamma and JVM double Math.pow rounded to Float.
+The retained tools/diagnose-hdr-double-power.py reproduces that experiment. A simple
+double-power substitution is therefore not used. `SystemFloatMath` forwards only
+the scalar C powf primitive through JNA 5.19.1 to the host system math library;
+no upstream document/image conversion code is a runtime dependency. All pixel
+traversal, conversion and tone arithmetic remain Kotlin. The native binding is
+loaded lazily, so metadata and empty gamma results do not load or call it.
+JNA is used under Apache-2.0, with its license choice and bundled libffi license
+retained. No Apple math source or experimental approximation is incorporated.
+
+A separate frozen harness compiles unchanged JuicyPixels 3.3.9 with GHC 9.12.2
+and calls both original helpers. The tone-pixels batch adapter creates independent
+1x1 inputs, calls original toneMapping for every sample, and concatenates results;
+it contains no copied gamma, brightness or tone algorithm. There are no literal
+HDR helper assertions in the retained original test runner, so these captures
+are independent original-function expectations.
+
+Both macOS/ARM64 and Linux/x86-64 fixtures retain 3,793 requests each: 3,268 successes
+and 525 original errors per platform, with 16,207,144 serialized output bytes each.
+CI is pinned to Ubuntu 24.04 to match the retained Linux math baseline.
+The Linux harness was built and executed independently in GitHub Actions run
+38397538265 on Ubuntu 24.04/glibc 2.39; the capture workflow and artifact provenance
+are retained. The macOS capture records Darwin 25.6.0. All request fields are
+identical between platforms; 96 gamma captures have different original output
+hashes, while every tone capture has the same canonical arithmetic-NaN output.
+
+- 1,834 gamma observations per platform cover scalar boundary powers, every Float
+  sign/exponent at six mantissa boundaries, all triples of nineteen component
+  boundaries and nine 100,002-component positive-finite sequences. Native powf
+  output is checked bit exactly, including its NaN results, on the matching host.
+- 1,900 tone-image and 59 independent-pixel batch observations per platform cover
+  luma/max ordering, opposite NaN/zero/infinity pixel orders, negative and special
+  exposures, signed zeros, underflow/overflow, slices and unused vector tails.
+  Both platforms' tone expectations run on each checked host. Only arithmetic
+  NaN sign/payload differences are normalized; every finite, zero and infinity
+  output bit remains exact. Original raw bytes/hashes are retained unchanged.
+- Metadata/data observations distinguish deferred image, vector and parameter
+  failures. Empty, negative, both-negative and Int64-overflow dimensions expose
+  row traversal versus full-vector mapping and deferred coefficient demand.
+- The two manifests hash complete original source, test runner, harness/frozen
+  dependencies and importer. CI verifies both. A separate test requires identical
+  source requests across captures, preventing different host corpora from masking
+  platform behavior.
+
+Native unsafe input overreads and uninitialized row-map outputs are excluded.
+Empty tone vectors can safely avoid an otherwise invalid brightness scan; those
+original demand cases remain covered. Captured platform/library versions define
+the numerical baselines. Windows and other math-library/architecture combinations
+are not claimed independently verified. Gamma requires the host powf symbol and
+the JNA native bridge; there is no silent lower-precision fallback. Physical JVM
+array limits remain unchanged. HDR codec integration, older image API migration,
+remaining image codecs, remaining Pandoc formats/application behavior and all
+Calibre MOBI/additional formats remain pending. The full objective remains active.
+
+All 271,043 Kotlin tests pass with no failures, errors or skips.

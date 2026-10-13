@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 265,290 tests, no skipped tests.
+  roundtrip tests. Current suite: 271,043 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -187,6 +187,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   captures verify lazy payloads, shared palette buffers, fallback identity, ignored
   palette size, every unsigned byte index, raw Float bits and error ordering.
   GIF/PNG codec integration and older API migration remain pending.
+- HDR gamma correction and tone mapping, preserving Float arithmetic, lazy
+  brightness/parameters, row scans, complete vector tails and native powf rounding.
+  Original macOS/ARM64 and Linux/x86-64 captures verify every finite output bit.
+  Gamma uses system powf through JNA; document/image conversion remains Kotlin.
+  Other native-math platforms and HDR codec integration remain unverified.
 - Typed image metadata storage, ordered right-biased union, lookup/delete/folds,
   Word64 DPI conversions and complete JFIF/TIFF metadata transformations. JPEG
   encoding and lazy metadata decoding use these shared types; TIFF size/DPI

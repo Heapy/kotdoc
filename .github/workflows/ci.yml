@@ -4,7 +4,7 @@ permissions:
   contents: read
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -57,6 +57,8 @@ jobs:
       - run: python3 tools/import-raster-fixtures.py --check-source
       - run: python3 tools/import-raster-traversal-fixtures.py --check-source
       - run: python3 tools/import-dynamic-raster-fixtures.py --check-source
+      - run: python3 tools/import-hdr-fixtures.py --platform macos-aarch64 --check-source
+      - run: python3 tools/import-hdr-fixtures.py --platform linux-x86_64 --check-source
       - run: python3 tools/import-image-metadata-fixtures.py --check-source
       - run: ./gradlew test :cli:installDist --no-daemon
       - run: python3 tools/check-fb2-cli.py

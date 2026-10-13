@@ -1,5 +1,6 @@
 name: Capture original Linux HDR behavior
 on:
+  workflow_dispatch:
   push:
     branches: [hdr-native-reference]
 permissions:
