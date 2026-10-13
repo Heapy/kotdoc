@@ -1242,3 +1242,57 @@ All 137,737 Kotlin tests pass with zero failures, errors or skips. Full metadata
 extraction, baseline/progressive JPEG scan decoding, pixel conversion/encoding,
 and original pixel tests remain open, as do other image codecs, the remaining
 Pandoc formats/application surface, and the complete Calibre phase.
+
+
+## Progressive JPEG scan unpacking — 2026-10-13
+
+`JpegProgressive.kt` ports the complete exported progressiveUnpack path from
+JuicyPixels 3.3.9 `Jpg.Internal.Progressive`, including its internal first DC,
+refined DC, first AC and refined AC decoders. It reuses the existing JPEG bit
+reader, packed Huffman trees, Int16 coefficient/IDCT helpers and pixel writer.
+`JpgScanData` carries explicit unpacker parameters and entropy bytes;
+`JpgDecodedRaster` carries the raw interleaved component samples for subsequent
+colorspace finalization. This is not yet a public JPEG-file decoder.
+
+The implementation preserves per-scan bit-reader continuations and Int32 EOB
+runs, Int16 DC prediction/overflow, successive approximation, coefficient sign
+refinement, zero-run skipping, correction-bit consumption and scan-wide strategy
+selection from the first parameter. Reader indices can be shared or reordered.
+Each scan's restart counter initially comes from the first scan's first
+parameter; reset of DC predictors occurs only for scan index zero. Marker
+skipping/byte alignment retain the original shared bit-reader behavior.
+
+Solo and interleaved MCU index vectors preserve partial right-edge visibility,
+per-component sampling factors, per-row working-block reset/reuse and the
+original vertical/horizontal replication formulas. Quantization selectors clamp
+to slot three. Component block storage keeps only the original row workspace,
+not the entire image's coefficient matrix. Zero width/height and zero sampling
+factors exposed two eager-evaluation differences; memoized derived MCU sizes
+now preserve the original successful empty results and division failures.
+JVM arrays retain their natural allocation/index limits. Unchecked native
+out-of-allocation writes are not manufactured as portable reference behavior.
+
+The new reference harness invokes progressiveUnpack from 13 unchanged upstream
+modules with explicit dimensions, components, tables and scan parameters. It
+contains no decoding algorithm and returns every resulting sample byte.
+Source/harness hashes, actual GHC/vector versions and canonical fixture hashes
+are verified in CI. Captures include 8,712 complete pixel results, 34 division
+failures, seven checked vector-bound failures and one empty-scan exception.
+Bounds failures compare exception categories; successful images compare exact
+width, height, component count and every byte, not only a checksum.
+
+The 8,754 cases exercise all 256 AC run/size symbols, DC widths through 255,
+approximation shifts through 63, empty/truncated/marker-containing bitstreams,
+dense and split spectral ranges, positive and negative corrections, all four
+coefficient modes, 11 sampling layouts with one to four components, nine image
+size boundaries, seven restart intervals, separate/interleaved scans, signed
+quantization extremes, clamped table selectors, shared readers, differing later
+scan parameters, malformed checked indices, and 400 seeded scan sequences.
+Cases using arbitrary nonzero AC runs bound writes within the original 64-entry
+allocation while retaining writes beyond the declared spectral range.
+
+All 146,491 Kotlin tests pass locally with zero failures, errors or skips.
+Remaining JPEG work includes the frame-fold decoder state and scan-parameter
+construction, baseline decoding, complete colorspace/metadata integration,
+encoding, and original image decode/re-encode tests. Full Pandoc and Calibre
+scope remains unchanged and incomplete.

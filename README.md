@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 137,737 tests, no skipped tests.
+  roundtrip tests. Current suite: 146,491 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -110,6 +110,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   Verified by 9,819 original Haskell captures, including all 31 retained original
   JPEG photographs, truncations and deferred Huffman failures. Pixel decoding
   and the original decode/re-encode image tests remain pending.
+- Progressive JPEG unpacking: first/refined DC and AC coefficients, EOB runs,
+  scan continuations, restart counters, subsampling and clipped pixel placement.
+  All 8,754 independent original-Haskell cases match, including complete pixel
+  arrays. Frame-to-scan orchestration, baseline decoding, final color/metadata
+  integration and JPEG encoding remain pending.
 - Identifier generation, ASCII conversion and complete emoji lookup/replacement
   tables. Every Unicode scalar is checked against Pandoc in four identifier modes.
   Case conversion uses Haskell text's Unicode 16 tables, including full expansions,

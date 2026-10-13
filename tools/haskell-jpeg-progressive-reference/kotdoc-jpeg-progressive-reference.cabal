@@ -1,0 +1,36 @@
+cabal-version: 3.0
+name: kotdoc-jpeg-progressive-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+
+executable jpeg-progressive-reference
+  main-is: JpegProgressive.hs
+  hs-source-dirs: ., ../../vendor/JuicyPixels-3.3.9/src
+  other-modules:
+    Codec.Picture.Jpg.Internal.Progressive
+    Codec.Picture.Jpg.Internal.Common
+    Codec.Picture.Jpg.Internal.FastIdct
+    Codec.Picture.Jpg.Internal.Types
+    Codec.Picture.Jpg.Internal.DefaultTable
+    Codec.Picture.BitWriter
+    Codec.Picture.Types
+    Codec.Picture.VectorByteConversion
+    Codec.Picture.InternalHelper
+    Codec.Picture.Tiff.Internal.Types
+    Codec.Picture.Tiff.Internal.Metadata
+    Codec.Picture.Metadata
+    Codec.Picture.Metadata.Exif
+  include-dirs: ../../vendor/JuicyPixels-3.3.9/src/Codec/Picture
+  default-language: Haskell2010
+  default-extensions: TypeOperators
+  ghc-options: -O2
+  build-depends:
+    base >=4.21 && <4.22,
+    binary,
+    bytestring,
+    deepseq,
+    transformers,
+    mtl,
+    primitive,
+    vector
