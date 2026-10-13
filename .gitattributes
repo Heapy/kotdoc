@@ -17,4 +17,6 @@ vendor/JuicyPixels-tests-v3.3.8/** -text whitespace=-trailing-space,-blank-at-eo
 vendor/JuicyPixels-tiff-tests-v3.3.8/** -text whitespace=-trailing-space,-blank-at-eof
 licenses/JuicyPixels-BSD-3-Clause.txt -text whitespace=cr-at-eol
 vendor/JuicyPixels-png-tests-v3.3.8/** -text whitespace=-trailing-space,-blank-at-eof
+vendor/JuicyPixels-png-writer-tests-v3.3.8/** -text whitespace=-trailing-space,-blank-at-eof
+vendor/ghc-png-gamma-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof
 vendor/zlib-0.7.1.1/** -text whitespace=-trailing-space,-blank-at-eof
