@@ -1,0 +1,29 @@
+cabal-version: 3.0
+name: kotdoc-doctemplates-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+
+common original-modules
+  hs-source-dirs: ../../vendor/doctemplates-0.11.1/src, ../../vendor/doclayout-0.6/src
+  include-dirs: ../../vendor/doclayout-0.6/src/Text
+  other-modules: Text.DocTemplates, Text.DocTemplates.Internal, Text.DocTemplates.Parser,
+                 Text.DocLayout, Text.DocLayout.HasChars, Text.DocLayout.Attributed,
+                 Text.DocLayout.ANSIFont
+  default-language: Haskell2010
+  build-depends: base >=4.21 && <4.22, text, containers, emojis ==0.1.5,
+                 mtl, safe, aeson ==2.2.3.0, bytestring, vector,
+                 text-conversions, filepath, parsec, scientific
+
+executable doctemplates-reference
+  import: original-modules
+  main-is: DoctemplatesReference.hs
+  hs-source-dirs: .
+
+test-suite original-doctemplates-tests
+  import: original-modules
+  type: exitcode-stdio-1.0
+  main-is: test.hs
+  hs-source-dirs: ../../vendor/doctemplates-0.11.1/test
+  ghc-options: -threaded -rtsopts
+  build-depends: Glob, tasty, tasty-golden, tasty-hunit, temporary

@@ -43,6 +43,7 @@ format is implemented explicitly in Kotlin.
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
 | Skylighting style JSON, built-in themes and `Options.HighlightMethod` | `highlighting/HighlightStyle.kt`, `HighlightStyles.kt`, `options/HighlightMethod.kt` | All four original style JSON tests, 6,168 direct original-Haskell observations and 25 actual Pandoc theme lookups; eight complete original theme tables |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
+| Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
@@ -130,10 +131,11 @@ format parsing, ReaderOptions fields/JSON/defaults and HighlightMethod/style JSO
 are implemented; the complete WriterOptions record and defaults still need its
 template/context and syntax-map dependencies, plus remaining highlighting
 behavior. These dependencies must be ported rather than replacing the record
-with a subset. Finite doclayout 0.6 rendering and document operations are now
-implemented. Next is doctemplates 0.11.1, including its complete original template
-tests, plus the remaining DocLayout interfaces recorded below. Context
-values and Template literals contain structured DocLayout documents. CLI `App.Opt` is
+with a subset. Finite doclayout 0.6 rendering and document operations, and the
+doctemplates 0.11.1 Context/Val conversion and traversal foundation are implemented.
+Next are Template/Variable/Pipe, parsing/rendering/partials and the complete
+original template tests, plus the remaining DocLayout interfaces recorded below.
+Context values and Template literals contain structured DocLayout documents. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
@@ -2657,10 +2659,64 @@ This is the finite rendering/document layer. Exact derived Haskell Show/Read/Ord
 interfaces, arbitrary Applicative traversal interfaces, fully lazy/infinite
 strings/documents and incremental lazy-Text rendering remain pending. JVM
 string/array capacity guards remain explicit platform limits. Doctemplates'
-Template/Context/Val/parser/rendering/partials, remaining syntax highlighting,
+Template/parser/rendering/partials, remaining syntax highlighting,
 the complete WriterOptions record/defaults and Lua/application integration remain
 pending. Remaining Pandoc formats/infrastructure and all calibre MOBI/additional
 formats stay in the original objective; the full port is not complete.
 
-All 348,102 Kotlin tests pass locally with no failures, errors or skips. All 53
-source/fixture checks verify; all 234 installed-CLI comparisons pass.
+At this milestone all 348,102 Kotlin tests passed locally with no failures,
+errors or skips. All 53 source/fixture checks verified; all 234 installed-CLI
+comparisons passed.
+
+## Doctemplates Context/Val foundation
+
+The complete original doctemplates 0.11.1 Hackage tree is retained unchanged,
+including all 22 original file goldens and 15 unit tests. Its immutable archive
+SHA256, provenance and BSD license are retained. Pandoc's pinned stack.yaml
+selects this version. A frozen GHC 9.12.2 oracle compiles the unchanged original
+modules together with the retained DocLayout 0.6 sources. The unchanged original
+test executable passed all 37 tests when run from the package root, where it
+can actually find every golden and partial fixture. This is an upstream baseline;
+it does not claim Kotlin template parser/rendering coverage.
+
+Kotlin Context and all five Val constructors retain left-biased Data.Map union,
+Unicode-scalar key order, missing versus present NullVal, document structure and
+cached widths. Explicit ToContext/FromContext converters cover values, contexts,
+target strings, documents, lists, maps, booleans and JSON. Non-map ToContext
+inputs become an empty context; FromJSON Context instead rejects them with
+`Expecting MapVal`. List extraction is all-or-none and accepts a successfully
+converted non-list value as a singleton. A Haskell String target is a single
+SimpleVal, while a list of strings is a ListVal; Kotlin exposes the original
+type-class choices explicitly rather than guessing from runtime collections.
+
+JSON numbers become literal documents and serialize back as JSON strings.
+Integral values use arbitrary-precision decimal integers, including values
+beyond Int64 and Double's range. Non-integral values use Scientific's Double
+conversion followed by the existing GHC display port, preserving negative
+underflow, infinity and rounding boundaries. JSON is therefore intentionally
+not an identity roundtrip. Source-derived mapping/folding visits raw document
+values in the original order; it does not flatten a SimpleVal before mapping,
+change its cached width, visit prefix/link metadata or memoize shared subtrees.
+Finite value mapping and folding use work stacks and handle 20,000 alternating
+list/map levels on the JVM.
+
+The independent corpus has 6,880 observations: 5,203 raw-JSON contexts/numbers,
+25 other JSON values, 32 typed conversions, 1,319 nested values/documents and
+301 unions/lookups. It includes the actual JSON context of every original
+golden and 5,000 seeded decimal strings without an intermediate Python float.
+Functor and State traversal comparisons include raw values, effects, complete
+JSON and plain/ANSI renders at three widths, including attributed blocks and
+deliberately inconsistent cached widths. The manifest checks 80 source,
+license, harness, freeze and importer files. The corpus plus the deep traversal
+check adds 6,881 Kotlin tests.
+
+Remaining doctemplates work includes Template/Variable/Pipe constructors,
+parsing and exact diagnostics, rendering and truthiness, pipes, nested templates,
+partial loading/recursion, Pandoc's resource wrappers, original golden output
+and original unit cases in Kotlin, exact Haskell Show and arbitrary Applicative
+interfaces. Complete WriterOptions/defaults, remaining Pandoc functionality,
+Lua/application/CLI integration and all calibre work remain in the objective.
+
+All 354,983 Kotlin tests pass locally with no failures, errors or skips across
+54 suites. All 54 source/fixture checks verify; all 234 installed-CLI comparisons
+pass. The full Pandoc/calibre port remains incomplete.
