@@ -44,6 +44,7 @@ format is implemented explicitly in Kotlin.
 | Skylighting style JSON, built-in themes and `Options.HighlightMethod` | `highlighting/HighlightStyle.kt`, `HighlightStyles.kt`, `options/HighlightMethod.kt` | All four original style JSON tests, 6,168 direct original-Haskell observations and 25 actual Pandoc theme lookups; eight complete original theme tables |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
+| Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
@@ -132,9 +133,12 @@ are implemented; the complete WriterOptions record and defaults still need its
 template/context and syntax-map dependencies, plus remaining highlighting
 behavior. These dependencies must be ported rather than replacing the record
 with a subset. Finite doclayout 0.6 rendering and document operations, and the
-doctemplates 0.11.1 Context/Val conversion and traversal foundation are implemented.
-Next are Template/Variable/Pipe, parsing/rendering/partials and the complete
-original template tests, plus the remaining DocLayout interfaces recorded below.
+doctemplates 0.11.1 Context/Val conversion, Template/Variable/Pipe and finite
+rendering/traversal are implemented. Next are the template parser and exact
+diagnostics, partial loading/recursion and Pandoc resource wrappers. The original
+golden outputs and successful unit cases already exercise the Kotlin renderer
+through ASTs compiled by the original parser; Kotlin parsing is still pending.
+Also continue the remaining DocLayout interfaces recorded below.
 Context values and Template literals contain structured DocLayout documents. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
@@ -2659,7 +2663,7 @@ This is the finite rendering/document layer. Exact derived Haskell Show/Read/Ord
 interfaces, arbitrary Applicative traversal interfaces, fully lazy/infinite
 strings/documents and incremental lazy-Text rendering remain pending. JVM
 string/array capacity guards remain explicit platform limits. Doctemplates'
-Template/parser/rendering/partials, remaining syntax highlighting,
+Template parsing/partial loading, remaining syntax highlighting,
 the complete WriterOptions record/defaults and Lua/application integration remain
 pending. Remaining Pandoc formats/infrastructure and all calibre MOBI/additional
 formats stay in the original objective; the full port is not complete.
@@ -2710,13 +2714,82 @@ deliberately inconsistent cached widths. The manifest checks 80 source,
 license, harness, freeze and importer files. The corpus plus the deep traversal
 check adds 6,881 Kotlin tests.
 
-Remaining doctemplates work includes Template/Variable/Pipe constructors,
+At this milestone, remaining doctemplates work included Template/Variable/Pipe constructors,
 parsing and exact diagnostics, rendering and truthiness, pipes, nested templates,
 partial loading/recursion, Pandoc's resource wrappers, original golden output
 and original unit cases in Kotlin, exact Haskell Show and arbitrary Applicative
 interfaces. Complete WriterOptions/defaults, remaining Pandoc functionality,
 Lua/application/CLI integration and all calibre work remain in the objective.
 
-All 354,983 Kotlin tests pass locally with no failures, errors or skips across
-54 suites. All 54 source/fixture checks verify; all 234 installed-CLI comparisons
+At this milestone all 354,983 Kotlin tests passed locally with no failures,
+errors or skips across 54 suites. All 54 source/fixture checks verified;
+all 234 installed-CLI comparisons passed.
+
+## Doctemplates finite templates, pipes and rendering
+
+The eight original Template constructors, Variable Semigroup/Monoid and all
+14 Pipe constructors are translated from doctemplates 0.11.1 Internal.hs.
+Variable/Pipe/Border order retains original constructor and field order,
+signed 64-bit widths and Unicode Text comparison. Finite template mapping,
+folding and effectful mapping visit literal Doc values in source-derived order,
+including unselected conditional branches and loop separators. Free-variable
+extraction preserves first occurrence and removes loop-bound paths and `it`
+only inside the loop body; the separator remains outside that binding scope.
+
+The renderer retains original State Int evaluation order. Interpolation
+recursively flattens lists, emits `false` for BoolVal False but treats it as
+false in a condition, treats maps as true and tests SimpleVal's structural
+Empty constructor rather than its rendered text. Only final NewLine or
+CarriageReturn nodes on the right Concat spine are removed. Loop binding sets
+`it` and adjusts existing variable paths without creating missing keys.
+All loop bodies run before the separator is evaluated once, even for an empty
+loop. Nesting captures the column before the child runs; partial pipes do not
+recompute column state after transforming the child result.
+
+All pipes preserve their distinct original behavior: map/list pairs, scalar
+length, raw-value full case mapping, list selection/reversal, rendered scalar
+reversal, recursive chomp/nowrap/alpha/Roman transforms and alignment blocks
+with vertical borders. Decimal parsing retains Int64 wrap, alpha cycles every
+26 letters, and Roman zero becomes an empty document while values outside
+0..3999 remain unchanged. Alignment turns NullVal into an empty SimpleVal,
+but leaves other non-simple values unchanged.
+
+The expanded frozen oracle still compiles unchanged original modules. It
+captures genuine Text and String execution, complete rendered Doc constructor
+trees (including cached widths, prefixes, fonts and links), six plain/ANSI widths,
+three starting-column measurements, offsets/heights, Template mapping/folds and
+State traversal. Before capturing any original example, the unchanged original
+compiler/renderer must reproduce its literal golden/assertion. Kotlin consumes
+the captured AST and renders it independently. All 22 original file goldens and
+nine successful original unit cases are covered this way; the six original
+parser diagnostic cases are still pending in Kotlin. The same 31 successful
+inputs are also executed with the original String target.
+
+Structural comparisons exposed right-associative Doc concatenation that earlier
+text-only checks could not distinguish. DocLayout's spacing, line separators
+and delimiters, and template block borders now retain the original right
+grouping. Int64 cases also cover state wrap and nesting an Empty at a huge
+column: the original guard returns Empty before evaluating the prefix, so Kotlin
+now avoids that unnecessary allocation too. The existing DocLayout and Context
+corpora continue to pass. The 6,880 Context observations remain unchanged;
+their manifest only refreshes provenance for the expanded shared oracle.
+
+There are 12,211 new native observations: 11,016 Text runtime cases, 894 String
+runtime cases, 300 Variable union/order cases and a complete pairwise Pipe order
+matrix. Coverage includes all Roman inputs 0..4000, chained pipes, attributed
+blocks, Unicode expansions, null/missing paths, nested binding, column-sensitive
+separators/partials, Int64 boundaries and 2,500 seeded templates. The source
+manifest checks 81 files. A separate finite-depth test renders, maps and folds
+20,000 concatenations and renders 20,000 nested templates, adding 12,212 Kotlin
+tests in total.
+
+Remaining work includes Kotlin template parsing, exact parser diagnostics,
+partial file/resource loading and recursion semantics, Pandoc's template
+wrappers, full lazy/infinite interfaces, exact Haskell Show/Read and Template
+Ord, arbitrary Applicative interfaces, complete WriterOptions/defaults and
+highlighting dependencies. Remaining Pandoc formats/application/Lua/CLI and all
+calibre MOBI/additional formats remain in the original objective.
+
+All 367,195 Kotlin tests pass locally with no failures, errors or skips across
+55 suites. All 55 source/fixture checks verify; all 234 installed-CLI comparisons
 pass. The full Pandoc/calibre port remains incomplete.
