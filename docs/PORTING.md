@@ -41,6 +41,7 @@ format is implemented explicitly in Kotlin.
 | XML.Light parsing foundation and xml-conduit tokenizer dependency | `xml/XmlLight.kt` | Namespace-aware names, duplicate attributes, entity expansion, content forests, direct text and malformed input; oracle cases and six focused tests |
 | `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
+| `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -284,7 +285,39 @@ new option's Haskell-Show-to-JSON path intentionally rejects some Unicode/contro
 URLs that are valid through the JSON API or deprecated URL flags, matching the
 pinned implementation. No network calls are needed to run these comparisons.
 
-Full WriterOptions still requires Template, Context, PathTemplate, HighlightMethod
+Full WriterOptions still requires Template, Context, HighlightMethod
 and Skylighting Style/SyntaxMap dependencies. ReaderOptions integration into all
 readers, complete CLI option validation, full generic Haskell Read/Show behavior
 and scripting tests also remain part of the overall objective.
+
+## Table of contents and path template evidence
+
+`toTOCTree` preserves section order, uses Div identifiers and Header number
+attributes, unwraps a Div containing a single Div (#8402), and excludes unlisted
+headers only when no number attribute exists. An empty number remains present.
+`tocToList` preserves absolute heading-depth filtering (including dropping the
+whole subtree of a filtered parent), explicit chunk paths and empty identifiers.
+Title cleanup removes nested Links and Notes through the original inline-list
+walk semantics, including citation affixes and image descriptions. SecInfo's walk
+visits only its title. The root is a structural container, not a TOC item.
+
+`tools/import-toc-fixtures.py` captures two TOCs for every accepted original
+Native fixture, all seven Haskell TOC examples and the Lua block-list example,
+plus numbered/unlisted/depth/attribute/inline cases and seeded section trees.
+Sixteen independently captured chunk TOC trees exercise `tocToList` against the
+original Lua chunk examples. These use original Pandoc for chunk creation; they
+do not claim that Kotlin splitting has been implemented. A direct typed tree
+test separately checks the complete SecInfo values and wrapper behavior.
+
+PathTemplate replaces `%i`, `%h`, `%s`, then `%n`, so substituted values may
+introduce placeholders consumed by later replacements. Slash and backslash
+removal happens last. Thirty-five original split operations verify actual paths,
+including substitutions containing placeholders, Unicode and chunk numbers
+crossing the three-digit width. Signed integer boundary formatting and the
+string JSON shape are tested from the source contract; exact Aeson error wording
+and generic Haskell Show remain part of the existing dependency gaps.
+
+The remainder of Chunks (splitting, ID generation, raw-HTML identifier discovery,
+reference rewriting and navigation snapshots) is still pending. It requires the
+identifier/emoji and TagSoup dependencies. Full WriterOptions integration and
+the Lua runtime also remain; no smaller WriterOptions record is substituted.
