@@ -51,6 +51,7 @@ format is implemented explicitly in Kotlin.
 | `ImageSize` dimensions, units, desired sizes, SVG/EPS/PDF parsers | `images/Dimensions.kt`, `DocumentImageSize.kt`, GHC numeric helpers | All remaining original SVG/EPS/PDF/numUnit examples; 962 original LaTeX dimension renderings, 752 sizes, 975 errors, one process-level UTF-8 exception and five detection-only cases; arithmetic, equality and attribute checks |
 | JuicyPixels GIF metadata consumer path | `images/GifMetadata.kt` | 4,980 independent Pandoc results: 2,274 sizes and 2,706 exact GIF-component failures, all 12 dependency GIF files plus Pandoc's GIF; direct signature and long-input tests |
 | JuicyPixels TIFF metadata consumer path | `images/TiffMetadata.kt` | 8,390 original outcomes: 1,263 sizes, 7,123 exact TIFF-component errors and four arithmetic exceptions; all 68 retained TIFFs, format matrices, nested Exif, duplicate/overlap/endian cases and direct type-gate/cancellation tests |
+| JuicyPixels PNG fallback metadata consumer | `images/PngMetadata.kt` | 6,329 independent captures: 4,425 sizes, 1,858 exact PNG-component errors, 45 uncaught exceptions and one explicitly non-equivalent unsafe-memory case; all 176 retained PNG inputs probed through fallback |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -124,7 +125,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 52,823 Kotlin tests pass locally. Every push runs source
+Current verification: 59,153 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -762,10 +763,87 @@ Exif, and 1,000 seeded field mutations. Source hashes cover the original library
 original test source and entire TIFF fixture tree. Two direct tests check decoder
 errors hidden by Pandoc's type gate and cancellation of the nonterminating case.
 
-Remaining image dependency work includes PNG/JPEG fallback and all other generic
+The following PNG section records the next metadata port. Further dependency
+work includes JPEG fallback and all other generic
 decoder branches/error aggregation, complete imageSize dispatch, actual pixel
 codecs and their original tests, writer integration, full WriterOptions and Lua.
 The original TIFF full-image decode/re-encode tests, TIFF encoding, broad Exif
 metadata operations are not counted as implemented. The retained raw G3 fixture
 is not counted as a TIFF test. The full
 Pandoc and Calibre objective remains unchanged.
+
+## PNG fallback dependency evidence
+
+`PngMetadata.read` ports JuicyPixels' `decodePngWithPaletteAndMetadata` as forced
+by Pandoc's metadata consumer. It parses the signature, IHDR and all chunks
+through the first IEND; bytes after IEND are ignored. The source deliberately
+ignores IHDR's declared length and CRC, and reads compression/filter methods as
+unvalidated bytes. Color and interlace codes are checked in their original order.
+All subsequent chunk CRCs are validated, including unknown chunks and IEND.
+CRC diagnostics preserve the unsigned computed/given values. IDAT chunks are
+concatenated, and compressed length <= 6 fails before palette or metadata work.
+The first PLTE determines whether indexed input has a valid palette; zero-length
+palettes are accepted, and a later valid PLTE cannot repair an invalid first one.
+
+The original `toImage` wraps its pixel thunk inside Right, so ordinary grayscale,
+RGB, grayscale-alpha and RGBA return metadata without decompressing pixels.
+Grayscale depths 1/2/4 route through the palette path. Indexed/palette metadata
+forces the deinterlacer and therefore the complete zlib stream, except when all
+scanline passes are empty (zero width/height or depth zero). Indexed depths above
+8 fail only after the demanded decompression; invalid nonzero depths below 8
+throw the original `Impossible bit depth` exception when the unpacker is forced.
+The Kotlin metadata consumer computes the lengths of ordinary/Adam7 passes and
+checks their input bounds. It does not materialize discarded pixel vectors or
+execute filter arithmetic whose values cannot affect metadata. Unknown scanline
+filter bytes select filterNone in the original, and are accepted here as well.
+This is not an implementation of the public PNG pixel decoder or encoder.
+
+Resolution uses the first pHYs only: truncated fields are ignored, unit 1 converts
+unsigned pixels-per-meter with integer arithmetic, other units use 72 DPI.
+`read` returns raw DPI; Pandoc's separate `checkDpi` normalizes zero values.
+Textual metadata keys/values are not exposed by this API, but their forcing
+behavior matters. Valid zTXt headers force the first lazy decompressed output
+constructor. Invalid text headers are ignored. zlib emits produced bytes before
+reporting a trailing error, so truncated/checksum-invalid textual streams can
+still yield dimensions; streams failing before any output propagate exceptions.
+The retained zlib 0.7.1.1 source documents this behavior explicitly in `finish`.
+Full IDAT forcing checks the tail, checksum and missing dictionaries. Trailing
+bytes after a completed zlib stream are ignored. The implementation uses the
+JDK inflater, with independently checked original error text, and no external
+converter at runtime.
+
+The independent importer records 6,329 cases: 4,425 sizes, 1,858 decoder errors,
+45 uncaught zlib/bit-depth exceptions and one unsafe-memory case. The complete
+original decoder error aggregates are retained; tests compare the PNG component.
+The one unsafe-memory input has a valid compressed empty stream and nonempty
+indexed dimensions. JuicyPixels performs unchecked scanline reads; the captured
+original process exits with SIGSEGV. Kotlin instead throws a dedicated
+`TruncatedScanlineException`. This is an explicit bounded behavior difference,
+not a matching upstream exception or a claim to reproduce undefined memory reads.
+The same guard applies to other insufficient decompressed scanlines. The source
+fixture remains executable and its observed original signal is retained.
+
+All 176 original PNG files are preserved verbatim in a separate vendor tree.
+The original suite lists 161 valid and 14 invalid files; the tree also includes
+huge.png. Oracle probes change the ignored IHDR length to zero to force Pandoc's
+fallback instead of its permissive header scanner. For signature-invalid files,
+the first four bytes are additionally set to PNG's type prefix; the remaining
+signature bytes remain unchanged. These exact transformations are recorded and
+reapplied by the tests, and original file hashes are independently verified.
+These are fallback-consumer probes, not translations of the full-image original
+PNG tests, which force pixels and still require the complete pixel codec.
+
+Additional captures cover all byte-sized color/interlace/compression/filter/unit
+codes, lazy bit-depth combinations, palette sizes/duplicates, empty passes, all
+256 row filters in both interlace modes for low-depth grayscale/indexed inputs,
+unsigned dimension/resolution boundaries, CRC order, split IDAT, duplicate and
+malformed ancillary chunks, textual forcing, dictionary/checksum/truncation
+failures, every truncation of four seeds, and 1,000 seeded structural mutations.
+A direct test exercises signature errors hidden by Pandoc's type gate. Source
+hashes cover the full retained JuicyPixels and zlib trees, original test source,
+PNG fixture tree, Pandoc consumer and importer. Total PNG Kotlin tests: 6,330.
+
+Remaining work includes JPEG and the other generic decoder branches, their exact
+aggregate diagnostics and full imageSize dispatch; public PNG pixels, encoding,
+broad textual metadata APIs and original full-image tests; writer consumers,
+full WriterOptions and Lua. The all-Pandoc-then-Calibre objective is unchanged.

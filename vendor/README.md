@@ -105,3 +105,21 @@ files, a raw G3 fixture and the depth-image generator. The existing retained
 are checked for metadata against Pandoc; the original full pixel conversion
 suite is still pending. The TIFF importer verifies all retained source/test
 bytes independently of the GIF importer, preserving both existing manifests.
+
+`JuicyPixels-png-tests-v3.3.8/` retains the complete `tests/pngsuite/` tree
+and LICENSE from the same v3.3.8 commit above: 176 PNG files, original README,
+PngSuite permission notice and .gitignore. PngSuite images are copyright
+Willem van Schaik (1996, 2011) with permission to use/copy/modify/distribute for
+any purpose without fee. The original suite selects 161 valid and 14 invalid
+PNGs, leaving huge.png outside those lists. All 176 are probed through the
+metadata fallback using explicitly recorded header transformations; their
+original full-image tests still require the pixel codec. See docs/PORTING.md.
+
+`zlib-0.7.1.1/` retains the complete Hackage source archive:
+https://hackage.haskell.org/package/zlib-0.7.1.1/zlib-0.7.1.1.tar.gz
+Archive SHA-256: `bf95ab01ed924be800addea195fba5ca97ec69f378368f6ff466bdc29666c1c1`.
+This version is identified in exceptions from the original Pandoc executable.
+The source is used to preserve lazy output/error forcing in PNG metadata, not
+as a runtime dependency. Its original license is retained both in the source
+and `licenses/zlib-LICENSE.txt`. The PNG importer hashes this tree independently
+of the older GIF and TIFF fixture manifests.
