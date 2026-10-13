@@ -59,7 +59,7 @@ object DocumentShared {
 
     fun capitalize(inlines: List<Inline>): List<Inline> = object : PandocVisitor() {
         override fun transformInline(value: Inline): Inline = if (value is Inline.Str)
-            Inline.Str(UCharacter.toUpperCase(Locale.ROOT, value.text)) else value
+            Inline.Str(UnicodeText.toUpper(value.text)) else value
     }.walkInlines(inlines)
 
     fun blocksToInlines(blocks: List<Block>, separator: Inlines = Builder.linebreak): Inlines =

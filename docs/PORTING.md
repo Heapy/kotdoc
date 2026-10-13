@@ -42,6 +42,8 @@ format is implemented explicitly in Kotlin.
 | `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
+| Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
+| Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -52,9 +54,10 @@ also compared with an independently translated upstream expectation.
 
 1. Finish pandoc-types semantics and tests: full walker/list property generators,
    structural ordering and full generators/shrinkers. Raw formats now use full
-   Unicode case folding via ICU4J 78.1; AST integer fields use signed Long to match
-   64-bit Haskell Int. Unicode database version parity remains to be audited
-   against the actual upstream text library used by the pinned release.
+   Unicode case folding via Haskell text's Unicode 16 mapping; AST integer fields
+   use signed Long to match 64-bit Haskell Int. Remaining Unicode dependencies
+   still require their complete original suites, beyond the exhaustive scalar
+   case-conversion and identifier comparisons now present.
 2. Port Pandoc common infrastructure: options, parsing, sources,
    URI/XML handling, media bag, templates, resource embedding, errors, logging,
    Unicode, syntax highlighting, bibliography/citations, filters and scripting.
@@ -317,7 +320,51 @@ crossing the three-digit width. Signed integer boundary formatting and the
 string JSON shape are tested from the source contract; exact Aeson error wording
 and generic Haskell Show remain part of the existing dependency gaps.
 
-The remainder of Chunks (splitting, ID generation, raw-HTML identifier discovery,
+The remainder of Chunks (splitting, raw-HTML identifier discovery,
 reference rewriting and navigation snapshots) is still pending. It requires the
-identifier/emoji and TagSoup dependencies. Full WriterOptions integration and
+TagSoup dependency; identifier and emoji helpers are now available. Full WriterOptions integration and
 the Lua runtime also remain; no smaller WriterOptions record is substituted.
+
+## Identifiers, emoji and Unicode case evidence
+
+Identifier generation preserves the original default/GFM punctuation and
+whitespace rules, ASCII filtering after NFD decomposition, Turkish undotted-i
+handling, leading-nonletter removal, and the exact Span shape used for emoji
+aliases. Raw emoji replacement occurs in Str nodes only when GFM or ASCII
+identifiers are enabled; Code and Math are stringified without that replacement.
+Unique identifiers retain the `section` fallback, choose the first free numeric
+suffix, and intentionally allow repeats after suffix 60000 is exhausted.
+
+The complete emojis-0.1.5 release is retained with its tests and attribution.
+All 1,913 aliases are checked against original Markdown emoji parsing, including
+the exact Span AST. All 3,953 distinct sequences from the alias, base and ZWJ
+tables are checked through the original identifier API in four modes. Lookup is
+case-sensitive, alias lists preserve source order, and replacement consumes the
+longest complete code-point match without rescanning callback output. The
+public base/ZWJ inventories include sequences without aliases, but the original
+replacement trie only contains aliased sequences. Tables exposed to callers are
+immutable. The source importer is verified in CI without network access.
+
+`tools/import-identifier-fixtures.py` captures every Unicode scalar in 272
+batches, placing each between ASCII anchors inside Code to bypass emoji
+replacement. These independently verify filtering and casing in all four
+identifier modes; separate inline and collision cases cover the transformations
+and stateful boundaries. Fixtures are losslessly gzip-compressed with zero mtime.
+They are test data only; no production behavior delegates to Pandoc.
+
+The exhaustive corpus found ICU 78 lowercasing Unicode-17 letters that the pinned
+Pandoc leaves unchanged. Lower/upper/casefold now use generated text-2.1.3 tables
+from Unicode 16, including multi-character expansions and context-independent
+sigma handling. This also fixes Format equality/hashing/literal construction,
+format-specification lowercasing and shared capitalization. Original Lua lower
+and upper operations independently check every scalar. All 1,557 folding entries
+plus 28 new-letter pairs are checked with the original RawInline Format equality.
+Original Haskell exception baselines, Cherokee behavior and scalar-based length,
+idempotence and ASCII properties supplement these comparisons.
+
+Full Haskell text, title-case behavior, unicode-transforms dependency tests,
+generic Trie operations and all parser/writer use sites remain in the full
+remaining scope. The three `4742.md` identifier expectations are represented by
+the identifier oracle cases; the actual CommonMark reader and Markdown emoji
+reader/writer command suite still await those format ports. These helpers do not
+yet provide document splitting or reader-side identifier registration.

@@ -4,7 +4,7 @@ package io.heapy.kotdoc.options
 
 import com.ibm.icu.lang.UCharacter
 import io.heapy.kotdoc.resources.ResourceUri
-import java.util.Locale
+import io.heapy.kotdoc.ast.UnicodeText
 
 data class ExtensionsDiff(
     val enable: Extensions = Extensions.Empty,
@@ -50,10 +50,7 @@ data class FlavoredFormat(val name: String, val extensions: ExtensionsDiff = Ext
         fun parse(specification: String): FlavoredFormat {
             val dot = extensionIndex(specification)
             val prefix = if (dot < 0) "" else specification.substring(0, dot)
-            // Text.toLower maps each scalar independently (no final-sigma context).
-            val body = if (dot < 0) buildString {
-                specification.codePoints().forEach { append(String(Character.toChars(it)).lowercase(Locale.ROOT)) }
-            } else specification.substring(dot)
+            val body = if (dot < 0) UnicodeText.toLower(specification) else specification.substring(dot)
             val firstModifier = body.indexOfFirst { it == '+' || it == '-' }.let { if (it < 0) body.length else it }
             if (firstModifier == 0) throw FormatSpecificationException(specification)
             var index = firstModifier

@@ -2,11 +2,9 @@
 // Copyright (c) 2006-2023 John MacFarlane. BSD-3-Clause; see licenses/.
 package io.heapy.kotdoc.ast
 
-import com.ibm.icu.lang.UCharacter
-
 /** Constructor preserves spelling; equality and order use full Unicode case folding. */
 class Format(val value: String) : Comparable<Format> {
-    private val folded = UCharacter.foldCase(value, true)
+    private val folded = UnicodeText.toCaseFold(value)
     override fun equals(other: Any?): Boolean = other is Format && folded == other.folded
     override fun hashCode(): Int = folded.hashCode()
     override fun compareTo(other: Format): Int = UnicodeTextOrder.compare(folded, other.folded)
@@ -14,7 +12,7 @@ class Format(val value: String) : Comparable<Format> {
 
     companion object {
         /** Equivalent to Haskell's IsString instance, which folds the stored spelling too. */
-        fun literal(value: String): Format = Format(UCharacter.foldCase(value, true))
+        fun literal(value: String): Format = Format(UnicodeText.toCaseFold(value))
     }
 }
 
