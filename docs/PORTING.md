@@ -46,6 +46,7 @@ format is implemented explicitly in Kotlin.
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
 | TagSoup finite HTML parsing and entity dependency | `html/TagSoup.kt`, `HtmlTag.kt`, `HtmlEntities.kt` | All 53 original parser/position and 12 entity assertions, original warning example, 1,000 seeded option-property inputs across eight modes, all 2,231 HTML5 names, 3,670 independent Pandoc ID-discovery captures |
 | `Chunks` splitting, reference rewriting, TOC paths and navigation; Chunk/ChunkedDoc walkers and queries | `structure/Chunks.kt` | 4,598 independent complete-output cases (all 266 Native documents twice, 3,670 raw HTML cases and section/metadata/boundary cases), complete finite navigation snapshots and explicit traversal/scope checks |
+| `Slides.getSlideLevel` and `prepSlides` | `structure/Slides.kt` | 549 original-Pandoc level results and 2,745 prepared-section results over every Native fixture and generated edges; direct branch, signed-boundary and deep/long traversal tests |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -477,3 +478,41 @@ This ports the finite Kotlin structure API. It does not yet provide the Lua
 runtime/userdata API, generic Haskell Show/Data/Generic instances, the chunked
 HTML writer, EPUB packaging, templates or their full CLI/application integration.
 Those remain in the complete original objective and require their own tests.
+
+
+## Slide structure evidence
+
+`Slides.getSlideLevel` starts at six, accepts only a Header immediately followed
+by a non-Header/non-HorizontalRule block, and consumes that following block when
+the level lowers the current minimum. This includes consuming a following Div
+without inspecting it. A Div reached by the normal traversal forks two searches
+using the same incoming minimum: its contents and the remaining siblings.
+The Kotlin implementation uses an explicit branch stack to preserve this detail;
+feeding the first result into the sibling search changes the original behavior.
+Other containers, such as BlockQuote and lists, are not recursively searched.
+
+`prepSlides` extracts a heading only from a final top-level Div whose identifier
+is exactly `refs`, preserving the Div's other attributes and contents. It then
+replaces top-level horizontal rules with NUL-title Headers, or drops a rule
+immediately before a Header at exactly the requested slide level. A leading
+Header or direct Div child Header at or below that level suppresses the initial
+NUL-title Header. Nested horizontal rules remain untouched. Empty input produces
+one placeholder header. The low-level API accepts the supplied signed level
+literally; automatic inference for nonpositive `slide_level` is a separate policy
+in the Lua structure wrapper.
+
+`tools/import-slide-fixtures.py` captures the original `slide_level` and
+`make_sections` APIs for all 266 Native fixtures, explicit adjacency, bibliography
+and separator cases, and seeded nested block lists: 549 inference results and
+five preparation/numbering/base-level combinations per input. The composition
+checks compare complete typed block trees after `prepSlides` and `makeSections`.
+They are not represented as direct binary-oracle captures of the intermediate
+`prepSlides` list; direct source-contract tests cover that list and each recovery
+branch separately. Signed boundaries and 20,000 sibling/10,000 nested Divs test
+the finite Kotlin implementation. The gzip JSON-lines fixture is consumed
+incrementally to keep the test corpus from accumulating in memory.
+
+The slideshow writers (including Beamer, HTML slide formats and PowerPoint),
+their templates, original format goldens/CLI tests and Lua runtime integration
+remain pending. In particular, testing the original PowerPoint Native inputs
+through these shared helpers does not constitute porting the PowerPoint writer.
