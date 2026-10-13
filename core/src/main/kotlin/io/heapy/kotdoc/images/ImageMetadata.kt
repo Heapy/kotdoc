@@ -45,9 +45,16 @@ internal sealed class ImageMetadataKey<T>(val label: String) {
         else -> label
     }
 }
-internal data class ImageMetadataEntry<T>(val key: ImageMetadataKey<T>, val value: T) {
+internal class ImageMetadataEntry<T> private constructor(val key: ImageMetadataKey<T>, private val stored: Lazy<T>) {
+    constructor(key: ImageMetadataKey<T>, value: T) : this(key, lazyOf(value))
+    val value: T get() = stored.value
+    override fun equals(other: Any?) = other is ImageMetadataEntry<*> && key == other.key && value == other.value
+    override fun hashCode() = 31 * key.hashCode() + (value?.hashCode() ?: 0)
     override fun toString(): String {
         return "$key :=> ${metadataShow(value, 10)}"
+    }
+    companion object {
+        fun <T> deferred(key: ImageMetadataKey<T>, value: () -> T) = ImageMetadataEntry(key, lazy(value))
     }
 }
 internal fun metadataShow(value: Any?, precedence: Int = 0): String {
@@ -78,8 +85,9 @@ internal class ImageMetadatas private constructor(val entries: List<ImageMetadat
         return if (at < 0) this else ImageMetadatas(entries.take(at) + entries.drop(at + 1))
     }
     fun <T> insert(key: ImageMetadataKey<T>, value: T) = ImageMetadatas(listOf(ImageMetadataEntry(key, value)) + delete(key).entries)
+    fun <T> insertLazy(key: ImageMetadataKey<T>, value: () -> T) = ImageMetadatas(listOf(ImageMetadataEntry.deferred(key, value)) + delete(key).entries)
     operator fun plus(right: ImageMetadatas): ImageMetadatas = right.entries.fold(this) { acc, entry -> acc.prepend(entry) }
-    private fun <T> prepend(entry: ImageMetadataEntry<T>) = insert(entry.key, entry.value)
+    private fun <T> prepend(entry: ImageMetadataEntry<T>) = ImageMetadatas(listOf(entry) + delete(entry.key).entries)
     fun <T> fold(initial: T, operation: (T, ImageMetadataEntry<*>) -> T): T = entries.fold(initial, operation)
     fun <T> foldMap(empty: T, append: (T, T) -> T, map: (ImageMetadataEntry<*>) -> T): T = fold(empty) { acc, entry -> append(acc, map(entry)) }
     fun extractExif(): List<Pair<ExifTag, ExifData>> = entries.mapNotNull { entry ->

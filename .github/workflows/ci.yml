@@ -37,6 +37,7 @@ jobs:
       - run: python3 tools/import-gif-metadata-fixtures.py --check-source
       - run: python3 tools/import-tiff-metadata-fixtures.py --check-source
       - run: python3 tools/import-png-metadata-fixtures.py --check-source
+      - run: python3 tools/import-png-decoder-fixtures.py --check-source
       - run: python3 tools/import-image-bitstream-fixtures.py --check-source
       - run: python3 tools/import-jpeg-table-fixtures.py --check-source
       - run: python3 tools/import-jpeg-block-fixtures.py --check-source

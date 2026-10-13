@@ -117,7 +117,7 @@ object PngMetadata {
     private fun passSize(size: Long, start: Int, stride: Int): Long =
         if (size <= start) 0 else (size - start + stride - 1) / stride
 
-    private fun inflateSize(bytes: ByteArray, firstOutputOnly: Boolean): Long {
+    internal fun inflateSize(bytes: ByteArray, firstOutputOnly: Boolean): Long {
         val inflater = Inflater()
         return try {
             // A one-byte output buffer observes the existence of the first lazy

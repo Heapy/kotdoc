@@ -52,6 +52,7 @@ format is implemented explicitly in Kotlin.
 | JuicyPixels GIF metadata consumer path | `images/GifMetadata.kt` | 4,980 independent Pandoc results: 2,274 sizes and 2,706 exact GIF-component failures, all 12 dependency GIF files plus Pandoc's GIF; direct signature and long-input tests |
 | JuicyPixels TIFF metadata consumer path | `images/TiffMetadata.kt` | 8,390 original outcomes: 1,263 sizes, 7,123 exact TIFF-component errors and four arithmetic exceptions; all 68 retained TIFFs, format matrices, nested Exif, duplicate/overlap/endian cases and direct type-gate/cancellation tests |
 | JuicyPixels PNG fallback metadata consumer | `images/PngMetadata.kt` | 6,329 independent captures: 4,425 sizes, 1,858 exact PNG-component errors, 45 uncaught exceptions and one explicitly non-equivalent unsafe-memory case; all 176 retained PNG inputs probed through fallback |
+| JuicyPixels PNG pixel decoder and complete metadata | `images/PngDecoder.kt` | 27,711 direct original-Haskell observations; all 176 PNGSuite files, every valid-file pixel output, five filters, Adam7, standard bit depths, indexed/transparency expansion and deferred metadata errors |
 | JuicyPixels shared bit readers/writers | `images/ImageBitStream.kt` | 12,853 direct original-Haskell captures: 10,245 reader/state operations and 2,608 writer sequences, including widths through 256, JPEG markers, alignment, stuffing and 256 KiB output boundaries |
 | JuicyPixels JPEG Huffman and quantisation helpers | `images/JpegHuffman.kt`, `JpegDefaultTables.kt` | 5,450 direct Haskell captures: trees, packed arrays, inverse codes, sequential symbols, all default tables, complete Int16 coefficient domain at 13 qualities; three JVM bounds/cancellation tests |
 | JuicyPixels JPEG block/IDCT helpers | `images/JpegBlocks.kt` | 14,233 direct original-Haskell captures of numerical results, mutable source/destination states, coefficient reader continuations, pixel placement and parameter diagnostics; four explicit bounds/domain/cancellation tests |
@@ -2326,3 +2327,86 @@ remaining image codecs, remaining Pandoc formats/application behavior and all
 Calibre MOBI/additional formats remain pending. The full objective remains active.
 
 All 271,043 Kotlin tests pass with no failures, errors or skips.
+
+
+## Complete PNG pixel decoding
+
+`PngDecoder` ports Png.hs decodePng, decodePngWithMetadata and
+decodePngWithPaletteAndMetadata onto generic Kotlin rasters. Its parser retains
+the original unsigned IHDR dimensions, ignored IHDR length/CRC, unvalidated
+compression/filter method fields, per-chunk CRC checks and first-IEND stopping.
+IDAT payloads are concatenated before zlib decompression. Five byte filters,
+unknown-filter fallback, MSB-first 1/2/4-bit unpacking, 8-bit components,
+big-endian 16-bit components and all seven Adam7 passes are implemented in
+Kotlin without ImageIO or another platform PNG codec.
+
+Indexed images expose the original indices and palette separately. Low-depth
+grayscale uses the original generated RGB palette. Exactly one tRNS chunk adds
+palette alpha, padding omitted alpha entries with 255; multiple tRNS chunks do
+not add alpha. As upstream, tRNS is ignored for ordinary grayscale/true-color
+images. Flattening uses the previously ported palettedToTrueColor operation.
+True-color pixel work stays deferred inside TrueColorImage; indexed results
+force the deinterlacer while constructing the decoder result. Empty passes can
+avoid both zlib demand and an otherwise invalid bit-depth unpacker.
+
+Metadata covers first-pHYs/first-gAMA selection, typed standard text keywords,
+Latin-1 unknown keys/values, malformed textual headers and zTXt. Shared metadata
+entries now retain lazy values through insertion/deletion/union, so key/DPI
+observations and overridden text values do not force unrelated compressed tails.
+The first zTXt output constructor remains strict, with right-to-left demand from
+the original foldMap. Full text demand checks the entire stream. Zlib uses the
+JDK decompression primitive, with the original exception messages and distinct
+Either failures preserved. The older metadata-only consumer remains separately
+tested against its existing immutable 6,329-capture corpus.
+
+A frozen `tools/haskell-png-decoder-reference` compiles unchanged JuicyPixels
+3.3.9 with GHC 9.12.2, vector 0.13.2.0 and zlib 0.7.1.1. The captured macOS
+system zlib is 1.2.12. The adapter calls original decode/expansion/metadata APIs;
+it contains no copied filter, unpacking, palette or metadata conversion logic.
+Reproduce captures with the built png-decoder-reference executable via
+`python3 tools/import-png-decoder-fixtures.py --oracle PATH`.
+
+The retained corpus contains 27,711 independent observations: 19,461 image/tag/
+result successes, 2,711 metadata successes, 5,190 Either failures and 349 original
+exceptions. Successful outputs include 15,159,456 component/palette bytes,
+checked byte-exactly or against original SHA-256 hashes for larger outputs.
+The manifest hashes 248 source/harness/corpus files and is verified by CI.
+
+- Every one of the 176 retained PNGSuite files is used verbatim, including all
+ 161 original validTests names, huge.png and 14 original invalidTests names.
+ All 162 valid-file pixel outputs are compared. xhdn0g08 also decodes, matching
+ upstream's ignored IHDR CRC rather than an assumed strict PNG validator.
+- Synthetic inputs cover every standard color/depth combination, fifteen shapes,
+ all filter predictors and unknown filters, interlaced/noninterlaced scans and
+ empty passes. All 256 row-filter bytes and header method/color/interlace bytes
+ are exercised; IDAT splits cross zlib header/body boundaries.
+- Palette and transparency cases cover grayscale expansion, omitted/empty/short/
+ full/oversized alpha tables, repeated tRNS, palette validation and separate
+ indexed-versus-expanded observations. Defined nonstandard-depth and empty
+ arbitrary-depth behavior is retained instead of silently validating the spec.
+- Metadata cases exercise physical units, gamma boundaries, every standard text
+ key, binary Latin-1 values, duplicate-key order, compressed-tail failures and
+ key-only/title-only/DPI-only demand with conflicting text failures.
+- File truncations, signature/chunk-CRC corruption, short/invalid zlib headers,
+ missing checksums, incorrect Adler checksums and trailing bytes are compared
+ with original parser/decompression results. Decode convenience wrappers are
+ separately checked against all 174 corpus files with defined dynamic demand.
+
+Native uninitialized output or unsafe scanline/storage reads have no portable
+oracle. xd0n2c08 and xd9n2c08 are retained for safe result/palette-tag/metadata
+observations only; synthetic unsafe shapes likewise avoid pixel demand.
+Kotlin guards truncated inflated rows with TruncatedScanlineException, verified
+separately without claiming it matches a native unsafe-read result. Primitive
+JVM array-capacity limits remain as documented for generic rasters. Metadata
+strings materialize on value demand in Kotlin; arbitrary Haskell lazy string
+prefix consumption is not a Kotlin String operation.
+
+PNG writing, APNG binary helpers, original PNG cross-format re-encoding tests,
+older image API integration, remaining image codecs, remaining Pandoc formats/
+application behavior and all Calibre MOBI/additional formats remain pending.
+The full objective remains active.
+
+All 298,929 Kotlin tests pass with no failures, errors or skips. All 48 source/
+fixture manifests verify against the retained originals.
+All 234 installed-CLI comparisons pass: 14 FB2, 66 media, 69 format modifiers
+and 85 math-option cases.
