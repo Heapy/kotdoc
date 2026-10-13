@@ -1190,3 +1190,55 @@ metadata tests. The installed CLI checks remain 234 cases. Remaining work
 includes the complete metadata extraction/encoding layer, full JPEG frame/scan
 assembly and pixel codecs, TIFF pixel codecs and their original image tests.
 Pandoc's full format/application surface and the Calibre port remain open.
+
+
+## JPEG frame assembly and serialization — 2026-10-13
+
+`JpegFrames.kt` ports JpgFrame/JpgImage and their strict and legacy semi-lazy
+parsers from the pinned JuicyPixels 3.3.9 Types module. It includes every frame
+constructor, individual-frame parsing, strict frame lists, frame kinds with
+byte offsets/lengths, early frame-header lookup, complete image writing, and
+both original macroblock debug printers. APP0/APP1/APP14 payload parsing retains
+optional failure swallowing. Other APP/extension payloads retain byte-for-byte
+contents. Existing typed JFIF, Adobe, Exif, quantization and Huffman structures
+are shared rather than duplicated.
+
+Semi-lazy parsing advances the outer cursor to EOF at the first SOS and defers
+entropy data traversal until the scan list cell is requested. Failures after
+that scan discard the subsequent unsuccessful parser result, while failures
+before it propagate. A memoized iterable list spine supports prefix consumers
+without forcing or copying compressed data. Decoder Huffman trees are separately
+lazy: header/kind inspection and writing table specifications do not build a
+tree. Full Show or equality can force it and reproduce original malformed-tree
+errors. Direct tests prove tail memoization/prefix behavior and writing without
+evaluating an unused tree.
+
+Writing preserves the original generic APP/extension behavior: the segment
+length contains the payload size without adding two, followed by Binary's
+Int64 ByteString length prefix and payload. This is an observed source quirk,
+not a repaired JPEG writer. Explicit writer cases include every Word8 APP and
+extension code, every frame constructor, and payload sizes spanning the Word16
+length boundary. The two debug printers preserve their distinct spacing and
+signed Int64 formatting.
+
+The new original-Haskell oracle compiles ten unchanged vendored modules. Its
+9,819 captures comprise 4,159 successful results, 5,618 parser failures and
+42 deferred Huffman exceptions. Cases cover every marker byte, all truncations
+of representative frames, negative/undersized APP lengths, optional metadata
+corruption, multi-scan continuations, early lookup versus full-prefix parsing,
+seeded frame compositions and writer-only values. Parser outcomes compare exact
+consumption and remainder length/edge bytes, full constructor Show output and
+serialized bytes. For large original images, full Show and encoded outputs are
+compared by SHA256 and byte length instead of duplicating large files in JSON.
+
+All 31 original JPEGs from the pinned upstream test revision are retained
+verbatim with provenance and hashes: 29 jpegValidTests, huge.jpg, and Samsung's
+metadataReadTest input. Each is checked in six original parser/consumer modes.
+This exercises frame assembly on those inputs; their original full pixel
+decode/re-encode assertions remain outstanding. The oracle wrapper and capture
+script are hash-checked alongside all original source and image assets in CI.
+
+All 137,737 Kotlin tests pass with zero failures, errors or skips. Full metadata
+extraction, baseline/progressive JPEG scan decoding, pixel conversion/encoding,
+and original pixel tests remain open, as do other image codecs, the remaining
+Pandoc formats/application surface, and the complete Calibre phase.

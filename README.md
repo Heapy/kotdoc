@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 127,916 tests, no skipped tests.
+  roundtrip tests. Current suite: 137,737 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -100,11 +100,16 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - JPEG binary structures: marker/header/table readers and writers, JFIF/Adobe
   records, restart intervals and both entropy-segment parsers. Verified against
   20,043 original Haskell outcomes, including malformed lengths, exact parser
-  offsets and lazy-input chunk boundaries. Full frame assembly remains pending.
+  offsets and lazy-input chunk boundaries.
 - Typed TIFF/Exif directories and binary serialization, including nested fields
   and JPEG APP1 parsing/writing. The existing TIFF metadata path now uses this
   shared parser. Verified by 16,177 original Haskell captures, including all
   65,536 tag codes, 68 original TIFF files and the Samsung JPEG metadata fixture.
+- JPEG frame/image assembly: strict and legacy semi-lazy parsing, early header
+  lookup, frame locations, all frame writers and macroblock debug printers.
+  Verified by 9,819 original Haskell captures, including all 31 retained original
+  JPEG photographs, truncations and deferred Huffman failures. Pixel decoding
+  and the original decode/re-encode image tests remain pending.
 - Identifier generation, ASCII conversion and complete emoji lookup/replacement
   tables. Every Unicode scalar is checked against Pandoc in four identifier modes.
   Case conversion uses Haskell text's Unicode 16 tables, including full expansions,
