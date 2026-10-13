@@ -55,6 +55,7 @@ format is implemented explicitly in Kotlin.
 | JuicyPixels shared bit readers/writers | `images/ImageBitStream.kt` | 12,853 direct original-Haskell captures: 10,245 reader/state operations and 2,608 writer sequences, including widths through 256, JPEG markers, alignment, stuffing and 256 KiB output boundaries |
 | JuicyPixels JPEG Huffman and quantisation helpers | `images/JpegHuffman.kt`, `JpegDefaultTables.kt` | 5,450 direct Haskell captures: trees, packed arrays, inverse codes, sequential symbols, all default tables, complete Int16 coefficient domain at 13 qualities; three JVM bounds/cancellation tests |
 | JuicyPixels JPEG block/IDCT helpers | `images/JpegBlocks.kt` | 14,233 direct original-Haskell captures of numerical results, mutable source/destination states, coefficient reader continuations, pixel placement and parameter diagnostics; four explicit bounds/domain/cancellation tests |
+| JuicyPixels JPEG binary structures and ECS | `images/JpegBinary.kt` | 20,043 original Haskell captures: reads, writes, Show/size, parser errors/offsets/remainders, malformed headers/tables and chunk-sensitive ECS behavior |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -128,7 +129,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 91,696 Kotlin tests pass locally. Every push runs source
+Current verification: 111,739 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -1052,3 +1053,62 @@ Haskell. Original full-image JPEG tests remain open: frame parsing, scan state,
 baseline/progressive entropy orchestration, metadata/color-space handling,
 pixel-buffer integration and encoding are still required. Completing these
 helpers does not complete JPEG, the image dispatcher, Pandoc or Calibre.
+
+## JPEG binary structures and entropy-segment evidence
+
+`images/JpegBinary.kt` translates the primitive Binary instances in JuicyPixels
+3.3.9 `Jpg.Internal.Types`: all frame markers, JFIF units and APP0 records,
+Adobe transforms and APP14 records, components, frame and scan headers,
+quantisation and Huffman specifications, table lists and restart intervals.
+Records retain source field order and exact Show diagnostics. Their Int fields
+represent upstream Word8/Word16 domains; signed quantisation values use Short.
+Calculated sizes and serialized field counts deliberately remain independent.
+
+Reader failures preserve the original message, byte offset and unconsumed
+suffix. Word16 reads are atomic, frame-header padding uses the declared length,
+negative padding skips are no-ops, and scan length is retained without driving
+a skip. JFIF uses the original conjunction in its version rejection and reads
+thumbnail dimensions without consuming thumbnail pixels. Adobe requires version
+100 on input while the writer retains its provided version. Nonzero quantisation
+precision always reads/writes 16-bit values, while calculateSize still uses the
+precision-plus-one formula. All nibble writers preserve Word8 shift/OR behavior
+without first masking the low argument. DHT writing preserves the independent
+size/code vectors, including checked bounds errors. Table-list readers continue
+until their signed remaining length equals zero, even after an overrun.
+
+Both original ECS entry points are ported. The simple lookahead parser requires
+a terminator and preserves its EOF failure offset. The optimized parser accepts
+nonempty input ending without a marker, and retains the chunk-sensitive behavior
+of the pinned binary 0.8.9.3 implementation. For example, input `[FF,D9]` returns
+`[FF]` while consuming zero bytes. Chunks `[01,02,03,FF]`, `[D9,AD]` return ECS
+`[01,02,03,FF,02,03]` with offset 3 and remainder `[FF,D9,AD]`. The independent
+oracle verifies these surprising results; the Kotlin parser does not replace
+them with the simpler algorithm. Single-buffer parsing and explicit chunk-list
+parsing are both available to future consumers.
+
+`tools/haskell-jpeg-binary-reference` compiles ten unchanged original modules,
+including the full upstream TIFF/Exif dependency closure. Its adapter constructs
+values and calls actual get/put/calculateSize/Show implementations. It captures
+both parsing and separately constructed writer inputs, so a matching round trip
+alone cannot hide a writer error. Compiler and binary versions are reported by
+the built executable. The freeze file records the dependency versions. Source
+and canonical result hashes are checked by CI.
+
+The 20,043 retained cases cover every marker/unit/transform byte, all packed
+nibble bytes, JFIF versions, Adobe transforms, precise truncations, maximum
+component counts, declared-length mismatches, variable table/vector lengths,
+Word16/Int16 boundaries, malformed table lists and 250 seeded record sets.
+Every FF successor is exercised at several offsets and every split point, with
+empty chunks, missing terminators and seeded multi-chunk streams. Kotlin checks
+all successful values, encoded bytes, sizes, diagnostics, parser offsets and
+remainders. Checked upstream vector bounds exceptions are matched by category,
+not by a Haskell source-location string.
+
+All 20,043 new cases pass: 18,322 successful outcomes, 1,685 parser failures
+and 36 checked bounds exceptions. The full local suite has 111,739 passing tests and the
+four CLI check scripts retain 234 passing cases. Full frame/image assembly,
+Exif IFD parsing/serialization, scan orchestration, color handling and JPEG
+encoding remain open. The Types module's macro-block diagnostic printers also
+remain unported. Existing `TiffMetadata` is a metadata consumer, not the typed
+TIFF/Exif codec required by `JpgExif`; it must not substitute for that model.
+This milestone does not complete JPEG, Pandoc, or Calibre.
