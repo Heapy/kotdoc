@@ -56,6 +56,7 @@ jobs:
       - run: python3 tools/import-image-packed-fixtures.py --check-source
       - run: python3 tools/import-raster-fixtures.py --check-source
       - run: python3 tools/import-raster-traversal-fixtures.py --check-source
+      - run: python3 tools/import-dynamic-raster-fixtures.py --check-source
       - run: python3 tools/import-image-metadata-fixtures.py --check-source
       - run: ./gradlew test :cli:installDist --no-daemon
       - run: python3 tools/check-fb2-cli.py

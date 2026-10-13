@@ -2184,3 +2184,73 @@ remaining Pandoc formats/application behavior and all Calibre MOBI/additional
 formats remain pending. The full objective remains active.
 
 All 260,387 Kotlin tests pass with no failures, errors or skips.
+
+## Dynamic images, palette records and true-color expansion
+
+`DynamicRaster` ports all fourteen original DynamicImage alternatives, derived
+variant/image equality, dynamicMap, dynamicPixelMap and NFData forcing. YCbCrK8
+is not a DynamicImage alternative in the original, though its pixel type remains
+supported elsewhere. Typed generic visitors retain the image's codec witness and
+receive an image thunk, so constant callbacks can ignore an erroneous whole image.
+Transforms retain their variant and defer both callback application and the
+resulting image. Variant mismatch rejects equality without demanding either
+payload; equal variants delegate to original-style raster equality, including
+non-reflexive Float NaNs. Forcing evaluates the image/vector record without
+reading component bytes, matching original NFData.
+
+`RasterPalette` ports Palette' for all fifteen pixel types, with strict Int64 size
+and component vector. palettedAsImage returns width=size, height=1 and shares the
+complete logical vector, including unused tails; it does not validate size
+against storage. `RasterRgbPalette` represents the original RGB8 Palette alias.
+`PalettedRaster` contains exactly the original TrueColorImage fallback and Y8,
+RGB8, RGBA8 and RGB16 indexed variants. Fallback memoizes its lazy payload and
+returns that exact dynamic image. Other alternatives preserve a lazy source and
+palette and expand unsigned byte indices via the original row pixelMap semantics.
+The declared palette size is ignored; complete palette pixels in the actual vector
+determine valid native reads. Source indices are demanded before palette data.
+Four original cases with both buffers erroneous exposed the opposite initial
+Kotlin demand order, which is now corrected for every indexed alternative.
+
+A new frozen original-code harness calls unchanged JuicyPixels 3.3.9 helpers,
+derived equality and NFData. Polymorphic test callbacks inspect dimensions/length,
+return a constant, preserve images, swap dimensions, construct an empty image,
+invoke original pixelMap or raise errors. ForeignPtr/offset and StableName
+observations supply independent sharing/identity expectations. Pattern matching
+only serializes resulting variants. The harness contains no replacement dispatch,
+equality, palette-expansion or image-mapping implementation. Source modules use
+-O2; only adapter specialization/SpecConstr is disabled to limit code duplication.
+
+All 4,902 original captures pass: 4,439 successes and 463 original errors, with
+181,493 serialized component bytes:
+
+- 196 dynamicMap and 434 dynamicPixelMap observations cover all fourteen variants,
+  constant/non-strict callbacks, metadata/tag/data observations, callback failures,
+  dimensions, full vector tails, lazy source errors and typed transformations.
+- 206 image-equality and 56 cross-tag comparisons include same-image NaNs, signed
+  zeros, infinities and errors that variant checks must avoid or demand.
+- 168 NFData observations cover every variant with normal, erroneous image and
+  erroneous vector payloads under empty, negative and extreme Int64 metadata.
+- 3,276 palettedAsImage observations cover all fifteen pixel types, zero/negative/
+  extreme sizes, offset/length slices, unused tails, exact slice errors and strict
+  palette failures. All 3,156 successful results share the original palette vector.
+  Six raw Float batches cover both signs and every exponent at six mantissa
+  boundaries, preserving every bit and NaN payload without normalization.
+- 300 indexed expansion captures include all 256 byte indices for each of the four
+  alternatives at eight declared sizes and three vector offsets, plus deferred
+  source/palette errors, empty/negative/overflow dimensions and error order.
+- 266 fallback captures preserve the original dynamic value; all 224 successful
+  observations have original StableName identity. A separate Kotlin regression
+  ensures repeated conversion forces its lazy payload only once and returns the
+  same object.
+
+Native unsafe out-of-storage palette reads and uninitialized row-map outputs are
+excluded. Metadata, tag-only and empty results still exercise deferred errors
+without unsafe native access. Palette indexes used for byte comparison always
+fit complete pixels in actual vector storage, even when declared size disagrees.
+Primitive JVM storage limits remain unchanged. Original GIF/PNG palette codec
+validation and encoder/decoder tests remain separate pending work, as do older
+image API integration, gamma/tone operations, remaining image codecs, remaining
+Pandoc formats/application behavior and all Calibre MOBI/additional formats.
+The full objective remains active.
+
+All 265,290 Kotlin tests pass with no failures, errors or skips.
