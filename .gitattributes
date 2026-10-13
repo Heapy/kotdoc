@@ -24,4 +24,6 @@ licenses/Skylighting-core-BSD-3-Clause.txt -text whitespace=cr-at-eol
 vendor/aeson-highlight-errors-2.2.3.0/** -text whitespace=-trailing-space,-blank-at-eof
 licenses/Aeson-BSD-3-Clause.txt -text whitespace=cr-at-eol
 tools/haskell-highlight-style-reference/PandocHighlightMethod.hs whitespace=-blank-at-eof
+vendor/doclayout-0.6/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+licenses/DocLayout-BSD-3-Clause.txt -text whitespace=cr-at-eol
 vendor/zlib-0.7.1.1/** -text whitespace=-trailing-space,-blank-at-eof

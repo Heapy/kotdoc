@@ -42,6 +42,7 @@ format is implemented explicitly in Kotlin.
 | `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
 | Skylighting style JSON, built-in themes and `Options.HighlightMethod` | `highlighting/HighlightStyle.kt`, `HighlightStyles.kt`, `options/HighlightMethod.kt` | All four original style JSON tests, 6,168 direct original-Haskell observations and 25 actual Pandoc theme lookups; eight complete original theme tables |
+| DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
@@ -129,8 +130,9 @@ format parsing, ReaderOptions fields/JSON/defaults and HighlightMethod/style JSO
 are implemented; the complete WriterOptions record and defaults still need its
 template/context and syntax-map dependencies, plus remaining highlighting
 behavior. These dependencies must be ported rather than replacing the record
-with a subset. The next dependencies are pinned doclayout 0.6 and doctemplates
-0.11.1, including their original wrapping/rendering and template tests. Context
+with a subset. Finite doclayout 0.6 rendering and document operations are now
+implemented. Next is doctemplates 0.11.1, including its complete original template
+tests, plus the remaining DocLayout interfaces recorded below. Context
 values and Template literals contain structured DocLayout documents. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
@@ -2575,4 +2577,90 @@ introduced. Remaining Pandoc infrastructure, readers/writers and all Calibre
 MOBI/additional-format work remain in the original objective.
 
 All 309,941 Kotlin tests pass locally with no failures, errors or skips. All 51
+source/fixture checks verify; all 234 installed-CLI comparisons pass.
+
+## DocLayout finite rendering and document dependency
+
+The pinned doclayout 0.6 dependency is retained unchanged (all 28 original files),
+with archive provenance and BSD license. Kotlin models all 16 Doc constructors,
+the full Font/StyleReq state, Attr and Attributed values and the HasChars
+abstraction. Its production renderer is Kotlin; no Haskell or Pandoc executable
+is used for production layout.
+
+The finite public operations include literal/text/character construction,
+horizontal/vertical composition, breaking spaces, carriage returns, explicit
+newlines/blank lines, prefixes, flush/nest/hang, conditional text, nowrap,
+nestle/chomp, left/center/right blocks, expandable borders, delimiters, styles,
+links, plain/ANSI rendering, offset/minOffset/updateColumn and height. Native
+signed-Int arithmetic uses Long, including overflow and negative cached widths.
+Explicit Text/Block/CookedText/VFill widths retain original behavior even when
+they disagree with their contents.
+
+Rendering preserves normalization order, trimmed prefixes on empty lines,
+prefix restoration, block padding, combining marks during chopping, cooked
+attribute segments, ANSI resets, OSC8 links and original nested-link handling.
+BeforeNonBlank uses the original distinct measurement and rendering rules.
+Two independent random cases exposed nested BeforeNonBlank measurement and
+lookahead after ignored nested links; the fixes are checked against the original
+corpus and reduced regression inputs.
+
+The original 1,176 Unicode range boundaries and both optimized shortcut guard
+sets are translated directly from retained source. Width calculation preserves
+first-character combining behavior, narrow/wide ambiguous characters, emoji
+presentation selectors, skin tones, ZWJ state and the original emojis 0.1.5 map.
+It does not substitute platform Unicode widths. The corpus probes all 1,114,112
+Haskell Char values, including surrogate code points, through charWidth, four
+string-width variants and all three character predicates.
+
+HasChars supports scalar Text, explicit CharacterString values and nested Attr/
+Attributed representations. CharacterString distinguishes separate surrogate
+Chars from a supplementary character; its plain output is compared as code-point
+lists, while ANSI builder output observes original Text replacement behavior.
+Attribute concatenation retains the first part's font/link; line splitting and
+folds preserve original segment order and empty segments. Monoid concatenation
+retains the original right fold; starting an Attr fold from mempty on the left
+would discard the first font/link. Standalone Attr rendering is independently
+checked as well as Attributed rendering. Font rendering covers
+all finite style-field combinations, optional font links and request sequences.
+Plain output concatenates buffers in one pass to avoid quadratic string copying.
+
+Value mapping and folds preserve original derived field order, font/link/prefix
+fields and cached widths. Effectful mapping is checked against the original
+State traversal, including values inside cooked text and block attribute lists.
+Each occurrence is visited; shared subtrees are not memoized. Finite work stacks
+also cover 50,000 concatenations and 10,000 nested style/prefix pairs on the JVM.
+
+A frozen original-GHC oracle compiles unchanged DocLayout/ANSIFont/Attributed/
+HasChars sources, with emojis 0.1.5, QuickCheck and GHC 9.12.2. Its separate
+unchanged original test suite passed all 4,024 tests, including two properties
+with 10,000 examples each. Build/capture instructions are in
+`tools/haskell-doclayout-reference/README.md`.
+
+All 54 original renderTest expressions and literal goldens are read from the
+original test file by a restricted expression reader. Before accepting captures,
+the original executable must reproduce every literal golden. The 15 remaining
+literal assertions are translated directly (three offset assertions share one
+Kotlin test). All 3,953 base/ZWJ emoji inputs and both shortcut properties are
+covered; 20,000 retained inputs come from the actual QuickCheck Arbitrary String
+generator with fixed seeds/sizes. QuickCheck's runtime/shrinking infrastructure
+is not itself ported.
+
+The corpus has 38,147 original observations: 23,953 string-width cases, 272
+all-Char batches, 5,489 font results, 4,266 documents, 900 attribute concatenations,
+786 derived value walks, 650 rich documents, 196 Int64 measurements, 140 Haskell
+String documents, 1,430 standalone Attr documents and 65 attributed fold/split/build cases. Together with the
+direct original assertions and deep-document check, this adds 38,161 Kotlin
+tests. The manifest verifies 40 original/harness/importer/provenance files;
+CI also verifies both generated source tables/classifiers.
+
+This is the finite rendering/document layer. Exact derived Haskell Show/Read/Ord
+interfaces, arbitrary Applicative traversal interfaces, fully lazy/infinite
+strings/documents and incremental lazy-Text rendering remain pending. JVM
+string/array capacity guards remain explicit platform limits. Doctemplates'
+Template/Context/Val/parser/rendering/partials, remaining syntax highlighting,
+the complete WriterOptions record/defaults and Lua/application integration remain
+pending. Remaining Pandoc formats/infrastructure and all calibre MOBI/additional
+formats stay in the original objective; the full port is not complete.
+
+All 348,102 Kotlin tests pass locally with no failures, errors or skips. All 53
 source/fixture checks verify; all 234 installed-CLI comparisons pass.

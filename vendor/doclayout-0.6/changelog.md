@@ -1,0 +1,229 @@
+# doclayout
+
+## 0.6
+
+  * Fix `nowrap` to descend into nested Doc structures.
+    Previously nowrap only replaced top-level breaking spaces, so spaces
+    inside Styled, Linked, Prefixed, and BeforeNonBlank remained
+    breakable, e.g. nowrap (bold ("aa" <> space <> "bb")) still wrapped.
+
+  * Remove deprecated `unfoldD` [API change].
+    It has been deprecated since 0.5 and is no longer used internally.
+
+  * Make `flatten` linear in the size of the Doc (formerly it was quadratic
+    for left-nested Concats).
+
+  * Fix `chop`: preserve attributes, keep combining marks with base, fill left.
+    Previously `chop` (used for lines exceeding a block's width) lost ANSI
+    styling in text, folded right-to-left (sometimes orphaning
+    combining marks at the start of the next line), and under-filled the
+    first chopped line instead of the last (e.g., `lblock 3 "abcdefg"`
+    gave `"a/nbcd/nefg"` rather than `"abc/ndef/ng"`).
+
+  * Fix `offset`/`minOffset`/`updateColumn` for mid-line Prefixed.
+    `getOffset` restarted the column at 0 for Prefixed content and
+    unconditionally added the prefix width, but the renderer only emits
+    the prefix at the start of a line: mid-line, prefixed content simply
+    continues at the current column.
+
+  * Various small performance improvements and cleanups.
+
+  * Update EastAsianWidth.txt to Unicode 17.0.
+
+  * Make `update.hs` a cabal script and fix it for recent EastAsianWidths.
+
+  * Update sources with latest EastAsianWidths.
+
+  * Remove stack.yaml.
+
+## 0.5.0.3
+
+  * Tests: Go back to using withMaxSuccess for compatibility with older
+    QuickCheck versions.
+
+## 0.5.0.2
+
+  * Performance optimizations:
+
+    + Fuse double modify calls in outp, newline, and FCookedText handler.
+
+    + Cache polymorphic prefix in RenderState. Add prefixA, prefixTrimmedA,
+      and prefixLen fields to RenderState that cache the polymorphic
+      conversions of the Text prefix. This eliminates
+      the per-line fromString/T.unpack/realLength conversions in outp,
+      newline, and the FCookedText handler. Add a setPrefix helper that
+      updates all cached fields atomically. The block handler computes the
+      space-appended prefix incrementally to avoid expensive recomputation
+      on deeply nested blocks.
+
+    + Avoid redundant realLength calls in mergeBlocks padding.
+      Thread precomputed line widths through the merge process by changing
+      the internal representation from (Int, [a]) to (Int, [(Int, a)]) where
+      the inner Int is each line's rendered width. This avoids calling
+      realLength on every line during every merge pass; widths are computed
+      once in toBlockSpec and carried through.
+
+    + Remove redundant normalize in flatten for Prefixed. renderList
+      already normalizes when processing FPrefixed. This removes the
+      double traversal.
+
+    + Use strict foldl' in Attributed foldlChar instance.
+
+    + Add shortcuts for Thai, emoji modifiers, CJK, and fullwidth chars.
+      Add new shortcuts to updateMatchStateNarrow and updateMatchStateWide:
+
+      - Thai script (U+0E00-U+0E7F) with combining marks for vowels/tones
+      - Zero-width joiner (U+200D) with inline emoji-joining logic
+      - Emoji presentation variation selector (U+FE0F)
+      - Emoji skin tone modifiers (U+1F3FB-U+1F3FF)
+      - CJK Compatibility Ideographs (U+F900-U+FAFF)
+      - Fullwidth forms (U+FF01-U+FF60, U+FFE0-U+FFE6)
+      - Supplementary CJK Extension B+ (U+20000-U+3FFFF)
+
+  * Use withNumTests instead of deprecated withMaxSuccess in test suite.
+
+## 0.5.0.1
+
+  * Have `nestle` remove leading CarriageReturn.
+
+## 0.5
+
+  * Extract existing HasChars definition into a module
+    Text.DocLayout.HasChars (Evan Silberman).
+
+  * Add a `build` method to the signature of HasChars [API change]
+    (Evan Silberman). This has a default definition, and is only needed with
+    the ANSI renderer, so existing users should not need to add anything to
+    their HasChars instances.
+
+  * Introduce support for ANSI-styled output (Evan Silberman) [API change].
+    `renderPlain` and `renderANSI` are now exported; the old `render`
+    is a synonym of `renderPlain`.  In addition, various functions are
+    exported to add ANSI formatting (including bold, italics,
+    underline, strikeout, links, and colors) to a Doc. The Attributed
+    type is also now exported.
+
+  * Change type of Block constructor, replacing `[a]` with `[Attributed a]`,
+    which carries a Font along with an inner string type [API change]
+    (Evan Silberman).
+
+  * Introduce FlatDocs and use them for rendering (Evan Silberman).
+    This is an internal concept, not part of the public API.
+    FlatDoc is an "intermediate representation" for the Doc "interpreter".
+    The general design is that any Doc can be turned into a list of FlatDocs
+    that carry equivalent information. The main point of doing this
+    is to replace the nested Styled and Linked Docs, which form a more
+    complicated tree structure than previously existed in DocLayout.
+
+  * Deprecate `unfoldD`.
+
+## 0.4.0.1
+
+  * Add clause for Empty to renderList (#22).
+  * Remove upper bound for criterion
+
+## 0.4
+
+  * Expose `unfoldD` [API change].
+  * Remove `realLengthNoShortcut`, `isEmojiModifier`, and
+    `isEmojiJoiner` [API change] (Stephen Morgan).
+  * Add new exported functions `realLengthNarrowContext`,
+    `realLengthWideContext`, `realLengthNarrowContextNoShortcut`,
+    `realLengthWideContextNoShortcut`, `isSkinToneModifier`, `isZWJ`
+    [API change] (Stephen Morgan).
+  * Compute `realLength` strictly.
+  * Make `getOffset` stricter.
+  * Drop support for ghc <= 8.4, add test for ghc 9.2.
+  * Don't collapse the CarriageReturn + Newline combination (#20).
+    We want to ensure that a literal starting with a Newline
+    doesn't lose the newline if it occurs after a CarriageReturn.
+    This affects code blocks in pandoc that begin with newlines.
+  * Improve performance of NoShortcut code (Stephen Morgan).
+  * Simplify emoji processing (Stephen Morgan).
+  * Add benchmarking for code with no shortcuts (Stephen Morgan).
+  * Add unicodeWidth.inc to cabal file.
+  * Fix `offset`, `minOffset`, `updateColumn` so they don't re-render.
+  * Get unicode block widths directly from the Unicode specification, rather
+    than writing it out ourselves (Stephen Morgan).
+  * Resolve the width of ambiguous characters based on their context
+    (Stephen Morgan).
+  * Spacing marks should have nonzero width, even though they are combining
+    characters (Stephen Morgan).
+  * Add shortcuts for extended Latin, Arabic, Cyrillic, Greek,
+    Devangari, Bengali, Korean, Telugu, and Tamil (Stephen Morgan).
+  * Fix location of extra-source-files in cabal.
+  * update.hs: require text package
+  * Handle emoji variation modifiers specially, so the keypad emoji can be
+    ignored (Stephen Morgan).  This results in a 16% speedup of realLength
+    on ascii text.
+  * Add benchmarks for all scripts used by more than 50 million people, plus
+    a couple more. (#9, Stephen Morgan).
+
+## 0.3.1.1
+
+  * Fix the end of the block of zero width characters which contains
+    the zero-width joiners and directional markings (Stephen Morgan, #5).
+    This fixes a regression introduced in 0.3.1, affecting code
+    points 0x2010 to 0x2030.
+
+## 0.3.1
+
+  * Improved handling of emojis.  Emojis are double-wide, but
+    previously this library did not treat them as such.  We now
+    have comprehensive support of emojis, including variation
+    modifiers and zero-width joiners, verified by a test suite.
+    Performance has been confirmed to be no worse for text without emojis.
+    (Stephen Morgan, #1).  API changes: export `realLengthNoShortcut`,
+    `isEmojiModifier`, `isEmojiVariation`, `isEmojiJoiner`.
+
+## 0.3.0.2
+
+ * NOINLINE `literal` instead of `fromString` (#2, sjakobi).
+   This produces a further reduction in allocations and
+   pandoc compile time.
+
+## 0.3.0.1
+
+ * NOINLINE `fromString` (#1).
+   @sjakobi reports that this change reduced total allocations
+   for building pandoc-2.12 with GHC 8.10.4 by 8.5% and reduced
+   peak allocations are reduced from 3854MB to 3389MB.
+
+## 0.3
+
+  * Add foldlChar to signature of HasChars [API change].
+  * Use foldlChar in realLength. This avoids a stack overflow
+    we were getting with long strings in the previous version
+    (with foldrChar).  See jgm/pandoc#6031.
+  * Replace isBlank with isBreakable and improved startsWithBlank.
+    Previously isBlank was used in the layout algorithm where
+    what we really wanted was isBreakable.
+  * Avoid unnecessary calculation in updateColumns.
+  * Replace a right fold with a strict left fold.
+  * Add strictness annotations in realLength and updateColumn.
+
+## 0.2.0.1
+
+  * Made `realLength` smarter about combining characters.
+    If a string starts with a combining character, that character
+    takes up a width of 1; if the combining character occurs after
+    another character, it takes 0.  See jgm/pandoc#5863.
+  * Improve `isBlank`, re-use in rendering code `for BreakingSpace`.
+  * Fixed incorrect `Text` width in renderig blocks.
+
+## 0.2
+
+  * Add instances for `Doc`: `Data`, `Typeable`, `Ord`, `Read`, `Generic`.
+  * Add `literal` (like `text`, but polymorphic).
+  * Change some `IsString` constraints to `HasChars`.
+  * Add some default definitions for methods in `HasChars`.
+  * Change `offset` and `minOffset` to be more efficient (in
+    simple cases they no longer render and count line lengths).
+  * Add `updateColumn`.
+  * Fix problem with `lblock`/`cblock`/`rblock` when `chop` is
+    invoked. This caused very strange behavior in which text
+    got reversed in certain circumstances.
+
+## 0.1
+
+  * Initial release.
