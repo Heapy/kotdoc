@@ -2005,3 +2005,94 @@ Pandoc formats/application behavior, and Calibre MOBI/additional formats. The
 full objective remains active.
 
 All 209,823 Kotlin tests pass with no failures, errors or skips.
+
+## Generic raster images, generators, maps and folds
+
+`RasterImage`, `MutableRasterImage`, `RasterVector` and `RasterCodec` port the
+common image representation and the following Types.hs operations for all 15
+pixel types: generateMutableImage/generateImage, withImage, generateFoldImage,
+pixelMap/pixelMapXY, pixelFold/pixelFoldM/pixelFoldMap, zipPixelComponent3,
+pixelBaseIndex, checked pixelAt/readPixel/writePixel and mutable allocation,
+background creation and safe/unsafe freeze/thaw. Typed primitive codecs retain
+ByteArray/ShortArray/IntArray/FloatArray storage and every original component
+order. `RasterBridge` lets each existing immutable/mutable image buffer use the
+generic API without copying. Existing format-specific APIs have not all been
+migrated to this representation.
+
+Dimensions, slice lengths and address arithmetic use Long, including original
+signed Int64 wrapping. A component slice shares its parent storage. Checked
+reads/writes validate each flattened component against the logical slice length,
+so an out-of-range later component leaves earlier writes visible without touching
+the parent's neighboring components. Safe freeze/thaw copies exactly the logical
+slice, including unused tails, and resets its offset. Unsafe conversions share
+the view. Dimension equality precedes data evaluation; Float comparison follows
+original IEEE equality, including equal signed zeros and non-reflexive NaNs.
+
+Data can be deferred independently of dimensions. Original generateImage runs
+generation before its Image record becomes observable; this differs from
+pixelMap and generateFoldImage. Captures of metadata-only results distinguish
+these cases. Callback APIs with explicit pixel thunks retain original non-strict
+arguments, so a constant transform can ignore an erroneous source vector.
+Accumulators can themselves be Lazy values; the original foldM IO trace records
+all actions before a deferred accumulator/pixel failure is demanded. pixelFold
+forces the source vector even for an empty raster, while empty pixelFoldM and
+pixelFoldMap can avoid it.
+
+Row generators/maps/folds use top-to-bottom, left-to-right order. withImage and
+generateFoldImage use the original [0..count-1] enumeration, including Int64-min
+subtraction overflow. generateFoldImage uses checked writes. pixelFoldMap instead
+visits the linear width*height component product and associates results to the
+right. Its monoid interface supplies a lazy tail for short-circuit instances;
+pure instances that always demand their tails can opt into a stack-safe right
+fold. Component zip first checks dimensions, then combines complete vectors up
+to their shortest logical length, irrespective of pixel dimensions or tails.
+
+A separate frozen Haskell harness compiles unchanged JuicyPixels 3.3.9 and calls
+these original public operations. The unexported generateMutableImage is covered
+through original generateImage. The adapter only supplies test callbacks,
+constructs/serializes pixels through original Pixel methods and captures results,
+errors and IO traces; it contains no replacement raster algorithm. Kotlin
+expectations are independent captures of the original implementation.
+
+All 14,889 captured observations pass: 12,692 successes and 2,197 original errors,
+with 211,172 serialized component bytes:
+
+- 1,575 each pixelMap/pixelMapXY observations cover every one of the 225
+  source/destination type pairs, multiple raster shapes, ignored source data and
+  metadata-only results that do not demand a failing callback.
+- 344 generateImage, 330 withImage and 314 generateFoldImage results cover empty,
+  non-square, negative and Int64 boundary shapes, callback errors, IO ordering,
+  deferred metadata, state accumulation and checked overflow failures.
+- 585 pixelFold, 645 pixelFoldM and 780 pixelFoldMap observations cover coordinates,
+  raster versus linear order, source-data demand, deferred errors, monoid identity,
+  short-circuit Any and a deliberately non-associative bracket monoid that exposes
+  right association.
+- 375 each slice/freeze/thaw observations include nonzero and misaligned offsets,
+  short/empty/tail vectors, independent dimension metadata, safe copies, invalid
+  slices and exact native error messages.
+- 345 component-zip observations cover unequal vector lengths, unused tails and
+  dimension errors before data demand. 206 equality observations cover differing
+  dimensions, source errors, signed zeros, infinities and same-image NaNs.
+- 5,145 base-address observations cover all products of seven Int64/32-bit boundary
+  widths and x/y coordinates for every pixel type, without forcing source data.
+  640 each checked pixel/read/write observations exercise sliced buffers, wrapped
+  addresses and complete parent-buffer snapshots; 109 failed writes modify their
+  valid component prefix.
+
+Additional tests verify alias-preserving bridges and background creation for all
+15 existing image types, unsafe lifecycle aliasing, partial writes against logical
+slice bounds, dimension preservation, a 100,000-pixel stack-safe monoid fold and
+single-callback short-circuiting.
+
+Primitive JVM arrays remain bounded by their Int-sized physical capacity and
+available memory; Long metadata does not claim addressable multi-billion-element
+native buffers. New buffers are JVM-zero-initialized, whereas native newMutableImage
+storage is unspecified. Captures never compare uninitialized native contents or
+unsafe accesses outside their allocated storage. General lazy monoids retain a
+recursive tail; the stack-safe path requires the documented strict-tail contract.
+Applicative imagePixels/imageIPixels traversals, dynamic/paletted image operations,
+remaining image codecs and cross-format tests remain pending, as do remaining
+Pandoc readers/writers/application behavior and all Calibre MOBI/additional-format
+work. The full objective remains active.
+
+All 224,715 Kotlin tests pass with no failures, errors or skips.
