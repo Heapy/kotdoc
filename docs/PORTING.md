@@ -1482,3 +1482,43 @@ integration with other codecs, general image format dispatch, Float referenceDct
 remaining color conversion/cross-format upstream tests, other pixel codecs,
 remaining Pandoc readers/writers/application behavior and all Calibre MOBI and
 additional-format work remain outstanding. The original full goal remains active.
+
+## JPEG missing-table fidelity correction — 2026-10-13
+
+The original emptyDecoderState calls prepareHuffmanTable for its four DC and AC
+slots. That helper returns a singleton zero packed-table placeholder, not a
+packed standard Huffman tree. The previous Kotlin decoder incorrectly populated
+those slots with usable standard trees. Consequently, a JPEG without DHT could
+return pixels where the original traverses its zero table indefinitely.
+
+`JpegDecoder.State` now initializes the original one-element zero arrays. Normal
+DHT updates and per-scan snapshots remain unchanged. With all-zero entropy,
+huffmanPackedDecode repeatedly reads index zero, obtains zero, and loops;
+setDecodedStringJpg supplies zero bits after EOF as well. This is a defined
+in-bounds loop, not a claim about unchecked native out-of-bounds behavior. A one
+bit with the singleton table can cause an unchecked native read; no portable
+reference output is asserted for that case. Kotlin retains its existing bounds
+checks and interruptible Huffman traversal.
+
+The independent original decodeJpeg executable was first observed not returning
+for three seconds on a minimal 8x8 input. The new importer then records 195 cases:
+135 returned results and 60 bounded did-not-return observations (500 ms each,
+with child cleanup). Timeouts alone do not prove divergence; the pinned source
+trace above provides the reason for the zero-stream cases. The manifest stores
+that trace and hashes the complete original source, decoder harness and importer.
+Cases span baseline, extended sequential and progressive frames; selectors
+0/1/2/3/15; absent DC, AC or both tables; and DHT appearing only after scans.
+Explicitly provided tables and zero width/height images are paired controls.
+
+Before the correction, all 60 zero-traversal tests failed and all 135 controls
+passed. After it, all 195 pass. The Kotlin test observes a live decoder worker
+inside Huffman traversal, checks that it has not returned, interrupts it, and
+verifies CancellationException and thread termination. Finite controls compare
+all output dimensions, color kinds and sample bytes with the original oracle.
+CI verifies the additional observation manifest.
+
+All 158,809 Kotlin tests pass without failures, errors or skips. This correction
+does not complete the image dependency port or the overall objective. Remaining
+work includes Float referenceDct, color conversions and cross-format image tests,
+other codecs and image API integration, the remaining Pandoc formats/application
+surface, and Calibre MOBI and additional formats. The full goal stays active.

@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 158,614 tests, no skipped tests.
+  roundtrip tests. Current suite: 158,809 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -116,7 +116,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   DCT Huffman images, including frame state, table updates, restarts, component
   mapping and grayscale/YA/RGB/YCbCr/CMYK/YCCK finalization. Verified by 2,401
   independent original decodeJpeg captures; all 31 upstream JPEGs match the full
-  127 MB of decoded samples. Public image format dispatch remains outstanding.
+  127 MB of decoded samples. Another 195 original observations verify missing
+  and late DHT tables: the original zero-table traversal remains interruptible,
+  while explicit-table and empty-image controls match normally. Public image
+  format dispatch remains outstanding.
 - JPEG encoding for grayscale, YCbCr 4:2:0, RGB and CMYK, including fixed-point
   DCT, quantization, DC prediction, Huffman coding and complete frame output.
   Verified by 5,153 independent original captures: all Word8 quality values,

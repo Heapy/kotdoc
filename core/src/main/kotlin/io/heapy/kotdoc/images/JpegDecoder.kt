@@ -12,8 +12,10 @@ internal sealed interface JpgDecodeResult {
 
 internal object JpegDecoder {
     private class State {
-        val dc: MutableList<() -> IntArray> = MutableList(4) { i -> { JpegHuffman.pack(if (i % 2 == 0) JpegDefaultTables.dcLumaHuffmanTree else JpegDefaultTables.dcChromaHuffmanTree) } }
-        val ac: MutableList<() -> IntArray> = MutableList(4) { i -> { JpegHuffman.pack(if (i % 2 == 0) JpegDefaultTables.acLumaHuffmanTree else JpegDefaultTables.acChromaHuffmanTree) } }
+        // prepareHuffmanTable supplies a singleton zero placeholder, not a packed
+        // standard tree. Missing DHT therefore retains the original traversal.
+        val dc: MutableList<() -> IntArray> = MutableList(4) { { intArrayOf(0) } }
+        val ac: MutableList<() -> IntArray> = MutableList(4) { { intArrayOf(0) } }
         val quants = MutableList(4) { ShortArray(64) { 1 } }
         var restart = -1L
         var frame: JpgFrameHeader? = null
