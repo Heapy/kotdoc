@@ -1926,3 +1926,82 @@ other codecs/cross-format tests, remaining Pandoc formats/application behavior,
 and Calibre MOBI/additional formats. The full objective remains active.
 
 All 192,674 Kotlin tests pass with no failures, errors or skips.
+
+## Packed pixels and mutable component slices — 2026-10-13
+
+`ImagePacked` ports all ten PackeablePixel instances: Word8, Word16, Word32 and
+Float scalar identities; YA8/YA16; RGBA8/RGBA16; and CMYK8/CMYK16. Packed
+representations are Word16 for YA8, Word32 for YA16/RGBA8/CMYK8, and Word64
+for RGBA16/CMYK16. Components occupy their original least-significant-first bit
+positions. Word64 high bits remain unsigned. Float pack/unpack is raw identity,
+including both zeros, infinities and every NaN sign/payload bit.
+
+All four original memory helpers are implemented for these types: fillImageWith,
+readPackedPixelAt, writePackedPixelAt and unsafeWritePixelBetweenAt. Numeric
+packing is independent of host byte order; memory helpers use native byte order,
+matching original ForeignPtr casts. The pinned oracle reports little-endian
+memory, as used by the current macOS/Linux checks. Other host memory orders are
+not claimed independently verified by these captured fixtures.
+
+`ImageBufferView` represents an offset/length component slice of the existing
+mutable backing array without copying. Packed helpers accept these views as
+well as complete buffers. Offsets count base components; reads/writes round
+the supplied index down to its packed-pixel boundary, as original Int div does.
+For example, RGBA8 component index 1 reads/writes the pixel at component 0,
+which differs from ordinary unsafeReadPixel. Fill uses vector length divided
+by component count, so incomplete component tails remain untouched. Image
+dimensions do not control any of these memory operations.
+
+Range writes retain the original asymmetry: M.slice checks start/count in base
+components, then its cast vector writes count complete packed pixels beginning
+at start. The Kotlin implementation preserves both that slice check and that
+packed write count. Captures use ranges whose full packed span fits inside the
+view, while invalid scalar slices are observed before any unsafe memory access.
+Slice failures retain exact `invalid slice (start,count,length)` messages and
+leave the complete parent buffer unchanged.
+
+A separate frozen oracle builds unchanged JuicyPixels 3.3.9 and calls original
+pack/unpack and memory helpers directly. It contains no packing, rounding,
+slice-checking, filling or memory-access algorithm. Original component/pixel
+methods are used only to construct and serialize input/output pixels. The
+adapter creates real original mutable-vector slices and captures the entire
+parent vector after each operation, so mutations outside a copied view could
+not pass as shared-buffer behavior.
+
+All 17,149 captures pass: 10,039 successes and 7,110 original errors, with
+4,397,346 serialized output bytes:
+
+- 199 pack and 180 unpack batches compare both packed primitives and resulting
+  component vectors, preventing mutually wrong inverse functions from passing.
+- 1,102 fill, 11,116 range-write, and 2,276 each packed read/write observations.
+- 7,546 successful operations on nonzero-offset views.
+- 1,828 successful unaligned component-index reads/writes verify rounding.
+- 5,490 inner-range slice errors and 540 each fill/read/write outer-view errors.
+
+Input coverage includes every byte/Word16 component value in every position,
+every packed Word8/Word16 value, Word32/Word64 bit boundaries and seeded values,
+Cartesian component boundaries, and every individual bit position. Float inputs
+cover both signs, all exponents at six mantissa boundaries, 4,096 seeded raw
+patterns and dedicated memory-operation cases for zeros, subnormals, infinities
+and signaling/quiet NaN payloads. All Float outputs compare bit exactly; no
+NaN canonicalization or epsilon comparison is used for packed operations.
+Full multi-component Word32/Word64/Float32 domains are not claimed exhaustive.
+
+Memory tests cover complete buffers, empty views, component-aligned and
+misaligned view offsets, counts of zero, untouched outside storage and tails,
+dimensions unrelated to storage, and defined Int64 extreme slice failures.
+Only complete in-view packed reads/writes and fully contained packed range
+writes are observed. Invalid native overreads/overwrites, negative packed reads
+and overflowing invalid slice parameters have no portable oracle expectation.
+Kotlin retains JVM memory safety. Current generic image dimensions/array limits
+and broader vector-view representations remain separate outstanding work.
+
+The importer records complete-output hashes/lengths and verbatim small outputs,
+hashes itself, frozen harness/dependencies, complete original source and test
+runner, and CI verifies every operation/type combination. Remaining work includes
+generic image representations/views for other operators, generators/folds,
+traversals, dynamic/paletted images, other codecs and cross-format tests, remaining
+Pandoc formats/application behavior, and Calibre MOBI/additional formats. The
+full objective remains active.
+
+All 209,823 Kotlin tests pass with no failures, errors or skips.
