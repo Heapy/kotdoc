@@ -1669,3 +1669,80 @@ test branches still need work. Remaining Pandoc formats and application behavior
 Calibre MOBI and additional formats remain in the full active objective.
 
 All 166,770 Kotlin tests pass with no failures, errors or skips.
+
+## Pixel and image promotions — 2026-10-13
+
+`ImagePromotion` implements all 21 non-identity ColorConvertible instances in
+the pinned Codec.Picture.Types, with typed pixel and image entry points:
+
+- Pixel8 → YA8, Float, Pixel16, RGB8, RGB16, RGBA8.
+- Pixel16 → YA16, RGB16, RGBA16.
+- Float → RGBF.
+- YA8 → RGB8, RGB16, RGBA8; YA16 → RGB16, RGBA16.
+- RGB16 → RGBA16; RGB8 → RGBA8, RGBF, RGB16, RGBA16.
+- RGBA8 → RGBA16.
+
+The implementation preserves scaling by 257, Float division by 255, replicated
+grayscale channels, inserted maximum alpha and preserved/scaled alpha. Although
+the upstream class describes its operations as lossless, original YA-to-RGB
+instances discard alpha; the Kotlin behavior preserves that original choice.
+The image adapters follow original pixelMap promotePixel: fresh destination
+vectors, row/column traversal, preserved dimensions, unchanged input data and
+unused source tails ignored. Same-type promotePixel/promoteImage and
+convertPixel/convertImage are implemented as identity, preserving the original
+object, complete underlying vector and aliasing without inspecting dimensions.
+
+A separate frozen oracle calls unchanged original promoteImage or pixelMap
+promotePixel. It implements no promotion, scaling or alpha formulas. Original
+identity calls are evaluated and compared using GHC stable names. All 4,934
+captures match; the 4,204 non-identity cases contain 137,320,458 converted pixels,
+and all cases total 1,027,957,113 serialized output bytes. Coverage includes:
+
+- Every Word8 scalar for all six scalar promotions, every Word16 scalar for
+  all three scalar promotions, and every YA8 pair for all three YA8 promotions,
+  independently through pixel and image paths.
+- Every RGB8 triple for all four RGB8 promotions via both paths.
+- Complete 16-bit component ranges at four permutations for YA16/RGB16,
+  RGBA8 channel permutations, Cartesian boundary products and seeded images.
+- All Float signs and exponents at six mantissa boundaries plus 8,192 seeded
+  raw Float32 patterns. Outputs are compared by raw bits, including signed
+  zero, subnormals, infinities, quiet/signaling NaNs and payloads. No epsilon
+  or canonicalizing Float equality is used for sample comparisons.
+- Empty dimensions, zero with a negative other dimension, odd/non-square
+  images, untouched source data, fresh output buffers and unused input tails.
+- 730 original identity observations, including RGB8 pixel sharing and
+  RGB8/RGB16/RGBF image sharing, full vector tails and raw Float preservation.
+  Identity images deliberately include short/empty vectors, negative dimensions
+  and width Int.MAX_VALUE, because original id performs no raster allocation
+  or validation. The returned Kotlin image and storage must be identical objects.
+
+There are 2,104 large ramp captures, compared using full-output SHA-256 and exact
+length, and 2,830 other captures with complete verbatim output bytes as well.
+Word16 and raw Float32 bits use explicit little-endian serialization only for
+fixture interchange. The importer hashes itself, the upstream test runner,
+complete pinned source and frozen harness; CI verifies this manifest. Complete
+multi-channel Word16/RGBA and Float32 domains are not claimed exhaustive.
+
+The new PixelRGBF type also preserves the original derived Float Eq semantics:
+NaN is unequal even to the same object and either sign of zero compares equal.
+A direct GHC 9.12.2 evaluation of unchanged Types.hs returned
+`(False,True,True,False,False,False)` for NaN-red self-comparison, signed-zero
+red comparison, equal finite pixels, unequal finite pixels, NaN-green comparison
+and NaN-blue comparison. A separate Kotlin test retains those exact results and
+checks the equal-zero hash contract. Float sample equality and ordering are
+distinct from raw-bit preservation; the rest of the pixel ordering/show API
+remains pending.
+
+For non-identity image operations, short vectors or two negative dimensions
+can expose unchecked/uninitialized native memory in pixelMap and are not
+portable oracle cases. JVM initialization, bounds checking and array size limits
+remain platform boundaries. Existing upstream YA8 promotion branches are
+covered at the promotion boundary; their PNG/BMP/GIF/TGA/TIFF encoding branches
+still need the corresponding codec and image API ports.
+
+Remaining work includes the rest of the pixel/image API and transformations,
+other codecs and cross-format tests, general image dispatch, remaining Pandoc
+formats/application behavior, and Calibre MOBI/additional formats. The full
+objective remains active.
+
+All 171,705 Kotlin tests pass with no failures, errors or skips.
