@@ -54,6 +54,7 @@ format is implemented explicitly in Kotlin.
 | JuicyPixels PNG fallback metadata consumer | `images/PngMetadata.kt` | 6,329 independent captures: 4,425 sizes, 1,858 exact PNG-component errors, 45 uncaught exceptions and one explicitly non-equivalent unsafe-memory case; all 176 retained PNG inputs probed through fallback |
 | JuicyPixels shared bit readers/writers | `images/ImageBitStream.kt` | 12,853 direct original-Haskell captures: 10,245 reader/state operations and 2,608 writer sequences, including widths through 256, JPEG markers, alignment, stuffing and 256 KiB output boundaries |
 | JuicyPixels JPEG Huffman and quantisation helpers | `images/JpegHuffman.kt`, `JpegDefaultTables.kt` | 5,450 direct Haskell captures: trees, packed arrays, inverse codes, sequential symbols, all default tables, complete Int16 coefficient domain at 13 qualities; three JVM bounds/cancellation tests |
+| JuicyPixels JPEG block/IDCT helpers | `images/JpegBlocks.kt` | 14,233 direct original-Haskell captures of numerical results, mutable source/destination states, coefficient reader continuations, pixel placement and parameter diagnostics; four explicit bounds/domain/cancellation tests |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -127,7 +128,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 77,459 Kotlin tests pass locally. Every push runs source
+Current verification: 91,696 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -913,7 +914,7 @@ case suite exceeds Gradle's default 512 MiB worker heap, so the test task now
 explicitly allows 1 GiB; no cases are excluded or skipped.
 
 Remaining JPEG work includes frame/state parsing,
-baseline and progressive scan decoding, IDCT and pixel placement, color-space
+baseline and progressive scan decoding, integration of block decoding, color-space
 and Exif metadata, complete fallback/dispatcher integration and original pixel
 tests. Original GIF LZW/animation/encoder tests and the remaining Pandoc/Calibre
 scope are still open. A full transfer is not inferred from this dependency port.
@@ -976,6 +977,78 @@ stack and is not promised to reproduce GHC resource limits.
 
 The retained JuicyPixels test runner has full-image JPEG decode/re-encode and
 metadata exercises, not standalone DefaultTable assertions. Those original
-image tests still require frame parsing, baseline/progressive scans, IDCT,
+image tests still require frame parsing, baseline/progressive scans, block integration,
 color conversion, metadata and encoding. They have not been counted as ported.
 The complete Pandoc and subsequent Calibre scope remains open.
+
+
+## JPEG block and IDCT evidence
+
+`JpegBlocks.kt` translates the numerical and stateful operations of
+`Codec.Picture.Jpg.Internal.Common` and `FastIdct`, plus the unpacker parameter
+record, zero-block construction and its original diagnostic representation.
+This includes Chen–Wang integer IDCT, the level shift, dequantisation, forward
+and inverse zig-zag ordering, their composed macro-block decode, signed/DC/AC
+coefficient decoding, bit unpacking, restart-interval behavior, block dimension
+arithmetic, raster traversal and subsampled pixel placement.
+
+The implementation preserves 64-bit Haskell Int intermediates, Int16 row writes,
+arithmetic right shifts and clipping to -256..255 in the column pass. Level
+shift then adds 128 using Int16 wrapping; clamping to bytes is a separate pixel
+placement operation. Dequantisation multiplies Int16 values with wraparound.
+Both transforms run in place and return the original array. Reordering and the
+composed macro-block path preserve sequential reads/writes when source and
+destination are the same array, including the destructive alias behavior.
+Trailing elements beyond the first 64 remain unchanged. Forward ordering also
+supports the original Int32/Word8 specializations and generic list values.
+
+Signed entropy fields consume their sign bit before the remaining magnitude,
+retain Int32 arithmetic and then narrow DC coefficients to Int16. Widths through
+255 include malformed categories produced by the full Word8 Huffman domain.
+Restart decoding returns -1 without consuming any bits, exactly as the current
+upstream implementation does. Dimension rounding preserves signed 64-bit
+addition overflow and floor division. Raster traversal is row-major with empty
+results for nonpositive dimensions; Kotlin additionally checks interruption
+between rows. Pixel placement preserves duplication factors, component stride,
+upper-edge clipping, signed sample clamp and the source block-coordinate formula.
+
+The new `tools/haskell-jpeg-block-reference` package compiles all 12 original
+source modules unchanged, including Jpg.Internal.Types and its TIFF/Exif
+dependencies. No replacement type module or numerical shim is used. It shares
+the frozen GHC 9.12.2, vector 0.13.2.0 and primitive 0.9.1.0 versions, with the
+compiler's binary 0.8.9.3 package. `tools/import-jpeg-block-fixtures.py` captures
+14,233 independent cases. All values come from original calls; the adapter only
+serializes their results, mutated buffers and remaining input bits.
+
+Coverage includes 2,255 raw IDCT and 2,255 level-shifted IDCT cases (all 64 impulse
+positions, signed boundaries, uniform blocks and seeded dense blocks), 1,024
+level-shift cases spanning every Int16 value, 500 dequantisations, 527 composed
+macro-block decodes, and 106 cases for each of five permutation entry paths.
+Buffer snapshots cover distinct/identical source and destination arrays and
+lengths beyond 64. Reference identity checks also verify returned storage.
+The generic mutable-list path is checked against the same Int32 oracle.
+
+Entropy coverage contains 2,295 signed-field cases across widths 1–255, offsets
+and byte patterns, every possible DC category (768 cases), all 256 AC nibble
+pairs, 512 cases for each default DC/AC decoder, and 39 cases each for raw bits
+and the restart helper. A trailing 32-bit read verifies bit consumption.
+Pixel placement has 2,520 cases covering 1–4 components, first/last components,
+zero and odd image dimensions, boundary clipping, block offsets and positive,
+zero or negative duplication factors. There are also 169 raster cases, signed
+64-bit dimension boundaries, 30 exact parameter diagnostics and zero allocation.
+
+Four direct Kotlin tests record deliberate platform/domain differences: bounds
+exceptions for truncated blocks and negative pixel indices (the original uses
+unsafe vector accesses), rejection of nonpositive signed-field widths (the
+original unchecked negative remaining count is outside the supported domain),
+and interruption of a huge raster traversal. These are not claimed equivalent
+to undefined original memory access or nontermination. Array-offset view APIs
+are not exposed; future codec consumers requiring overlapping vector slices
+must preserve those views explicitly rather than silently copying them.
+
+All 14,233 oracle cases and the four direct tests pass; the full local suite has
+91,696 passing tests. CI verifies source and result hashes without running
+Haskell. Original full-image JPEG tests remain open: frame parsing, scan state,
+baseline/progressive entropy orchestration, metadata/color-space handling,
+pixel-buffer integration and encoding are still required. Completing these
+helpers does not complete JPEG, the image dispatcher, Pandoc or Calibre.
