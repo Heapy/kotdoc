@@ -35,6 +35,7 @@ jobs:
       - run: python3 tools/import-image-header-fixtures.py --check-source
       - run: python3 tools/import-image-dimension-fixtures.py --check-source
       - run: python3 tools/import-gif-metadata-fixtures.py --check-source
+      - run: python3 tools/import-tiff-metadata-fixtures.py --check-source
       - run: ./gradlew test :cli:installDist --no-daemon
       - run: python3 tools/check-fb2-cli.py
       - run: python3 tools/check-media-cli.py

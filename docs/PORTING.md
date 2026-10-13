@@ -50,6 +50,7 @@ format is implemented explicitly in Kotlin.
 | `ImageSize` type detection, PNG/JPEG/EMF/WebP/AVIF header scanners and intrinsic size arithmetic | `images/ImageHeaders.kt` | All 19 original type examples and original cases for these five scanners; 3,189 independent type results, 779 sizes and 1,780 failures, plus integer/DPI/deep-container checks |
 | `ImageSize` dimensions, units, desired sizes, SVG/EPS/PDF parsers | `images/Dimensions.kt`, `DocumentImageSize.kt`, GHC numeric helpers | All remaining original SVG/EPS/PDF/numUnit examples; 962 original LaTeX dimension renderings, 752 sizes, 975 errors, one process-level UTF-8 exception and five detection-only cases; arithmetic, equality and attribute checks |
 | JuicyPixels GIF metadata consumer path | `images/GifMetadata.kt` | 4,980 independent Pandoc results: 2,274 sizes and 2,706 exact GIF-component failures, all 12 dependency GIF files plus Pandoc's GIF; direct signature and long-input tests |
+| JuicyPixels TIFF metadata consumer path | `images/TiffMetadata.kt` | 8,390 original outcomes: 1,263 sizes, 7,123 exact TIFF-component errors and four arithmetic exceptions; all 68 retained TIFFs, format matrices, nested Exif, duplicate/overlap/endian cases and direct type-gate/cancellation tests |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -123,7 +124,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 44,431 Kotlin tests pass locally. Every push runs source
+Current verification: 52,823 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -570,8 +571,8 @@ rounding. Original literal size expectations additionally validate the oracle.
 CI checks the fixture importer/upstream source hashes and original image bytes.
 
 The subsequent dimension/vector milestone below ports the unit API and SVG,
-EPS and PDF parsers. Still pending in this module: JuicyPixels full image decoding
-and metadata behavior for GIF/TIFF and PNG/JPEG fallback, complete original tests
+EPS and PDF parsers. The later GIF/TIFF sections record their metadata ports.
+Still pending in this module: JuicyPixels full image decoding and PNG/JPEG fallback, complete original tests
 for those decoder branches, full WriterOptions integration, and the Lua runtime
 and writer/application callers. No production code invokes the oracle executable.
 
@@ -699,8 +700,72 @@ and all GIF fixtures. Its 26 encoder rejection assertions, generated animation
 and palette tests, and full multi-frame pixel decode/conversion checks remain
 pending. Passing metadata on their files is not counted as passing those tests.
 
-Next dependency work is TIFF and PNG/JPEG fallback, the other generic decoder
+The following TIFF section records the next metadata port. Further dependency
+work is PNG/JPEG fallback, the other generic decoder
 branches and complete error aggregation, followed by connecting the original
 imageSize dispatcher. GIF pixel decoding/encoding and the broader dependency
 tests remain explicit work. WriterOptions, Lua and writer consumers and the
 overall all-Pandoc-then-Calibre scope are unchanged.
+
+## TIFF metadata dependency evidence
+
+`TiffMetadata.read` ports the forced metadata consumer path of JuicyPixels
+`decodeTiffWithPaletteAndMetadata`, including `Tiff.Internal.Types` parsing,
+`TiffInfo` field validation, the Either-producing `unpack` guards, and the
+width/height/DPI part of `Tiff.Internal.Metadata`. It returns raw resolution;
+Pandoc's existing `ImageSize.checkDpi` subsequently normalizes nonpositive DPI.
+It is not a TIFF pixel decoder, encoder, or a general Exif metadata API.
+
+The parser reads one IFD, consumes but ignores the next-IFD pointer, stably sorts
+entries by their raw unsigned offsets, and only then normalizes big-endian
+single SHORT values. Extended data shares one forward-only cursor. Backward or
+out-of-file references become ExifNone, whereas a valid starting offset with a
+truncated payload fails. Nested Exif directories are parsed with the same cursor
+and their extra post-cleanup sort; an explicit stack preserves this order without
+using the JVM call stack. Inline SHORT pairs, strings and undefined bytes,
+external SHORT/LONG vectors, signed/unsigned rational values, ignored types and
+Exif-directory redirects follow the upstream cases. Rational payloads explicitly
+use little endian in the source, even for a big-endian TIFF; this is preserved.
+
+Structural tags are checked in the original applicative order before returning
+metadata. Defaults for planar configuration, sample formats, subsampling and
+predictors remain distinct from mandatory tags. The strict color/depth/sample
+format guards include palette, RGB/RGBA, mono/alpha, CMYK and YCbCr branches and
+the original 64-bit and white-is-zero failure messages. Pixel stripping,
+decompression, predictor execution and color substitution remain lazy in the
+original pure metadata path and are not run here. In particular, absent pixel
+strips can yield metadata; unsupported color/depth combinations still fail.
+The original file-based JuicyPixels reader deepseqs the image and has a different
+forcing boundary; its pixel tests are not claimed by this port.
+
+Validation uses first matching tags in the offset-sorted list. Width/height
+metadata uses the last match because its metadata union is right-biased. DPI
+uses the first resolution/unit tags, requires the original SHORT unit values,
+and integer-divides the rational before converting centimeters to inches.
+Missing, backward, overlapping or non-rational resolutions default independently.
+Zero denominators propagate arithmetic exceptions when the selected unit requires
+DPI; the original exception escapes Lua pcall and is captured in a separate
+process. The original zero-row/zero-height unpack recursion does not terminate;
+the Kotlin loop preserves that behavior but supports thread interruption with a
+CancellationException instead of making that pathological image succeed.
+
+`tools/import-tiff-metadata-fixtures.py` captures 8,390 independent outcomes:
+1,263 sizes, 7,123 parser/format errors and four arithmetic exceptions. Complete
+generic decoder error aggregates are retained, while tests compare their TIFF
+component. Cases include all 68 images in the retained upstream TIFF tree (the
+original suite selects 32 of them), both byte orders, missing and malformed tags,
+color/depth/component/sample-format matrices, palette shapes, planar YCbCr,
+resolution types/units/duplicates/shared offsets, scalar dimensions with unusual
+types, every truncation of eight structural seeds, next-pointer/header-offset
+behavior, all 256 bytes in optional-tag error rendering, deep/nested/truncated
+Exif, and 1,000 seeded field mutations. Source hashes cover the original library,
+original test source and entire TIFF fixture tree. Two direct tests check decoder
+errors hidden by Pandoc's type gate and cancellation of the nonterminating case.
+
+Remaining image dependency work includes PNG/JPEG fallback and all other generic
+decoder branches/error aggregation, complete imageSize dispatch, actual pixel
+codecs and their original tests, writer integration, full WriterOptions and Lua.
+The original TIFF full-image decode/re-encode tests, TIFF encoding, broad Exif
+metadata operations are not counted as implemented. The retained raw G3 fixture
+is not counted as a TIFF test. The full
+Pandoc and Calibre objective remains unchanged.

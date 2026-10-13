@@ -96,3 +96,12 @@ The original license is BSD-3-Clause, also retained in
 of every retained source and test file. Metadata expectations come independently
 from Pandoc, never Kotlin. Retained frame/animation/palette/encoder tests have
 not yet been translated or passed by the metadata-only port; see docs/PORTING.md.
+
+`JuicyPixels-tiff-tests-v3.3.8/` retains the complete `tests/tiff/` tree and
+LICENSE from the same commit `11494bccce01183c9d04931d34c296afc5d8c5f8`.
+It includes 68 TIFF images, the original libtiff image-description/provenance
+files, a raw G3 fixture and the depth-image generator. The existing retained
+`test-src/main.hs` selects 32 images for `tiffValidTests`. All 68 TIFF images
+are checked for metadata against Pandoc; the original full pixel conversion
+suite is still pending. The TIFF importer verifies all retained source/test
+bytes independently of the GIF importer, preserving both existing manifests.

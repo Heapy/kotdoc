@@ -14,4 +14,5 @@ vendor/tagsoup-0.14.8/src/Text/HTML/TagSoup/Options.hs whitespace=-blank-at-eof
 # Retain original JuicyPixels source/test bytes, including CRLF and whitespace.
 vendor/JuicyPixels-3.3.9/** -text whitespace=-trailing-space,-blank-at-eof
 vendor/JuicyPixels-tests-v3.3.8/** -text whitespace=-trailing-space,-blank-at-eof
+vendor/JuicyPixels-tiff-tests-v3.3.8/** -text whitespace=-trailing-space,-blank-at-eof
 licenses/JuicyPixels-BSD-3-Clause.txt -text whitespace=cr-at-eol
