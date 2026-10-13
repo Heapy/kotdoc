@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 111,739 tests, no skipped tests.
+  roundtrip tests. Current suite: 127,916 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -101,6 +101,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   records, restart intervals and both entropy-segment parsers. Verified against
   20,043 original Haskell outcomes, including malformed lengths, exact parser
   offsets and lazy-input chunk boundaries. Full frame assembly remains pending.
+- Typed TIFF/Exif directories and binary serialization, including nested fields
+  and JPEG APP1 parsing/writing. The existing TIFF metadata path now uses this
+  shared parser. Verified by 16,177 original Haskell captures, including all
+  65,536 tag codes, 68 original TIFF files and the Samsung JPEG metadata fixture.
 - Identifier generation, ASCII conversion and complete emoji lookup/replacement
   tables. Every Unicode scalar is checked against Pandoc in four identifier modes.
   Case conversion uses Haskell text's Unicode 16 tables, including full expansions,
@@ -149,6 +153,7 @@ python3 tools/import-image-bitstream-fixtures.py --check-source
 python3 tools/import-jpeg-table-fixtures.py --check-source
 python3 tools/import-jpeg-block-fixtures.py --check-source
 python3 tools/import-jpeg-binary-fixtures.py --check-source
+python3 tools/import-tiff-binary-fixtures.py --check-source
 ./gradlew test :cli:installDist
 python3 tools/check-fb2-cli.py
 python3 tools/check-media-cli.py

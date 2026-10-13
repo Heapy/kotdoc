@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/Twinside/Juicy.Pixels",
+  "ref": "v3.3.8",
+  "commit": "11494bccce01183c9d04931d34c296afc5d8c5f8",
+  "files": {
+    "tests/jpeg/10x8-samsung-s8.jpg": "2dace4fcc83ae1a5dc0c84e56c1f1c79e797479dc9000c24a6bbfa6cff246974"
+  }
+}

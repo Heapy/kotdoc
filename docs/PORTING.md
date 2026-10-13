@@ -56,6 +56,7 @@ format is implemented explicitly in Kotlin.
 | JuicyPixels JPEG Huffman and quantisation helpers | `images/JpegHuffman.kt`, `JpegDefaultTables.kt` | 5,450 direct Haskell captures: trees, packed arrays, inverse codes, sequential symbols, all default tables, complete Int16 coefficient domain at 13 qualities; three JVM bounds/cancellation tests |
 | JuicyPixels JPEG block/IDCT helpers | `images/JpegBlocks.kt` | 14,233 direct original-Haskell captures of numerical results, mutable source/destination states, coefficient reader continuations, pixel placement and parameter diagnostics; four explicit bounds/domain/cancellation tests |
 | JuicyPixels JPEG binary structures and ECS | `images/JpegBinary.kt` | 20,043 original Haskell captures: reads, writes, Show/size, parser errors/offsets/remainders, malformed headers/tables and chunk-sensitive ECS behavior |
+| JuicyPixels typed TIFF/Exif and JPEG APP1 | `images/TiffTypes.kt`, `TiffBinary.kt`, `JpegExif.kt` | 16,177 original Haskell captures: tags, full nested fields, binary get/put, exact errors/offsets, writer allocation/order and APP1; reused by the existing TIFF metadata consumer |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -129,7 +130,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 111,739 Kotlin tests pass locally. Every push runs source
+Current verification: 127,916 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -1112,3 +1113,80 @@ encoding remain open. The Types module's macro-block diagnostic printers also
 remain unported. Existing `TiffMetadata` is a metadata consumer, not the typed
 TIFF/Exif codec required by `JpgExif`; it must not substitute for that model.
 This milestone does not complete JPEG, Pandoc, or Calibre.
+
+## Typed TIFF/Exif and JPEG APP1 evidence
+
+`TiffTypes.kt` and `TiffBinary.kt` port the typed Exif model and TIFF binary
+operations from JuicyPixels 3.3.9 `Metadata.Exif` and `Tiff.Internal.Types`.
+They preserve all 52 known tag constructors, unknown tags, constructor ordering,
+IFD0 classification, every ExifData constructor, byte order, field types,
+header/IFD/list serialization, extended values and TIFF document serialization.
+Compression, planar, sample-format, photometric, predictor and extra-sample
+code mappings are also implemented. Word32 values use nonnegative Long values;
+Int32 values retain signed wrapping. TagUnknown with a known numeric code stays
+a distinct constructor. Derived tag ordering follows declaration order, while
+TIFF output separately sorts numeric tag codes, matching the original.
+
+The shared forward cursor preserves atomic primitive reads, negative header
+skips, offset bounds, stable raw-offset sorting and big-endian inline-short
+cleanup. Nested Exif directories additionally sort again after that cleanup.
+ASCII/undefined data can be immediate or extended; two shorts share the inline
+word. Rational readers explicitly use little endian regardless of TIFF byte
+order. The next-directory pointer is consumed without being followed. Nested
+Exif-offset fields retain their full values; GPS pointers retain the original
+scalar behavior. Backward/overlapping offsets become ExifNone or fail at the
+same read as the original, rather than being repaired.
+
+Writing retains the source's independent declared type/count/offset fields,
+raw-data placement, numeric tag sorting and Word32 offset wrapping. String and
+undefined payloads are padded to even lengths. Only the original constructors
+advance the offset allocator: notably rational payloads are written without
+being allocated there. ExifIFD values do not emit nested payloads from the
+extended-value writer. These are observed upstream behaviors, not omissions
+silently replaced by a standards-oriented writer. Explicit constructor inputs
+exercise the writer independently of reader round trips.
+
+`JpegExif.kt` implements the original Exif signature check and parse-failure
+swallowing, then returns the first typed directory. Its writer partitions IFD0
+and Exif fields, inserts the redirect field, uses big-endian TIFF at offset 8,
+and writes the APP1 marker/length/payload. The original Samsung
+`tests/jpeg/10x8-samsung-s8.jpg` used by metadataReadTest is retained verbatim
+with its pinned commit and SHA256. Its APP1 fields and every truncation are
+checked against original frame parsing. The full metadataReadTest's image
+codec and metadata extraction/re-encoding remain outstanding.
+
+`TiffMetadata` now uses the shared typed parser. Its prior private field model,
+byte reader and nested-directory traversal were removed. Existing strict TIFF
+format guards, dimension/DPI selection, diagnostics, division-by-zero behavior
+and cancellable zero-row recursion retain their earlier oracle coverage.
+This connects the new implementation to the image-size path without claiming
+TIFF pixel strip decoding is finished.
+
+The new reference package compiles ten original modules unchanged, invoking
+Binary/BinaryParam directly. Compiler/package versions, original source hashes,
+fixture hashes and canonical result hashes are retained. Remainder evidence
+includes exact offsets/lengths and the first/last 16 bytes of the unconsumed
+suffix, avoiding duplication of large pixel payloads. The adapter's JPEG writer
+calls the original JpgImage encoder and removes only the outer SOI/EOI markers.
+No TIFF/Exif algorithm is reimplemented in the oracle.
+
+The 16,177 captures include 14,246 successful outcomes and 1,931 parser failures.
+There are 257 grouped tag cases spanning every Word16 code, known/unknown
+constructor distinctions and cross-constructor ordering; 5,568 extended-field
+reads; 8,403 typed document reads (all 8,390 previous independent TIFF inputs,
+including 68 original files, plus redirects and Samsung Exif); and 485 APP1
+parses. Writer coverage includes 528 documents, 340 APP1 segments, standalone
+headers/fields/directories and every ExifData constructor. There are also
+primitive/truncation and enum-code cases in both byte orders.
+
+Nested parsing and Show use explicit stacks, preserving original results at
+5,000 levels without JVM call-stack limits. Six original Eq captures cover
+independently constructed equal/unequal trees through 20,000 levels; Kotlin's
+structural equality is iterative, and equal values also satisfy the hashCode
+contract. This changes evaluation mechanics without dropping nested data.
+
+All 127,916 Kotlin tests pass locally with no skips, including all existing TIFF
+metadata tests. The installed CLI checks remain 234 cases. Remaining work
+includes the complete metadata extraction/encoding layer, full JPEG frame/scan
+assembly and pixel codecs, TIFF pixel codecs and their original image tests.
+Pandoc's full format/application surface and the Calibre port remain open.
