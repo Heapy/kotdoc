@@ -44,6 +44,7 @@ format is implemented explicitly in Kotlin.
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
+| TagSoup finite HTML parsing and entity dependency | `html/TagSoup.kt`, `HtmlTag.kt`, `HtmlEntities.kt` | All 53 original parser/position and 12 entity assertions, original warning example, 1,000 seeded option-property inputs across eight modes, all 2,231 HTML5 names, 3,670 independent Pandoc ID-discovery captures |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -321,9 +322,9 @@ string JSON shape are tested from the source contract; exact Aeson error wording
 and generic Haskell Show remain part of the existing dependency gaps.
 
 The remainder of Chunks (splitting, raw-HTML identifier discovery,
-reference rewriting and navigation snapshots) is still pending. It requires the
-TagSoup dependency; identifier and emoji helpers are now available. Full WriterOptions integration and
-the Lua runtime also remain; no smaller WriterOptions record is substituted.
+reference rewriting and navigation snapshots) is still pending. Its TagSoup,
+identifier and emoji dependencies are now available for finite document input.
+Full WriterOptions integration and the Lua runtime also remain; no smaller WriterOptions record is substituted.
 
 ## Identifiers, emoji and Unicode case evidence
 
@@ -368,3 +369,52 @@ remaining scope. The three `4742.md` identifier expectations are represented by
 the identifier oracle cases; the actual CommonMark reader and Markdown emoji
 reader/writer command suite still await those format ports. These helpers do not
 yet provide document splitting or reader-side identifier registration.
+
+## TagSoup HTML parsing evidence and remaining dependency scope
+
+The complete tagsoup-0.14.8 Hackage release is vendored with BSD-3-Clause notices.
+It satisfies Pandoc's dependency constraint. Generated.hs delegates to Manual.hs,
+which composes Specification.parse with Implementation.output; the Kotlin parser
+translates those state transitions and output assembly directly. It preserves
+case, original attribute order and duplicates, unquoted slashes, permissive tag
+and declaration syntax, malformed comment recovery, script end-tag boundaries,
+CDATA literals and the exact whitespace classes. It is separate from the
+XML.Light/xml-conduit parser used by FB2.
+
+Parse options include entity data/attribute callbacks, optional warnings and
+positions, and the original fast (unmerged text) mode. Text merging retains the
+first text position and delays intervening warnings until after the merged run.
+Close-tag attribute/self-closing warnings and attribute callback output preserve
+the original ordering and warning-option filtering. Position accounting uses
+Unicode code points, LF line breaks and eight-column tabs; CR remains ordinary.
+Iterative transitions and attribute loops handle long finite inputs without
+character-by-character JVM recursion.
+
+All 2,231 named entities are imported from the original source without changing
+semicolon distinctions. An independent Python standard-library HTML5 table
+checks every name through lookup, text parsing and attribute parsing. Numeric
+references accept ASCII decimal/hex digits, preserve the original NUL/C1 values,
+and produce '?' outside the Unicode range. The standalone lookup instead
+returns null outside that range. Numeric strings with arbitrarily many leading
+zeros remain valid. Haskell String-compatible parsing retains surrogate values;
+`parseTextTags` follows Pandoc's Data.Text replacement semantics, including two
+adjacent surrogate references becoming two replacement characters.
+
+`import-tagsoup-fixtures.py` strictly transcribes all original parser, position
+and entity examples without running Kotlin. The original warning example and
+option invariants are translated as tests, with 1,000 reproducible generated
+inputs over all eight option combinations. Additional typed cases cover
+callbacks, warning order, Unicode positions, declaration attributes, recovery
+states and long inputs. `import-html-id-fixtures.py` captures 3,670 results from
+original Pandoc's raw-HTML reference rewriting: all entities, malformed/duplicate
+attributes, declarations, script/CDATA/comment hiding, numeric boundaries and
+seeded damaged HTML. These are independent identifier-discovery comparisons;
+they are not independent comparisons of the entire token or warning stream.
+
+The finite parser API is now available for the remaining Chunks work. TagSoup's
+renderer, matching/combinator/tree APIs, Haskell generic instances, alternate
+ByteString representations and lazy/infinite-input tests remain unported.
+The current API materializes finite tokens and strings; its long-input checks
+do not substitute for the original infinite-input laziness guarantees. Pandoc's
+HTML reader/writer, all other parser use sites and Chunks splitting remain in
+the full objective; this dependency port does not claim those features.

@@ -48,3 +48,16 @@ using the host Unicode version. The original uppercase/casefold exception
 baselines are separately imported from the tests. BSD-2-Clause attribution is
 retained in `licenses/text-BSD-2-Clause.txt`. Only these case operations are
 ported so far; retaining sources does not implement all of Haskell text.
+
+
+`tagsoup-0.14.8/` is the complete original source release from:
+https://hackage.haskell.org/package/tagsoup-0.14.8/tagsoup-0.14.8.tar.gz
+
+This version satisfies Pandoc's `tagsoup >= 0.14.6 && < 0.15` constraint.
+Generated.hs delegates to Manual.hs, whose implementation uses Specification.hs
+and Implementation.hs. The finite parser and entity operations are translated
+into Kotlin; the remaining dependency APIs and lazy-input tests are recorded
+in docs/PORTING.md. `tools/import-html-entities.py` imports all 2,231 entities,
+and `tools/import-tagsoup-fixtures.py` retains hashes for every release file
+and transcribes the original parsing/position/entity expectations. The original
+BSD-3-Clause license is retained here and in `licenses/tagsoup-BSD-3-Clause.txt`.
