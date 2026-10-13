@@ -4,7 +4,10 @@ package io.heapy.kotdoc.images
 
 internal sealed interface JpgDecodeResult {
     data class Failure(val message: String) : JpgDecodeResult
-    data class Image(val color: String, val width: Int, val height: Int, val pixels: ByteArray) : JpgDecodeResult
+    data class Image(val color: String, val width: Int, val height: Int, val pixels: ByteArray,
+        private val readMetadata: Lazy<ImageMetadatas> = lazy { ImageMetadatas.empty }) : JpgDecodeResult {
+        val metadata: ImageMetadatas get() = readMetadata.value
+    }
 }
 
 internal object JpegDecoder {
@@ -121,7 +124,14 @@ internal object JpegDecoder {
             else -> return JpgDecodeResult.Failure("Wrong color space : $color")
         }
         if (color == JpgColorSpace.JpgColorSpaceYCCK) ycckToCmyk(pixels)
-        return JpgDecodeResult.Image(name, first.width, first.height, pixels)
+        // Retain only metadata records, not the entropy streams and decoder workspace.
+        val jfifMarker = state.jfif
+        val exifFields = state.exif
+        return JpgDecodeResult.Image(name, first.width, first.height, pixels, lazy {
+            val jfif = jfifMarker?.let(ImageExifMetadata::extractJfif) ?: ImageMetadatas.empty
+            val exif = exifFields?.let(ImageExifMetadata::extractTiff) ?: ImageMetadatas.empty
+            jfif + (exif + ImageMetadatas.basic(ImageSourceFormat.SourceJpeg, first.width.toLong(), first.height.toLong()))
+        })
     }
     private fun macro(dcTree: IntArray, acTree: IntArray, quant: ShortArray, work: ShortArray, previous: Short, reader: ImageBitReader): Pair<Short, ShortArray> {
         val next = (previous + JpegBlocks.dcCoefficientDecode(dcTree, reader)).toShort()

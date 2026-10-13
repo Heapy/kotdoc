@@ -66,19 +66,10 @@ object TiffMetadata {
             }
             validateColor(color, bits, format, planar, palette)
 
-            // Metadata's right-biased union differs from first-tag validation.
-            val widthMeta = entries.last { it.identifier.code == 256 }.offset
-            val heightMeta = entries.last { it.identifier.code == 257 }.offset
-            val unit = first(296)?.takeIf { it.type == IfdType.TypeShort }?.offset
-            fun dpi(tag: Int): Long {
-                if (unit != 2L && unit != 3L) return 72
-                val rational = first(tag)?.extended as? ExifData.Rational ?: return 72
-                // Zero denominators throw in the original; do not turn them
-                // into a missing resolution or a format-parser failure.
-                val value = rational.numerator / rational.denominator
-                return if (unit == 3L) value * 254 / 100 else value
-            }
-            return ImageSize(widthMeta.toBigInteger(), heightMeta.toBigInteger(), dpi(282).toBigInteger(), dpi(283).toBigInteger())
+            val metadata = ImageExifMetadata.extractTiff(entries)
+            fun size(key: ImageMetadataKey<ULong>) = checkNotNull(metadata.lookup(key)).toString().toBigInteger()
+            fun dpi(key: ImageMetadataKey<ULong>) = (metadata.lookup(key) ?: 72uL).toString().toBigInteger()
+            return ImageSize(size(ImageMetadataKey.Width), size(ImageMetadataKey.Height), dpi(ImageMetadataKey.DpiX), dpi(ImageMetadataKey.DpiY))
         }
     }
 

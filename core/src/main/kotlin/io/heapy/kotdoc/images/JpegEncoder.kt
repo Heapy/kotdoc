@@ -68,6 +68,13 @@ internal object JpegEncoder {
         }
     }
 
+    fun encodeWithMetadata(color: JpgEncodingColor, width: Int, height: Int, pixels: ByteArray, quality: Int,
+        metadata: ImageMetadatas): ByteArray {
+        val exif = ImageExifMetadata.encodeTiff(metadata)
+        return encode(color, width, height, pixels, quality,
+            ImageExifMetadata.encodeJfif(metadata) + if (exif.isEmpty()) emptyList() else listOf(JpgFrame.Exif(exif)))
+    }
+
     /** Pre-encoded metadata frames precede the image frames; empty by default. */
     fun encode(color: JpgEncodingColor, width: Int, height: Int, pixels: ByteArray, quality: Int = 50,
         metadata: List<JpgFrame> = emptyList()): ByteArray {

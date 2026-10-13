@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 154,045 tests, no skipped tests.
+  roundtrip tests. Current suite: 158,614 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -111,19 +111,25 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Progressive JPEG unpacking: first/refined DC and AC coefficients, EOB runs,
   scan continuations, restart counters, subsampling and clipped pixel placement.
   All 8,754 independent original-Haskell cases match, including complete pixel
-  arrays. Full JPEG metadata extraction remains pending.
+  arrays.
 - Complete JPEG-to-pixel decoding for baseline, extended sequential and progressive
   DCT Huffman images, including frame state, table updates, restarts, component
   mapping and grayscale/YA/RGB/YCbCr/CMYK/YCCK finalization. Verified by 2,401
   independent original decodeJpeg captures; all 31 upstream JPEGs match the full
-  127 MB of decoded samples. Metadata extraction and public image format
-  dispatch remain outstanding.
+  127 MB of decoded samples. Public image format dispatch remains outstanding.
 - JPEG encoding for grayscale, YCbCr 4:2:0, RGB and CMYK, including fixed-point
   DCT, quantization, DC prediction, Huffman coding and complete frame output.
   Verified by 5,153 independent original captures: all Word8 quality values,
   edges, metadata frame integration and all 31 original JPEGs re-encoded at
-  qualities 50, 90 and 100. Typed metadata encoding, Float referenceDct and
-  remaining cross-format/color-conversion test branches are still pending.
+  qualities 50, 90 and 100. Float referenceDct and remaining cross-format/color-
+  conversion test branches are still pending.
+- Typed image metadata storage, ordered right-biased union, lookup/delete/folds,
+  Word64 DPI conversions and complete JFIF/TIFF metadata transformations. JPEG
+  encoding and lazy metadata decoding use these shared types; TIFF size/DPI
+  extraction also uses the shared metadata implementation. Verified by 4,569
+  original captures, including all 31 JPEGs re-encoded with metadata, the original
+  JPEG metadataWriteTest, duplicate tags, ordering, byte packing and lazy errors.
+  Full metadata integration in other codecs remains pending.
 - Identifier generation, ASCII conversion and complete emoji lookup/replacement
   tables. Every Unicode scalar is checked against Pandoc in four identifier modes.
   Case conversion uses Haskell text's Unicode 16 tables, including full expansions,

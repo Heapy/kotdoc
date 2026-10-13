@@ -1418,3 +1418,67 @@ full typed metadata encoding/extraction, color-conversion and cross-format
 upstream test branches, general image API integration, other codecs, remaining
 Pandoc formats/application behavior and Calibre MOBI/additional formats remain
 outstanding. The full goal remains active.
+
+## Typed image metadata and JPEG metadata integration — 2026-10-13
+
+`ImageMetadata.kt` ports Codec.Picture.Metadata's typed key/value store, all
+SourceFormat/ColorSpace/Value constructors, insert/delete/lookup/singleton,
+ordered folds, Exif extraction, right-biased union, size/format/DPI helpers and
+Word64 unit conversions. Key types constrain stored values, including Word64
+rather than signed Int DPI values. Text and byte-string Show use the existing
+Haskell string renderer; Double rendering uses the existing GHC-compatible
+formatter. Value equality preserves numeric Double equality (NaN unequal to
+itself and signed zeros equal). There is no invented equality for Metadatas,
+which has no original Eq instance.
+
+Union is a strict left fold over the right-hand entries, deleting the previous
+key then prepending each replacement. Its observable entry order means that
+parenthesization matters: the JPEG expression is jfif <> (exif <> size), as in
+Haskell's right-associative operator. List foldMap in TIFF extraction is also
+right-associated. Neither path sorts or normalizes the metadata container.
+
+`ImageExifMetadata.kt` ports the complete JFIF metadata module and the TIFF
+metadata transformations, including Exif offset construction, all makeIfd data
+branches, recognized text keys, Char8 packing, stable numeric tag sorting,
+unknown-vs-known tag constructor distinctions, nested Exif insertion, orientation
+narrowing, duplicate tags, resolution units and rational division failures.
+Short ExifUndefined values preserve the source's surprising Word8 shift before
+widening, including negative shift counts on the pinned 64-bit GHC build.
+Existing inline TIFF serialization quirks remain visible (for example, short
+strings can decode as zero bytes); the port does not repair upstream output.
+
+The encoder now accepts typed metadata and constructs JFIF/Exif frames. Decoded
+JPEG images expose lazy metadata: plain pixel decoding does not force invalid
+DPI rational denominators. The lazy computation retains only the metadata
+records and header, not the entropy streams or complete decoder state. Exif
+resolution overrides JFIF; the actual frame size and SourceJpeg override Exif
+image-size/format entries. Later valid APP records replace earlier records;
+malformed optional APP1 records are ignored as in the frame parser. The existing
+TIFF size/DPI consumer now uses this shared extractor after its original strict
+image-format guards.
+
+The independent oracle compiles 16 unchanged upstream modules. Its 4,569 cases
+include 575 typed storage/fold/order checks, 819 helper/Word64 conversion cases,
+771 JFIF unit/range checks, 1,480 TIFF extraction cases, 625 complete TIFF/JFIF
+metadata-frame encodings, 203 complete JPEG encodings, equality/Show checks,
+and the Exif offset record. The original metadataWriteTest JPEG branch is
+executed with its RGB-white-to-YCbCr conversion and exact metadata input; its
+complete output bytes match. Four metadata roundtrips and three pixel-only
+cases cover encoded data. Another 54 raw-JPEG cases prove Exif/JFIF precedence,
+frame dimension replacement, ignored malformed APP1 records, and lazy metadata
+errors. There are 18 original exceptions: ten divisions by zero, four ExifNone
+and four ExifIFD type-selection failures. All other results compare exactly.
+
+All 31 retained original JPEGs are decoded with complete metadata and re-encoded
+at quality 90 with those metadata, including the Samsung metadataReadTest path.
+Metadata Show compares complete field values and order; SHA256 and lengths cover
+all encoded bytes. The raw-image metadata cases reuse independently captured
+JPEG encoder bytes, and that fixture is included in the source hash manifest.
+The harness, pinned sources, test runner, retained images and importer are also
+hashed. CI now verifies this manifest alongside the existing independent corpora.
+
+All 158,614 Kotlin tests pass without failures, errors or skips. Full metadata
+integration with other codecs, general image format dispatch, Float referenceDct,
+remaining color conversion/cross-format upstream tests, other pixel codecs,
+remaining Pandoc readers/writers/application behavior and all Calibre MOBI and
+additional-format work remain outstanding. The original full goal remains active.
