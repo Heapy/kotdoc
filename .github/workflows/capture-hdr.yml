@@ -1,0 +1,24 @@
+name: Capture original Linux HDR behavior
+on:
+  push:
+    branches: [hdr-native-reference]
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          submodules: true
+      - uses: haskell-actions/setup@0f8e8c99d88aeb3fbfd523f1ef2c6f762d10d64d
+        with:
+          ghc-version: '9.12.2'
+          cabal-version: '3.14.2.0'
+      - run: cabal build hdr-reference --project-dir=tools/haskell-hdr-reference
+      - name: Capture unchanged original helpers
+        run: python3 tools/import-hdr-fixtures.py --platform linux-x86_64 --output-dir hdr-capture --oracle "$(cabal list-bin hdr-reference --project-dir=tools/haskell-hdr-reference)"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: hdr-linux-x86_64
+          path: hdr-capture
