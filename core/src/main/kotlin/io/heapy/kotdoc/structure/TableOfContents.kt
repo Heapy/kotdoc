@@ -15,6 +15,7 @@ data class SecInfo(
 ) {
     /** Pandoc's Walkable Inline instance visits only the title. */
     fun walk(visitor: PandocVisitor): SecInfo = copy(title = visitor.walkInlines(title))
+    fun <T> queryInlines(query: (Inline) -> Iterable<T>): List<T> = collectInlines(query) { it.walkInlines(title) }
 }
 
 object TableOfContents {

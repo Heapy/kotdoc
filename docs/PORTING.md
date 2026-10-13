@@ -45,6 +45,7 @@ format is implemented explicitly in Kotlin.
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
 | TagSoup finite HTML parsing and entity dependency | `html/TagSoup.kt`, `HtmlTag.kt`, `HtmlEntities.kt` | All 53 original parser/position and 12 entity assertions, original warning example, 1,000 seeded option-property inputs across eight modes, all 2,231 HTML5 names, 3,670 independent Pandoc ID-discovery captures |
+| `Chunks` splitting, reference rewriting, TOC paths and navigation; Chunk/ChunkedDoc walkers and queries | `structure/Chunks.kt` | 4,598 independent complete-output cases (all 266 Native documents twice, 3,670 raw HTML cases and section/metadata/boundary cases), complete finite navigation snapshots and explicit traversal/scope checks |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -309,8 +310,8 @@ visits only its title. The root is a structural container, not a TOC item.
 Native fixture, all seven Haskell TOC examples and the Lua block-list example,
 plus numbered/unlisted/depth/attribute/inline cases and seeded section trees.
 Sixteen independently captured chunk TOC trees exercise `tocToList` against the
-original Lua chunk examples. These use original Pandoc for chunk creation; they
-do not claim that Kotlin splitting has been implemented. A direct typed tree
+original Lua chunk examples. These isolate TOC behavior using original Pandoc for chunk creation; full Kotlin
+splitting is separately verified by the Chunks corpus described below. A direct typed tree
 test separately checks the complete SecInfo values and wrapper behavior.
 
 PathTemplate replaces `%i`, `%h`, `%s`, then `%n`, so substituted values may
@@ -321,10 +322,10 @@ crossing the three-digit width. Signed integer boundary formatting and the
 string JSON shape are tested from the source contract; exact Aeson error wording
 and generic Haskell Show remain part of the existing dependency gaps.
 
-The remainder of Chunks (splitting, raw-HTML identifier discovery,
-reference rewriting and navigation snapshots) is still pending. Its TagSoup,
-identifier and emoji dependencies are now available for finite document input.
-Full WriterOptions integration and the Lua runtime also remain; no smaller WriterOptions record is substituted.
+Chunks splitting, raw-HTML identifier discovery, reference rewriting and
+navigation snapshots are now ported and tested below. Full WriterOptions
+integration and the Lua runtime remain; no smaller WriterOptions record is
+substituted.
 
 ## Identifiers, emoji and Unicode case evidence
 
@@ -368,7 +369,8 @@ generic Trie operations and all parser/writer use sites remain in the full
 remaining scope. The three `4742.md` identifier expectations are represented by
 the identifier oracle cases; the actual CommonMark reader and Markdown emoji
 reader/writer command suite still await those format ports. These helpers do not
-yet provide document splitting or reader-side identifier registration.
+provide reader-side identifier registration; document splitting now uses them
+through the Chunks port below.
 
 ## TagSoup HTML parsing evidence and remaining dependency scope
 
@@ -411,10 +413,67 @@ attributes, declarations, script/CDATA/comment hiding, numeric boundaries and
 seeded damaged HTML. These are independent identifier-discovery comparisons;
 they are not independent comparisons of the entire token or warning stream.
 
-The finite parser API is now available for the remaining Chunks work. TagSoup's
+The finite parser API is used by the Chunks reference-rewriting port. TagSoup's
 renderer, matching/combinator/tree APIs, Haskell generic instances, alternate
 ByteString representations and lazy/infinite-input tests remain unported.
 The current API materializes finite tokens and strings; its long-input checks
 do not substitute for the original infinite-input laziness guarantees. Pandoc's
-HTML reader/writer, all other parser use sites and Chunks splitting remain in
-the full objective; this dependency port does not claim those features.
+HTML reader/writer and remaining parser use sites remain in the full objective;
+this dependency port does not claim those features.
+
+
+## Chunks splitting, references and navigation evidence
+
+`Chunks.splitIntoChunks` preserves the original pipeline: makeSections, postorder
+section ID allocation, section/preamble splitting, TOC path resolution, internal
+reference rewriting, then the three navigation passes. Chunk fields retain the
+heading copy, identifier, signed level/number, optional section number, path,
+unlisted state, full contents and up/prev/next snapshots. A deque implements the
+original subsection-before-remainder order without repeatedly copying suffixes.
+Defaults match the original Lua structure API; the core also accepts explicit
+path templates, section numbering, base heading levels and chunk levels.
+
+Missing IDs are allocated only for Divs with first class `section` and a first
+Header. Children reserve IDs before parents. Explicit duplicate IDs remain
+possible; reference and TOC maps choose the earliest chunk. Preamble headings
+come from docTitle, with the original identifier suffix and path section number
+`0`. Empty documents produce no chunks, and the root TOC path is still `#`.
+
+Internal reference collection uses precisely the original node kinds. Div,
+Header, Table, Span, Link and Image IDs participate; Code, CodeBlock, Figure and
+table row/cell attributes do not. Raw HTML participates only for exact stored
+format spellings `html`, `html4`, `html5`, despite general Format equality being
+case-insensitive. TagSoup finds the first lowercase `id` attribute and preserves
+its decoding/malformed-markup rules. Metadata IDs do not populate the map, but
+links in metadata are rewritten. Only Link targets beginning with `#` change;
+image targets and other URLs remain intact. The separate Chunk heading and TOC
+title copies intentionally retain their original links.
+
+Navigation follows adjacent levels exactly, including leaving `up` empty after
+a level decrease instead of searching for an earlier ancestor. `prev` points to
+the preceding result of the up pass; `next` points to the following result of the
+prev pass. These are finite immutable snapshots, not cyclic links to the final
+chunks. Tests recursively check every navigation edge and every snapshot's base
+fields/content against independent original captures. Chunk walks visit contents
+only. ChunkedDoc walks metadata before chunks; queries visit chunks before
+metadata. Neither walks nor queries traverse the TOC or navigation copies.
+SecInfo's inline query visits only its title, matching its walk scope.
+
+`tools/import-chunk-fixtures.py` captures 4,598 full outcomes from Pandoc 3.12.1:
+all 266 Native documents in two modes, all 3,670 raw HTML identifier cases through
+actual chunk rewriting, original Lua examples, generated hierarchies, number and
+class combinations, preamble metadata representations, duplicate IDs, every
+relevant/excluded attribute location, exact format spelling and signed integer
+boundaries. Original document JSON is transported as text, and extreme options
+as decimal strings, to avoid Lua JSON floating-point coercion. Results include
+metadata, every chunk field and contents, the whole TOC tree/list and all finite
+navigation snapshots. Tests compare typed AST values so equivalent decimal and
+exponent JSON spellings of table widths do not create false failures; raw Format
+spellings are checked separately because their general equality folds case.
+Fixtures are gzip-compressed with zero mtime and source/input hashes checked in
+CI. Direct tests also check 1,001 sibling chunks and traversal side-effect order.
+
+This ports the finite Kotlin structure API. It does not yet provide the Lua
+runtime/userdata API, generic Haskell Show/Data/Generic instances, the chunked
+HTML writer, EPUB packaging, templates or their full CLI/application integration.
+Those remain in the complete original objective and require their own tests.
