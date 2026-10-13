@@ -1746,3 +1746,88 @@ formats/application behavior, and Calibre MOBI/additional formats. The full
 objective remains active.
 
 All 171,705 Kotlin tests pass with no failures, errors or skips.
+
+## Color planes, transparency and luma — 2026-10-13
+
+`ImagePlanes` implements unsafeExtractComponent for all 15 original pixel types,
+including the new Word32 grayscale storage, and all 32 named ColorPlane
+instances across YA8/YA16, RGB8/RGB16/RGBF, RGBA8/RGBA16, YCbCr8 and
+CMYK8/CMYK16. Sealed plane families retain which planes are valid for each
+image type. Alpha is component 1 for YA and component 3 for RGBA. Named
+extraction delegates to the same original linear stride behavior as unsafe
+extraction, creates a new grayscale vector and preserves image dimensions.
+
+The original upper-bound-only guard and exact invalid-component error text are
+retained. The guard runs before output size/allocation or source-data access.
+Negative indices on empty output perform no read and return empty images.
+Two negative dimensions give a positive linear pixel count and are processed
+by stride extraction, matching the source instead of a row-loop replacement.
+
+`ImageTransparency` implements all four TransparentPixel instances: YA8/YA16
+to grayscale and RGBA8/RGBA16 to RGB. It includes dropTransparency,
+dropAlphaLayer, the original deprecated getTransparency name, and pixelOpacity
+for these four transparent types. Whole-image alpha removal follows original
+pixelMap row/column traversal, produces fresh storage, leaves source data
+unchanged and ignores unused vector tails.
+
+`ImageLuma` implements all ten LumaPlaneExtractable instances. Word8, Word16,
+Word32 and Float scalar luma is identity; extractLumaPlane on their images returns
+the same image and complete vector, including unused data and malformed
+dimensions. YA8 and YCbCr8 luma uses linear channel extraction. RGB8/RGBA8/RGB16
+retain the original Double 0.3/0.59/0.11 expression and floor; alpha is ignored.
+RGBF retains Float products and additions in source order. Computed-image paths
+use the original row/column traversal.
+
+A separate frozen oracle compiles unchanged JuicyPixels 3.3.9 and calls these
+methods directly, with pixelMap batches for the per-pixel methods. It implements
+no extraction, transparency or luma formula. Stable names independently observe
+original image sharing. All 5,947 captures pass: 5,722 successful results,
+225 original invalid-component exceptions, and 75,048,509 serialized output bytes.
+The captured operation counts are:
+
+- 1,346 named-plane and 2,015 unsafe component requests.
+- 939 computeLuma batches and 955 extractLumaPlane requests.
+- 173 each for dropAlphaLayer, dropTransparency, getTransparency and pixelOpacity.
+
+Coverage includes every RGB triple for RGB8 and RGBA8 luma through both pixel
+and image paths (67,108,864 pixel results), all 65,536 YA8 pairs for both luma
+paths and all four transparency paths, full byte/Word16 component ranges,
+Word32 bit boundaries, Cartesian boundary products, seeded odd/non-square
+images, zero dimensions, vector tails and defined negative-dimension stride
+cases. Float copies include both signs, all exponents at six mantissa boundaries,
+subnormals, infinities, NaN signs/payloads and 4,096 seeded raw patterns.
+
+All finite, infinite and zero Float results compare bit exactly. For computed
+RGBF luma only, NaN sign/payload is a native platform/compiler boundary; tests
+canonicalize computed NaNs for comparison while requiring NaN at every expected
+position. The original raw outputs and their hashes are also retained. Raw Float
+plane copies and scalar identity results preserve every bit, including NaN
+payloads. There is no epsilon comparison or reduction of the tested input domain.
+
+The original planeSeparationYA8Test 256×256 generator is captured for both luma
+and alpha extraction. Its PNG writing, and original RGB/RGBA PNG plane-separation
+branches, still need the corresponding raster codecs and image dispatch.
+Another 180 original observations verify scalar luma image identity, including
+short/empty vectors, complete tails, negative dimensions and Int.MAX_VALUE width
+without allocation. Other extraction and alpha-removal outputs use fresh storage.
+
+The 225 errors cover every pixel type, five invalid indices (including Int64
+maximum) and three shapes, including Int.MAX_VALUE squared with empty source.
+They verify error priority before huge allocation or source access. Empty-output
+negative indices include Int64 minimum. Nonempty negative indices and short
+source vectors enter unchecked native reads and have no portable oracle output.
+PixelMap operations with two negative dimensions can expose uninitialized native
+output and are excluded; the defined stride and identity cases are covered.
+JVM bounds checking, zero initialization and array/dimension representation
+limits remain platform boundaries.
+
+Full-output SHA-256/length checks cover large domain/range batches; other results
+also retain and compare original bytes. The importer hashes itself, the complete
+upstream source, original test runner and frozen harness, and CI verifies the
+manifest. Complete multi-channel Word16/RGBA/Float32 domains are not claimed
+exhaustive. Remaining work includes the rest of the pixel/image API, mutable
+operations, transformations, other codecs and cross-format tests, remaining
+Pandoc formats/application behavior, and Calibre MOBI/additional formats. The
+full objective remains active.
+
+All 177,652 Kotlin tests pass with no failures, errors or skips.
