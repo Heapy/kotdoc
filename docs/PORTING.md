@@ -1564,3 +1564,49 @@ All 162,009 Kotlin tests pass without failures, errors or skips. Remaining work
 includes color conversion and cross-format upstream image tests, other pixel
 codecs, general image API integration, remaining Pandoc formats/application
 behavior, and Calibre MOBI/additional formats. The full objective remains active.
+
+## RGB8 and YCbCr8 color conversions — 2026-10-13
+
+`ImageColorConversion` ports both `ColorSpaceConvertible PixelRGB8 PixelYCbCr8`
+and `ColorSpaceConvertible PixelYCbCr8 PixelRGB8` from the pinned
+Codec.Picture.Types. Typed unsigned-byte pixels and interleaved byte images
+provide both `convertPixel` and `convertImage` operations. RGB conversion retains
+the original Float-to-fixed coefficient calculation, 16-bit fixed-point shifts,
+luma bias and chroma bias minus one. Reverse conversion retains the four original
+tables, arithmetic right shifts and clipping of each final component to 0–255.
+Image conversion allocates a fresh vector, preserves dimensions, reads exactly
+width*height pixels, leaves the source unchanged and ignores trailing samples.
+
+A new independent oracle compiles unchanged original JuicyPixels sources and
+calls either convertImage or pixelMap convertPixel directly. It implements no
+conversion formulas. Its 1,467 captures comprise:
+
+- 1,024 exhaustive batches: each of the 16,777,216 possible three-byte inputs
+  in each direction, independently for the original pixel and image paths.
+  All 67,108,864 conversion results (201,326,592 output bytes) are compared using
+  SHA-256 and exact length per 65,536-pixel batch. The original outputs are
+  hashed by the importer; expected hashes never come from Kotlin.
+- 400 small image/pixel captures across empty dimensions, non-square shapes,
+  seeded samples, edge sizes and unused input tails. Full outputs are retained
+  and compared byte for byte as well as hashed.
+- Eight original optimized-image cases with signed dimensions: two negatives
+  yielding a positive pixel count, and zero combined with a negative dimension.
+  The pixelMap path on two negative dimensions would expose uninitialized native
+  memory and is deliberately not used as a portable reference.
+- 35 complete RGB → YCbCr → JPEG captures at quality 100. These include the
+  original testSuite/toJpg white and black 16×16 images and 128×128 RGB gradient,
+  plus 32 seeded images with varied odd sizes. Every byte of each resulting JPEG
+  matches the original conversion and encoder composition.
+
+The importer records hashes of itself, the frozen harness, the original test
+runner and all retained JuicyPixels source files; CI verifies them. Short source
+vectors invoke unchecked native memory access and have no portable expected
+results. JVM array size limits remain a platform boundary; the Kotlin image
+allocation checks its computed Long length before converting to an Int.
+
+This completes these two color-conversion instances, not Codec.Picture.Types.
+Other pixel types/conversions, remaining cross-format tests and codecs, general
+image dispatch, remaining Pandoc formats/application behavior, and all Calibre
+MOBI/additional-format work remain outstanding. The full objective stays active.
+
+All 163,476 Kotlin tests pass with no failures, errors or skips.
