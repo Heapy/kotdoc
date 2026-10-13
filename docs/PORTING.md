@@ -1610,3 +1610,62 @@ image dispatch, remaining Pandoc formats/application behavior, and all Calibre
 MOBI/additional-format work remain outstanding. The full objective stays active.
 
 All 163,476 Kotlin tests pass with no failures, errors or skips.
+
+## CMYK and YCbCrK color conversions — 2026-10-13
+
+`ImageCmykConversion` ports six further ColorSpaceConvertible instances from
+Codec.Picture.Types: RGB8 → CMYK8, CMYK8 → RGB8, RGB16 → CMYK16,
+CMYK16 → RGB16, YCbCrK8 → RGB8 and YCbCrK8 → CMYK8. Each has typed
+pixel and image operations. RGB-to-CMYK preserves the all-black branch, maximum
+channel selection and truncating integer division. The 16-bit path retains the
+original Word32-sized products using Long, avoiding signed Int32 overflow.
+CMYK8-to-RGB divides by 255; CMYK16-to-RGB intentionally shifts by 16 instead
+of dividing by 65535, so full white maps to 65534, exactly as upstream.
+
+YCbCrK conversion retains the original Float operation order and clamp/floor
+semantics. Its RGB result ignores K. Its CMYK result complements each unrounded
+RGB expression before clamping and preserves K. It is not composed from the
+already rounded RGB result. `JpegDecoder` now calls this shared conversion after
+inverting all four original YCCK channels, matching dynamicOfColorSpace in
+Codec.Picture.Jpg. The existing 2,401 complete JPEG decoding captures pass
+unchanged, including full output samples of the retained original photographs.
+
+All six original convertImage implementations use pixelMap convertPixel. The
+Kotlin image operations copy into a new component vector, traverse rows and
+columns, preserve dimensions and input samples, and ignore unused source tails.
+
+A separate frozen oracle compiles unchanged upstream code and directly invokes
+both original convertImage and pixelMap convertPixel. It contains only request
+handling, deterministic input generation and output serialization; it has no
+conversion formulas. Its 3,294 captures cover 107,698,128 pixel conversions and
+411,262,457 serialized output bytes:
+
+- Every one of the 16,777,216 RGB8 inputs for RGB8 → CMYK8, independently via
+  the pixel and image paths.
+- Every Y/Cb/Cr triple for both YCbCrK conversions, independently via both paths,
+  with a varying K channel. Another 864 captures sweep all 256 K values at each
+  of 216 boundary colors for both operations and paths.
+- Every CMYK8 component/K pair for each output component via both paths.
+- Every 16-bit component value in RGB16 at four input permutations and in
+  CMYK16 at 46 K values around powers of two, independently via both paths.
+- Cartesian boundary products for all six operations, seeded images, odd and
+  non-square shapes, zero-sized dimensions and unused source-vector tails.
+
+The 1,638 large sweeps compare complete-output SHA-256 and length; the 1,656
+remaining cases also retain and compare their original output bytes verbatim.
+Word16 output is serialized explicitly little-endian only for test interchange.
+The importer hashes itself, the complete pinned upstream source, upstream test
+runner and frozen harness. CI verifies the manifest. The four-channel 32-bit
+domain and complete 16-bit color domains are not claimed exhaustive.
+
+Short input vectors and two negative image dimensions can expose unchecked or
+uninitialized native memory in pixelMap; they are not portable oracle cases.
+JVM bounds checking, zero-initialized allocations and array size limits remain
+platform boundaries. Zero combined with a negative other dimension is covered.
+
+These six conversions are implemented; the rest of the pixel API, lossless
+promotions, identity instances, image transformations, codecs and cross-format
+test branches still need work. Remaining Pandoc formats and application behavior,
+Calibre MOBI and additional formats remain in the full active objective.
+
+All 166,770 Kotlin tests pass with no failures, errors or skips.

@@ -49,6 +49,7 @@ jobs:
       - run: python3 tools/import-jpeg-encoder-fixtures.py --check-source
       - run: python3 tools/import-jpeg-dct-fixtures.py --check-source
       - run: python3 tools/import-image-color-fixtures.py --check-source
+      - run: python3 tools/import-image-cmyk-fixtures.py --check-source
       - run: python3 tools/import-image-metadata-fixtures.py --check-source
       - run: ./gradlew test :cli:installDist --no-daemon
       - run: python3 tools/check-fb2-cli.py

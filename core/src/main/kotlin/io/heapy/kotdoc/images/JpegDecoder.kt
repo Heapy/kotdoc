@@ -189,14 +189,14 @@ internal object JpegDecoder {
     }
     private fun ycckToCmyk(pixels: ByteArray) {
         for (i in pixels.indices step 4) {
-            val y = (255 - (pixels[i].toInt() and 255)).toFloat()
-            val cb = (255 - (pixels[i + 1].toInt() and 255)).toFloat()
-            val cr = (255 - (pixels[i + 2].toInt() and 255)).toFloat()
-            fun clamp(v: Float) = v.coerceIn(0f, 255f).toInt().toByte()
-            pixels[i] = clamp(255f - (y + 1.402f * cr - 179.456f))
-            pixels[i + 1] = clamp(255f - (y - 0.3441363f * cb - 0.71413636f * cr + 135.4589f))
-            pixels[i + 2] = clamp(255f - (y + 1.772f * cb - 226.816f))
-            pixels[i + 3] = (255 - (pixels[i + 3].toInt() and 255)).toByte()
+            val converted = ImageCmykConversion.toCmyk(PixelYCbCrK8(
+                (255 - (pixels[i].toInt() and 255)).toUByte(),
+                (255 - (pixels[i + 1].toInt() and 255)).toUByte(),
+                (255 - (pixels[i + 2].toInt() and 255)).toUByte(),
+                (255 - (pixels[i + 3].toInt() and 255)).toUByte(),
+            ))
+            pixels[i] = converted.cyan.toByte(); pixels[i + 1] = converted.magenta.toByte()
+            pixels[i + 2] = converted.yellow.toByte(); pixels[i + 3] = converted.black.toByte()
         }
     }
 }
