@@ -19,6 +19,10 @@ syntax = [
     'Str "\\^@\\^_"', 'Str "\\NUL\\SOH"', 'Str "a" ++ []', '[Str "x",HorizontalRule]',
     'Str "\\1114112"', 'Str "a\\\n \\b"', 'Str "\\o12\\x20"',
 ]
+# GHC 9.12 Read also accepts binary literals in Integer and Double positions.
+for number in ['0b101','0B101','-0b101','(-0B101)','0b'+'1'*70,'0b','0b102']:
+    syntax.append(f'Header {number} ("",[],[]) []')
+    syntax.append(f'Table ("",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth {number})] (TableHead ("",[],[]) []) [] (TableFoot ("",[],[]) [])')
 read_cases = []
 for text in syntax:
     p = subprocess.run(['pandoc', '-f', 'native', '-t', 'json'], input=text, text=True, capture_output=True)

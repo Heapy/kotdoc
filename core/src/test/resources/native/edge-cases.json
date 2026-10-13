@@ -493,6 +493,446 @@
           }
         ]
       }
+    },
+    {
+      "input": "Header 0b101 (\"\",[],[]) []",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Header",
+            "c": [
+              5,
+              [
+                "",
+                [],
+                []
+              ],
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth 0b101)] (TableHead (\"\",[],[]) []) [] (TableFoot (\"\",[],[]) [])",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Table",
+            "c": [
+              [
+                "",
+                [],
+                []
+              ],
+              [
+                null,
+                []
+              ],
+              [
+                [
+                  {
+                    "t": "AlignDefault"
+                  },
+                  {
+                    "t": "ColWidth",
+                    "c": 5.0
+                  }
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ],
+              [],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Header 0B101 (\"\",[],[]) []",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Header",
+            "c": [
+              5,
+              [
+                "",
+                [],
+                []
+              ],
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth 0B101)] (TableHead (\"\",[],[]) []) [] (TableFoot (\"\",[],[]) [])",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Table",
+            "c": [
+              [
+                "",
+                [],
+                []
+              ],
+              [
+                null,
+                []
+              ],
+              [
+                [
+                  {
+                    "t": "AlignDefault"
+                  },
+                  {
+                    "t": "ColWidth",
+                    "c": 5.0
+                  }
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ],
+              [],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Header -0b101 (\"\",[],[]) []",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Header",
+            "c": [
+              -5,
+              [
+                "",
+                [],
+                []
+              ],
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth -0b101)] (TableHead (\"\",[],[]) []) [] (TableFoot (\"\",[],[]) [])",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Table",
+            "c": [
+              [
+                "",
+                [],
+                []
+              ],
+              [
+                null,
+                []
+              ],
+              [
+                [
+                  {
+                    "t": "AlignDefault"
+                  },
+                  {
+                    "t": "ColWidth",
+                    "c": -5.0
+                  }
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ],
+              [],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Header (-0B101) (\"\",[],[]) []",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Header",
+            "c": [
+              -5,
+              [
+                "",
+                [],
+                []
+              ],
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth (-0B101))] (TableHead (\"\",[],[]) []) [] (TableFoot (\"\",[],[]) [])",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Table",
+            "c": [
+              [
+                "",
+                [],
+                []
+              ],
+              [
+                null,
+                []
+              ],
+              [
+                [
+                  {
+                    "t": "AlignDefault"
+                  },
+                  {
+                    "t": "ColWidth",
+                    "c": -5.0
+                  }
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ],
+              [],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Header 0b1111111111111111111111111111111111111111111111111111111111111111111111 (\"\",[],[]) []",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Header",
+            "c": [
+              -1,
+              [
+                "",
+                [],
+                []
+              ],
+              []
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth 0b1111111111111111111111111111111111111111111111111111111111111111111111)] (TableHead (\"\",[],[]) []) [] (TableFoot (\"\",[],[]) [])",
+      "accepted": true,
+      "json": {
+        "pandoc-api-version": [
+          1,
+          23,
+          1,
+          2
+        ],
+        "meta": {},
+        "blocks": [
+          {
+            "t": "Table",
+            "c": [
+              [
+                "",
+                [],
+                []
+              ],
+              [
+                null,
+                []
+              ],
+              [
+                [
+                  {
+                    "t": "AlignDefault"
+                  },
+                  {
+                    "t": "ColWidth",
+                    "c": 1.1805916207174113e+21
+                  }
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ],
+              [],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                []
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "input": "Header 0b (\"\",[],[]) []",
+      "accepted": false,
+      "json": null
+    },
+    {
+      "input": "Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth 0b)] (TableHead (\"\",[],[]) []) [] (TableFoot (\"\",[],[]) [])",
+      "accepted": false,
+      "json": null
+    },
+    {
+      "input": "Header 0b102 (\"\",[],[]) []",
+      "accepted": false,
+      "json": null
+    },
+    {
+      "input": "Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth 0b102)] (TableHead (\"\",[],[]) []) [] (TableFoot (\"\",[],[]) [])",
+      "accepted": false,
+      "json": null
     }
   ],
   "writer": [

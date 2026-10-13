@@ -134,6 +134,7 @@ object NativeReader {
         val number = when {
             unsigned.startsWith("0x", true) -> unsigned.substring(2).toBigInteger(16)
             unsigned.startsWith("0o", true) -> unsigned.substring(2).toBigInteger(8)
+            unsigned.startsWith("0b", true) -> unsigned.substring(2).toBigInteger(2)
             else -> unsigned.toBigInteger()
         }
         // Haskell Read Int accepts arbitrary integer literals and wraps to machine width.
@@ -145,6 +146,7 @@ object NativeReader {
         val result = when {
             unsigned.startsWith("0x", true) -> unsigned.substring(2).toBigInteger(16).toDouble()
             unsigned.startsWith("0o", true) -> unsigned.substring(2).toBigInteger(8).toDouble()
+            unsigned.startsWith("0b", true) -> unsigned.substring(2).toBigInteger(2).toDouble()
             else -> return text.toDouble()
         }
         return if (text.startsWith('-')) -result else result
@@ -296,7 +298,7 @@ object NativeReader {
             }
         }
         companion object {
-            private val numberPattern = Regex("-?(?:0[xX][0-9a-fA-F]+|0[oO][0-7]+|[0-9]+(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?)")
+            private val numberPattern = Regex("-?(?:0[xX][0-9a-fA-F]+|0[oO][0-7]+|0[bB][01]+|[0-9]+(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?)")
         }
     }
 }

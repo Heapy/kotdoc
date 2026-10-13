@@ -15,7 +15,7 @@ class NativeEdgeTest {
         val value = entry.jsonObject
         val input = value.getValue("input").jsonPrimitive.content
         DynamicTest.dynamicTest(input) {
-            if (value.getValue("accepted").jsonPrimitive.boolean) assertEquals(value.getValue("json"), PandocJson.toJson(NativeReader.read(input)))
+            if (value.getValue("accepted").jsonPrimitive.boolean) assertEquals(PandocJson.decode(value.getValue("json")), NativeReader.read(input))
             else assertFails { NativeReader.read(input) }
         }
     }

@@ -61,3 +61,16 @@ in docs/PORTING.md. `tools/import-html-entities.py` imports all 2,231 entities,
 and `tools/import-tagsoup-fixtures.py` retains hashes for every release file
 and transcribes the original parsing/position/entity expectations. The original
 BSD-3-Clause license is retained here and in `licenses/tagsoup-BSD-3-Clause.txt`.
+
+
+`ghc-9.12.2/` retains the numeric Read, decimal rendering and IEEE integer-rounding
+sources read for the Kotlin port, from tag `ghc-9.12.2-release` at:
+https://github.com/ghc/ghc/tree/ghc-9.12.2-release
+
+`GHC/Internal/` files come from `libraries/ghc-internal/src/GHC/Internal/`,
+`GHC/Num/Integer.hs` from `libraries/ghc-bignum/src/GHC/Num/Integer.hs`, and
+`rts/StgPrimFloat.c` keeps its original path. Original copyright headers and the
+BSD notices in `LICENSE.txt` are retained. These are reference sources, never
+runtime dependencies. Only the numeric paths recorded in docs/PORTING.md have
+been translated; this is not a complete GHC/base port. The image-dimension
+fixture checker verifies these source hashes together with the Pandoc sources.

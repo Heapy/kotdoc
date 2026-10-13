@@ -28,6 +28,15 @@ internal object HaskellDouble {
         return sign + rendered
     }
 
+    /** GHC FFFixed rounds its shortest decimal digits, not the exact binary value. */
+    fun showFixed(value: Double, decimals: Int): String {
+        if (!value.isFinite()) return show(value)
+        val sign = if (value.toRawBits() < 0) "-" else ""
+        val (digits, exponent) = if (value == 0.0) "0" to 0 else digits(abs(value))
+        val decimal = java.math.BigDecimal(BigInteger(digits), digits.length - exponent)
+        return sign + decimal.setScale(decimals.coerceAtLeast(0), java.math.RoundingMode.HALF_EVEN).toPlainString()
+    }
+
     private fun digits(value: Double): Pair<String, Int> {
         val bits = value.toRawBits()
         val exponentBits = ((bits ushr 52) and 0x7ff).toInt()
