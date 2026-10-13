@@ -1365,3 +1365,56 @@ Remaining work includes full metadata extraction, the imageSize/general-image
 API integration, JPEG encoding and original encoder assertions, other image
 codecs, the remaining Pandoc formats/application surface, and Calibre's MOBI
 and additional formats. The complete goal remains active.
+
+## JPEG pixel-to-file encoding — 2026-10-13
+
+`JpegEncoder.kt` translates the fixed-point fastDctLibJpeg transform and the
+complete direct JPEG encoding path in Codec.Picture.Jpg. Grayscale, YCbCr 4:2:0,
+RGB and CMYK preserve component identifiers, sampling, quantization destinations,
+default DC/AC tables, MCU/component/block traversal, edge replication, chroma
+averaging, DC prediction and zero-run/category Huffman serialization. Quantization
+uses signed quot after adding half the positive divisor. DCT arithmetic retains
+Int32 wrapping, the two pass biases and the original level shift. DC predictors
+retain their Int16 narrowing. Final bytes use the shared original-compatible bit
+writer, byte stuffing, zero padding and frame serializer.
+
+RGB includes the original Adobe APP14 marker; CMYK does not add one, matching
+the source's unused local Adobe value. Quality defaults to 50 and accepts the
+complete original Word8 domain, including 0 and 101..255. Zero-sized traversal
+still writes image headers, whose dimensions narrow to Word16. The encoder is
+internal and accepts already-encoded metadata frames. JFIF/Exif placement is
+verified, but the complete typed Metadatas-to-frame API has not been ported.
+
+The independent oracle builds 16 unchanged original JuicyPixels modules and
+calls exported encodeDirectJpegAtQualityWithMetadata and fastDctLibJpeg. Its
+wrapper only constructs original pixel/metadata types and serializes results.
+The 5,153 captures comprise:
+
+- 1,920 DCT cases: all 256 constant byte levels, all 65,536 Int16 values across
+  consecutive 64-sample blocks, impulses at every position and seeded full-range
+  blocks. All coefficients and unchanged input samples are compared; Kotlin's
+  return value must alias the supplied workspace, which starts nonzero.
+- 3,140 complete synthetic JPEG files: all 256 quality values for all four color
+  models, constant/checker/random patterns, 1/7/8/9/15/16/17/31/33 edge sizes,
+  empty traversal/header narrowing and 168 JFIF/Exif integration cases. These
+  compare every output byte, including all frame headers and entropy bytes.
+  Quality-50 cases also exercise the default argument. Metadata frame inputs
+  are constructed explicitly in the Kotlin test, without claiming a typed
+  metadata encoder already exists.
+- 93 original JPEG decode/re-encode results: all 31 retained upstream JPEGs at
+  qualities 50, 90 and 100. SHA256 and lengths cover complete encoded files,
+  including large photographs, progressive inputs, restart variants and
+  grayscale/RGB/YCbCr/CMYK samples. Quality 100 follows the original
+  validationJpegEncode/liberalJpegEncode functions; 90 covers imgToImg's CMYK
+  branch. The source runner also converts RGB to YCbCr and writes other image
+  formats; those branches are not claimed complete here.
+
+All 154,045 Kotlin tests pass locally without failures, errors or skips. Source
+hashes pin the harness, fixture importer, complete vendored source and original
+JPEG assets/test runner. CI now verifies this additional fixture manifest.
+Unchecked invalid native image buffers are not portable reference values;
+nonempty test images provide all samples. The Float diagnostic referenceDct,
+full typed metadata encoding/extraction, color-conversion and cross-format
+upstream test branches, general image API integration, other codecs, remaining
+Pandoc formats/application behavior and Calibre MOBI/additional formats remain
+outstanding. The full goal remains active.
