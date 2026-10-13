@@ -53,6 +53,7 @@ format is implemented explicitly in Kotlin.
 | JuicyPixels TIFF metadata consumer path | `images/TiffMetadata.kt` | 8,390 original outcomes: 1,263 sizes, 7,123 exact TIFF-component errors and four arithmetic exceptions; all 68 retained TIFFs, format matrices, nested Exif, duplicate/overlap/endian cases and direct type-gate/cancellation tests |
 | JuicyPixels PNG fallback metadata consumer | `images/PngMetadata.kt` | 6,329 independent captures: 4,425 sizes, 1,858 exact PNG-component errors, 45 uncaught exceptions and one explicitly non-equivalent unsafe-memory case; all 176 retained PNG inputs probed through fallback |
 | JuicyPixels PNG pixel decoder and complete metadata | `images/PngDecoder.kt` | 27,711 direct original-Haskell observations; all 176 PNGSuite files, every valid-file pixel output, five filters, Adam7, standard bit depths, indexed/transparency expansion and deferred metadata errors |
+| JuicyPixels PNG encoder and palette export | `images/PngEncoder.kt` | 4,814 original-Haskell observations; eight pixel types, both palette types, complete output bytes, original metadata/palette/plane examples and every valid PNGSuite re-encoding |
 | JuicyPixels shared bit readers/writers | `images/ImageBitStream.kt` | 12,853 direct original-Haskell captures: 10,245 reader/state operations and 2,608 writer sequences, including widths through 256, JPEG markers, alignment, stuffing and 256 KiB output boundaries |
 | JuicyPixels JPEG Huffman and quantisation helpers | `images/JpegHuffman.kt`, `JpegDefaultTables.kt` | 5,450 direct Haskell captures: trees, packed arrays, inverse codes, sequential symbols, all default tables, complete Int16 coefficient domain at 13 qualities; three JVM bounds/cancellation tests |
 | JuicyPixels JPEG block/IDCT helpers | `images/JpegBlocks.kt` | 14,233 direct original-Haskell captures of numerical results, mutable source/destination states, coefficient reader continuations, pixel placement and parameter diagnostics; four explicit bounds/domain/cancellation tests |
@@ -2410,3 +2411,96 @@ All 298,929 Kotlin tests pass with no failures, errors or skips. All 48 source/
 fixture manifests verify against the retained originals.
 All 234 installed-CLI comparisons pass: 14 FB2, 66 media, 69 format modifiers
 and 85 math-option cases.
+
+
+## PNG encoding and original writer examples
+
+`PngEncoder` ports all eight PngSavable instances, both RGB8/RGBA8
+PngPaletteSaveable instances, metadata-bearing variants, encodeDynamicPng,
+writePng and writeDynamicPng. Kotlin constructs noninterlaced IHDR, zero-filter
+rows, big-endian 16-bit components, PLTE/tRNS, IDAT and IEND. JDK Deflater provides
+only the zlib primitive; document/image conversion does not depend on an upstream
+runtime. Complete compressed files, chunk lengths and CRCs match the original
+outputs byte for byte, including the large-image and compression-buffer cases.
+
+Palette validation uses the declared width/height before demanding indices, and
+checks every component in the logical index vector, including unused raster
+tails. RGB palette export retains the complete logical vector even when its
+length disagrees with the declared width; the resulting unusual chunk length
+and CRC are preserved. RGBA export drops alpha and extracts the alpha plane over
+the declared palette raster, discarding unused vector tails. Typed/dynamic encoded
+bytes remain lazy; unsupported dynamic variants fail without forcing their image.
+Empty heights skip source data, while zero-width 8-bit rows still demand the
+source vector; the 16-bit empty-row loop can avoid it.
+
+Metadata writing includes pHYs when both DPI fields exist, gAMA and all nine
+standard text keywords, plus Unknown/String values. DPI arithmetic preserves
+Word64 overflow before narrowing to Word32. Char8 packing truncates Unicode
+scalar values to their low byte, including supplementary code points. Unknown
+non-string, Exif, Format, Width, Height and ColorSpace entries are ignored.
+Metadata order follows the original storage order. The first DPI lookup short
+circuits if DpiX is absent.
+
+A Gamma diagnostic exposed two mismatches from a mathematical BigInteger ceiling
+at extreme finite values. GHC's optimized Word32 ceiling instead specializes to
+ceilingDoubleInt followed by narrowing. The retained GHC 9.12.2 RealFracMethods
+source records its truncation, Double comparison and Int64 increment/wrap.
+Kotlin now preserves that sequence with the captured ARM64 conversion behavior;
+NaN, infinities and large finite Gamma values are not silently rejected or
+normalized. The 81 Gamma observations include both signs near 2^31, 2^32, 2^52,
+2^53, 2^62, 2^63, 2^64, 2^65, 2^80 and 2^100 after scaling. Out-of-Int64 floating
+conversion is architecture dependent in native GHC; the retained macOS/ARM64
+baseline is the compatibility oracle here. Identical native-GHC overflow results
+on other architectures are not claimed. All ordinary PNG compression expectations
+are checked unchanged on both the local JVM and Linux CI.
+
+A separate frozen original-Haskell encoder harness calls unchanged JuicyPixels
+3.3.9 with GHC 9.12.2/vector 0.13.2.0/zlib 0.7.1.1, using system zlib 1.2.12 for
+capture. It contains input adapters and calls exported original encoding,
+decoding, metadata and plane-extraction functions; no encoder implementation is
+copied into the oracle. Reproduce with
+`python3 tools/import-png-encoder-fixtures.py --oracle PATH`.
+
+There are 4,814 original observations: 2,287 complete PNG successes, 286 deferred
+Right results, 1,926 Either failures and 315 exceptions. The 7,463,671 output bytes
+are compared directly for smaller files and by original length/SHA-256 otherwise.
+The manifest covers 255 original/harness/corpus/source files and is verified by CI.
+
+- Every original validTests PNG and huge.png is decoded and re-encoded through
+  original encodeDynamicPng, compared with the full Kotlin decoder/encoder path.
+  All 174 files with defined dynamic demand are included; all 162 valid files and
+  the ignored-header-CRC xhdn0g08 case produce independently captured PNG bytes.
+- Original metadataWriteTest and palettedPngCreation inputs are retained, including
+  the exact metadata insertion order, white 16x16 RGB raster and 256x128 index
+  raster with a 256-entry transparent RGBA palette.
+- Original RGB/RGBA plane-separation images are retained verbatim in their own
+  vendor tree, with original revision/provenance and license. All seven plane
+  outputs run original decode/extract/encode and the corresponding Kotlin path.
+  Original YA8 plane-separation luma, alpha and combined writer examples also run.
+- Synthetic coverage includes eight savable types, zero/max/pattern/random
+  components, row shapes, slices, tails, zero/negative/extreme header dimensions,
+  deferred image/vector/metadata errors and all six unsupported dynamic types.
+- Both palette types exercise every byte index at five palette widths, invalid
+  dimensions, index tails, palette/vector slices, validation/demand ordering and
+  deferred palette data failures. Metadata cases include all text keywords,
+  embedded NUL, Latin-1/Unicode truncation, DPI boundaries/missing fields, duplicate
+  insertion order, ignored keys and Gamma conversion boundaries.
+- Twenty random 8/16-bit inputs cross 16/32/64-KiB zlib buffer boundaries and a
+  100,003-component row. A separate filesystem test checks both file helpers
+  against original PNG bytes and verifies an unsupported type preserves an
+  existing file without forcing its image. Two additional original IO probes
+  verify that typed/dynamic write failures open and truncate a destination before
+  demanding an erroneous image.
+
+Native unsafe input overreads/uninitialized output are excluded as in the decoder.
+Primitive JVM array limits remain. The APIs materialize a full ByteArray when its
+lazy result is demanded; arbitrary Haskell lazy-ByteString prefix consumption is
+not exposed as a ByteArray operation. Incremental file prefixes before a late
+encoding failure likewise require the remaining lazy-stream integration.
+APNG/binary helper coverage, original
+cross-format branches requiring other image codecs, older image API integration,
+remaining image codecs, remaining Pandoc formats/application behavior and all
+Calibre MOBI/additional formats remain pending. The full objective remains active.
+
+All 303,744 Kotlin tests pass with no failures, errors or skips. All 49 source/
+fixture manifests verify; all 234 installed-CLI comparisons pass.

@@ -1,0 +1,3 @@
+GHC 9.12.2 ceilingDoubleInt source used by the optimized PNG Gamma writer.
+Source: https://github.com/ghc/ghc/blob/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Float/RealFracMethods.hs
+Copyright Daniel Fischer 2010; BSD-3-Clause.
