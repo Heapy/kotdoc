@@ -47,6 +47,7 @@ format is implemented explicitly in Kotlin.
 | TagSoup finite HTML parsing and entity dependency | `html/TagSoup.kt`, `HtmlTag.kt`, `HtmlEntities.kt` | All 53 original parser/position and 12 entity assertions, original warning example, 1,000 seeded option-property inputs across eight modes, all 2,231 HTML5 names, 3,670 independent Pandoc ID-discovery captures |
 | `Chunks` splitting, reference rewriting, TOC paths and navigation; Chunk/ChunkedDoc walkers and queries | `structure/Chunks.kt` | 4,598 independent complete-output cases (all 266 Native documents twice, 3,670 raw HTML cases and section/metadata/boundary cases), complete finite navigation snapshots and explicit traversal/scope checks |
 | `Slides.getSlideLevel` and `prepSlides` | `structure/Slides.kt` | 549 original-Pandoc level results and 2,745 prepared-section results over every Native fixture and generated edges; direct branch, signed-boundary and deep/long traversal tests |
+| `ImageSize` type detection, PNG/JPEG/EMF/WebP/AVIF header scanners and intrinsic size arithmetic | `images/ImageHeaders.kt` | All 19 original type examples and original cases for these five scanners; 3,189 independent type results, 779 sizes and 1,780 failures, plus integer/DPI/deep-container checks |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -516,3 +517,58 @@ The slideshow writers (including Beamer, HTML slide formats and PowerPoint),
 their templates, original format goldens/CLI tests and Lua runtime integration
 remain pending. In particular, testing the original PowerPoint Native inputs
 through these shared helpers does not constitute porting the PowerPoint writer.
+
+
+## Image header evidence and remaining integration
+
+`ImageHeaders` ports the complete image-type detector and the original PNG,
+JPEG, EMF, WebP and AVIF header scanners from `Text.Pandoc.ImageSize`. These are
+low-level scanners, not a replacement for the complete `imageSize` dispatcher.
+The `ImageSize` value preserves arbitrary-precision Integer fields, the original
+300×200 at 72 DPI default, pixel pairs, ordered floating-point point conversion,
+and the dispatcher’s separate replacement of nonpositive DPI with 72.
+WebP/AVIF take the DPI value directly (default 96); this does not introduce a
+reduced WriterOptions record or count the full WriterOptions port as complete.
+
+Detection checks byte signatures in source order, including all JPEG APP markers,
+TIFF byte orders, AVIF/AVIS major brands, the restricted SVG BOM case and permissive
+`<svg`/`<SVG` prefix search after an XML declaration. PNG scans IHDR and pHYs
+without decoding pixels, checking CRCs, or consuming data after IDAT/IEND. Dots per
+meter use integer flooring. JPEG handles padding, payload-free markers, all SOF
+variants, repeated JFIF/Exif segments, both TIFF byte orders and first matching
+IFD tags. Exif overrides JFIF, and rational resolution is floored before conversion
+from centimeters. A malformed later IFD tag invalidates that Exif record even if
+earlier tags contain resolution. EMF uses signed frame bounds, unsigned reference
+device values and arbitrary-precision products with truncation toward zero.
+
+WebP covers VP8, VP8L and VP8X with the exact magic, flag and bit-field rules.
+AVIF preserves the upstream container whitelist, ordinary/zero/64-bit box sizes,
+ispe, both tkhd time layouts, stsd sample entries and direct av01 entries. Source
+permissiveness is intentional: dimension payload parsers can read beyond a box’s
+declared length, and exhausting an inner search range resumes unbounded scanning
+without restoring the parent range. The implementation translates tail calls to
+an iterative loop; a separate 20,000-container case verifies stack independence.
+Header parse failures catch only the private bounds/structure failure, not general
+runtime errors or resource failures.
+
+`tools/import-image-header-fixtures.py` captures `pandoc.image.format` and
+`pandoc.image.size` from the pinned original binary. All 19 Haskell type examples
+are present, alongside every original PNG/JPEG/EMF/WebP/AVIF scanner example and
+the original JPEG/PNG files. The original GIF file is present for type detection
+only; its size test remains pending with the decoder dependency. Additional cases
+cover every truncation of the synthetic original headers, all 256 JPEG marker
+signatures, duplicate/invalid resolution records, signed/unsigned bounds, extreme
+DPI, AVIF range/length failures and 1,200 seeded payload mutations. The captures
+contain 3,189 type results, 779 successful size results and 1,780 errors. For the
+five ported formats, matching detected types are checked against complete original
+size results after DPI normalization. Synthetic PNG/JPEG failures contain no pixel
+stream, so these cases do not substitute for testing a successful full-decoder
+fallback. Lua dimensions and DPI travel as decimal strings to avoid JSON double
+rounding. Original literal size expectations additionally validate the oracle.
+CI checks the fixture importer/upstream source hashes and original image bytes.
+
+Still pending in this module: the complete dimension/unit API (including GHC
+fixed-decimal display and rounding), SVG, EPS and PDF parsers, JuicyPixels full
+image decoding and metadata behavior for GIF/TIFF and PNG/JPEG fallback, complete
+original tests for those branches, WriterOptions integration, and the Lua runtime
+and writer/application callers. No production code invokes the oracle executable.
