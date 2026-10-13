@@ -7,10 +7,10 @@ internal object ImageTransparency {
     fun dropTransparency(pixel: PixelYA16) = pixel.luma
     fun dropTransparency(pixel: PixelRGBA8) = PixelRGB8(pixel.red, pixel.green, pixel.blue)
     fun dropTransparency(pixel: PixelRGBA16) = PixelRGB16(pixel.red, pixel.green, pixel.blue)
-    fun pixelOpacity(pixel: PixelYA8) = pixel.alpha
-    fun pixelOpacity(pixel: PixelYA16) = pixel.alpha
-    fun pixelOpacity(pixel: PixelRGBA8) = pixel.alpha
-    fun pixelOpacity(pixel: PixelRGBA16) = pixel.alpha
+    fun pixelOpacity(pixel: PixelYA8) = ImagePixelOps.pixelOpacity(pixel)
+    fun pixelOpacity(pixel: PixelYA16) = ImagePixelOps.pixelOpacity(pixel)
+    fun pixelOpacity(pixel: PixelRGBA8) = ImagePixelOps.pixelOpacity(pixel)
+    fun pixelOpacity(pixel: PixelRGBA16) = ImagePixelOps.pixelOpacity(pixel)
     @Deprecated("please use 'pixelOpacity' instead")
     fun getTransparency(pixel: PixelYA8) = pixel.alpha
     @Deprecated("please use 'pixelOpacity' instead")

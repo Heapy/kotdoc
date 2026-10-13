@@ -1831,3 +1831,98 @@ Pandoc formats/application behavior, and Calibre MOBI/additional formats. The
 full objective remains active.
 
 All 177,652 Kotlin tests pass with no failures, errors or skips.
+
+## Pixel operations, access and mutable images — 2026-10-13
+
+`ImagePixelOps` implements componentCount, pixelOpacity, mixWith, mixWithAlpha
+and colorMap for all 15 original Pixel types. Component indices and field routing
+match upstream. The default mixWithAlpha ignores its separate alpha function;
+only YA16, RGBA8 and RGBA16 override it. YA8 intentionally keeps the default
+and applies its color callback to alpha, unlike YA16. CMYK/YCCK K remains an
+ordinary component and their pixelOpacity is maximum opacity. Existing
+ImageTransparency opacity helpers now delegate to this shared implementation.
+
+`ImagePixelAccess` implements both base-index methods, pixelAt/readPixel/writePixel
+and unsafe pixel access for all 15 types. Checked access validates only the flat
+component-buffer index, preserving out-of-shape/negative coordinates when their
+flattened address is valid. Index arithmetic uses original wrapping Int64
+addition/multiplication. The shared raw-width helper also verifies the full Int64
+width domain; current typed image records retain their existing JVM Int dimensions.
+Unsafe vector readers have concrete type suffixes because Kotlin cannot select
+their pixel type from the return type alone. Raw unsafe indices count components,
+not pixels, and valid unaligned offsets are preserved.
+
+The exact original bounds error is `index out of bounds (index,length)`. A
+checked multi-component write updates earlier components before reporting the
+first failing index; there is no whole-pixel prevalidation or rollback. Unsafe
+methods retain JVM memory safety rather than emulate unchecked native memory.
+
+`ImageMutable` provides typed mutable records, safe thaw/freeze copies, unsafe
+thaw/freeze sharing, background initialization and concrete newMutableY8/.../CMYK16
+specializations of original newMutableImage. Safe operations copy the entire
+component vector, including tails unrelated to dimensions; unsafe operations
+share the same storage. Background creation follows the original row/column
+initializer. Negative allocation counts produce original `negative length n`.
+New JVM arrays are zero-initialized, whereas original M.new storage is garbage;
+reference tests fully initialize every component before observing new storage.
+
+A separate frozen oracle builds unchanged original JuicyPixels sources and calls
+all these methods directly. The supplied arithmetic callbacks are test inputs;
+the adapter implements no Pixel routing, address formula, bounds check, access
+or lifecycle algorithm. Foreign pointer addresses observe original nonempty
+buffer sharing. Safe freeze snapshots are observed after later mutable writes.
+Unsafe freeze consumes its mutable view, while unsafe thaw captures immutable
+contents before consumption and observes the mutable result afterward.
+
+All 15,022 captures pass, including 10,498 successes and 4,524 original errors.
+The complete observed outputs total 46,120,078 serialized bytes. Captures include:
+
+- 75 component-count/opacity, 525 mixWith, 525 mixWithAlpha and 375 colorMap cases.
+- 1,800 each for checked immutable read, mutable read and mutable write.
+- 215 each for unsafe immutable read, mutable read and mutable write.
+- 2,316 each for immutable and mutable base indices, including Int64 boundaries,
+  wrapping products and seeded full-width arithmetic.
+- 640 each for safe freeze/thaw and unsafe freeze/thaw, with tails, empty/short
+  vectors and dimensions independent of vector length.
+- 135 background-creation and 150 allocation cases, including negative allocation
+  errors and two negative dimensions whose positive allocation is fully initialized.
+
+The component tests cover every ordered byte-component pair for binary callbacks,
+every byte/Word16 component value, Word32 bit boundaries, raw Float signs,
+exponents and mantissa boundaries, plus seeded values. Distinct color/alpha
+callbacks and throwing callbacks verify exactly when each callback is used or
+ignored. There are 44 original mixWith channel-1 failures, 64 mixWithAlpha
+callback failures and 60 colorMap failures. Full multi-channel domains and
+complete Word16-pair/Word32/Float32 domains are not claimed exhaustive.
+
+There are 1,432 bounds errors for each of immutable reads, mutable reads and
+writes, plus 30 each for negative background/allocation lengths. All errors
+retain their original messages and observable buffers. In 138 failed writes,
+the original buffer changes before the error; the Kotlin buffer matches those
+partial updates exactly. Only in-bounds unsafe accesses are captured: invalid
+unsafe accesses invoke native unchecked memory and have no portable oracle values.
+
+Raw copies, reads/writes, Float identity/negation and lifecycle operations compare
+every bit, including NaN payloads. Arithmetic Float callbacks compare every
+finite/infinite/zero bit and computed NaNs by category, with the independent
+canonical comparison hash used for native platform/compiler NaN differences.
+Original raw outputs or complete-output hashes remain recorded as well.
+
+Nonempty buffer sharing is checked against original foreign pointer equality.
+Native zero-length allocations can reuse the same address, so their pointer
+equality does not establish writable sharing. Kotlin still requires fresh arrays
+for safe copies and identical arrays for unsafe sharing in those empty cases.
+No uninitialized native bytes or invalid unsafe memory reads are asserted as
+portable expectations. Huge positive allocations are not attempted; JVM array
+limits, dimension representation and uninitialized-storage differences remain
+platform boundaries. Generic vector views/offsets and the broader image API
+still require further work.
+
+The importer hashes itself, frozen harness/dependencies, complete pinned source
+and original test runner; CI verifies the manifest and every operation's pixel
+type coverage. Remaining work includes generic image representations and views,
+generators/folds/traversals, packed pixel operations, dynamic/paletted images,
+other codecs/cross-format tests, remaining Pandoc formats/application behavior,
+and Calibre MOBI/additional formats. The full objective remains active.
+
+All 192,674 Kotlin tests pass with no failures, errors or skips.
