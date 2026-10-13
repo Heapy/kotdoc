@@ -74,3 +74,25 @@ BSD notices in `LICENSE.txt` are retained. These are reference sources, never
 runtime dependencies. Only the numeric paths recorded in docs/PORTING.md have
 been translated; this is not a complete GHC/base port. The image-dimension
 fixture checker verifies these source hashes together with the Pandoc sources.
+
+`JuicyPixels-3.3.9/` is the complete original source release from:
+https://hackage.haskell.org/package/JuicyPixels-3.3.9/JuicyPixels-3.3.9.tar.gz
+
+Archive SHA-256: `3e44ac5d3e684b65e9efaf60ca9a907a86edc879dfcf63f86eebc721e542864d`.
+This satisfies Pandoc's `JuicyPixels >= 3.1.6.1 && < 3.4` constraint; it is not
+claimed to be the exact dependency linked into the independent oracle binary.
+The archive has no test tree. Its cabal Source-Repository this tag is v3.3.8;
+there is no corresponding v3.3.9 Git tag. The GIF implementation (including LZW)
+is identical to v3.3.8 after CRLF normalization, but other modules have real
+changes, so these releases must not be treated as entirely interchangeable.
+
+`JuicyPixels-tests-v3.3.8/` retains the original `test-src/main.hs`, all 12
+`tests/gif/` files, and LICENSE from Git commit
+`11494bccce01183c9d04931d34c296afc5d8c5f8` (tag v3.3.8):
+https://github.com/Twinside/Juicy.Pixels/tree/v3.3.8
+
+The original license is BSD-3-Clause, also retained in
+`licenses/JuicyPixels-BSD-3-Clause.txt`. The GIF fixture importer verifies hashes
+of every retained source and test file. Metadata expectations come independently
+from Pandoc, never Kotlin. Retained frame/animation/palette/encoder tests have
+not yet been translated or passed by the metadata-only port; see docs/PORTING.md.

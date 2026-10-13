@@ -49,6 +49,7 @@ format is implemented explicitly in Kotlin.
 | `Slides.getSlideLevel` and `prepSlides` | `structure/Slides.kt` | 549 original-Pandoc level results and 2,745 prepared-section results over every Native fixture and generated edges; direct branch, signed-boundary and deep/long traversal tests |
 | `ImageSize` type detection, PNG/JPEG/EMF/WebP/AVIF header scanners and intrinsic size arithmetic | `images/ImageHeaders.kt` | All 19 original type examples and original cases for these five scanners; 3,189 independent type results, 779 sizes and 1,780 failures, plus integer/DPI/deep-container checks |
 | `ImageSize` dimensions, units, desired sizes, SVG/EPS/PDF parsers | `images/Dimensions.kt`, `DocumentImageSize.kt`, GHC numeric helpers | All remaining original SVG/EPS/PDF/numUnit examples; 962 original LaTeX dimension renderings, 752 sizes, 975 errors, one process-level UTF-8 exception and five detection-only cases; arithmetic, equality and attribute checks |
+| JuicyPixels GIF metadata consumer path | `images/GifMetadata.kt` | 4,980 independent Pandoc results: 2,274 sizes and 2,706 exact GIF-component failures, all 12 dependency GIF files plus Pandoc's GIF; direct signature and long-input tests |
 
 Fixture import is reproducible with `tools/import-pandoc-json-fixtures.py` and
 checked against the pinned original by CI. A fixture is not considered covered
@@ -122,7 +123,7 @@ must be ported rather than replacing the record with a subset. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
 current FB2 writer options); FB2 renders non-WebTeX methods identically.
 
-Current verification: 5,484 Kotlin tests pass locally. Every push runs source
+Current verification: 44,431 Kotlin tests pass locally. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
 `.github/workflows/ci.yml`. All source import scripts and independent oracle generators are committed
 for reproducibility. CI also checks installed CLI stdout/stderr for the complete
@@ -654,3 +655,52 @@ and its errors/metadata tests. Full WriterOptions, original Lua scripting,
 writer/application callers, generic Haskell Read/Show for ImageSize and wider
 dependency test suites also remain pending. Passing these helpers does not
 constitute porting the SVG, EPS or PDF document reader/writer formats.
+
+## GIF metadata dependency evidence
+
+`GifMetadata.read` ports the forced path of JuicyPixels `decodeGifWithMetadata`
+when the consumer only reads metadata, as Pandoc's `getSize` does. It validates
+the six-byte signature, logical screen, global/local color table lengths, image
+descriptors, LZW root byte, data sub-block framing, graphic controls, comment,
+plain-text, application and unknown extensions. All later blocks must parse and
+a trailer must exist; bytes after the trailer are ignored. A file with no image
+fails. Width/height come from the logical screen rather than the first frame;
+resolution defaults to 72 independently of the requested writer DPI.
+
+The Haskell image tuple component is lazy. Metadata does not force LZW decoding,
+color substitution, palette-index checks or animation composition. Consequently
+zero-sized/out-of-screen frames, invalid LZW roots, empty or corrupt compressed
+pixel streams and missing color maps can still yield metadata. Kotlin preserves
+this behavior instead of eagerly rejecting those inputs through a different
+image library. Graphic-control size/terminator bytes are consumed but ignored,
+unknown extensions use ordinary sub-block parsing, and unknown block errors
+include the original one-based consumed position. Truncation produces the
+original `not enough bytes` error. Iterative loops handle long frame/sub-block
+sequences without using the JVM call stack or allocating pixel buffers.
+
+`tools/import-gif-metadata-fixtures.py` captures 4,980 original Pandoc outcomes:
+2,274 sizes and 2,706 failures. The complete generic decoder error aggregates
+remain in the fixtures, but this stage compares only their exact GIF component;
+it does not pretend to implement the remaining generic decoder branches. Cases
+cover every global/local flag byte, LZW root, graphic-control flag/size/terminator,
+block marker and extension label, both accepted versions, invalid signatures,
+every truncation of six structural seeds, dimensions/offsets at 0 and 65535,
+sub-block boundaries, later-frame corruption, trailer suffixes, DPI independence
+and 1,000 seeded mutations. All 12 original dependency GIF files and Pandoc's
+`bodybg.gif` are tested for metadata. Two additional direct tests cover decoder
+signatures hidden by Pandoc's type gate and 20,000-frame/sub-block traversal.
+
+The complete JuicyPixels 3.3.9 source archive and BSD license are retained.
+Pandoc accepts this version, but the oracle's exact linked dependency version is
+not known. The package advertises the older v3.3.8 source tag and omits tests.
+Original GIF sources match that tag after line-ending normalization; the separate
+test directory records the tag's exact commit and retains `test-src/main.hs`
+and all GIF fixtures. Its 26 encoder rejection assertions, generated animation
+and palette tests, and full multi-frame pixel decode/conversion checks remain
+pending. Passing metadata on their files is not counted as passing those tests.
+
+Next dependency work is TIFF and PNG/JPEG fallback, the other generic decoder
+branches and complete error aggregation, followed by connecting the original
+imageSize dispatcher. GIF pixel decoding/encoding and the broader dependency
+tests remain explicit work. WriterOptions, Lua and writer consumers and the
+overall all-Pandoc-then-Calibre scope are unchanged.
