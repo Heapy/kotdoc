@@ -4368,3 +4368,83 @@ Original extracted whitespace is retained with a narrowly scoped Git attribute
 for the source module's final blank line. The repository remains public. This
 milestone adds no CLI format registration. Exact-SHA CI runs the complete source,
 Kotlin and installed-CLI checks after publication.
+
+
+## Ordered-list parsing and writer marker detection
+
+ListParsing translates all eight exports of Text.Pandoc.Parsing.Lists:
+romanNumeral, upperRoman, lowerRoman, decimal, lowerAlpha, upperAlpha,
+anyOrderedListMarker and orderedListMarker, including every private helper.
+It uses the existing consumed/empty Parsec continuations rather than a regular
+expression or a Boolean approximation. Roman parsing preserves the original
+permissive sequence of additive/subtractive stages and prefix consumption.
+The single i/I ambiguity, ASCII-only alphabetic markers, # continuation of every
+style, parenthesis/period rules and backtracking order match the source.
+Decimal Read Int wraps modulo 2^64, including literals beyond Int64 and 10,001
+digits; it does not reject overflow or silently default those values to one.
+
+ExampleNumberState provides access to the two fields used by this module,
+stateNextExample and stateExamples, preserving the caller's other fields on
+updates. ExampleNumbers supplies their default values for stateless writer
+marker detection. This is explicitly a field capability, not a replacement or
+claim of completion for the full 31-field ParserState, Future values, TeX macros,
+reader options or parser-context instances. Empty labels, reused labels, numeric
+prefix resets, signed counter overflow and failed-parse rollback are preserved.
+The default writer isOrderedListMarker now requires the source last-character
+precheck, anyOrderedListMarker and complete-input eof success.
+
+PandocTextCharacters retains the original Sources primitives for Text/String
+streams: token failures show a Haskell Char and have no Parsec.Char expectation
+label. Source positions advance by code point, with the original Text/String
+newline and eight-column tab rules. The chunked Sources stream (including its
+four-column tabs and source-file position jumps), ByteString stream instances
+and the rest of Sources remain pending; their eventual integration must use the
+same list algorithms. General lazy/infinite input stream APIs also remain pending.
+
+The frozen tools/haskell-list-parsing-reference compiles Lists.hs and Sources.hs
+directly from pinned Pandoc, plus unchanged safeRead/safeStrRead and the writer
+marker body. Its only state wiring is a documented test-only projection of the
+two source fields with an untouched sentinel. The source preparer verifies the
+exact field access inventory, declarations/defaults and extracted bodies. It
+also rejects local shadow copies of Lists or Sources. Original expectations
+are captured independently of Kotlin.
+
+The 47,175 observations compare success/failure, consumed/empty status, complete
+ParseError messages and display, source positions, consumed prefixes, remaining
+input, example counters and ordered label maps. Failure observations do not
+invent an exposed user state, which native Parsec does not return. The corpus
+covers exhaustive upper/lower Roman sequences through length four; all 28 style
+and delimiter pairs; malformed delimiter and label boundaries; all 3,867 pinned
+Unicode classification interval boundaries; huge decimal literals; Roman and
+example labels through 10,000 repetitions; seeded mixed input; sequence/eof/many
+composition; rollback; reused labels and Int64 wrap. Three native partial-field
+probes retain defined state records and leave only unused fields undefined,
+verifying that those fields are not read. 398 distinct candidate tokens are
+retained from original reader/command fixture text with file/line provenance.
+These token-level observations do not count as complete Markdown/RST reader
+suite coverage, which remains pending with those readers. No dedicated Lists
+unit suite exists in the pinned upstream test tree.
+
+Case digest:
+`396ea156228df9c1eba8fdf19d08be46b07975e161e010aa14a2553b40ede60d`.
+The importer verifies 452 source/input/adapter/license files, the corpus digest
+and complete retained upstream-token inventory. Reproduce with cabal build all
+--project-dir=tools/haskell-list-parsing-reference
+--builddir=/tmp/kotdoc-list-parsing-build, then run
+python3 tools/import-list-parsing-fixtures.py --oracle PATH.
+CI checks the new corpus and runs ListParsingTest. This change registers no new
+CLI format. Full Pandoc readers/writers/state/application/Lua/CLI, translations
+and all calibre MOBI/additional formats and their tests remain part of the
+unchanged full objective.
+
+
+Local validation: all 786,189 Kotlin tests pass across 75 suites, with zero
+failures, errors or skips; this includes all 47,175 new source observations.
+All 78 source/fixture checks pass. The core JAR retains all 38 license files,
+ListParsing, PandocTextCharacters, ExampleNumbers and the writer marker predicate.
+
+All 234 installed-CLI comparisons also pass (14 FB2, 66 media, 69 extension and
+85 math cases). All 452 new source/input hashes and the retained corpus match
+staged Git bytes and pinned submodule commits. Original extracted whitespace is
+retained. The repository remains public; exact-SHA CI checks the full suite
+after publication.

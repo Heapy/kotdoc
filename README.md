@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 739,014 tests, no skipped tests.
+  roundtrip tests. Current suite: 786,189 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -113,6 +113,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   documents and all 13,475 distinct upstream AST nodes. XML ids now use pinned
   GHC Unicode 16 classification. Parsing/translation helpers and complete format
   writers remain in progress.
+- Ordered-list marker parsing: all eight source algorithms, Roman/letter
+  ambiguity, style/delimiter combinations, example labels, counter updates and
+  parser backtracking. The writer marker predicate now uses the parser plus EOF.
+  Verified by 47,175 original Haskell observations and 398 upstream fixture tokens.
+  Full parser state, chunked source streams and complete format readers remain
+  in progress.
 - Table-of-contents trees and lists, with original numbering, depth, section IDs,
   hidden sections and title cleanup. Chunk path templates preserve substitution
   order and filename sanitization.

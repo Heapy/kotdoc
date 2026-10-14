@@ -6,6 +6,12 @@ import io.heapy.kotdoc.ast.*
 import io.heapy.kotdoc.layout.*
 import io.heapy.kotdoc.options.ExtensionName
 import io.heapy.kotdoc.options.WriterOptions
+import io.heapy.kotdoc.parsing.ExampleNumbers
+import io.heapy.kotdoc.parsing.ListParsing
+import io.heapy.kotdoc.parsing.Parsec
+import io.heapy.kotdoc.parsing.ParseInput
+import io.heapy.kotdoc.parsing.ParseState
+import io.heapy.kotdoc.parsing.SourcePos
 import io.heapy.kotdoc.parsing.ParserCharacters
 import io.heapy.kotdoc.parsing.RegexCharacters
 import java.util.ArrayDeque
@@ -13,6 +19,10 @@ import java.util.ArrayDeque
 /** Pure shared writer operations. Haskell Char arguments use Unicode code
  * points, including surrogate positions; Text arguments use scalar text. */
 object WriterShared {
+    fun isOrderedListMarker(text: String): Boolean = text.isNotEmpty() && text.last() in ".)" &&
+        ListParsing.anyOrderedListMarker(ExampleNumbers).before(Parsec.eof())
+            .run(ParseState(ParseInput(text),SourcePos(""),ExampleNumbers())).success
+
     fun isDisplayMath(value: Inline): Boolean = value is Inline.Math && value.type == MathType.DisplayMath ||
         value is Inline.Span && value.content.size == 1 && value.content[0] is Inline.Math &&
         (value.content[0] as Inline.Math).type == MathType.DisplayMath

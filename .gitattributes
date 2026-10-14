@@ -70,3 +70,4 @@ vendor/xml-entity-text-read-2.1.2/** -text whitespace=-trailing-space,-blank-at-
 tools/haskell-writer-html-reference/SourceWriterHtml.hs whitespace=-blank-at-eof
 tools/haskell-writer-metadata-reference/SourceWriterMetadata.hs whitespace=-blank-at-eof
 tools/haskell-writer-shared-reference/SourceWriterShared.hs whitespace=-blank-at-eof
+tools/haskell-list-parsing-reference/SourceMarker.hs whitespace=-blank-at-eof
