@@ -49,6 +49,7 @@ class SyntaxTest {
     private fun encode(v: Any?): JsonElement = when (v) {
         null -> JsonNull
         is String -> JsonPrimitive(v)
+        is HaskellChars -> JsonPrimitive(v.text)
         is Boolean -> JsonPrimitive(v)
         is Int -> JsonPrimitive(v)
         is Long -> JsonPrimitive(v)

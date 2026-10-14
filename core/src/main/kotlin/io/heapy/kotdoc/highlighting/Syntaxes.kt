@@ -5,7 +5,10 @@ package io.heapy.kotdoc.highlighting
 import io.heapy.kotdoc.ast.UnicodeText
 
 object Syntaxes {
-    fun addSyntaxDefinition(syntax: Syntax, map: SyntaxMap): SyntaxMap = syntaxMap(map + (syntax.name to syntax))
+    val defaultSyntaxMap: SyntaxMap get() = DefaultSyntaxes.syntaxMap
+    fun addSyntaxDefinition(syntax: Syntax, map: SyntaxMap): SyntaxMap =
+        if (map is ImmutableOrderedSyntaxMap) LazySyntaxMap(map.keys + syntax.name) { if (it == syntax.name) syntax else map.getValue(it) }
+        else syntaxMap(map + (syntax.name to syntax))
 
     fun syntaxByName(map: SyntaxMap, name: String): Syntax? = map[name] ?: run {
         val lower = UnicodeText.toLower(name)
@@ -19,7 +22,7 @@ object Syntaxes {
         syntaxesByFilename(map, "*." + extension.removePrefix("."))
 
     fun syntaxesByFilename(map: SyntaxMap, filename: String): List<Syntax> = syntaxList(
-        syntaxMap(map).values.filter { syntax -> syntax.extensions.any { matchesGlob(it, filename) } }
+        syntaxMap(map).values.filter { syntax -> syntax.extensionValues.any { matchesGlob(it.points.toIntArray(), filename.codePoints().toArray()) } }
     )
     fun lookupSyntax(language: String, map: SyntaxMap): Syntax? {
         val name = when (language) { "csharp" -> "cs"; "fortran" -> "for"; else -> language }
@@ -28,9 +31,11 @@ object Syntaxes {
 
     /** Only '*' is special. '?' and bracket expressions are literal characters. */
     internal fun matchesGlob(pattern: String, filename: String): Boolean {
-        val input = filename.codePoints().toArray()
+        return matchesGlob(pattern.codePoints().toArray(), filename.codePoints().toArray())
+    }
+    private fun matchesGlob(pattern: IntArray, input: IntArray): Boolean {
         var previous = BooleanArray(input.size + 1); previous[0] = true
-        for (char in pattern.codePoints().toArray()) {
+        for (char in pattern) {
             val current = BooleanArray(input.size + 1)
             if (char == '*'.code) {
                 current[0] = previous[0]
@@ -56,7 +61,7 @@ object Syntaxes {
             }
             return output
         }
-        return syntax.withContexts(syntax.contexts.mapValues { (_, context) ->
+        return syntax.withContexts(syntaxMapValues(syntax.contexts) { context ->
             context.withRules(context.rules.map { rule ->
                 val matcher = rule.matcher
                 val unresolved = (matcher as? Matcher.Keyword)?.words as? KeywordWords.Unresolved

@@ -10,10 +10,14 @@ import java.util.Collections
 import java.util.TreeSet
 
 internal fun <A> syntaxList(values: Iterable<A>): List<A> = Collections.unmodifiableList(values.toList())
-internal fun syntaxChars(values: Iterable<Int>): Set<Int> = Collections.unmodifiableSet(TreeSet<Int>().apply {
+internal fun syntaxChars(values: Iterable<Int>): Set<Int> = if (values is BinaryAscSet<Int>) values else Collections.unmodifiableSet(TreeSet<Int>().apply {
     values.forEach { require(it in 0..0x10ffff) { "Not a Haskell Char: $it" }; add(it) }
 })
-internal fun <A> syntaxMap(values: Map<String, A>): Map<String, A> = Collections.unmodifiableMap(values.toSortedMap(UnicodeTextOrder))
+internal fun <A> syntaxMap(values: Map<String, A>): Map<String, A> = if (values is BinaryAscMap<String, A> || values is ImmutableOrderedSyntaxMap) values else Collections.unmodifiableMap(values.toSortedMap(UnicodeTextOrder))
+internal fun <A, B> syntaxMapValues(values: Map<String, A>, transform: (A) -> B): Map<String, B> =
+    if (values is BinaryAscMap<String, A>) BinaryAscMap(values.entries.map { it.key to transform(it.value) }, UnicodeTextOrder)
+    else if (values is ImmutableOrderedSyntaxMap) LazySyntaxMap(values.keys) { key -> transform(values.getValue(key)) }
+    else values.mapValues { transform(it.value) }
 
 /** Structural instances use source field order and Unicode scalar ordering. */
 abstract class SyntaxValue<T : SyntaxValue<T>> : Comparable<T> {
@@ -56,6 +60,7 @@ internal fun syntaxCompare(a: Any?, b: Any?): Int {
             x is Map<*, *> && y is Map<*, *> -> { sequences(x.entries.map { listOf(it.key, it.value) }, y.entries.map { listOf(it.key, it.value) }); 0 }
             x is Iterable<*> && y is Iterable<*> -> { sequences(x, y); 0 }
             x is String && y is String -> UnicodeTextOrder.compare(x, y)
+            x is HaskellChars && y is HaskellChars -> { sequences(x.points, y.points); 0 }
             x is Int && y is Int -> x.compareTo(y)
             x is Long && y is Long -> x.compareTo(y)
             x is Boolean && y is Boolean -> x.compareTo(y)
@@ -80,7 +85,7 @@ object TextWordOperations : WordOperations<String> {
 }
 
 sealed class WordSet<A>(words: Iterable<A>, val operations: WordOperations<A>) : Comparable<WordSet<A>> {
-    val words: Set<A> = Collections.unmodifiableSet(TreeSet(operations).apply { addAll(words.toList()) })
+    val words: Set<A> = if (words is BinaryAscSet<A>) words else Collections.unmodifiableSet(TreeSet(operations).apply { addAll(words.toList()) })
     abstract val caseSensitive: Boolean
     class CaseSensitiveWords<A>(words: Iterable<A>, operations: WordOperations<A>) : WordSet<A>(words, operations) { override val caseSensitive = true }
     // The raw constructor deliberately does not fold the stored words.
@@ -196,23 +201,40 @@ class Context(
     override val fields get() = listOf(name, syntax, rules, attribute, lineEmptyContext, lineEndContext, fallthrough, fallthroughContext, dynamic)
     fun withRules(rules: Iterable<Rule>) = Context(name, syntax, rules, attribute, lineEmptyContext, lineEndContext, fallthrough, fallthroughContext, dynamic)
 }
-class Syntax(
+internal class HaskellChars(points: Iterable<Int>) {
+    val points = syntaxList(points)
+    val text get() = buildString { points.forEach { appendCodePoint(it) } }
+    constructor(text: String) : this(text.codePoints().toArray().asIterable())
+    override fun equals(other: Any?) = other is HaskellChars && points == other.points
+    override fun hashCode() = points.hashCode()
+}
+class Syntax private constructor(
     val name: String,
-    val filename: String,
+    internal val filenameValue: HaskellChars,
     val shortname: String,
     lists: Map<String, List<ListItem>>,
     contexts: Map<String, Context>,
     val author: String,
     val version: String,
     val license: String,
-    extensions: Iterable<String>,
+    extensionValues: Iterable<HaskellChars>,
     val startingContext: String,
 ) : SyntaxValue<Syntax>() {
-    val lists = syntaxMap(lists.mapValues { syntaxList(it.value) })
+    constructor(name: String, filename: String, shortname: String, lists: Map<String, List<ListItem>>, contexts: Map<String, Context>,
+        author: String, version: String, license: String, extensions: Iterable<String>, startingContext: String) :
+        this(name, HaskellChars(filename), shortname, lists, contexts, author, version, license, extensions.map(::HaskellChars), startingContext)
+    val filename get() = filenameValue.text
+    val lists = syntaxMap(syntaxMapValues(lists) { syntaxList(it) })
     val contexts = syntaxMap(contexts)
-    val extensions = syntaxList(extensions)
-    override val fields get() = listOf(name, filename, shortname, lists, contexts, author, version, license, extensions, startingContext)
-    fun withContexts(contexts: Map<String, Context>) = Syntax(name, filename, shortname, lists, contexts, author, version, license, extensions, startingContext)
+    internal val extensionValues = syntaxList(extensionValues)
+    val extensions = syntaxList(this.extensionValues.map { it.text })
+    override val fields get() = listOf(name, filenameValue, shortname, lists, contexts, author, version, license, extensionValues, startingContext)
+    fun withContexts(contexts: Map<String, Context>) = Syntax(name, filenameValue, shortname, lists, contexts, author, version, license, extensionValues, startingContext)
+    internal companion object {
+        fun fromBinary(name: String, filename: List<Int>, shortname: String, lists: Map<String, List<ListItem>>, contexts: Map<String, Context>,
+            author: String, version: String, license: String, extensions: List<List<Int>>, startingContext: String) =
+            Syntax(name, HaskellChars(filename), shortname, lists, contexts, author, version, license, extensions.map(::HaskellChars), startingContext)
+    }
 }
 typealias SyntaxMap = Map<String, Syntax>
 
@@ -245,6 +267,7 @@ internal fun syntaxShow(value: Any?, precedence: Int = 0): String = buildString 
             when (v) {
                 null -> append("Nothing")
                 is String -> append(HaskellString.quote(v))
+                is HaskellChars -> append(HaskellString.quoteCodePoints(v.points.toIntArray()))
                 is Boolean -> append(if (v) "True" else "False")
                 is Int -> append(v)
                 is Long -> if (v < 0 && p > 6) append("($v)") else append(v)
@@ -260,7 +283,7 @@ internal fun syntaxShow(value: Any?, precedence: Int = 0): String = buildString 
                 }
                 is ShownMaybe -> if (v.value == null) append("Nothing") else app("Just", p, v.value)
                 is ShownChars -> {
-                    val text = HaskellString.quote(buildString { v.chars.forEach { appendCodePoint(it) } })
+                    val text = HaskellString.quoteCodePoints(v.chars.toIntArray())
                     if (p > 10) append('('); append("fromList $text"); if (p > 10) append(')')
                 }
                 is ContextName -> sequence(v.fields, "(", ")")

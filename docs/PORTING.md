@@ -45,6 +45,7 @@ format is implemented explicitly in Kotlin.
 | KDE finite regex compiler/matcher and Unicode/UTF-8 dependencies | `highlighting/regex/KdeRegex.kt`, `KdeCompiler.kt`, `KdeMatcher.kt`, `parsing/RegexCharacters.kt`, `Utf8String.kt`, `Utf8Text.kt` | All 186 original regex results and 16 original compile-error assertions; 9,777 independent observations including all 3,960 XML RegExprs, every Haskell Char and all byte pairs; deep finite stack checks |
 | Skylighting syntax records, keyword lists, map operations and RE metadata instances | `highlighting/Syntax.kt`, `Syntaxes.kt`, `regex/RE.kt`, `RERead.kt`, `REBinary.kt` | 15,132 independent observations over all 195 original syntax models, every matcher constructor, derived field/constructor order and Show, keyword resolution, lookup, RE Show/Read/JSON/Binary and cached matching; two ownership/deep-stack checks |
 | Skylighting XML syntax parsing and file/directory loading; default Text.XML document parsing dependency | `highlighting/SyntaxParser.kt`, `SyntaxLoader.kt`, `SyntaxUtf8.kt`, `xml/XmlDocument.kt`, `XmlDocumentParser.kt`, `XmlDocumentLexer.kt` | 6,168 independent original observations, all 195 original XML files through document/text/file paths, all matchers/flags, namespaces/entities/diagnostics, chunk boundaries, UTF-8, POSIX/Windows filenames and both directory folds; three source-derived/deep/ownership checks |
+| Skylighting syntax Binary instances and baked default map | `highlighting/SyntaxBinary.kt`, `BinaryAscCollections.kt`, `DefaultSyntaxes.kt` | 77,801 independent original Binary/default-map observations, exact full models/Show/re-encoded bytes for all 195 baked definitions, every two-byte Char input, malformed constructor/text/container errors and lookup/equality; deep rule/ownership/cache check |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
@@ -3255,3 +3256,112 @@ failures, errors or skips. All 63 source/fixture checks pass. The retained text
 Read, Internal.Encoding, Lazy.Encoding and Lazy.Fusion sources are byte-identical
 to the native closure's text 2.1.2 files; Internal.Lazy differs only in removal
 of its redundant Typeable deriving/import/extension.
+
+## Skylighting syntax Binary instances and original baked default map
+
+`SyntaxBinary.kt` ports Binary encoding and decodeOrFail for ContextName,
+KeywordAttr, generic WordSet, all 18 Matcher constructors, ContextSwitch,
+ListItem, Rule, Context, Syntax, SyntaxMap and TokenType. The common interpreter
+uses explicit work stacks for recursive products/lists; it preserves constructor
+order, single-byte sum tags, record field order, 64-bit signed big-endian Ints,
+list/map/set lengths and unconsumed input/error offsets. Either and Maybe treat
+any nonzero tag as their second branch, while derived sums validate the tag.
+Bool retains its separate validation message. Nonpositive ByteString/Text lengths
+produce empty content; a negative ordinary list length continues reading and
+fails at the same primitive boundary rather than silently producing an empty list.
+RE values reconstruct their existing lazy compilation/capture caches.
+
+Binary Char retains the original unchecked UTF-8 bit assembly and its sole final
+upper-codepoint check. It does not use a host UTF-8 decoder that would reject
+additional sequences. Binary Text instead checks strict UTF-8 and reproduces
+Data.Text.Encoding's complete message, including the last carried byte for an
+incomplete tail. Haskell String is represented in the codec by a list of Haskell
+Char codepoints. Syntax retains exact filename/extension character sequences
+internally, so separate surrogate characters survive Show, comparison, repeated
+encoding and filename-glob matching. They are not conflated with a single astral
+character by Java's UTF-16 representation. The shared Haskell quote renderer now
+also accepts exact codepoint arrays; existing String output is unchanged.
+
+`BinaryAscCollections.kt` retains Binary's unchecked fromDistinctAscList boundary
+instead of normalizing corrupted sets/maps. The original containers 0.7 stack
+builder, link and weight-balancing behavior determine member/key lookup. Duplicate
+or out-of-order elements retain their original size, iteration order, Show and
+re-encoded bytes. Equality compares the original element/entry lists, including
+otherwise unreachable duplicate-key values. Generic WordSet decoding preserves
+its raw case-sensitive/case-insensitive constructor without folding stored words.
+Its element Binary codec and Ord/FoldCase dictionary remain generic; integer word
+sets are tested separately from Text. This ports the needed construction,
+iteration, lookup/member and equality boundary, not the full containers library
+or all operations on invalid internal trees.
+
+The complete original skylighting 0.15 release is retained in
+`vendor/skylighting-syntax-0.15`, including all 195 generated Syntax modules,
+aggregate Syntax.hs, CLI source, changelog, license and archive provenance.
+`vendor/skylighting-core-0.15/bin/extract.hs` is the authoritative generator: it
+loads/resolves XML definitions, sorts modules by short name, bakes each complete
+Syntax using Binary, then constructs the map with full syntax-name keys. The
+module data is already keyword-resolved. No placeholder map or assumed XML
+substitute is used in production.
+
+The native oracle reads each generated Haskell ByteString literal using the
+original Read/Char8 boundary, decodes it with original Binary, and verifies that
+original re-encoding reproduces its exact source bytes. Its independently captured
+whole-map Binary stream is 7,468,305 bytes, SHA-256:
+`4f3c50e18dca60b5b5b48b581dcc48e335418a64e3677d97be32e25e518ab012`.
+All 195 full typed models also agree with the earlier original XML loader's
+post-resolveKeywords models; this is now verified evidence rather than an assumed
+generation invariant.
+
+`DefaultSyntaxes.kt` packages the exact original per-module bytes and full-name
+index under `highlighting/default-syntax-map/`. Each compressed definition is
+independently decoded by Kotlin only on first access and cached immutably.
+`LazySyntaxMap.kt` preserves ordered key access without decoding unrelated values;
+case-insensitive name lookup and replacing a definition retain this laziness.
+The original lazy map is exposed as `Syntaxes.defaultSyntaxMap`. Encoding the
+complete production map exactly reproduces the independently captured original
+whole-map stream. Production needs no Haskell/Pandoc/calibre executable or XML
+parser to initialize these bundled definitions.
+
+The isolated frozen `tools/haskell-syntax-binary-reference` project compiles
+unchanged core/regex modules and observes original Binary instances. Its corpus
+contains 77,801 independent observations: 1,387 encodings, 75,396 decodings,
+538 set/map equalities, 135 each of malformed-set membership and map lookup,
+ten word memberships, four exact-character filename matches, all 195 baked
+models and the complete default map. Every two-byte Char input is covered, along
+with individual constructor tags, truncations, tails, negative/large lengths,
+invalid UTF-8, raw duplicate/unsorted collections, recursive records and all token
+constructors. Complete values, Show, re-encoded bytes, remaining bytes and failure
+positions are compared directly; expectations never come from Kotlin.
+
+One additional Kotlin test verifies 10,000 nested rules, input/result ownership,
+immutable maps, lazy initialization counts and cached RE compilation. A fresh map
+has 195 keys and zero decoded definitions; exact and case-insensitive ABC lookup
+and replacing that definition leave the count at one. Native fixtures check all
+195 original definitions independently of these ownership/laziness assertions.
+
+The complete unchanged binary 0.8.9.3 release, including its original tests, is
+retained separately from the earlier RE-only source snapshot. Selected unchanged
+containers 0.7 and text 2.1.2 sources retain original licenses/archive hashes.
+CI checks all 739 source/input/adapter/license/provenance/production-resource
+hashes, every per-module resource against its original captured bytes and the
+complete 195-module inventory. Case hash:
+`a28b1d2ed908e452e7fa367e60355694a0cd36c30189f1cdf81e64515cb9ecdd`.
+
+Reproduce with `cabal build syntax-binary-reference
+--project-dir=tools/haskell-syntax-binary-reference
+--builddir=/tmp/kotdoc-syntax-binary-build`, then
+`python3 tools/import-syntax-binary-fixtures.py --oracle PATH`. CI needs only
+`python3 tools/import-syntax-binary-fixtures.py --check-source` and Kotlin tests.
+
+Syntax-model Read/Data, tokenization, remaining formatting/style Binary instances,
+formatters and corresponding original test ports remain unfinished. General
+Binary streaming/file APIs, unrelated instances and remaining dependency tests
+are not claimed complete by this finite syntax-codec boundary. Full WriterOptions,
+remaining Pandoc infrastructure/readers/writers/application/Lua/CLI and all calibre
+MOBI/additional formats/tests remain in the unchanged objective. This milestone
+does not complete the full port.
+
+Local validation: all 493,944 Kotlin tests pass across 61 suites, with zero
+failures, errors or skips. All 64 source/fixture checks pass. The existing XML
+parser/model and all original Native output assertions also pass after the
+exact-character and lazy-map integration changes.

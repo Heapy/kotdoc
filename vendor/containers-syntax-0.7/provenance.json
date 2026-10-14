@@ -1,0 +1,7 @@
+{
+  "package": "containers",
+  "version": "0.7",
+  "url": "https://hackage-content.haskell.org/package/containers-0.7.tar.gz",
+  "archiveSha256": "cf6902d4d27158f0b8643673a230a75c98169d388295f9b641686c83ce15e324",
+  "contents": "Selected unchanged Binary dependency sources; other APIs/tests remain pending."
+}

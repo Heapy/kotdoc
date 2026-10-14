@@ -151,9 +151,9 @@ object NativeWriter {
 /** GHC Show String escaping, including decimal-escape termination and SO/H ambiguity. */
 internal object HaskellString {
     val controlNames = listOf("NUL", "SOH", "STX", "ETX", "EOT", "ENQ", "ACK", "BEL", "BS", "HT", "LF", "VT", "FF", "CR", "SO", "SI", "DLE", "DC1", "DC2", "DC3", "DC4", "NAK", "SYN", "ETB", "CAN", "EM", "SUB", "ESC", "FS", "GS", "RS", "US")
-    fun quote(value: String): String = buildString {
+    fun quote(value: String): String = quoteCodePoints(value.codePoints().toArray())
+    fun quoteCodePoints(codePoints: IntArray): String = buildString {
         append('"')
-        val codePoints = value.codePoints().toArray()
         codePoints.forEachIndexed { index, cp ->
             val next = codePoints.getOrNull(index + 1)
             when (cp) {
