@@ -40,6 +40,10 @@ class ResourceContext(
     val requestHeaders: List<Pair<String, String>> = emptyList(),
     private val httpClient: HttpClient = defaultHttpClient,
 ) : ResourceAccess {
+    /** Template lookups must not inherit the input document's source URL. */
+    fun withoutSourceUrl(): ResourceContext = if (sourceUrl == null) this else
+        ResourceContext(mediaBag, resourcePaths, null, requestHeaders, httpClient)
+
     companion object {
         private val defaultHttpClient: HttpClient by lazy { HttpClient.newBuilder().followRedirects(HttpClient.Redirect.NORMAL).build() }
     }

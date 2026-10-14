@@ -46,6 +46,7 @@ format is implemented explicitly in Kotlin.
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
 | Doctemplates finite compilation, partial loading and public conveniences; Parsec character kernel | `templates/TemplateCompiler.kt`, `PartialPaths.kt`, `parsing/Parsec.kt`, `ParserCharacters.kt` | All 37 original doctemplates cases through the Kotlin compiler/application, 11,320 original observations, every Haskell Char, POSIX/Windows paths, loader effects and Parsec continuation/error states; native dependency suites and deep/large-input checks |
+| Pandoc template resources, writer defaults/aliases and partial wrappers; `PandocMonad.toTextM` | `templates/PandocTemplates.kt`, `resources/PandocText.kt` | All 62 original template files packaged verbatim, 6,538 independent cases including 65,536 byte pairs, all 16 original Lua tests run natively, POSIX/Windows path comparisons and source-URL/fallback effect checks |
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
@@ -2868,7 +2869,7 @@ source/input/harness/license/importer files. The existing 6,880 Context and 12,2
 runtime observations remain unchanged; their provenance manifests now include
 the additional original modules compiled by the shared oracle (159/160 files).
 
-Remaining work includes Pandoc's default-template/resource wrappers, complete
+At this milestone remaining work included Pandoc's default-template/resource wrappers, complete
 WriterOptions/defaults and syntax-map/highlighting dependencies, exact Haskell
 Show/Read/Template Ord, full laziness/infinite interfaces, generic Parsec streams/
 transformers and remaining combinator/Token/Expr/Perm interfaces and tests,
@@ -2876,6 +2877,77 @@ remaining FilePath APIs/tests, and GHC IO exception/locale/newline policies.
 Remaining Pandoc formats/application/Lua/CLI and all calibre MOBI/additional
 formats remain in the original objective; the full port is not complete.
 
-All 378,517 Kotlin tests pass locally with no failures, errors or skips across
+At this milestone all 378,517 Kotlin tests passed locally with no failures, errors or skips across
 56 suites. All 57 source/fixture checks verify; all 234 installed-CLI comparisons
 pass. The full Pandoc/calibre port remains incomplete.
+
+## Pandoc template resources and defaults
+
+Text.Pandoc.Templates is translated to Kotlin: getTemplate, getDefaultTemplate,
+compileDefaultTemplate and both default-only/source-aware partial resolvers.
+Template retrieval suppresses the input document source URL while keeping media,
+resource paths, headers and the HTTP client. The immutable resource context leaves
+caller state intact on success and failure; fallback data effects see the original
+context. Resource-not-found and absolute missing-file IO errors fall back to
+`templates/takeFileName(path)`; HTTP and other IO errors propagate. Default-only
+partials always read data files, including the user overlay, rather than resources.
+
+All seven empty writer defaults and all original aliases are implemented.
+compileDefaultTemplate resolves the alias for the default data file but retains
+the requested writer name in the compiler path and raises a typed template error
+on syntax failure. FilePath combine/addExtension are used rather than string
+concatenation: empty extensions add no dot, leading-dot extensions add no second
+dot, and an empty filename adds no trailing slash. Both platform implementations
+of takeFileName/isRelative/combine/addExtension and Shared.makeCanonical are
+checked against unchanged FilePath modules and the unchanged Shared definition.
+Canonicalization deliberately retains the source's root/parent behavior instead
+of substituting Path.normalize().
+
+All 62 pinned template/partial files are packaged byte for byte. The template
+provider implements readDataFile's user-directory precedence and relative/parent
+path guard for this asset set. It is explicitly a template data provider; general
+Pandoc data enumeration, reference DOCX/ODT/PPTX archive construction and default
+user-data directory discovery are still pending, not replaced by empty stubs.
+The provider is injectable for pure/effectful data environments.
+
+PandocMonad.toTextM removes one leading BOM and all CR bytes, decodes strict
+RFC 3629 UTF-8 and reports the original input's error offset/value. Malformed
+continuations report the continuation byte; truncated sequences report the lead
+byte. The original unstripped-input rescan is retained even when removing CR has
+joined bytes into a valid sequence: a later decoding failure can therefore report
+that earlier CR. Successful normalization does not rescan the original input.
+
+The independent corpus contains 6,538 cases: 90 default text results, 170 default
+compilations/renderings, 42 template retrievals, 56 partial compilations, 3,684
+individual decoding cases, 256 batches covering all 65,536 two-byte combinations,
+and 2,240 POSIX/Windows path operations. It captures exact text, rendering and
+syntax/data/UTF-8 errors, user overrides, media precedence, nested partial root
+paths, recursion, BOM/CR handling, malformed Unicode, aliases, absolute missing
+files, HTTP redirects/failures and remote partials. A 119-file manifest verifies
+original sources, inputs, runner/adapters and native provenance. HTTP exception
+text is classified by error kind; exact platform-specific wording remains pending.
+
+All 16 unchanged original Lua template tests pass natively via a minimal tasty
+assertion/runner adapter. It supplies no conversion algorithms. Module/function/
+userdata assertions are native baselines, not a claim that Kotlin implements the
+Lua API. Kotlin tests exercise the equivalent typed behaviors through independent
+captures. Four further Kotlin tests check alias compiler-path/default-only loader
+effects, source URL preservation on success/failure, user-data path guards and
+non-missing absolute IO errors that must not trigger fallback.
+
+The installed Homebrew Pandoc 3.12.1 was compiled without HTTP. Capture instead
+uses the official same-version macOS ARM64 release; its archive and executable
+SHA-256 hashes are retained. Every batch reads its input document over loopback
+HTTP, and the server verifies that relative template lookup never accidentally
+fetches at the document source URL. Conversion algorithms remain Kotlin in
+production; the original binaries are test oracles only.
+
+Complete WriterOptions/defaults and syntax-map/highlighting dependencies, the
+remaining general data API, exact Haskell Show/Read/Template Ord, lazy/infinite
+interfaces, remaining Parsec/FilePath APIs/tests and GHC IO policies are still
+pending. Remaining Pandoc formats/application/Lua/CLI and all calibre MOBI and
+additional formats remain part of the full original objective.
+
+All 385,059 Kotlin tests pass locally with no failures, errors or skips across
+57 suites. All 59 source/fixture checks verify; all 234 installed-CLI comparisons
+pass. The complete Pandoc/calibre port remains unfinished.

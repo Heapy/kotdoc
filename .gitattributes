@@ -36,3 +36,6 @@ licenses/Parsec-BSD-2-Clause.txt -text whitespace=cr-at-eol
 licenses/Filepath-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/Unicode-3.0.txt -text whitespace=cr-at-eol
 core/src/test/resources/templates/files/** -text
+
+# Preserve every built-in template byte, including upstream whitespace.
+core/src/main/resources/io/heapy/kotdoc/pandoc-data/templates/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab

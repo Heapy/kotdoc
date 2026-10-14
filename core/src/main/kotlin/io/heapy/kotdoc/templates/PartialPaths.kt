@@ -59,6 +59,41 @@ enum class PartialPaths {
         this == Windows && a.length == 2 && letter(a[0]) && a[1] == ':' -> a + b
         else -> a + (if (this == Windows) "\\" else "/") + b
     }
+    fun fileName(path: String): String = splitName(path).second
+    fun addExtension(path: String, extension: String): String {
+        if (extension.isEmpty()) return path
+        val (drive, tail) = splitDrive(path)
+        return combineAlways(drive, tail + (if (extension.startsWith('.')) extension else ".$extension"))
+    }
+    fun isRelative(path: String): Boolean {
+        val drive = splitDrive(path).first
+        return drive.isEmpty() || this == Windows && driveLetter(drive)?.first?.lastOrNull()?.let { !separator(it) } == true
+    }
+    fun combine(directory: String, path: String): String =
+        if (path.firstOrNull()?.let(::separator) == true || splitDrive(path).first.isNotEmpty()) path
+        else combineAlways(directory, path)
+    /** Pandoc Shared.makeCanonical, using this platform's splitDirectories and POSIX joinPath. */
+    fun canonical(path: String): String {
+        val (drive, tail) = splitDrive(path)
+        val components = mutableListOf<String>()
+        if (drive.isNotEmpty()) components.add(drive)
+        var at = 0
+        while (at < tail.length) {
+            val start = at
+            while (at < tail.length && !separator(tail[at])) at++
+            while (at < tail.length && separator(tail[at])) at++
+            val part = tail.substring(start, at)
+            val trimmed = if (splitDrive(part).second.isEmpty()) part else part.trimEnd(::separator).ifEmpty { part.takeLast(1) }
+            components.add(trimmed)
+        }
+        val reduced = mutableListOf<String>()
+        for (part in components) when {
+            part == "." -> Unit
+            part == ".." && reduced.isNotEmpty() && reduced.last() != ".." -> reduced.removeLast()
+            else -> reduced.add(part)
+        }
+        return reduced.asReversed().fold("") { rest, part -> Posix.combine(part, rest) }
+    }
     fun resolve(templatePath: String, partial: String): String {
         val dir = splitName(templatePath).first
         return if (extension(partial).isEmpty()) {
