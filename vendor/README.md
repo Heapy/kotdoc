@@ -123,3 +123,11 @@ The source is used to preserve lazy output/error forcing in PNG metadata, not
 as a runtime dependency. Its original license is retained both in the source
 and `licenses/zlib-LICENSE.txt`. The PNG importer hashes this tree independently
 of the older GIF and TIFF fixture manifests.
+
+`base64-bytestring-1.2.1.0/` retains the complete unchanged Hackage release,
+plus provenance.json. The syntax-model milestone ports its strict standard
+Base64 decoder for Skylighting RE metadata; other APIs and original tests remain
+pending. `binary-re-0.8.9.3/` and `bytestring-re-0.12.2.0/` retain only the unchanged
+source files needed to establish RE Binary/Show/Read behavior, with licenses and
+archive provenance. Their full APIs/tests have not been ported. The independent
+syntax fixture checker hashes these sources and every original Skylighting XML.

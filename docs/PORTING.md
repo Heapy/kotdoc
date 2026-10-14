@@ -43,6 +43,7 @@ format is implemented explicitly in Kotlin.
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
 | Skylighting style JSON, built-in themes and `Options.HighlightMethod` | `highlighting/HighlightStyle.kt`, `HighlightStyles.kt`, `options/HighlightMethod.kt` | All four original style JSON tests, 6,168 direct original-Haskell observations and 25 actual Pandoc theme lookups; eight complete original theme tables |
 | KDE finite regex compiler/matcher and Unicode/UTF-8 dependencies | `highlighting/regex/KdeRegex.kt`, `KdeCompiler.kt`, `KdeMatcher.kt`, `parsing/RegexCharacters.kt`, `Utf8String.kt`, `Utf8Text.kt` | All 186 original regex results and 16 original compile-error assertions; 9,777 independent observations including all 3,960 XML RegExprs, every Haskell Char and all byte pairs; deep finite stack checks |
+| Skylighting syntax records, keyword lists, map operations and RE metadata instances | `highlighting/Syntax.kt`, `Syntaxes.kt`, `regex/RE.kt`, `RERead.kt`, `REBinary.kt` | 15,132 independent observations over all 195 original syntax models, every matcher constructor, derived field/constructor order and Show, keyword resolution, lookup, RE Show/Read/JSON/Binary and cached matching; two ownership/deep-stack checks |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
@@ -3050,3 +3051,105 @@ All 394,837 Kotlin tests pass locally with no failures, errors or skips across
 58 suites. All 61 source/fixture checks verify; all 234 installed-CLI comparisons
 pass. The final regex test class also passes all 9,778 cases after its test-only
 warning cleanup. The complete Pandoc/calibre port remains unfinished.
+
+## Skylighting syntax model, keyword resolution, map lookup and RE metadata
+
+`highlighting/Syntax.kt` represents the complete original syntax-description
+records: KeywordAttr, generic WordSet, all 18 Matcher constructors, all eleven
+Rule fields, ContextSwitch, ListItem, all ten Syntax fields and all nine Context
+fields. ContextName preserves tuple order. Collections are immutable snapshots;
+map keys use Unicode scalar order. Eq/Ord retain the original constructor and
+field order, including Left-before-Right unresolved/resolved keywords and
+case-sensitive-before-case-insensitive word sets. Column values retain the
+original 64-bit Int range. Structural comparison, hashing and Show use explicit
+stacks; 10,000 nested rules remain usable.
+
+WordSet retains a generic Ord/FoldCase dictionary rather than narrowing the
+original generic type to Text. Its Text dictionary uses the existing pinned full
+Unicode case folding. The raw CaseInsensitiveWords constructor does not fold
+stored words; makeWordSet folds inserted words and membership folds the query.
+Show retains the original specialized Char-list behavior: delimiter sets render
+as `fromList "..."`, not lists of character literals. All records, constructors,
+parentheses, negative Ints and escaped byte/character strings compare exactly
+against original Show.
+
+`Syntaxes.kt` ports addSyntaxDefinition, resolveKeywords, missingIncludes and
+all five public Core lookup functions. Keyword resolution processes only each
+context's top-level rules, leaves unknown local lists unresolved, follows global
+cross-syntax list includes and drops missing included lists. An empty included
+syntax name is not implicitly replaced with the current syntax. Existing resolved
+word sets and child rules remain unchanged. Recursive list includes are not
+silently truncated or discarded. missingIncludes preserves first occurrence order
+and checks syntax names only, without descending into child rules or checking
+context existence.
+
+Lookup retains exact-key precedence, key-ordered case-insensitive fallback using
+Text.toLower (not case folding), short-name/extension precedence and the exact
+lowercase csharp/fortran aliases. Filename globs are case sensitive and understand
+only `*`; question marks, brackets and slashes retain original behavior. A dynamic
+program computes the same finite Boolean result without the original exponential
+backtracking over repeated stars. SyntaxMap remains a map of full Syntax values;
+a production default map is not substituted with test snapshots or placeholders.
+
+`highlighting/regex/RE.kt` ports the metadata smart constructor and its Eq, Ord,
+Show and JSON instances. Both regex compilation and capturing-group extraction
+are cached lazily and excluded from metadata equality/order/serialization. Input
+and returned byte arrays are isolated from mutation. JSON retains required
+reString/reCaseSensitive fields, default-false missing/null reMinimal, strict
+standard Base64 and Aeson's error paths. The strict decoder preserves the original
+padding-before-invalid-character error priority, UTF-8 byte offsets and canonical
+padding-bit checks; the host decoder's differing error behavior is not used.
+
+`RERead.kt` ports the original hand-written Read record order together with the
+needed GHC lexical paths: nested parentheses, Bool identifiers, quoted Strings or
+Char lists, numeric/octal/hex/control/named escapes, string gaps and Char8 byte
+truncation. Trailing input and malformed records are rejected. `REBinary.kt` ports
+Binary encoding and decodeOrFail results, including remaining bytes, failure
+positions, Bool validation and the original empty result for nonpositive
+ByteString lengths. Decoding reconstructs the lazy RE cache. The general Data
+traversal instance remains pending, as do syntax-model Read/Binary/Data instances.
+
+The separate `tools/haskell-syntax-reference` project compiles unchanged original
+Skylighting modules and a frozen dependency closure. It does not alter the earlier
+regex oracle or expectations. All 195 original XML files are parsed natively into
+complete typed models; Kotlin reconstructs those independent models for this
+milestone, compares every Show field and resolves their keyword lists against the
+full map. These checks are not evidence of a Kotlin XML parser or tokenizer.
+The full native map additionally supplies 2,004 name/short-name/extension/filename
+queries. Synthetic maps exercise alias keys, duplicate names, Unicode key order,
+missing and cross-syntax lists, unresolved/previously-resolved keywords, child-rule
+scope and missing syntax includes. Each matcher constructor and record field is
+observed through independent comparisons and source-derived mutations.
+
+The corpus contains 15,132 native observations: 195 complete original XML models,
+380 KeywordAttrs, 311 switches, 340 list items, 380 word sets, 420 RE comparisons,
+2,046 matchers, 740 rules, 660 contexts, 700 syntaxes, 800 keyword membership cases,
+six generic integer word sets, 64 complete map operations, 2,633 each of fromJSON
+and JSON decoding, 1,051 Read cases, 300 Binary encodings, 1,236 Binary decodings
+and 237 cached compilation/matching cases. Two additional Kotlin tests verify
+ownership, immutable maps/lists/sets and deep rule behavior. No expectations are
+generated by Kotlin. All 335 retained source/input/adapter/license/provenance
+hashes and the complete XML inventory are checked in CI. Case hash:
+`4deab00de7f94ce77c09e4431f2a9de9e24754459887913795de6ef85a142c1b`.
+
+The complete original base64-bytestring 1.2.1.0 release is retained unchanged,
+with archive provenance and license. Only strict standard Base64 decoding is
+ported here; its other APIs and original tests remain dependency work. The relevant
+unchanged Binary 0.8.9.3 and ByteString 0.12.2.0 sources and licenses are retained
+separately for RE's instances. These are reference sources, never runtime
+conversion dependencies. GHC's existing retained Read/Lex sources are included in
+the new fixture manifest without changing previous manifests.
+
+Reproduce native captures with `cabal build syntax-reference
+--project-dir=tools/haskell-syntax-reference --builddir=/tmp/kotdoc-syntax-build`,
+then pass the resulting syntax-reference executable to
+`python3 tools/import-syntax-fixtures.py --oracle PATH`. CI needs only
+`python3 tools/import-syntax-fixtures.py --check-source` and the Kotlin tests.
+
+All 409,971 Kotlin tests pass locally with no failures, errors or skips across
+59 suites. All 62 source/fixture checks and all 234 installed-CLI comparisons
+pass. The repository remains public. XML parsing/loading/defaultSyntaxMap,
+tokenization, remaining formatters and corresponding original Kotlin test ports
+are unfinished; full WriterOptions, remaining Pandoc infrastructure/formats,
+application/Lua/CLI and all calibre MOBI/additional formats/tests remain part of
+the unchanged objective. This milestone does not complete the full port.
