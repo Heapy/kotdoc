@@ -1,0 +1,79 @@
+>>===== MODE =====>>
+citation
+<<===== MODE =====<<
+
+
+>>===== RESULT =====>>
+numeric volume: volumes 1–2
+<<===== RESULT =====<<
+
+
+>>===== CSL =====>>
+<?xml version="1.0" encoding="utf-8"?>
+<style class="note" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+  <info>
+    <title>Numeric test</title>
+    <id>http://www.zotero.org/styles/numeric-test</id>
+    <link href="http://www.zotero.org/styles/locator-test" rel="self"/>
+    <updated>2025-05-20T00:00:00+00:00</updated>
+  </info>
+  <citation>
+    <layout>
+      <group delimiter=" ">
+        <choose>
+          <if variable="volume">
+            <choose>
+              <if is-numeric="volume">
+                <text value="numeric volume:"/>
+              </if>
+              <else>
+                <text value="non-numeric volume:"/>
+              </else>
+            </choose>
+            <label variable="volume"/>
+            <text variable="volume"/>
+          </if>
+        </choose>
+        <choose>
+          <if variable="locator">
+            <choose>
+              <if is-numeric="locator">
+                <text value="numeric locator:"/>
+              </if>
+              <else>
+                <text value="non-numeric locator:"/>
+              </else>
+            </choose>
+            <label variable="locator"/>
+            <text variable="locator"/>
+          </if>
+        </choose>
+      </group>
+    </layout>
+  </citation>
+</style>
+<<===== CSL =====<<
+
+
+>>===== CITATION-ITEMS =====>>
+[ [ {"id":"VolumeTest1" } ] ]
+<<===== CITATION-ITEMS =====<<
+
+
+
+>>===== INPUT =====>>
+[
+  {
+    "id": "VolumeTest1",
+    "type": "book",
+    "title": "Title",
+    "volume": "1–2"
+  }
+]
+<<===== INPUT =====<<
+
+
+>>===== VERSION =====>>
+1.0
+<<===== VERSION =====<<
+

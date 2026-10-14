@@ -1,0 +1,656 @@
+# citeproc changelog
+
+## 0.14.1
+
+  * Stop extracting particles from given and family names.
+    citeproc.js implemented a system by which particles would
+    be extracted automatically from given and family names (so
+    that users of Zotero wouldn't have to know about the various
+    types of particles). The test suite does this unless the
+    name is enclosed in straight quotes, in which case it is
+    considered literally. We don't want this feature, because it is
+    not part of the CSL spec, and the CSL JSON files exported from
+    Zotero don't put the quotes where they would be needed for this to
+    work. However, we still remove an outer pair of quotes, in case
+    there is legacy use of this feature.
+    See discussion at jgm/pandoc#11911 .
+
+  * Record how known failures fail, instead of just that they fail. A
+    test we don't yet pass now has an `.expected` file alongside its
+    `.txt` file, containing the output we currently produce. It counts
+    as an expected failure only if its output still matches that file
+    exactly, so a change in a known-bad result is no longer silently
+    tolerated. This replaces the flat list of expected failures in
+    test/Spec.hs, five entries of which had gone stale.
+
+  * Two new test-suite options: `--accept` (re)writes the `.expected` file of
+    every failing test and removes that of every test that now passes, and
+    `--verbose` reports warnings, passes, and expected failures with diffs,
+    which are otherwise suppressed.
+
+  * Add five new tests from upstream (all passing).
+
+## 0.14
+
+  * [API change] Replace unlawful Ord Term instance with `termMatches`.
+    The old instance violated the Ord laws. It was only used for term
+    matching in lookupTerm, so we now export a function `termMatches`
+    for that purpose.
+
+  * [API change] Add `isEmpty` to CiteprocOutput class.
+    This allows us to avoid rendering to Text just to check for
+    emptiness.
+
+  * Fix flip-flop state bugs in `cslJsonToJson`.
+
+  * Fix end-trimming bugs in the pandoc backend's `dropTextWhileEnd'`.
+
+  * Fix EDTF year 0000 (1 BC) rendering as an open date range.
+    EDTF uses astronomical year numbering, in which 0000 means 1 BC, but
+    the parser passed year 0 through unchanged, colliding with the internal
+    year-0 sentinel for the empty side of an open date range; a 1 BC date
+    therefore rendered as nothing.
+
+  * Fix `punctuationInsideQuotes` missing nested quoted content.
+
+  * Remove empty Str elemnets left behind by Pandoc inline trimming.
+
+  * Fix `showYearSuffix` overflow past "zz".
+
+  * Use locale-aware lowercasing in `initialize`.
+
+  * Make `removeDoubleSpaces` collapse all space runs.
+
+  * Add some benchmarks for disambiguation and collapsing.
+
+  * Make disambiguation re-render only affected citations.
+
+  * Avoid repeated traversals in citation grouping.
+
+  * Cache reference lang so we don't reparse it all the time.
+
+  * Simplify `endWithPunct`.
+
+  * Only apply `after-inverted-name` delimiter after actually inverted names.
+    Fixes `test/csl/name_DelimiterAfterInverted.txt`.
+
+  * Compare rendered names in subsequent-author-substitute.
+    Fixes `fullstyles_ChicagoAuthorDateSimple.txt`, `sort_ChicagoYearSuffix1.txt`,
+    and `sort_ChicagoYearSuffix2.txt`.
+
+  * Treat whitespace-only term definitions as empty.
+    Fixes `test/csl/label_EditorTranslator1.txt`.
+
+  * Suppress date variables rendered via `cs:substitute`.
+    Improves `test/csl/bugreports_LegislationCrash.txt`, which
+    however still is an expected failure because of a spurious
+    space in the expected output.
+
+  * Drop cites that render empty after collapsing.
+    Fixes `test/csl/collapse_AuthorCollapseNoDateSorted.txt`.
+
+  * Include non-dropping particle when grouping names for disambiguation.
+    Fixes `test/csl/disambiguate_PrimaryNameWithParticle.txt` and
+    `test/csl/disambiguate_PrimaryNameWithNonDroppingParticle.txt`.
+
+## 0.13.0.1
+
+  * Detect terminal punctuation hidden by closing quotes (#179,
+    Andrew Dunning).
+
+  * Clarify building executable in the README (#177).
+
+## 0.13
+
+  * Add `citationResetPosition` field to `Citation`. [API change]
+    When this field is set, it causes the processor to forget all
+    information about past citations.  This affects processing of
+    `position`.  The intended usage is to set this for the first
+    citation of every chapter, so that "subsequent" behavior is
+    reset at chapter boundaries. See #160 for discussion.
+
+## 0.12
+
+  * Fix suppression of substituted variables for number,
+    short- variants (#174).
+
+  * Fix is-numeric detection for non-locators with en-dash (#175).
+
+  * Fix handling of CSL JSON formatting (i.e. handling of
+    tags like `<i>` and also quotes, which are "smartified") (#170,
+    #173).
+
+    We were previously handling this in the wrong way, by parsing
+    it in the `fromText` method for `CslJson Text`.  This meant that
+    there was no way to prevent quotes from turning into smart
+    quotes, even in things like URLs (see #173).
+
+    What is more, we were not handling this sort of formatting at
+    all in other contexts, e.g. in terms, `text` elements with a
+    `value`, locators, prefixes, and suffixes.  The CSL tests were
+    passing only because the raw HTML was being passed through
+    verbatim, but in other formats this led to undesirable results
+    (see #170).
+
+    Formatting is now parsed in prefix, suffix, locator, text
+    value, and terms.  And `fromText` is now just `CslText`, so that
+    purely textual values like URLs can be inserted.
+
+    We also handle the conversion of Unicode superscript characters
+    to explicit `<sup>.</sup>` in CSL JSON somewhat differently.
+    Instead of making the replacement in *parsing* CSL JSON,
+    which would now affect other formats too, because terms in
+    locales are parsed as CSL JSON, we make the replacement in
+    *rendering* CSL JSON. This gives us behavior consistent with
+    the previous behavior, with the substitution occuring in
+    CSL JSON output but not in Pandoc.
+
+    [API changes]
+
+    + Citeproc.Types now exports `parseCslJson`, `lookupQuotes`,
+      `superscriptChars`.
+    + Citeproc.Locale no longer exports `lookupQuotes`.
+    + `parseCslJson` now takes an additional parameter for a Locale.
+
+  * Add StandardVariable constructor for VariableType [API change]
+    (#173). Also change the interpretation of StringVariable,
+    so that StringVariables are not parsed for quotes and HTML-like
+    formatting. Make URL, ISBN, etc. StringVariables.
+
+  * Test suite improvements:
+
+    + Indicate FAILED:EXPECTED or :UNEXPECTED in output.
+    + Fix formatting of columns in test summary.
+
+## 0.11
+
+  * Expand macros in evaluation rather than style parsing (#172).
+    This fixes a serious performance issue in styles with heavy
+    use of macros, such as the new chicago styles. With this change,
+    memory use goes down by more than a factor of ten with these styles.
+
+  * All fields in NameFormat are now Maybe values, so we can tell what
+    has been explicitly set [API change].
+
+  * A new function `combineNameFormat` allows filling Nothing values
+    in the first argument with Just values in the second [API change].
+    The old defaults that were used for the non-Maybe values are
+    now set at the appropriate place in Citeproc.Eval.
+
+  * Add `styleNameFormat` field to Style [API change].
+
+  * Add `layoutNameFormat` to Layout [API change].
+
+  * Add parameter for a NameFormat to SortKeyMacro constructor on SortKey
+    [API change].
+
+  * CSL JSON: allow formatting in numeric fields (#170).
+    There's a catch, though. Currently the number splitting code
+    (`splitNums`) has to convert everything to text, so the
+    formatting will be lost. Still, this is better than treating
+    the formatting code as plain text which will then be escaped
+    in the output.  So, for example, we get
+    `1er` instead of `1&#60;sup&#62;er&#60;/sup&#62;` for
+    CSL JSON `1<sup>er</sup>`.
+
+  * Improve test suite so that expected failures are tracked.
+
+## 0.10
+
+  * Update locales from upstream (#161). A number of new locales, as well
+    as new terms, e.g. `number-of-volumes`, have been added.
+
+  * Add PreserveCase constructor to TextCase [API change].
+    Ensure that PreserveCase is added to names that begin
+    with a lowercase letter. See jgm/pandoc#10983. This will
+    block transformations like the addition of a capital letter
+    at the beginning of a note citation.
+
+  * Fix handling of `<substitute>` so it works with `<choose>` inside (#159).
+
+  * Put TagPrefix/TagSuffix tags only over prefix/suffix.
+    Previously they also enclosed the material being prefixed/suffixed.
+    This change has no effect on any citeproc or pandoc tests.
+
+  * Update CSL tests from upstream and adjust tests expected to pass.
+    Note that the expected test outputs in these tests seem out of
+    sync with the new locales...
+
+  * locator = "page" should not be true when there is no locator (#165).
+
+  * Add Citation prefix and suffix (#156).
+    This adds `citationPrefix`, `citationSuffix` fields to `Citation`
+    [API change].
+
+  * Fix sorting so that anything with a prefix or suffix is left in place (#155,
+    cf. #89). Motivating example: `blabla [e.g., @zeta2021;@alpha2020]` should
+    not render as (Alpha 2020, e.g., Zeta 2021).
+
+  * Fix entity-escaping of characters in the executable output (#153,
+    Daphne Preston-Kendal).
+
+  * Fix `is-numeric="locator"` (#164). Previously we weren't looking at the
+    locator in this case, but only at the variables defined in the Reference.
+
+  * Improve `is-numeric` detection.
+
+  * Add Eq typeclass instance for `Result a` (Linus Arver) [API change].
+
+  * Improve README (#167, building on suggestinos by @listx).
+
+## 0.9.0.1
+
+  * Fix `readAsInt` so it handles negative numbers in strings.
+    `readAsInt` attempts to read strings as integers, but previously
+    it didn't properly handle strings like `"-387"`, which are
+    sometimes used in bibliographies. See jgm/pandoc#10839.
+
+## 0.9
+
+  * Fix handling of `type` conditions in `if` (#151).
+    In an `if` element with `type="article-journal chapter"`, citeproc
+    previously treated this as two separate conditions
+    (type=article-journal, type=chapter).  But it seems that the
+    intended behavior is to treat it as a single condition that
+    succeeds if any of the listed types match. The difference between
+    current and intended behavior comes out when `match="all"` is used;
+    this will always fail when `type` contains more than one type.
+
+    To fix this, we change the `HasType` constructor on `Condition`
+    so that it takes a list of Texts rather than single one [API change],
+    and we populate it with the result of splitting the argument
+    of `type`. In Eval, we change the clause for the HasType condition
+    so that it succeeds if any of the types in the list match.
+
+  * Add `--link-citations` and `--link-bibliography` options to binary
+    (#142, Daphne Preston-Kendal).
+
+  * Bump containers upper bound.
+
+## 0.8.1.3
+
+ * Don't add SubstitutedVal to variables that were empty (#148).
+   This fixes a bug which caused `variable=` tests to succeed
+   in some cases where they should have failed.
+
+## 0.8.1.2
+
+  * Allow containers 0.7 (#143)
+
+  * Update tests to use Diff >= 1.0 (#146).
+
+  * Fix `dropTextWhile` and `dropTextWhileEnd` in Citeproc.Pandoc.
+    Ensure that they treat SoftBreak like Space (jgm/pandoc#10451).
+
+## 0.8.1.1
+
+  * Include `10/` prefix in short DOI links (#136).
+
+  * Properly implement `demote-non-dropping-particle="sort-only"` (#141).
+    We had previously gotten sorting behavior right for this, but
+    not display behavior.
+
+## 0.8.1
+
+  * In Pandoc and CslJson CaseTransform, group punctuation in clusters (#127).
+
+  * Fix sorting on dates (#126). Previously this broke for some styles,
+    e.g. apa.csl, which styles dates as MM/DD/YYYY, and would lead to
+    incorrect sorting of dates with months and/or days.
+
+  * Add citation-key variable from citeId. This is a new addition in CSL 1.0.2.
+
+  * Update locales from upstream.
+
+  * Raise an error if multiple layout elements are present (#120).
+
+  * Fix two test cases. They had illegal bibliography elements with
+    no layout children.
+
+  * If there are multiple layout elements, only use the last one.
+    This can happen with CSL-M styles. The last layout should be
+    locale-unspecific. This change will prevent us from emitting
+    doubled citations or bibliographic references (see #120),
+    allowing more graceful handling of CSL-M styles, even though we
+    don't support CSL-M.
+
+## 0.8.0.2
+
+  * Fix missing locator after collapsing and grouping with year
+    suffix (#96).
+
+## 0.8.0.1
+
+  * Fix disambiguation edge case (#116). We weren't properly
+    disambiguating when only one of two ambiguous names had a
+    subsequent citation.
+
+  * Chicago page numbering fixes.
+
+  * Update test suite form upstream.
+
+  * Handle whole-citation links differently in `secondFieldAlign` (#113,
+    Benjamin Bray).
+
+  * Require data-default >= 0.5.2 (#114, Bodigrim).
+
+## 0.8
+
+  * Add `SubstitutedVal` constructor for `Val` [API change] (#101, #108).
+    This is used to track variables that are repressed due to substitution.
+    (We can't just delete them, because they still count when we have
+    "if" elements that check for a variable.)
+
+  * Fix logic for including a group. A group with a text node and an
+    empty variable should count as empty.
+
+  * CaseTransform: don't change words that are a mix of uppercase
+    and nonletters, like CRT1000.
+
+  * Fix label with "page" variable (#107).
+
+  * Fix error in test suite. We stripped indentation in the expected result
+    in some cases.
+
+  * Update fr-FR locale from upstream.
+
+
+## 0.7
+
+  * Handle old term form `sub verbo` as if it is `sub-verbo` (the new form).
+
+  * Update to latest locales in CSL repository.
+
+  * Makefile: Fix update-locales target.
+
+  * Keep explicit "et al." (#102, Albert Krewinkel).
+
+  * Factor out `deleteSubstitutedVariables`.
+
+  * Add any references in `citationItemData` to references.
+
+  * Add `citationItemData` field to `CitationItem` [API change].
+    This corresponds to the `itemData` that can appear
+    in the JSON representation of a citation item.
+
+  * Add Ord, Eq instances for `Reference`, `DisambiguationData`, `Val` [API change].
+
+## 0.6.0.1
+
+  * Ensure that position evaluates false inside bibliography (#99).
+
+## 0.6
+
+  * Add Term parameter to TagTerm [API change].
+
+  * Add TagPrefix, TagSuffix constructors to Tag [API change].
+
+  * Make sure that extracted AuthorOnly names have the correct
+    formatting (#55).
+
+  * Do case-insensitive sorting, like Zotero (#91).
+
+  * Ignore "ibid" entries in computing ambiguities.
+
+  * Improved disambiguation for author-in-text citations.
+
+  * In disambiguating, convert author-in-text to normal citations.
+    Otherwise we disambiguate incorrectly.
+
+  * Fix title disambiguation with note style (#90).
+    Previously we'd been calculating ambiguities by generating
+    renderings for citation items independently of context.
+    This meant that we didn't detect ambiguities in "subsequent"
+    citations (which might e.g. just have an author).
+
+  * Ensure we don't do collapsing of items across a prefix or suffix (#89).
+    If we have `[@doe99; for contrasting views see @smith33; @doe00]`,
+    we don't want to get collapsing to
+    `(Doe 1999, 2000; for contrasting views, see Smith 1933)`.
+    This isn't strictly by the spec, but it gives better results.
+
+  * Allow collapsing after an initial prefix.
+
+
+## 0.5
+
+  * Add `linkBibliography` field to `CiteprocOptions` [API change].
+    When this is set to True, we hyperlink bibliography entries according
+    to the draft of the CSL v1.02 spec (Appendix VI).  When an entry has
+    a DOI, PMCID, PMID, or URL available but none of these are rendered
+    by the style, add a link to the title (or, if no title is present,
+    the whole entry), using the URL for the DOI, PMCID, PMID, or URL
+    (in that order of priority).  (Benjamin Bray, #88.)
+
+  * In generating citation labels, only use `issued` date.
+    Not, for example, `accessed` (#80).
+
+  * Citeproc.Locale: export `lookupQuotes`.  [API change]
+
+  * Citeproc.Types: Add `localizeQuotes` method to CiteprocOutput class
+    [API change].
+
+  * Citeproc.CslJson, Citeproc.Pandoc: Implement `localizeQuotes`.
+
+  * Citeproc: apply `localizeQuotes` after rendering.  This ensures
+    that quotes are properly localized and flipflopped.  Previously this
+    was done in `renderCslJson` (for CSL JSON) and in pandoc
+    (for Pandoc Inlines).  It is more consistent to do this as part
+    of the rendering pipeline, in citeproc itself.
+
+  * Citeproc.CslJson: Drop the Locale parameter from the signature of
+    `renderCslJson` [breaking API change].  It was only needed for quote
+    localization, which now occurs outside of this function.
+
+  * Citeproc.Pandoc: use a Span with class csl-quoted for quotes,
+    rather than a Quoted inline.  This way we can leave Quoted elements
+    passed in by pandoc alone, and we won't get strange effects like the
+    one described in #87 (where `"` behaves differently when in
+    a citation suffix).
+
+  * Default to Shifted with `icu` flag (#83).  This makes the library
+    behave similarly whether compiled with `icu` or with the default
+    `unicode-collation` and prevents test failures with `icu`.
+
+  * Require recent text-icu with icu flag.
+    Older versions don't build with newer versions of icu4c.
+
+  * Support links in CslJson (Benjamin Bray). Currently they are
+    only supported in rendering, not parsing (in support of #88).
+
+  * Allow test cases to specify CiteprocOptions (Benjamin Bray).
+
+  * Update locales from upstream.
+
+  * Add new CSL tests to repository.
+
+
+## 0.4.1
+
+  * Change Pandoc `inNote` so it creates a `Span` with class `csl-note`
+    rather than a `Note`.  This should make it easier to integrate
+    citations with ordinary notes in pandoc.
+  * Do not hyperlink author-only citations (#77).  If we do this we get
+    two consecutive hyperlinks for author-in-text forms.
+  * `movePunctuationInsideQuotes`: only move `,` and `.`, not `?` and `!`,
+    as per the CSL spec.
+
+## 0.4.0.1
+
+  * Fix bug introduced by the fix to #61 (#74).
+    In certain circumstances, we could get doubled "et al.".
+  * Depend on unicode-collation unconditionally (#71).  It is necessary
+    even when text-icu is used, because of Text.Collate.Lang.
+  * Rename tests in extra/ so they fall into categories.
+
+## 0.4
+
+  * We now use Lang from unicode-collation rather than defining our own.
+    The type constructor has changed, as has the signature of
+    parseLang.
+  * Use unicode-collation by default for more accurate sorting.
+    - text-icu will still be used if the icu flag is set.  This may
+      give better performance, at the cost of depending on a large
+      C library.
+    - Change type of SortKeyValue so it doesn't embed Lang. [API change]
+      Instead, we now store a language-specific collator in the Eval Context.
+    - Move compSortKeyValues from Types to Eval.
+  * Add curly open quote to word splitters in normalizeSortKey.
+  * Improve date sorting: use the format YYYY0000 if no month, day,
+    and YYYYMM00 if no day when generating sort keys.
+  * Special treatment of literal "others" as last name in a list (#61).
+    When we convert bibtex/biblatex bibliographies, the form "and others"
+    yields a last name with nameLiteral = "others".  We detect this and
+    generate a localized "and others" (et al).
+  * Make abbreviations case-insensitive (#45).
+
+## 0.3.0.9
+
+ * Implement `et-al-subsequent-min` and `et-al-subsequent-use-first` (#60).
+
+## 0.3.0.8
+
+ * In parsing abbreviations JSON, ignore top-level fields
+   besides "default" (#57), e.g. "info" which is used in Zotero's
+   default abbreviations file.
+
+## 0.3.0.7
+
+  * Remove check for ASCII in case transform code.
+    Previously we weren't doing case transform on words
+    containing non-ASCII characters.
+
+## 0.3.0.6
+
+  * Fix infinite loop in `fixPunct` (#49).  In a few rare cases
+    `fixPunct` would hang.
+
+## 0.3.0.5
+
+  * Add a space between "no date" term and disambiguator
+    if the long form is used (#47).
+
+## 0.3.0.4
+
+  * Improve disambiguation code.  Add type signatures,
+    move some functions to the top-level, and make the
+    logic clearer and more efficient.
+  * Re-render after each stage of ambiguity resolution
+    instead of relying on analysis of names and dates.
+    This is necessary especially for styles like
+    chicago-note-bibliography which use titles in
+    citations.  Closes #44.  No measurable
+    performance impact.
+  * Update test suite from upstream.
+  * Update `it-IT` locale.
+
+## 0.3.0.3
+
+  * Fix author-only citations (#43).  We got bad results with some
+    styles when a reference had both an author and a translator.
+
+## 0.3.0.2
+
+  * Don't use cite-group delimiter if ANY citation in group has
+    locator (#38).  This seems to be citeproc.js's behavior and it gives
+    better results for chicago-author-date:  we want both
+    `[@foo20; @foo21, p. 3]` and `[@foo20, p. 3; @foo21]` to produce
+    a semicolon separator, rather than a comma.
+
+## 0.3.0.1
+
+  * Better handle `initialize-with` that ends in a nonbreaking space.
+    In this case, citeproc should not add an additional space
+    or strip the nonbreaking space.  Closes #37.
+
+
+## 0.3
+
+  * Change `makeReferenceMap` to return a cleaned-up list of
+    references as well as a reference map.  The cleanup-up list
+    removes references with duplicate ids.  When there are multiple
+    references with the same id, the last one is included and
+    the others discarded.  [API change]
+
+## 0.2.0.1
+
+  * FromJSON for Name: make straight quotes curly.
+    Otherwise nothing will do this, when we are decoding
+    JSON to (Reference a), a /= CslJson Text.
+  * Remove redundant pragmas and imports (Albert Krewinkel).
+  * Use custom prelude with GHC 8.6.* and older (Albert
+    Krewinkel).  This adds support for GHC 8.0.x.
+
+## 0.2
+
+  * Remove `AfterOtherPunctuation` constructor from
+    `CaseTransformState` [API change].
+    This gave bad results with things like parentheses (#27).
+  * Change `SortKeyValue` to include `Maybe Lang` [API change].
+    This allows us to do locale-sensitive sorting (though this
+    won't matter much unless the `icu` flag is used).
+  * Add `Maybe Lang` parameter on `initialize` (since
+    capitalization can be locale-dependent).
+  * Add cabal.project.icu for building with icu lib.
+  * Add (unexported) Citeproc.Unicode compatibility module.
+    This allows us to use the same functions whether or not
+    the `icu` flag is used.
+
+## 0.1.1.1
+
+  * Pay attention to citationNoteNumber in computing position.
+    In calculating whether an item is alone in its citation,
+    we need to take into account citationNoteNumber, since
+    two citations may occur in the same note and they should
+    not be ranked "alone." See jgm/pandoc#6813,
+    citation-style-language/documentation#121
+
+## 0.1.1
+
+  * Ensure that uncited references are sorted last
+    when it comes to assigning citation numbers (#22).
+  * Remove "capitalize initial term" feature.  This is required by
+    the test suite but not the spec.  It makes more sense for us to do
+    this capitalization in the calling program, e.g. pandoc.  For some
+    citations in note styles may already be in notes and thus not
+    trigger separate footnotes.  If initial terms had been capitalized,
+    we'd need to uncapitalize, and that is hard to do reliably.
+  * Treat empty `FancyVal` as an empty value.
+  * Derive Functor, Traversable, Foldable for Result [API change].
+
+## 0.1.0.3
+
+  * Better handling of author-only/suppress-author.
+    Previously all results of "names" elements were treated
+    as authors.  But only the first should be (generally this
+    is the author, but it could be the editor of an edited
+    volume with no author).  See jgm/pandoc#6765.
+
+## 0.1.0.2
+
+  * Don't enclose contents of e:choose in a Formatted element (#19).
+    The e:choose element is "transparent" and the delimiter
+    controlling its formatting should be inserted between
+    the items it returns.
+
+## 0.1.0.1
+
+  * Fix sorting when no `<sorting>` element given. The spec says:
+    "In the absence of cs:sort, cites and bibliographic entries appear in
+    the order in which they are cited." This affects IEEE in particular.  See
+    jgm/pandoc#6741.
+
+  * Improve `sameNames` and citation grouping.  Preivously if a citation
+    item had a prefix, it would not be grouped with following citations.
+    See jgm/pandoc#6722 for discussion.
+
+  * Remove unneeded `hasNoSuffix` check in `sameNames`.
+
+  * Remove unneeded import
+
+  * `citeproc` executable: strip BOM before parsing style (#18).
+
+## 0.1
+
+  * Initial release.
+

@@ -1,0 +1,98 @@
+>>===== MODE =====>>
+citation
+<<===== MODE =====<<
+
+
+>>===== RESULT =====>>
+Title, ALCT, 3
+<<===== RESULT =====<<
+
+
+>>===== CSL =====>>
+<?xml version="1.0" encoding="utf-8"?>
+<style class="note" version="1.0" xmlns="http://purl.org/net/xbiblio/csl">
+  <info>
+    <title>Variable substitution test</title>
+    <id>http://www.zotero.org/styles/subsitute-test</id>
+  </info>
+  <citation>
+    <layout>
+      <group delimiter=", ">
+        <!-- short title -->
+        <names variable="composer">
+          <substitute>
+            <text form="short" variable="title"/>
+          </substitute>
+        </names>
+        <text form="short" variable="title"/>
+        <!-- short container title -->
+        <names variable="author">
+          <substitute>
+            <text form="short" variable="container-title"/>
+          </substitute>
+        </names>
+        <text form="short" variable="container-title"/>
+        <!-- number -->
+        <names variable="illustrator">
+          <substitute>
+            <number variable="volume"/>
+          </substitute>
+        </names>
+        <number variable="volume"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout>
+      <group delimiter=", ">
+        <!-- title -->
+        <names variable="composer">
+          <substitute>
+            <text variable="title"/>
+          </substitute>
+        </names>
+        <text variable="title"/>
+        <!-- container title -->
+        <names variable="author">
+          <substitute>
+            <text variable="container-title"/>
+          </substitute>
+        </names>
+        <text variable="container-title"/>
+        <!-- number as text -->
+        <names variable="illustrator">
+          <substitute>
+            <text variable="volume"/>
+          </substitute>
+        </names>
+        <text variable="volume"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
+<<===== CSL =====<<
+
+
+>>===== CITATION-ITEMS =====>>
+[ [ {"id":"test" } ] ]
+<<===== CITATION-ITEMS =====<<
+
+
+
+>>===== INPUT =====>>
+[
+ { "id": "test",
+   "title": "A title with a long form",
+   "title-short": "Title",
+   "container-title": "A long container title",
+   "container-title-short": "ALCT",
+   "volume": "3"
+ }
+]
+<<===== INPUT =====<<
+
+
+>>===== VERSION =====>>
+1.0
+<<===== VERSION =====<<
+

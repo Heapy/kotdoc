@@ -5338,3 +5338,81 @@ skips. All 88 source/fixture checks and 234 installed CLI checks pass (14 FB2,
 notices remain byte-for-byte in the built JAR. All 78 manifest hashes and the
 complete corpus were checked against staged Git blobs or the exact staged
 Pandoc submodule commit. Existing upstream expectations were not modified.
+
+## PandocError, CiteprocError and GHC IOError values
+
+Added the complete 33-constructor PandocError family, preserving source field
+types/order, renderError/displayException, derived Show/raw Show characters,
+and all original handleError exit statuses. UTF8 decoding diagnostics keep
+signed 64-bit offsets and the original two-character space-padded hexadecimal
+Word8 form. Empty filenames, doc/pdf special cases, embedded controls/Unicode,
+per-field Text.pack replacement, negative numeric Show parentheses, nullary
+constructors and nested CiteprocError precedence are covered independently.
+The exception base is the specific type required by PandocMonad.catchError;
+it is not equated with arbitrary host exceptions.
+
+GhcIoError retains all six original IOException fields: optional Handle,
+19-case IOErrorType, raw location/description, optional signed CInt errno and
+raw filename. Its Eq uses the original fields and order; Show ignores errno,
+uses filename before handle, emits unquoted raw String fields and keeps empty
+present filename distinct from Nothing. Raw Show and Text display are separate
+so individual surrogate Chars remain visible before Text.pack replacement.
+ErrorHandle models File versus Duplex and read-side cell identity; differing
+names or Duplex write-side cells do not change source Handle equality. Actual
+IO device/buffer operations are not inferred implemented from this model.
+
+All three original CiteprocError variants, strict normalized Text fields, Eq,
+Show and prettyCiteprocError are included. The complete citeproc 0.14.1 release
+is retained without modifying any of its 1,069 regular source/test/data files.
+Archive SHA-256:
+`1287ab8196b3d2b1dd635b78117cacdc3bddfd1125f15a9017f0720e9ca03feb`.
+Its original full BSD-2-Clause notice is added to the JAR. The citation engine,
+remaining Citeproc types/APIs and all other original tests remain pending.
+Complete original GHC 9.12.2 IO.Exception and IO.Handle.Types sources and their
+license are also retained for the value/identity/Show definitions.
+
+handleError is translated with explicit IO effects at the boundary. Success
+returns the original caller value without writes or exits. PandocIOError writes
+the original raw IOException String; other variants write rendered UTF8 Text,
+then exit with the original code. Writer failures propagate and do not trigger
+an exit. The native oracle executes the complete unchanged original
+Text.Pandoc.Error/UTF8 modules and captures actual stderr bytes and ExitCode
+exceptions. Its Shared tshow and CiteprocError shims contain only the byte-exact
+needed definitions, checked against complete original sources; StrictData is
+retained for CiteprocError. The other Citeproc implementation is not replaced
+by a surrogate. Actual GHC's generated PandocError Show instance was inspected.
+
+Independent observations:
+
+- 2,250 complete render/display/derived raw Show results for all 33 variants;
+- 1,984 actual original handleError stderr/exit observations;
+- 1,127 GHC IOException raw Show/display results;
+- 3,097 IOException/Handle/CInt-wrap equality results;
+- 255 CiteprocError Show/pretty results and 2,601 constructor/Text equalities.
+
+Total: 11,314 cases; SHA-256
+`ed035b7d9c894ca8a063376124a5184a59d92e416932028b45028c0ebc9c8858`.
+The verifier checks all 1,094 source/fixture hashes, exact source projections,
+complete constructor and operation inventories and corpus bytes. Expected
+results never execute Kotlin. A separate effect test checks success identity,
+no success side effects and propagation of writer failures before process exit.
+The captured handleError IO inputs are valid Unicode under native UTF8; raw
+surrogate IOException fields are separately covered by Show/display tests.
+Full GHC native handle encoding/newline/buffering/failure behavior and a concrete
+production process backend/complete CLI dispatch remain pending, along with
+Typeable/Generic machinery and general lazy/partial values.
+
+Both original PandocIO and PandocPure stacks were read: ExceptT PandocError
+is outside StateT CommonState, so ordinary caught PandocError preserves other
+state changes. This is required by the next CommonState/runSilently work.
+Full CommonState/Monad/Lua/YAML/application and all remaining Pandoc formats
+and tests, plus all calibre formats/tests, remain within the unchanged goal.
+
+Validation: all 1,295,904 tests in 86 suites pass with zero failures, errors or
+skips. All 89 source/fixture checks and 234 installed CLI checks pass (14 FB2,
+66 media, 69 format modifiers, 85 math options). The core JAR preserves all
+46 complete original notices. All 1,069 regular Citeproc release files were
+rechecked byte-for-byte against the original archive. All 1,094 manifest hashes
+and corpus bytes were verified against staged Git blobs or the exact staged
+Pandoc submodule. The preceding cd81680 publication passed exact-SHA CI run
+38649089610 with all 100 steps completed successfully.
