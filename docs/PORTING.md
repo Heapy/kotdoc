@@ -5176,3 +5176,93 @@ unicode-collation package (Pandoc's bound is >=0.1.1 and <0.2), rather than a
 package named text-collate. Its full Lang implementation and original BCP47
 parse/round-trip tests have been read in preparation; no Lang implementation
 or tests are counted as ported by this change.
+
+## Lang — defined-value behavior and original language tests
+
+Added `language/Lang.kt` and `language/LangBinary.kt`, based on unchanged
+Text.Collate.Lang from unicode-collation 0.1.3.7. The original Pandoc dependency
+bound is >=0.1.1 and <0.2. All 117 regular release files, including the complete
+unit/conformance tests and collation data, are retained unchanged. Archive
+SHA-256: `ec7f75d635486d760bf45d2093ff380b1dad4146ceee39107d66cd00af713c57`.
+The complete original BSD-2-Clause notice is added to licenses and the JAR.
+No other collation implementation or test group is claimed as ported.
+
+The six-field Lang record keeps immutable snapshots of nested lists, per-field
+Text scalar normalization, declaration-order Eq/Ord, Maybe/list/tuple ordering,
+record Show with original precedence and Haskell Text escapes, and selected
+caller instances for min/max. Direct construction permits arbitrary record
+values, as upstream; parsing is a separate operation. renderLang retains empty
+optional/keyword values, duplicate extensions, original field spelling and
+private-use rendering. IsString uses the original und fallback on parse error;
+raw CharacterString construction preserves per-Char Text.pack replacement.
+
+parseLang uses the full original Parsec [Text] grammar through the shared
+consumed/empty interpreter. Its token cursor updates columns by Text character
+length, without counting separators, and keeps original error labels/text.
+ASCII predicates, source GHC whitespace/digit categories, hyphen/underscore
+splitting, extlang count/backtracking, optional script/region, variants,
+extension attributes and case-preserving keyword/type spelling are retained.
+The original grammar permits trailing garbage and stops at the first source
+whitespace; it is not replaced with platform Locale validation. The original
+private-use parser is retained even though the earlier extension parser
+normally consumes an x singleton.
+
+lookupLang follows language/script/region/collation matching and original
+stable sortOn (Down . fst), using the already source-backed GHC natural-run
+sort. Script outranks region, which outranks collation. Empty present values
+remain distinct from Nothing. The first u extension and first co keyword are
+used, variants/private-use do not participate, and ties retain the first
+original association-list entry and caller identity.
+
+The original Binary instance is the six-tuple of Text/Maybe/list/tuple fields.
+The port composes the existing independently verified Data.Binary engine.
+All nonzero Maybe tags decode as Just; decoded values re-encode using the
+canonical tag. Signed length boundaries, strict UTF-8 errors, consumption
+counts and complete remaining input follow decodeOrFail. There is no native
+conversion subprocess in production. The test oracle compiles unchanged Lang
+with Parsec 3.1.18.0, Binary 0.8.9.3, text 2.1.2 and GHC 9.12.2; its full frozen
+dependency plan is retained. GHC's actual Eq/Ord/Show derivation dump was read.
+The original langPairs and emptyLang definitions are copied verbatim into the
+oracle, checked against the complete original test source and executed as
+sixteen separate Kotlin parse/round-trip tests.
+
+Independent observations:
+
+- eight original example records, covering all 16 direct original Lang tests;
+- 21,294 parse results/errors and 3,831 IsString fallback/normalization results;
+- 18,225 declaration/field/list/tuple comparisons and selected extrema;
+- 811 complete arbitrary record/render/Show/binary results;
+- 20,358 competing language matches, absent/exact/different field combinations,
+  duplicate/empty collation fields and stable caller-order ties;
+- 8,655 complete binary decode results, every valid-record truncation,
+  trailers, all 256 tags in both Maybe fields, invalid UTF-8 and length limits.
+
+Total: 73,182 observations; SHA-256
+`9b06f20c06e6d4ee19c9af3d62e84d905aa7eb9e558dff1b4a3293aa05ca8434`.
+All 337 source hashes, original test definitions, operation inventories and
+corpus bytes are checked. Expected results never execute Kotlin. One extra
+Kotlin test verifies caller mutation cannot alter the nested record, stable
+lookup identity, and defensive ownership of decoded remaining bytes.
+
+Remaining work still includes general lazy/partial fields and lists, GHC
+compile-time Lift/typed quotation, the rest of unicode-collation and all its
+other original tests, full CommonState/PandocMonad/translation caching/YAML,
+application/Lua runtime and tests, all remaining Pandoc formats and tests,
+and all calibre formats/tests. Full CommonState needs immutable MediaBag
+ownership and the real PandocError catch contract; the existing mutable
+ResourceContext media bag is not treated as equivalent state merely because
+logging fixtures pass.
+
+The preceding 31c01df publication passed exact-SHA CI run 38641381919 with all
+98 steps completed successfully.
+
+Validation: the complete suite passes all 1,275,073 tests in 84 suites with
+zero failures, errors or skips. All 87 source/fixture checks and all 234
+installed CLI checks pass (14 FB2, 66 media, 69 format modifiers, 85 math
+options). The built core JAR preserves all 44 complete notices byte for byte,
+and all 117 regular package files were rechecked against the original release
+archive. The final ownership test was strengthened to mutate a nonempty
+returned byte suffix; the full Lang suite was rerun and passed after that
+test-only change. Production code and independent corpus were unchanged.
+All 337 manifest hashes and the complete corpus were also verified against
+staged Git blobs or the exact staged Pandoc submodule commit before publication.

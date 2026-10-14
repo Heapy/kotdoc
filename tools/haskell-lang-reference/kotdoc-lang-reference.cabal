@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-lang-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-2-Clause
+executable lang-reference
+  main-is: LangReference.hs
+  hs-source-dirs: ., ../../vendor/unicode-collation-0.1.3.7/src
+  other-modules: Text.Collate.Lang, OriginalLangExamples
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m -ddump-deriv -ddump-to-file
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, text ==2.1.2,
+                 bytestring ==0.12.2.0, vector, parsec ==3.1.18.0,
+                 binary ==0.8.9.3, template-haskell, th-lift-instances
