@@ -4448,3 +4448,78 @@ All 234 installed-CLI comparisons also pass (14 FB2, 66 media, 69 extension and
 staged Git bytes and pinned submodule commits. Original extracted whitespace is
 retained. The repository remains public; exact-SHA CI checks the full suite
 after publication.
+
+
+## Future and deferred parser computations
+
+Future translates the complete Text.Pandoc.Parsing.Future module: the constructor
+and runDelayed accessor, runF, askF, asksF and returnF, plus derived Functor,
+Applicative and Monad operations and the source Semigroup/Monoid instances.
+Both sides of bind and every applicative operand receive the same final state.
+Reusing an action with different final states does not cache its environment.
+ReturnF's outer Monad uses only return, represented by a pure dictionary callback.
+Maybe, list, Identity, IO and Proxy dictionaries are compared natively, including
+construction without demanding the future or its value.
+
+Deferred arguments/results carry Haskell's demand semantics across the Kotlin
+callback boundary. map, flatMap, apply and liftA2 callbacks can ignore their
+inputs, including failed actions or undefined fields. Value adapters deliberately
+demand their argument before invoking an ordinary Kotlin callback. then, before,
+replace and left/right biased semigroups preserve their ignored operands.
+Monoid dictionaries include lists, Sum, Product and Maybe Sum. The public type
+remains generic in state and result; it is not a closed evaluator for the test
+program grammar. Consumers supply their actual state/datatype functions.
+
+Deferred evaluates compositional nodes through an explicit work stack. Cells
+share successful values, nullable results and exceptions, and release evaluated
+closures. Per-cell locks coordinate shared demand; a focused test has 32 consumers
+on eight threads and verifies a single evaluation. A self-demanding shared thunk
+produces the native <<loop>> failure rather than growing the work stack forever.
+This is not a port of the complete GHC runtime, its scheduler or asynchronous
+exception machinery. Callbacks should compose Deferred values rather than
+recursively forcing them on the host stack.
+
+The independent tools/haskell-future-reference compiles the unchanged Pandoc
+Future module and the complete local mtl 2.3.1/transformers 0.6.1.2 releases.
+No Future/Reader implementation is reconstructed in the oracle. Original release
+bytes and notices are retained, with a frozen Cabal project. Its test datatype
+and function dictionaries retain lazy fields and list spines. Initial comparison
+failures exposed prematurely strict numeric payloads and list indexing in the
+Kotlin transport; the corrected adapter retains every original regression.
+
+The 13,463 native observations cover constructor/accessor and all exports,
+all operator families, partial inputs, ignored failures, Monad return shapes,
+shared success/failure demand, nullable results, shared cycles, finite projections
+of an infinite list, signed Int64 overflow, seeded nested compositions and chains
+through 100,000 operations. Every one of the 266 accepted upstream Native
+documents and metadata maps is transported through the generic reader; an action
+is also reused with changing final metadata states. These are Future observations,
+not claims of completion for the full format reader suites.
+Case digest:
+`736de33769fd5180f292cc09a4e2e15a2a45482ec5d4267601542cc57391a11b`.
+The importer verifies all 344 source/input/adapter/license hashes, complete
+upstream document provenance and the independent corpus digest.
+
+Reproduce with cabal build all --project-dir=tools/haskell-future-reference
+--builddir=/tmp/kotdoc-future-build, then run
+python3 tools/import-future-fixtures.py --oracle PATH.
+CI checks the corpus and runs FutureTest. There is no dedicated Future unit suite
+in the pinned upstream Tests tree; the complete Markdown/RST and other consumer
+suites remain pending. The full 31-field ParserState still requires typed TeX
+Macro/Tok/ArgSpec and LogMessage dependencies and its capability implementations.
+No placeholders for those types are introduced here. Complete Pandoc and all
+calibre MOBI/additional-format implementation and tests remain within the
+unchanged full objective. This milestone registers no new CLI format.
+
+
+Local validation: all 799,653 Kotlin tests pass across 76 suites, with zero
+failures, errors or skips. All 13,463 new native observations and the shared-demand
+host test pass. All 79 source/fixture checks pass. The JAR contains Future,
+Deferred and all 40 retained licenses, including both new original Reader
+license copies. The two complete dependency releases retain original bytes and
+whitespace through scoped Git attributes.
+
+All 234 installed-CLI comparisons pass (14 FB2, 66 media, 69 extension and
+85 math cases). All 344 new source/input hashes and the corpus match staged Git
+bytes and pinned submodule commits. The repository remains public. Exact-SHA CI
+checks the complete source, Kotlin and installed-CLI suites after publication.

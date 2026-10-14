@@ -1,0 +1,4 @@
+packages: ., ../../vendor/mtl-future-2.3.1, ../../vendor/transformers-future-0.6.1.2
+optimization: 2
+constraints: aeson ==2.2.3.0
+index-state: 2026-10-13T00:00:00Z

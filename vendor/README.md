@@ -131,3 +131,14 @@ pending. `binary-re-0.8.9.3/` and `bytestring-re-0.12.2.0/` retain only the unch
 source files needed to establish RE Binary/Show/Read behavior, with licenses and
 archive provenance. Their full APIs/tests have not been ported. The independent
 syntax fixture checker hashes these sources and every original Skylighting XML.
+
+
+Future's Reader dependencies retain the complete original mtl 2.3.1 and
+transformers 0.6.1.2 Hackage releases in mtl-future-2.3.1 and
+transformers-future-0.6.1.2. Sources came from
+https://hackage-content.haskell.org/package/mtl-2.3.1/mtl-2.3.1.tar.gz and
+https://hackage-content.haskell.org/package/transformers-0.6.1.2/transformers-0.6.1.2.tar.gz.
+The independent Future oracle builds these local packages and compiles the
+unchanged pinned Pandoc Future module. All release file hashes are retained in
+parsing/future.jsonl.gz; notices are copied byte-for-byte into licenses and the
+core JAR. Neither Haskell nor these packages are production dependencies.
