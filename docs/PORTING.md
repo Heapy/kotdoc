@@ -3654,3 +3654,78 @@ All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
 85 math). All 316 source/input/adapter/table hashes in the two new corpora match
 staged Git blobs or the pinned Pandoc submodule. The identical highlighting case
 digest is reproduced after removing an extra extraction EOF separator.
+
+## Writer and nested model Show contracts
+
+WriterOptions.haskellShow now renders all 39 original record selectors
+in declaration order, with derived-record precedence and its original syntax-map
+representation. toString delegates to this source display. MathMethod,
+HighlightMethod, Extension and Extensions expose source constructor display with
+application precedence, original constructor ordering and exact set notation.
+These methods do not add a WriterOptions JSON or Read instance absent upstream.
+
+TemplateShow<A> accepts an explicit target showsPrec callback, preserving the
+target's own constructor precedence. It covers all eight Template constructors,
+Variable, all 14 Pipe constructors, Alignment/Border, Context and all five Val
+constructors, all 16 public Doc constructors, Attr/Attributed, Font and all six
+StyleReq constructors. It retains cached widths, empty nodes, nested maps,
+attribute/link/font distinctions and constructor syntax instead of flattening
+documents to rendered text. Text and CharacterString targets use the original
+GHC string escaping and distinct Text/Char handling. Iterative tasks avoid JVM
+stack exhaustion in nested templates, documents and values.
+
+Source FilePath is a Haskell Char sequence, not Text. The writer record's
+referenceDoc and epubFonts therefore now retain immutable CharacterString values;
+ordinary JVM paths enter through CharacterStringChars.fromString. This fixes an
+existing representation loss: adjacent surrogate Chars remain two Chars rather
+than becoming one supplementary scalar. copy and defensive list/array ownership
+preserve those sequences unchanged. Text-valued options separately keep original
+Data.Text scalar replacement behavior.
+
+The frozen tools/haskell-model-show-reference project compiles unchanged pinned
+doctemplates, doclayout, Skylighting and dependencies. Its Pandoc record/enum
+models retain verbatim source declarations, deriving clauses and the original
+WriterOptions Default body; the importer checks every extraction and all 39
+production output selectors against pinned Pandoc. The test adapter supplies an
+explicit empty syntax map in ordinary field cases and the original XML-loaded
+195-model map in its complete default-map observation. It does not substitute
+that adapter map for production defaults, which remain independently covered by
+the actual Pandoc writer-options corpus. All expected display comes from native
+GHC deriving, never Kotlin or a second hand-written display implementation.
+
+The corpus contains 3,440 observations: 879 complete writer records, 243 math,
+294 extension, 45 extension-set, 99 highlighting, 248 font, 252 style, 452 Doc,
+63 generic integer Doc, 63 CharacterString Doc, 63 Text option code-point and
+63 FilePath code-point displays, 336 pipe, 72 border, 27 variable, 134 template,
+98 value and nine context displays. It includes every writer field, all 90
+built-in extensions, all eight themes, signed Int64 limits, original constructor
+precedence boundaries, escaping/Unicode and every public document/template
+constructor. All 22 original template goldens and nine original successful unit
+cases contribute native displays of their compiled trees. Every one of the 195
+original syntax definitions is also observed inside a complete writer record,
+followed by the full default syntax map. The case digest is
+`51ecd6483121da65a925441ba1783b2e77ac98aa256b84942b32e1f6d85c28db`.
+CI verifies all 467 source/input/adapter/license hashes and the complete corpus.
+
+Two further Kotlin tests prove target callback precedence, 10,000-level nested
+models, exact FilePath Char distinction and immutable record-copy ownership.
+All 3,442 new tests and all 916 prior writer-option tests pass.
+
+Reproduce with `cabal build model-show-reference
+--project-dir=tools/haskell-model-show-reference
+--builddir=/tmp/kotdoc-model-show-build`, then
+`python3 tools/import-model-show-fixtures.py --oracle PATH`.
+CI runs `python3 tools/import-model-show-fixtures.py --check-source` and all
+Kotlin comparisons.
+
+WriterOptions Data/Typeable/Generic behavior, other remaining model Read/Data/
+Generic/ordering contracts, all remaining Pandoc readers/writers/application/
+Lua/CLI and all calibre MOBI/additional formats/tests remain in the full original
+objective. Implementing these display contracts does not complete that port.
+
+Local validation: all 560,854 Kotlin tests pass across 66 suites, with zero
+failures, errors or skips. All 69 source/fixture checks pass.
+All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
+85 math). The core JAR contains the new display classes and all 36 retained
+license files. All 467 native source/input hashes match staged Git blobs or
+the pinned Pandoc submodule.

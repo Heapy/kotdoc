@@ -1,6 +1,7 @@
 package io.heapy.kotdoc.options
 
 import io.heapy.kotdoc.ast.*
+import io.heapy.kotdoc.layout.CharacterStringChars
 import io.heapy.kotdoc.formats.*
 import io.heapy.kotdoc.highlighting.*
 import io.heapy.kotdoc.templates.*
@@ -52,8 +53,8 @@ class WriterOptionsTest {
             mathMethod=p["html_math_method"]?.let(MathMethod::fromJson) ?: base.mathMethod,
             highlightMethod=p["highlight_method"]?.let(HighlightMethod::fromJson) ?: base.highlightMethod,
             numberOffset=p["number_offset"]?.jsonArray?.map { it.s().toLong() } ?: base.numberOffset,
-            epubFonts=p["epub_fonts"]?.jsonArray?.map { it.s() } ?: base.epubFonts,
-            epubMetadata=p["epub_metadata"]?.s(),referenceDoc=p["reference_doc"]?.s(),slideLevel=p["slide_level"]?.s()?.toLong(),
+            epubFonts=p["epub_fonts"]?.jsonArray?.map { CharacterStringChars.fromString(it.s()) } ?: base.epubFonts,
+            epubMetadata=p["epub_metadata"]?.s(),referenceDoc=p["reference_doc"]?.s()?.let(CharacterStringChars::fromString),slideLevel=p["slide_level"]?.s()?.toLong(),
             chunkTemplate=p["chunk_template"]?.let(PathTemplate::fromJson) ?: base.chunkTemplate,
             extensions=p["extensions"]?.let { if(it is JsonArray) Extensions.from(it.map { Extension.read(it.s()) }) else Extensions.Empty } ?: base.extensions,
             variables=p["variables"]?.let(values::contextFromJson) ?: base.variables,
@@ -92,11 +93,11 @@ class WriterOptionsTest {
         put("table_caption_position",o.tableCaptionPosition.toJson())
         put("html_math_method",o.mathMethod.toJson());put("highlight_method",o.highlightMethod.toJson())
         put("epub_metadata",o.epubMetadata?.let(::JsonPrimitive) ?: JsonNull)
-        put("reference_doc",o.referenceDoc?.let(::JsonPrimitive) ?: JsonNull)
+        put("reference_doc",o.referenceDoc?.let { JsonPrimitive(CharacterStringChars.build(it)) } ?: JsonNull)
         put("slide_level",o.slideLevel?.let { JsonPrimitive(it.toString()) } ?: JsonNull)
         put("chunk_template",o.chunkTemplate.toJson());put("variables",values.toJson(o.variables))
         put("template",if(o.template==null) JsonNull else JsonPrimitive(true))
-        list("epub_fonts",o.epubFonts);list("number_offset",o.numberOffset.map(Long::toString));list("extensions",o.extensions.sortedNames())
+        list("epub_fonts",o.epubFonts.map(CharacterStringChars::build));list("number_offset",o.numberOffset.map(Long::toString));list("extensions",o.extensions.sortedNames())
     }
     private fun observe(c: JsonObject): JsonElement {
         val o=options(c.getValue("options").jsonObject)
@@ -114,7 +115,7 @@ class WriterOptionsTest {
         rows.mapIndexed { index,row ->DynamicTest.dynamicTest("$index writer options") { val c=Json.parseToJsonElement(row).jsonObject;assertEquals(c.getValue("expected"),observe(c),"case $index: $row") } }
     }
     @Test fun copyPreservesTypedPayloadsAndOwnership() {
-        val offsets=mutableListOf<Long>(1,2,3);val fonts=mutableListOf("x.ttf")
+        val offsets=mutableListOf<Long>(1,2,3);val fonts=mutableListOf(CharacterStringChars.fromString("x.ttf"))
         val map=mutableMapOf("C++" to Syntaxes.defaultSyntaxMap.getValue("C++"))
         val compiled=assertIs<CompiledTemplate.Success<String>>(TemplateCompiler(values).compile("x.tpl","\$body\$")).template
         val context=io.heapy.kotdoc.templates.Context(mapOf("body" to Val.BoolVal(true)))
@@ -123,7 +124,7 @@ class WriterOptionsTest {
         val copied=original.copy(columns=Long.MIN_VALUE,numberSections=true)
         offsets.clear();fonts.clear();map.clear()
         assertSame(compiled,copied.template);assertSame(context,copied.variables)
-        assertEquals(listOf<Long>(1,2,3),copied.numberOffset);assertEquals(listOf("x.ttf"),copied.epubFonts);assertEquals(1,copied.syntaxMap.size)
+        assertEquals(listOf<Long>(1,2,3),copied.numberOffset);assertEquals(listOf(CharacterStringChars.fromString("x.ttf")),copied.epubFonts);assertEquals(1,copied.syntaxMap.size)
         assertEquals(Long.MAX_VALUE,original.columns);assertEquals(Long.MIN_VALUE,copied.columns);assertTrue(copied.numberSections);assertFalse(original.numberSections)
         assertTrue(copied.isEnabled(ExtensionName.Strikeout))
         assertFailsWith<UnsupportedOperationException> { (copied.numberOffset as MutableList).clear() }

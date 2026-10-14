@@ -1,0 +1,30 @@
+cabal-version: 3.0
+name: kotdoc-model-show-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+
+common original-modules
+  hs-source-dirs: ../../vendor/skylighting-core-0.15/src, ../../vendor/utf8-string-1.0.2,
+                 ../../vendor/doctemplates-0.11.1/src, ../../vendor/doclayout-0.6/src,
+                 ../../vendor/parsec-3.1.18.0/src, ../../vendor/filepath-1.5.4.0
+  include-dirs: ../../vendor/doclayout-0.6/src/Text, ../../vendor/filepath-1.5.4.0/System/FilePath
+  other-modules: Skylighting.Core, Skylighting.Types, Skylighting.Regex, Skylighting.Styles,
+                 Skylighting.Parser, Skylighting.Loader, Skylighting.Tokenizer, Regex.KDE,
+                 Regex.KDE.Regex, Regex.KDE.Compile, Regex.KDE.Match, Data.ByteString.UTF8,
+                 Codec.Binary.UTF8.Generic, Codec.Binary.UTF8.String, Text.DocTemplates, Text.DocTemplates.Internal, Text.DocTemplates.Parser,
+                 Text.DocLayout, Text.DocLayout.HasChars, Text.DocLayout.Attributed,
+                 Text.DocLayout.ANSIFont, Text.Parsec, Text.Parsec.Char,
+                 Text.Parsec.Combinator, Text.Parsec.Error, Text.Parsec.Pos, Text.Parsec.Prim,
+                 System.FilePath, System.FilePath.Posix, System.FilePath.Windows
+  default-language: Haskell2010
+  build-depends: base >=4.21 && <4.22, text, containers, emojis ==0.1.5,
+                 mtl, safe, aeson ==2.2.3.0, bytestring, vector,
+                 text-conversions, filepath, parsec, scientific, binary, attoparsec,
+                 base64-bytestring, colour, case-insensitive, directory, xml-conduit, data-default, transformers
+
+executable model-show-reference
+  import: original-modules
+  main-is: ModelShowReference.hs
+  hs-source-dirs: .
+  other-modules: PandocOptionsModels, TemplateAdapter, SyntaxAdapter

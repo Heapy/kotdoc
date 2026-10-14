@@ -6,11 +6,12 @@ import io.heapy.kotdoc.highlighting.SyntaxMap
 import io.heapy.kotdoc.highlighting.Syntaxes
 import io.heapy.kotdoc.highlighting.syntaxMap as snapshotSyntaxMap
 import io.heapy.kotdoc.structure.PathTemplate
+import io.heapy.kotdoc.layout.CharacterString
 import io.heapy.kotdoc.templates.Context
 import io.heapy.kotdoc.templates.Template
 import java.util.Collections
 
-/** Complete library writer options, preserving compiled templates and contexts. */
+/** Complete library options; FilePath fields preserve Haskell Char sequences. */
 class WriterOptions(
     val template: Template<String>? = null,
     val variables: Context<String> = Context(),
@@ -39,12 +40,12 @@ class WriterOptions(
     val listTables: Boolean = false,
     val epubSubdirectory: String = "EPUB",
     val epubMetadata: String? = null,
-    epubFonts: List<String> = emptyList(),
+    epubFonts: List<CharacterString> = emptyList(),
     val epubTitlePage: Boolean = true,
     val splitLevel: Long = 1,
     val chunkTemplate: PathTemplate = PathTemplate("%s-%i.html"),
     val tocDepth: Long = 3,
-    val referenceDoc: String? = null,
+    val referenceDoc: CharacterString? = null,
     val referenceLocation: ReferenceLocation = ReferenceLocation.EndOfDocument,
     val figureCaptionPosition: CaptionPosition = CaptionPosition.CaptionBelow,
     val tableCaptionPosition: CaptionPosition = CaptionPosition.CaptionAbove,
@@ -53,8 +54,11 @@ class WriterOptions(
     val linkImages: Boolean = false,
  ) : HasSyntaxExtensions {
     val numberOffset: List<Long> = Collections.unmodifiableList(numberOffset.toList())
-    val epubFonts: List<String> = Collections.unmodifiableList(epubFonts.toList())
+    val epubFonts: List<CharacterString> = Collections.unmodifiableList(epubFonts.toList())
     val syntaxMap: SyntaxMap = snapshotSyntaxMap(syntaxMap)
+
+    fun haskellShow(precedence: Int = 0): String = writerOptionsShow(this, precedence)
+    override fun toString(): String = haskellShow()
 
     /** Source record updates preserve every unspecified field. */
     fun copy(
@@ -85,12 +89,12 @@ class WriterOptions(
         listTables: Boolean = this.listTables,
         epubSubdirectory: String = this.epubSubdirectory,
         epubMetadata: String? = this.epubMetadata,
-        epubFonts: List<String> = this.epubFonts,
+        epubFonts: List<CharacterString> = this.epubFonts,
         epubTitlePage: Boolean = this.epubTitlePage,
         splitLevel: Long = this.splitLevel,
         chunkTemplate: PathTemplate = this.chunkTemplate,
         tocDepth: Long = this.tocDepth,
-        referenceDoc: String? = this.referenceDoc,
+        referenceDoc: CharacterString? = this.referenceDoc,
         referenceLocation: ReferenceLocation = this.referenceLocation,
         figureCaptionPosition: CaptionPosition = this.figureCaptionPosition,
         tableCaptionPosition: CaptionPosition = this.tableCaptionPosition,
