@@ -1,5 +1,7 @@
 // Text.Pandoc.Sources, Pandoc 3.12.1.
 // Copyright (C) 2021-2024 John MacFarlane; GPL-2.0-or-later.
+// Text.concat demand rules: (c) 2008-2012 Bryan O'Sullivan, Duncan Coutts,
+// Tom Harper; (c) 2021 Andrew Lelechenko. BSD-2-Clause, licenses/text-BSD-2-Clause.txt.
 package io.heapy.kotdoc.parsing
 
 import io.heapy.kotdoc.formats.HaskellString
@@ -172,9 +174,16 @@ class Sources(val unSources: Deferred<DeferredChain<SourceChunk>>) : CharacterSt
         while (chain is DeferredChain.Cons) { result.add(chain.head.value()); chain = chain.tail.value() }
         return result
     }
-    fun sourcesToText(): String = buildString {
-        var chain = unSources.value()
-        while (chain is DeferredChain.Cons) { append(chain.head.value().text); chain = chain.tail.value() }
+    fun sourcesToText(): String {
+        val first = unSources.value()
+        if (first === DeferredChain.Nil) return ""
+        first as DeferredChain.Cons
+        // Text.mconcat inspects the singleton-list pattern before reading Text.
+        if (first.tail.value() === DeferredChain.Nil) return first.head.value().text
+        return buildString {
+            var chain: DeferredChain<SourceChunk> = first
+            while (chain is DeferredChain.Cons) { append(chain.head.value().text); chain = chain.tail.value() }
+        }
     }
     fun initialSourceName(): String = when (val chain = unSources.value()) {
         DeferredChain.Nil -> ""

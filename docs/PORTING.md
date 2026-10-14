@@ -4626,3 +4626,100 @@ All 1,252 new source/input hashes and the compressed corpus match staged Git byt
 and pinned submodule commits. Existing oracle folders and expectations remain
 unchanged. The repository remains public; exact-SHA CI checks the full source,
 Kotlin and installed-CLI suites after publication.
+
+
+## TeX token and macro data
+
+TeX.kt translates every constructor in the complete Text.Pandoc.TeX module:
+TokType (CtrlSeq, Spaces, Newline, Symbol, Word, Comment, Esc1, Esc2, Arg and
+DeferredArg), Tok, ExpansionPoint, MacroScope, Macro and all nine ArgSpec forms
+(ArgNum, Pattern, BoolArg, DelimArg, VerbArg, EmbellishArg, ProcessedArg, BodyArg
+and VerbBodyArg). SourcePos is reexported as a Kotlin typealias. Every original
+field retains its type, order and signed Int64 number semantics. Defaults keep
+Nothing distinct from Just []; processor order, embellishment pairs and
+replacement token order are preserved. These are real typed values for the
+pending full ParserState's Macro map, not Any/placeholders or a test-program AST.
+
+Tok and TokType implement derived Eq/Ord in original constructor/field order,
+including all seven Eq/Ord relations. Constructor differences and earlier token
+fields short-circuit undefined later fields. Text order is Unicode scalar order,
+not Java UTF-16 code-unit order. There is no identity shortcut that would allow
+undefined equal fields to escape demand. Macro and ArgSpec derive Show only;
+no structural Eq/Ord instance for them is introduced. Kotlin hash methods for
+Tok/TokType maintain their ordinary host equality contract.
+
+All constructor fields, token/argument/processor/embellishment list spines and
+Maybe payloads can remain deferred independently. Convenience finite constructors
+snapshot caller lists. TeXShow supplies an iterative, lazy showsPrec stream,
+full Show output and scalar-counted prefixes. Constructor applications,
+negative-number precedence, quoted Text, Bool, lists, tuples and Maybe syntax
+match original derived Show. SourcePos retains its original unescaped source-name
+Show behavior. Prefixes can stop before undefined fields/list elements, or read
+finite projections of infinite ProcessedArg/token-list values. Fully rendering
+infinite values is not represented as a finite operation.
+
+The original ToSources [Tok] instance groups consecutive source names, retains
+each group's first position and concatenates its token Text exactly. Repeated
+names separated by another source remain separate groups; empty text groups,
+CR and LF are retained. Token types are ignored. Group splitting, tuple fields
+and tails are deferred, so reading the first name can ignore later tokens and
+text, and reading singleton text can ignore its position. Shared split results
+avoid repeated grouping. Deep groups and Show values use iterative evaluation.
+
+Native partial-field checks exposed an existing sourcesToText demand-order bug:
+Text.mconcat is Text.concat, whose []/[t] pattern inspects the list tail before
+reading the first Text. With one TeX group this requires finding its boundary
+before reading token text. The production Sources helper now retains that
+singleton lookahead; the TeX group Text helper follows the same rule. Original
+cases remain unchanged, and direct group-text, plain Sources and exception-priority
+regressions were added to the new corpus. The complete Text 2.1.2 source release
+(119 files, including its original tests) is retained verbatim for this exact
+native dependency behavior. Its LICENSE matches the existing Text notice.
+This is not a claim of completion for the entire Text library and test suite.
+
+The frozen tools/haskell-tex-reference compiles unchanged TeX.hs and Sources.hs
+from pinned Pandoc 3.12.1 with original Text 2.1.2/Parsec 3.1.18.0 and GHC 9.12.2.
+No module is shadowed or reconstructed to generate expected behavior. The 21,326
+native observations cover constructor ordinals, every Eq/Ord relation, all Show
+constructors and precedence boundaries, every optional/list/processor form,
+Unicode ordering, control/numeric escapes, surrogate packing, Int64 boundaries,
+source grouping, retained empty groups and CR/LF, ignored/required fields,
+scalar-counted Show prefixes, infinite projections, and deep Show/group operations
+through 100,000 nodes/tokens. Five original TeX documents are transported as
+Text fields and ToSources inputs; this is not their reader-tokenization coverage.
+One host check verifies caller snapshots, typed field access and hash contracts.
+
+Case digest:
+`f2321797c8a99b7401df92ed1b6f62c760f6cf36c51e9e6a39695e80a895007e`.
+The importer verifies 189 source/input/adapter/license hashes, all document
+provenance, operation inventory and case digest. Reproduce using
+cabal build --project-dir=tools/haskell-tex-reference --builddir=/tmp/kotdoc-tex-build,
+then python3 tools/import-tex-fixtures.py --oracle PATH. CI checks the retained
+corpus without requiring a Haskell runtime.
+
+There is no dedicated TeX data-module unit suite in the pinned Tests tree. The
+complete LaTeX/ConTeXt consumer suites, tokenization, macro expansion, xparse
+argument grabbing/processing and HasMacros capabilities remain pending. Full
+ParserState still needs Logging/LogMessage and its other concrete capabilities.
+General raw/lazy SourcePos name and Parsec reply/state boundaries retain their
+previous pending status. No CLI format is registered by this data-module change.
+Complete Pandoc and all its tests, followed by calibre MOBI and additional formats
+missing from Pandoc and all their tests, remain the unchanged goal. All calibre
+implementation remains unstarted.
+
+
+Local validation: all 975,276 tests pass across 78 suites, with zero failures,
+errors or skips. All 21,326 native TeX/Sources observations and the host snapshot/
+hash check pass, including both initially failing demand-order regressions. The
+existing 154,295 Sources expectations remain unchanged and pass after the shared
+sourcesToText correction. All 81 source/fixture checks and all 234 installed-CLI
+comparisons pass (14 FB2, 66 media, 69 extensions, 85 math cases). The final JAR
+contains all TeX classes and all 40 original license files verbatim.
+
+All 189 new source/input hashes, the compressed corpus and all 119 complete Text
+release files match staged Git bytes and the pinned submodule commit. The older
+native oracle folders and expectations remain unchanged. Original release bytes
+and whitespace are retained by scoped attributes. The preceding Sources head
+7f09e63832c3b5ebb9cb82e2be3b23c617ad80f4 passed all 92 exact-SHA CI steps. This
+TeX milestone is also published for exact-SHA full-suite validation. The full
+port remains in progress.

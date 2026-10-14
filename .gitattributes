@@ -73,3 +73,5 @@ tools/haskell-writer-shared-reference/SourceWriterShared.hs whitespace=-blank-at
 tools/haskell-list-parsing-reference/SourceMarker.hs whitespace=-blank-at-eof
 vendor/mtl-future-2.3.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/transformers-future-0.6.1.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+
+vendor/text-2.1.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol

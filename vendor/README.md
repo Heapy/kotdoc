@@ -142,3 +142,12 @@ The independent Future oracle builds these local packages and compiles the
 unchanged pinned Pandoc Future module. All release file hashes are retained in
 parsing/future.jsonl.gz; notices are copied byte-for-byte into licenses and the
 core JAR. Neither Haskell nor these packages are production dependencies.
+
+
+Text 2.1.2: complete source release retained from
+https://hackage.haskell.org/package/text-2.1.2/text-2.1.2.tar.gz.
+The TeX oracle uses this exact GHC-provided version. Its Monoid/concat singleton
+lookahead explains a demand-order regression in token grouping. All 119 release
+files retain original bytes, including tests and notices. LICENSE matches the
+already retained licenses/text-BSD-2-Clause.txt byte for byte. This source retention
+is not a claim of completion for the complete Text library and its tests.
