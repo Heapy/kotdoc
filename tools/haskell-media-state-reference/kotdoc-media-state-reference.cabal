@@ -1,0 +1,16 @@
+cabal-version: 3.0
+name: kotdoc-media-state-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable media-state-reference
+  main-is: MediaStateReference.hs
+  hs-source-dirs: ., ../../upstream/pandoc/src
+  other-modules: Text.Pandoc.MediaBag, Text.Pandoc.MIME, Text.Pandoc.URI,
+                 Text.Pandoc.UTF8, Text.Pandoc.Shared
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m -ddump-deriv -ddump-to-file
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, text ==2.1.2,
+                 bytestring ==0.12.2.0, vector, containers ==0.7, filepath ==1.5.4.0,
+                 crypton >=0.30 && <2.1, mime-types >=0.1.1 && <0.2,
+                 network-uri ==2.6.4.2, attoparsec, http-types, base64-bytestring, safe

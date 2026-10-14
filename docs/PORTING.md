@@ -5266,3 +5266,75 @@ returned byte suffix; the full Lang suite was rerun and passed after that
 test-only change. Production code and independent corpus were unchanged.
 All 337 manifest hashes and the complete corpus were also verified against
 staged Git blobs or the exact staged Pandoc submodule commit before publication.
+
+## Immutable MediaBag values, source map trees and payload demand
+
+Added MediaBagValue as the original immutable state model. The existing
+mutable MediaBag API now changes a held value and exposes an O(1) snapshot;
+older snapshots retain their resources and unchanged items. insert/delete/
+lookup, ascending mediaItems/mediaDirectory, left-biased union, concatenation,
+stimes and custom Show use this shared model. Payload arrays are owned; safe
+insertDeferred paths retain a memoized delayed payload, while paths requiring
+SHA-1 demand it during insertion, matching MediaItem's strict path field.
+MediaItem now keeps a raw CharacterString extraction path and original
+Text/raw-path/unsigned-byte Eq/Ord and record Show. String/ByteArray accessors
+remain available for existing callers.
+
+PersistentTextMap ports the actual containers 0.7 insert/insertR/delete/union,
+split/link/glue/min/max views and delta=3, ratio=2 weight balancing needed by
+MediaBag. Updates preserve old tree roots and unchanged branches; snapshotting
+does not scan or clone the collection. Independent tests inspect the complete
+original containers tree, including cached subtree sizes, after each operation,
+with prior roots retained. All 147 operation histories match the original tree
+shapes, rather than merely yielding the same sorted values. The remaining
+containers API/general runtime is not inferred complete from this support port.
+
+The expanded original oracle exposed differences in the previous URI adapter:
+Network.URI.parseURI rejects non-ASCII raw paths, even though Pandoc's separate
+isURI test first escapes non-ASCII Text. MediaBag must therefore sometimes retain
+a Unicode URI-looking name without forcing its payload. Absolute-URI validation
+and path selection now use a source grammar projection, including scheme-only
+and rootless URIs, empty authorities, unbounded numeric ports, percent escapes,
+255-token registered names, IPv6/IPv4/zone identifiers and the pinned source's
+one-hex-digit lowercase IPvFuture form. URI query text is excluded from the
+extension fallback. Leading POSIX drive separators in makeCanonical are also
+retained. Java URI acceptance is not used as the source parser for MediaBag.
+The complete unchanged network-uri 2.6.4.2 release (ten regular files and all
+original tests) and its full license are retained; other network-uri APIs and
+test groups remain pending. Archive SHA-256:
+`9c188973126e893250b881f20e8811dca06c223c23402b06f7a1f2e995797228`.
+
+The new native reference compiles unchanged MediaBag/MIME/URI/UTF8, real
+containers/crypton/network-uri/mime-types libraries and a frozen dependency
+plan. Its Shared shim contains only the exact original makeCanonical definition;
+the projection is checked against the complete pinned source. Original Haskell
+MediaBag tests and the complete Lua mediabag test file remain retained and
+hashed. The original pure path/alias/collision assertions are checked here;
+existing integration fixtures/tests still cover fill/extract. The Lua runtime
+and complete original Lua test execution remain pending.
+
+Independent observations: 2,910 complete bags/MIME-registry results, 1,326
+absolute-URI/known-scheme results, 856 MediaItem Show/value results, 1,500 item
+comparisons, 300 delete and 300 union before/after results, 2,170 payload demand
+or failure results, six arbitrary-size stimes results, and 147 full tree
+histories. Total: 9,515 cases; SHA-256
+`f0dbd7ee0bc71bd66a46afdd773d236025694edd27976d8bf02e91f5e68f8499`.
+All 78 source hashes, original assertion inventory, operation totals and corpus
+integrity are checked. Expectations never use Kotlin. One extra ownership test
+checks saved snapshots, reused caller item identity, delayed evaluation exactly
+once, and isolation from mutation of producer/returned byte arrays.
+
+Remaining work includes general chunked/infinite/partial lazy ByteStrings and
+all their original contracts, generic Data/Typeable machinery, remaining URI
+APIs/tests and containers operations, full PandocError and CommonState/Monad
+state/logging, translation cache/YAML, Lua/application/CLI, all other remaining
+Pandoc formats/tests and all calibre formats/tests. The full objective remains
+active. The preceding ac36698 publication passed exact-SHA CI run 38645363976
+with all 99 steps completed successfully.
+
+Validation: all 1,284,589 tests in 85 suites pass with zero failures, errors or
+skips. All 88 source/fixture checks and 234 installed CLI checks pass (14 FB2,
+66 media, 69 format modifiers, 85 math options). All 45 complete original
+notices remain byte-for-byte in the built JAR. All 78 manifest hashes and the
+complete corpus were checked against staged Git blobs or the exact staged
+Pandoc submodule commit. Existing upstream expectations were not modified.
