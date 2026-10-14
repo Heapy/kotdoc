@@ -1,0 +1,1 @@
+Original GHC 9.12.2 GHC.Internal.Data.OldList.hs, from ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Data/OldList.hs. The active actualSort implementation uses natural runs and four-way reduction. Retained unchanged for aeson-pretty sortBy fidelity.

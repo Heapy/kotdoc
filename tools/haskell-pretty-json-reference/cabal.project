@@ -1,0 +1,7 @@
+packages: ., ../../vendor/aeson-pretty-0.8.11, ../../vendor/scientific-0.3.9.0
+optimization: 2
+index-state: 2026-10-13T00:00:00Z
+package aeson-pretty
+  flags: +lib-only
+package aeson
+  flags: +ordered-keymap

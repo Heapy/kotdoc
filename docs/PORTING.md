@@ -22,6 +22,7 @@ format is implemented explicitly in Kotlin.
 | pandoc-types `Text/Pandoc/Definition.hs` AST constructors | `core/.../ast/Pandoc.kt` | All node variants represented; JSON tests |
 | Definition derived Show/showsPrec | `ast/AstShow.kt` | All node/associated types; 36,970 native observations, 56 original values and 266 documents; deep/lazy boundaries |
 | Definition Eq/Ord dictionaries | `ast/AstComparison.kt` | Complete represented AST/associated types, distinct source operators, 75,470 original observations, all 266 documents and 17 original generators |
+| aeson-pretty defined-value library and numeric formatting dependency | `json/PrettyJson.kt`, `PrettySort.kt`, `ScientificNumber.kt` | All configuration modes, Aeson Text quoting, source natural/fused sorting and Scientific formatting; 21,522 original observations, 266 documents, 1,027 source hashes |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
 | `prop_roundtrip` | `PandocJsonTest.kt` | 500 seeded recursive documents (not identical to upstream QuickCheck generator) |
@@ -4885,5 +4886,102 @@ no dedicated test suite in the release manifest. The actual keyOrder comparator
 considers every unlisted key equal and keeps its initial order, rather than
 performing a fallback lexical comparison. With frozen Aeson ordered-keymap,
 that initial order comes from the original KeyMap. This must be preserved in
-Logging's byte-exact pretty output. The package has not yet been vendored or
-ported, and Logging remains pending.
+Logging's byte-exact pretty output. The complete release and its source dependencies are now retained and the
+defined-value formatting surface is translated below. Logging remains pending.
+
+
+## aeson-pretty and Scientific formatting for Logging
+
+The pinned Pandoc dependency accepts aeson-pretty 0.8.11. Its complete release
+(all seven regular files), Scientific 0.3.9.0 (all eleven regular files, including
+the original tests), and Aeson 2.2.3.0 (all 866 regular files, including its test
+corpus) are retained unchanged in new vendor directories. Archive SHA-256 values
+are recorded in their KOTDOC-PROVENANCE.md files. The original GHC 9.12.2
+OldList.hs and its full notice are retained separately; the existing pinned
+Text 2.1.2 and GHC numeric source trees are also included in the new manifest.
+None of the previously hashed source directories or fixture corpora was changed.
+Scientific and aeson-pretty add two original notices; the core JAR now contains
+43 complete notices, verified byte for byte.
+
+`PrettyValue` represents Aeson Values independently of kotlinx serialization's
+number printing. Numbers retain arbitrary-precision coefficients and signed
+64-bit decimal exponents, including the original stored scale delivered to
+custom callbacks. `ScientificNumber.fromDouble` uses the already translated GHC
+shortest-digit algorithm and Scientific's normalization; both signed zeros
+become Scientific zero. NaN maps to null and infinities to the original strings.
+This adapter is independently checked on 3,019 IEEE bit patterns, including
+subnormals, extrema, signed zeros, infinities, NaNs and the GHC 1e23 boundary.
+
+`PrettyJson` implements the defined-value pretty configuration: Spaces (including
+negative values and the special whitespace-free Spaces 0), Tab, trailing newline,
+arbitrary key comparison, Generic/Scientific/Decimal number modes and custom
+numeric text. Custom output is preserved even when it is not valid JSON. The
+input KeyMap enumeration uses scalar Text order as in the frozen ordered-keymap
+backend; keyOrder gives every unknown key the same rank and uses the first
+occurrence of duplicate requested keys. The GHC natural-run/four-way sort is
+translated explicitly. It retains the trailing empty run from sequences [] and
+the fused merge3/merge4 exhausted-list transitions; these matter for nontransitive
+comparators and cannot be replaced by Java TimSort or nested pair merges.
+
+Aeson.Text quoting uses lower-case four-digit escapes for backspace/formfeed,
+short escapes only for tab/newline/carriage return, and leaves slash, U+2028,
+U+2029 and non-ASCII scalars intact. Scientific formatting includes all three
+FPFormat modes, optional decimal precision, half-even ties, carry propagation,
+trailing-zero normalization, original Int64 arithmetic, and Generic's strict
+1e19 cutoff. Full output and chunk APIs share virtual zero runs. The iterative
+value renderer and iterative kotlinx JsonElement adapter support 100,000 levels
+without JVM call-stack recursion; arrays and objects snapshot input containers.
+
+`tools/haskell-pretty-json-reference` builds the unchanged release libraries
+with GHC 9.12.2, Aeson 2.2.3.0 +ordered-keymap, Scientific 0.3.9.0 and Text 2.1.2.
+Its verbatim projection of the original Scientific Arbitrary instance and both
+integer generators is checked against the complete original test file. The
+importer captures actual original output, never Kotlin-generated expectations:
+
+- 10,079 full formatter results across every mode/precision branch, decimal
+  boundaries, signs, normalization, half-even ties and original generator values;
+- 1,030 decimal-digit observations, including the original million-digit case;
+- 840 original Text-builder prefixes and 20 original String-formatter prefixes
+  at extreme Int64 exponents/precision, retaining source wrapping;
+- 5,889 pretty text and UTF-8 byte results across configuration, stored number
+  scales, the strict cutoff, Unicode/control/surrogate characters and all 266
+  document JSON values in three configurations;
+- 3,019 original fromFloatDigits/Double-JSON observations;
+- 639 sortBy outputs, including always-GT, always-LT and cyclic relations;
+- six original deep-array outputs, through 100,000 levels.
+
+Total: 21,522 observations. The native response digest is
+`a2a897610b15201f2db4244ed61f2840fca5d8b7f138a850029e39d1bcfa230b`.
+The durable corpus losslessly stores native UTF-8 byte vectors as base64,
+with transport digest
+`838554d1d62a16c7a0b1d6017047b6ff7cbe829a9ece2625d006e225d80813b5`.
+The source checker reconstructs every native vector and checks both digests,
+all 1,027 source hashes, original generator projection, operation totals and the
+complete document inventory. Test factories retain raw transport lines and
+parse each case during execution, avoiding retention of millions of numeric
+JSON nodes. CI runs the new --check-source command without native dependencies.
+
+Remaining scope is explicit: this does not port the aeson-pretty command-line
+program, the full Scientific arithmetic/Eq/Ord/Read/Binary/conversion library or
+its complete original test suite, the Aeson parser/general ToJSON/ToEncoding
+contracts, or the general GHC Builder/Text runtime. In particular, original
+strict Text.replicate allocation and error demand and opaque custom Builder
+algebra/buffer boundaries are not equivalent to the chunk projection. A native
+near-Int64 zero-precision allocation was observed to fail with Out of memory;
+that is not treated as a successful output comparison. Prefix tests use original
+branches that produce defined results, plus the separately identified original
+String formatter. The three original formatter values are checked; their outer
+Maybe Show wrappers remain part of the pending full Scientific instance port.
+The document JSON observations prove this Value formatter, not a complete AST
+ToJSON encoder: the existing PandocJson numeric and recursive encoding gaps
+remain open. Full Logging, ParserState, the remaining Pandoc readers/writers,
+application/CLI/Lua tests, and all calibre formats/tests remain pending.
+
+
+Validation for this change: 1,109,239 tests in 81 suites, zero failures/errors/
+skips; all 84 source/fixture commands from CI; all 234 installed CLI comparisons
+(14 FB2, 66 media, 69 format modifiers, 85 math options). All 1,027 new manifest
+source hashes and the compressed corpus were checked directly against staged
+Git blobs, and all 43 core-JAR license notices against their original bytes.
+The preceding AST Eq/Ord publication e5c7c9e passed CI run 38623855923 at that
+exact SHA, with all 95 steps completed successfully.
