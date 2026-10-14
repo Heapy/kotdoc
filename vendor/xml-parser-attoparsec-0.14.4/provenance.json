@@ -1,0 +1,7 @@
+{
+  "package": "attoparsec",
+  "version": "0.14.4",
+  "url": "https://hackage-content.haskell.org/package/attoparsec-0.14.4.tar.gz",
+  "archiveSha256": "3f337fe58624565de12426f607c23e60c7b09c86b4e3adfc827ca188c9979e6c",
+  "contents": "Selected unchanged sources for the XML document/syntax parser; other APIs/tests remain pending."
+}

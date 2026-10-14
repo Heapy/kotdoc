@@ -60,6 +60,8 @@ enum class PartialPaths {
         else -> a + (if (this == Windows) "\\" else "/") + b
     }
     fun fileName(path: String): String = splitName(path).second
+    fun takeExtension(path: String): String = extension(path)
+    fun baseName(path: String): String = fileName(path).let { it.dropLast(extension(it).length) }
     fun addExtension(path: String, extension: String): String {
         if (extension.isEmpty()) return path
         val (drive, tail) = splitDrive(path)

@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 409,971 tests, no skipped tests.
+  roundtrip tests. Current suite: 416,142 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -55,7 +55,9 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Skylighting's complete syntax records and matcher constructors, keyword-list
   resolution and syntax lookup, checked against all 195 original XML models.
   RE metadata has lazy compilation/capture caches and original Show/Read,
-  JSON and Binary behavior. XML syntax loading and tokenization remain pending.
+  JSON and Binary behavior. XML syntax parsing and file/directory loading are
+  checked against 6,168 original parser/loader observations, including all 195
+  XML files. The generated default syntax map and tokenization remain pending.
 - Table-of-contents trees and lists, with original numbering, depth, section IDs,
   hidden sections and title cleanup. Chunk path templates preserve substitution
   order and filename sanitization.

@@ -1,0 +1,7 @@
+{
+  "package": "conduit-extra",
+  "version": "1.3.8",
+  "url": "https://hackage-content.haskell.org/package/conduit-extra-1.3.8.tar.gz",
+  "archiveSha256": "491f3e8e9408f5d10ff8d02bf4d0edb11821e2537e7c22edbd6d64bf91388222",
+  "contents": "Selected unchanged sources for the XML document/syntax parser; other APIs/tests remain pending."
+}

@@ -11,6 +11,10 @@ import io.heapy.kotdoc.parsing.RegexCharacters
 internal object RERead {
     private class NoRead : RuntimeException(null, null, false, false)
     fun read(text: String): RE? = try { Cursor(text).read() } catch (_: NoRead) { null }
+    fun readCharacterLiteral(text: String): Int? = try {
+        val cursor = Cursor(text)
+        cursor.character().also { cursor.spaces(); if (cursor.position != cursor.input.size) cursor.fail() }
+    } catch (_: NoRead) { null }
     private class Cursor(text: String) {
         val input = text.codePoints().toArray()
         var position = 0

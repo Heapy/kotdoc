@@ -112,8 +112,14 @@ sealed class WordSet<A>(words: Iterable<A>, val operations: WordOperations<A>) :
     }
 }
 
-class ContextName(val syntax: String, val context: String) : SyntaxValue<ContextName>() {
+class ContextName private constructor(syntaxThunk: Lazy<String>, contextThunk: Lazy<String>) : SyntaxValue<ContextName>() {
+    constructor(syntax: String, context: String) : this(lazyOf(syntax), lazyOf(context))
+    val syntax: String by syntaxThunk
+    val context: String by contextThunk
     override val fields get() = listOf(syntax, context)
+    companion object {
+        internal fun deferred(syntax: () -> String, context: () -> String) = ContextName(lazy(syntax), lazy(context))
+    }
 }
 class KeywordAttr(val caseSensitive: Boolean, delimiters: Iterable<Int>) : SyntaxValue<KeywordAttr>() {
     val delimiters = syntaxChars(delimiters)

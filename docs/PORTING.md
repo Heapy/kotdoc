@@ -44,6 +44,7 @@ format is implemented explicitly in Kotlin.
 | Skylighting style JSON, built-in themes and `Options.HighlightMethod` | `highlighting/HighlightStyle.kt`, `HighlightStyles.kt`, `options/HighlightMethod.kt` | All four original style JSON tests, 6,168 direct original-Haskell observations and 25 actual Pandoc theme lookups; eight complete original theme tables |
 | KDE finite regex compiler/matcher and Unicode/UTF-8 dependencies | `highlighting/regex/KdeRegex.kt`, `KdeCompiler.kt`, `KdeMatcher.kt`, `parsing/RegexCharacters.kt`, `Utf8String.kt`, `Utf8Text.kt` | All 186 original regex results and 16 original compile-error assertions; 9,777 independent observations including all 3,960 XML RegExprs, every Haskell Char and all byte pairs; deep finite stack checks |
 | Skylighting syntax records, keyword lists, map operations and RE metadata instances | `highlighting/Syntax.kt`, `Syntaxes.kt`, `regex/RE.kt`, `RERead.kt`, `REBinary.kt` | 15,132 independent observations over all 195 original syntax models, every matcher constructor, derived field/constructor order and Show, keyword resolution, lookup, RE Show/Read/JSON/Binary and cached matching; two ownership/deep-stack checks |
+| Skylighting XML syntax parsing and file/directory loading; default Text.XML document parsing dependency | `highlighting/SyntaxParser.kt`, `SyntaxLoader.kt`, `SyntaxUtf8.kt`, `xml/XmlDocument.kt`, `XmlDocumentParser.kt`, `XmlDocumentLexer.kt` | 6,168 independent original observations, all 195 original XML files through document/text/file paths, all matchers/flags, namespaces/entities/diagnostics, chunk boundaries, UTF-8, POSIX/Windows filenames and both directory folds; three source-derived/deep/ownership checks |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
@@ -3153,3 +3154,104 @@ tokenization, remaining formatters and corresponding original Kotlin test ports
 are unfinished; full WriterOptions, remaining Pandoc infrastructure/formats,
 application/Lua/CLI and all calibre MOBI/additional formats/tests remain part of
 the unchanged objective. This milestone does not complete the full port.
+
+## Skylighting XML parser/loader and default Text.XML document parsing
+
+`SyntaxParser.kt` ports Skylighting.Parser's text and file parsing into the full
+Syntax/Context/Rule model. It retains all 18 matchers, raw parent-attribute
+inheritance, source-order child validation, first-context starting state,
+last-wins map construction, keyword defaults/overrides and delimiter changes.
+Decimal columns consume their digit prefix and wrap as the original 64-bit Int;
+leading regex `^` sets column zero and removes exactly one caret. LineContinue
+uses the first literal character or backslash, separately from the other matchers'
+GHC Char Read behavior. Unknown item styles fall back to NormalTok, including
+`dsOther`; the original spelling for OtherTok is `dsOthers`.
+
+IncludeRules preserves the original deferred failure in its context pair. An
+invalid pair raises the source runtime error when its fields are observed, so a
+later parent-rule validation failure can still win without forcing that pair.
+The existing syntax model's Eq/Ord/Show tests remain unchanged and pass. Parsing
+does not eagerly compile regexes or silently resolve keyword lists.
+
+`SyntaxLoader.kt` ports the single-file wrapper and strict/valid directory folds.
+It filters the exact lowercase `.xml` extension and follows the original
+non-directory existence check. Enumeration order is retained; duplicate syntax
+names are overwritten in that order. Keyword resolution happens only after the
+complete map is assembled. Strict loading stops at the first typed parse failure;
+valid loading collects errors and continues. IO, invalid UTF-8 and deferred source
+runtime errors are distinct from typed parse failures. Tests compare directory
+membership with real filesystem enumeration, then replay the native order for
+order-dependent folds, rather than assuming macOS and Linux enumerate alike.
+
+The new XML document API is separate from XML.Light; FB2's existing parser is
+unchanged. It ports default Text.XML.parseText document construction and the
+required Stream.Parse tokenizer/entity behavior. Documents retain prologue and
+epilogue comments/instructions, external DOCTYPE identifiers, qualified names,
+attributes, child elements and merged text/CDATA. Name equality/order ignores
+prefixes and compares namespace/local name; duplicate equal attributes keep the
+last value and last spelling of the key. Unknown entities are collected only
+after structural validation succeeds. Internal entity expansion preserves the
+original first-declaration precedence, cycles, namespace scope and 8,192-byte
+serialized-token limit, including escaping and CDATA markup. Explicit stacks
+handle deep documents, rules and finite entity chains; adjacent text accumulates
+linearly. Returned XML collections own immutable snapshots.
+
+Lexer alternatives reproduce Attoparsec backtracking and labelled failures,
+including malformed attributes, DTD directives, incomplete comments, namespace
+prefixes and character references. Error ranges count Unicode characters, not
+UTF-16 code units. Original Text chunk boundaries matter after backtracking:
+conduit-extra's last-fed-block position behavior is preserved. String input
+models Lazy.Text.pack's UTF-8 chunk allocation; explicit chunk input is also
+available. The original U+FEEF BOM typo is retained, including its empty-input
+failure. Ordinary XML text normalizes CR/CRLF; CDATA and instruction text retain
+raw characters. Syntax file input separately drops the real UTF-8 BOM and all CR
+bytes before strict UTF-8 decoding. ByteString's 32,752-byte input boundaries,
+carried codepoints, invalid-chunk forcing and deferred incomplete-tail exception
+preserve the observed error precedence.
+
+The isolated `tools/haskell-syntax-parser-reference` oracle compiles unchanged
+Skylighting core modules against a frozen original dependency closure. Native
+observations include 870 syntax parses, 3,893 document parses, 1,016 byte-input
+parses, 17 Windows filename cases, 275 document chunk cases, 72 syntax chunk cases,
+20 single-file loads and five directory loads: 6,168 cases total. All 195 original
+syntax XML files are tested through document, syntax-text and syntax-file paths.
+The 232 XML-bearing literals extracted from the original xml-conduit unit source
+are additional document probes; this does not claim to port its cursor, renderer
+or streaming-combinator assertions. The original Skylighting loop syntax input
+is retained independently. Synthetic cases cover every matcher, flags, token
+styles, namespaces, entities, truncations, malformed DTDs, lazy failures and
+UTF-8/chunk boundaries. Kotlin checks complete document observations and exact
+full Syntax Show values; expectations are generated only by the original oracle.
+
+Three further Kotlin tests translate default resolved-XML examples and verify
+10,000 nested rules, 10,000 finite entity includes, large adjacent content,
+filesystem APIs, ownership and immutability. Complete unchanged xml-conduit
+1.10.1.0 and xml-types 0.3.8 releases are retained with original tests/licenses.
+Selected unchanged attoparsec 0.14.4, conduit-extra 1.3.8, text 2.1.3 and bytestring
+0.12.2.0 sources retain archive provenance and licenses. The native GHC dependency
+closure uses its bundled text 2.1.2; the relevant pack/chunk boundaries are also
+verified against that release and original native observations. These sources
+are test/reference dependencies, never production conversion executables.
+All 375 source/input/adapter/license/provenance hashes are checked in CI. Case
+hash: `874cc640e4d7eeb5d8aa61aabcf2dddcf4c8187a0d384d483797b58a9a068491`.
+
+Reproduce with `cabal build syntax-parser-reference
+--project-dir=tools/haskell-syntax-parser-reference
+--builddir=/tmp/kotdoc-syntax-parser-build`, then
+`python3 tools/import-syntax-parser-fixtures.py --oracle PATH`. CI runs
+`python3 tools/import-syntax-parser-fixtures.py --check-source` without Haskell.
+
+The generated defaultSyntaxMap is still pending: upstream's baked Binary syntax
+modules must be compared directly, not replaced with an assumed equivalent
+reparse of the XML inventory. Tokenization, remaining formatters, syntax-model
+Read/Binary/Data and the remaining XML model instances/custom settings,
+rendering/cursors/streaming combinators and corresponding original tests remain
+unfinished. Full WriterOptions, remaining Pandoc infrastructure/formats,
+application/Lua/CLI and all calibre MOBI/additional formats/tests remain in the
+unchanged objective. This milestone does not complete the full port.
+
+Local validation: all 416,142 Kotlin tests pass across 60 suites, with zero
+failures, errors or skips. All 63 source/fixture checks pass. The retained text
+Read, Internal.Encoding, Lazy.Encoding and Lazy.Fusion sources are byte-identical
+to the native closure's text 2.1.2 files; Internal.Lazy differs only in removal
+of its redundant Typeable deriving/import/extension.
