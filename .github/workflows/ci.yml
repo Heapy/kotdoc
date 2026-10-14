@@ -55,6 +55,7 @@ jobs:
       - run: python3 tools/import-future-fixtures.py --check-source
       - run: python3 tools/import-sources-fixtures.py --check-source
       - run: python3 tools/import-tex-fixtures.py --check-source
+      - run: python3 tools/import-ast-show-fixtures.py --check-source
       - run: python3 tools/import-toc-fixtures.py --check-source
       - run: python3 tools/import-emoji-tables.py --check
       - run: python3 tools/import-case-mappings.py --check

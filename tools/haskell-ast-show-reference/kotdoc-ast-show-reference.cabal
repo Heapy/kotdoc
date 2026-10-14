@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-ast-show-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable ast-show-reference
+  main-is: AstShowReference.hs
+  hs-source-dirs: ., ../../upstream/pandoc-types/test
+  other-modules: OriginalExamples, Data.String.QQ
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2,
+                 aeson ==2.2.3.0, text ==2.1.2, containers, bytestring, vector,
+                 template-haskell

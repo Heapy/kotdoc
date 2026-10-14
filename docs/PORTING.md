@@ -20,6 +20,7 @@ format is implemented explicitly in Kotlin.
 | Source | Kotlin | Evidence |
 |---|---|---|
 | pandoc-types `Text/Pandoc/Definition.hs` AST constructors | `core/.../ast/Pandoc.kt` | All node variants represented; JSON tests |
+| Definition derived Show/showsPrec | `ast/AstShow.kt` | All node/associated types; 36,970 native observations, 56 original values and 266 documents; deep/lazy boundaries |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
 | `prop_roundtrip` | `PandocJsonTest.kt` | 500 seeded recursive documents (not identical to upstream QuickCheck generator) |
@@ -4721,5 +4722,80 @@ release files match staged Git bytes and the pinned submodule commit. The older
 native oracle folders and expectations remain unchanged. Original release bytes
 and whitespace are retained by scoped attributes. The preceding Sources head
 7f09e63832c3b5ebb9cb82e2be3b23c617ad80f4 passed all 92 exact-SHA CI steps. This
-TeX milestone is also published for exact-SHA full-suite validation. The full
-port remains in progress.
+TeX milestone 6eb6301d5f0d17df8c98acd25935d8d944ff907a passed all 93
+exact-SHA CI steps: https://github.com/Heapy/kotdoc/actions/runs/38613393759.
+The full port remains in progress.
+
+
+## Definition AST Show/showsPrec
+
+AstShow ports the actual derived Show instances of the pinned pandoc-types
+1.23.1.2 Definition.hs, independently of Native writer layout. Every Inline,
+Block, MetaValue and associated type is represented, including Meta's record,
+Citation's exact record field order, Attr/Target/ListAttributes/ColSpec tuples,
+Format's stored spelling, RowSpan/ColSpan/RowHeadColumns wrappers, optional short
+captions and ascending Unicode Text map keys. Application precedence, signed
+Int64/Double precedence, signed zero, infinities, NaN and original escaping are
+preserved. Explicit tasks render deep nodes without consuming the JVM stack.
+Lists are demanded incrementally through iterators; finite prefixes of infinite
+nodes/lists and partial list elements/tails are checked against original Haskell.
+This does not introduce a full lazy GHC runtime or change the AST's StrictData
+contract, and does not claim general lazy Map-value or raw/lazy Text coverage.
+
+The new frozen tools/haskell-ast-show-reference links unchanged local original
+pandoc-types with GHC 9.12.2 and Text 2.1.2. Its OriginalExamples.hs preserves the
+56 literal upstream example value definitions verbatim; the original QQ module
+is compiled directly. The importer checks the excerpt and hashes the whole
+pinned package, including Arbitrary and all its original tests. Expected Show
+strings come from GHC's original instances, never Kotlin or the Native writer.
+All 266 accepted original Native documents use their independently retained
+JSON inputs; all rejected source files are also retained in the hash inventory.
+These Show observations supplement the existing JSON/reader tests, rather than
+standing in for all original pandoc-types tests.
+
+There are 36,970 observations: 12,763 full Show cases, 7,590 IEEE bit-pattern
+Double cases, 13,872 code-point Text.pack cases (including every surrogate),
+2,000 finite prefixes, 721 partial/infinite projections and 24 deep observations.
+Deep Inline, Block, MetaValue and mixed Note/Plain structures reach 100,000
+nesting steps. All 56 original example values are observed at six precedences.
+
+Case digest:
+`527ea90d3106764270b0181b33bce0eb9ee6c36fa82cf900008ce15fb7ea2649`.
+The importer checks 422 source/input/harness/license hashes, document provenance,
+operation inventory and case digest. Reproduce with the commands in
+tools/haskell-ast-show-reference/README.md; CI checks the retained corpus without
+requiring Haskell. The existing 40 packaged license notices remain sufficient
+and unchanged.
+
+AST source Eq/Ord dictionaries (including Citation's hash-only ordering and
+Double's non-total relations), full Read/property-generator contracts, Logging
+and full ParserState remain pending. No CLI format is registered by this change.
+Complete Pandoc and all its tests, then calibre MOBI and all additional formats
+missing from Pandoc and all their tests, remain the full objective. All calibre
+implementation remains unstarted.
+
+The next Ord implementation has been checked against GHC 9.12.2's actual derived
+instance dump from the unchanged source package. MetaValue, Inline and Block
+provide compare only; Pandoc, Caption, table types and ColWidth provide compare
+and a distinct less-than implementation. ColWidth therefore inherits negated
+less-than defaults for <=/>=, rather than the raw Double operators. The dump
+is a development observation, not a retained or passing Kotlin Ord corpus.
+These differences must be tested through nested ASTs before Logging can rely on
+source comparisons. Citation still has its handwritten hash-only compare.
+
+A native smoke probe also confirms that a NaN ColWidth compares GT with itself,
+while its < and > are false and <=/>= are true. A list of ColSpecs containing
+that width, and a Table containing that list, instead have both < and > true
+and <=/>= false. Two Citations with different content and the same hash have
+Eq false and compare EQ. A Pandoc whose first metadata field compares GT can
+short-circuit its separate < implementation before reaching its block list.
+These observations define required cases for the forthcoming independent AST
+comparison corpus; they are not counted as implemented Kotlin comparisons.
+
+Local validation: all 1,012,246 tests pass in 79 suites, with zero failures,
+errors or skips. All 36,970 new original AST Show observations pass. All 82
+source/fixture checks and all 234 installed CLI comparisons pass (14 FB2, 66
+media, 69 extensions, 85 math). The final JAR contains AstShow and every one of
+the existing 40 license files verbatim. All 422 source/input hashes and the
+compressed corpus were verified against staged Git bytes and pinned submodule
+objects. The old oracle folders and corpora remain unchanged.

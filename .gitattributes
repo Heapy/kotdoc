@@ -75,3 +75,6 @@ vendor/mtl-future-2.3.1/** -text whitespace=-trailing-space,-blank-at-eof,-space
 vendor/transformers-future-0.6.1.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 
 vendor/text-2.1.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# Preserve the verbatim pandoc-types unit-test excerpt.
+tools/haskell-ast-show-reference/OriginalExamples.hs -text whitespace=-trailing-space,-blank-at-eof
