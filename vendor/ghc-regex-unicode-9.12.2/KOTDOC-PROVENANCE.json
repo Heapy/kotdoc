@@ -1,0 +1,14 @@
+{
+  "version": "GHC 9.12.2 / Unicode 16.0.0",
+  "license": "licenses/GHC-base-BSD-3-Clause.txt",
+  "sources": {
+    "SimpleLowerCaseMapping.hs": {
+      "url": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Unicode/Char/UnicodeData/SimpleLowerCaseMapping.hs",
+      "sha256": "e5bec91ed6145a1719329a5b7bbdcc3b4a2aafc16c507188c5eb7a7b23a304d7"
+    },
+    "SimpleUpperCaseMapping.hs": {
+      "url": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Unicode/Char/UnicodeData/SimpleUpperCaseMapping.hs",
+      "sha256": "ff70b3f7760b2261a2527e1b42a7a756ffc22bd285f46d11c0056b0e552ffd3c"
+    }
+  }
+}

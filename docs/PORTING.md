@@ -42,6 +42,7 @@ format is implemented explicitly in Kotlin.
 | `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
 | Skylighting style JSON, built-in themes and `Options.HighlightMethod` | `highlighting/HighlightStyle.kt`, `HighlightStyles.kt`, `options/HighlightMethod.kt` | All four original style JSON tests, 6,168 direct original-Haskell observations and 25 actual Pandoc theme lookups; eight complete original theme tables |
+| KDE finite regex compiler/matcher and Unicode/UTF-8 dependencies | `highlighting/regex/KdeRegex.kt`, `KdeCompiler.kt`, `KdeMatcher.kt`, `parsing/RegexCharacters.kt`, `Utf8String.kt`, `Utf8Text.kt` | All 186 original regex results and 16 original compile-error assertions; 9,777 independent observations including all 3,960 XML RegExprs, every Haskell Char and all byte pairs; deep finite stack checks |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
@@ -2948,6 +2949,104 @@ interfaces, remaining Parsec/FilePath APIs/tests and GHC IO policies are still
 pending. Remaining Pandoc formats/application/Lua/CLI and all calibre MOBI and
 additional formats remain part of the full original objective.
 
-All 385,059 Kotlin tests pass locally with no failures, errors or skips across
+At this milestone all 385,059 Kotlin tests passed locally with no failures, errors or skips across
 57 suites. All 59 source/fixture checks verify; all 234 installed-CLI comparisons
 pass. The complete Pandoc/calibre port remains unfinished.
+
+## KDE regex compilation and matching
+
+The finite Regex.KDE core is translated directly rather than delegating to Java
+regexes. All original constructors are represented: characters/predicates,
+dynamic references, alternation, concatenation, repetition, captures/backreferences,
+anchors and word boundaries, positive/negative forward/backward assertions,
+possessive and lazy nodes and recursive subroutines. Exact Regex Show spelling,
+including the original negative-assertion label and unparenthesized dynamic
+constructor, is retained by an explicit-stack formatter.
+
+Compilation implements the complete original grammar: scoped and inline i/U
+flags, accepted no-op m/s flags and flag removal, branch-reset numbering and its
+highest subsequent group number, atomic groups, lazy/possessive/ungreedy suffixes,
+bounded/open/empty quantifiers and their 65,535 limit, dynamic numbers, both
+backreference syntaxes, octal/hex escapes, Unicode/POSIX classes and their negation,
+quoted class contents, literal initial ]/ranges and malformed-input backtracking.
+Numbers use original signed-Int64 Read wrapping. The parser uses an explicit-stack
+Parsec substrate with backtracking at the original Attoparsec choice/repetition
+boundaries; it does not claim the whole Attoparsec API has been ported. Error
+positions count original UTF-8 bytes minus encoded remaining Text, including
+negative positions possible after lenient decoding expands malformed bytes.
+
+Bounded optional repetition uses lazy right children of the exact original
+MatchConcat/MatchAlt constructors. It unfolds on demand, preserving the publicly
+observable constructor shape, choice priority and capture extraction while
+avoiding eager duplication of both greedy/lazy trees. No extra repeat constructor
+substitutes for the original AST. Signed repeat arithmetic is retained, including wrapped
+negative counts; no smaller artificial repeat limit is substituted.
+
+The matcher uses an explicit work stack, byte offsets/capture lengths and the
+original lexicographic binary choice paths (arbitrary-precision Integer). Ordered
+state sets preserve branch/repetition priority; deduplication retains the best
+path for identical offset/capture states. Assertion/atomic commits, backwards
+UTF-8 movement, case-insensitive capture byte lengths, recursion-at-offset guards,
+zero-progress repetition and left-biased capture-group extraction are retained.
+Both matchRegex and matchRegexWithGroups are observed, including arbitrary ASTs
+and supplied group maps. Match bytes and returned capture maps are isolated from
+caller mutation. The original 2,000-state pruning is retained exactly: a*a{1999}$
+on 1,999 a's succeeds, while lengths 2,000/2,001/3,000 produce the original known
+false negative. This is recorded behavior, not a claim of unrestricted PCRE parity.
+
+GHC 9.12.2's Unicode 16 category/simple-case mapping source tables are retained.
+Production data is generated independently from original UnicodeData.txt:
+4,099 category ranges, 1,460 simple lowercase and 1,477 simple uppercase mappings.
+All 1,114,112 Haskell Chars, including surrogates, are checked against native GHC
+category/lower/upper and fourteen predicate flags. Eighty-nine compiled predicate
+configurations additionally check every Char via full native-result fingerprints.
+No host JVM/ICU Unicode classification substitutes for the pinned GHC predicates.
+
+Strict ByteString UTF-8 (utf8-string 1.0.2) and Text lenient decoding (text 2.1.3)
+are separate implementations. ByteString decoding retains original malformed
+sequence lengths and noncharacter rejection; Text emits one replacement per bad
+byte and accepts valid noncharacters. Both are checked over all 65,536 byte pairs,
+all individual bytes, malformed/truncated triples and random byte strings.
+Original utf8-string release files and the relevant unchanged Text decoder sources
+are retained with licenses/provenance; the rest of those packages' APIs/tests
+remain explicit dependency work.
+
+The frozen native oracle compiles unchanged original KDE/UTF-8 modules. All 186
+literal regex results and 16 compile-error assertions from the unchanged original
+tables must pass before fixture capture. All 3,960 RegExpr elements in all 195
+original XML files are inventoried, with source Parser.hs's leading-^ removal;
+every one compiles natively. Additional captures exercise the XML rule flags,
+2,500 generated/malformed patterns, explicit matcher ASTs/custom capture maps,
+byte-level malformed inputs and deep/long/boundary cases. Ordinary ASTs and group
+maps compare complete exact Show trees. For the 65,535-repeat boundary and the
+largest flat/nested trees, a linear full-preorder structural fingerprint avoids
+quadratic overhead in original String-based Show. It retains every original node
+and field; character predicates are checked separately over all Chars.
+
+The corpus contains 9,777 observations: 7,264 normal and four large-structure
+compilations, 89 all-Char predicate configurations, 272 GHC character batches,
+264 ByteString decoding and 264 Text decoding batches, and 1,620 explicit AST/group
+map cases. One additional Kotlin test exercises 20,000 capture/concatenation
+levels, maximal accepted repeat compilation and byte-result ownership. Together
+this adds 9,778 Kotlin tests. The source manifest checks 321 retained source,
+input, adapter, license, provenance and importer files. No Kotlin output is used
+to generate expected results.
+
+A separate Cabal target compiles and executes the complete unchanged original
+Skylighting test file and core modules. All 4,610 native tests pass, including
+original tokenizer goldens, XML loading, style assertions, no-drop/fuzz properties,
+regex compilation and regressions. This is a native dependency baseline; the
+corresponding XML/tokenizer Kotlin ports are still required. Adding the full
+native target changes provenance only: all 9,777 independent expectation rows
+retain their previous case hash.
+
+Skylighting.Regex.RE's Show/Read, JSON/Binary/Data instances, full syntax types,
+XML parsing/loading/default maps, keyword resolution, tokenizer, formatters and
+their remaining original tests are still pending. Complete WriterOptions/defaults,
+remaining Pandoc formats/application/Lua/CLI and all calibre MOBI/additional formats
+remain part of the original objective; this milestone does not finish the port.
+
+All 394,837 Kotlin tests pass locally with no failures, errors or skips across
+58 suites. All 61 source/fixture checks verify; all 234 installed-CLI comparisons
+pass. The final regex test class also passes all 9,778 cases after its test-only
+warning cleanup. The complete Pandoc/calibre port remains unfinished.

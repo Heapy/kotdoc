@@ -1,0 +1,29 @@
+cabal-version: 3.0
+name: kotdoc-regex-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+common original-regex
+  hs-source-dirs: ., ../../vendor/skylighting-core-0.15/src, ../../vendor/utf8-string-1.0.2
+  other-modules: OriginalRegexTests, Regex.KDE, Regex.KDE.Regex, Regex.KDE.Compile,
+                 Regex.KDE.Match, Data.ByteString.UTF8, Codec.Binary.UTF8.Generic,
+                 Codec.Binary.UTF8.String
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, attoparsec, bytestring,
+                 text, containers, safe, mtl, base64-bytestring, vector
+executable regex-reference
+  import: original-regex
+  main-is: RegexReference.hs
+
+test-suite original-skylighting-tests
+  import: original-regex
+  type: exitcode-stdio-1.0
+  main-is: test-skylighting.hs
+  hs-source-dirs: ../../vendor/skylighting-core-0.15/test
+  other-modules: Skylighting.Core, Skylighting.Types, Skylighting.Regex,
+                 Skylighting.Styles, Skylighting.Parser, Skylighting.Loader,
+                 Skylighting.Tokenizer
+  build-depends: binary, transformers, case-insensitive, colour, directory, filepath,
+                 xml-conduit, tasty, tasty-golden, tasty-hunit, tasty-quickcheck,
+                 QuickCheck, Diff, pretty-show

@@ -39,3 +39,8 @@ core/src/test/resources/templates/files/** -text
 
 # Preserve every built-in template byte, including upstream whitespace.
 core/src/main/resources/io/heapy/kotdoc/pandoc-data/templates/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+# Preserve original regex Unicode/UTF-8 dependency sources.
+vendor/ghc-regex-unicode-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+vendor/text-utf8-2.1.3/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+vendor/utf8-string-1.0.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+licenses/Utf8-string-BSD-3-Clause.txt -text whitespace=cr-at-eol
