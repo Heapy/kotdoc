@@ -23,13 +23,14 @@ data class ExampleNumbers(val nextExample: Long = 1, val examples: Map<String, L
     }
 }
 
-/** Pandoc's Sources character primitives for the Text/String stream instance.
+/** Pandoc's Sources character primitives for all supported character streams.
  * Unlike Parsec.Char, these have no expectation label and show a Char on failure. */
 object PandocTextCharacters {
     fun <U> satisfy(test: (Int) -> Boolean): Parsec<U, Int> = Parsec.primitive { state ->
         val point = state.input.point
         if (point != null && test(point)) {
-            val next = state.copy(input = state.input.tail(), position = state.position.advance(point))
+            val rest = state.input.tail()
+            val next = state.copy(input = rest, position = rest.updateSourcePos(state.position, point))
             ParseReply(true, point, next, true, ParseError(next.position))
         } else ParseReply(false, null, state, false, ParseError(state.position,
             listOf(ParseMessage(MessageKind.SysUnExpect, point?.let(Parsec.Companion::showChar) ?: ""))))

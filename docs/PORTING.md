@@ -4396,10 +4396,10 @@ precheck, anyOrderedListMarker and complete-input eof success.
 PandocTextCharacters retains the original Sources primitives for Text/String
 streams: token failures show a Haskell Char and have no Parsec.Char expectation
 label. Source positions advance by code point, with the original Text/String
-newline and eight-column tab rules. The chunked Sources stream (including its
-four-column tabs and source-file position jumps), ByteString stream instances
-and the rest of Sources remain pending; their eventual integration must use the
-same list algorithms. General lazy/infinite input stream APIs also remain pending.
+newline and eight-column tab rules. The Sources section below adds chunked
+streams, four-column tabs, source-file position jumps and both ByteString
+instances to these same list algorithms. General Parsec lazy reply/state APIs
+and the complete ParserState remain pending.
 
 The frozen tools/haskell-list-parsing-reference compiles Lists.hs and Sources.hs
 directly from pinned Pandoc, plus unchanged safeRead/safeStrRead and the writer
@@ -4523,3 +4523,93 @@ All 234 installed-CLI comparisons pass (14 FB2, 66 media, 69 extension and
 85 math cases). All 344 new source/input hashes and the corpus match staged Git
 bytes and pinned submodule commits. The repository remains public. Exact-SHA CI
 checks the complete source, Kotlin and installed-CLI suites after publication.
+
+
+## Sources, character streams and parser positions
+
+Sources translates the list of (SourcePos, Text) tuples without flattening the
+input or discarding committed empty chunks. SourceChunk tuple fields and
+DeferredChain elements/tails can be demanded independently. uncons skips leading
+empty chunks only when it finds a character, preserves the current tuple's
+stored position and retains its now-empty Text after consuming the last character.
+Text slices share backing storage while tokens are consumed. Sources append and
+mconcat preserve lazy right operands and support finite observations of infinite
+chains; empty is the original empty list, distinct from a singleton empty Text.
+
+ToSources dictionaries cover Text, raw [Char], file/text pairs and identity.
+Raw character arrays distinguish surrogate Chars from supplementary scalars;
+packing to Text applies the retained Text scalar rules. fromString/toSources
+remove CR. File inputs append LF even if already newline-terminated. The actual
+Sources constructor retains CR and all stored positions unchanged. initialSourceName
+reads the first tuple, including an empty Text; sourcesToText ignores positions.
+ensureFinalNewlines examines only the last Text, retains untouched tuple fields,
+returns the original source when sufficiently terminated, and handles empty input
+and nonpositive counts using the original rules. Derived Show/showsPrec, Semigroup
+and Monoid observations are retained.
+
+CharacterStream also supports strict Text, raw [Char], strict ByteString and lazy
+ByteString. Bytes become unsigned Char values, not UTF-8 decoded text. The lazy
+byte constructor removes empty chunks, and consumption normalizes exhausted
+chunks as in ByteString.Lazy.Char8. UpdateSourcePos dictionaries for ordinary
+streams ignore the remaining input and use Parsec's eight-column tabs. Sources
+uses four-column tabs, except the original Sources [] special case. The remaining
+stream's two-tuple pattern is inspected before Text.null; an empty current chunk
+jumps to the next stored position, ignoring the old position/character when not
+needed. Deferred dictionaries retain that demand behavior.
+
+SourceParsers covers satisfy, oneOf, noneOf, anyChar, char, string, newline,
+space, spaces, letter, alphaNum, digit and hexDigit. Failure displays a Char and
+adds no expectation label, except spaces' original white space label. string
+consumes characters incrementally, including source-position jumps and mismatch
+errors. takeWhileP/takeWhile1P follow the original whole-chunk span algorithm,
+return the corresponding consumed/empty status and retain the stop error, even
+on success at EOF. addToSources strips CR, inserts a positioned chunk and stores
+the current parser position on the old first chunk. addToInput retains CR and
+positions; its list/tuple pattern is demanded immediately, while its Text and
+position fields remain deferred. Both preserve user state and parser position.
+
+ParseInput preserves its existing String/index API and additionally carries a
+persistent CharacterStream. The existing PandocTextCharacters/list-marker
+algorithms use the remaining stream's position rule. Original Parsec.Char
+primitives continue to use their original position updater. This change adds no
+new CLI format and does not substitute a reduced ParserState for the complete
+31-field source record.
+
+The frozen tools/haskell-sources-reference compiles the unchanged upstream
+Sources.hs and Parsec 3.1.18.0. Its list integration compiles the unchanged
+Lists.hs with the previously retained two-field test-only ParserState projection;
+that projection is not a full-state implementation. No local Sources module or
+reconstructed conversion function is used as an oracle.
+
+The 154,295 native observations include all exports/instances and derived Show,
+all five stream families, retained empty boundaries, four/eight-column tabs,
+CR/LF, supplementary/surrogate characters, signed Int64 position overflow,
+source names and positions moving backward, predicate failure, incremental
+string mismatch, labels, many/many1, lookAhead, try/choice, EOF, input expansion
+and preserved user state. All 1,114,112 GHC Chars are classified independently,
+with 3,867 interval boundaries also exercised through character parsers. Every
+byte value is exercised in both byte streams. Corpus inputs include 1,177 original
+upstream text documents, observed through toSources, rather than claimed as full
+reader-test coverage. Thirty-one controlled partial/infinite observations cover
+ignored fields, required failures and a 10,000-character infinite prefix.
+Four hundred native list observations cross positioned/empty chunk boundaries.
+Seeded compositions and deep Sources/string/span/ensure operations reach 100,000
+fragments. One host check verifies immutable snapshots and caller-state identity.
+
+Case digest:
+`1b8a7f97e8a8a7e1bbb39e2fade3777898d38dbddc03d58a718869637d8eaf12`.
+The importer checks 1,252 retained source/input/adapter/license hashes, document
+provenance, the complete corpus digest and operation inventory. Reproduce with
+cabal build --project-dir=tools/haskell-sources-reference
+--builddir=/tmp/kotdoc-sources-build, then
+python3 tools/import-sources-fixtures.py --oracle PATH.
+CI checks this corpus without requiring Haskell at runtime.
+
+There is no dedicated Sources suite in the pinned upstream Tests tree. Complete
+consumer suites for Markdown, RST, LaTeX and other readers remain pending, along
+with the full ParserState, typed TeX and Logging dependencies and their capabilities.
+General Parsec lazy reply/state boundaries, arbitrary raw source-name Char lists,
+and the rest of the upstream runtime are not claimed complete by these finite
+observations and controlled partial/infinite checks. Full Pandoc implementation
+and all its tests, followed by calibre MOBI/additional formats and all their tests,
+remain the unchanged objective. All calibre implementation remains unstarted.

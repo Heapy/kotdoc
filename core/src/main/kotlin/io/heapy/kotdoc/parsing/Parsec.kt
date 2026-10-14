@@ -56,9 +56,14 @@ data class ParseError(val position: SourcePos, val messages: List<ParseMessage> 
         return "$position:" + lines.joinToString("") { "\n$it" }
     }
 }
-data class ParseInput(val text: String, val index: Int = 0) {
-    val point: Int? get() = if (index == text.length) null else text.codePointAt(index)
-    fun tail() = copy(index = index + Character.charCount(checkNotNull(point)))
+data class ParseInput(val text: String = "", val index: Int = 0, val stream: CharacterStream? = null) {
+    constructor(stream: CharacterStream) : this(stream = stream, text = "")
+    val point: Int? get() = if (stream != null) stream.uncons()?.token?.value()
+        else if (index == text.length) null else text.codePointAt(index)
+    fun tail(): ParseInput = if (stream != null) ParseInput(checkNotNull(stream.uncons()).tail)
+        else copy(index = index + Character.charCount(checkNotNull(point)))
+    fun updateSourcePos(position: SourcePos, point: Int): SourcePos =
+        stream?.updateSourcePos(position, point) ?: position.advance(point)
 }
 data class ParseState<U>(val input: ParseInput, val position: SourcePos, val user: U)
 data class ParseReply<U, out A>(val success: Boolean, val value: A?, val state: ParseState<U>, val consumed: Boolean, val error: ParseError)

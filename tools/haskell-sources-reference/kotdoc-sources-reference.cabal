@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-sources-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable sources-reference
+  main-is: SourcesReference.hs
+  hs-source-dirs: ., ../haskell-list-parsing-reference, ../../upstream/pandoc/src
+  other-modules: Text.Pandoc.Sources, Text.Pandoc.Parsing.Lists, Text.Pandoc.Parsing.State
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, text ==2.1.2, containers,
+                 aeson ==2.2.3.0, bytestring ==0.12.2.0, vector,
+                 parsec ==3.1.18.0, transformers, pandoc-types ==1.23.1.2
