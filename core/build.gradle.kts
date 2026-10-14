@@ -14,7 +14,7 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
     // JUnit retains descriptors for the full independent upstream corpus.
-    // Allow headroom for more than 548,000 upstream observations and their full
+    // Allow headroom for more than 1,200,000 upstream observations and their full
     // expected outputs; the build daemon has its own budget in gradle.properties.
     maxHeapSize = "2g"
     systemProperty("jna.tmpdir", layout.buildDirectory.dir("jna").get().asFile.absolutePath)

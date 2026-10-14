@@ -5092,3 +5092,87 @@ errors or skips. All 85 source/fixture checks and all 234 installed CLI checks
 pass (14 FB2, 66 media, 69 format modifiers, 85 math options). The built core JAR
 still contains all 43 original notices byte for byte. The preceding 3dfa17c
 publication passed exact-SHA CI run 38631352283 with all 96 steps successful.
+
+## Translations.Types — defined-value module behavior
+
+Added Kotlin `translations/Term.kt` and `translations/Translations.kt` as direct
+prerequisites for the full CommonState translation-cache field. All 22 original
+Term constructors retain source order, exact names, nullary Show, Eq/Ord,
+Bounded/Enum, all four enumeration forms (including infinite zero-step ranges),
+successor/predecessor/toEnum failures, derived readsPrec and readList grammar.
+Raw Read inputs and leftovers use CharacterString, source-backed Unicode 16
+identifier/whitespace categories and iterative parenthesis parsing, including
+10,000 levels. Haskell comments are not skipped by this Read lexer. Exact-name
+FromJSON remains distinct from Read: it accepts neither whitespace nor
+parentheses around a name.
+
+Translations is immutable and keeps the original left-biased Map.union,
+Monoid identity/concatenation, Semigroup concatenation and stimes behavior.
+Arbitrary-size positive multipliers retain the value, zero returns empty and
+negative multipliers use the original error text. Derived Show retains both
+constructor and Map parentheses at the original precedence, original Term
+order, and Haskell Text quoting. JSON validation follows the original sorted
+Text-key order; unknown keys and non-string values keep their source errors.
+Each accepted value uses original Data.Text.strip/GHC isSpace, including NBSP
+and distinctions from JVM trim/whitespace. Per-Char Text.pack replacement is
+kept separate from the raw Read input representation.
+
+The test oracle compiles the complete, unchanged pinned
+`Text.Pandoc.Translations.Types` directly, without replacing its implementation.
+GHC 9.12.2's actual generated instance dump was inspected for newtype Show,
+Semigroup/Monoid coercions, and stock Term instances. Original containers Map
+source is already retained; the complete unchanged GHC Semigroup.Internal file
+and its license are added under vendor/ghc-translations-9.12.2. Existing complete
+notices cover all translated code; no new license is introduced. The native
+build uses a frozen dependency plan. Native YAML 0.11.11.2 is used only to
+transport original data-file JSON Values into the FromJSON tests; it is not a
+Kotlin production dependency or a claim of a ported YAML parser.
+
+Independent observations:
+
+- 3,965 Term JSON successes/errors, including raw surrogate replacement and
+  numeric Haskell Text escapes;
+- 2,904 exact Term relations/ordinal/Show observations;
+- 42,671 complete bounded Enum/range observations;
+- 8,608 derived Read results and 329 list-Read results with exact raw leftovers;
+- 5,107 complete translation-map parse/error/lookup/Show observations;
+- 3,577 append, mconcat, sconcat and arbitrary-size stimes observations;
+- all 107 unchanged original translation YAML files, independently decoded to
+  JSON by the original library, then checked against the original FromJSON.
+
+Total: 67,268 observations; SHA-256
+`3b04c0b4ec378dbe99320ce119ecdbe9e6c71dfc64e457c4007c41e453078966`.
+The verifier checks 1,117 source/fixture hashes, all original language-file
+requests, the complete constructor inventory, operation totals and corpus
+integrity. Expectations never run Kotlin. All 107 original language maps parse
+successfully. One additional Kotlin test checks complete-Read convenience and
+that mutation of a caller's JSON object cannot mutate the stored map.
+
+Remaining work is unchanged: full CommonState/PandocMonad state and logging,
+Lang and translation-file search/cache, actual YAML/readTranslations, Lua tests
+and runtime, general lazy/partial values, GHC generic machinery, remaining
+Pandoc readers/writers/application/CLI/all tests, and every calibre format and
+test. No whole-project completion is inferred from this dependency port.
+
+The preceding 8d6bb6f publication passed exact-SHA CI run 38637848732 with all
+97 steps completed successfully.
+
+Validation: all 1,201,882 tests in 83 suites pass with zero failures, errors or
+skips. All 86 source/fixture checks and all 234 installed CLI checks pass
+(14 FB2, 66 media, 69 format modifiers, 85 math options). All 43 complete
+original notices remain byte-for-byte in the built core JAR. All 1,117 new
+manifest hashes were verified against staged Git blobs or the exact staged
+Pandoc submodule commit. The original no.yaml alias points to nb.yaml: its
+link spelling is hashed as the Git blob, while both the target file bytes and
+the alias's loaded contents remain independently covered.
+
+The first complete run exhausted Gradle's 1 GiB build-daemon heap while
+retaining the larger result inventory. The daemon budget is now 2 GiB; the
+2 GiB test-executor budget is unchanged. The repeated full run completed
+successfully in six minutes. Tests were not reduced to accommodate memory.
+
+The next full-CommonState dependency is Text.Collate.Lang from the original
+unicode-collation package (Pandoc's bound is >=0.1.1 and <0.2), rather than a
+package named text-collate. Its full Lang implementation and original BCP47
+parse/round-trip tests have been read in preparation; no Lang implementation
+or tests are counted as ported by this change.
