@@ -48,6 +48,7 @@ format is implemented explicitly in Kotlin.
 | Skylighting syntax Binary instances and baked default map | `highlighting/SyntaxBinary.kt`, `BinaryAscCollections.kt`, `DefaultSyntaxes.kt` | 77,801 independent original Binary/default-map observations, exact full models/Show/re-encoded bytes for all 195 baked definitions, every two-byte Char input, malformed constructor/text/container errors and lookup/equality; deep rule/ownership/cache check |
 | Skylighting tokenizer and context/capture state | `highlighting/Tokenizer.kt` | 27,881 independent original token/trace/error/config-Show observations: all 32 original goldens, 21 regressions, 6,240 mixed samples, 19,500 seeded Unicode fuzz inputs and 2,088 synthetic boundary cases; finite 10,000-child/include chains and immutable result/config checks |
 | Skylighting HTML/HTML4, ANSI, LaTeX, ConTeXt and Typst formatters; FormatOptions and style Binary | `highlighting/format/`, `FormatOptions.kt`, `HighlightBinary.kt` | 27,030 original complete-output/model observations: all 32 original tokenized files with eight themes, every token, all public formatter functions, option/Unicode/line-boundary cases, ANSI palette/roundtrip/boolean-style cases, 14,008 Binary decodes and 359 encodes; immutable ownership check |
+| Pandoc Highlighting wrapper and complete WriterOptions record / Native-FB2 integration | `highlighting/Highlighting.kt`, `ListingsLanguages.kt`, `options/WriterOptions.kt` | 7,637 original Highlighting/Shared observations, all 103 listings pairs and 195 syntax names/aliases; 915 actual Pandoc writer-option/output observations, all 39 source fields, 266 Native documents in two modes and Int64 widths; two callback/ownership/record-update checks |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
@@ -3562,3 +3563,94 @@ All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension,
 the pinned Pandoc submodule. Original CRLF is preserved explicitly by attributes.
 The core JAR contains all seven new formatter/options/Binary classes and all 35
 verbatim retained notices plus the project GPL license.
+
+## Pandoc highlighting wrapper and complete writer-option record
+
+`Highlighting.kt` translates the shared pure layer from Text.Pandoc.Highlighting.
+The first class recognized by the syntax lookup wins; numbering and line-anchor
+classes use the original exact aliases. Only the first startFrom attribute is
+read, using original Read Int behavior, including parentheses, base prefixes,
+Unicode spaces and Int64 overflow. A missing/invalid value becomes one. Unnumbered
+code with no matching syntax returns Left empty text without calling the
+formatter; numbered code with no syntax passes physical lines as single NormalTok
+tokens, including empty tokens on empty lines. Matched syntax uses the already
+ported tokenizer, propagates its errors and passes lowercased shortname code
+classes, unchanged container classes and identifier-derived line prefix.
+
+The formatter is generic: success invokes it once, refusal/error invokes it zero
+times, and its own exceptions propagate unchanged. Config/result classes and
+physical lines remain immutable. The wrapper exposes original ordered language
+names, extension queries, built-in style order/defaults and the already validated
+style lookup. It does not implement missing writers merely by supplying this
+shared layer.
+
+`ListingsLanguages.kt` retains all 103 literal source pairs. Forward lookup uses
+Unicode lowercasing; reverse lookup is case-sensitive. Duplicate reverse keys
+retain the original last input pair, such as C -> objectivec, C++ -> c++,
+Assembler -> gnuassembler, Lisp -> commonlisp and TeX -> latex. The import verifier
+checks the full production table against pinned original source.
+
+The frozen tools/haskell-highlighting-reference compiles exact unchanged pure
+function bodies and the original Shared.safeRead/safeStrRead definitions with
+unchanged Skylighting core. Its corpus has 7,637 observations: all 103 listings
+pairs in case/space variants, all 195 bundled syntax names and aliases, all 32
+original tokenized code samples through the wrapper, callback options/full token
+streams, class/attribute ordering, numbering fallbacks, Unicode/CR/LF handling,
+synthetic map ordering/name differences and typed tokenizer errors. The 4,969
+native safe-int observations include Int64 limits/overflow, hexadecimal/octal/
+binary forms, parentheses, lexical failures and original GHC spaces. Expected
+values never come from Kotlin. Case digest:
+`ed30e7086ca70150b2ea1c80778301d015227e620ac78af6c6a85393f50383ce`.
+All 307 source/adapter/input/license/table hashes and unchanged extracted bodies
+are checked in CI.
+
+`WriterOptions.kt` supplies all 39 fields of the original library record,
+including complete compiled Template<String>, Context<String>, extension sets,
+HighlightMethod and SyntaxMap values. Numeric options retain Int64 width, list
+fields/maps snapshot caller ownership, and copy updates retain every unspecified
+field. The original lazy per-definition default syntax map remains shared. These
+are library defaults, including MathML, empty extensions, 72 columns, six zero
+number offsets and EPUB title page true; application defaults remain a separate
+boundary.
+
+Native and FB2 have new overloads accepting this record. Native decides complete
+Pandoc versus block-fragment output from template presence, ignores template
+content as upstream does, and preserves Float ribbon calculation with Int64
+columns. FB2 consumes the record's math method through its existing effectful
+writer. Existing smaller APIs remain available. The installed CLI now constructs
+one writer-option record for its supported Native/FB2 paths; unsupported CLI
+flags/formats are not implied implemented by the larger record.
+
+`tools/writer-options-reference.lua` observes the actual Pandoc 3.12.1 library
+through original Lua marshaling and writer calls. There is no upstream ToJSON
+WriterOptions instance, so its structured output is explicitly a test protocol,
+not a new production codec. The 915 cases cover all 38 exposed option properties,
+all 39 original source declarations (the syntax-map Lua property is disabled),
+immutable Kotlin/baked-map assertions, record updates, enum/boolean/string/list/
+nullable values, templates and contexts. Full outputs include all 266 accepted
+original Native documents in two template-presence modes, 194 signed Int64 width
+cases and all six math modes through FB2. Integer inputs travel as decimal
+strings into Lua tonumber, preserving integer precision. Context documents and
+template-application results are observed through original Doc tostring/render,
+not JSON-coerced opaque userdata. Lua extension values use their original list
+interface; map-shaped inputs remain ignored as upstream does. Case digest:
+`6f75493b29f4f694bf3b7dd586644b7f136347ada390f4612d71b4d2a3b4d29b`.
+
+One additional check in each new suite covers generic formatter invocation,
+exception propagation, immutable fallback token streams and complete typed
+writer-option payload/record-update ownership. All 8,554 focused Kotlin tests
+pass. The existing Native, FB2 and earlier option/style tests remain in the
+full regression gate.
+
+WriterOptions' derived Haskell Show/Data/Generic behavior, remaining syntax/model
+Read/Data, complete writer/application/Lua integration and missing Pandoc formats
+are still unfinished. The typed record and observed getters/writers do not claim
+those remaining contracts complete. All calibre MOBI and additional formats/tests
+remain in the original objective; this stage does not complete the full port.
+
+Local validation: all 557,412 Kotlin tests pass across 65 suites with zero
+failures, errors or skips. All 68 source/fixture checks pass.
+All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
+85 math). All 316 source/input/adapter/table hashes in the two new corpora match
+staged Git blobs or the pinned Pandoc submodule. The identical highlighting case
+digest is reproduced after removing an extra extraction EOF separator.

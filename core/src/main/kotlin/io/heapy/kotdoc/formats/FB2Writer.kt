@@ -22,6 +22,10 @@ sealed interface WriterMessage {
 data class WriterResult(val text: String, val messages: List<WriterMessage>)
 
 object FB2Writer {
+    fun write(document: Pandoc, options: io.heapy.kotdoc.options.WriterOptions, resources: ResourceAccess = ResourceContext()): String =
+        writeWithEffects(document, options, resources).text
+    fun writeWithEffects(document: Pandoc, options: io.heapy.kotdoc.options.WriterOptions, resources: ResourceAccess = ResourceContext()): WriterResult =
+        writeWithEffects(document, FB2WriterOptions(options.mathMethod), resources)
     fun write(document: Pandoc, options: FB2WriterOptions = FB2WriterOptions(), resources: ResourceAccess = ResourceContext()): String =
         writeWithEffects(document, options, resources).text
     fun writeWithEffects(document: Pandoc, options: FB2WriterOptions = FB2WriterOptions(), resources: ResourceAccess = ResourceContext()): WriterResult =

@@ -3,7 +3,6 @@ package io.heapy.kotdoc.cli
 import io.heapy.kotdoc.ast.PandocJson
 import io.heapy.kotdoc.formats.FB2Reader
 import io.heapy.kotdoc.formats.FB2Writer
-import io.heapy.kotdoc.formats.FB2WriterOptions
 import io.heapy.kotdoc.formats.NativeReader
 import io.heapy.kotdoc.formats.NativeWriter
 import io.heapy.kotdoc.formats.ReaderMessage
@@ -14,6 +13,8 @@ import io.heapy.kotdoc.options.FormatSpecificationException
 import io.heapy.kotdoc.options.UnsupportedExtensionException
 import io.heapy.kotdoc.options.MathMethod
 import io.heapy.kotdoc.options.MathMethodArgumentException
+import io.heapy.kotdoc.options.WriterOptions
+import io.heapy.kotdoc.templates.Template
 import io.heapy.kotdoc.options.DEFAULT_WEB_TEX_URL
 import io.heapy.kotdoc.options.DEFAULT_MATH_JAX_URL
 import io.heapy.kotdoc.options.DEFAULT_KA_TEX_URL
@@ -117,10 +118,12 @@ fun main(args: Array<String>) {
             document = MediaOperations.fill(document, media, resources, ::reportResource)
             document = MediaOperations.extract(destination, document, media, ::reportResource)
         }
+        val writerOptions = WriterOptions(columns=columns.toLong(), mathMethod=mathMethod,
+            template=if (standalone) Template.Empty else null)
         val rendered = when (to) {
             "json" -> PandocJson.encode(document)
-            "native" -> NativeWriter.write(document, columns, standalone)
-            else -> FB2Writer.writeWithEffects(document, FB2WriterOptions(mathMethod), resources = resources).also { result ->
+            "native" -> NativeWriter.write(document, writerOptions)
+            else -> FB2Writer.writeWithEffects(document, writerOptions, resources = resources).also { result ->
                 for (message in result.messages) when (message) {
                     is WriterMessage.CouldNotFetchResource -> System.err.println("[WARNING] Could not fetch resource ${message.path}" +
                         if (message.message.isEmpty()) "" else ": ${message.message}")

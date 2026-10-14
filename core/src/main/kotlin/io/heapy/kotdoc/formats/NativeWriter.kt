@@ -4,14 +4,21 @@ package io.heapy.kotdoc.formats
 
 import io.heapy.kotdoc.ast.*
 import io.heapy.kotdoc.ast.Target
+import io.heapy.kotdoc.options.WriterOptions
 import kotlin.math.round
 
 /** Pandoc's Haskell-readable native format, including HughesPJ-compatible layout. */
 object NativeWriter {
+    fun write(document: Pandoc, options: WriterOptions): String {
+        val ribbon = HaskellNumber.round((options.columns.toFloat() / 1.2f).toDouble()).toLong()
+        val standalone = options.template != null
+        val value = if (standalone) con("Pandoc", meta(document.meta), blocks(document.blocks)) else blocks(document.blocks)
+        return render(options.columns, ribbon, if (standalone) 1 else 0, value.doc) + if (standalone) "\n" else ""
+    }
     fun write(document: Pandoc, columns: Int = 72, standalone: Boolean = false): String {
         val ribbon = round(columns.toFloat() / 1.2f).toInt()
         val value = if (standalone) con("Pandoc", meta(document.meta), blocks(document.blocks)) else blocks(document.blocks)
-        return render(columns, ribbon, if (standalone) 1 else 0, value.doc) + if (standalone) "\n" else ""
+        return render(columns.toLong(), ribbon.toLong(), if (standalone) 1 else 0, value.doc) + if (standalone) "\n" else ""
     }
 
     private sealed interface Doc { val width: Int }
@@ -117,7 +124,7 @@ object NativeWriter {
         return Value(!text.startsWith('-'), Text(text))
     }
 
-    private fun render(lineLength: Int, ribbonLength: Int, glue: Int, doc: Doc): String = buildString {
+    private fun render(lineLength: Long, ribbonLength: Long, glue: Int, doc: Doc): String = buildString {
         fun flat(value: Doc) {
             when (value) {
                 is Text -> append(value.text)
