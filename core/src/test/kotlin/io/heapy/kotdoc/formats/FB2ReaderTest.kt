@@ -2,6 +2,9 @@
 package io.heapy.kotdoc.formats
 
 import io.heapy.kotdoc.ast.PandocJson
+import io.heapy.kotdoc.logging.Logging
+import io.heapy.kotdoc.logging.logMessages
+import io.heapy.kotdoc.logging.assertLogJsonEquals
 import io.heapy.kotdoc.xml.XmlParseException
 import kotlinx.serialization.json.*
 import org.junit.jupiter.api.DynamicTest
@@ -61,6 +64,7 @@ class FB2ReaderTest {
             }
         }
         assertEquals(expectedMessages, result.messages, "diagnostics")
+        assertLogJsonEquals(fixture.getValue("messages"),Json.parseToJsonElement(Logging.encodeLogMessagesText(result.logMessages())))
         // These fixtures use simple relative IDs. General MediaBag path canonicalization
         // is application infrastructure, separately tracked in the porting ledger.
         val actualMedia = result.mediaInsertions.associateBy { it.path }

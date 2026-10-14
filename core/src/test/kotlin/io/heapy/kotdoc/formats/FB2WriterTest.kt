@@ -3,6 +3,9 @@ package io.heapy.kotdoc.formats
 
 import io.heapy.kotdoc.ast.*
 import io.heapy.kotdoc.options.MathMethod
+import io.heapy.kotdoc.logging.Logging
+import io.heapy.kotdoc.logging.logMessages
+import io.heapy.kotdoc.logging.assertLogJsonEquals
 import io.heapy.kotdoc.resources.*
 import io.heapy.kotdoc.xml.XmlParseException
 import kotlinx.serialization.json.*
@@ -57,6 +60,12 @@ class FB2WriterTest {
                     }
                 }
                 assertEquals(expected, result.messages, "diagnostic order and contents")
+                // The fixture's capture-only Lua filter produces its own application
+                // events; compare the writer's complete messages through Logging.
+                val writerLogs=JsonArray(fixture.getValue("messages").jsonArray.filter {
+                    it.jsonObject.getValue("type").jsonPrimitive.content !in listOf("RunningFilter","FilterCompleted")
+                })
+                assertLogJsonEquals(writerLogs,Json.parseToJsonElement(Logging.encodeLogMessagesText(result.logMessages())))
             }
         }
     }

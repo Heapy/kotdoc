@@ -22,6 +22,7 @@ format is implemented explicitly in Kotlin.
 | pandoc-types `Text/Pandoc/Definition.hs` AST constructors | `core/.../ast/Pandoc.kt` | All node variants represented; JSON tests |
 | Definition derived Show/showsPrec | `ast/AstShow.kt` | All node/associated types; 36,970 native observations, 56 original values and 266 documents; deep/lazy boundaries |
 | Definition Eq/Ord dictionaries | `ast/AstComparison.kt` | Complete represented AST/associated types, distinct source operators, 75,470 original observations, all 266 documents and 17 original generators |
+| `Text.Pandoc.Logging` represented values and Verbosity instances | `logging/`, `parsing/Parsec.kt`, `ast/AstJsonValues.kt` | All 54 constructors, pretty/JSON/verbosity/Show/source Eq/Ord; 25,373 original observations, 266 ToJSON documents, raw names and 100,000-level structures |
 | aeson-pretty defined-value library and numeric formatting dependency | `json/PrettyJson.kt`, `PrettySort.kt`, `ScientificNumber.kt` | All configuration modes, Aeson Text quoting, source natural/fused sorting and Scientific formatting; 21,522 original observations, 266 documents, 1,027 source hashes |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
@@ -4985,3 +4986,109 @@ source hashes and the compressed corpus were checked directly against staged
 Git blobs, and all 43 core-JAR license notices against their original bytes.
 The preceding AST Eq/Ord publication e5c7c9e passed CI run 38623855923 at that
 exact SHA, with all 95 steps completed successfully.
+
+
+## Logging diagnostics, raw source positions and AST ToJSON Values
+
+`logging/LogMessage.kt` represents every one of the original 54 constructors,
+including arbitrary-precision FilterCompleted elapsed milliseconds, raw
+CharacterString FilePaths, Maybe SourcePos, complete Inline/Block payloads and
+Int64 levels/codepages. `Logging` translates every human-readable message,
+messageVerbosity branch and constructor-specific ToJSON field. The original
+.sty suffix exception, omitted punctuation for empty auxiliary messages,
+setext suggestion at levels below three, special source names, unknown-key
+ordering and string-valued milliseconds are preserved. No constructor produces
+ERROR. The complete original keyOrder configuration is used for log arrays.
+
+Derived Show/showsPrec is a Char-based chunk stream with raw SourcePos Show
+and exact constructor/field precedence, nullable position wrappers, Text/String
+quoting and BigInteger signs. Source Eq/Ord dictionaries use all declaration
+fields in order and the original AST dictionaries. GHC's actual derivation dump
+was inspected: LogMessage supplies compare only. Therefore its default less and
+greaterEqual compare reversed arguments, while lessEqual and greater compare
+forward arguments. This distinction is observable for NaN in a nested table.
+Min/max preserve the selected caller instance. Host data-class equality is not
+substituted for these source dictionaries.
+
+Verbosity has exact JSON aliases/error text, bounded values, successors,
+predecessors, toEnum checks and all four enumeration forms, including infinite
+zero-step sequences. Its derived readsPrec grammar is checked against GHC's
+actual parser: identifiers use the already source-backed Unicode 16 categories,
+whitespace is accepted, redundant parentheses and the exact leftover raw Chars
+are preserved, and source comments are not skipped by the cut-down Read lexer.
+Large precedence values and 10,000 nested parentheses are included. Full GHC
+exception stacks and generic Data/Typeable/Generic runtime machinery are not
+claimed as Kotlin equivalents.
+
+`SourcePos` now retains a CharacterString source name. Existing String
+construction/name/copy/components and facade hash codes are preserved, and raw
+construction/copy/show APIs distinguish individual surrogate Chars from a
+supplementary Char. Name/line/column equality and ordering follow the source
+instance. Position updates and copies retain raw names; nameText performs the
+original per-Char Text.pack replacement for JSON and human-readable log text.
+The String facade cannot itself distinguish a surrogate pair from one scalar;
+callers requiring the source name use nameRaw/showCharacters. General lazy raw
+source-name/error-message capabilities still remain in the runtime backlog.
+
+`ast/AstJsonValues.kt` adds iterative ToJSON Value conversion for the complete
+represented AST and associated types, independently of the existing binary
+JSON writer. Doubles use original Scientific.fromFloatDigits fields, normalize
+both signed zeros, and preserve Aeson's NaN/null and infinity/string rules.
+Citation records, metadata, all tuple/newtype/table variants and every node are
+covered. This correct Value path is used by Logging. It does not silently
+replace `PandocJson.encode` or claim the still-pending exact binary ToEncoding
+writer and all decoder/Read contracts. Deep values are kept off the JVM stack.
+
+Existing ReaderMessage, WriterMessage and ResourceEvent APIs have exhaustive
+adapters into the common model; effect order is retained. FB2 reader tests now
+compare all diagnostic JSON fields against original Pandoc for all 14 accepted
+upstream inputs and 161 accepted edge cases. Writer tests compare complete
+writer diagnostic JSON for all 266 documents and 204 accepted edge cases.
+The capture harness's own RunningFilter/FilterCompleted events are application
+Lua-filter effects, already excluded from the writer's observation inventory;
+they are not presented as implemented writer effects. No original fixtures
+were changed. Numeric JSON comparisons preserve numeric type and exact decimal
+value because the existing CLI fixtures were parsed before being stored.
+
+The native reference compiles unchanged `Text.Pandoc.Logging`, local unchanged
+pandoc-types 1.23.1.2, Parsec 3.1.18.0, GHC 9.12.2, Aeson 2.2.3.0, aeson-pretty
+0.8.11 and Scientific 0.3.9.0. Its Shared module contains only the byte-exact
+tshow definition from the pinned full Shared source; that projection is checked
+and does not stand in for the remaining Shared implementation. The complete
+original pandoc.log Lua test file is hashed and retained without moving its
+fragile line numbers; the Lua runtime/silence tests still need their actual
+Kotlin runtime port, rather than being counted from stored source alone.
+
+Independent observations:
+
+- 5,825 complete message/verbosity/pretty/derived-Show/ToJSON/log-byte results;
+- 8,232 constructor/field/self equality, ordering, extrema and relational results;
+- six complete log-array encodings;
+- all 266 original document ToJSON Values, retaining Scientific fields;
+- 948 nested Inline/Block table IEEE comparisons and complete message outputs;
+- 2,315 original SourcePos raw-name/order/update/copy results and 2,306 raw Show
+  prefixes, including every surrogate Char and distinct pair/scalar cases;
+- 13 Verbosity JSON results, 5,320 derived Read results and 130 Enum results;
+- twelve full compact ToJSON and Show-prefix results for Inline/Block chains
+  through 100,000 levels, using original Aeson.Text for compact rendering.
+
+Total: 25,373 cases; SHA-256
+`211a45adbf33a3aa9a5e58f2c2fd4401cb41196c433a5eb0c1914e1620a2627a`.
+The verifier checks all 1,101 source hashes, complete constructor and document
+inventories, the original tshow projection and operation totals. Actual native
+UTF-8 byte vectors are stored losslessly as base64. Expected output never calls
+Kotlin. This change adds no new license: all 43 complete notices remain in the
+core JAR.
+
+Full PandocMonad/report/verbosity-filter/silence/Lua application state and
+ParserState capabilities remain pending, along with general lazy/partial
+fields, opaque Builder behavior, original generic reflection machinery, the
+remaining Pandoc formats/application/CLI/test suites and all calibre formats
+and tests. These requirements are unchanged; the full objective remains active.
+
+
+Validation for Logging: all 1,134,613 tests in 82 suites pass with zero failures,
+errors or skips. All 85 source/fixture checks and all 234 installed CLI checks
+pass (14 FB2, 66 media, 69 format modifiers, 85 math options). The built core JAR
+still contains all 43 original notices byte for byte. The preceding 3dfa17c
+publication passed exact-SHA CI run 38631352283 with all 96 steps successful.

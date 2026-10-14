@@ -3,11 +3,25 @@
 package io.heapy.kotdoc.parsing
 
 import io.heapy.kotdoc.formats.HaskellString
-import io.heapy.kotdoc.ast.UnicodeTextOrder
+import io.heapy.kotdoc.layout.CharacterString
+import io.heapy.kotdoc.layout.CharacterStringChars
+import io.heapy.kotdoc.layout.TextChars
 import java.util.ArrayDeque
 
-data class SourcePos(val name: String, val line: Long = 1, val column: Long = 1) : Comparable<SourcePos> {
-    override fun compareTo(other: SourcePos) = UnicodeTextOrder.compare(name, other.name).takeIf { it != 0 }
+class SourcePos(val nameRaw: CharacterString, val line: Long = 1, val column: Long = 1) : Comparable<SourcePos> {
+    constructor(name: String, line: Long = 1, column: Long = 1) : this(CharacterStringChars.fromString(name), line, column)
+    /** UTF-16 facade; source operations use nameRaw to retain individual Haskell Chars. */
+    val name: String = buildString { nameRaw.points().forEach(::appendCodePoint) }
+    val nameText: String get() = TextChars.fromPoints(nameRaw.points())
+    fun copy(name: String = this.name, line: Long = this.line, column: Long = this.column): SourcePos =
+        SourcePos(if (name == this.name) nameRaw else CharacterStringChars.fromString(name), line, column)
+    fun copyRaw(name: CharacterString = nameRaw, line: Long = this.line, column: Long = this.column) = SourcePos(name, line, column)
+    operator fun component1() = name
+    operator fun component2() = line
+    operator fun component3() = column
+    override fun equals(other: Any?) = other is SourcePos && nameRaw == other.nameRaw && line == other.line && column == other.column
+    override fun hashCode() = 31 * (31 * name.hashCode() + line.hashCode()) + column.hashCode()
+    override fun compareTo(other: SourcePos) = nameRaw.compareTo(other.nameRaw).takeIf { it != 0 }
         ?: line.compareTo(other.line).takeIf { it != 0 } ?: column.compareTo(other.column)
     fun advance(point: Int): SourcePos = when (point) {
         10 -> copy(line = line + 1, column = 1)
@@ -15,6 +29,11 @@ data class SourcePos(val name: String, val line: Long = 1, val column: Long = 1)
         else -> copy(column = column + 1)
     }
     override fun toString() = (if (name.isEmpty()) "" else "\"$name\" ") + "(line $line, column $column)"
+    fun showCharacters(): CharacterString {
+        val raw = nameRaw.points()
+        val end = "(line $line, column $column)".codePoints().toArray()
+        return CharacterString(if (raw.isEmpty()) end else intArrayOf(34) + raw + intArrayOf(34,32) + end)
+    }
 }
 enum class MessageKind { SysUnExpect, UnExpect, Expect, Message }
 data class ParseMessage(val kind: MessageKind, val text: String) : Comparable<ParseMessage> {
