@@ -28,7 +28,7 @@ class LoggingTest {
     private fun texts(v: JsonElement)=v.jsonArray.map(::text)
     private fun position(v: JsonElement)=v.jsonArray.let { SourcePos(chars(it[0]),it[1].l(),it[2].l()) }
     private fun optional(v: JsonElement)=if(v==JsonNull) null else position(v)
-    private fun message(v: JsonElement): LogMessage {
+    internal fun message(v: JsonElement): LogMessage {
         val a=v.jsonArray
         return when(a[0].s()) {
             "SkippedContent" -> LogMessage.SkippedContent(text(a[1]), position(a[2]))

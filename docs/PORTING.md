@@ -23,6 +23,7 @@ format is implemented explicitly in Kotlin.
 | Definition derived Show/showsPrec | `ast/AstShow.kt` | All node/associated types; 36,970 native observations, 56 original values and 266 documents; deep/lazy boundaries |
 | Definition Eq/Ord dictionaries | `ast/AstComparison.kt` | Complete represented AST/associated types, distinct source operators, 75,470 original observations, all 266 documents and 17 original generators |
 | `Text.Pandoc.Logging` represented values and Verbosity instances | `logging/`, `parsing/Parsec.kt`, `ast/AstJsonValues.kt` | All 54 constructors, pretty/JSON/verbosity/Show/source Eq/Ord; 25,373 original observations, 266 ToJSON documents, raw names and 100,000-level structures |
+| `Class.CommonState` record and `PandocMonad` state/logging operations | `state/CommonState.kt`, `state/PandocState.kt` | All 13 fields/defaults, persistent reverse log, callbacks/typed errors/nested silence, headers, URL, media and cache identity; 3,615 native observations plus snapshot/identity checks |
 | aeson-pretty defined-value library and numeric formatting dependency | `json/PrettyJson.kt`, `PrettySort.kt`, `ScientificNumber.kt` | All configuration modes, Aeson Text quoting, source natural/fused sorting and Scientific formatting; 21,522 original observations, 266 documents, 1,027 source hashes |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
@@ -5416,3 +5417,85 @@ rechecked byte-for-byte against the original archive. All 1,094 manifest hashes
 and corpus bytes were verified against staged Git blobs or the exact staged
 Pandoc submodule. The preceding cd81680 publication passed exact-SHA CI run
 38649089610 with all 100 steps completed successfully.
+
+
+## CommonState and PandocMonad state/logging operations
+
+The complete CommonState record now has all 13 fields and original defaults,
+including the HTTP-support manager field. FilePath fields use raw CharacterString
+values, Text fields are normalized independently, mutable caller collections are
+owned snapshots, and immutable MediaBag/Translations/Lang values preserve their
+identity. The cached JVM HttpClient is an actual transport reference; this does
+not implement or imply the complete original Network.HTTP.Client request, TLS,
+resource lifecycle or concurrent manager contracts.
+
+The reverse chronological log uses persistent cons nodes with O(1) report prepend
+and shared old roots. getLog returns a separate immutable chronological snapshot.
+report selects output by original message verbosity, calls logOutput before
+append, and rereads current state after output. Reentrant reports, callback log
+replacement, callback verbosity/other-state changes and exceptions before append
+are independently compared. Suppressed messages still enter the log.
+
+runSilently saves log/verbosity, installs ERROR and an empty log, and returns
+(result, reverse-chronological captured log). It restores only those two fields
+on success and caught PandocError; all other state changes persist. Arbitrary host
+exceptions bypass that catch and leave the current state intact. The same typed
+throwable and successful return object identities are retained. An action that
+raises verbosity can produce output even within runSilently, as upstream does.
+Nested silence and caught typed errors retain the source restoration order.
+
+Request-header replacement is case sensitive, removes every exact duplicate,
+prepends the new pair, and preserves other order. Changing certificate-check
+policy discards the cached client, while assigning the same policy retains it.
+setInputFiles inspects only the first raw filename, accepts the original ASCII
+absolute URI grammar and exactly lowercase http/https schemes, and removes only
+query/fragment. It preserves the complete URL path including the filename; the
+source comment's reference to a directory does not override its implementation.
+All field getters/setters, media insertion and toLang warning/report behavior
+are included.
+
+Tracing retains the source prefix and GHC traceIO NUL removal plus its additional
+warning line. The complete original GHC 9.12.2 Debug.Trace source is preserved;
+its bytes were checked against the ghc-9.12.2-release tag (SHA-256
+`2c010ddb58214ff0bb1bf35faaddff98442af6b63365ecea1dd168b813b0ba42`).
+The native oracle captures actual stderr bytes under UTF8. JVM effect callbacks
+and the default stderr output are provided; complete GHC C-runtime buffering,
+locale/terminal/Windows newline and asynchronous/lazy evaluation behavior remain
+pending, as do general infinite/partial state field values and Generic machinery.
+
+The oracle compiles unchanged original CommonState with PANDOC_HTTP_SUPPORT,
+Logging, MediaBag/MIME/URI/UTF8, Error, Translations.Types and Lang. The minimal
+PandocMonad projection contains byte-exact selected defaults and state/logging
+functions, checked against the pinned full module; unported IO/parser/application
+methods are not replaced by fake implementations. ExceptT PandocError is outside
+StateT CommonState, matching both original instance stacks. A mirrored IORef lets
+the harness observe writes before a host exception without changing catchError
+semantics. HTTP cache tests compare real original Manager reference identities.
+The separate harness input protocol constructs values and selects effects only.
+
+There are 3,615 native observations across all 54 message constructors and all
+three verbosity levels, five callback behaviors, every URI case from the previous
+native media corpus, raw paths, duplicate/case-sensitive headers, cache changes,
+translation/media state persistence, language warnings, actual trace output,
+800 seeded mixed sequences and nested success/Pandoc-error/host-error actions.
+Three original Lua silence assertions are checked at their underlying state/log
+contract; the full Lua interface/runtime and its original test suite remain
+pending. Two additional Kotlin checks cover immutable snapshots, 10,000 persistent
+log inserts, shared roots and exact return/throwable identities.
+Corpus SHA-256:
+`63733112dafa3e9d8b58eebd9b28b946806185afb7bcbc752300deaed9ef8205`.
+All 31 source/fixture hashes and the corpus bytes are independently checked.
+Existing oracle expectations were not altered. The relevant 3,617 state tests
+and 25,374 logging tests pass with zero failures/errors/skips.
+
+Full PandocMonad IO/environment/time/translation loading, ParserState, readers,
+writers, Lua and application work, remaining original/dependency tests and all
+calibre formats/tests remain within the unchanged objective.
+
+Validation: all 1,299,521 tests in 87 suites pass with zero failures, errors or
+skips. All 90 source/fixture checks and 234 installed CLI checks pass (14 FB2,
+66 media, 69 format modifiers, 85 math options). All 46 complete original notices
+are byte-exact in the built core JAR. The 31 manifest source hashes and exact
+corpus bytes were verified against staged Git blobs or the pinned Pandoc
+submodule commit. The previous bdad2bb publication passed exact-SHA CI run
+38651628767 with all 101 steps completed successfully.

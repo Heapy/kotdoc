@@ -90,4 +90,5 @@ vendor/network-uri-2.6.4.2/** -text whitespace=-trailing-space,-blank-at-eof,-sp
 licenses/Network-uri-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
 vendor/citeproc-0.14.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/ghc-errors-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/ghc-common-state-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 licenses/Citeproc-BSD-2-Clause.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
