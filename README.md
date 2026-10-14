@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 572,492 tests, no skipped tests.
+  roundtrip tests. Current suite: 643,983 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -79,6 +79,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   attributes and fonts, retaining constructor/field order, NaN behavior, target
   short-circuiting and min/max selection. CharacterString has original Char-list
   ordering without converting to JVM UTF-16 strings.
+- Structural Blaze markup, attributes, lazy return values and chunked Text/bytes,
+  String/Text/UTF-8/Pretty output, contents/external transforms and Pandoc's
+  markup-to-DocLayout wrapping. Checked against 71,478 original observations,
+  including every byte pair, all 25 original HTML examples, constructor trees,
+  Doc structure and partial values; all ten upstream markup properties are ported.
+  The complete HTML writer and remaining builder/HTML vocabulary APIs are pending.
 - Table-of-contents trees and lists, with original numbering, depth, section IDs,
   hidden sections and title cleanup. Chunk path templates preserve substitution
   order and filename sanitization.

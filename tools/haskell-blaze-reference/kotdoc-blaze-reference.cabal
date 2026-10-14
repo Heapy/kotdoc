@@ -1,0 +1,33 @@
+cabal-version: 3.0
+name: kotdoc-blaze-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable blaze-reference
+  main-is: BlazeReference.hs
+  hs-source-dirs: ., ../../vendor/blaze-markup-format-0.8.3.0/src, ../../vendor/blaze-html-format-0.9.2.0/src,
+                 ../../vendor/doclayout-0.6/src
+  include-dirs: ../../vendor/doclayout-0.6/src/Text
+  other-modules: Text.Blaze, Text.Blaze.Internal, Text.Blaze.Renderer.String,
+                 Text.Blaze.Renderer.Text, Text.Blaze.Renderer.Utf8, Text.Blaze.Renderer.Pretty,
+                 Text.Blaze.Html, Text.Blaze.Html5, Text.Blaze.Html5.Attributes,
+                 Text.Blaze.XHtml5, Text.Blaze.XHtml5.Attributes,
+                 Text.DocLayout, Text.DocLayout.HasChars, Text.DocLayout.Attributed,
+                 Text.DocLayout.ANSIFont, PandocBlaze
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring ==0.12.2.0,
+                 text, vector, containers, blaze-builder ==0.4.4.1, safe, mtl, emojis ==0.1.5
+
+executable original-markup-tests
+  main-is: TestSuite.hs
+  hs-source-dirs: ../../vendor/blaze-markup-format-0.8.3.0/tests,
+                 ../../vendor/blaze-markup-format-0.8.3.0/src
+  other-modules: Text.Blaze.Tests, Text.Blaze.Tests.Util,
+                 Text.Blaze, Text.Blaze.Internal, Text.Blaze.Renderer.String,
+                 Text.Blaze.Renderer.Text, Text.Blaze.Renderer.Utf8
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, bytestring ==0.12.2.0, text ==2.1.2,
+                 blaze-builder ==0.4.4.1, tasty ==1.5.4, tasty-hunit,
+                 tasty-quickcheck, HUnit, QuickCheck ==2.16.0.0

@@ -48,6 +48,7 @@ format is implemented explicitly in Kotlin.
 | Skylighting syntax Binary instances and baked default map | `highlighting/SyntaxBinary.kt`, `BinaryAscCollections.kt`, `DefaultSyntaxes.kt` | 77,801 independent original Binary/default-map observations, exact full models/Show/re-encoded bytes for all 195 baked definitions, every two-byte Char input, malformed constructor/text/container errors and lookup/equality; deep rule/ownership/cache check |
 | Skylighting tokenizer and context/capture state | `highlighting/Tokenizer.kt` | 27,881 independent original token/trace/error/config-Show observations: all 32 original goldens, 21 regressions, 6,240 mixed samples, 19,500 seeded Unicode fuzz inputs and 2,088 synthetic boundary cases; finite 10,000-child/include chains and immutable result/config checks |
 | Skylighting HTML/HTML4, ANSI, LaTeX, ConTeXt and Typst formatters; FormatOptions and style Binary | `highlighting/format/`, `FormatOptions.kt`, `HighlightBinary.kt` | 27,030 original complete-output/model observations: all 32 original tokenized files with eight themes, every token, all public formatter functions, option/Unicode/line-boundary cases, ANSI palette/roundtrip/boolean-style cases, 14,008 Binary decodes and 359 encodes; immutable ownership check |
+| Blaze structural markup and Pandoc `Writers.Blaze.layoutMarkup` | `markup/BlazeMarkup.kt`, `BlazeRenderer.kt`, `BlazeLayout.kt` | 71,478 original observations; all 25 original HTML examples, all 65,536 byte pairs, full Markup/ChoiceString and Doc structure, lazy returns/chunks and 1,080 competing-error cases; ten original properties at 1,000 trials each, two additional deep/ownership checks and a composition check |
 | Pandoc Highlighting wrapper and complete WriterOptions record / Native-FB2 integration | `highlighting/Highlighting.kt`, `ListingsLanguages.kt`, `options/WriterOptions.kt` | 7,637 original Highlighting/Shared observations, all 103 listings pairs and 195 syntax names/aliases; 915 actual Pandoc writer-option/output observations, all 39 source fields, 266 Native documents in two modes and Int64 widths; two callback/ownership/record-update checks |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
@@ -3799,3 +3800,94 @@ failures, errors or skips. All 70 source/fixture checks pass. The core JAR
 contains both new comparison classes and all 36 retained license files.
 All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
 85 math). All 162 native source/input hashes match staged Git blobs.
+
+
+## Structural Blaze markup and Pandoc wrapping
+
+The ten original MarkupM constructors and eight ChoiceString constructors now
+have Kotlin counterparts. Transparent memoized thunks represent source delayed
+constructor production. StaticString retains three independent backends: a
+String suffix function, UTF-8 bytes and Text. It is not reconstructed from a
+single textual field. Raw bytes are defensively owned; String preserves Haskell
+Chars, while Text replaces surrogate Chars according to the pinned text library.
+
+Functor/Applicative/Monad operations retain the source Append/Empty structure,
+rightmost return values and callbacks that can ignore bottom values. Canonical
+mapLazy/applyLazy/flatMapLazy callbacks receive a Lazy argument; ordinary strict
+Kotlin conveniences are separate. Attribute composition retains source g.f
+application order with a persistent operation tree and iterative traversal.
+Composing 10,000 attributes no longer copies a growing operation list.
+
+String, Text, UTF-8 and Pretty renderers preserve distinct escaping/raw-byte
+behavior, static suffix callbacks, comments, root attribute propagation, ignored
+content attributes and pretty indentation. Only direct External String/Text/
+bytes reject the closing-tag sequence; nested wrappers use the source fallback.
+String interprets raw bytes as Latin-1 characters; Text uses strict UTF-8 or an
+injected/lenient decoder; UTF-8 preserves raw bytes. The blaze-builder escaped
+String/Text primitives discard ASCII controls except TAB/LF/CR and also DEL;
+raw/static/pre-escaped fragments retain those bytes. Strict text decoding pins
+both the message and the byte selected for truncated UTF-8 errors.
+
+Lazy Text/bytes content, comments and attribute values consume sequences on
+demand and memoize each chunk, including failures. Kotlin's ordinary lazy
+initializer retries after an exception, which would consume past a failing
+iterator element; the chunk boundary explicitly retains that failure. Null
+checks can stop at a nonempty prefix, and attributes attached to plain content
+remain unevaluated. contents/external transformations preserve leaf values.
+
+Pandoc Writers.Blaze is translated into structural DocLayout output. Wrapping
+is suppressed under the exact built-in code/pre/style/script/textarea opening
+strings; flush applies to the source subset. Custom parents retain their
+separate rules. Whitespace groups, pre-escaped values, raw attribute names,
+quote structure and right-associated Concat trees match the original. Delayed
+layout plans preserve the pinned optimized native evaluation order, including
+competing invalid key/value/child bytes, without recursion in the markup walker.
+
+The frozen tools/haskell-blaze-reference builds the untouched original Blaze
+Markup/HTML/DocLayout modules and the entire Pandoc Blaze module with only its
+module name changed. It calls original renderers, combinators and layoutMarkup;
+expected results never come from Kotlin. GHC 9.12.2, text 2.1.2, bytestring
+0.12.2.0 and blaze-builder 0.4.4.1 are pinned. The new builder release sources and
+BSD notice are preserved byte-for-byte; its native builder is an oracle-only
+dependency, never a production conversion dependency.
+
+The 71,478-row corpus observes String, Text, bytes, Pretty, lenient Text, return
+values, null, the complete source markup graph, the complete produced Doc graph,
+and output at five widths. It includes all 25 original HTML example constructor
+trees, five original markup assertions, every byte pair, all 256 low Chars,
+surrogate/scalar cases, independent StaticString fields/functions, lazy chunk
+failures, 2,000 seeded nested trees and 1,080 competing-error cases. Case digest:
+`e27194a0ef79e02e7a4e111f7e14778489c9aa20fed0c3dcdf9b6fdf44369c79`.
+The importer verifies all 136 source/input/adapter/license hashes and the corpus.
+
+All ten properties from the original Text.Blaze.Tests are translated, retaining
+its cross-backend equality checks and deliberately permissive UTF-8 predicate;
+each receives 1,000 deterministic generated trials. The unchanged original
+Haskell suite also passes all 15 tests with 1,000 trials per property and replay
+seed 727598. Additional Kotlin checks cover defensive byte ownership, discarded
+return values/attributes, repeat chunk observations, source composition order,
+10,000-level parent trees and 10,000 composed attributes. All 71,491 focused
+Kotlin tests pass.
+
+Reproduce: cabal build all --project-dir=tools/haskell-blaze-reference
+--builddir=/tmp/kotdoc-blaze-build; run original-markup-tests with
+--quickcheck-tests 1000 --quickcheck-replay 727598, then run
+python3 tools/import-blaze-fixtures.py --oracle PATH. CI verifies the corpus with
+--check-source and runs the Kotlin suite.
+
+Remaining Blaze work includes actual Text Builder and ByteString Builder/IO
+buffer interfaces, ToMarkup/ToValue numeric/general conversions, all generated
+HTML dialect vocabularies and their remaining tests, and consumer integration.
+The complete Pandoc HTML writer is not implemented by this dependency layer.
+Remaining Pandoc readers/writers/application/Lua/CLI, model Read/Data/Typeable/
+Generic contracts and all calibre MOBI/additional formats/tests remain within
+the unchanged full objective. These passing dependency tests do not complete it.
+
+
+Local validation: all 643,983 Kotlin tests pass across 69 suites, with zero
+failures, errors or skips. All 71 source/fixture checks pass. The standalone
+core JAR contains the new markup/layout classes and all 37 retained license
+files. All 136 original source/input hashes match staged Git blobs, including
+the pinned Pandoc submodule; the repository remains public.
+All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
+85 math).

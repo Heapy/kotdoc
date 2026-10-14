@@ -60,3 +60,6 @@ licenses/ANSI-terminal-types-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/Blaze-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/Skylighting-context-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/Skylighting-format-BSD-3-Clause.txt -text whitespace=cr-at-eol
+
+vendor/blaze-builder-0.4.4.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/blaze-builder-BSD-3-Clause.txt -text whitespace=cr-at-eol

@@ -32,6 +32,7 @@ jobs:
       - run: python3 tools/import-syntax-binary-fixtures.py --check-source
       - run: python3 tools/import-tokenizer-fixtures.py --check-source
       - run: python3 tools/import-formatter-fixtures.py --check-source
+      - run: python3 tools/import-blaze-fixtures.py --check-source
       - run: python3 tools/import-highlighting-fixtures.py --check-source
       - run: python3 tools/import-writer-options-fixtures.py --check-source
       - run: python3 tools/import-model-show-fixtures.py --check-source
