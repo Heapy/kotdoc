@@ -45,6 +45,7 @@ jobs:
       - run: python3 tools/import-template-parser-fixtures.py --check-source
       - run: python3 tools/import-template-data.py --check
       - run: python3 tools/import-template-resource-fixtures.py --check-source
+      - run: python3 tools/import-annotated-table-fixtures.py --check-source
       - run: python3 tools/import-toc-fixtures.py --check-source
       - run: python3 tools/import-emoji-tables.py --check
       - run: python3 tools/import-case-mappings.py --check

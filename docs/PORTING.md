@@ -48,6 +48,7 @@ format is implemented explicitly in Kotlin.
 | Skylighting syntax Binary instances and baked default map | `highlighting/SyntaxBinary.kt`, `BinaryAscCollections.kt`, `DefaultSyntaxes.kt` | 77,801 independent original Binary/default-map observations, exact full models/Show/re-encoded bytes for all 195 baked definitions, every two-byte Char input, malformed constructor/text/container errors and lookup/equality; deep rule/ownership/cache check |
 | Skylighting tokenizer and context/capture state | `highlighting/Tokenizer.kt` | 27,881 independent original token/trace/error/config-Show observations: all 32 original goldens, 21 regressions, 6,240 mixed samples, 19,500 seeded Unicode fuzz inputs and 2,088 synthetic boundary cases; finite 10,000-child/include chains and immutable result/config checks |
 | Skylighting HTML/HTML4, ANSI, LaTeX, ConTeXt and Typst formatters; FormatOptions and style Binary | `highlighting/format/`, `FormatOptions.kt`, `HighlightBinary.kt` | 27,030 original complete-output/model observations: all 32 original tokenized files with eight themes, every token, all public formatter functions, option/Unicode/line-boundary cases, ANSI palette/roundtrip/boolean-style cases, 14,008 Binary decodes and 359 encodes; immutable ownership check |
+| Annotated table conversion and finite cell/row/head traversal | `writers/AnnotatedTable.kt` | All six original AnnotatedTable tests; 1,400 original full-model, inverse, builder and walk/query/effect-trace observations, including all 242 upstream Native fixture tables; a 10,000-column/ownership check |
 | Blaze structural markup and Pandoc `Writers.Blaze.layoutMarkup` | `markup/BlazeMarkup.kt`, `BlazeRenderer.kt`, `BlazeLayout.kt` | 71,478 original observations; all 25 original HTML examples, all 65,536 byte pairs, full Markup/ChoiceString and Doc structure, lazy returns/chunks and 1,080 competing-error cases; ten original properties at 1,000 trials each, two additional deep/ownership checks and a composition check |
 | Pandoc Highlighting wrapper and complete WriterOptions record / Native-FB2 integration | `highlighting/Highlighting.kt`, `ListingsLanguages.kt`, `options/WriterOptions.kt` | 7,637 original Highlighting/Shared observations, all 103 listings pairs and 195 syntax names/aliases; 915 actual Pandoc writer-option/output observations, all 39 source fields, 266 Native documents in two modes and Int64 widths; two callback/ownership/record-update checks |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
@@ -3891,3 +3892,82 @@ files. All 136 original source/input hashes match staged Git blobs, including
 the pinned Pandoc submodule; the repository remains public.
 All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
 85 math).
+
+
+## Annotated tables for writer output
+
+Writers.AnnotatedTable's structural model and conversion algorithms now have
+Kotlin implementations. toTable clips row spans at each section boundary,
+clamps row-header width to the table width, fixes column spans and overlap,
+pads missing cells and separates each body row's stub from its remaining cells.
+Each placed cell retains a nonempty sequence of the exact column specifications
+it covers and its starting column number. Occupied columns advance the cursor
+without consuming a cell; stub and body placement share the remaining stream.
+Rows are numbered continuously across the head, every body's intermediate head
+and body rows, and the foot, including rows with no newly placed cells.
+
+The converter uses iterative placement and buffered lookahead. Source pattern
+guards examine a cell even when the remaining column section is empty; that
+cell must remain available for body placement. Row-span clipping is deferred
+until a cell is inspected. Native partial probes prove that an unused first
+cell constructor is forced, while the following cell-list tail stays untouched,
+including tables with zero columns. This preserves source behavior instead of
+eagerly mapping every excess cell in an input row.
+
+fromTable strips annotation data and returns the core Table without performing
+normalization. Arbitrary public annotations, inconsistent column specs, signed
+row/column numbers and invalid core spans can therefore be preserved exactly.
+ColumnSpecs expresses the source NonEmpty requirement and defensively retains
+its tail. Walker adapters preserve the original three instance scopes: Cell,
+HeaderRow and TableHead. They delegate traversal to the wrapped core Cell, never
+visit column specs/numbers, and preserve annotation objects across changes.
+
+The frozen tools/haskell-annotated-table-reference compiles the unchanged
+Pandoc 3.12.1 AnnotatedTable module and pinned pandoc-types 1.23.1.2 sources. It
+also builds the unchanged Tests.Writers.AnnotatedTable suite, which passes the
+original golden and all five properties with the source's 50 trials per property
+(replay seed 727599). The Kotlin test reproduces the full typed golden, ports
+all five properties with 50 trials each, and checks a 10,000-column table,
+column-spec ownership and annotation preservation.
+
+The 1,400-case native corpus contains every one of the 242 Table occurrences
+in accepted upstream Native fixtures, the original sample, 136 explicit boundary
+cases, 1,000 seeded tables, twelve arbitrary annotation models and nine partial
+cell-list probes. It observes complete annotated structures, fromTable output,
+independent Builder.tableWith normalization, and each source walker scope with
+Inline, Block, [Inline] and [Block] targets. Walk outputs, postorder effect traces
+and preorder query results are compared separately, including nested cell notes,
+citations, lists and tables. Captions outside the selected scope stay unchanged.
+Expected results are never generated by Kotlin. Digest:
+`5b339b1cf65b3e72102dc89872066f43a20f1247a60ad7c37a4649b1cf68ebba`.
+The importer verifies all 80 source/input/adapter/license hashes and inventories
+every original fixture table. The adapter JSON is an explicit observation
+protocol, not an invented source JSON instance. Scientific numeric spellings in
+the adapter (such as 0 versus 0.0) compare as exact decimal values; the comparison
+does not replace the separately tested Pandoc JSON byte contracts.
+
+All 1,407 focused Kotlin tests pass. Reproduce with cabal build all
+--project-dir=tools/haskell-annotated-table-reference
+--builddir=/tmp/kotdoc-annotated-table-build, run original-annotated-table-tests
+--quickcheck-replay 727599, then run python3 tools/import-annotated-table-fixtures.py
+--oracle PATH. CI uses --check-source and runs the Kotlin tests.
+
+Annotation model Eq/Ord/Read/Show/Data/Typeable/Generic contracts and explicit
+RowNumber/ColNumber derived Num/Enum contracts remain within the full model-port
+work. Arbitrary lazy monoidal query/typeclass interfaces remain pending beyond
+the finite core-cell adapters and four tested target types. No new Walkable
+instance is claimed for Table/BodyRow/TableBody/TableFoot, which the source
+module does not declare. The complete HTML writer still requires the remaining
+shared/math/XML/URI/translation and stateful pipeline work. Remaining Pandoc
+readers/writers/application/Lua/CLI and all calibre MOBI/additional formats/tests
+remain part of the unchanged objective; this table dependency does not complete
+that port.
+
+
+Local validation: all 645,390 Kotlin tests pass across 70 suites, with zero
+failures, errors or skips. All 72 source/fixture checks pass. The core JAR
+contains all public annotated-table classes and all 37 retained license files.
+All 80 source/input hashes match staged Git blobs and both submodule pins.
+The preceding Blaze commit's exact-SHA CI passed, including all 234 CLI
+comparisons; this dependency adds no CLI reader/writer registration. The new
+commit's CI will run the complete installed-CLI checks again.

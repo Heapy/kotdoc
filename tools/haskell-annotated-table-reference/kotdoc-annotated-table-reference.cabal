@@ -1,0 +1,21 @@
+cabal-version: 3.0
+name: kotdoc-annotated-table-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable annotated-table-reference
+  main-is: AnnotatedTableReference.hs
+  hs-source-dirs: ., ../../upstream/pandoc/src
+  other-modules: Text.Pandoc.Writers.AnnotatedTable
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring, text, vector,
+                 pandoc-types ==1.23.1.2, mtl, syb
+executable original-annotated-table-tests
+  main-is: OriginalTests.hs
+  hs-source-dirs: ., ../../upstream/pandoc/src, ../../upstream/pandoc/test
+  other-modules: Text.Pandoc.Writers.AnnotatedTable, Tests.Writers.AnnotatedTable
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, mtl, syb,
+                 tasty ==1.5.4, tasty-hunit, tasty-quickcheck, QuickCheck ==2.16.0.0
