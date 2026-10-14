@@ -1,0 +1,19 @@
+cabal-version: 3.0
+name: kotdoc-writer-html-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable writer-html-reference
+  main-is: WriterHtmlReference.hs
+  hs-source-dirs: ., ../../upstream/pandoc/src, ../../vendor/doclayout-0.6/src,
+                 ../../vendor/tagsoup-0.14.8/src
+  include-dirs: ../../vendor/doclayout-0.6/src/Text
+  other-modules: Text.Pandoc.XML, Text.HTML.TagSoup.Entity, SourceCss, SourceWriterHtml,
+                 Text.DocLayout, Text.DocLayout.HasChars, Text.DocLayout.Attributed,
+                 Text.DocLayout.ANSIFont
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring ==0.12.2.0,
+                 text ==2.1.2, vector, containers, safe, mtl, emojis ==0.1.5,
+                 pandoc-types ==1.23.1.2, commonmark ==0.3.1, text-conversions,
+                 parsec ==3.1.18.0

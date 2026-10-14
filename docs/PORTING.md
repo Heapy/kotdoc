@@ -3971,3 +3971,92 @@ All 80 source/input hashes match staged Git blobs and both submodule pins.
 The preceding Blaze commit's exact-SHA CI passed, including all 234 CLI
 comparisons; this dependency adds no CLI reader/writer registration. The new
 commit's CI will run the complete installed-CLI checks again.
+
+## Pandoc XML/CSS and shared writer HTML utilities
+
+PandocXml ports Text.Pandoc.XML's fourteen exported utilities/registries.
+It preserves XML's legal-character filtering and four predefined escapes;
+apostrophes remain literal. Individual Haskell Chars, including surrogates,
+use the original Text singleton replacement. NCName escaping uses GHC 9.12.2's
+Unicode 16 letter predicate, ASCII digits and the exact source combining ranges,
+with uppercase U%04X escapes. Non-ASCII numeric output preserves uppercase
+hexadecimal, while HTML5 output selects the shortest TagSoup entity name and
+the earliest source entry when lengths tie. Missing names use decimal entities.
+
+Commonmark 0.3.1's original lookupEntity is distinct from TagSoup's lookup.
+Numeric lookup accepts optional semicolons, arbitrary Integer lengths and the
+additional 0x/0X prefix accepted by Data.Text.Read.hexadecimal. Zero, out-of-range
+and surrogate values become U+FFFD. Named lookup retains all 2,231 exact names,
+including semicolon variants. fromEntities retains upstream missing-semicolon,
+whitespace and unknown-reference behavior. Its iterative traversal avoids JVM
+recursion without rescanning unknown references that the source keeps intact.
+XML tag helpers escape names/values of attributes and encode newlines in values;
+tag names themselves stay literal. They retain generic Doc targets, exact nested
+Concat/Prefixed structure, raw text widths and the original layout operators.
+
+PandocCss ports all three CSS exports. It preserves the source parser's unusual
+accepted prefixes and distinction between consumed failures (discard every rule)
+and unconsumed failures (retain parsed rules); there is no invented eof check.
+Property/value trimming removes only Shared.isWS's four ASCII characters,
+whereas inter-rule spaces use GHC's Unicode isSpace. Duplicate rules, property
+order, first-match lookup and empty trimmed values are retained. This is the
+upstream style-attribute parser, not an expanded standards-compliant CSS parser.
+
+WriterHtml ports Shared.tagWithAttrs/htmlAttrs/htmlAddStyle/
+htmlAlignmentToString. It retains all HTML5/RDFa allowed names, the source label
+exception, markdown and colon/data-/aria- rules, case sensitivity, duplicate
+attributes and independently escaped id/classes/values. Keys themselves are
+literal. Its nested hsep structure preserves break opportunities. Style updates
+modify only the first style attribute and first matching rule; new properties
+are prepended, malformed styles collapse to the newly supplied property, and
+later duplicate styles/rules remain in their source order.
+
+The frozen tools/haskell-writer-html-reference compiles unchanged Pandoc 3.12.1
+Text.Pandoc.XML, Commonmark 0.3.1, TagSoup 0.14.8 and DocLayout 0.6 sources.
+prepare-writer-html-reference.py verifies that CSS, Shared.trim/isWS and writer
+HTML function bodies were copied verbatim, changing module/import wiring only.
+The CSS parser imports the same Parsec primitives through Text.Parsec rather
+than the large Pandoc.Parsing reexport. Expected results never call Kotlin.
+All original Commonmark package sources, fixtures and license are retained;
+the numerical dependency's original text-2.1.2 Read source is also retained.
+The 22 Commonmark release files match the original Hackage archive verbatim,
+SHA-256 `72ea2f2f678a5ed0cc7ab20e7eebf161f4a03d4a5e73eda3255c82ebc64dbc53`.
+Generated HIE build files are excluded from tracking and source fingerprints.
+
+The 18,789-case native corpus checks every Haskell Char (all 1,114,112 code
+points, including surrogates) for XML escaping, start/body NCNames, numeric
+lookup and entity formatting. It covers every Commonmark entity name, all
+three attribute registries, 785 distinct attributes from accepted original
+Native documents, all six-symbol CSS strings through length five, seeded
+parser/style/attribute cases, signed cached document widths and generic Text/
+String tag documents. Complete Doc trees and outputs at five wrapping widths
+are checked independently. Case digest:
+`f4826166f5700b78843b86034c220fbcaf58af7349c8ef9f801e2b2b2b57ff30`.
+The importer verifies source/input hashes and complete upstream-attribute and
+Unicode inventories; the production data importer separately verifies all
+2,231 entities and 342 attribute-list entries against original source bytes.
+
+Reproduce with cabal build all --project-dir=tools/haskell-writer-html-reference
+--builddir=/tmp/kotdoc-writer-html-build, then run
+python3 tools/import-writer-html-fixtures.py --oracle PATH.
+CI checks the source/data/corpus and runs WriterHtmlTest.
+
+Text.Pandoc.XML utilities are distinct from the XML AST serialization format.
+Tests.XML's original p_xml_roundtrip remains pending with that reader/writer;
+it is not claimed by the utility corpus. No dedicated CSS or shared writer
+HTML unit suite exists in the pinned Pandoc tests. Original HTML reader/writer
+consumer suites remain pending with their complete stateful implementation.
+Commonmark parsing/token entity APIs (charEntity/numEntity/pEntity/unEntity)
+and the full Commonmark parser/test suite remain pending beyond lookupEntity.
+The remaining Shared context/math/grid/translation/parsing helpers, complete
+Pandoc readers/writers/application/Lua/CLI and all calibre MOBI/additional formats
+and tests remain within the unchanged full objective. This dependency milestone
+does not complete that port.
+
+Local validation: all 664,179 Kotlin tests pass across 71 suites, with zero
+failures, errors or skips; WriterHtmlTest's complete 18,789 observations pass.
+All 74 source/fixture checks pass. All 280 new fixture source/input hashes match
+staged Git bytes and the pinned submodules. The JAR contains all three new
+public utility classes, their data resource and all 38 retained license files.
+The repository remains public. This utility layer adds no CLI reader/writer
+registration; the new commit's CI runs the complete installed-CLI checks.
