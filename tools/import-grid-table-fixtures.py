@@ -129,6 +129,10 @@ for n,payload in itertools.product([-(2**63),-72,-1,0,1,2,17,72,2**63-1],payload
 for column,rs,span in itertools.product(spanValues,spanValues,spanValues):
  m=[[n,spanValues[(i+2)%8],spanValues[(i+3)%8]] for i,n in enumerate(spanValues)]
  for op in ['insert','take','trailing']:add('spans',[op,column,m,rs,span],signedSpan=True)
+# Data.Map results expose ascending key order even with shuffled transport input.
+# The Kotlin observation adapter must not sort away an incorrect returned map.
+for column,rs,action,oldSpan in itertools.product([-10,-8,3,7],[-1,1,2],['insert','take','trailing'],[1,3]):
+ add('spans',[action,column,[[7,oldSpan,8],[-10,3,-1],[0,0,6]],rs,5],mapOrder=True)
 meta=dict(cases=len(cs),sources=hashes(),caseHash=digest(cs),operations=dict(collections.Counter(c['op'] for c in cs)),
  oracle='unchanged Pandoc 3.12.1 Writers.Shared / AnnotatedTable, pandoc-types 1.23.1.2 and DocLayout 0.6',numericBaseline='GHC 9.12.2 macOS ARM64 -O2')
 target.parent.mkdir(parents=True,exist_ok=True)

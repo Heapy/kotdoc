@@ -83,7 +83,7 @@ class GridTableTest {
         put("doc",encDoc(d));put("render",layout.render(null,d));put("wrapped",layout.render(n,d));put("offset",layout.offset(d));put("minOffset",layout.minOffset(d))
     }
     private fun spans(v: JsonElement) = v.jsonArray.associate { it.jsonArray.let { x->x[0].n() to WriterTables.Span(x[1].n(),x[2].n()) } }
-    private fun encSpans(v: Map<Long,WriterTables.Span>) = JsonArray(v.toSortedMap().map { (n,s)->j(JsonPrimitive(n),JsonPrimitive(s.rowSpan),JsonPrimitive(s.colSpan)) })
+    private fun encSpans(v: Map<Long,WriterTables.Span>) = JsonArray(v.map { (n,s)->j(JsonPrimitive(n),JsonPrimitive(s.rowSpan),JsonPrimitive(s.colSpan)) })
     private class RendererFailure : RuntimeException()
     private fun run(op: String,v: JsonElement): JsonElement {
         val a=v.jsonArray

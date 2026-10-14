@@ -4199,6 +4199,10 @@ Body flattening keeps intermediate headers before body rows and preserves row
 attributes. Insertion skips row spans <= 1; taking decrements/deletes only a
 positive tracked span; trailing decrement touches only keys at/after the given
 column and preserves existing nonpositive spans and arbitrary column spans.
+Returned maps are immutable snapshots in ascending numeric key order, retaining
+the Data.Map contract even when callers provide maps in another iteration order.
+Seventy-two native shuffled-map observations compare the returned key sequence
+directly; the observation adapter performs no output sorting.
 
 The frozen tools/haskell-grid-table-reference compiles unchanged extracted grid
 and table helper bodies, original AnnotatedTable, DocLayout 0.6 and the full
@@ -4208,7 +4212,7 @@ is exposed through a wrapper with its body retained verbatim. Sparse native
 options leave all fields other than columns/wrap and two callback markers
 undefined. The production code has no Haskell runtime dependency.
 
-The 12,793 native observations include all 242 tables in accepted upstream
+The 12,865 native observations include all 242 tables in accepted upstream
 Native fixtures under nine columns/wrap combinations; empty and ragged rows,
 row/column spans, stub clipping, intermediate headers, multiple bodies and feet;
 all sixteen Doc constructors with font/link data and mismatched cached widths;
@@ -4220,7 +4224,7 @@ limits; and renderer failure prefixes. All expectations come from original
 Haskell. No callback adapter is claimed as an implementation of a document
 format writer. The source manifest contains 185 original/input/oracle/license
 files. Case digest:
-`19a3b07a0922b24d0fb25e4eb2410e1ee5218bf11cac56a3e425c6786e486446`.
+`d6b72905f1c1c703a9f4cba4f151976fd80c66194b1ba68a00680970ffe96d2a`.
 
 Reproduce with cabal build all --project-dir=tools/haskell-grid-table-reference
 --builddir=/tmp/kotdoc-grid-table-build, then run
@@ -4236,8 +4240,8 @@ tests remain within the unchanged full objective. This is a dependency milestone
 not completion of that port.
 
 
-Local validation: all 688,213 Kotlin tests pass across 73 suites, with zero
-failures, errors or skips. All 12,793 grid/table observations, all 76
+Local validation: all 688,285 Kotlin tests pass across 73 suites, with zero
+failures, errors or skips. All 12,865 grid/table observations, all 76
 source/fixture checks and all 234 installed-CLI comparisons pass. All 185 new
 source/input hashes match staged Git bytes and pinned submodule commits; the
 staged corpus bytes match the checked worktree. The core JAR contains GridTable,

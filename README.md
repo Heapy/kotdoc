@@ -19,7 +19,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 688,213 tests, no skipped tests.
+  roundtrip tests. Current suite: 688,285 tests, no skipped tests.
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Native reader/writer and JSON ↔ Native CLI conversion with standalone output
@@ -91,7 +91,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   observations covering all 242 upstream fixture tables and cell/row/head walks.
 - Shared grid-table output: source width redistribution, merged cells, header
   and footer borders, alignment markers and exact renderer callback order.
-  Checked against 12,793 original Haskell observations, including all 242
+  Checked against 12,865 original Haskell observations, including all 242
   upstream tables, all DocLayout constructors, renderer failures and Int64/IEEE
   boundaries. Shared row/span bookkeeping helpers are also ported; complete
   Markdown/RST/Muse writers and their consumer suites remain pending.
