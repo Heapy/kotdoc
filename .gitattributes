@@ -44,3 +44,19 @@ vendor/ghc-regex-unicode-9.12.2/** -text whitespace=-trailing-space,-blank-at-eo
 vendor/text-utf8-2.1.3/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
 vendor/utf8-string-1.0.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
 licenses/Utf8-string-BSD-3-Clause.txt -text whitespace=cr-at-eol
+
+# Retain all formatter/rendering release bytes, including original CRLF.
+vendor/ansi-terminal-format-1.1.5/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/ansi-terminal-types-format-1.1.3/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/blaze-html-format-0.9.2.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/blaze-markup-format-0.8.3.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/skylighting-format-ansi-0.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/skylighting-format-blaze-html-0.1.2.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/skylighting-format-context-0.1.0.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/skylighting-format-latex-0.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/skylighting-format-typst-0.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/ANSI-terminal-BSD-3-Clause.txt -text whitespace=cr-at-eol
+licenses/ANSI-terminal-types-BSD-3-Clause.txt -text whitespace=cr-at-eol
+licenses/Blaze-BSD-3-Clause.txt -text whitespace=cr-at-eol
+licenses/Skylighting-context-BSD-3-Clause.txt -text whitespace=cr-at-eol
+licenses/Skylighting-format-BSD-3-Clause.txt -text whitespace=cr-at-eol

@@ -113,7 +113,8 @@ class HighlightStyle(
     val lineNumberColor: HighlightColor? = null,
     val lineNumberBackgroundColor: HighlightColor? = null,
 ) : Comparable<HighlightStyle> {
-    val tokenStyles: Map<TokenType, TokenStyle> = Collections.unmodifiableMap(TreeMap<TokenType, TokenStyle>().apply { putAll(tokenStyles) })
+    val tokenStyles: Map<TokenType, TokenStyle> = if (tokenStyles is BinaryAscMap<TokenType, TokenStyle>) tokenStyles
+        else Collections.unmodifiableMap(TreeMap<TokenType, TokenStyle>().apply { putAll(tokenStyles) })
     fun toJson() = buildJsonObject {
         put("text-styles", JsonObject(tokenStyles.mapKeys { it.key.wireName }.mapValues { it.value.toJson() }))
         put("background-color", backgroundColor?.toJson() ?: JsonNull); put("text-color", defaultColor?.toJson() ?: JsonNull)

@@ -1,0 +1,6 @@
+{
+  "url": "https://hackage-content.haskell.org/package/skylighting-format-context-0.1.0.2/skylighting-format-context-0.1.0.2.tar.gz",
+  "sha256": "004213e13d89b692ea0912d7ffa6ee98c93146d1a7962a849ad7860697bc88bd",
+  "package": "skylighting-format-context-0.1.0.2",
+  "selection": "Pandoc stack.yaml LTS 24.51, with explicit upstream HTML override 0.1.2.2"
+}

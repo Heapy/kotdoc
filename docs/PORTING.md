@@ -47,6 +47,7 @@ format is implemented explicitly in Kotlin.
 | Skylighting XML syntax parsing and file/directory loading; default Text.XML document parsing dependency | `highlighting/SyntaxParser.kt`, `SyntaxLoader.kt`, `SyntaxUtf8.kt`, `xml/XmlDocument.kt`, `XmlDocumentParser.kt`, `XmlDocumentLexer.kt` | 6,168 independent original observations, all 195 original XML files through document/text/file paths, all matchers/flags, namespaces/entities/diagnostics, chunk boundaries, UTF-8, POSIX/Windows filenames and both directory folds; three source-derived/deep/ownership checks |
 | Skylighting syntax Binary instances and baked default map | `highlighting/SyntaxBinary.kt`, `BinaryAscCollections.kt`, `DefaultSyntaxes.kt` | 77,801 independent original Binary/default-map observations, exact full models/Show/re-encoded bytes for all 195 baked definitions, every two-byte Char input, malformed constructor/text/container errors and lookup/equality; deep rule/ownership/cache check |
 | Skylighting tokenizer and context/capture state | `highlighting/Tokenizer.kt` | 27,881 independent original token/trace/error/config-Show observations: all 32 original goldens, 21 regressions, 6,240 mixed samples, 19,500 seeded Unicode fuzz inputs and 2,088 synthetic boundary cases; finite 10,000-child/include chains and immutable result/config checks |
+| Skylighting HTML/HTML4, ANSI, LaTeX, ConTeXt and Typst formatters; FormatOptions and style Binary | `highlighting/format/`, `FormatOptions.kt`, `HighlightBinary.kt` | 27,030 original complete-output/model observations: all 32 original tokenized files with eight themes, every token, all public formatter functions, option/Unicode/line-boundary cases, ANSI palette/roundtrip/boolean-style cases, 14,008 Binary decodes and 359 encodes; immutable ownership check |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
@@ -3455,3 +3456,109 @@ failures, errors or skips. All 65 source/fixture checks pass.
 All 234 installed CLI comparisons pass: 14 FB2, 66 media, 69 extension and 85
 math cases. Rebuilding the portable native adapter reproduces the identical
 complete case digest.
+
+## Skylighting formatters, FormatOptions and color/style Binary
+
+The complete public formatter functions from all five upstream packages are now
+implemented in Kotlin. These versions follow the pinned Pandoc configuration:
+`skylighting-format-ansi-0.1`, `skylighting-format-latex-0.1`,
+`skylighting-format-context-0.1.0.2`, `skylighting-format-typst-0.1` and
+`skylighting-format-blaze-html-0.1.2.2`. Pandoc's stack.yaml uses LTS 24.51 with
+an explicit HTML override, and cabal.project requires HTML >=0.1.2.2 and
+ConTeXt >=0.1.0.2. The exact nine formatter/rendering dependency archives and
+all 88 original files, including licenses and published dependency tests, are
+retained verbatim with archive hashes. The five formatter releases contain no
+standalone test suites; output expectations come from their unchanged functions,
+not newly invented Kotlin snapshots.
+
+`TeXFormats.kt` ports all inline/block functions and style macro generators for
+LaTeX, ConTeXt and Typst. It preserves token naming, whitespace-only NormalTok,
+escaping, line joins and trailing newlines, sorted macros, wrapper composition,
+color fractions and default-color fallback. Source quirks remain observable:
+LaTeX numbering keeps its repeated commas; ConTeXt shade hex channels are unpadded
+and repeated spaces are grouped before adjacent escape regions are joined;
+Typst's per-token background setting currently has no effect. Ignored options
+remain ignored by the same formatter boundaries.
+
+`HtmlFormat.kt` reproduces HTML/HTML4 rendered fragments and CSS. Token classes,
+titles, duplicate/empty class strings, inline class deduplication, conditional
+counter-reset styles, prefix/line IDs, anchor attribute order and HTML4 versus
+HTML5 accessibility attributes match the original. Its text/attribute escaping
+uses the exact five blaze-markup entities; controls and Unicode otherwise remain
+in their original text. This ports the rendered fragment boundary, not the whole
+Blaze Markup AST, its combinators, every renderer or its entire property suite.
+Those broader dependency APIs are not claimed complete by the formatter corpus.
+
+`AnsiFormat.kt` ports complete SGR output for 16-color, 256-color and true-color
+modes. The original Manhattan nearest-color search and stable first-minimum tie
+choice are preserved. In 256-color mode grayscale entries precede the cube and
+system colors; this ordering changes tie results and cannot be replaced with
+numeric palette order. Foreground/background/default/line-number inheritance,
+reset placement, separate palette SGRs and bold/italic/underline resets match
+ansi-terminal's unchanged Codes module. All 256 values of each individual RGB
+axis check its colour Float -> sRGB24 roundtrip. The formatter's unused private
+Xterm256ColorCode Data/Read/Enum/Binary instances and unrelated terminal controls
+are not claimed ported by its public formatANSI boundary.
+
+HTML and ANSI use the source's derived LineNo Enum behavior: enumeration stops at
+Int64 maxBound, so later input lines are omitted at that boundary. Counter-reset
+subtraction still wraps at minBound. LaTeX, ConTeXt and Typst retain their own
+independent line behavior; no shared wrapping enumeration is substituted.
+
+`FormatOptions.kt` supplies all eight original fields and defaults with immutable
+lists, derived field-order equality/ordering and exact Show. `HighlightBinary.kt`
+ports public Binary instances for Color, TokenStyle, Style, ANSIColorLevel and
+FormatOptions through the previously verified explicit-stack Binary engine.
+Complete values/Show/re-encoded bytes, errors, consumed positions and remaining
+input agree with original decodeOrFail. Maybe accepts any nonzero Just tag;
+Bool and enum tags retain their own distinct validation. Invalid unordered or
+duplicate token-style maps preserve original fromDistinctAscList entries and
+lookup trees, rather than being normalized by HighlightStyle's public constructor.
+Canonical JSON construction and the earlier style corpus remain unchanged.
+
+The isolated frozen `tools/haskell-formatter-reference` project compiles all five
+unchanged formatter modules against original core 0.15, blaze-html 0.9.2.0,
+blaze-markup 0.8.3.0 and ansi-terminal 1.1.5 / types 1.1.3. Production Kotlin uses
+none of these programs/libraries. The corpus has 27,030 observations: eight
+built-in complete style models/macros, 1,602 comparisons containing ten rendered
+outputs each (including all 32 original source files with eight themes), 1,176
+four-output style conversions, 9,680 focused ANSI outputs, 99 FormatOptions
+observations, 98 option comparisons, 359 Binary encodings and 14,008 decodings.
+These include all token/option constructors, escaping and Unicode, empty source
+lines/tokens, all boolean style combinations, a complete 16x16x16 RGB grid for
+both approximate palettes, exact palette entries, seeded mixed styles, Int64
+limits, all individual constructor-byte values, truncations, tails, malformed
+lists/text/Maybe/Bool/enum tags and invalid token-style maps.
+
+One additional Kotlin check verifies immutable option lists and ownership of
+encoded input/decoded map values. All 27,031 focused tests pass. CI checks all
+397 source/input/adapter/license hashes and the complete case digest:
+`e66353e5ac33518718a8fb2dbdd08aa792131f9f69f59af33d9c4174f71487dc`.
+The core JAR now carries every retained upstream notice under META-INF/LICENSES;
+CLI distributions already include the license directory, which now also contains
+verbatim formatter, ConTeXt, Blaze and ANSI notices.
+
+Reproduce using `cabal build formatter-reference
+--project-dir=tools/haskell-formatter-reference
+--builddir=/tmp/kotdoc-formatter-build`, then
+`python3 tools/import-formatter-fixtures.py --oracle PATH`. CI runs
+`python3 tools/import-formatter-fixtures.py --check-source` and Kotlin tests.
+
+The Pandoc Highlighting wrapper and writer integration, full WriterOptions,
+remaining derived model Read/Data behavior, Pandoc readers/writers/application/
+Lua/CLI and all calibre MOBI/additional formats/tests remain in the unchanged
+objective. Passing these formatter checks does not establish completion of the
+full port.
+
+Local validation: all 548,858 Kotlin tests pass across 63 suites, with zero
+failures, errors or skips. All 66 source/fixture checks pass. Initial full runs
+exhausted the long-lived Gradle daemon's default 512 MiB heap. Gradle now has
+1 GiB, the test worker has 2 GiB headroom, and the new formatter factory parses
+large expected JSON trees during execution rather than retaining duplicate trees
+in every callback. The complete original failing command now passes with every
+observation retained; no test was removed or skipped.
+All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension,
+85 math). All 397 source/input/adapter/license hashes match staged Git blobs or
+the pinned Pandoc submodule. Original CRLF is preserved explicitly by attributes.
+The core JAR contains all seven new formatter/options/Binary classes and all 35
+verbatim retained notices plus the project GPL license.

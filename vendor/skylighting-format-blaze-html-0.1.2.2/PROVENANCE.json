@@ -1,0 +1,6 @@
+{
+  "url": "https://hackage-content.haskell.org/package/skylighting-format-blaze-html-0.1.2.2/skylighting-format-blaze-html-0.1.2.2.tar.gz",
+  "sha256": "c5ac4f5c83fc400a2ac9b7d3b2140c16de5329bb5136bba90e6f07eaa77070a8",
+  "package": "skylighting-format-blaze-html-0.1.2.2",
+  "selection": "Pandoc stack.yaml LTS 24.51, with explicit upstream HTML override 0.1.2.2"
+}
