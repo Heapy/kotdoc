@@ -45,6 +45,7 @@ format is implemented explicitly in Kotlin.
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
+| Doctemplates finite compilation, partial loading and public conveniences; Parsec character kernel | `templates/TemplateCompiler.kt`, `PartialPaths.kt`, `parsing/Parsec.kt`, `ParserCharacters.kt` | All 37 original doctemplates cases through the Kotlin compiler/application, 11,320 original observations, every Haskell Char, POSIX/Windows paths, loader effects and Parsec continuation/error states; native dependency suites and deep/large-input checks |
 | `Chunks` TOC functions, SecInfo and PathTemplate; `Writers.Shared.toTableOfContents` | `structure/TableOfContents.kt`, `PathTemplate.kt` | All seven original Haskell TOC examples; 532 comparisons over all 266 Native documents, 232 edge cases, 16 original chunk TOC trees and 35 actual original chunk paths |
 | Shared identifiers, Asciify, Pandoc Emoji and emojis-0.1.5 public operations | `ast/Identifiers.kt`, `Asciify.kt`, `Emoji.kt` | All seven dependency assertions and four original Lua examples; 1,913 alias ASTs, 3,953 emoji sequences, 40 edge/collision cases and every Unicode scalar in four identifier modes |
 | Haskell text full lower/upper/casefold mapping | `ast/UnicodeText.kt`, generated source tables | Independent lower/upper comparisons for every scalar; 1,585 original Format equality comparisons; original exception baselines, Cherokee, ASCII, length and idempotence properties |
@@ -133,11 +134,12 @@ are implemented; the complete WriterOptions record and defaults still need its
 template/context and syntax-map dependencies, plus remaining highlighting
 behavior. These dependencies must be ported rather than replacing the record
 with a subset. Finite doclayout 0.6 rendering and document operations, and the
-doctemplates 0.11.1 Context/Val conversion, Template/Variable/Pipe and finite
-rendering/traversal are implemented. Next are the template parser and exact
-diagnostics, partial loading/recursion and Pandoc resource wrappers. The original
-golden outputs and successful unit cases already exercise the Kotlin renderer
-through ASTs compiled by the original parser; Kotlin parsing is still pending.
+doctemplates 0.11.1 Context/Val conversion, Template/Variable/Pipe, finite
+rendering/traversal and compilation are implemented, including exact parser
+diagnostics, partial loading/recursion and public application/file conveniences.
+All 22 original goldens and 15 unit cases now exercise the Kotlin compiler.
+Next are Pandoc's template resource wrappers and the remaining syntax-map/
+highlighting dependencies for the complete WriterOptions record/defaults.
 Also continue the remaining DocLayout interfaces recorded below.
 Context values and Template literals contain structured DocLayout documents. CLI `App.Opt` is
 a separate layer. The upstream writer math default is MathML (also used by the
@@ -2783,13 +2785,97 @@ manifest checks 81 files. A separate finite-depth test renders, maps and folds
 20,000 concatenations and renders 20,000 nested templates, adding 12,212 Kotlin
 tests in total.
 
-Remaining work includes Kotlin template parsing, exact parser diagnostics,
+At this milestone, remaining work included Kotlin template parsing, exact parser diagnostics,
 partial file/resource loading and recursion semantics, Pandoc's template
 wrappers, full lazy/infinite interfaces, exact Haskell Show/Read and Template
 Ord, arbitrary Applicative interfaces, complete WriterOptions/defaults and
 highlighting dependencies. Remaining Pandoc formats/application/Lua/CLI and all
 calibre MOBI/additional formats remain in the original objective.
 
-All 367,195 Kotlin tests pass locally with no failures, errors or skips across
-55 suites. All 55 source/fixture checks verify; all 234 installed-CLI comparisons
+At this milestone all 367,195 Kotlin tests passed locally with no failures,
+errors or skips across 55 suites. All 55 source/fixture checks verified;
+all 234 installed-CLI comparisons passed.
+
+## Doctemplates finite parser and partial loading
+
+The complete original Parser.hs grammar is translated to Kotlin: dollar/braced
+directives and escapes, variables/reserved words, conditionals/elseif, loops and
+separators, comments, reflow, indentation/nesting, every pipe and border parameter,
+partials and the original recursion guard. Compilation returns a typed syntax
+failure or the complete Template AST. Public applyTemplate composition and the
+compileTemplateFile IO convenience are also implemented. The default resolver
+models Identity's empty partials; an injected resolver models TemplateMonad,
+and the file convenience reads both root and partials from UTF-8 files.
+
+Partial loading removes exactly one final LF, preserves the original template
+path as the resolution base through nested partials, restores parser state after
+each partial and retains loader effects across backtracking. The original loader
+is called before checking nesting >50, so recursive templates record the extra
+request before producing `(loop)`. POSIX and Windows FilePath operations retain
+drive/UNC, separator, extension and absolute-name behavior without normalizing
+paths. Native comparisons call unchanged original FilePath 1.5.4.0 modules for
+both styles; end-to-end IO is checked on macOS and in the Linux CI matrix.
+
+The reusable finite character-stream Parsec kernel translates consumed/empty
+success/failure, bind/map, alternatives, try/lookAhead, labels, primitives,
+repetition, state/input/position operations and error merging/formatting.
+An explicit node/frame interpreter avoids JVM recursion; unknown-error empty
+binds retain the original tail behavior. Source positions count Unicode Chars,
+use eight-column tabs and original signed-Int arithmetic. SourcePos formatting,
+message equality/order (which ignores message contents) and ParseError equality
+are checked independently. Error merging compares line/column without source
+name and prefers meaningful errors, including at restored partial positions.
+
+Parsec.many and Control.Applicative's default many are distinct. The latter
+retains successful-iteration errors; the former drops them. A partial-at-EOF
+corpus exposed missing `$--` expectations when they were conflated. Kotlin now
+preserves both operations, with a reduced independent regression. Applicative
+repetition accumulates a persistent chain and converts once, avoiding quadratic
+list copies for long flat templates. Functor mapping retains the original reply
+and error rather than implementing a different state transition.
+
+GHC 9.12.2's Unicode predicates use Unicode 16.0.0. The original GHC predicate
+and generated-category sources, the versioned UnicodeData.txt and its license
+are retained. Production's 1,606 flag ranges are generated from those source
+categories, not from oracle expectations or host JVM/ICU data. Every one of the
+1,114,112 Haskell Chars is checked against original isAlpha/isAlphaNum/isSpace/
+isDigit, including surrogate Chars and ASCII-only decimal digits.
+
+The expanded frozen oracle compiles unchanged retained doctemplates, DocLayout,
+Parsec 3.1.18.0 and FilePath 1.5.4.0 modules. All 37 original doctemplates tests
+pass natively and in Kotlin, including the six exact diagnostic strings read
+directly from original test/test.hs. Every original golden and successful unit
+assertion must match the native compiler/renderer before capture is accepted.
+The native unchanged Parsec main suite passes all six cases; issue175 and
+issue171 each pass, and issue127 returns Right () for one million empty actions.
+These are native dependency baselines, not claims that Token/Expr or the full
+Parsec package have been ported to Kotlin.
+
+The new independent corpus has 11,320 observations: 4,380 Text and 280 String
+compilations, eight actual file-compilation cases, 272 all-Char batches, 3,250
+POSIX/Windows path results, 2,830 Parsec continuation/state results and 300 error/
+message comparisons. Compilation observations include full ASTs, free variables,
+exact errors and ordered loader requests, with reflow, recursion, malformed input,
+Unicode identifiers and Int64 widths. File cases cover recursive partials,
+UTF-8/BOM, invalid UTF-8 and missing roots, distinguishing syntax failures from
+propagated IOExceptions. Fixture-root paths are normalized for portable checks;
+exact platform IOException wording is not represented by that classification.
+
+Two further Kotlin tests cover 2,000 nested conditions, 20,000 escaped dollars,
+real temporary-file loading, one million empty parser actions and a 200,000-Char
+source name. Together this adds 11,322 Kotlin tests. The new manifest checks 171
+source/input/harness/license/importer files. The existing 6,880 Context and 12,211
+runtime observations remain unchanged; their provenance manifests now include
+the additional original modules compiled by the shared oracle (159/160 files).
+
+Remaining work includes Pandoc's default-template/resource wrappers, complete
+WriterOptions/defaults and syntax-map/highlighting dependencies, exact Haskell
+Show/Read/Template Ord, full laziness/infinite interfaces, generic Parsec streams/
+transformers and remaining combinator/Token/Expr/Perm interfaces and tests,
+remaining FilePath APIs/tests, and GHC IO exception/locale/newline policies.
+Remaining Pandoc formats/application/Lua/CLI and all calibre MOBI/additional
+formats remain in the original objective; the full port is not complete.
+
+All 378,517 Kotlin tests pass locally with no failures, errors or skips across
+56 suites. All 57 source/fixture checks verify; all 234 installed-CLI comparisons
 pass. The full Pandoc/calibre port remains incomplete.

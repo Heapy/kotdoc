@@ -5,11 +5,14 @@ build-type: Simple
 license: GPL-3.0-only
 
 common original-modules
-  hs-source-dirs: ../../vendor/doctemplates-0.11.1/src, ../../vendor/doclayout-0.6/src
-  include-dirs: ../../vendor/doclayout-0.6/src/Text
+  hs-source-dirs: ../../vendor/doctemplates-0.11.1/src, ../../vendor/doclayout-0.6/src,
+                 ../../vendor/parsec-3.1.18.0/src, ../../vendor/filepath-1.5.4.0
+  include-dirs: ../../vendor/doclayout-0.6/src/Text, ../../vendor/filepath-1.5.4.0/System/FilePath
   other-modules: Text.DocTemplates, Text.DocTemplates.Internal, Text.DocTemplates.Parser,
                  Text.DocLayout, Text.DocLayout.HasChars, Text.DocLayout.Attributed,
-                 Text.DocLayout.ANSIFont
+                 Text.DocLayout.ANSIFont, Text.Parsec, Text.Parsec.Char,
+                 Text.Parsec.Combinator, Text.Parsec.Error, Text.Parsec.Pos, Text.Parsec.Prim,
+                 System.FilePath, System.FilePath.Posix, System.FilePath.Windows
   default-language: Haskell2010
   build-depends: base >=4.21 && <4.22, text, containers, emojis ==0.1.5,
                  mtl, safe, aeson ==2.2.3.0, bytestring, vector,
@@ -27,3 +30,35 @@ test-suite original-doctemplates-tests
   hs-source-dirs: ../../vendor/doctemplates-0.11.1/test
   ghc-options: -threaded -rtsopts
   build-depends: Glob, tasty, tasty-golden, tasty-hunit, temporary
+
+test-suite original-parsec-tests
+  import: original-modules
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  hs-source-dirs: ../../vendor/parsec-3.1.18.0/test
+  other-modules: Bugs, Bugs.Bug2, Bugs.Bug35, Bugs.Bug6, Bugs.Bug9,
+                 Features, Features.Feature150, Features.Feature80, Util,
+                 Text.Parsec.Token, Text.Parsec.Language, Text.Parsec.Expr, Text.Parsec.String
+  build-depends: tasty, tasty-hunit
+
+test-suite original-parsec-issue175
+  import: original-modules
+  type: exitcode-stdio-1.0
+  main-is: issue175.hs
+  hs-source-dirs: ../../vendor/parsec-3.1.18.0/test
+  other-modules: Text.Parsec.String
+  build-depends: tasty, tasty-hunit
+
+test-suite original-parsec-issue171
+  import: original-modules
+  type: exitcode-stdio-1.0
+  main-is: issue171.hs
+  hs-source-dirs: ../../vendor/parsec-3.1.18.0/test
+  other-modules: Text.Parsec.String
+  build-depends: tasty, tasty-hunit, deepseq
+
+test-suite original-parsec-issue127
+  import: original-modules
+  type: exitcode-stdio-1.0
+  main-is: issue127.hs
+  hs-source-dirs: ../../vendor/parsec-3.1.18.0/test

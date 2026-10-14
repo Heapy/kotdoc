@@ -11,7 +11,7 @@ args = p.parse_args()
 sources = ['tools/import-template-runtime-fixtures.py', 'upstream/pandoc/stack.yaml',
            'licenses/Doctemplates-BSD-3-Clause.txt', 'vendor/emojis-0.1.5/src/Text/emojis.inc',
            'vendor/text-2.1.3/CaseMapping.hs']
-for folder in ['vendor/doctemplates-0.11.1', 'vendor/doclayout-0.6', 'tools/haskell-doctemplates-reference']:
+for folder in ['vendor/doctemplates-0.11.1', 'vendor/doclayout-0.6', 'vendor/parsec-3.1.18.0', 'vendor/filepath-1.5.4.0', 'tools/haskell-doctemplates-reference']:
     sources += sorted(str(p.relative_to(root)) for p in (root / folder).rglob('*') if p.is_file() and 'dist-newstyle' not in p.parts)
 hashes = {p: hashlib.sha256((root / p).read_bytes()).hexdigest() for p in sources}
 def digest(cases):

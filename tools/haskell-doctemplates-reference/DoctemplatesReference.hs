@@ -1,7 +1,8 @@
-{-# LANGUAGE OverloadedStrings, ScopedTypeVariables, FlexibleContexts #-}
+{-# LANGUAGE OverloadedStrings, ScopedTypeVariables, FlexibleContexts, GeneralizedNewtypeDeriving #-}
 module Main where
 import Text.DocTemplates.Internal
 import Text.DocTemplates.Parser(compileTemplate)
+import qualified Text.DocTemplates as Public
 import Data.Text.Conversions(ToText(..),FromText(..))
 import qualified Text.DocLayout as D
 import qualified Text.DocLayout.Attributed as A
@@ -16,7 +17,16 @@ import qualified Data.Vector as V
 import Data.Foldable(toList)
 import Data.List(sort)
 import Control.Monad.State.Strict(runState,state,State)
-import Control.Exception(SomeException,try,evaluate,displayException)
+import qualified Control.Monad.State.Strict as ST
+import Control.Monad.Identity(runIdentity)
+import qualified Control.Applicative as CA
+import qualified Text.Parsec as P
+import qualified Text.Parsec.Error as PE
+import qualified Text.Parsec.Pos as PP
+import qualified System.FilePath.Posix as FP
+import qualified System.FilePath.Windows as FW
+import Data.Char(chr,ord,isAlpha,isAlphaNum,isSpace,isDigit)
+import Control.Exception(SomeException,IOException,try,evaluate,displayException)
 
 as :: FromJSON a => Value -> a
 as v=case fromJSON v of Success x->x;Error e->error e
@@ -174,6 +184,30 @@ renders _=Null
 
 operation :: T.Text -> Value -> Value
 operation "value" input=describe(val input)
+operation "char-flags" input=case arr input of
+ [start,end]->toJSON[ (if isAlpha c then 1 else 0)+(if isAlphaNum c then 2 else 0)+
+                      (if isSpace c then 4 else 0)+(if isDigit c then 8 else 0) |n<-[as start..as end-1],let c=chr n]
+ _->error "character range"
+operation "partial-path" input=case arr input of
+ [String style,String path,String partial]->toJSON $ if style=="posix"
+   then if null(FP.takeExtension(T.unpack partial)) then FP.replaceBaseName(T.unpack path)(T.unpack partial) else FP.replaceFileName(T.unpack path)(T.unpack partial)
+   else if null(FW.takeExtension(T.unpack partial)) then FW.replaceBaseName(T.unpack path)(T.unpack partial) else FW.replaceFileName(T.unpack path)(T.unpack partial)
+ _->error "partial path"
+operation "parsec-run" input=case arr input of
+ [p,name,text,user]->let {initial=P.State(as text)(PP.initialPos(as name))(as user::Int);
+                       res=runIdentity(P.runParsecT(core p)initial);
+                       (consumed,reply)=case res of P.Consumed r->(True,runIdentity r);P.Empty r->(False,runIdentity r)}
+                   in case reply of
+                     P.Error e->object["consumed" .= consumed,"ok" .= False,"error" .= encError e]
+                     P.Ok v s e->object["consumed" .= consumed,"ok" .= True,"value" .= v,"error" .= encError e,
+                       "position" .= encPosition(P.statePos s),"remaining" .= P.stateInput s,"user" .= P.stateUser s]
+ _->error "parsec run"
+operation "error-values" input=case arr input of
+ [a,b]->let {e1=errorValue a;e2=errorValue b;ms=PE.errorMessages e1<>PE.errorMessages e2}
+        in object["first" .= encError e1,"second" .= encError e2,"equal" .= (e1==e2),
+          "merged" .= encError(PE.mergeError e1 e2),"sourceOrder" .= show(compare(PE.errorPos e1)(PE.errorPos e2)),
+          "messageEquals" .= [[x==y|y<-ms]|x<-ms],"messageOrders" .= [[show(compare x y)|y<-ms]|x<-ms]]
+ _->error "error values"
 operation "runtime" input=case arr input of
  [t,c]->runtime(template t)(toContext(val c))
  _->error "runtime input"
@@ -211,6 +245,87 @@ operation "conversion" input=case arr input of
  _->error "conversion"
 operation op _=error(T.unpack op)
 
+encPosition pos=toJSON[toJSON(P.sourceName pos),toJSON(P.sourceLine pos),toJSON(P.sourceColumn pos)]
+errorValue v=case arr v of
+ [p,msgs]->let {[name,line,col]=arr p;pos=PP.newPos(as name)(as line)(as col);
+               message x=case arr x of [n,s]->[PE.SysUnExpect,PE.UnExpect,PE.Expect,PE.Message]!!(as n::Int)$as s;_->error "message"}
+           in foldr(PE.addErrorMessage . message)(PE.newErrorUnknown pos)(arr msgs)
+ _->error "error value"
+encError e=object["position" .= encPosition(P.errorPos e),"show" .= show e,
+ "messages" .= [toJSON[toJSON(fromEnum msg),toJSON(PE.messageString msg)]|msg<-PE.errorMessages e]]
+core :: Value -> P.Parsec T.Text Int Value
+core v=case arr v of
+ [String "pure",x]->return x
+ [String "char",n]->toJSON . ord <$> P.char(chr(as n))
+ [String "string",s]->toJSON <$> P.string(as s)
+ [String "string-atomic",s]->toJSON <$> P.string'(as s)
+ [String "many-chars",n]->toJSON <$> P.many(P.char(chr(as n)))
+ [String "concat-string",a,b]->toJSON <$> ((as <$> core a::P.Parsec T.Text Int String) <> (as <$> core b::P.Parsec T.Text Int String))
+ [String "sat",String kind]->toJSON . ord <$> P.satisfy(case kind of
+   "alpha"->isAlpha;"alnum"->isAlphaNum;"space"->isSpace;"digit"->isDigit;"any"->const True;_->error "predicate")
+ [String "token"]->toJSON . ord <$> P.anyToken
+ [String "zero"]->P.parserZero
+ [String "fail",s]->fail(as s)
+ [String "unexpected",s]->P.unexpected(as s)
+ [String "then",a,b]->core a *> core b
+ [String "before",a,b]->core a <* core b
+ [String "pair",a,b]->(\x y->toJSON[x,y]) <$> core a <*> core b
+ [String "choice",a,b]->core a P.<|> core b
+ [String "try",a]->P.try(core a)
+ [String "look",a]->P.lookAhead(core a)
+ [String "label",a,s]->core a P.<?> as s
+ [String "many",a]->toJSON <$> P.many(core a)
+ [String "many-alt",a]->toJSON <$> CA.many(core a)
+ [String "many1",a]->toJSON <$> P.many1(core a)
+ [String "notchar",n]->Null <$ P.notFollowedBy(P.char(chr(as n)))
+ [String "eof"]->Null <$ P.eof
+ [String "position"]->encPosition <$> P.getPosition
+ [String "set-position",name,line,col]->Null <$ P.setPosition(PP.newPos(as name)(as line)(as col))
+ [String "input"]->toJSON <$> P.getInput
+ [String "set-input",text]->Null <$ P.setInput(as text)
+ [String "user"]->toJSON <$> P.getState
+ [String "set-user",n]->Null <$ P.putState(as n)
+ _->error "core parser"
+
+newtype Logged a=Logged {unLogged::ST.State(M.Map FilePath T.Text,[FilePath]) a}
+ deriving(Functor,Applicative,Monad)
+instance TemplateMonad Logged where
+ getPartial fp=Logged $ ST.state $ \(files,reads)->(M.findWithDefault "" fp files,(files,reads<>[fp]))
+compileMap :: Bool -> Value -> Value
+compileMap stringTarget input=case arr input of
+ [path,text,c,files]->let {mappings=M.fromList[(as k,as v)|pair<-arr files,let [k,v]=arr pair];
+                         ctx=toContext(val c);
+                         result (Left e)=object["error" .= e];
+                         result (Right t)=runtime t ctx;
+                         resultString (Left e)=object["error" .= e];
+                         resultString (Right t)=runtime t(fmap T.unpack ctx)}
+                     in if stringTarget then
+                       let (r,(_,reads))=runState(unLogged(compileTemplate(as path)(as text)::Logged(Either String(Template String))))(mappings,[])
+                       in object["reads" .= reads,"result" .= resultString r]
+                     else let (r,(_,reads))=runState(unLogged(compileTemplate(as path)(as text)::Logged(Either String(Template T.Text))))(mappings,[])
+                          in object["reads" .= reads,"result" .= result r]
+ _->error "compile map"
+compileOnlyMap :: Bool -> Value -> Value
+compileOnlyMap stringTarget input=case arr input of
+ [path,text,files]->let {mappings=M.fromList[(as k,as v)|pair<-arr files,let [k,v]=arr pair];
+                        result (Left e)=object["error" .= e];
+                        result (Right t)=object["template" .= encTemplate t,"variables" .= getVariables t];
+                        resultString (Left e)=object["error" .= e];
+                        resultString (Right t)=object["template" .= encTemplate(fmap T.pack t),"variables" .= getVariables t]}
+                   in if stringTarget then
+                       let (r,(_,reads))=runState(unLogged(compileTemplate(as path)(as text)::Logged(Either String(Template String))))(mappings,[])
+                       in object["reads" .= reads,"result" .= resultString r]
+                     else let (r,(_,reads))=runState(unLogged(compileTemplate(as path)(as text)::Logged(Either String(Template T.Text))))(mappings,[])
+                          in object["reads" .= reads,"result" .= result r]
+ _->error "compile only map"
+compileFile :: Value -> IO Value
+compileFile input=do
+ r<-try(Public.compileTemplateFile(as input)::IO(Either String(Template T.Text)))::IO(Either IOException(Either String(Template T.Text)))
+ return $ case r of
+  Left _->object["ioError" .= ("IOException"::T.Text)]
+  Right(Left e)->object["error" .= e]
+  Right(Right t)->object["template" .= encTemplate t,"variables" .= getVariables t]
+
 main :: IO ()
 main=do
  inp<-B.getContents
@@ -219,7 +334,12 @@ main=do
         let Just v=decode line
             [String op,input]=arr v
         r<-try(do
-          result<-if op=="compile" then case arr input of
+          result<-if op=="compile-map" then return(compileMap False input)
+           else if op=="compile-string-map" then return(compileMap True input)
+           else if op=="compile-only-map" then return(compileOnlyMap False input)
+           else if op=="compile-only-string-map" then return(compileOnlyMap True input)
+           else if op=="compile-file" then compileFile input
+           else if op=="compile" then case arr input of
             [path,text,c]->do
               compiled<-compileTemplate(as path)(as text)::IO(Either String(Template T.Text))
               return $ case compiled of Left e->object["error" .= e];Right t->runtime t(toContext(val c))

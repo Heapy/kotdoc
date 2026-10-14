@@ -160,6 +160,11 @@ class TemplateRuntimeTest {
             put("effects", strings(effects)); put("traversedValues", values(traversed)); put("traversed", observe(engine.render(traversed, ctx), codec))
         }
     }
+    internal fun <A : Any> context(context: JsonElement, codec: TemplateValues<A>): Context<A> =
+        codec.value.toContext(value(context).mapValues(codec.fromText))
+    internal fun <A : Any> compiledTree(t: Template<A>, codec: TemplateValues<A>): JsonElement = buildJsonObject {
+        put("template", templateJson(t.mapValues(codec.toText))); put("variables", strings(t.getVariables()))
+    }
     private fun actual(op: String, input: JsonElement): JsonElement = when (op) {
         "runtime", "runtime-string" -> {
             val t = template(input.jsonArray[0]); val ctx = codec.value.toContext(value(input.jsonArray[1]))

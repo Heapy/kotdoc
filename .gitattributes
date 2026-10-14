@@ -29,3 +29,10 @@ licenses/DocLayout-BSD-3-Clause.txt -text whitespace=cr-at-eol
 vendor/zlib-0.7.1.1/** -text whitespace=-trailing-space,-blank-at-eof
 vendor/doctemplates-0.11.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
 licenses/Doctemplates-BSD-3-Clause.txt -text whitespace=cr-at-eol
+vendor/parsec-3.1.18.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+vendor/ghc-unicode-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof
+vendor/filepath-1.5.4.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+licenses/Parsec-BSD-2-Clause.txt -text whitespace=cr-at-eol
+licenses/Filepath-BSD-3-Clause.txt -text whitespace=cr-at-eol
+licenses/Unicode-3.0.txt -text whitespace=cr-at-eol
+core/src/test/resources/templates/files/** -text

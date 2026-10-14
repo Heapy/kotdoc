@@ -1,0 +1,7 @@
+GHC 9.12.2 release Unicode character predicates, using Unicode 16.0.0.
+Source: https://github.com/ghc/ghc/tree/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Unicode
+UnicodeData: https://www.unicode.org/Public/16.0.0/ucd/UnicodeData.txt
+GeneralCategory.hs SHA256: 00cabc389e5b14e7a2077b394e82a0a49a10d981cb06032b7e133dccde4a5c5f
+Unicode-LICENSE.txt SHA256: e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96
+Unicode.hs SHA256: 2b1bc16b9bc6aa290c142135d12da9a7da3a7ae1eeed1b019b656241910e8537
+UnicodeData.txt SHA256: ff58e5823bd095166564a006e47d111130813dcf8bf234ef79fa51a870edb48f
