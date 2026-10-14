@@ -1,0 +1,18 @@
+cabal-version: 3.0
+name: kotdoc-tokenizer-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable tokenizer-reference
+  hs-source-dirs: ., ../../vendor/skylighting-core-0.15/src, ../../vendor/utf8-string-1.0.2
+  main-is: TokenizerReference.hs
+  other-modules: Skylighting.Core, Skylighting.Types, Skylighting.Regex,
+                 Skylighting.Styles, Skylighting.Parser, Skylighting.Loader,
+                 Skylighting.Tokenizer, Regex.KDE, Regex.KDE.Regex,
+                 Regex.KDE.Compile, Regex.KDE.Match, Data.ByteString.UTF8,
+                 Codec.Binary.UTF8.Generic, Codec.Binary.UTF8.String
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring, text, containers,
+                 vector, binary, attoparsec, safe, mtl, base64-bytestring, colour,
+                 transformers, case-insensitive, directory, filepath, xml-conduit

@@ -46,6 +46,7 @@ format is implemented explicitly in Kotlin.
 | Skylighting syntax records, keyword lists, map operations and RE metadata instances | `highlighting/Syntax.kt`, `Syntaxes.kt`, `regex/RE.kt`, `RERead.kt`, `REBinary.kt` | 15,132 independent observations over all 195 original syntax models, every matcher constructor, derived field/constructor order and Show, keyword resolution, lookup, RE Show/Read/JSON/Binary and cached matching; two ownership/deep-stack checks |
 | Skylighting XML syntax parsing and file/directory loading; default Text.XML document parsing dependency | `highlighting/SyntaxParser.kt`, `SyntaxLoader.kt`, `SyntaxUtf8.kt`, `xml/XmlDocument.kt`, `XmlDocumentParser.kt`, `XmlDocumentLexer.kt` | 6,168 independent original observations, all 195 original XML files through document/text/file paths, all matchers/flags, namespaces/entities/diagnostics, chunk boundaries, UTF-8, POSIX/Windows filenames and both directory folds; three source-derived/deep/ownership checks |
 | Skylighting syntax Binary instances and baked default map | `highlighting/SyntaxBinary.kt`, `BinaryAscCollections.kt`, `DefaultSyntaxes.kt` | 77,801 independent original Binary/default-map observations, exact full models/Show/re-encoded bytes for all 195 baked definitions, every two-byte Char input, malformed constructor/text/container errors and lookup/equality; deep rule/ownership/cache check |
+| Skylighting tokenizer and context/capture state | `highlighting/Tokenizer.kt` | 27,881 independent original token/trace/error/config-Show observations: all 32 original goldens, 21 regressions, 6,240 mixed samples, 19,500 seeded Unicode fuzz inputs and 2,088 synthetic boundary cases; finite 10,000-child/include chains and immutable result/config checks |
 | DocLayout finite documents, rendering, attributes and display widths | `layout/Doc.kt`, `DocLayout.kt`, `Attributed.kt`, `DisplayWidth.kt`, `DocValues.kt` | All 54 original render goldens and 15 other literal assertions, both original width properties, all emoji examples, every Haskell Char and 38,147 original-Haskell observations |
 | Doctemplates Context/Val conversion and traversal foundation | `templates/Context.kt`, `TemplateValues.kt` | 6,880 original-Haskell observations, including the JSON contexts from all 22 original goldens, arbitrary-precision numeric conversions, Unicode map order and State traversal; a deep finite traversal check |
 | Doctemplates finite Template AST, pipes and rendering | `templates/Template.kt`, `TemplateRenderer.kt` | 12,211 original-Haskell observations for Text/String, all 22 original golden outputs and nine successful unit cases through original-parser ASTs, full Doc structure, column state, loops and free variables; a deep finite template check |
@@ -3365,3 +3366,92 @@ Local validation: all 493,944 Kotlin tests pass across 61 suites, with zero
 failures, errors or skips. All 64 source/fixture checks pass. The existing XML
 parser/model and all original Native output assertions also pass after the
 exact-character and lazy-map integration changes.
+
+## Skylighting tokenizer, physical lines and context captures
+
+`Tokenizer.kt` translates the complete observable `Skylighting.Tokenizer.tokenize`
+state machine. All 18 matcher constructors use the already ported KDE compiler,
+matcher, pinned GHC Unicode tables and full case folding. The supplied starting
+Syntax remains independent of the configuration map; later pushes and includes
+use exact map/context lookup. Keyword sets must already be resolved, as upstream
+requires. Production code does not invoke Haskell or another converter.
+
+Alternative rule failure restores the whole prior state. Lookahead restores only
+input/endline/previous-character/column/loop-counter fields, while retaining child
+context switches, captures and continuation effects. Child text retains its
+parent's attribute; successful children can clear parent regex captures. Included
+rules execute in the actual current context, clear their current captures and
+optionally replace only NormalTok. An included lookahead returning Nothing can
+still consume a child's input; the source's dropped-text quirk is explicitly
+observed rather than repaired.
+
+Stored context captures persist across physical lines and are restored when a
+context is popped. Dynamic characters, strings and regexes read those stored
+captures, including empty and Unicode captures. Regex substitution preserves the
+source traversal boundary: Lazy and Possessive wrappers remain opaque. Dynamic
+regex groups are recomputed, while static regexes reuse their cached groups.
+A work stack handles finite nested children/includes and substitution without
+recursive JVM calls.
+
+Physical lines split only at LF, omit the trailing empty segment and preserve CR.
+Column starts again at zero on each line. First-nonspace position uses Char8 byte
+classification, while ordinary column advancement follows requested character
+counts. Empty lines apply only successive lineEmptyContext switches; nonempty
+lines apply successive lineEndContext switches unless continued. Context-list
+comparison stops unchanged switches, ignoring captures. The original 1024 limits
+and exact trace messages guard line transitions and zero-progress lookahead or
+fallthrough cycles. Recursive self-IncludeRules may diverge in the original and
+are not given an invented error/termination rule.
+
+String input follows Data.Text packing's replacement of lone surrogate chars;
+LineContinue uses utf8-string's distinct verbatim Char encoding. UTF-8 decoding
+retains noncharacters in token text while the permissive matching decoder may
+observe them as replacement characters. ASCII numeric/C-escape/identifier rules,
+custom delimiters, incomplete exponent backtracking, case-folded word boundaries,
+zero-length match failure and token normalization preserve source behavior.
+Trace output is lazy, so it does not force malformed IncludeRules metadata when
+tracing is disabled. TokenizerConfig's derived Show is also independently checked.
+
+The frozen `tools/haskell-tokenizer-reference` project compiles unchanged original
+Skylighting modules. It loads the original 195 XML definitions and captures full
+tokens, typed errors/runtime exceptions and stderr debugging traces. Native
+JSON/Text cannot accept lone surrogate escapes, so these input cases instead pass
+integer Char values through original Text.pack. This observes native replacement
+semantics without relying on the JVM's encoding defaults. The adapter has no role
+in production and the corpus never obtains expected outputs from Kotlin.
+
+`core/src/test/resources/highlighting/tokenizer.jsonl.gz` contains 27,881 original
+observations: all 32 original expected token files, all 21 explicit tokenizer
+regressions, 195 x 32 original mixed-prefix samples, 195 x 100 seeded fuzz inputs,
+and 2,088 synthetic state/matcher/trace/error/Show cases. The exact source property
+that input lines equal concatenated token text is asserted for every mixed/fuzz
+case in both the import verifier and Kotlin tests. Complete classifications are
+also compared to native output. Original golden files remain byte-for-byte in
+vendor; their Haskell token values are read independently, while pretty-show's
+text layout is not claimed ported by these tokenizer assertions. QuickCheck's
+framework/generator/shrinker implementation is likewise not claimed ported by the
+seeded finite property corpus.
+
+Two additional tests verify 10,000 nested child and include chains, immutable
+configuration/result ownership and normalization's empty-different-attribute
+boundary. All 27,883 focused Kotlin tests pass. CI validates all 304 source,
+adapter, frozen dependency, license and upstream fixture hashes and the complete
+case digest: `3aef5767663a9d66d0a1c1a6a4dd77232b2c38d85d5da5444662b368ca63beab`.
+
+Reproduce with `cabal build tokenizer-reference
+--project-dir=tools/haskell-tokenizer-reference
+--builddir=/tmp/kotdoc-tokenizer-build`, then
+`python3 tools/import-tokenizer-fixtures.py --oracle PATH`. CI uses
+`python3 tools/import-tokenizer-fixtures.py --check-source` and Kotlin tests.
+
+Syntax-model Read/Data, remaining style/formatting Binary instances, highlighting
+formatters, full WriterOptions and remaining Pandoc readers/writers/application/
+Lua/CLI tests remain unfinished. Calibre MOBI and additional formats/tests remain
+in the unchanged full objective. This tokenizer milestone does not complete the
+full port.
+
+Local validation: all 521,827 Kotlin tests pass across 62 suites, with zero
+failures, errors or skips. All 65 source/fixture checks pass.
+All 234 installed CLI comparisons pass: 14 FB2, 66 media, 69 extension and 85
+math cases. Rebuilding the portable native adapter reproduces the identical
+complete case digest.
