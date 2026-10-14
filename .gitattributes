@@ -78,3 +78,6 @@ vendor/text-2.1.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-befor
 
 # Preserve the verbatim pandoc-types unit-test excerpt.
 tools/haskell-ast-show-reference/OriginalExamples.hs -text whitespace=-trailing-space,-blank-at-eof
+# Preserve original GHC comparison sources and their full license bytes.
+vendor/ghc-ast-order-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab
+licenses/ghc-prim-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-eof

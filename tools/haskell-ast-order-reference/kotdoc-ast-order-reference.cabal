@@ -1,0 +1,12 @@
+cabal-version: 3.0
+name: kotdoc-ast-order-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable ast-order-reference
+  main-is: AstOrderReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2,
+                 aeson ==2.2.3.0, text ==2.1.2, containers, bytestring, vector,
+                 QuickCheck ==2.16.0.0

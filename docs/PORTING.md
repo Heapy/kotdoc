@@ -21,6 +21,7 @@ format is implemented explicitly in Kotlin.
 |---|---|---|
 | pandoc-types `Text/Pandoc/Definition.hs` AST constructors | `core/.../ast/Pandoc.kt` | All node variants represented; JSON tests |
 | Definition derived Show/showsPrec | `ast/AstShow.kt` | All node/associated types; 36,970 native observations, 56 original values and 266 documents; deep/lazy boundaries |
+| Definition Eq/Ord dictionaries | `ast/AstComparison.kt` | Complete represented AST/associated types, distinct source operators, 75,470 original observations, all 266 documents and 17 original generators |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
 | `prop_roundtrip` | `PandocJsonTest.kt` | 500 seeded recursive documents (not identical to upstream QuickCheck generator) |
@@ -4799,3 +4800,90 @@ media, 69 extensions, 85 math). The final JAR contains AstShow and every one of
 the existing 40 license files verbatim. All 422 source/input hashes and the
 compressed corpus were verified against staged Git bytes and pinned submodule
 objects. The old oracle folders and corpora remain unchanged.
+
+
+## Definition AST equality and ordering dictionaries
+
+AstComparison provides separate typed source Eq/Ord dictionaries for every
+represented Definition AST and associated type. This preserves existing Kotlin
+data-class contracts while allowing ported consumers to use the actual source
+instances. Inline/Block/MetaValue constructor order and every field order are
+retained. Citation Eq includes all fields, but Ord compares only citationHash.
+Format uses its existing complete Text case-fold dictionary. Numeric newtypes
+use Int64, and tuple wrappers retain actual tuple instances.
+
+Each relational operator follows its own GHC 9.12.2 dictionary, rather than
+reducing all results to the sign of compare. MetaValue/Inline/Block, Map, list
+and Citation have compare-only defaults. Stock small records, tuples, Maybe and
+ColWidth derive a separate <, then <=/>/>= follow the generated defaults. Raw
+Double retains IEEE comparisons. Min/max use the original <= selection and
+return caller objects, retaining stored Format spelling, Citation content and
+IEEE payloads. NaN, infinity, signed zero and subnormal behavior is checked
+through 18 direct/nested contexts, including Caption's short and long forms,
+every row/table type, metadata and Pandoc's distinct prefix/last-field paths.
+
+Explicit continuations keep deep comparison off the JVM stack and preserve
+short-circuit results across nested dictionaries. Lists are inspected through
+iterators without asking their size or demanding an unreachable tail. Map Eq
+checks size first, then ascending key/value pairs; Ord compares ascending pairs
+without a size shortcut. Lazy value suppliers are forced only after their key
+has been compared. There is no object-identity equality shortcut. Partial tests
+honor actual StrictData constructors and use failing list heads/tails or lazy
+Map values, including ignored and required fields and self-comparison. General
+lazy/partial Text, tuple fields and arbitrary GHC runtime emulation remain
+outside this represented-model evidence.
+
+The new frozen tools/haskell-ast-order-reference links the unchanged local
+pandoc-types 1.23.1.2 package with GHC 9.12.2, Text 2.1.2 and QuickCheck 2.16.0.0.
+No source instance or module is shadowed or reconstructed. It calls the actual
+Eq/Ord methods, min/max and source Show. Original Arbitrary is imported directly:
+17 generators each supply 80 reproducible pairs. These native observations
+supplement the property suite; they do not claim that all generator/shrinker or
+all original property contracts have been translated to Kotlin. Every accepted
+original Native document is checked against itself, a neighboring document and
+an empty document, while all rejected source files remain in the hash inventory.
+
+There are 75,470 observations: 36,821 complete relation/extrema sets, 112 list
+sets, 23,832 IEEE context sets, 14,517 code-point Text sets, 133 partial operator
+probes, 48 deep comparisons and seven finite unequal projections of infinite
+lists. Deep Inline, Block, MetaValue and mixed Note/Plain structures reach
+100,000 nesting steps. Original width bits from actual selected min/max results
+prove which NaN or signed-zero payload survived even if Show strings coincide.
+
+Case digest:
+`abc0a609c77905f61c5299e128d634a39df75e9f21cf136dab4271ee45a27180`.
+The importer checks 426 source/input/harness/license hashes, operation and
+generator inventories, full document provenance and the case digest. CI uses
+these retained expectations without needing a Haskell runtime. New original
+GHC.Classes and Maybe sources are retained verbatim in vendor/ghc-ast-order-9.12.2
+with both complete original notices. The ghc-internal notice matches the existing
+GHC-base notice; ghc-prim's distinct complete notice adds the 41st JAR license.
+Containers Map source and every old oracle folder/corpus remain unchanged.
+
+The previous Show commit cbb75b93be690480f29467210bdaaef8a1cb5e91 passed all
+94 exact-SHA CI steps: https://github.com/Heapy/kotdoc/actions/runs/38618274246.
+Full Read and original property/generator contracts, consumer integration,
+Logging and full ParserState remain pending. This does not register a new CLI
+format or complete pandoc-types/Pandoc. The full objective remains all Pandoc
+and its tests, then calibre MOBI and all additional formats missing from Pandoc
+and all their tests. All calibre implementation remains unstarted.
+
+Local validation: all 1,087,716 tests pass in 80 suites, with zero failures,
+errors or skips. All 75,470 new native comparison observations pass, including
+the extended 18-context IEEE matrix. All 83 source/fixture checks and all 234
+installed CLI comparisons pass (14 FB2, 66 media, 69 extensions, 85 math). The
+final JAR contains AstComparison and all 41 license files verbatim. Every one
+of the 426 source/input hashes and the compressed corpus matches staged Git
+bytes and pinned submodule objects. Old oracle folders and expectations remain
+unchanged.
+
+Next Logging dependency inspection: the pinned Pandoc constraint is
+aeson-pretty >=0.8.9 && <0.9. The frozen Hackage index offers 0.8.11. Its complete
+release archive was downloaded for inspection (SHA-256
+`d25ce5aa8e447d64dce5b721dfc3f9563ab534cb4388e959645bcf03e23b156e`); it has
+no dedicated test suite in the release manifest. The actual keyOrder comparator
+considers every unlisted key equal and keeps its initial order, rather than
+performing a fallback lexical comparison. With frozen Aeson ordered-keymap,
+that initial order comes from the original KeyMap. This must be preserved in
+Logging's byte-exact pretty output. The package has not yet been vendored or
+ported, and Logging remains pending.
