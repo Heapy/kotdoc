@@ -87,9 +87,13 @@ object TextChars : HasChars<String> {
     override fun build(value: String) = value
 }
 /** Haskell String can distinguish surrogate Chars from a supplementary Char. */
-class CharacterString(points: IntArray) {
+class CharacterString(points: IntArray) : Comparable<CharacterString> {
     private val data = points.copyOf().also { a -> require(a.all { it in 0..0x10ffff }) }
     fun points() = data.copyOf()
+    override fun compareTo(other: CharacterString): Int {
+        for (i in 0..<minOf(data.size,other.data.size)) data[i].compareTo(other.data[i]).let { if (it != 0) return it }
+        return data.size.compareTo(other.data.size)
+    }
     override fun equals(other: Any?) = other is CharacterString && data.contentEquals(other.data)
     override fun hashCode() = data.contentHashCode()
 }

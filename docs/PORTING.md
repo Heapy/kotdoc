@@ -3729,3 +3729,73 @@ All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
 85 math). The core JAR contains the new display classes and all 36 retained
 license files. All 467 native source/input hashes match staged Git blobs or
 the pinned Pandoc submodule.
+
+## Structural model Eq/Ord contracts
+
+TemplateComparison<A> exposes the original equality/inequality, compare, four
+relations and min/max for Template, Doc, Attr/Attributed, Font, StyleReq,
+Variable, Pipe, Border and Alignment. Constructor tags and fields retain source
+order; cached widths, empty nodes, fonts/links and list order remain structural.
+These explicit source contracts are separate from JVM data-class equals and
+Java's total-order assumptions. Context and Val have no upstream Eq/Ord instance;
+this layer does not invent one.
+
+TargetComparison supplies independent target Eq/Ord operations. Built-in targets
+cover Text, Haskell Char sequences, signed Int64 and original IEEE Double
+comparisons. GHC's compare-only instances for Template/Doc have different class
+defaults from Attr's generated compare/< implementation. With a NaN target,
+Doc's compare may be GT in both directions, equality false, both strict relations
+true and both inclusive relations false; Attr's relation outcomes differ. The
+implementation preserves those outcomes and original min/max input selection,
+including NaN payloads and signed zero, instead of deriving every operation from
+one forward compare or substituting JVM Double.compareTo.
+
+Iterative work preserves lexicographic field order and stops at the first decisive
+comparison. Lists schedule one pair at a time, so an unreachable suffix is never
+read merely to allocate comparison work. Seq-backed Attributed equality checks
+length first, as containers 0.7 does; list equality retains its distinct element
+then tail behavior. Scalar Text comparison and CharacterString.compareTo avoid
+full suffix normalization/copying while preserving Unicode scalar versus Char
+semantics. A 10,000-level tree comparison does not consume the JVM call stack.
+
+The frozen tools/haskell-model-order-reference builds unchanged original
+modules and uses their Eq/Ord methods for all nine observed outputs. Its transport
+is a byte-for-byte copy of the independently validated prior native adapter.
+Expected results never come from Kotlin. GHC-generated instance definitions were
+inspected with -ddump-deriv in a separate build directory; the dependency closure
+pins GHC 9.12.2 and containers 0.7. The corpus has 11,637 comparisons: 5,167 Doc,
+2,770 Template, 552 Font, 392 StyleReq, 315 Variable, 637 Pipe, 380 Border, nine
+Alignment, 369 Attr and 1,046 Attributed observations. Targets comprise 3,539
+Text, 4,876 Double, 150 Int64, 1,200 Char-sequence and 1,872 partial-probe cases.
+
+Inputs cover every public constructor, all original successful template golden/
+unit compiled trees, signed bounds, links/fonts/empty sequences, Unicode and
+adjacent surrogate Chars. Floating inputs/results use raw Word64 bits, including
+both zero signs, infinities, subnormals, signed quiet/signaling NaNs and distinct
+NaN payloads. Native partial-probe Eq/Ord instances throw for selected left/right
+arguments; their outcomes prove short-circuiting and argument order, not merely
+agreement for total values. All nine methods, including min/max complete models,
+are independently observed for every case. Case digest:
+`f47e9d886840c82327e7074732cb83accad2c49889b4593984b33054625354fc`.
+CI verifies all 162 source/input/adapter/license hashes and the complete corpus.
+
+The additional Kotlin test proves 10,000-level trees, propagated target errors,
+Seq length short-circuiting, Text scalar replacement and an unreachable tail in
+a one-million-row list. All 11,638 focused tests pass.
+
+Reproduce with `cabal build model-order-reference
+--project-dir=tools/haskell-model-order-reference
+--builddir=/tmp/kotdoc-model-order-build`, then
+`python3 tools/import-model-order-fixtures.py --oracle PATH`.
+CI runs `python3 tools/import-model-order-fixtures.py --check-source` and Kotlin.
+
+Remaining Read/Data/Typeable/Generic model behavior, remaining Pandoc readers/
+writers/application/Lua/CLI and all calibre MOBI/additional formats/tests remain
+in the full unchanged objective. Passing model comparisons does not complete
+that port.
+
+Local validation: all 572,492 Kotlin tests pass across 67 suites, with zero
+failures, errors or skips. All 70 source/fixture checks pass. The core JAR
+contains both new comparison classes and all 36 retained license files.
+All 234 installed CLI comparisons pass (14 FB2, 66 media, 69 extension and
+85 math). All 162 native source/input hashes match staged Git blobs.
