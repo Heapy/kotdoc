@@ -10,11 +10,13 @@ import io.heapy.kotdoc.xml.PandocXml
 
 /** Shared writer utilities; the stateful Pandoc HTML writer is a separate port. */
 object WriterHtml {
-    fun <A> tagWithAttrs(layout: DocLayout<A>, tag: A, attr: Attr): Doc<A> =
-        layout.text("<") + (layout.literal(tag) + (htmlAttrs(layout, attr) + layout.text(">")))
+    fun <A> tagWithAttrs(layout: DocLayout<A>, tag: A, attr: Attr,
+                         fromText: (String) -> A = layout.chars::fromString): Doc<A> =
+        layout.text("<") + (layout.literal(tag) + (htmlAttrs(layout, attr, fromText) + layout.text(">")))
 
-    fun <A> htmlAttrs(layout: DocLayout<A>, attr: Attr): Doc<A> {
-        fun escaped(value: String) = layout.doubleQuotes(layout.text(PandocXml.escapeStringForXML(value)))
+    fun <A> htmlAttrs(layout: DocLayout<A>, attr: Attr,
+                      fromText: (String) -> A = layout.chars::fromString): Doc<A> {
+        fun escaped(value: String) = layout.doubleQuotes(layout.literal(fromText(PandocXml.escapeStringForXML(value))))
         fun key(input: String): String {
             val value = TextChars.fromString(input)
             return if (
@@ -25,7 +27,7 @@ object WriterHtml {
         val fields = layout.hsep(listOf(
             if (attr.identifier.isEmpty()) layout.empty else layout.text("id=") + escaped(attr.identifier),
             if (attr.classes.isEmpty()) layout.empty else layout.text("class=") + escaped(attr.classes.joinToString(" ")),
-            layout.hsep(attr.keyValues.map { (k, v) -> layout.text(key(k)) + (layout.text("=") + escaped(v)) }),
+            layout.hsep(attr.keyValues.map { (k, v) -> layout.literal(fromText(key(k))) + (layout.text("=") + escaped(v)) }),
         ))
         return if (layout.isEmpty(fields)) fields else layout.text(" ") + fields
     }

@@ -4060,3 +4060,94 @@ staged Git bytes and the pinned submodules. The JAR contains all three new
 public utility classes, their data resource and all 38 retained license files.
 The repository remains public. This utility layer adds no CLI reader/writer
 registration; the new commit's CI runs the complete installed-CLI checks.
+
+## Writer metadata and template context bridge
+
+WriterMetadata ports Shared.metaToContext/metaToContext'/addVariablesToContext,
+getField/setField/resetField/defField/getLang and the four metadata lookups.
+The primed entry point is exposed as metaToContextPrime. Metadata maps visit
+leaves in original Unicode Text key order, including nested maps; lists retain
+their order. MetaString uses the unchanged Builder.text semantics before invoking
+the inline writer. Blocks/inlines invoke their supplied writer once as a whole,
+booleans need no rendering and nested maps/lists retain their source Val shape.
+An absent template returns an empty Context without reading metadata or calling
+either renderer or FromText. The prime function always converts metadata.
+
+Variable documents are structurally lifted with FromText without changing cached
+widths, fonts, links or fixed prefixes. Variables override metadata fields, and
+generated meta-json overrides both. Its contents serialize the rendered original
+metadata Context, before any variable overrides. The context JSON encoder walks
+iteratively, preserving original keys, null/bool/list/map values and unwrapped
+rendered target strings. It emits Aeson 2.2.3.0 Value-encoding string escapes:
+backspace/form feed are numeric U+0008/U+000C escapes, rather than the host JSON
+encoder's shorter spellings. Literal backslash-b/backslash-f text is preserved.
+Unicode and escape spellings compare as exact strings, not normalized JSON.
+
+setField appends one value to an existing list; a newly supplied list remains
+nested. Other existing values become a two-element list. resetField replaces
+the value, and defField retains an existing value without evaluating its
+converter. getField delegates to the selected FromContext dictionary. getLang
+accepts a rendered simple variable (including an empty string), otherwise only
+the exact source MetaString, singleton Str inlines or singleton Plain/Para with
+one Str. Maps, lists and multi-inline languages do not silently stringify.
+The four metadata lookups preserve the original constructor rules, including
+Plain/Str output for empty MetaString and True/False text for MetaBool.
+
+WriterHtml now accepts a separate FromText callback for attributes. Fixed tag
+syntax still uses IsString, while id/classes/keys/values use FromText as in the
+source. Existing Text/String defaults remain unchanged. Native independent
+dictionaries also exposed doctemplates' distinct JSON Number conversion:
+it uses IsString, whereas the String branch uses FromText. TemplateValues now
+preserves that distinction; ordinary built-in targets keep their prior results.
+
+The frozen tools/haskell-writer-metadata-reference compiles verbatim extracted
+Shared metadata/context/stringify bodies, unchanged UTF8 and dependency sources,
+and the previously verified full 39-field WriterOptions declaration. Sparse
+native options deliberately leave the other 37 fields undefined, proving the
+helpers do not read them. prepare-writer-metadata-reference.py verifies the
+original function bodies and writer record before capture/check. No reduced
+metadata algorithm or Kotlin implementation generates native expectations.
+The SourceWriterHtml body comes from the preceding independently verified port.
+
+The 11,241 native observations cover all 266 accepted upstream metadata maps
+with and without a template on Text, Haskell String and a Wrapped target whose
+FromText/IsString/ToText dictionaries deliberately differ. They compare entire
+Context/Val/Doc structures, callback inputs/order, original rendered JSON values,
+exact encoded JSON strings, language lookup and four FromContext choices.
+Seven ToContext input kinds, all five Val constructors, all sixteen Doc
+constructors, duplicate keys, existing empty lists, nested appended lists,
+language boundaries, seeded nested metadata and arbitrary Integer/scientific
+JSON inputs are included. Partial native probes cover missing fields, ignored
+new default values and an absent template with undefined metadata/variables.
+
+Every Haskell Char (all 1,114,112 code points, including surrogates) is checked
+on all three targets for meta-json rendering and key escaping. Original String
+points remain distinct until the source ToText conversion, which replaces each
+surrogate with U+FFFD. Depths through 5,000 maps check the exact encoded result
+without converting through a recursively allocated host JSON tree. Kotlin
+dynamic tests parse captures when executed, retaining raw fixture lines rather
+than millions of Unicode JsonPrimitive descriptors. No observations are dropped.
+Case digest: `39b7340d1c9adec9b6dafb79813cb60cf2fe8adba9f8af3af3f9cc73fc240a83`.
+The importer verifies all 419 original source/input/adapter/license hashes,
+complete upstream metadata inventory and every code point for every target.
+
+Reproduce with cabal build all --project-dir=tools/haskell-writer-metadata-reference
+--builddir=/tmp/kotdoc-writer-metadata-build, then run
+python3 tools/import-writer-metadata-fixtures.py --oracle PATH.
+CI verifies the source/corpus and runs WriterMetadataTest.
+
+No dedicated Shared metadata unit suite exists in the pinned upstream tests;
+writer consumer tests remain pending with their complete implementations.
+Arbitrary lazy/partial value interfaces and general monadic typeclass adapters
+remain beyond the finite synchronous writer callbacks and dictionaries tested
+here. The remaining Shared math/grid/translation/parsing helpers, complete
+HTML pipeline, other Pandoc readers/writers/application/Lua/CLI and all calibre
+MOBI/additional formats and tests remain within the unchanged full objective.
+
+Local validation: all 675,420 Kotlin tests pass across 72 suites, with zero
+failures, errors or skips. All 11,241 metadata observations and all 75
+source/fixture checks pass. All 419 new source/input hashes match staged Git
+bytes and the pinned submodules. The core JAR contains WriterMetadata and all
+38 retained license files; the public repository and clean mirror checkout are
+preserved. This dependency adds no reader/writer CLI registration. Exact-SHA
+CI runs all source, Kotlin and installed-CLI checks after publication.

@@ -46,7 +46,9 @@ class TemplateValues<A : Any>(
         is JsonPrimitive -> when {
             value.isString -> target.toVal(fromText(value.content))
             value.booleanOrNull != null -> Val.BoolVal(value.boolean)
-            else -> target.toVal(fromText(scientificText(value.content)))
+            // Upstream's Number branch uses IsString, unlike its String
+            // branch's FromText. These dictionaries need not agree.
+            else -> target.toVal(layout.chars.fromString(scientificText(value.content)))
         }
     }
 
