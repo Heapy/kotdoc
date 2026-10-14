@@ -4613,3 +4613,16 @@ and the rest of the upstream runtime are not claimed complete by these finite
 observations and controlled partial/infinite checks. Full Pandoc implementation
 and all its tests, followed by calibre MOBI/additional formats and all their tests,
 remain the unchanged objective. All calibre implementation remains unstarted.
+
+
+Local validation: all 953,949 tests pass across 77 suites, with zero failures,
+errors or skips. The full suite was repeated after changing finite chain storage
+so consumed prefixes are not retained by list-snapshot closures. All 80 source/
+fixture checks pass. All 234 installed-CLI comparisons pass (14 FB2, 66 media,
+69 extensions and 85 math cases). The final JAR includes Sources/SourceParsers,
+all stream classes and all 40 original license files verbatim.
+
+All 1,252 new source/input hashes and the compressed corpus match staged Git bytes
+and pinned submodule commits. Existing oracle folders and expectations remain
+unchanged. The repository remains public; exact-SHA CI checks the full source,
+Kotlin and installed-CLI suites after publication.
