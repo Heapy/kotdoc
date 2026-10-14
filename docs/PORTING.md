@@ -4151,3 +4151,96 @@ bytes and the pinned submodules. The core JAR contains WriterMetadata and all
 38 retained license files; the public repository and clean mirror checkout are
 preserved. This dependency adds no reader/writer CLI registration. Exact-SHA
 CI runs all source, Kotlin and installed-CLI checks after publication.
+
+
+## Shared grid-table writer and span bookkeeping
+
+GridTable.gridTable ports the complete finite grid algorithm from
+Text.Pandoc.Writers.Shared. It accepts the source column/head/body/foot inputs
+and a writer callback; the convenience Block.Table overload ignores table
+attributes/caption as the original shared function does. AnnotatedTable clips
+and places spans before callbacks run. The callback receives the exact original
+WriterOptions instance and normalized cell blocks, first for the head, then the
+foot, then each body's intermediate headers and body cells. Renderer failures
+stop at the same cell with the same observed callback prefix.
+
+The port retains specified/full/minimum/current widths, ragged transpose maxima,
+per-column division of spanning widths, source div versus rem semantics,
+WrapNone minimum widths and the original bounded redistribution recurrence.
+resetWidths preserves short width lists and nonpositive span branches rather
+than adding validation. Spanning widths include three columns per internal
+separator. Dummy cells are threaded from the previous rendered row separately
+for head, foot and each body; the algorithm does not invent a rowSpan filter.
+Intermediate body headers and body rows share that body's dummy pass.
+
+Borders retain all five LineStyle variants, exact precedence when joining rows,
+shorter-length Text.zipWith behavior and markers from the first covered column's
+alignment. Cell alignment is not substituted for column alignment. Header lines
+merge boundaries across all rows; head/body/foot top and bottom styles preserve
+the source's empty-section and empty-next-row branches. Cell contents use lblock
+regardless of alignment, as in the original writer. The complete resulting
+DocLayout structure, including the source right-associated concatenations,
+compares directly against native output before rendered strings are compared.
+
+The numeric path retains signed Int64 overflow in available-width arithmetic,
+width sums, spans and reset widths. toCharWidth uses GHC's optimized
+floorDoubleInt sequence: float-to-Int truncation, comparison and decrement,
+followed by subtraction of three and max zero. A mathematical BigInteger floor
+would disagree at nonfinite/out-of-range values. The captured GHC 9.12.2 -O2
+macOS ARM64 baseline agrees with JVM Double.toLong conversion for these cases.
+Other native-GHC architecture overflow behavior is not claimed. Huge widths are
+observed through the original numeric/private-width helpers without attempting
+to allocate astronomical border strings. Ordinary table results are checked
+unchanged on the JVM and Linux CI.
+
+WriterTables ports allRowsEmpty/tableBodiesToRows and all three exported span
+map helpers. Empty means absent blocks, not visually blank rendered content.
+Body flattening keeps intermediate headers before body rows and preserves row
+attributes. Insertion skips row spans <= 1; taking decrements/deletes only a
+positive tracked span; trailing decrement touches only keys at/after the given
+column and preserves existing nonpositive spans and arbitrary column spans.
+
+The frozen tools/haskell-grid-table-reference compiles unchanged extracted grid
+and table helper bodies, original AnnotatedTable, DocLayout 0.6 and the full
+previously verified WriterOptions declaration. prepare-grid-table-reference.py
+checks exact source bodies and the record. The local redistribution recurrence
+is exposed through a wrapper with its body retained verbatim. Sparse native
+options leave all fields other than columns/wrap and two callback markers
+undefined. The production code has no Haskell runtime dependency.
+
+The 12,793 native observations include all 242 tables in accepted upstream
+Native fixtures under nine columns/wrap combinations; empty and ragged rows,
+row/column spans, stub clipping, intermediate headers, multiple bodies and feet;
+all sixteen Doc constructors with font/link data and mismatched cached widths;
+raw annotations with all alignments and signed span limits; all border styles
+and marker combinations; 800 seeded rendered-cell pipelines, signed reset and
+600 arbitrary redistribution states; IEEE bit patterns, NaN payloads, infinities,
+subnormals and both signs around powers of two; span map operations at signed
+limits; and renderer failure prefixes. All expectations come from original
+Haskell. No callback adapter is claimed as an implementation of a document
+format writer. The source manifest contains 185 original/input/oracle/license
+files. Case digest:
+`19a3b07a0922b24d0fb25e4eb2410e1ee5218bf11cac56a3e425c6786e486446`.
+
+Reproduce with cabal build all --project-dir=tools/haskell-grid-table-reference
+--builddir=/tmp/kotdoc-grid-table-build, then run
+python3 tools/import-grid-table-fixtures.py --oracle PATH.
+CI checks the source/corpus and runs GridTableTest. The pinned Tests.Shared has
+no dedicated grid/span helper unit suite. Original Markdown/RST/Muse consumer
+suites remain pending with those complete writers. General monadic/partial-value
+interfaces remain beyond the synchronous finite callbacks tested here. Private
+model Show/Ord/typeclass contracts are not claimed by JSON observations.
+The remaining Shared math/translation/parsing helpers, complete Pandoc
+readers/writers/application/Lua/CLI, and all calibre MOBI/additional formats and
+tests remain within the unchanged full objective. This is a dependency milestone,
+not completion of that port.
+
+
+Local validation: all 688,213 Kotlin tests pass across 73 suites, with zero
+failures, errors or skips. All 12,793 grid/table observations, all 76
+source/fixture checks and all 234 installed-CLI comparisons pass. All 185 new
+source/input hashes match staged Git bytes and pinned submodule commits; the
+staged corpus bytes match the checked worktree. The core JAR contains GridTable,
+WriterTables and all 38 retained license files. The repository remains public.
+This dependency adds no CLI format registration. Exact-SHA CI runs the complete
+source, Kotlin and installed-CLI checks after publication.
