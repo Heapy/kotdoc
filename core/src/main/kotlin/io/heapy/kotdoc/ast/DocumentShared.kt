@@ -2,7 +2,7 @@
 // Copyright (C) 2006-2024 John MacFarlane. GPL-2.0-or-later; see licenses/.
 package io.heapy.kotdoc.ast
 
-import com.ibm.icu.lang.UCharacter
+import io.heapy.kotdoc.parsing.ParserCharacters
 import java.util.Locale
 
 object DocumentShared {
@@ -220,7 +220,7 @@ object DocumentShared {
     }
 
     fun ensureValidXmlIdentifiers(document: Pandoc): Pandoc {
-        fun valid(id: String) = id.isEmpty() || UCharacter.isLetter(id.codePointAt(0))
+        fun valid(id: String) = id.isEmpty() || ParserCharacters.isAlpha(id.codePointAt(0))
         fun attr(value: Attr) = if (valid(value.identifier)) value else value.copy(identifier = "id_" + value.identifier)
         fun target(value: Target): Target = if (value.url.startsWith('#') && !valid(value.url.drop(1))) value.copy(url = "#id_" + value.url.drop(1)) else value
         fun row(value: Row) = value.copy(attr = attr(value.attr), cells = value.cells.map { it.copy(attr = attr(it.attr)) })

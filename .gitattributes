@@ -69,3 +69,4 @@ licenses/Commonmark-BSD-3-Clause.txt -text whitespace=cr-at-eol
 vendor/xml-entity-text-read-2.1.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-writer-html-reference/SourceWriterHtml.hs whitespace=-blank-at-eof
 tools/haskell-writer-metadata-reference/SourceWriterMetadata.hs whitespace=-blank-at-eof
+tools/haskell-writer-shared-reference/SourceWriterShared.hs whitespace=-blank-at-eof

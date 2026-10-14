@@ -4248,3 +4248,123 @@ staged corpus bytes match the checked worktree. The core JAR contains GridTable,
 WriterTables and all 38 retained license files. The repository remains public.
 This dependency adds no CLI format registration. Exact-SHA CI runs the complete
 source, Kotlin and installed-CLI checks after publication.
+
+
+## Pure shared writer operations
+
+WriterShared ports fourteen exports from Text.Pandoc.Writers.Shared:
+isDisplayMath, stripLeadingTrailingSpace, fixDisplayMath, unsmartify,
+toSubscript/toSuperscript, both Inline script adapters, endsWithPlain,
+splitSentences, delimited, removeLinks, toTaskListItem and
+ensureValidXmlIdentifiers. XML identifier validation delegates to the existing
+DocumentShared implementation, whose letter test is now pinned to GHC Unicode
+16 through ParserCharacters.isAlpha. No Haskell process is a production
+conversion dependency.
+
+Display-math recognition accepts only a direct DisplayMath or a Span containing
+exactly one direct DisplayMath. It does not search arbitrary descendants.
+fixDisplayMath changes only mixed Plain/Para inline lists, retaining the source
+block kind inside Div with class math. Equal recognition runs are grouped,
+Space/SoftBreak are stripped from their ends, and empty groups disappear.
+LineBreak and text containing whitespace remain content. A block consisting
+entirely of recognized display math remains unchanged.
+
+The script character APIs use Int code points for the full Haskell Char range,
+including surrogate positions. The exact source mappings for digits, operators,
+parentheses and Unicode minus are retained; whitespace follows GHC isSpace.
+Other characters return null. Inline conversion accepts Str, Span and the three
+whitespace constructors only. Unsupported descendants abort without walking
+subsequent siblings. Span attributes and nested structure remain unchanged.
+The traversal is iterative, with native depth observations through 5,000 spans.
+Text inputs use scalar Text semantics; surrogate Char inputs and Text conversion
+are observed separately rather than conflating UTF-16 units with Haskell Char.
+
+unsmartify reverses the seven original smart punctuation characters. Only the
+two dash cases read OldDashes; enabling it changes en/em dashes to one/two ASCII
+dashes, while the ordinary mode uses two/three. All other characters retain their
+original scalar values. Native sparse WriterOptions leave the other 38 fields
+undefined. The original HasSyntaxExtensions instance, isEnabled and
+extensionEnabled accessors are retained verbatim in the reference harness.
+
+endsWithPlain follows the last item of BulletList/OrderedList and the last
+definition of the last DefinitionList entry, iteratively. Other containers are
+not searched. Plain contents and earlier block values are not demanded.
+removeLinks uses the existing source-compatible bottom-up AST visitor, replacing
+Link by Span with the same attributes/content and walking citations, notes,
+tables, figures and all other nested inline locations. Original Link targets
+are discarded and replacement Spans are not revisited.
+
+Doc operations flatten only Concat nodes. Prefixes, styles, links, cooked text
+and blocks remain opaque. delimited moves only the four source whitespace
+constructors outside the opener/closer, preserving right-associated output and
+all-whitespace/explicit Empty branches. splitSentences changes BreakingSpace
+(and an immediately preceding AfterBreak) after sentence-ending Text into
+NewLine; it retains the cached Text width. Periods after a single GHC-uppercase
+character are initials, including supplementary letters and titlecase. One
+closing parenthesis/bracket/straight quote/right smart quote may follow the
+punctuation. Arbitrary whitespace payload text and nested Styled/Linked content
+are not recursively rewritten. Deep left/right Concat spines are observed
+through 10,000 nodes; signed Int64 cached widths are compared structurally
+without allocating astronomical padding.
+
+toTaskListItem accepts exactly the source eight Plain/Para forms for unchecked
+U+2610 and checked U+2612. A single marker needs no following Space; a marker
+with remaining content requires a literal Space. Other markers and SoftBreak
+separators fail. The nullable convenience entry point represents Maybe; a
+pure/zero callback adapter preserves the two operations used from MonadPlus.
+Native Maybe and list dictionaries, plus callback selection counts, compare
+directly. Read-only suffix/head views preserve ignored inline contents and block
+tails when a consumer requests only the checkbox flag. A native partial-success
+probe exposed eager drop/copy in the initial Kotlin translation; the retained
+regression now verifies that those values are not read. Inputs follow the
+existing Kotlin AST List contract.
+
+All Haskell Char positions are tested directly for both script functions,
+XML identifier classification and sentence-initial handling. unsmartify is
+checked over every position in both dash modes, after original Text packing.
+The XML probes exposed ICU's newer Unicode 17 letters, including U+088F and
+U+A7CE, which the pinned GHC/Pandoc correctly prefixes as non-letter identifiers.
+The fixed DocumentShared predicate retains that pinned behavior. No global ICU
+classification behavior or unrelated identifier generation is changed here.
+
+The frozen tools/haskell-writer-shared-reference compiles verbatim function
+bodies from pinned Shared, original extension accessors, the previously verified
+full WriterOptions declaration, pandoc-types 1.23.1.2 and DocLayout 0.6. The source
+preparer checks original bodies/record and the importer retains every original
+expectation independently of Kotlin. The 50,729 observations include all 266
+accepted Native documents; all 13,475 distinct inline/block values representing
+64,914 upstream occurrences; exhaustive display-math/whitespace sequences of
+length zero through four; source marker boundaries; all sixteen Doc constructors,
+fonts/links, left/right associations and seeded trees; signed cached widths;
+deep spans, lists and Doc spines; and controlled partial inputs. StrictData AST
+constructor fields remain defined in partial native probes: only valid ignored
+list elements/tails are left undefined.
+Case digest:
+`bdfe89a7e54aa8e0e4b8c8cc4d5cd7aa8303de43b229bd69748d58efe0d57d07`.
+The manifest verifies 399 original/input/adapter/license/data files, the complete
+upstream node/document inventory and every character in every applicable mode.
+
+Reproduce with cabal build all --project-dir=tools/haskell-writer-shared-reference
+--builddir=/tmp/kotdoc-writer-shared-build, then run
+python3 tools/import-writer-shared-fixtures.py --oracle PATH.
+CI checks the source/corpus and runs WriterSharedTest. There is no dedicated
+upstream unit suite for these exports in the pinned Tests.Shared; complete
+writer consumer suites remain pending with their implementations. Arbitrary
+lazy/infinite value interfaces, general MonadPlus typeclass instances and
+resource behavior of the general recursive AST visitor remain beyond the finite
+callbacks/list adapters covered here. setupTranslations and isOrderedListMarker
+still require their full language/translation and parser dependencies. Complete
+Pandoc readers/writers/application/Lua/CLI and all calibre MOBI/additional
+formats and tests remain within the unchanged full objective.
+
+
+Local validation: all 739,014 Kotlin tests pass across 74 suites, with zero
+failures, errors or skips. All 50,729 pure-helper observations, all 77
+source/fixture checks and all 234 installed-CLI comparisons pass. All 399 new
+source/input hashes match staged Git bytes and pinned submodule commits, and
+the staged corpus bytes match the checked worktree. The core JAR contains
+WriterShared, the pinned character data and all 38 retained license files.
+Original extracted whitespace is retained with a narrowly scoped Git attribute
+for the source module's final blank line. The repository remains public. This
+milestone adds no CLI format registration. Exact-SHA CI runs the complete source,
+Kotlin and installed-CLI checks after publication.
