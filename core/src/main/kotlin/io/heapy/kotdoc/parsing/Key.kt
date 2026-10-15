@@ -156,7 +156,7 @@ private object KeyRead {
 
 /** The complete original build uses text 2.1.2. Its lowercase table differs
  * from the text 2.1.3 table retained for earlier independent dependency ports. */
-private object Text212Lowercase {
+internal object Text212Lowercase {
     private val mapping = Json.parseToJsonElement(checkNotNull(javaClass.getResource("/io/heapy/kotdoc/text-2.1.2-lowercase.json")).readText())
         .jsonObject.getValue("lower").jsonObject.entries.associate { it.key.toInt(16) to it.value.jsonPrimitive.content }
     fun convert(text: String): String = buildString {

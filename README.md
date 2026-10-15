@@ -9,6 +9,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP proxy selection from environment variables: original name precedence,
+  URI/credential parsing, lazy no_proxy domain matching, fallback policy and
+  duplicate authentication-header ordering. Independent observations use the
+  complete original non-Windows module. Windows registry selection and actual
+  HTTP manager integration remain pending.
+
 - HTTP keyed resource pool: idle-only per-key/global limits, LIFO reuse,
   exactly-once release, weak cleanup and the original 30-second idle reaper.
   Independent original-code observations include controlled concurrency,

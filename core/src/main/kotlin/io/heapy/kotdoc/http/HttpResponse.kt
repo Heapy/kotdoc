@@ -14,6 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 import io.heapy.kotdoc.layout.CharacterString
 import io.heapy.kotdoc.layout.CharacterStringChars as Chars
 import io.heapy.kotdoc.uri.NetworkURI
+import io.heapy.kotdoc.formats.HaskellString
 
 sealed interface HttpFailureContent {
     data object IncompleteHeaders : HttpFailureContent
@@ -27,6 +28,7 @@ sealed interface HttpFailureContent {
         val responses: List<HttpResponse<List<HttpBytes>>> = java.util.Collections.unmodifiableList(responses.toList())
     }
     data class InvalidStatusLine(val bytes: HttpBytes) : HttpFailureContent
+    data class InvalidProxyEnvironmentVariable(val name: String, val value: String) : HttpFailureContent
     data class ResponseBodyTooShort(val expected: ULong, val actual: ULong) : HttpFailureContent
     data class Zlib(val code: Int) : HttpFailureContent
     fun show(): String = when (this) {
@@ -41,11 +43,12 @@ sealed interface HttpFailureContent {
             HttpResponses.showResponse(it, HttpBodies::showLazy)
         }
         is InvalidStatusLine -> "InvalidStatusLine ${bytes.show()}"
+        is InvalidProxyEnvironmentVariable -> "InvalidProxyEnvironmentVariable ${HaskellString.quoteCodePoints(name.codePoints().toArray())} ${HaskellString.quoteCodePoints(value.codePoints().toArray())}"
         is ResponseBodyTooShort -> "ResponseBodyTooShort $expected $actual"
         is Zlib -> "HttpZlibException (ZlibException ${if (code < 0) "($code)" else code})"
     }
     fun showsPrec(precedence: Int): String {
-        val fields = this is TooManyRedirects || this is InvalidStatusLine || this is ResponseBodyTooShort || this is Zlib
+        val fields = this is TooManyRedirects || this is InvalidStatusLine || this is InvalidProxyEnvironmentVariable || this is ResponseBodyTooShort || this is Zlib
         return if (fields && precedence > 10) "(${show()})" else show()
     }
 }

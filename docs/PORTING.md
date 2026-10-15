@@ -19,6 +19,7 @@ format is implemented explicitly in Kotlin.
 
 | Source | Kotlin | Evidence |
 |---|---|---|
+| `Network.HTTP.Proxy` common environment/non-Windows selection branch | `http/HttpProxyEnvironment.kt` | 4,460 independent complete-original observations, exact/folded names, lazy no_proxy, auth/fallback/Show; Windows registry and Manager integration remain pending |
 | pandoc-types `Text/Pandoc/Definition.hs` AST constructors | `core/.../ast/Pandoc.kt` | All node variants represented; JSON tests |
 | Definition derived Show/showsPrec | `ast/AstShow.kt` | All node/associated types; 36,970 native observations, 56 original values and 266 documents; deep/lazy boundaries |
 | Definition Eq/Ord dictionaries | `ast/AstComparison.kt` | Complete represented AST/associated types, distinct source operators, 75,470 original observations, all 266 documents and 17 original generators |
@@ -9295,3 +9296,86 @@ integration tests. All remaining Request/lazy contracts, HTML CLI URL integratio
 Pandoc readers/writers/App/Lua/original suites, then calibre MOBI and additional
 formats absent from Pandoc/all their tests remain in scope. Final staged source
 blobs and exact release pins are audited before publication.
+
+### http-client common environment proxy selection
+
+`http/HttpProxyEnvironment.kt` ports `httpProtocol`, `envHelper`, proxy settings
+Show and the **non-Windows** `systemProxyHelper` selection branch from the pinned
+http-client 0.7.19 `Network/HTTP/Proxy.hs`. The corresponding Kotlin helper is
+explicitly named `environmentProxyHelper`; no manager is silently wired to an
+incomplete cross-platform helper. The production environment effect snapshots
+`System.getenv()` once. Its injected ordered-list boundary retains duplicate
+names for exact original observations. Raw OS environment enumeration (including
+physical duplicate entries that the JVM map cannot represent) remains a runtime
+integration gap, as does the entire Windows registry branch.
+
+Exact names use the first original entry; only a missing exact name consults a
+map with the last duplicate **folded** key. The lookup name itself is not folded.
+An empty exact entry takes precedence over nonempty uppercase alternatives.
+Data.Text.pack surrogate replacement and the original text **2.1.2** complete
+lowercase table are retained, including multi-character expansions. This reuses
+`Text212Lowercase` by changing only its visibility from private to internal;
+text 2.1.3 and the host JDK tables are not substituted. All 4,725 ParserState
+observations still pass, including its existing exhaustive Char key witnesses.
+
+Proxy parsing uses the already ported original Network.URI implementation.
+It accepts only the original http scheme, empty/root path, no query/fragment,
+original userinfo decoding and decimal machine-Int overflow. Invalid selection
+throws the original `InvalidProxyEnvironmentVariable` content wrapper during
+helper construction, even if no_proxy would bypass that request. Settings/auth
+and derived Show preserve original precedence and quoting.
+
+no_proxy lowercases String Chars with the pinned simple Data.Char mapping before
+Char8 truncation; host bytes are lowercased as Char8. Empty comma entries are
+filtered before leading ASCII spaces are removed. Trailing spaces/tabs and
+wildcards are literal. Dot prefixes preserve exact/subdomain boundaries. Each
+suffix stays deferred: an earlier match can avoid a later all-space entry's
+original partial ByteString.head error. Empty hosts are likewise demanded only
+when suffix matching needs them. Bypassing an environment proxy permits the
+supplied request/none/explicit fallback. Existing Proxy-Authorization headers
+remain, and new Basic credentials prepend another header in original order.
+Request bodies and callbacks stay deferred and retain identity.
+
+The development observer compiles the **entire original module** on its actual
+non-Windows CPP branch. Its only changes are the module name, two private imports
+to the exposed Internal re-export and the environment effect import. Every other
+byte is checked. The native GHC 9.12.2 plan uses original http-client 0.7.19,
+network-uri 2.6.4.2, text 2.1.2, bytestring 0.12.2.0 and containers 0.7. No proxy
+algorithm is duplicated in the observer. Forced JSON projections observe each
+host's value/error separately, including original settings/request/exception
+Show. Input code-point lists retain raw surrogate Chars before Text conversion.
+There is no standalone upstream ProxySpec in this release; these observations
+are not described as upstream unit tests. Existing RequestSpec proxy-auth units
+remain translated in the request suite.
+
+The **4,460 observations** have semantic SHA256
+`82f94e1728b79992d69569960bf8dd9a25a9c0f22bae41373ae665d61693350a`
+and **576 source hashes**. The Kotlin suite adds two identity/effect checks.
+All **93,289 HTTP tests in nine suites** and **4,725 ParserState tests** pass in
+one local Gradle run (98,014 tests, 41s). Every XML is fully parsed: actual and
+declared counts agree, with zero failures, errors or skips. All 93,289 HTTP tests
+also pass on Linux/x86_64 JDK 21 (7.501s), without failed/aborted/skipped tests or
+containers. All **139 source/fixture verifiers** pass (81.3s). This is scoped
+verification, not a new full-project parity claim.
+
+The installed/core JARs agree. All **130 compiled HTTP classes**, **66 full
+notices**, **250 Pandoc assets** and the original 60,137-byte PSL snapshot match
+build/source bytes. `Proxy.hs` carries its own many-author BSD-3-Clause notice,
+which is preserved verbatim as `licenses/http-proxy-BSD-3-Clause.txt` and packaged
+in the JAR. Compared with the preceding pool distribution, the only old
+non-HTTP class changed is Text212Lowercase's reviewed visibility; the other
+2,460 old non-HTTP classes and all CLI/dependency JAR bytes remain identical.
+HTTP changes are confined to the new proxy classes and the existing response
+compilation unit containing the extended sealed exception type.
+
+The preceding pool commit a300ada's exact full CI run `38817631586` is still
+observed running. The redirect-loop commit ab18917's full run `38814432738`
+is verified successful. No CI result is inferred from elapsed time.
+
+Next work includes the Windows registry/selection branch and physical environment
+backend, actual Manager construction and proxy/connection acquisition, pooled
+socket/TLS transport, modification/override/status/exception contracts, automatic
+cookie handling and responseOpenHistory, including the original local-server
+integration tests. HTML CLI integration, remaining Pandoc readers/writers/App/Lua
+and all original suites, then calibre MOBI and additional formats absent from
+Pandoc/all their tests remain in the original scope.
