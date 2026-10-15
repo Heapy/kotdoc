@@ -9585,9 +9585,14 @@ containers. All **142 source/fixture verifiers** pass (60.7s).
 The Windows CI job now selects the existing proxy/registry tests plus all 3,826
 applicable environment fixture groups, cleanup checks and actual Kernel32
 snapshot/mutation/empty-value/Unicode scan tests. Its XML guard requires
-**10,473 tests without skips**. Actual Windows execution of this new backend
-remains pending until the exact published job succeeds; prior Windows proxy
-success alone is not evidence for the new Kernel32 implementation.
+**10,473 tests without skips**. The exact code commit **ce98df6** passes this
+job on actual Windows/JDK 21: run `38825978868`, job `116733421138` is verified
+successful. Its downloaded log confirms a 4m 8s successful Gradle run and the
+XML guard's explicit 10,473-test success with actual Advapi32/HKCU and Kernel32
+calls. This includes the new live mutation, empty-value and original Unicode
+scan checks, not only controlled block observations. The separate full Linux
+job remains running. This documentation-only verification update leaves tested
+code and the already active full CI unchanged.
 
 Installed/core JARs agree; all existing HTTP classes, 68 complete notices,
 250 Pandoc assets and the 60,137-byte PSL snapshot match source/build bytes.

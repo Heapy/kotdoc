@@ -15,7 +15,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   native iconv behavior have separate macOS/Linux expectations. A code-point
   API retains raw native Char slots that cannot fit a JVM String. HTTP proxy
   configuration now reads this live backend; original Windows scanning rules
-  and native API checks are included in the Windows CI job.
+  and native API checks pass in the 10,473-test Windows CI job.
 
 - HTTP proxy selection from environment variables: original name precedence,
   URI/credential parsing, lazy no_proxy domain matching, fallback policy and
