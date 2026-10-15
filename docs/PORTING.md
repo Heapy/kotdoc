@@ -9455,8 +9455,12 @@ suites, including the real registry test. That test creates a unique temporary
 HKCU key, checks that a named ProxyServer value is not a subkey default, then
 checks real DWORD/Unicode subkey reads and combined selection. It deletes only
 its own temporary key and never edits actual Internet Settings. CI parses all
-four XML suites and requires exactly **6,645 tests with no skips**; actual
-Windows execution remains pending until that exact job succeeds.
+four XML suites and requires exactly **6,645 tests with no skips**. All 6,645
+pass on actual Windows/JDK 21 for code commit **c556108**: run `38820697555`,
+job `116716306297` (`windows-proxy`) is verified successful. Its downloaded
+job log confirms the 4m 9s successful Gradle build and the XML coverage guard's
+explicit real-Advapi32/HKCU success message. This verifies the live registry test,
+not merely the Windows-branch observer on a POSIX host.
 
 All **140 source/fixture verifiers** pass (67.3s). Installed/core JARs agree;
 all **138 HTTP classes**, **68 complete notices**, **250 Pandoc assets** and the
@@ -9466,8 +9470,11 @@ bytes remain unchanged from the environment-proxy distribution. Only HTTP
 classes in the extended exception/proxy compilation units change or are added.
 This checkpoint does not claim a new full-project or complete Pandoc/calibre run.
 
-Exact preceding full CI runs `38819218765` (environment proxy, dd6043d) and
-`38817631586` (pool, a300ada) are still observed running at this checkpoint.
+The preceding pool commit a300ada's exact full CI run `38817631586` is now
+verified successful. Environment-proxy run `38819218765` (dd6043d) and c556108's
+separate full Linux job remain observed running; the successful focused Windows
+job is not presented as full-project parity. This verification-only ledger update
+does not change tested source or restart the already active full code CI.
 Next work remains physical OS environment enumeration, actual Manager/pool/
 proxy/socket/TLS integration, manager mutation/override/status/error contracts,
 automatic cookies and responseOpenHistory, with all original local-server tests.

@@ -14,7 +14,8 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   duplicate authentication-header ordering. Independent observations use the
   complete original module on both CPP branches. Windows selection includes
   protocol lists, literal/local bypasses, eager registry effects and error/close
-  ordering, with a native Advapi32 adapter and a dedicated Windows CI test.
+  ordering, with a native Advapi32 adapter verified by 6,645 Windows CI tests,
+  including actual temporary-HKCU registry calls.
   Physical OS environment enumeration and HTTP manager integration remain pending.
 
 - HTTP keyed resource pool: idle-only per-key/global limits, LIFO reuse,
