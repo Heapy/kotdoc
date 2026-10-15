@@ -32,6 +32,7 @@ format is implemented explicitly in Kotlin.
 | Complete finite TeXMath expression-to-TeX writer | `math/MathTeXWriter.kt` | All three exports; 561 original writer goldens and four regressions; 32,292 original observations, all 561 round-trip results/verdicts (344 already fail upstream), package/Unicode/scope/array/space and deep-input coverage |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
+| Complete `Text.Pandoc.Parsing.Math`, reader-option getter/guards and `Shared.trimMath` | `parsing/MathParsing.kt`, `ReaderOptionsAccess.kt`, `Parsec.kt` | Both math parsers, all delimiters/groups/comments, five original stream instances, exact state/errors and raw/Text error views; 10,304 independent observations including all 48 HTML and 138 Markdown math inputs |
 | Complete `Text.Pandoc.Writers.Math` bridge | `math/PandocMath.kt` | Both conversion functions and URL re-exports; exact AST/fallback, reporting, re-entrant state, deferred/shared generic writer results; 98,180 native observations over all 335 original Pandoc math nodes and 149 TeX inputs |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
@@ -6638,7 +6639,7 @@ original tests, and other calibre formats absent from Pandoc remain in scope.
 Next is the HTML reader and its complete dependency boundary, starting with the
 MathML semantic reader and all 576 untouched original reader goldens. Existing
 XML.Light parsing can be reused, with the original permissive forest/first-root
-semantics retained. The HTML reader has 70 ordinary original assertions, its
+semantics retained. The HTML reader has 69 ordinary original assertions, its
 original QuickCheck round-trip property (default 25 successes), and the separate
 `html-reader.html` -> `html-reader.native` legacy golden; none is waived.
 
@@ -6707,7 +6708,7 @@ existing 2 GiB per-worker heap and sequential worker recycling are unchanged.
 
 The full objective remains active. This is a dependency for the HTML reader,
 not completion of that reader or a new standalone Pandoc input format. Next is
-the remaining MathML-to-TeX bridge and HTML reader, including its 70 original
+the remaining MathML-to-TeX bridge and HTML reader, including its 69 original
 ordinary assertions, original round-trip property and legacy golden. Every
 other remaining Pandoc reader/writer and application/Lua/property test, followed
 by calibre MOBI with its original tests and other calibre formats absent from
@@ -6777,7 +6778,7 @@ All 375 installed CLI comparisons and the workflow smoke checks pass. Worker
 heap/recycling limits remain unchanged.
 
 The full objective remains active. Next is the complete HTML reader and its
-remaining parser/state/table/helper boundary, including all 70 ordinary original
+remaining parser/state/table/helper boundary, including all 69 ordinary original
 assertions, its original round-trip property and its legacy golden. The
 MathML-reader/TeX-writer dependency is now available. Remaining dependencies
 include the tag-stream adapter and HTML state, omitted-tag/category/matching
@@ -6786,3 +6787,79 @@ helpers, table parsing, metadata/code/URI helpers, raw LaTeX inline parsing and
 Other Pandoc readers,
 writers, application/Lua/property tests, then calibre MOBI and all its original
 tests and other calibre formats absent from Pandoc remain in scope.
+
+
+## Complete mathematical delimiter parsers and reader-option capability
+
+`MathParsing` implements both public `Text.Pandoc.Parsing.Math` parsers,
+`mathInline` and `mathDisplay`, with the complete dollar, single-backslash and
+double-backslash alternatives. The port retains extension guards outside each
+backtracking delimiter parser, nonempty content, leading/trailing space and
+following-digit gates, whole nested TeX groups, escaped braces, preserved
+comments and the blank-line restrictions. It implements `Shared.trimMath`
+exactly, including the single retained whitespace character after a trailing
+backslash. Deferred parser continuations retain finite deep/long inputs without
+using recursive JVM calls.
+
+`ReaderOptionsAccess` retains both `extractReaderOptions` and the overridable,
+parser-valued `getOption` capability. `ReaderOptionGuards` implements both
+`guardEnabled` and `guardDisabled`; callers can retain arbitrary reader state
+and override getter effects. `ParseError` now exposes both raw Haskell-Char Show
+and `Text.pack . show` views for source names, preserving individual surrogate
+characters and replacing each invalid scalar when converted to Text. Its existing
+UTF-16 facade remains available.
+
+The native oracle links the complete unchanged pinned Pandoc/pandoc-types
+libraries. It compiles the complete original HTML and Markdown reader test
+modules without replacing their implementation. A helper adapter invokes the
+original assertions and separately serializes original inputs and expectations;
+the copied original helper differs only in its module name. The entire HTML
+module passes **69 ordinary assertions plus the original QuickCheck property**
+(25 generated cases), with 69 additional serialization checks: 139 native tests.
+The selected original Markdown math-groups subtree passes **138 ordinary
+assertions** and 138 serialization checks: 276 native tests. These counts correct
+the earlier ledger's 70 ordinary HTML assertions: 70 included the property.
+The full original Markdown module is compiled, but its other groups are not
+claimed as run by this oracle.
+
+All **10,304 independent parser observations pass**. They include all 48
+original HTML math inputs, all 138 original Markdown math inputs at the shared
+parser boundary and 12 later math spans; all eight extension configurations;
+all five original UpdateSourcePos stream instances (Text, Char list, strict and
+lazy ByteString, and Sources); consumed/empty replies, values, remaining chunks,
+source positions and complete error messages; default and custom stateful,
+consuming and failing option getters; guard/repetition/lookahead/backtracking
+composition; source chunk jumps/empty spines, raw source names and Int64 bounds;
+all byte values and raw surrogate characters; 3,000 seeded group/comment cases;
+and four deep/long inputs, including 1,500 nested groups and 50,000 characters.
+Seventeen aggregate witnesses cover every one of the 1,114,112 Haskell Char
+values through both inline and display parsers (2,228,224 parser results, not
+that many separate JUnit tests).
+
+The first parity run exposed 72 Text-rendered error differences for raw source
+names; parser values, positions and message lists already matched. The fix adds
+the distinct raw-Char/Text error views. All original 10,304 requests and expected
+results were checked unchanged after independent raw Show observations were
+added; no expected result was weakened. The 307-source manifest and deterministic
+corpus hash are checked in CI. Corpus SHA-256:
+`2c8204315f196db2fb0c13031508e76295d44282d89688d5c9501b01ee62c609`.
+The dependency freeze is retained and a repeated native build reports `Up to date`.
+All 107 CI source/fixture commands pass. The 307 source hashes match staged Git
+blobs, the corpus and copied helper are byte-exact, earlier protected corpora and
+oracles are unchanged, and all three upstream checkouts/tags/gitlinks remain
+clean and pinned. Installed/core JAR bytes match; the new parser classes, all 54
+full notices, 250 Pandoc data/index files and the MathML entity table are verified.
+
+Full validation passes **1,877,189 tests in 104 suites**, with zero failures,
+errors or skips (7m 16s). Existing worker heap/recycling limits and all earlier
+test registrations remain unchanged. All 375 installed CLI comparisons pass
+(14 FB2, 66 media, 69 extension, 85 math and 141 HTML cases), along with the
+installed workflow smoke checks.
+
+This completes the shared math-parser module, not the HTML or Markdown reader.
+Their full AST-level Kotlin tests and the HTML round-trip property/legacy golden
+remain pending. The full objective remains active: complete the remaining HTML
+state/tag/table/helper boundary and every other Pandoc reader/writer and
+application/Lua/property test, then calibre MOBI and its original tests and the
+other calibre formats absent from Pandoc. Exact-SHA CI for d1b8c70 and fb2f08f
+is verified successful (118 and 119 successful steps respectively).

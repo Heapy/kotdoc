@@ -58,8 +58,8 @@ data class ParseError(val position: SourcePos, val messages: List<ParseMessage> 
         val base = set(ParseMessage(MessageKind.Expect, first))
         return base.copy(messages = labels.drop(1).map { ParseMessage(MessageKind.Expect, it) } + base.messages)
     }
-    override fun toString(): String {
-        if (messages.isEmpty()) return "$position:unknown parse error"
+    private fun messageText(): String {
+        if (messages.isEmpty()) return "unknown parse error"
         fun texts(kind: MessageKind) = messages.filter { it.kind == kind }.map { it.text }.filter { it.isNotEmpty() }.distinct()
         fun many(prefix: String, texts: List<String>): String {
             if (texts.isEmpty()) return ""
@@ -72,8 +72,14 @@ data class ParseError(val position: SourcePos, val messages: List<ParseMessage> 
             if (messages.any { it.kind == MessageKind.UnExpect } || system == null) "" else "unexpected " + system.ifEmpty { "end of input" },
             many("unexpected", unexpected), many("expecting", texts(MessageKind.Expect)), many("", texts(MessageKind.Message)),
         ).filter { it.isNotEmpty() }.distinct()
-        return "$position:" + lines.joinToString("") { "\n$it" }
+        return lines.joinToString("") { "\n$it" }
     }
+    /** Raw Show result: a source name retains each original Haskell Char. */
+    fun showCharacters(): CharacterString = CharacterStringChars.concat(listOf(
+        position.showCharacters(), CharacterStringChars.fromString(":" + messageText())))
+    /** Text.pack . show, including replacement of each non-scalar source Char. */
+    fun showText(): String = CharacterStringChars.build(showCharacters())
+    override fun toString(): String = "$position:" + messageText()
 }
 data class ParseInput(val text: String = "", val index: Int = 0, val stream: CharacterStream? = null) {
     constructor(stream: CharacterStream) : this(stream = stream, text = "")
