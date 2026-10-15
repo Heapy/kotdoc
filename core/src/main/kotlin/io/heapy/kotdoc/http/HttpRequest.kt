@@ -114,6 +114,7 @@ data class HttpRequest(
     val proxySecureMode: ProxySecureMode = ProxySecureMode.ProxySecureWithConnect,
     val redactHeaders: List<HttpBytes> = listOf(HttpBytes.pack("Authorization")),
     val earlyHintHeadersReceived: (List<HttpHeader>) -> Unit = {},
+    val cookieJar: HttpCookieJar? = HttpCookieJar.empty,
 ) {
     fun show(): String = buildString {
         fun field(name: String, value: Any) { append("  ").append(name.padEnd(21)).append("= ").append(value).append('\n') }

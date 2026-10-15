@@ -8915,3 +8915,114 @@ remain byte-identical. CLI and dependency JARs are byte-identical. All older
 implementations, tests, corpora and observers are unchanged. This additive
 codec/date checkpoint does not assert a new full project suite run or complete
 Pandoc/HTTP/calibre parity.
+
+### HTTP CookieJar storage, matching and request/response fields
+
+The full objective remains all Pandoc behavior and original tests, followed by
+calibre MOBI/all tests and calibre formats absent from Pandoc/all their tests.
+The preceding PSL checkpoint 0d3cec0 now has successful exact-SHA CI:
+https://github.com/Heapy/kotdoc/actions/runs/38805155580. The earlier response
+checkpoint 9be46ec also completed successfully. The Web.Cookie checkpoint's
+exact-SHA CI also completed successfully before publication:
+https://github.com/Heapy/kotdoc/actions/runs/38807642822.
+
+`http/HttpCookies.kt` translates every exported Cookies.hs algorithm: domain
+and path matching, defaultPath, cookie-specific isIpAddress, trustworthy-origin
+checks, create/destroy/remove, generation, checked insertion, receipt, eviction,
+header computation/request insertion and response Set-Cookie processing.
+Cookie/CookieJar models retain original Show and named equal/equiv/compare
+functions, plus CookieJar Semigroup/Monoid operations. They deliberately do not
+invent a structural Eq instance. Immutable jar snapshots do not expose mutable
+list storage. Derived Read for Cookie/CookieJar remains pending.
+
+The original quirks are retained: jar equality zips without a length check;
+compareCookies never returns EQ; recent-first jar merging returns GT for ties;
+only the first equivalent cookie or Cookie header is removed; creation time
+survives replacement; matching-cookie updates follow original matching order,
+including duplicates. GHC sorting reuses the unchanged faithful PrettySort
+implementation and pinned GHC source, rather than Java TimSort. Expiry exactly
+equal to now is retained; header computation does not evict expired cookies.
+defaultPath and pathMatches preserve arbitrary bytes, prepended slash behavior,
+the original unnormalized remainder and its empty ByteString head/last errors.
+
+Generation preserves single-leading-dot removal, trailing-dot rejection, the
+original pinned PSL and raw-host comparison for public suffixes, host-only
+flags, untouched explicit paths and HTTP-only policy. Max-Age takes precedence
+over Expires; nominal time addition uses the original POSIX clamp/normalization,
+including raw leap seconds and negative/fractional DiffTime. Session-cookie
+expiry is the original day plus 365000 at midnight, not a calendar-year rewrite.
+
+Storage integration exposed a missing distinction in the preceding SetCookie
+model: empty Max-Age is Just an undefined number, so testing the Maybe constructor
+must not force that number. HttpSetCookie now retains separate lazy presence
+and value; public hasMaxAge observes presence without forcing the number, and
+differing-Maybe Eq returns False without forcing it. Generated
+Cookie expiry is also lazy. Persistence, equivalence, name access, record updates
+and header generation can succeed while expiry, full equality, Show and eviction
+still produce the original read error. All prior Web.Cookie expectations remain
+unchanged and pass; new original observations demonstrate these demand paths.
+This is not a claim of complete generic Haskell lazy/runtime behavior.
+
+`http/CookieIp.kt` translates the used iproute 1.7.15 IPv4/IPv6 Read paths and
+appar 0.1.8 String parser combinators. Initial comparisons found 16 mismatches:
+the original accepts inputs such as `::1:`. Reading the underlying parser showed
+that alternatives start from the consumed failure position unless try resets
+it; failed branches inside many/option/sepBy1 also retain consumed input. The
+final implementation translates those combinators and branches directly instead
+of adding a trailing-colon exception. Exhaustive `0`, `1`, `:` inputs through
+length seven and further overlong-hex/separator cases extend the independent
+corpus. Pure and IPv4-embedded IPv6 retain different trailing-whitespace rules.
+Cookie isIpAddress is a separate signed-decimal, bounded-Int algorithm that can
+accept a trailing dot; trustworthy IPv4 Read rejects leading-zero octets.
+
+HttpRequest now has the original optional cookieJar, defaulting to Just empty.
+HttpResponse has its cookieJar; getResponse starts it empty, getOriginalRequest
+preserves request cookie policy while erasing the body, and lbsResponse retains
+the response jar. insertCookiesIntoRequest changes headers while preserving the
+request's cookieJar field. updateCookieJar returns a separate updated jar and
+strips all Set-Cookie headers without overwriting the response jar. These are
+the original helper boundaries; automatic manager/transport cookie effects
+remain to be integrated, not silently added to these helpers.
+
+All **15 original CookieSpec tests** execute unchanged before capture (only the
+module name differs) and are separately translated with all original literals,
+field mutations and predicates. The observer links actual frozen original
+http-client/cookie/iproute/appar/time code; no algorithm is rewritten there.
+The new corpus contains **12,995 independent observations**, with semantic SHA256
+`c8f5f8d27008f35f579740621ce83c4b0eb30cef90baf805885277763af21030`
+and **550 source hashes**. With 15 original units and one snapshot-ownership
+check, the new suite contributes **13,011 tests**. All **79,344 HTTP tests in
+five suites** pass locally (final 20s Gradle run), including every preceding request,
+response, PSL and Web.Cookie test. Every XML is parsed fully and actual test
+counts agree with declared counts; there are no failures, errors or skips.
+
+Complete unchanged iproute (16 release files) and appar (nine release files)
+archives are retained with provenance, together with their complete BSD notices.
+Archive SHA256 values are respectively
+`18a331a7e0e6f9dc89a2da95577b0d76bd2690b8f832b72b46d6cc9b667b4ba5`
+and `c4ceeddc26525b58d82c41b6d3e32141371a200a6794aae185b6266ccc81631f`.
+Every archived file, notice and actual linked Cabal source SHA is verified.
+Generic Data.IP routing/ranges/builders and Appar input/API/test coverage are
+not claimed complete. No Haskell executable is a production dependency.
+
+All **135 source/fixture verifiers** pass (61.7s). The installed/core JARs agree;
+all 104 compiled HTTP classes, 65 full notices, 250 Pandoc assets and the
+original 60,137-byte PSL resource match source/build bytes. Relative to the
+published Web.Cookie distribution, every previous non-HTTP core JAR entry and
+all 2,461 non-HTTP classes remain byte-identical; all previous classes remain
+present. Expected HTTP model/ABI and debug-table changes account for changed
+HTTP classes. CLI and dependency JARs remain byte-identical. Linux validation
+and final staged source audit follow.
+
+Remaining HTTP work includes redirects, real pool/socket/TLS/proxy/manager
+effects and manager cookie handling, full exception/status behavior, derived
+Read and outstanding Request/builder/lazy contracts. HTML CLI URL transport
+integration, all remaining Pandoc readers/writers/App/Lua and original tests,
+then calibre MOBI and additional formats/all their tests, remain active.
+
+Final Linux/x86_64 JDK 21 validation passes the same **79,344 HTTP tests**
+(final 5.659s), with no failures, skips, aborts or failed containers. Local suite
+counts are 13,011 CookieJar, 8,792 Web.Cookie, 51,672 PSL, 3,176 request and
+2,693 response tests. This checkpoint does not assert a new full project suite
+run or complete Pandoc/calibre parity. Final staged hashes and release pins
+are audited before publication.

@@ -22,6 +22,7 @@ class HttpSetCookie internal constructor(
     val secure: Boolean,
     val sameSite: CookieSameSite?,
     val partitioned: Boolean,
+    private val maxAgePresence: Lazy<Boolean> = lazy { maxAge.value != null },
 ) {
     constructor(
         name: HttpBytes = HttpBytes.pack("name"), value: HttpBytes = HttpBytes.pack("value"),
@@ -31,6 +32,8 @@ class HttpSetCookie internal constructor(
     ) : this(name, value, path, expires, lazyOf(maxAgePicoseconds), domain, httpOnly, secure, sameSite, partitioned)
 
     val maxAgePicoseconds: BigInteger? get() = maxAge.value
+    /** Observe the Maybe constructor without demanding its possibly undefined number. */
+    val hasMaxAge: Boolean get() = maxAgePresence.value
 
     /** A shared Lazy default preserves record-update demand order; lazyOf replaces Max-Age. */
     fun copy(
@@ -39,11 +42,12 @@ class HttpSetCookie internal constructor(
         maxAge: Lazy<BigInteger?> = this.maxAge, domain: HttpBytes? = this.domain,
         httpOnly: Boolean = this.httpOnly, secure: Boolean = this.secure,
         sameSite: CookieSameSite? = this.sameSite, partitioned: Boolean = this.partitioned,
-    ) = HttpSetCookie(name, value, path, expires, maxAge, domain, httpOnly, secure, sameSite, partitioned)
+    ) = HttpSetCookie(name, value, path, expires, maxAge, domain, httpOnly, secure, sameSite, partitioned,
+        if (maxAge === this.maxAge) maxAgePresence else lazy { maxAge.value != null })
 
     override fun equals(other: Any?): Boolean = other is HttpSetCookie &&
         name == other.name && value == other.value && path == other.path && expires == other.expires &&
-        maxAgePicoseconds == other.maxAgePicoseconds && domain == other.domain && httpOnly == other.httpOnly &&
+        hasMaxAge == other.hasMaxAge && (!hasMaxAge || maxAgePicoseconds == other.maxAgePicoseconds) && domain == other.domain && httpOnly == other.httpOnly &&
         secure == other.secure && sameSite == other.sameSite && partitioned == other.partitioned
 
     override fun hashCode() = listOf(name, value, path, expires, maxAgePicoseconds, domain, httpOnly, secure, sameSite, partitioned).hashCode()
@@ -124,6 +128,7 @@ object WebCookies {
             flag("domain")?.let(HttpBytes::pack), flag("httponly") != null, flag("secure") != null,
             when (flag("samesite")) { "Lax" -> CookieSameSite.Lax; "Strict" -> CookieSameSite.Strict; "None" -> CookieSameSite.None; else -> null },
             flag("partitioned") != null,
+            lazy { flag("max-age")?.all { it in '0'..'9' } == true },
         )
     }
 

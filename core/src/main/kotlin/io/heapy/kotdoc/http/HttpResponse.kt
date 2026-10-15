@@ -281,7 +281,7 @@ object HttpBodies {
 enum class HttpReuse { Reuse, DontReuse }
 class HttpManagedConnection(val connection: HttpConnection, val release: (HttpReuse) -> Unit, val keepAlive: () -> Unit = {})
 data class HttpResponse<A>(val status: HttpStatus, val version: HttpVersion, val headers: List<HttpHeader>,
-    val body: A, val close: () -> Unit, val originalRequest: HttpRequest, val early: List<HttpHeader>)
+    val body: A, val close: () -> Unit, val originalRequest: HttpRequest, val early: List<HttpHeader>, val cookieJar: HttpCookieJar = HttpCookieJar.empty)
 object HttpResponses {
     fun hasNoBody(method: HttpBytes, status: Long) = method == HttpBytes.pack("HEAD") || status == 204L || status == 304L || status in 100..199
     fun getResponse(maxLength: Long?, maxHeaders: Long?, timeout: Long?, request: HttpRequest, managed: HttpManagedConnection,
@@ -301,6 +301,6 @@ object HttpResponses {
         }
         return HttpResponse(status.status, status.version, hs, body, { cleanup(false) }, request.copy(requestBody = HttpRequestBody.Strict(HttpBytes.empty)), status.early)
     }
-    fun lbsResponse(response: HttpResponse<HttpBodyReader>) = HttpResponse(response.status, response.version, response.headers, HttpBodies.consume(response.body), response.close, response.originalRequest, response.early)
+    fun lbsResponse(response: HttpResponse<HttpBodyReader>) = HttpResponse(response.status, response.version, response.headers, HttpBodies.consume(response.body), response.close, response.originalRequest, response.early, response.cookieJar)
     fun <A> getOriginalRequest(response: HttpResponse<A>) = response.originalRequest
 }

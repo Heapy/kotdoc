@@ -180,7 +180,7 @@ embedded tree is retained byte-for-byte as a 60,137-byte production resource.
 The development observer compiles those vendored modules directly; no source
 algorithm is rewritten in the observer. Lookup, tree models and serialization
 are translated to Kotlin. The original http-client MIT notice already ships
-with the core JAR. HTTP cookie storage and transport are still pending.
+with the core JAR. HTTP manager/transport integration is still pending.
 
 `cookie-0.5.1/` retains all six unchanged Hackage release files plus archive
 provenance.json (SHA256 `1adde62726e3a3bbe147c02514fe0c4f5f2c5a2ff63842deac10c451a2a6f7a0`).
@@ -191,3 +191,15 @@ Date behavior is specialized from the already retained time-1.14 source. The
 observer links those exact original versions and checks the actual cookie
 archive SHA from its frozen Cabal plan. These sources remain development/oracle
 inputs; production cookie behavior is Kotlin.
+
+`iproute-1.7.15/` (16 original files) and `appar-0.1.8/` (nine original files)
+retain complete unchanged Hackage releases and archive provenance.json.
+Their archive SHA256 values are respectively
+`18a331a7e0e6f9dc89a2da95577b0d76bd2690b8f832b72b46d6cc9b667b4ba5` and
+`c4ceeddc26525b58d82c41b6d3e32141371a200a6794aae185b6266ccc81631f`.
+Full BSD notices are also retained in licenses and the core JAR. The HTTP
+cookie observer links these exact original archives. Kotlin specializes their
+IPv4/IPv6 Read paths and used String parser combinators, including consumed-
+failure alternatives, rather than substituting another IP parser. Generic
+Data.IP/Appar APIs and their remaining suites stay pending. CookieJar sorting
+reuses the unchanged Kotlin translation of `ghc-pretty-sort-9.12.2/OldList.hs`.
