@@ -1,0 +1,13 @@
+cabal-version: 3.0
+name: kotdoc-parser-state-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable parser-state-reference
+  main-is: ParserStateReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, pandoc ==3.12.1, pandoc-types ==1.23.1.2,
+                 aeson ==2.2.3.0, text ==2.1.2, bytestring ==0.12.2.0,
+                 containers ==0.7, data-default, parsec ==3.1.18.0,
+                 mtl, transformers, vector, binary ==0.8.9.3, crypton ==2.0.1

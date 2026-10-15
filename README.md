@@ -139,21 +139,27 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   ambiguity, style/delimiter combinations, example labels, counter updates and
   parser backtracking. The writer marker predicate now uses the parser plus EOF.
   Verified by 47,175 original Haskell observations and 398 upstream fixture tokens.
-  Full parser state and complete format readers remain
-  in progress.
+  Complete format readers remain in progress.
 - Sources: positioned fragments, retained empty chunks, source-file transitions,
   four-column tabs, all character primitives, bulk spans and input expansion.
   Text, raw characters and both byte streams have independent native comparisons;
   deferred fields and list tails preserve demand behavior. Verified against 154,295
   original observations, every GHC Char, 1,177 upstream text inputs and 400 list
-  parser integrations. Full parser state and complete consumer reader suites remain
-  pending.
+  parser integrations. Complete consumer reader suites remain pending.
 - Future computations for the final parser state: all source exports and
   Functor/Applicative/Monad/Semigroup/Monoid behavior, with lazy callbacks,
   shared results and explicit-stack evaluation. Checked against 13,463 original
   Haskell observations, nullable values, cycles, finite infinite-list projections,
-  100,000-step chains and all 266 original documents/metadata maps. Full parser
-  state and format-reader integration remain in progress.
+  100,000-step chains and all 266 original documents/metadata maps. General
+  format-reader integration remains in progress.
+- All 31 fields and defaults of Pandoc's parser state, typed reference/note/macro
+  tables, final-state Future values and state capabilities for both character and
+  token parsers. Key normalization and original Eq/Ord/Show/Read retain the exact
+  text-2.1.2 lowercase table. Verified by 4,725 original-library observations,
+  every Haskell Char, nested quote scopes, external log effects and all 266 Native
+  documents. Another 34,920 original list-parser runs use the full state and check
+  preservation of every unrelated field. HTML reader state/environment integration
+  and general lazy/partial record-field demand remain in progress.
 - TeX token/macro data: all token kinds, scopes, expansion points, Macro fields
   and nine argument-specification forms. Original Eq/Ord/Show and token-to-Sources
   grouping are checked by 21,326 native observations, lazy/infinite prefixes and
@@ -339,6 +345,8 @@ python3 tools/import-option-fixtures.py --check-source
 python3 tools/import-toc-fixtures.py --check-source
 python3 tools/import-emoji-tables.py --check
 python3 tools/import-case-mappings.py --check
+python3 tools/import-text-212-lowercase.py --check
+python3 tools/import-parser-state-fixtures.py --check-source
 python3 tools/import-identifier-fixtures.py --check-source
 python3 tools/import-html-entities.py --check
 python3 tools/import-tagsoup-fixtures.py --check

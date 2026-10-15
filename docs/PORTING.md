@@ -7039,3 +7039,93 @@ still need ports. The original full HTML AST assertions/property/legacy golden
 remain pending in Kotlin. All other Pandoc readers/writers and application/Lua/
 property tests, then calibre MOBI with all original tests and the other calibre
 formats absent from Pandoc, remain in scope.
+
+
+## Full parser-state record, capabilities and reference keys
+
+`ParserState` now represents all 31 fields of the original
+`Text.Pandoc.Parsing.State`, with the original default values and concrete
+ReaderOptions, Blocks/Inlines/Meta, SourcePos, LogMessage and Pandoc TeX Macro
+models. Parsed notes and deferred metadata reuse the existing typed
+`Future<ParserState,...>` implementation and read the final state. Eager metadata
+set/delete deliberately leaves future metadata unchanged. The record has no
+invented derived Eq/Ord/Show instance. ParserContext, QuoteContext, both raw-Char
+HeaderType constructors and the original table aliases are provided.
+
+`ParserStateAccess` implements the original state instances for identifiers,
+macros, reader options, quotation, last-string positions, logs and include files.
+Character and typed-token capability helpers preserve consumed/empty replies,
+errors, positions and state rollback. Quote scope restores only the previous
+quotation on success, retaining other state changes; it does not introduce a
+finally-based restoration on failure. Local logs are prepended and exposed in
+chronological order. Reporting keeps local logs and delegates every message to
+the existing PandocState effect boundary, including verbosity and external logs.
+Include files form a stack and dropping an empty stack succeeds. The typed-token
+reader-options dictionary supports a separately overridden parser-valued getter;
+guards invoke that getter rather than bypassing it through pure extraction.
+
+`Key` retains the original derived Eq/Ord, precedence-aware Show and Read/readList
+syntax, including raw Haskell Char remainders, nested parentheses, character-list
+Text input, string gaps, escapes and surrogate replacement at Text.pack. `toKey`
+removes exactly one outer bracket pair before splitting whitespace, joining and
+lowercasing. Exhaustive native observations found that the original Pandoc build
+uses a different lowercase table from the earlier text-2.1.3 dependency port.
+The exact **1,433 text-2.1.2 mappings** are therefore translated separately from
+that original source and checked in CI. The earlier table and its expectations
+are unchanged. All 27 lowercase differences between these dependency versions
+have individual native observations; seventeen aggregate witnesses cover all
+1,114,112 Haskell Chars through key normalization. These witnesses are aggregate
+tests, not that many separate JUnit cases.
+
+The observer builds the complete pinned original Pandoc/pandoc-types libraries.
+A separately verified git-archive copy changes only Cabal exposure declarations
+for Parsing.Capabilities and TeX; implementation, tests, data and notices remain
+byte-identical across all **2,888 original tracked files**. The original checkout
+is not edited. The library uses the previously documented `-O0` compiler resource
+setting; the observer/dependencies retain `-O2`. Its dependency freeze is retained
+and a repeated native build reports `Up to date`.
+
+All **4,725 independent native observations pass**. They compare all record fields,
+defaults and generated transitions; real nonempty macro maps; references and
+normalized-key replacement; both metadata paths; final-state parsed notes;
+include/log ordering; repeated reports and external effects after rollback;
+character and typed-token quotation/error/guard behavior; overridden token option
+getters which consume or fail; source names containing raw surrogate Chars and
+Int64 positions/counters; 10,000 nested quote scopes; 10,000 parentheses in Key
+Read; and all **266 original Native documents** stored as substitutions, parsed
+notes and metadata. The two initial aggregate Unicode failures were fixed in
+Kotlin, without changing the original expected values. All initial 4,698
+request/expectation records are verified unchanged in the final corpus.
+
+The full ParserState also implements the existing ordered-list field capability.
+All **34,920 original list-parser run observations** are replayed against this
+record with non-default sentinels in each of the other 29 fields; those fields
+remain unchanged. The original list-parser corpus and its earlier projection
+checks are retained. Together the new suites pass **39,645 comparisons**.
+
+Corpus SHA-256:
+`5e020def564c8b75237cebbbe05c1461dd0ef2e23065733e24d3a21e5d622433`.
+All **695 source hashes** match staged root Git blobs or clean pinned upstream
+blobs; staged corpus and lowercase-resource bytes match exactly. Earlier protected
+corpora/oracles and all upstream release pins are unchanged. All **111 CI
+source/fixture commands pass**. Exact-SHA CI for d089516 is verified successful,
+with all 122 steps passing. Installed/core JAR bytes match and contain the new
+state/capability/key classes and exact lowercase table, all 54 full notices,
+250 Pandoc assets/indexes and the unchanged MathML entity table. The workflow's
+installed-CLI smoke checks pass.
+
+Full validation passes **1,989,441 tests in 108 suites**, with zero failures,
+errors or skips (11m 31s). All **375 installed CLI comparisons** pass: 14 FB2,
+66 media, 69 extension, 85 math and 141 HTML cases. Original tests and earlier
+corpora remain enabled, with the existing 2 GiB worker/recycling limits.
+
+The objective remains active. This supplies the full materialized parser-state
+record and its capability boundary, not the complete HTML reader. HTMLState and
+HTMLLocal still need their own instances and ReaderT environment semantics,
+followed by shared metadata/code/URI helpers, raw LaTeX inline parsing and the
+HTML traversal. General lazy/partial parser reply and record-field demand beyond
+the existing Future/deferred models is not claimed by these finite state tests.
+The original full HTML AST assertions/property/legacy golden remain pending in
+Kotlin. All other remaining Pandoc readers/writers and application/Lua/property
+tests, then calibre MOBI with all original tests and other calibre formats absent
+from Pandoc, remain in scope.
