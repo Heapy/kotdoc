@@ -173,3 +173,11 @@ The Kotlin inflater calls the system C zlib API through the already packaged
 JNA dependency; no Haskell code is a production dependency. Whole streaming-
 commons (including deflate/network/process/filesystem APIs and tests) is not
 claimed complete; see docs/PORTING.md for the remaining full objective.
+
+The four `http-client-0.7.19/publicsuffixlist/Network/PublicSuffixList/` modules
+also supply the cookie-domain validation dependency. Their original 2015-04-29
+embedded tree is retained byte-for-byte as a 60,137-byte production resource.
+The development observer compiles those vendored modules directly; no source
+algorithm is rewritten in the observer. Lookup, tree models and serialization
+are translated to Kotlin. The original http-client MIT notice already ships
+with the core JAR. Full cookie parsing/storage and transport are still pending.

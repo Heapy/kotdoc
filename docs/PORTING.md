@@ -8764,3 +8764,66 @@ edited is the HTTP request model for CI equality/Ord and early-hint ownership;
 all other implementation files are new. The installed distribution and CLI
 byte-preservation checks above remain valid. This is a response/body foundation
 checkpoint; complete Pandoc and calibre conversion/test coverage remains active.
+
+### HTTP cookie dependency: pinned Public Suffix List
+
+The complete objective remains all Pandoc behavior and original tests, followed
+by calibre MOBI/all tests and calibre formats absent from Pandoc/all their tests.
+Cookie/redirect discovery found no jbcontext index for this checkout. A read-only
+dependency exploration identified existing lenient UTF-8 and UTC representation,
+but missing PSL lookup, cookie dates and Data.IP parsing. The preceding response
+checkpoint's exact-SHA CI was observed still running its full Gradle suite.
+
+`http/PublicSuffixList.kt` translates the bundled upstream Types, Lookup and
+Serialize modules. It supplies immutable Text-keyed trees, the original rules
+and exceptions pair, effectiveTLDPlusOne/isSuffix for the built-in and custom
+trees, and both binary serializer directions. Map keys use Unicode scalar
+ordering and Text's surrogate replacement; duplicate keys keep their last value.
+Lookup retains explicit-before-wildcard selection, leaf/non-leaf distinctions,
+exception precedence and the original unknown-domain fallback. As upstream,
+it does not lowercase, apply IDNA, or validate domain syntax.
+
+The production resource contains exactly the original embedded ByteString
+literal's **60,137 bytes**, generated at 2015-04-29 04:59:31.367899 UTC. No current
+host/online suffix list is substituted. Native putDataStructure independently
+re-emits those same bytes. There are **7,330 rule nodes and 19 exception nodes**;
+every node, including internal nodes, is observed with exact/deeper domains,
+wildcard substitution, uppercase and leading/trailing empty labels.
+
+The binary codec preserves sorted Map output, repeated-key replacement,
+implicit tree closure at EOF, ignored bytes after the two trees and strict
+UTF-8 rejection. The corpus also checks custom wildcard/exception conflicts,
+empty exceptions, NUL/dotted/Unicode keys, supplementary versus BMP order,
+surrogate normalization, deterministic generated trees, every single-byte
+value and truncated multibyte UTF-8. Exact Haskell UnicodeException Show and
+general lazy forcing order remain pending dependency/runtime work; the malformed
+UTF-8 witnesses compare strict failure, not host-specific error strings.
+
+The new observer compiles the **four unmodified vendored modules directly**
+with the existing frozen original GHC 9.12.2 dependency set. It calls original
+functions and only projects JSON inputs/results. This release supplies no
+separate PSL test module; observations are not claimed as translated original
+unit tests or a substitute for the remaining CookieSpec. No Haskell code or
+executable is used in production.
+
+The independent corpus contains **51,670 observations**, with semantic SHA256
+`dfeedfab0daad58b6901055cb67c6f4610298d80a3e081d0a59f5f10c3971db2`.
+The new Kotlin suite adds these plus two ownership checks for tree snapshots
+and resource byte arrays, for **51,672 passing tests**. Source and distribution
+validation follows. Cookie date parsing, storage/generation, Data.IP loopback
+semantics, redirects and the full pool/socket/TLS transport remain pending,
+along with the unchanged full Pandoc/calibre objective.
+
+Validation: all **51,672** new tests pass locally (1.106s suite time) and on
+Linux/x86_64 JDK 21 (0.826s). There are no failures, errors, skips or aborts.
+The entire local XML report is parsed and its declared count matches the actual
+testcase elements. All **133 source/fixture verifiers** pass (37.2s); the new
+corpus retains **265** independent source hashes. The installed distribution
+and core JAR agree; all 86 HTTP class files, all 62 complete notices, all 250
+Pandoc assets and the new binary snapshot match source/build bytes exactly.
+Compared with the preceding response checkpoint, all **2,538 existing classes**
+and all other existing JAR entries remain byte-identical, except the expected
+Kotlin module metadata that exposes the added declarations. CLI and dependency
+JARs are byte-identical too. Existing tests, corpora and observers are unchanged.
+This is an additive cookie dependency checkpoint; it does not assert a new full
+project suite run or completion of Pandoc/HTTP/calibre.

@@ -9,6 +9,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- The pinned http-client Public Suffix List: original 2015 tree, wildcard and
+  exception lookup, effective TLD plus one, and binary tree serialization.
+  All 7,349 original nodes have independent original-code observations.
+  Cookie parsing/storage and HTTP redirects remain pending.
+
 - HTTP response status/header parsing, 100 Continue/103 Early Hints, fixed,
   unlimited and chunked body readers, managed release effects and incremental
   gzip via streaming-commons 0.2.3.1/zlib. All original HeadersSpec, BodySpec,

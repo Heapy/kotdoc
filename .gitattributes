@@ -135,3 +135,4 @@ vendor/streaming-commons-0.2.3.1/** -text whitespace=-trailing-space,-blank-at-e
 tools/haskell-http-response-reference/Original*.hs -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 core/src/test/resources/http-response/LICENSE -text
 licenses/streaming-commons-MIT.txt -text
+core/src/main/resources/io/heapy/kotdoc/http/public-suffix-list.bin -text
