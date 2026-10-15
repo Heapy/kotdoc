@@ -1,0 +1,7 @@
+packages: . ../../vendor/network-uri-2.6.4.2
+optimization: 2
+index-state: 2026-10-13T00:00:00Z
+-- Metadata bound only: the original source predates GHC 9.12's deepseq.
+allow-newer: network-uri:deepseq
+package aeson
+  flags: +ordered-keymap

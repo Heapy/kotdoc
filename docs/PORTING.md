@@ -32,6 +32,7 @@ format is implemented explicitly in Kotlin.
 | Complete finite TeXMath expression-to-TeX writer | `math/MathTeXWriter.kt` | All three exports; 561 original writer goldens and four regressions; 32,292 original observations, all 561 round-trip results/verdicts (344 already fail upstream), package/Unicode/scope/array/space and deep-input coverage |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
+| Network.URI materialized finite runtime operations | `uri/NetworkURI.kt`, `URIParsing.kt`, `URI.kt`, `resources/MediaBagUri.kt` | Full parsing/validation, UTF8 escaping/decoding, normalization, relative resolution and deprecated accessors; 95,464 native observations, all 339 active original unit tests and both translated property predicates |
 | Complete HTML table parser and simple-cell query | `html/HtmlTableParsing.kt`, `ast/TableSimplicity.kt` | Full pTable traversal/normalization and caller state/effects; 6,539 independent original observations, all 266 Native documents, 42 HTML/HTML4/HTML5 table spans and all Char numeric-prefix/remainder witnesses |
 | Complete HTML reader tag-parsing/category modules | `html/HtmlTagParsing.kt`, `HtmlTagCategories.kt`, `HtmlTagMatching.kt`, `parsing/TokenParsec.kt`, `ParserMachine.kt` | All 14 Parsing functions, TagOmission and eight category values; 66,067 independent native observations, all 69 original HTML inputs/legacy input at the token boundary, exact consumed/empty state/errors and every Char for whitespace/Tag Show |
 | Complete `Text.Pandoc.Parsing.Math`, reader-option getter/guards and `Shared.trimMath` | `parsing/MathParsing.kt`, `ReaderOptionsAccess.kt`, `Parsec.kt` | Both math parsers, all delimiters/groups/comments, five original stream instances, exact state/errors and raw/Text error views; 10,304 independent observations including all 48 HTML and 138 Markdown math inputs |
@@ -7224,3 +7225,97 @@ pending in Kotlin. General lazy/partial parser reply and record-field behavior,
 all other remaining Pandoc readers/writers and application/Lua/property tests,
 then calibre MOBI with all original tests and other calibre formats absent from
 Pandoc, remain in scope.
+
+
+## Network.URI grammar, escaping, normalization and relative resolution
+
+The remaining materialized finite runtime operations of network-uri 2.6.4.2
+`Network.URI` are implemented in Kotlin. The original Parsec grammar runs through
+the existing character-stream parser machine, retaining alternative ordering,
+backtracking, consumption and the 255-token registered-name bound. This includes
+all four URI/reference parser entry points, IPv4/IPv6 validation, IPvFuture and
+RFC6874 zone identifiers. MediaBag's previous separately implemented projection
+is replaced by delegation to this full parser; existing projection consumers
+retain their scheme/path interface.
+
+The URI operations retain raw Haskell Char components, escaped-byte handling,
+source UTF8 encoding and malformed-prefix replacement/consumption, character
+predicates, source case mapping, path-segment normalization, strict/non-strict
+relative resolution and relative-reference construction. Deprecated names and
+component accessors are available. The original `normalizeCase` behavior is
+preserved even for input without a scheme: `"g"` becomes `"gg"`, because its
+recursive fallback processes the complete original string after emitting a
+lowercase prefix. Eight initial Kotlin discrepancies were fixed without changing
+any original expectations. Template Haskell/Lens generation and generic
+Data/Typeable dictionaries are not claimed as Kotlin runtime exports. General
+lazy/infinite/partial URI field demand remains pending alongside the wider
+parser/value demand work.
+
+`tools/haskell-uri-reference` builds the unchanged vendored Network.URI with a
+metadata-only deepseq upper-bound relaxation for GHC 9.12.2. Its control suite
+preserves the complete original test file except its module name. Its observed
+copy additionally redirects the Network.URI import to test-only wrappers; every
+test body and expectation is unchanged. Both native suites pass **341 tests**:
+339 unit cases and two QuickCheck properties at seed 314159. Nested observations
+are fully encoded before taking the output mutex, so source-lazy argument
+execution cannot deadlock a nested observer call.
+
+`tools/import-uri-fixtures.py` captures **95,464** independent original-library
+observations and **79 source hashes**. These include:
+
+- **1,495 actual API calls** from the complete original unit/property suite,
+  with every recorded result independently rechecked through the direct observer;
+- 232 parser boundary cases, 348 predicate cases and 5,416 parsing observations
+  over the original test source's string literals, including inactive examples
+  without counting them as active original assertions;
+- 13,500 raw-constructor relative-resolution cases, 8,000 generated grammar cases,
+  all **65,536 escaped byte pairs** and 608 malformed UTF8/prefix cases;
+- seventeen aggregate witnesses covering every **1,114,112 Haskell Char** through
+  source escaping, decoding, case normalization and all five character predicates;
+- finite paths and dot-segment sequences with **10,000** segments.
+
+Corpus SHA-256:
+`a9eee09783fcd21bc217809a1a85da371f6e02e359154e0eca94150dc19b89f0`.
+These API observations are supplemented by a direct Kotlin translation of the
+original assertions, rather than being counted as the assertion port themselves.
+
+`tools/import-uri-unit-tests.py` independently extracts every active registration,
+source literal, expected record and normalization composition into
+`uri/upstream-units.json`. It invokes neither Kotlin nor the Haskell observer and
+fails on unhandled definitions or changed case/property counts. All **339 active
+unit cases** run through translated Kotlin assertion helpers, including duplicate
+source labels, three checks per URI classification, both directions of relative
+round trips, exact source records, normalization compositions, password-masking
+Show, alternative entry points, path reconstruction and rectification. Both
+original property predicates are translated too: the original validity premise
+and high-character OR mask are retained. Kotlin executes 10,000 deterministic
+string samples and exhausts the scalar Char domain for both properties, a
+superset of the pinned QuickCheck Char generator's assigned, non-surrogate
+domain. This does not claim to port QuickCheck's random generator or shrinking.
+Raw surrogate behavior is independently covered by the complete-Char observer
+witnesses, rather than incorrectly requiring surrogate UTF8 round trips.
+
+The complete original URI unit/property suite and the MediaBag/resource/state/FB2
+integration suites pass. Exact-SHA CI for ab86f0a is verified successful.
+
+All **114 CI source/fixture checks pass**. All **79 source hashes** match staged
+root Git blobs; URI unit extraction matches the staged original source and JSON
+bytes exactly. Earlier protected corpora/oracles and all three clean upstream
+release pins are unchanged. Installed/core JAR bytes match and contain the new
+URI parser/runtime classes, all **55 full notices**, **250** Pandoc assets/indexes
+and unchanged MathML/text-2.1.2 tables. All workflow smoke checks and **375
+installed CLI comparisons** pass: 14 FB2, 66 media, 69 extension, 85 math and
+141 HTML cases.
+
+Full validation passes **2,091,614 tests in 111 suites**, with zero failures,
+errors or skips (11m 40s). The new suites contribute 95,464 native observations
+and all 341 original unit/property cases. No original expectations, tests or
+protected corpora were disabled or changed; the existing 2 GiB worker/recycling
+limits remain unchanged.
+
+The full objective remains active. This supplies URI parsing/resolution for the
+HTML reader; shared metadata/code/URI helpers, raw LaTeX inline parsing and the
+reader traversal still need ports. The original full HTML AST assertions,
+property and legacy golden remain pending in Kotlin. All other remaining Pandoc
+readers/writers and application/Lua/property tests, then calibre MOBI with all
+original tests and other calibre formats absent from Pandoc, remain in scope.

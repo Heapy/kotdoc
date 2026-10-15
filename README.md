@@ -166,8 +166,14 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   independent native observations, 100,000-step Reader compositions, quote/state
   rollback and retained external effects. Full URI/authority records preserve raw
   Haskell Chars, source Eq/Ord/Show, formatting and rectification, including all
-  four original URI Show assertions and every Haskell Char. URI parsing/resolution
-  and the full HTML reader traversal remain in progress.
+  four original URI Show assertions and every Haskell Char. The full HTML reader
+  traversal remains in progress.
+- Network.URI parsing, validation, escaping, normalization, relative resolution
+  and deprecated accessors, sharing the existing Parsec interpreter. MediaBag
+  delegates to this parser. Verified by 95,464 original-library observations,
+  all 339 active upstream unit tests and both translated property predicates,
+  plus every Char and all 65,536 escaped byte pairs. QuickCheck RNG/shrinking
+  is not ported; Kotlin properties use seeded samples and exhaustive scalars.
 - TeX token/macro data: all token kinds, scopes, expansion points, Macro fields
   and nine argument-specification forms. Original Eq/Ord/Show and token-to-Sources
   grouping are checked by 21,326 native observations, lazy/infinite prefixes and
@@ -356,6 +362,8 @@ python3 tools/import-case-mappings.py --check
 python3 tools/import-text-212-lowercase.py --check
 python3 tools/import-parser-state-fixtures.py --check-source
 python3 tools/import-html-state-fixtures.py --check-source
+python3 tools/import-uri-fixtures.py --check-source
+python3 tools/import-uri-unit-tests.py --check
 python3 tools/import-identifier-fixtures.py --check-source
 python3 tools/import-html-entities.py --check
 python3 tools/import-tagsoup-fixtures.py --check

@@ -1,0 +1,3395 @@
+{
+  "source": "vendor/network-uri-2.6.4.2/tests/uri001.hs",
+  "sourceSha256": "a8be96cee1d4e456e62a5c15ae50e36c8f22c45b6cdee6a30b227f7ccd05e4fe",
+  "units": [
+    {
+      "name": "testURIRef001",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org/aaa/bbb#ccc"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef002",
+      "kind": "testURIRef",
+      "args": [
+        "mailto:local@domain.org"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef003",
+      "kind": "testURIRef",
+      "args": [
+        "mailto:local@domain.org#frag"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef004",
+      "kind": "testURIRef",
+      "args": [
+        "HTTP://EXAMPLE.ORG/AAA/BBB#CCC"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef005",
+      "kind": "testURIRef",
+      "args": [
+        "//example.org/aaa/bbb#ccc"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef006",
+      "kind": "testURIRef",
+      "args": [
+        "/aaa/bbb#ccc"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef007",
+      "kind": "testURIRef",
+      "args": [
+        "bbb#ccc"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef008",
+      "kind": "testURIRef",
+      "args": [
+        "#ccc"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef009",
+      "kind": "testURIRef",
+      "args": [
+        "#"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef010",
+      "kind": "testURIRef",
+      "args": [
+        "/"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef011",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org/aaa%2fbbb#ccc"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef012",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org/aaa%2Fbbb#ccc"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef013",
+      "kind": "testURIRef",
+      "args": [
+        "%2F"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef014",
+      "kind": "testURIRef",
+      "args": [
+        "aaa%2Fbbb"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef015",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org:80/aaa/bbb#ccc"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef016",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org:/aaa/bbb#ccc"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef017",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org./aaa/bbb#ccc"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef018",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.123./aaa/bbb#ccc"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef019",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef021",
+      "kind": "testURIRef",
+      "args": [
+        "http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/index.html"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef022",
+      "kind": "testURIRef",
+      "args": [
+        "http://[1080:0:0:0:8:800:200C:417A]/index.html"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef023",
+      "kind": "testURIRef",
+      "args": [
+        "http://[3ffe:2a00:100:7031::1]"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef024",
+      "kind": "testURIRef",
+      "args": [
+        "http://[1080::8:800:200C:417A]/foo"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef025",
+      "kind": "testURIRef",
+      "args": [
+        "http://[::192.9.5.5]/ipng"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef026",
+      "kind": "testURIRef",
+      "args": [
+        "http://[::FFFF:129.144.52.38]:80/index.html"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef027",
+      "kind": "testURIRef",
+      "args": [
+        "http://[2010:836B:4179::836B:4179]"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef028",
+      "kind": "testURIRef",
+      "args": [
+        "//[2010:836B:4179::836B:4179]"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef029",
+      "kind": "testURIRef",
+      "args": [
+        "[2010:836B:4179::836B:4179]"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef031",
+      "kind": "testURIRef",
+      "args": [
+        "./aaa"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef032",
+      "kind": "testURIRef",
+      "args": [
+        "../aaa"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef033",
+      "kind": "testURIRef",
+      "args": [
+        "g:h"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef034",
+      "kind": "testURIRef",
+      "args": [
+        "g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef035",
+      "kind": "testURIRef",
+      "args": [
+        "./g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef036",
+      "kind": "testURIRef",
+      "args": [
+        "g/"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef037",
+      "kind": "testURIRef",
+      "args": [
+        "/g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef038",
+      "kind": "testURIRef",
+      "args": [
+        "//g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef039",
+      "kind": "testURIRef",
+      "args": [
+        "?y"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef040",
+      "kind": "testURIRef",
+      "args": [
+        "g?y"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef041",
+      "kind": "testURIRef",
+      "args": [
+        "#s"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef042",
+      "kind": "testURIRef",
+      "args": [
+        "g#s"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef043",
+      "kind": "testURIRef",
+      "args": [
+        "g?y#s"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef044",
+      "kind": "testURIRef",
+      "args": [
+        ";x"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef045",
+      "kind": "testURIRef",
+      "args": [
+        "g;x"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef046",
+      "kind": "testURIRef",
+      "args": [
+        "g;x?y#s"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef047",
+      "kind": "testURIRef",
+      "args": [
+        "."
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef048",
+      "kind": "testURIRef",
+      "args": [
+        "./"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef049",
+      "kind": "testURIRef",
+      "args": [
+        ".."
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef050",
+      "kind": "testURIRef",
+      "args": [
+        "../"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef051",
+      "kind": "testURIRef",
+      "args": [
+        "../g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef052",
+      "kind": "testURIRef",
+      "args": [
+        "../.."
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef053",
+      "kind": "testURIRef",
+      "args": [
+        "../../"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef054",
+      "kind": "testURIRef",
+      "args": [
+        "../../g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef055",
+      "kind": "testURIRef",
+      "args": [
+        "../../../g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef056",
+      "kind": "testURIRef",
+      "args": [
+        "../../../../g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef057",
+      "kind": "testURIRef",
+      "args": [
+        "/./g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef058",
+      "kind": "testURIRef",
+      "args": [
+        "/../g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef059",
+      "kind": "testURIRef",
+      "args": [
+        "g."
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef060",
+      "kind": "testURIRef",
+      "args": [
+        ".g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef061",
+      "kind": "testURIRef",
+      "args": [
+        "g.."
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef062",
+      "kind": "testURIRef",
+      "args": [
+        "..g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef063",
+      "kind": "testURIRef",
+      "args": [
+        "./../g"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef064",
+      "kind": "testURIRef",
+      "args": [
+        "./g/."
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef065",
+      "kind": "testURIRef",
+      "args": [
+        "g/./h"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef066",
+      "kind": "testURIRef",
+      "args": [
+        "g/../h"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef067",
+      "kind": "testURIRef",
+      "args": [
+        "g;x=1/./y"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef068",
+      "kind": "testURIRef",
+      "args": [
+        "g;x=1/../y"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef069",
+      "kind": "testURIRef",
+      "args": [
+        "g?y/./x"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef070",
+      "kind": "testURIRef",
+      "args": [
+        "g?y/../x"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef071",
+      "kind": "testURIRef",
+      "args": [
+        "g#s/./x"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef072",
+      "kind": "testURIRef",
+      "args": [
+        "g#s/../x"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef073",
+      "kind": "testURIRef",
+      "args": [
+        ""
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef074",
+      "kind": "testURIRef",
+      "args": [
+        "A'C"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef075",
+      "kind": "testURIRef",
+      "args": [
+        "A$C"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef076",
+      "kind": "testURIRef",
+      "args": [
+        "A@C"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef077",
+      "kind": "testURIRef",
+      "args": [
+        "A,C"
+      ],
+      "expected": "RelRf"
+    },
+    {
+      "name": "testURIRef080",
+      "kind": "testURIRef",
+      "args": [
+        "http://foo.org:80Path/More"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef081",
+      "kind": "testURIRef",
+      "args": [
+        "::"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef082",
+      "kind": "testURIRef",
+      "args": [
+        " "
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef083",
+      "kind": "testURIRef",
+      "args": [
+        "%"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef084",
+      "kind": "testURIRef",
+      "args": [
+        "A%Z"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef085",
+      "kind": "testURIRef",
+      "args": [
+        "%ZZ"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef086",
+      "kind": "testURIRef",
+      "args": [
+        "%AZ"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef087",
+      "kind": "testURIRef",
+      "args": [
+        "A C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef090",
+      "kind": "testURIRef",
+      "args": [
+        "A\"C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef091",
+      "kind": "testURIRef",
+      "args": [
+        "A`C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef092",
+      "kind": "testURIRef",
+      "args": [
+        "A<C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef093",
+      "kind": "testURIRef",
+      "args": [
+        "A>C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef094",
+      "kind": "testURIRef",
+      "args": [
+        "A^C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef095",
+      "kind": "testURIRef",
+      "args": [
+        "A\\C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef096",
+      "kind": "testURIRef",
+      "args": [
+        "A{C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef097",
+      "kind": "testURIRef",
+      "args": [
+        "A|C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef098",
+      "kind": "testURIRef",
+      "args": [
+        "A}C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef101",
+      "kind": "testURIRef",
+      "args": [
+        "A[C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef102",
+      "kind": "testURIRef",
+      "args": [
+        "A]C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef103",
+      "kind": "testURIRef",
+      "args": [
+        "A[**]C"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef104",
+      "kind": "testURIRef",
+      "args": [
+        "http://[xyz]/"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef105",
+      "kind": "testURIRef",
+      "args": [
+        "http://]/"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef106",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org/[2010:836B:4179::836B:4179]"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef107",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org/abc#[2010:836B:4179::836B:4179]"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef108",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org/xxx/[qwerty]#a[b]"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef111",
+      "kind": "testURIRef",
+      "args": [
+        "http://example/Andr&#567;"
+      ],
+      "expected": "AbsRf"
+    },
+    {
+      "name": "testURIRef112",
+      "kind": "testURIRef",
+      "args": [
+        "file:///C:/DEV/Haskell/lib/HXmlToolbox-3.01/examples/"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef113",
+      "kind": "testURIRef",
+      "args": [
+        "http://46229EFFE16A9BD60B9F1BE88B2DB047ADDED785/demo.mp3"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef114",
+      "kind": "testURIRef",
+      "args": [
+        "http://example.org/xxx/qwerty#a#b"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef115",
+      "kind": "testURIRef",
+      "args": [
+        "dcp.tcp.pft://192.168.0.1:1002:3002?fec=1&crc=0"
+      ],
+      "expected": "InvRf"
+    },
+    {
+      "name": "testURIRef116",
+      "kind": "testURIRef",
+      "args": [
+        "dcp.tcp.pft://192.168.0.1:1002?fec=1&crc=0"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef117",
+      "kind": "testURIRef",
+      "args": [
+        "foo://"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef118",
+      "kind": "testURIRef",
+      "args": [
+        "http://192.168.0.1.example.com/"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef119",
+      "kind": "testURIRef",
+      "args": [
+        "http://192.168.0.1.example.com./"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef120",
+      "kind": "testURIRef",
+      "args": [
+        "http://192.168.0.1test.example.com/"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef121",
+      "kind": "testURIRef",
+      "args": [
+        "http://[v9.123.abc;456.def]/"
+      ],
+      "expected": "AbsId"
+    },
+    {
+      "name": "testURIRef122",
+      "kind": "authority",
+      "args": [
+        "http://[v9.123.abc;456.def]:42/"
+      ],
+      "expected": [
+        "",
+        "[v9.123.abc;456.def]",
+        ":42"
+      ]
+    },
+    {
+      "name": "testComponent01",
+      "kind": "testURIRefComponents",
+      "args": [
+        "http://user:pass@example.org:99/aaa/bbb?qqq#fff"
+      ],
+      "expected": [
+        "http:",
+        [
+          "user:pass@",
+          "example.org",
+          ":99"
+        ],
+        "/aaa/bbb",
+        "?qqq",
+        "#fff"
+      ]
+    },
+    {
+      "name": "testComponent02",
+      "kind": "testURIRefComponents",
+      "args": [
+        "http://user:pass@example.org:99aaa/bbb"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testComponent03",
+      "kind": "testURIRefComponents",
+      "args": [
+        "http://user:pass@example.org:99?aaa/bbb"
+      ],
+      "expected": [
+        "http:",
+        [
+          "user:pass@",
+          "example.org",
+          ":99"
+        ],
+        "",
+        "?aaa/bbb",
+        ""
+      ]
+    },
+    {
+      "name": "testComponent04",
+      "kind": "testURIRefComponents",
+      "args": [
+        "http://user:pass@example.org:99#aaa/bbb"
+      ],
+      "expected": [
+        "http:",
+        [
+          "user:pass@",
+          "example.org",
+          ":99"
+        ],
+        "",
+        "",
+        "#aaa/bbb"
+      ]
+    },
+    {
+      "name": "testComponent05",
+      "kind": "testURIRefComponents",
+      "args": [
+        "news:comp.infosystems.www.servers.unix"
+      ],
+      "expected": [
+        "news:",
+        null,
+        "comp.infosystems.www.servers.unix",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "testComponent06",
+      "kind": "testURIRefComponents",
+      "args": [
+        "mailto:John.Doe@example.com"
+      ],
+      "expected": [
+        "mailto:",
+        null,
+        "John.Doe@example.com",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "testComponent07",
+      "kind": "testURIRefComponents",
+      "args": [
+        "tel:+1-816-555-1212"
+      ],
+      "expected": [
+        "tel:",
+        null,
+        "+1-816-555-1212",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "testComponent11",
+      "kind": "testURIRefComponents",
+      "args": [
+        "about:"
+      ],
+      "expected": [
+        "about:",
+        null,
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "testComponent12",
+      "kind": "testURIRefComponents",
+      "args": [
+        "file://windowsauth/d$"
+      ],
+      "expected": [
+        "file:",
+        [
+          "",
+          "windowsauth",
+          ""
+        ],
+        "/d$",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "testRelative01",
+      "kind": "testRelative",
+      "args": [
+        "foo:xyz",
+        "bar:abc",
+        "bar:abc"
+      ],
+      "expected": null,
+      "label": "testRelative01"
+    },
+    {
+      "name": "testRelative02",
+      "kind": "testRelative",
+      "args": [
+        "http://example/x/y/z",
+        "http://example/x/abc",
+        "../abc"
+      ],
+      "expected": null,
+      "label": "testRelative02"
+    },
+    {
+      "name": "testRelative03",
+      "kind": "testRelative",
+      "args": [
+        "http://example2/x/y/z",
+        "http://example/x/abc",
+        "//example/x/abc"
+      ],
+      "expected": null,
+      "label": "testRelative03"
+    },
+    {
+      "name": "testRelative04",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y/z",
+        "http://ex/x/r",
+        "../r"
+      ],
+      "expected": null,
+      "label": "testRelative04"
+    },
+    {
+      "name": "testRelative05",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y/z",
+        "http://ex/r",
+        "/r"
+      ],
+      "expected": null,
+      "label": "testRelative05"
+    },
+    {
+      "name": "testRelative06",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y/z",
+        "http://ex/x/y/q/r",
+        "q/r"
+      ],
+      "expected": null,
+      "label": "testRelative06"
+    },
+    {
+      "name": "testRelative07",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y",
+        "http://ex/x/q/r#s",
+        "q/r#s"
+      ],
+      "expected": null,
+      "label": "testRelative07"
+    },
+    {
+      "name": "testRelative08",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y",
+        "http://ex/x/q/r#s/t",
+        "q/r#s/t"
+      ],
+      "expected": null,
+      "label": "testRelative08"
+    },
+    {
+      "name": "testRelative09",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y",
+        "ftp://ex/x/q/r",
+        "ftp://ex/x/q/r"
+      ],
+      "expected": null,
+      "label": "testRelative09"
+    },
+    {
+      "name": "testRelative10",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y",
+        "http://ex/x/y",
+        ""
+      ],
+      "expected": null,
+      "label": "testRelative10"
+    },
+    {
+      "name": "testRelative11",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y/",
+        "http://ex/x/y/",
+        ""
+      ],
+      "expected": null,
+      "label": "testRelative11"
+    },
+    {
+      "name": "testRelative12",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y/pdq",
+        "http://ex/x/y/pdq",
+        ""
+      ],
+      "expected": null,
+      "label": "testRelative12"
+    },
+    {
+      "name": "testRelative13",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y/",
+        "http://ex/x/y/z/",
+        "z/"
+      ],
+      "expected": null,
+      "label": "testRelative13"
+    },
+    {
+      "name": "testRelative14",
+      "kind": "testRelative",
+      "args": [
+        "file:/swap/test/animal.rdf",
+        "file:/swap/test/animal.rdf#Animal",
+        "#Animal"
+      ],
+      "expected": null,
+      "label": "testRelative14"
+    },
+    {
+      "name": "testRelative15",
+      "kind": "testRelative",
+      "args": [
+        "file:/e/x/y/z",
+        "file:/e/x/abc",
+        "../abc"
+      ],
+      "expected": null,
+      "label": "testRelative15"
+    },
+    {
+      "name": "testRelative16",
+      "kind": "testRelative",
+      "args": [
+        "file:/example2/x/y/z",
+        "file:/example/x/abc",
+        "/example/x/abc"
+      ],
+      "expected": null,
+      "label": "testRelative16"
+    },
+    {
+      "name": "testRelative17",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y/z",
+        "file:/ex/x/r",
+        "../r"
+      ],
+      "expected": null,
+      "label": "testRelative17"
+    },
+    {
+      "name": "testRelative18",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y/z",
+        "file:/r",
+        "/r"
+      ],
+      "expected": null,
+      "label": "testRelative18"
+    },
+    {
+      "name": "testRelative19",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y",
+        "file:/ex/x/q/r",
+        "q/r"
+      ],
+      "expected": null,
+      "label": "testRelative19"
+    },
+    {
+      "name": "testRelative20",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y",
+        "file:/ex/x/q/r#s",
+        "q/r#s"
+      ],
+      "expected": null,
+      "label": "testRelative20"
+    },
+    {
+      "name": "testRelative21",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y",
+        "file:/ex/x/q/r#",
+        "q/r#"
+      ],
+      "expected": null,
+      "label": "testRelative21"
+    },
+    {
+      "name": "testRelative22",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y",
+        "file:/ex/x/q/r#s/t",
+        "q/r#s/t"
+      ],
+      "expected": null,
+      "label": "testRelative22"
+    },
+    {
+      "name": "testRelative23",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y",
+        "ftp://ex/x/q/r",
+        "ftp://ex/x/q/r"
+      ],
+      "expected": null,
+      "label": "testRelative23"
+    },
+    {
+      "name": "testRelative24",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y",
+        "file:/ex/x/y",
+        ""
+      ],
+      "expected": null,
+      "label": "testRelative24"
+    },
+    {
+      "name": "testRelative25",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y/",
+        "file:/ex/x/y/",
+        ""
+      ],
+      "expected": null,
+      "label": "testRelative25"
+    },
+    {
+      "name": "testRelative26",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y/pdq",
+        "file:/ex/x/y/pdq",
+        ""
+      ],
+      "expected": null,
+      "label": "testRelative26"
+    },
+    {
+      "name": "testRelative27",
+      "kind": "testRelative",
+      "args": [
+        "file:/ex/x/y/",
+        "file:/ex/x/y/z/",
+        "z/"
+      ],
+      "expected": null,
+      "label": "testRelative27"
+    },
+    {
+      "name": "testRelative28",
+      "kind": "testRelative",
+      "args": [
+        "file:/devel/WWW/2000/10/swap/test/reluri-1.n3",
+        "file://meetings.example.com/cal#m1",
+        "//meetings.example.com/cal#m1"
+      ],
+      "expected": null,
+      "label": "testRelative28"
+    },
+    {
+      "name": "testRelative29",
+      "kind": "testRelative",
+      "args": [
+        "file:/home/connolly/w3ccvs/WWW/2000/10/swap/test/reluri-1.n3",
+        "file://meetings.example.com/cal#m1",
+        "//meetings.example.com/cal#m1"
+      ],
+      "expected": null,
+      "label": "testRelative29"
+    },
+    {
+      "name": "testRelative30",
+      "kind": "testRelative",
+      "args": [
+        "file:/some/dir/foo",
+        "file:/some/dir/#blort",
+        "./#blort"
+      ],
+      "expected": null,
+      "label": "testRelative30"
+    },
+    {
+      "name": "testRelative31",
+      "kind": "testRelative",
+      "args": [
+        "file:/some/dir/foo",
+        "file:/some/dir/#",
+        "./#"
+      ],
+      "expected": null,
+      "label": "testRelative31"
+    },
+    {
+      "name": "testRelative32",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y",
+        "http://ex/x/q:r",
+        "./q:r"
+      ],
+      "expected": null,
+      "label": "testRelative32"
+    },
+    {
+      "name": "testRelative33",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y",
+        "http://ex/x/p=q:r",
+        "./p=q:r"
+      ],
+      "expected": null,
+      "label": "testRelative33"
+    },
+    {
+      "name": "testRelative34",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y?pp/qq",
+        "http://ex/x/y?pp/rr",
+        "?pp/rr"
+      ],
+      "expected": null,
+      "label": "testRelative34"
+    },
+    {
+      "name": "testRelative35",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y?pp/qq",
+        "http://ex/x/y/z",
+        "y/z"
+      ],
+      "expected": null,
+      "label": "testRelative35"
+    },
+    {
+      "name": "testRelative36",
+      "kind": "testRelative",
+      "args": [
+        "mailto:local",
+        "mailto:local/qual@domain.org#frag",
+        "local/qual@domain.org#frag"
+      ],
+      "expected": null,
+      "label": "testRelative36"
+    },
+    {
+      "name": "testRelative37",
+      "kind": "testRelative",
+      "args": [
+        "mailto:local/qual1@domain1.org",
+        "mailto:local/more/qual2@domain2.org#frag",
+        "more/qual2@domain2.org#frag"
+      ],
+      "expected": null,
+      "label": "testRelative37"
+    },
+    {
+      "name": "testRelative38",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/z?q",
+        "http://ex/x/y?q",
+        "y?q"
+      ],
+      "expected": null,
+      "label": "testRelative38"
+    },
+    {
+      "name": "testRelative39",
+      "kind": "testRelative",
+      "args": [
+        "http://ex?p",
+        "http://ex/x/y?q",
+        "/x/y?q"
+      ],
+      "expected": null,
+      "label": "testRelative39"
+    },
+    {
+      "name": "testRelative40",
+      "kind": "testRelative",
+      "args": [
+        "foo:a/b",
+        "foo:a/c/d",
+        "c/d"
+      ],
+      "expected": null,
+      "label": "testRelative40"
+    },
+    {
+      "name": "testRelative41",
+      "kind": "testRelative",
+      "args": [
+        "foo:a/b",
+        "foo:/c/d",
+        "/c/d"
+      ],
+      "expected": null,
+      "label": "testRelative41"
+    },
+    {
+      "name": "testRelative42",
+      "kind": "testRelative",
+      "args": [
+        "foo:a/b?c#d",
+        "foo:a/b?c",
+        ""
+      ],
+      "expected": null,
+      "label": "testRelative42"
+    },
+    {
+      "name": "testRelative43",
+      "kind": "testRelative",
+      "args": [
+        "foo:a",
+        "foo:b/c",
+        "b/c"
+      ],
+      "expected": null,
+      "label": "testRelative42"
+    },
+    {
+      "name": "testRelative44",
+      "kind": "testRelative",
+      "args": [
+        "foo:/a/y/z",
+        "foo:/a/b/c",
+        "../b/c"
+      ],
+      "expected": null,
+      "label": "testRelative44"
+    },
+    {
+      "name": "testRelative45",
+      "kind": "testRelJoin",
+      "args": [
+        "foo:a",
+        "./b/c",
+        "foo:b/c"
+      ],
+      "expected": null,
+      "label": "testRelative45"
+    },
+    {
+      "name": "testRelative46",
+      "kind": "testRelJoin",
+      "args": [
+        "foo:a",
+        "/./b/c",
+        "foo:/b/c"
+      ],
+      "expected": null,
+      "label": "testRelative46"
+    },
+    {
+      "name": "testRelative47",
+      "kind": "testRelJoin",
+      "args": [
+        "foo://a//b/c",
+        "../../d",
+        "foo://a/d"
+      ],
+      "expected": null,
+      "label": "testRelative47"
+    },
+    {
+      "name": "testRelative48",
+      "kind": "testRelJoin",
+      "args": [
+        "foo:a",
+        ".",
+        "foo:"
+      ],
+      "expected": null,
+      "label": "testRelative48"
+    },
+    {
+      "name": "testRelative49",
+      "kind": "testRelJoin",
+      "args": [
+        "foo:a",
+        "..",
+        "foo:"
+      ],
+      "expected": null,
+      "label": "testRelative49"
+    },
+    {
+      "name": "testRelative50",
+      "kind": "testRelative",
+      "args": [
+        "http://example/x/y%2Fz",
+        "http://example/x/abc",
+        "abc"
+      ],
+      "expected": null,
+      "label": "testRelative50"
+    },
+    {
+      "name": "testRelative51",
+      "kind": "testRelative",
+      "args": [
+        "http://example/a/x/y/z",
+        "http://example/a/x%2Fabc",
+        "../../x%2Fabc"
+      ],
+      "expected": null,
+      "label": "testRelative51"
+    },
+    {
+      "name": "testRelative52",
+      "kind": "testRelative",
+      "args": [
+        "http://example/a/x/y%2Fz",
+        "http://example/a/x%2Fabc",
+        "../x%2Fabc"
+      ],
+      "expected": null,
+      "label": "testRelative52"
+    },
+    {
+      "name": "testRelative53",
+      "kind": "testRelative",
+      "args": [
+        "http://example/x%2Fy/z",
+        "http://example/x%2Fy/abc",
+        "abc"
+      ],
+      "expected": null,
+      "label": "testRelative53"
+    },
+    {
+      "name": "testRelative54",
+      "kind": "testRelative",
+      "args": [
+        "http://ex/x/y",
+        "http://ex/x/q%3Ar",
+        "q%3Ar"
+      ],
+      "expected": null,
+      "label": "testRelative54"
+    },
+    {
+      "name": "testRelative55",
+      "kind": "testRelative",
+      "args": [
+        "http://example/x/y%2Fz",
+        "http://example/x%2Fabc",
+        "/x%2Fabc"
+      ],
+      "expected": null,
+      "label": "testRelative55"
+    },
+    {
+      "name": "testRelative56",
+      "kind": "testRelative",
+      "args": [
+        "http://example/x/y/z",
+        "http://example/x%2Fabc",
+        "/x%2Fabc"
+      ],
+      "expected": null,
+      "label": "testRelative56"
+    },
+    {
+      "name": "testRelative57",
+      "kind": "testRelative",
+      "args": [
+        "http://example/x/y%2Fz",
+        "http://example/x%2Fabc",
+        "/x%2Fabc"
+      ],
+      "expected": null,
+      "label": "testRelative57"
+    },
+    {
+      "name": "testRelative60",
+      "kind": "testRelJoin",
+      "args": [
+        "ftp://example/x/y",
+        "http://example/a/b/../../c",
+        "http://example/c"
+      ],
+      "expected": null,
+      "label": "testRelative60"
+    },
+    {
+      "name": "testRelative61",
+      "kind": "testRelJoin",
+      "args": [
+        "ftp://example/x/y",
+        "http://example/a/b/c/../../",
+        "http://example/a/"
+      ],
+      "expected": null,
+      "label": "testRelative61"
+    },
+    {
+      "name": "testRelative62",
+      "kind": "testRelJoin",
+      "args": [
+        "ftp://example/x/y",
+        "http://example/a/b/c/./",
+        "http://example/a/b/c/"
+      ],
+      "expected": null,
+      "label": "testRelative62"
+    },
+    {
+      "name": "testRelative63",
+      "kind": "testRelJoin",
+      "args": [
+        "ftp://example/x/y",
+        "http://example/a/b/c/.././",
+        "http://example/a/b/"
+      ],
+      "expected": null,
+      "label": "testRelative63"
+    },
+    {
+      "name": "testRelative64",
+      "kind": "testRelJoin",
+      "args": [
+        "ftp://example/x/y",
+        "http://example/a/b/c/d/../../../../e",
+        "http://example/e"
+      ],
+      "expected": null,
+      "label": "testRelative64"
+    },
+    {
+      "name": "testRelative65",
+      "kind": "testRelJoin",
+      "args": [
+        "ftp://example/x/y",
+        "http://example/a/b/c/d/../.././../../e",
+        "http://example/e"
+      ],
+      "expected": null,
+      "label": "testRelative65"
+    },
+    {
+      "name": "testRelative70",
+      "kind": "testRelative",
+      "args": [
+        "mailto:local1@domain1?query1",
+        "mailto:local2@domain2",
+        "local2@domain2"
+      ],
+      "expected": null,
+      "label": "testRelative70"
+    },
+    {
+      "name": "testRelative71",
+      "kind": "testRelative",
+      "args": [
+        "mailto:local1@domain1",
+        "mailto:local2@domain2?query2",
+        "local2@domain2?query2"
+      ],
+      "expected": null,
+      "label": "testRelative71"
+    },
+    {
+      "name": "testRelative72",
+      "kind": "testRelative",
+      "args": [
+        "mailto:local1@domain1?query1",
+        "mailto:local2@domain2?query2",
+        "local2@domain2?query2"
+      ],
+      "expected": null,
+      "label": "testRelative72"
+    },
+    {
+      "name": "testRelative73",
+      "kind": "testRelative",
+      "args": [
+        "mailto:local@domain?query1",
+        "mailto:local@domain?query2",
+        "?query2"
+      ],
+      "expected": null,
+      "label": "testRelative73"
+    },
+    {
+      "name": "testRelative74",
+      "kind": "testRelative",
+      "args": [
+        "mailto:?query1",
+        "mailto:local@domain?query2",
+        "local@domain?query2"
+      ],
+      "expected": null,
+      "label": "testRelative74"
+    },
+    {
+      "name": "testRelative75",
+      "kind": "testRelative",
+      "args": [
+        "mailto:local@domain?query1",
+        "mailto:local@domain?query2",
+        "?query2"
+      ],
+      "expected": null,
+      "label": "testRelative75"
+    },
+    {
+      "name": "testRelative76",
+      "kind": "testRelative",
+      "args": [
+        "foo:bar",
+        "http://example/a/b?c/../d",
+        "http://example/a/b?c/../d"
+      ],
+      "expected": null,
+      "label": "testRelative76"
+    },
+    {
+      "name": "testRelative77",
+      "kind": "testRelative",
+      "args": [
+        "foo:bar",
+        "http://example/a/b#c/../d",
+        "http://example/a/b#c/../d"
+      ],
+      "expected": null,
+      "label": "testRelative77"
+    },
+    {
+      "name": "testRelative78",
+      "kind": "testRelative",
+      "args": [
+        "http://www.example.com/data/limit/..",
+        "http://www.example.com/data/limit/test.xml",
+        "test.xml"
+      ],
+      "expected": null,
+      "label": "testRelative78"
+    },
+    {
+      "name": "testRelative79",
+      "kind": "testRelative",
+      "args": [
+        "file:/some/dir/foo",
+        "file:/some/dir/#blort",
+        "./#blort"
+      ],
+      "expected": null,
+      "label": "testRelative79"
+    },
+    {
+      "name": "testRelative80",
+      "kind": "testRelative",
+      "args": [
+        "file:/some/dir/foo",
+        "file:/some/dir/#",
+        "./#"
+      ],
+      "expected": null,
+      "label": "testRelative80"
+    },
+    {
+      "name": "testRelative81",
+      "kind": "testRelative",
+      "args": [
+        "file:/some/dir/..",
+        "file:/some/dir/#blort",
+        "./#blort"
+      ],
+      "expected": null,
+      "label": "testRelative81"
+    },
+    {
+      "name": "testRelative91",
+      "kind": "testRelSplit",
+      "args": [
+        "http://example.org/base/uri",
+        "http:this",
+        "this"
+      ],
+      "expected": null,
+      "label": "testRelative91"
+    },
+    {
+      "name": "testRelative92",
+      "kind": "testRelJoin",
+      "args": [
+        "http://example.org/base/uri",
+        "http:this",
+        "http:this"
+      ],
+      "expected": null,
+      "label": "testRelative92"
+    },
+    {
+      "name": "testRelative93",
+      "kind": "testRelJoin",
+      "args": [
+        "http:base",
+        "http:this",
+        "http:this"
+      ],
+      "expected": null,
+      "label": "testRelative93"
+    },
+    {
+      "name": "testRelative94",
+      "kind": "testRelJoin",
+      "args": [
+        "f:/a",
+        ".//g",
+        "f://g"
+      ],
+      "expected": null,
+      "label": "testRelative94"
+    },
+    {
+      "name": "testRelative95",
+      "kind": "testRelJoin",
+      "args": [
+        "f://example.org/base/a",
+        "b/c//d/e",
+        "f://example.org/base/b/c//d/e"
+      ],
+      "expected": null,
+      "label": "testRelative95"
+    },
+    {
+      "name": "testRelative96",
+      "kind": "testRelJoin",
+      "args": [
+        "mid:m@example.ord/c@example.org",
+        "m2@example.ord/c2@example.org",
+        "mid:m@example.ord/m2@example.ord/c2@example.org"
+      ],
+      "expected": null,
+      "label": "testRelative96"
+    },
+    {
+      "name": "testRelative97",
+      "kind": "testRelJoin",
+      "args": [
+        "file:///C:/DEV/Haskell/lib/HXmlToolbox-3.01/examples/",
+        "mini1.xml",
+        "file:///C:/DEV/Haskell/lib/HXmlToolbox-3.01/examples/mini1.xml"
+      ],
+      "expected": null,
+      "label": "testRelative97"
+    },
+    {
+      "name": "testRelative98",
+      "kind": "testRelative",
+      "args": [
+        "foo:a/y/z",
+        "foo:a/b/c",
+        "../b/c"
+      ],
+      "expected": null,
+      "label": "testRelative98"
+    },
+    {
+      "name": "testRelative99",
+      "kind": "testRelJoin",
+      "args": [
+        "f:/a/",
+        "..//g",
+        "f://g"
+      ],
+      "expected": null,
+      "label": "testRelative99"
+    },
+    {
+      "name": "testRFC01",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g:h",
+        "g:h"
+      ],
+      "expected": null,
+      "label": "testRFC01"
+    },
+    {
+      "name": "testRFC02",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g",
+        "http://a/b/c/g"
+      ],
+      "expected": null,
+      "label": "testRFC02"
+    },
+    {
+      "name": "testRFC03",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "./g",
+        "http://a/b/c/g"
+      ],
+      "expected": null,
+      "label": "testRFC03"
+    },
+    {
+      "name": "testRFC04",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g/",
+        "http://a/b/c/g/"
+      ],
+      "expected": null,
+      "label": "testRFC04"
+    },
+    {
+      "name": "testRFC05",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "/g",
+        "http://a/g"
+      ],
+      "expected": null,
+      "label": "testRFC05"
+    },
+    {
+      "name": "testRFC06",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "//g",
+        "http://g"
+      ],
+      "expected": null,
+      "label": "testRFC06"
+    },
+    {
+      "name": "testRFC07",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "?y",
+        "http://a/b/c/d;p?y"
+      ],
+      "expected": null,
+      "label": "testRFC07"
+    },
+    {
+      "name": "testRFC08",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g?y",
+        "http://a/b/c/g?y"
+      ],
+      "expected": null,
+      "label": "testRFC08"
+    },
+    {
+      "name": "testRFC09",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "?q#s",
+        "http://a/b/c/d;p?q#s"
+      ],
+      "expected": null,
+      "label": "testRFC09"
+    },
+    {
+      "name": "testRFC10",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g#s",
+        "http://a/b/c/g#s"
+      ],
+      "expected": null,
+      "label": "testRFC11"
+    },
+    {
+      "name": "testRFC11",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g?y#s",
+        "http://a/b/c/g?y#s"
+      ],
+      "expected": null,
+      "label": "testRFC12"
+    },
+    {
+      "name": "testRFC12",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        ";x",
+        "http://a/b/c/;x"
+      ],
+      "expected": null,
+      "label": "testRFC13"
+    },
+    {
+      "name": "testRFC13",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g;x",
+        "http://a/b/c/g;x"
+      ],
+      "expected": null,
+      "label": "testRFC14"
+    },
+    {
+      "name": "testRFC14",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g;x?y#s",
+        "http://a/b/c/g;x?y#s"
+      ],
+      "expected": null,
+      "label": "testRFC15"
+    },
+    {
+      "name": "testRFC15",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        ".",
+        "http://a/b/c/"
+      ],
+      "expected": null,
+      "label": "testRFC17"
+    },
+    {
+      "name": "testRFC16",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "./",
+        "http://a/b/c/"
+      ],
+      "expected": null,
+      "label": "testRFC18"
+    },
+    {
+      "name": "testRFC17",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "..",
+        "http://a/b/"
+      ],
+      "expected": null,
+      "label": "testRFC19"
+    },
+    {
+      "name": "testRFC18",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "../",
+        "http://a/b/"
+      ],
+      "expected": null,
+      "label": "testRFC20"
+    },
+    {
+      "name": "testRFC19",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "../g",
+        "http://a/b/g"
+      ],
+      "expected": null,
+      "label": "testRFC21"
+    },
+    {
+      "name": "testRFC20",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "../..",
+        "http://a/"
+      ],
+      "expected": null,
+      "label": "testRFC22"
+    },
+    {
+      "name": "testRFC21",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "../../",
+        "http://a/"
+      ],
+      "expected": null,
+      "label": "testRFC23"
+    },
+    {
+      "name": "testRFC22",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "../../g",
+        "http://a/g"
+      ],
+      "expected": null,
+      "label": "testRFC24"
+    },
+    {
+      "name": "testRFC23",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "#s",
+        "http://a/b/c/d;p?q#s"
+      ],
+      "expected": null,
+      "label": "testRFC10"
+    },
+    {
+      "name": "testRFC24",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "",
+        "http://a/b/c/d;p?q"
+      ],
+      "expected": null,
+      "label": "testRFC16"
+    },
+    {
+      "name": "testRFC31",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "?q",
+        "http://a/b/c/d;p?q"
+      ],
+      "expected": null,
+      "label": "testRFC31"
+    },
+    {
+      "name": "testRFC32",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "../../../g",
+        "http://a/g"
+      ],
+      "expected": null,
+      "label": "testRFC32"
+    },
+    {
+      "name": "testRFC33",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "../../../../g",
+        "http://a/g"
+      ],
+      "expected": null,
+      "label": "testRFC33"
+    },
+    {
+      "name": "testRFC34",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "/./g",
+        "http://a/g"
+      ],
+      "expected": null,
+      "label": "testRFC34"
+    },
+    {
+      "name": "testRFC35",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "/../g",
+        "http://a/g"
+      ],
+      "expected": null,
+      "label": "testRFC35"
+    },
+    {
+      "name": "testRFC36",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g.",
+        "http://a/b/c/g."
+      ],
+      "expected": null,
+      "label": "testRFC36"
+    },
+    {
+      "name": "testRFC37",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        ".g",
+        "http://a/b/c/.g"
+      ],
+      "expected": null,
+      "label": "testRFC37"
+    },
+    {
+      "name": "testRFC38",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g..",
+        "http://a/b/c/g.."
+      ],
+      "expected": null,
+      "label": "testRFC38"
+    },
+    {
+      "name": "testRFC39",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "..g",
+        "http://a/b/c/..g"
+      ],
+      "expected": null,
+      "label": "testRFC39"
+    },
+    {
+      "name": "testRFC40",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "./../g",
+        "http://a/b/g"
+      ],
+      "expected": null,
+      "label": "testRFC40"
+    },
+    {
+      "name": "testRFC41",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "./g/.",
+        "http://a/b/c/g/"
+      ],
+      "expected": null,
+      "label": "testRFC41"
+    },
+    {
+      "name": "testRFC42",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g/./h",
+        "http://a/b/c/g/h"
+      ],
+      "expected": null,
+      "label": "testRFC42"
+    },
+    {
+      "name": "testRFC43",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g/../h",
+        "http://a/b/c/h"
+      ],
+      "expected": null,
+      "label": "testRFC43"
+    },
+    {
+      "name": "testRFC44",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g;x=1/./y",
+        "http://a/b/c/g;x=1/y"
+      ],
+      "expected": null,
+      "label": "testRFC44"
+    },
+    {
+      "name": "testRFC45",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g;x=1/../y",
+        "http://a/b/c/y"
+      ],
+      "expected": null,
+      "label": "testRFC45"
+    },
+    {
+      "name": "testRFC46",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g?y/./x",
+        "http://a/b/c/g?y/./x"
+      ],
+      "expected": null,
+      "label": "testRFC46"
+    },
+    {
+      "name": "testRFC47",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g?y/../x",
+        "http://a/b/c/g?y/../x"
+      ],
+      "expected": null,
+      "label": "testRFC47"
+    },
+    {
+      "name": "testRFC48",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g#s/./x",
+        "http://a/b/c/g#s/./x"
+      ],
+      "expected": null,
+      "label": "testRFC48"
+    },
+    {
+      "name": "testRFC49",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "g#s/../x",
+        "http://a/b/c/g#s/../x"
+      ],
+      "expected": null,
+      "label": "testRFC49"
+    },
+    {
+      "name": "testRFC50",
+      "kind": "testRelJoin",
+      "args": [
+        "http://a/b/c/d;p?q",
+        "http:x",
+        "http:x"
+      ],
+      "expected": null,
+      "label": "testRFC50"
+    },
+    {
+      "name": "testRFC60",
+      "kind": "testRelative",
+      "args": [
+        "http://ex",
+        "http://ex/x/y?q",
+        "/x/y?q"
+      ],
+      "expected": null,
+      "label": "testRFC60"
+    },
+    {
+      "name": "testRFC61",
+      "kind": "testRelJoin",
+      "args": [
+        "http://ex",
+        "x/y?q",
+        "http://ex/x/y?q"
+      ],
+      "expected": null,
+      "label": "testRFC61"
+    },
+    {
+      "name": "testRFC62",
+      "kind": "testRelative",
+      "args": [
+        "http://ex?p",
+        "http://ex/x/y?q",
+        "/x/y?q"
+      ],
+      "expected": null,
+      "label": "testRFC62"
+    },
+    {
+      "name": "testRFC63",
+      "kind": "testRelJoin",
+      "args": [
+        "http://ex?p",
+        "x/y?q",
+        "http://ex/x/y?q"
+      ],
+      "expected": null,
+      "label": "testRFC63"
+    },
+    {
+      "name": "testRFC64",
+      "kind": "testRelative",
+      "args": [
+        "http://ex#f",
+        "http://ex/x/y?q",
+        "/x/y?q"
+      ],
+      "expected": null,
+      "label": "testRFC64"
+    },
+    {
+      "name": "testRFC65",
+      "kind": "testRelJoin",
+      "args": [
+        "http://ex#f",
+        "x/y?q",
+        "http://ex/x/y?q"
+      ],
+      "expected": null,
+      "label": "testRFC65"
+    },
+    {
+      "name": "testRFC66",
+      "kind": "testRelative",
+      "args": [
+        "http://ex?p",
+        "http://ex/x/y#g",
+        "/x/y#g"
+      ],
+      "expected": null,
+      "label": "testRFC66"
+    },
+    {
+      "name": "testRFC67",
+      "kind": "testRelJoin",
+      "args": [
+        "http://ex?p",
+        "x/y#g",
+        "http://ex/x/y#g"
+      ],
+      "expected": null,
+      "label": "testRFC67"
+    },
+    {
+      "name": "testRFC68",
+      "kind": "testRelative",
+      "args": [
+        "http://ex",
+        "http://ex/",
+        "/"
+      ],
+      "expected": null,
+      "label": "testRFC68"
+    },
+    {
+      "name": "testRFC69",
+      "kind": "testRelJoin",
+      "args": [
+        "http://ex",
+        "./",
+        "http://ex/"
+      ],
+      "expected": null,
+      "label": "testRFC69"
+    },
+    {
+      "name": "testRFC70",
+      "kind": "testRelative",
+      "args": [
+        "http://ex",
+        "http://ex/a/b",
+        "/a/b"
+      ],
+      "expected": null,
+      "label": "testRFC70"
+    },
+    {
+      "name": "testMail01",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local/option@domain.org?notaquery#frag",
+        "more@domain",
+        "mailto:local/more@domain"
+      ],
+      "expected": null,
+      "label": "testMail01"
+    },
+    {
+      "name": "testMail02",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local/option@domain.org?notaquery#frag",
+        "#newfrag",
+        "mailto:local/option@domain.org?notaquery#newfrag"
+      ],
+      "expected": null,
+      "label": "testMail02"
+    },
+    {
+      "name": "testMail03",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local/option@domain.org?notaquery#frag",
+        "l1/q1@domain",
+        "mailto:local/l1/q1@domain"
+      ],
+      "expected": null,
+      "label": "testMail03"
+    },
+    {
+      "name": "testMail11",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local1@domain1?query1",
+        "mailto:local2@domain2",
+        "mailto:local2@domain2"
+      ],
+      "expected": null,
+      "label": "testMail11"
+    },
+    {
+      "name": "testMail12",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local1@domain1",
+        "mailto:local2@domain2?query2",
+        "mailto:local2@domain2?query2"
+      ],
+      "expected": null,
+      "label": "testMail12"
+    },
+    {
+      "name": "testMail13",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local1@domain1?query1",
+        "mailto:local2@domain2?query2",
+        "mailto:local2@domain2?query2"
+      ],
+      "expected": null,
+      "label": "testMail13"
+    },
+    {
+      "name": "testMail14",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local@domain?query1",
+        "mailto:local@domain?query2",
+        "mailto:local@domain?query2"
+      ],
+      "expected": null,
+      "label": "testMail14"
+    },
+    {
+      "name": "testMail15",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:?query1",
+        "mailto:local@domain?query2",
+        "mailto:local@domain?query2"
+      ],
+      "expected": null,
+      "label": "testMail15"
+    },
+    {
+      "name": "testMail16",
+      "kind": "testRelJoin",
+      "args": [
+        "mailto:local@domain?query1",
+        "?query2",
+        "mailto:local@domain?query2"
+      ],
+      "expected": null,
+      "label": "testMail16"
+    },
+    {
+      "name": "testInfo17",
+      "kind": "testRelJoin",
+      "args": [
+        "info:name/1234/../567",
+        "name/9876/../543",
+        "info:name/name/543"
+      ],
+      "expected": null,
+      "label": "testInfo17"
+    },
+    {
+      "name": "testNormalize01",
+      "kind": "normalization",
+      "args": [
+        "HTTP://EXAMPLE.com/Root/%2a?%2b#%2c",
+        [
+          "normalizeCase"
+        ]
+      ],
+      "expected": "http://EXAMPLE.com/Root/%2A?%2B#%2C"
+    },
+    {
+      "name": "testNormalize11",
+      "kind": "normalization",
+      "args": [
+        "HTTP://EXAMPLE.com/Root/%7eMe/",
+        [
+          "normalizeEscape"
+        ]
+      ],
+      "expected": "HTTP://EXAMPLE.com/Root/~Me/"
+    },
+    {
+      "name": "testNormalize12",
+      "kind": "normalization",
+      "args": [
+        "foo:%40%41%5a%5b%60%61%7a%7b%2f%30%39%3a%2d%2e%5f%7e",
+        [
+          "normalizeEscape"
+        ]
+      ],
+      "expected": "foo:%40AZ%5b%60az%7b%2f09%3a-._~"
+    },
+    {
+      "name": "testNormalize13",
+      "kind": "normalization",
+      "args": [
+        "foo:%3a%2f%3f%23%5b%5d%40",
+        [
+          "normalizeEscape"
+        ]
+      ],
+      "expected": "foo:%3a%2f%3f%23%5b%5d%40"
+    },
+    {
+      "name": "testNormalize21",
+      "kind": "normalization",
+      "args": [
+        "http://example/a/b/../../c",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "http://example/c"
+    },
+    {
+      "name": "testNormalize22",
+      "kind": "normalization",
+      "args": [
+        "http://example/a/b/c/../../",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "http://example/a/"
+    },
+    {
+      "name": "testNormalize23",
+      "kind": "normalization",
+      "args": [
+        "http://example/a/b/c/./",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "http://example/a/b/c/"
+    },
+    {
+      "name": "testNormalize24",
+      "kind": "normalization",
+      "args": [
+        "http://example/a/b/c/.././",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "http://example/a/b/"
+    },
+    {
+      "name": "testNormalize25",
+      "kind": "normalization",
+      "args": [
+        "http://example/a/b/c/d/../../../../e",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "http://example/e"
+    },
+    {
+      "name": "testNormalize26",
+      "kind": "normalization",
+      "args": [
+        "http://example/a/b/c/d/../.././../../e",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "http://example/e"
+    },
+    {
+      "name": "testNormalize27",
+      "kind": "normalization",
+      "args": [
+        "http://example/a/b/../.././../../e",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "http://example/e"
+    },
+    {
+      "name": "testNormalize28",
+      "kind": "normalization",
+      "args": [
+        "foo:a/b/../.././../../e",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "foo:e"
+    },
+    {
+      "name": "testShowURI01",
+      "kind": "render",
+      "args": [
+        [
+          "",
+          null,
+          "",
+          "",
+          ""
+        ],
+        false
+      ],
+      "expected": ""
+    },
+    {
+      "name": "testShowURI02",
+      "kind": "render",
+      "args": [
+        [
+          "http:",
+          [
+            "user:pass@",
+            "example.org",
+            ":99"
+          ],
+          "/aaa/bbb",
+          "?ccc",
+          "#ddd/eee"
+        ],
+        false
+      ],
+      "expected": "http://user:...@example.org:99/aaa/bbb?ccc#ddd/eee"
+    },
+    {
+      "name": "testShowURI03",
+      "kind": "render",
+      "args": [
+        [
+          "http:",
+          [
+            "user:pass@",
+            "example.org",
+            ":99"
+          ],
+          "/aaa/bbb",
+          "?ccc",
+          "#ddd/eee"
+        ],
+        true
+      ],
+      "expected": "http://user:pass@example.org:99/aaa/bbb?ccc#ddd/eee"
+    },
+    {
+      "name": "testShowURI04",
+      "kind": "render",
+      "args": [
+        [
+          "http:",
+          [
+            "user:anonymous@",
+            "example.org",
+            ":99"
+          ],
+          "/aaa/bbb",
+          "?ccc",
+          "#ddd/eee"
+        ],
+        false
+      ],
+      "expected": "http://user:...@example.org:99/aaa/bbb?ccc#ddd/eee"
+    },
+    {
+      "name": "testEscapeURIString01",
+      "kind": "escapeURIString",
+      "args": [
+        "http://example.org/az/09-_/.~:/?#[]@!$&'()*+,;=",
+        "uri"
+      ],
+      "expected": "http://example.org/az/09-_/.~:/?#[]@!$&'()*+,;="
+    },
+    {
+      "name": "testEscapeURIString02",
+      "kind": "escapeURIString",
+      "args": [
+        "http://example.org/a</b>/c%/d /e",
+        "uri"
+      ],
+      "expected": "http://example.org/a%3C/b%3E/c%25/d%20/e"
+    },
+    {
+      "name": "testEscapeURIString03",
+      "kind": "unEscapeString",
+      "args": [
+        "http://example.org/az/09-_/.~:/?#[]@!$&'()*+,;=",
+        "uri"
+      ],
+      "expected": "http://example.org/az/09-_/.~:/?#[]@!$&'()*+,;="
+    },
+    {
+      "name": "testEscapeURIString04",
+      "kind": "unEscapeString",
+      "args": [
+        "http://example.org/a%3C/b%3E/c%25/d%20/e",
+        "uri"
+      ],
+      "expected": "http://example.org/a</b>/c%/d /e"
+    },
+    {
+      "name": "testEscapeURIString05",
+      "kind": "escapeURIString",
+      "args": [
+        "http://example.org/az/09-_/.~:/?#[]@!$&'()*+,;=",
+        "component"
+      ],
+      "expected": "http%3A%2F%2Fexample.org%2Faz%2F09-_%2F.~%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2A%2B%2C%3B%3D"
+    },
+    {
+      "name": "testEscapeURIString06",
+      "kind": "escapeURIString",
+      "args": [
+        "helloø©日本",
+        "component"
+      ],
+      "expected": "hello%C3%B8%C2%A9%E6%97%A5%E6%9C%AC"
+    },
+    {
+      "name": "testUnescapeEscape01",
+      "kind": "assertUnescapeEscapeInverse",
+      "args": [
+        " 䡥汬漬⁗潲汤"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testUnescapeEscape02",
+      "kind": "assertUnescapeEscapeInverse",
+      "args": [
+        "Москва"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testNormalizeURIString01",
+      "kind": "normalization",
+      "args": [
+        "eXAMPLE://a/b/%7bfoo%7d",
+        [
+          "normalizeCase"
+        ]
+      ],
+      "expected": "example://a/b/%7Bfoo%7D"
+    },
+    {
+      "name": "testNormalizeURIString02",
+      "kind": "normalization",
+      "args": [
+        "example://a/b/%63/",
+        [
+          "normalizeEscape"
+        ]
+      ],
+      "expected": "example://a/b/c/"
+    },
+    {
+      "name": "testNormalizeURIString03",
+      "kind": "normalization",
+      "args": [
+        "example://a/./b/../b/c/foo",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "example://a/b/c/foo"
+    },
+    {
+      "name": "testNormalizeURIString04",
+      "kind": "normalization",
+      "args": [
+        "eXAMPLE://a/b/%7bfoo%7d",
+        [
+          "normalizePathSegments",
+          "normalizeEscape",
+          "normalizeCase"
+        ]
+      ],
+      "expected": "example://a/b/%7Bfoo%7D"
+    },
+    {
+      "name": "testNormalizeURIString05",
+      "kind": "normalization",
+      "args": [
+        "eXAMPLE://a/b/%7bfoo%7d",
+        [
+          "normalizeCase",
+          "normalizeEscape",
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "example://a/b/%7Bfoo%7D"
+    },
+    {
+      "name": "testNormalizeURIString06",
+      "kind": "normalization",
+      "args": [
+        "file:/x/..//y",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "file://y"
+    },
+    {
+      "name": "testNormalizeURIString07",
+      "kind": "normalization",
+      "args": [
+        "file:x/..//y/",
+        [
+          "normalizePathSegments"
+        ]
+      ],
+      "expected": "file:/y/"
+    },
+    {
+      "name": "testRelativeTo01",
+      "kind": "relativeTo",
+      "args": [
+        "foo",
+        "http://bar.org/",
+        false
+      ],
+      "expected": "http://bar.org/foo"
+    },
+    {
+      "name": "testRelativeTo02",
+      "kind": "relativeTo",
+      "args": [
+        "http:foo",
+        "http://bar.org/",
+        false
+      ],
+      "expected": "http:foo"
+    },
+    {
+      "name": "testRelativeTo03",
+      "kind": "relativeTo",
+      "args": [
+        "http:foo",
+        "http://bar.org/",
+        true
+      ],
+      "expected": "http://bar.org/foo"
+    },
+    {
+      "name": "testAltFn01",
+      "kind": "alternative",
+      "args": [
+        "parseURI",
+        "http://a.b/c#f"
+      ],
+      "expected": "Just http://a.b/c#f"
+    },
+    {
+      "name": "testAltFn02",
+      "kind": "alternative",
+      "args": [
+        "parseURIReference",
+        "http://a.b/c#f"
+      ],
+      "expected": "Just http://a.b/c#f"
+    },
+    {
+      "name": "testAltFn03",
+      "kind": "alternative",
+      "args": [
+        "parseRelativeReference",
+        "c/d#f"
+      ],
+      "expected": "Just c/d#f"
+    },
+    {
+      "name": "testAltFn04",
+      "kind": "alternative",
+      "args": [
+        "parseRelativeReference",
+        "http://a.b/c#f"
+      ],
+      "expected": "Nothing"
+    },
+    {
+      "name": "testAltFn05",
+      "kind": "alternative",
+      "args": [
+        "parseAbsoluteURI",
+        "http://a.b/c"
+      ],
+      "expected": "Just http://a.b/c"
+    },
+    {
+      "name": "testAltFn06",
+      "kind": "alternative",
+      "args": [
+        "parseAbsoluteURI",
+        "http://a.b/c#f"
+      ],
+      "expected": "Nothing"
+    },
+    {
+      "name": "testAltFn07",
+      "kind": "alternative",
+      "args": [
+        "parseAbsoluteURI",
+        "c/d"
+      ],
+      "expected": "Nothing"
+    },
+    {
+      "name": "testAltFn08",
+      "kind": "alternative",
+      "args": [
+        "parseAbsoluteURI",
+        "http://a.b/c"
+      ],
+      "expected": "Just http://a.b/c"
+    },
+    {
+      "name": "testAltFn11",
+      "kind": "alternative",
+      "args": [
+        "isURI",
+        "http://a.b/c#f"
+      ],
+      "expected": true
+    },
+    {
+      "name": "testAltFn12",
+      "kind": "alternative",
+      "args": [
+        "isURIReference",
+        "http://a.b/c#f"
+      ],
+      "expected": true
+    },
+    {
+      "name": "testAltFn13",
+      "kind": "alternative",
+      "args": [
+        "isRelativeReference",
+        "c/d#f"
+      ],
+      "expected": true
+    },
+    {
+      "name": "testAltFn14",
+      "kind": "alternative",
+      "args": [
+        "isRelativeReference",
+        "http://a.b/c#f"
+      ],
+      "expected": false
+    },
+    {
+      "name": "testAltFn15",
+      "kind": "alternative",
+      "args": [
+        "isAbsoluteURI",
+        "http://a.b/c"
+      ],
+      "expected": true
+    },
+    {
+      "name": "testAltFn16",
+      "kind": "alternative",
+      "args": [
+        "isAbsoluteURI",
+        "http://a.b/c#f"
+      ],
+      "expected": false
+    },
+    {
+      "name": "testAltFn17",
+      "kind": "alternative",
+      "args": [
+        "isAbsoluteURI",
+        "c/d"
+      ],
+      "expected": false
+    },
+    {
+      "name": "testIsAbsolute01",
+      "kind": "testIsAbsolute",
+      "args": [
+        "http://google.com"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testIsAbsolute02",
+      "kind": "testIsAbsolute",
+      "args": [
+        "ftp://p.x.ca/woo?hai=a"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testIsAbsolute03",
+      "kind": "testIsAbsolute",
+      "args": [
+        "mailto:bob@example.com"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testIsRelative01",
+      "kind": "testIsRelative",
+      "args": [
+        "//google.com"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testIsRelative02",
+      "kind": "testIsRelative",
+      "args": [
+        "/hello"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testIsRelative03",
+      "kind": "testIsRelative",
+      "args": [
+        "this/is/a/path"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testIsRelative04",
+      "kind": "testIsRelative",
+      "args": [
+        "?what=that"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments03",
+      "kind": "pathSegments",
+      "args": [
+        "parseURIReference",
+        ""
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments04",
+      "kind": "pathSegments",
+      "args": [
+        "parseURIReference",
+        "/"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments05",
+      "kind": "pathSegments",
+      "args": [
+        "parseURIReference",
+        "//"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments06",
+      "kind": "pathSegments",
+      "args": [
+        "parseURIReference",
+        "foo//bar/"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments07",
+      "kind": "pathSegments",
+      "args": [
+        "parseURIReference",
+        "/foo//bar/"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments03",
+      "kind": "pathSegments",
+      "args": [
+        "parseURI",
+        "http://example.org"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments04",
+      "kind": "pathSegments",
+      "args": [
+        "parseURI",
+        "http://example.org/"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments05",
+      "kind": "pathSegments",
+      "args": [
+        "parseURI",
+        "http://example.org//"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments06",
+      "kind": "pathSegments",
+      "args": [
+        "parseURI",
+        "http://ex.ca/foo//bar/"
+      ],
+      "expected": null
+    },
+    {
+      "name": "testPathSegments07",
+      "kind": "pathSegments",
+      "args": [
+        "parseURI",
+        "http://ex.ca/foo//bar/"
+      ],
+      "expected": null
+    },
+    {
+      "name": "",
+      "kind": "rectify",
+      "args": [
+        [
+          "http",
+          [
+            "ezra",
+            "www.google.com",
+            "80"
+          ],
+          "/foo/bar",
+          "foo=bar&baz=quz",
+          "chap10"
+        ]
+      ],
+      "expected": "http://ezra@www.google.com:80/foo/bar?foo=bar&baz=quz#chap10"
+    },
+    {
+      "name": "",
+      "kind": "rectify",
+      "args": [
+        [
+          "tag",
+          null,
+          "timothy@hpl.hp.com,2001:web/externalHome",
+          "",
+          ""
+        ]
+      ],
+      "expected": "tag:timothy@hpl.hp.com,2001:web/externalHome"
+    },
+    {
+      "name": "",
+      "kind": "rectifyAuth",
+      "args": [
+        [
+          "ezra",
+          "www.google.com",
+          "80"
+        ]
+      ],
+      "expected": "//ezra@www.google.com:80"
+    }
+  ],
+  "properties": [
+    "propEscapeUnEscapeLoop",
+    "propEscapeUnEscapeLoopHiChars"
+  ]
+}

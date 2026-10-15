@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-uri-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable uri-reference
+  main-is: UriReference.hs
+  other-modules: OriginalTests, CapturedTests, ObservedURI, UriWire
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, network-uri ==2.6.4.2,
+                 aeson ==2.2.3.0, text ==2.1.2, bytestring ==0.12.2.0,
+                 containers ==0.7, vector, binary ==0.8.9.3, crypton ==2.0.1,
+                 HUnit, tasty, tasty-hunit, tasty-quickcheck, QuickCheck
