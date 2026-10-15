@@ -24,6 +24,7 @@ jobs:
       - run: python3 tools/import-math-fixtures.py --check-source
       - run: python3 tools/import-mathml-fixtures.py --check-source
       - run: python3 tools/import-math-tex-fixtures.py --check-source
+      - run: python3 tools/import-math-reader-fixtures.py --check-source
       - run: python3 tools/import-media-operations.py --check-source
       - run: python3 tools/import-media-state-fixtures.py --check-source
       - run: python3 tools/import-extension-tables.py --check

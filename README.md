@@ -51,8 +51,9 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Shared section construction, block flattening, legacy tables and XML output.
 - TeXMath expression models, shared transformations, Unicode/TeX/Pandoc output
   and the complete finite MathML expression writer, including all 561 original
-  MathML writer goldens. Complete TeX macro preprocessing and Unicode-to-TeX
-  mapping are implemented; full TeX parsing and the Pandoc math bridge remain
+  MathML writer goldens. The complete finite TeX formula reader, macro
+  preprocessing, command tables and Unicode-to-TeX mapping are implemented,
+  including 69 original native reader goldens. The Pandoc math bridge remains
   in progress.
 - MediaBag, complete MIME/URI tables, data URI decoding, local resource paths,
   and HTTP resource fetching. Verified with 2,172 independent MediaBag/MIME cases,

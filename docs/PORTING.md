@@ -29,6 +29,7 @@ format is implemented explicitly in Kotlin.
 | TeXMath finite expression model, shared transformations, Unicode and TeX/Pandoc output | `math/` | All 23 Exp constructors, Show/Eq/Ord, all Shared functions, complete Unicode and TeX renderer, complete writePandoc algorithm; 3,146 native observations, 3,721 original inputs and exhaustive Char mapping |
 | Complete finite TeXMath MathML writer and original XML.Light output | `math/MathMLWriter.kt`, `MathMLOperators.kt`, `MathNumbers.kt`, `xml/LegacyXml*.kt` | All 561 original MathML writer goldens, full 1,107-row dictionary, exact XML trees/serialization, every Char and numeric boundaries; 9,700 original observations |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
+| Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
@@ -148,8 +149,9 @@ also remain to audit; no claim of complete pandoc-types parity is made.
 
 ## Next execution step
 
-Complete TeXMath parsing and Pandoc's math bridge required by the HTML writer.
-The full finite MathML writer is now implemented; remaining TeXMath readers and
+Complete Pandoc's math bridge required by the HTML writer. The full finite
+TeX formula reader, macro preprocessing, Commands and MathML writer are now
+implemented; remaining TeXMath readers and
 other writers/goldens still require their complete ports. Then port all HTML writer entry points, including slides,
 EPUB HTML, complete options/template/state behavior and every original writer
 and integration test, followed by the remaining formats. The expression/helper
@@ -6328,3 +6330,83 @@ Installed CLI/core JAR bytes match; all 53 complete notices, 248 data assets and
 two indexes are byte-exact. The staged new corpus and all 3,822 recorded source
 blobs match their independent hashes; all three pinned upstream revisions match.
 No protected earlier corpus or oracle changed. The full objective remains active.
+
+
+### Complete finite TeX formula reader and Commands
+
+Translated the complete Text.TeXMath.Readers.TeX algorithm from texmath
+0.13.3.1. This is the TeX formula reader, distinct from Pandoc's still-pending
+full LaTeX document reader. It performs original macro preprocessing, expression
+parsing and recursive binary-symbol reclassification, returning immutable
+expression lists or complete original error text. Production uses Kotlin only.
+
+All source productions are represented: command-boundary checks and longest
+trie matching; ignorable comments/labels/tags/style indicators; decimal numbers,
+primes and bare/combined scripts; convertible and fixed limits; explicit,
+implicit and middle delimiters; fractions/binomial/genfrac; unary/colored/styled
+expressions; math operators and negation; all array/AMS environments and column
+specifications; nested text/inner-math, ligatures, accents and character commands;
+spacing with arbitrary Integer rational arithmetic; complete siunitx quantities,
+ranges, lists, angles, uncertainty/exponents and unit powers; extensible arrows.
+The original alternative/try/label/position semantics are retained, including
+malformed-input behavior. The array-column error labels found by differential
+checks were corrected by restoring the original separate alternatives; no
+original expectations were weakened or generated from Kotlin.
+
+All six Commands tables are translated mechanically from all 443 original rows:
+26 style operations, seven text operations, 30 enclosure entries, 20 operators,
+185 symbol overrides and 175 SI unit entries. Original duplicate keys retain
+last-entry priority; overrides take precedence over the full Unicode symbol map.
+Maps use original Text ordering and immutable snapshots. The source's special
+mathbf double-style wrapper is retained. Generated text data retains all 26
+negation exceptions, 24 literal commands and 155 accent exceptions, including
+multi-codepoint values. All remaining text/parser logic is translated directly.
+
+The complete reader uses the existing continuation-based Parsec implementation;
+recursive parser construction and tree processing use explicit work stacks.
+Operator-name flattening also uses a work stack while preserving the original
+rejection of nested grouped values. Exact Rational units, signed machine-Int
+column repetition overflow, source input versus expanded-input snippets, caret
+placement, message ordering, original quote/ligature distinctions and Text
+surrogate normalization are retained.
+
+A separate independent oracle compiles the complete unchanged retained texmath
+package. Its hidden Commands module is compiled from a byte-identical local
+copy; MathWire is a module-name-only copy of the protected earlier adapter.
+The observing main calls original readTeX, Commands and Exp Read/Show only. All
+149 original TeX input sections are included verbatim. For all 69 original native
+goldens, the original Exp Read instance independently parses the golden and its
+tree/Show is compared against original readTeX before Kotlin execution. Other
+output formats provide reader inputs without claiming their writers are ported.
+
+The 25,581 native observations include exact complete trees, Show and full error
+text; every command and boundary, every SI unit, all environments, column and
+text/spacing grammars, macro integration, truncation/generated failures and all
+1,114,112 raw Char inputs passed through original Text/readTeX. Character-range
+witnesses frame each original successful Show or complete error with its length,
+then hash big-endian 32-bit characters and retain success/failure counts. This
+preserves every character's output without storing a million repeated trees.
+A native case verifies 1,500 nested styles inside operatorname; an additional
+Kotlin check verifies immutable maps and 1,500 nested formula groups.
+
+There are 3,826 source hashes. Corpus SHA-256:
+`09a80d4a1b20665e678f0b9110190faecf8a3849bb844051ab418803e3169e94`.
+All 25,582 reader/table/depth checks pass. The frozen native build and all source
+imports remain separate from production. The exact-SHA CI for aa7946c passed
+all 112 recorded steps, including complete tests/source checks/installed CLI.
+
+Pandoc's math bridge, remaining TeXMath readers/writers/goldens, the full HTML
+writer and remaining Pandoc/calibre scope still require their complete ports.
+The original full objective remains active.
+
+
+Validation: all 1,649,057 tests in 98 suites pass with zero failures, errors or
+skips. This includes 25,582 new reader/table/depth checks and every-Char reader
+witnesses. All 101 CI source/fixture commands and all 234 installed CLI checks
+pass (14 FB2, 66 media, 69 modifiers, 85 math). Heap/recycling limits are unchanged.
+The final core JAR's 1,961 production class files are byte-identical to the
+full-tested/CLI-tested build after generator EOF normalization; every native
+observation line is also byte-identical. Installed CLI/core JAR bytes match,
+including all 53 complete notices, 248 data assets and two indexes. Staged corpus
+bytes and all 3,826 source blobs match recorded independent hashes. All pinned
+upstream revisions match, and no protected earlier oracle/corpus changed.

@@ -110,3 +110,6 @@ licenses/XML-Light-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-e
 
 licenses/LPPL-1.3c.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
 licenses/Math-TeX-Mapping-NOTICE.txt -text
+
+# Preserve the unmodified hidden TeX Commands module used by the oracle.
+tools/haskell-math-reader-reference/Text/TeXMath/Readers/TeX/Commands.hs -text whitespace=-trailing-space,-blank-at-eof
