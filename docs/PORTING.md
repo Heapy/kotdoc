@@ -28,6 +28,7 @@ format is implemented explicitly in Kotlin.
 | `Text.Pandoc.Data` algorithms and reproducible timestamp helpers | `resources/PandocData.kt`, `PandocTime.kt`, `PandocFilePaths.kt` | Both embedded/installed branches on POSIX/Windows, actual 248-file TH catalog, three reference archives, user routing, enumeration and default directory selection; 5,663 independent original observations |
 | TeXMath finite expression model, shared transformations, Unicode and TeX/Pandoc output | `math/` | All 23 Exp constructors, Show/Eq/Ord, all Shared functions, complete Unicode and TeX renderer, complete writePandoc algorithm; 3,146 native observations, 3,721 original inputs and exhaustive Char mapping |
 | Complete finite TeXMath MathML writer and original XML.Light output | `math/MathMLWriter.kt`, `MathMLOperators.kt`, `MathNumbers.kt`, `xml/LegacyXml*.kt` | All 561 original MathML writer goldens, full 1,107-row dictionary, exact XML trees/serialization, every Char and numeric boundaries; 9,700 original observations |
+| Complete finite TeXMath MathML reader and xml-1.3.14 legacy input/lexer | `math/MathMLReader.kt`, `xml/LegacyXmlInput.kt`, `LegacyXmlLexer.kt` | All 576 original MathML reader goldens plus regression 252; 18,743 independent observations, every entity/Char, namespace/line/lexical boundaries and 1,500-level finite inputs |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
 | Complete `Text.Pandoc.Writers.Math` bridge | `math/PandocMath.kt` | Both conversion functions and URL re-exports; exact AST/fallback, reporting, re-entrant state, deferred/shared generic writer results; 98,180 native observations over all 335 original Pandoc math nodes and 149 TeX inputs |
@@ -6639,3 +6640,74 @@ XML.Light parsing can be reused, with the original permissive forest/first-root
 semantics retained. The HTML reader has 70 ordinary original assertions, its
 original QuickCheck round-trip property (default 25 successes), and the separate
 `html-reader.html` -> `html-reader.native` legacy golden; none is waived.
+
+## MathML semantic reader and legacy XML input
+
+`MathMLReader.readMathML` implements the complete pinned
+`Text.TeXMath.Readers.MathML.readMathML` path in Kotlin, with its original
+expression constructors, inherited attributes/styles, operator dictionary,
+stretchy fence/script reordering, multiscripts, tables, annotations, selection
+and error behavior. The complete 2,125-entry entity table comes directly from
+the unchanged native EntityMap, including the original epsilon/varepsilon
+mapping. Reader scopes and expression continuations run on an explicit queue;
+spacelike classification and delimiter matching use explicit stacks. Finite
+nested input does not require increasing the JVM stack or starting a thread.
+
+This dependency needs **xml-1.3.14's** permissive `Text.XML.Light.Input` and
+`Lexer`, implemented separately as `LegacyXmlInput` and `LegacyXmlLexer`.
+The existing `XmlLight` parser implements a different upstream XML module and
+cannot substitute for it. Legacy input preserves forests and first-root
+selection, truncated/unquoted tags, namespace/ancestor-close resolution, unknown
+references, CDATA/DTD content, original text merging and arbitrary-precision
+line numbers. Raw Char strings retain surrogate code points; Text input uses
+the original scalar replacement, and ByteString input maps octets directly.
+Polymorphic source adapters and the deferred custom scanner are also retained.
+No earlier parser or format behavior was replaced.
+
+`tools/haskell-mathml-reader-reference` links the complete unchanged texmath
+0.13.3.1 and xml 1.3.14 libraries. The hidden EntityMap is copied byte-for-byte.
+The separate test executable compiles the complete unchanged original
+`test-texmath.hs` with every registration intact. Its selected MathML tests run
+all 576 original reader goldens and regression 252: **577 native assertions
+pass**. Each original input and literal expected golden is retained and checked
+against the original reader and original `Read Exp`; no expected output is
+computed by Kotlin. A successful native rebuild with the dependency freeze
+returns `Up to date`.
+
+All 18,743 independent MathML/XML observations pass, including all 577 original
+inputs and their XML trees, every entity through all five token categories,
+operator positions/flags, inherited styles, script reordering, table padding,
+annotation effects, namespace/line/lexical boundaries, all 256 octet values,
+raw versus Text surrogate behavior, custom-source scanning, 2,500 XML mutations,
+2,500 MathML mutations and five finite inputs nested 1,500 levels deep.
+Seventeen aggregate witnesses compare the complete reader result over all
+1,114,112 Char values; these are 17 aggregate tests, not a claim of that many
+individual JUnit cases. Corpus SHA-256:
+`c6c4f96502e4c0cba5f93823bd35bef8f5f8562f05145300b8c95a2c0ad5af1c`.
+
+The initial independent run exposed nine numeric-reference differences:
+Haskell `reads` retains trailing whitespace while `readMaybe` permits it.
+The lexer now requires the original empty remainder; 351 additional numeric
+remainder comparisons pass. Deep-input checks then exposed two JVM stack
+overflows. Queued continuations and iterative predicates/fence processing fix
+them without altering any expected output or test input. All 105 CI
+source/fixture commands pass. All 3,784 new source hashes match staged Git blobs;
+the staged corpus and copied EntityMap are byte-exact, older protected corpora
+and oracles are unchanged, and all three upstream checkouts remain clean and
+pinned. The installed/core JAR bytes match and include all five new primary
+classes, the full entity table, 54 complete notices and 250 Pandoc assets/index
+files. All 375 installed CLI comparisons pass (14 FB2, 66 media, 69 extension,
+85 math and 141 HTML cases), along with the workflow smoke checks. Exact-SHA CI
+for d13abce is verified successful (117 successful steps).
+
+Full validation: all 1,834,593 tests in 102 suites pass with zero failures,
+errors or skips (8m 55s). No test classes or cases were disabled, and the
+existing 2 GiB per-worker heap and sequential worker recycling are unchanged.
+
+The full objective remains active. This is a dependency for the HTML reader,
+not completion of that reader or a new standalone Pandoc input format. Next is
+the remaining MathML-to-TeX bridge and HTML reader, including its 70 original
+ordinary assertions, original round-trip property and legacy golden. Every
+other remaining Pandoc reader/writer and application/Lua/property test, followed
+by calibre MOBI with its original tests and other calibre formats absent from
+Pandoc, remains in scope.
