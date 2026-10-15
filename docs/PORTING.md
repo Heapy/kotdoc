@@ -29,6 +29,7 @@ format is implemented explicitly in Kotlin.
 | TeXMath finite expression model, shared transformations, Unicode and TeX/Pandoc output | `math/` | All 23 Exp constructors, Show/Eq/Ord, all Shared functions, complete Unicode and TeX renderer, complete writePandoc algorithm; 3,146 native observations, 3,721 original inputs and exhaustive Char mapping |
 | Complete finite TeXMath MathML writer and original XML.Light output | `math/MathMLWriter.kt`, `MathMLOperators.kt`, `MathNumbers.kt`, `xml/LegacyXml*.kt` | All 561 original MathML writer goldens, full 1,107-row dictionary, exact XML trees/serialization, every Char and numeric boundaries; 9,700 original observations |
 | Complete finite TeXMath MathML reader and xml-1.3.14 legacy input/lexer | `math/MathMLReader.kt`, `xml/LegacyXmlInput.kt`, `LegacyXmlLexer.kt` | All 576 original MathML reader goldens plus regression 252; 18,743 independent observations, every entity/Char, namespace/line/lexical boundaries and 1,500-level finite inputs |
+| Complete finite TeXMath expression-to-TeX writer | `math/MathTeXWriter.kt` | All three exports; 561 original writer goldens and four regressions; 32,292 original observations, all 561 round-trip results/verdicts (344 already fail upstream), package/Unicode/scope/array/space and deep-input coverage |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
 | Complete `Text.Pandoc.Writers.Math` bridge | `math/PandocMath.kt` | Both conversion functions and URL re-exports; exact AST/fallback, reporting, re-entrant state, deferred/shared generic writer results; 98,180 native observations over all 335 original Pandoc math nodes and 149 TeX inputs |
@@ -6711,3 +6712,77 @@ ordinary assertions, original round-trip property and legacy golden. Every
 other remaining Pandoc reader/writer and application/Lua/property test, followed
 by calibre MOBI with its original tests and other calibre formats absent from
 Pandoc, remains in scope.
+
+## Complete expression-to-TeX writer and original round-trip baseline
+
+`MathTeXWriter` implements all three public
+`Text.TeXMath.Writers.TeX` functions: `writeTeX`, `writeTeXWith` and
+`addLaTeXEnvironment`. It retains the complete expression traversal, ordered
+package selection, default environment, convertible operator scopes, grouped
+WriterT output, prime/script handling, narrow/wide accents, extensible arrows,
+fences/binomials/genfrac, matrix/cases/aligned/array selection, substacks, exact
+row endings, text escaping, styled Unicode reversal and rational space commands.
+Space conversion retains floor followed by original Int64 wrapping. An explicit
+queue executes writer steps in source order and snapshots a group only after
+its child steps; expression depth does not consume the JVM call stack. This
+uses the existing Kotlin TeX-token renderer and Unicode mapping, with no upstream
+program as a production dependency.
+
+`tools/haskell-tex-writer-reference` compiles the complete unchanged texmath
+library and the complete original `test-texmath.hs`, preserving all registrations.
+All 561 original TeX writer golden assertions and all four original TeX-output
+regressions pass natively (**565 tests**). The three OMML-input regressions are
+also covered at the writer boundary through original-reader ASTs; their input
+reader remains in scope. The fourth regression uses TeX input. Every original
+input and literal expected output is preserved, and generated results are
+checked against those expectations before capture. The native dependency freeze
+is retained and a repeat build reports `Up to date`.
+
+The optional original **TeX round-trip group already fails in unchanged
+upstream**: 217 passes and **344 failures** among 561 tests. The unmodified
+native runner is executed without accepting or editing its goldens. All 561
+original goldens, actual original reader/writer results and individual original
+assertion verdicts are retained. Kotlin checks the actual result, original tree
+and verdict for every case, reproducing all 217 successful and 344 unsuccessful
+round trips. The native aggregate failure count is checked independently. Green
+Kotlin observation tests do **not** mean those upstream assertions were repaired
+or that the original round-trip group passes; no original test is skipped.
+
+All **32,292 independent observations pass**: the 565 original output tests;
+all 561 original TeX round trips with their baseline verdicts; 3,156 successful
+original `.test` inputs through the writer; all 577 original MathML inputs
+through the reader-to-TeX pipeline; 7,293 original writer trees with thirteen
+package lists; all 2,755 Unicode records in default, declared and reversed
+package contexts (8,265 cases); 3,072 script/accent/arrow/scope cases; 6,480
+delimited-array/row cases; 180 binomial/fallback cases; 350 text/style cases;
+252 rational-floor/Int64 boundaries; both environment wrappers; 1,500 seeded
+expression/scope cases; ten 1,500-level finite trees; and seventeen aggregate
+witnesses over all 1,114,112 Char values in four leaf constructors. These are
+17 aggregate tests, not 4,456,448 individual JUnit tests. All 3,160 original
+`.test` inputs are accounted for: four reader-only MathML failures are preserved
+in the manifest and exercised by the 577 reader-to-writer pipeline observations.
+Corpus SHA-256:
+`98c9f91e739ef2592f62619047f40b0fc783ecf8e1bbdde1d0028d38462fe47c`.
+
+All 106 CI source/fixture commands pass. All 3,784 source hashes match staged
+Git blobs, the staged corpus is byte-exact, earlier protected corpora/oracles
+are unchanged and all upstream checkouts remain clean/pinned. Installed/core
+JAR bytes match; the TeX writer, all 54 full notices, 250 Pandoc data/index files
+and the unchanged MathML entity table are verified in the installed artifact.
+
+Full validation passes all 1,866,885 tests in 103 suites, with zero failures,
+errors or skips (9m 2s). The original round-trip failures described above remain
+explicit native baselines; none is represented as an upstream assertion pass.
+All 375 installed CLI comparisons and the workflow smoke checks pass. Worker
+heap/recycling limits remain unchanged.
+
+The full objective remains active. Next is the complete HTML reader and its
+remaining parser/state/table/helper boundary, including all 70 ordinary original
+assertions, its original round-trip property and its legacy golden. The
+MathML-reader/TeX-writer dependency is now available. Remaining dependencies
+include the tag-stream adapter and HTML state, omitted-tag/category/matching
+helpers, table parsing, metadata/code/URI helpers, raw LaTeX inline parsing and
+`Text.Pandoc.Parsing.Math` (HTML imports its delimiter parsers through Parsing).
+Other Pandoc readers,
+writers, application/Lua/property tests, then calibre MOBI and all its original
+tests and other calibre formats absent from Pandoc remain in scope.
