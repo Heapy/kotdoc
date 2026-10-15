@@ -65,6 +65,8 @@ format is implemented explicitly in Kotlin.
 | LaTeX SIunitx module | `latex/LaTeXSIunitx.kt` | Complete finite module algorithms; 34,007 original observations, all 12 commands/21 modifiers/152 unit keys, numeric values/errors, unit exponents/infix/options, all 10,341 original inline lists, every Haskell Char and deep finite inputs; full reader/CLI assertions remain pending |
 | LaTeX Inline module and pinned NFC dependency | `latex/LaTeXInlines.kt`, `CanonicalNormalization.kt` | All eight command registries/210 entries, original state/effects/errors and complete finite NFC path; 188,741 independent observations, 94,980 original NFC predicates, all Char/accent pairs, pinned Unicode tables and all 107 translations; full reader/CLI assertions remain pending |
 | LaTeX Table module and Shared.compactifyTable | `latex/LaTeXTables.kt`, `LaTeXTableRows.kt`, `ast/TableCompaction.kt` | All seven environments and finite module algorithms; 95,246 independent observations, ten AST Walkable shapes and Builder.Many Block, all original AST trees, row repair, parser state/errors and deep finite cases; full reader/CLI assertions remain pending |
+| Complete LaTeX document grammar and public raw Sources APIs | `latex/LaTeXReader.kt`, `LaTeXReaderText.kt`, `cli/LaTeXCliReader.kt` | All 90 untouched original unit assertions, both fixed reader goldens, all 362 matching command inputs at the AST boundary, exact errors/common state; 1,454 independent original observations and installed CLI checks |
+| LaTeX date, pinned text case and input-tab dependencies | `resources/PandocGregorian.kt`, `latex/LaTeXReaderText.kt`, `ast/SharedText.kt` | All Haskell Chars through text-2.1.2 upper/lower/title, four complete Gregorian cycles, unbounded dates/leap-second/timezone boundaries, SOURCE_DATE_EPOCH and 72 original tabFilter observations; full time-library port remains pending |
 | Shared ASCII whitespace and text trimming | `ast/SharedText.kt` | isWS, trim, triml, trimr and stripTrailingNewlines; 119 independent observations including every Haskell Char, 13,369,344 text transformations and nine reproduced/fixed Table error regressions |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
@@ -128,8 +130,9 @@ also compared with an independently translated upstream expectation.
 3. Port every Pandoc reader and writer and its Haskell, command, golden,
    Lua/filter, and integration tests. Preserve options and default behavior.
 4. Port the full CLI/application behavior and test it against the pinned upstream
-   binary. The current CLI supports JSON/Native/FB2 input/output, with standalone/columns
-   and media extraction/resource-path options, not the complete Pandoc CLI contract.
+   binary. The current CLI supports JSON/Native/FB2/LaTeX input and
+   JSON/Native/FB2/HTML/slide output, with a subset of application options.
+   The complete Pandoc CLI contract remains pending.
 5. Port calibre ebook infrastructure and MOBI reader/writer paths (MOBI6/KF8,
    containers, compression, metadata, navigation, images), with original tests
    and actual old-Kindle compatibility checks.
@@ -167,14 +170,15 @@ also remain to audit; no claim of complete pandoc-types parity is made.
 
 ## Next execution step
 
-Port all eleven HTML writer exports, including structured/string HTML4/HTML5,
-EPUB HTML, all slide entry points and tagWithAttributes. The finite TeX formula
-reader, macro preprocessing, Commands, MathML writer and Pandoc math bridge are
-now implemented; remaining TeXMath readers and other writers/goldens still
-require their complete ports. Preserve complete options/template/state behavior
-and port every original HTML writer and integration test before continuing the
-remaining formats. The foundations below do not substitute for the remaining
-format and application work.
+Continue the remaining reader/writer/application suites against the pinned
+original tests. The complete LaTeX grammar and public raw Sources entry points
+are now implemented; extend their original command assertions through complete
+writers/application behavior. The HTML document reader can reuse the existing
+HTML token, state, table and new raw LaTeX foundations. Its full grammar and
+original reader tests remain pending. Remaining TeXMath reader/writer tests,
+dependency partial-value contracts and original property generators also remain
+part of the full port. Preserve exact options, state and error behavior as each
+format is connected.
 
 Continue the remaining PandocMonad and HTTP/URI/XML infrastructure, complete
 CLI App.Opt/application behavior, scripting/filter/bibliography paths and the
@@ -8258,3 +8262,126 @@ listings mappings and PandocDataRuntime file effects. Reader-level registerHeade
 TEXINPUTS/include/listing effects and the full block/inline dispatch and grammar
 still require implementation. jbcontext has no index for this checkout; these
 dependencies were checked directly against pinned source paths.
+
+
+## Complete LaTeX reader grammar and CLI integration
+
+`LaTeXReader` ports the complete original Readers/LaTeX.hs grammar and dispatch,
+reusing the preceding tokenizer, token parser, macros, language, citation/math,
+SIunitx, inline and table implementations. It implements preambles, every block
+and inline command registry and environment, sections, metadata, lists, figures,
+notes/footnote marks, references, captions, raw fallback, toggles, includes,
+filecontents, listings/minted file inputs and resource-path updates. The public
+rawLaTeXInline, rawLaTeXBlock and inlineCommand Sources parsers use this actual
+grammar and preserve outer macros, options, remaining input and source positions.
+The existing applyMacros bridge remains in use. No original runtime is a
+production dependency.
+
+Header registration preserves the source's explicit duplicate identifier and
+stored warning rather than inventing a replacement identifier. Automatically
+generated IDs use the full reader's pinned text-2.1.2 and GHC Unicode-16
+character dictionaries. A regression expansion exposed 54 failures when the
+earlier independent text-2.1.3/ICU identifier profile was reused; all now pass
+with the correct source profile. The earlier independent dependency port is
+unchanged. Full uppercase/lowercase/title mapping data is generated from the
+vendored text-2.1.2 source, and one independent observer witness enumerates all
+1,114,112 Haskell Chars through all three operations.
+
+The LaTeX date path uses source-derived time-1.14 Gregorian/ordinal/month and
+local-hour/minute calculations. Integer dates and years are unbounded; negative
+floor division, leap seconds and Int64 timezone overflow retain original
+behavior. Four complete 146,097-day cycles compare 584,388 original day strings,
+with 294 additional calendar/timezone boundary observations and five complete
+reader SOURCE_DATE_EPOCH probes. The already tracked complete time release and
+full BSD notice remain unchanged; a new provenance record pins the original
+archive. This implements the date path needed here, not every time API/test.
+
+Shared.tabFilter retains the original Text.lines/Text.unlines behavior,
+code-point column counts, zero/negative tab-stop behavior and per-tab resets.
+All 72 independent original observations pass, including non-BMP text and
+Int64 minimum. Included files use the existing strict PandocText.toTextM,
+preserving UTF-8 errors, BOM removal and CR filtering. TEXINPUTS and cached
+filecontents follow the original lookup/retry order.
+
+The native observer links the actual unmodified full readLaTeX implementation
+in the prepared pinned original library. Only the same four private-module
+packaging exposures differ. Capture verifies all 2,888 tracked source files.
+All 90 original unit inputs and expected expressions remain unchanged; the
+small test adapter applies their original Helpers ToString/line assertion
+before emitting observations. Both original fixed reader goldens are checked
+with the original Native writer before capture. Neither original implementation
+nor expectations are derived from Kotlin.
+
+The corpus contains 1,454 independent original observations. All 362 matching
+original command inputs from 145 files now exercise the full reader AST, typed
+errors and common-state effects. Their final command output and unrelated
+application/writer flags are not asserted here; those original command tests
+remain pending. Additional probes cover every environment, extension choices,
+Unicode transforms, exact note-number reads, include/listing UTF-8/BOM/CR,
+TEXINPUTS/cache behavior and all public raw Sources entry points. Complete
+Pandoc AST values are compared as typed values, preserving numeric semantics
+such as 2 versus 2.0 for ColWidth; original fixture JSON remains untouched.
+Reports, errors and other observations retain exact comparisons.
+
+The installed CLI now accepts latex and extension modifiers, named files or
+stdin, tab/default-image options and the original read/write aliases. Both
+stdin and named file input use Sources.fromFiles, including its added final LF,
+as the original application does. Reader effects supply resource paths for
+media extraction. Typed Pandoc errors retain their original exit code and human
+rendering. The general application, all remaining readers/writers, Lua,
+properties and unresolved dependency partial-value/Show behavior remain in
+scope, followed by calibre MOBI/all tests and formats absent from Pandoc.
+
+The preceding Table checkpoint f443cc1003022f8bbb62c17bea1b94f38a092454 has
+successful exact-SHA CI:
+https://github.com/Heapy/kotdoc/actions/runs/38780511554.
+
+The new corpus preserves every preceding captured observation, inherits all
+Table dependency hashes, and records 770 source hashes. Its semantic case SHA256 is
+`55ef6f973af3b3625c2929af3ff0a57b1322d48fd5baa418cc8280abd2bb0c95`.
+
+All 129 source/fixture checks pass. The first aggregate source check correctly
+noticed an added provenance record under the already tracked time tree: the
+older writer-environment manifest hashes that directory in full. Moving the
+new record into the new observer directory restores the exact earlier tree and
+its unchanged 61,878-observation corpus; no old expectations or source checks
+are weakened. The final Reader manifest has 770 source hashes, verified against
+staged root/pinned upstream Git blobs and the original symlink target bytes.
+All previous corpora/observers and all three upstream release pins are unchanged.
+
+The new suite passes on Linux/x86_64 JDK 21 with the existing 2 GiB worker limit:
+1,454 tests, no failures/errors/skips/aborts (2.938s). Installed LaTeX CLI checks
+pass all 101 cases, including all 90 original units, both fixed reader goldens
+through stdin and named files, include lookup, dates, image-extension defaults
+and typed invalid-UTF8 errors. The added graphicspath integration check compares
+the exact original PNG bytes after HTML conversion and ZIP extraction. A manually written image Native golden first
+failed only because of line wrapping; actual original readLaTeX/writeNative
+independently confirmed the wrapped expectation before the checker was corrected.
+The production writer and original goldens remain unchanged.
+
+Installed/core JAR bytes match. All 206 compiled LaTeX classes, 204 parsing
+classes, SharedText/TableCompaction/Gregorian classes, the pinned full case/NFC
+resources, 59 full license/NOTICE files and 250 Pandoc assets match the compiled
+classes/source resources. Original MathML and lowercase-only tables are unchanged.
+All four installed workflow smoke cases pass. Worker/report budgets, sequential
+execution, recycling and both HTML/XML reports retain the previous settings.
+
+The existing installed CLI suites also pass unchanged: 14 original FB2
+conversions, 66 media cases, 69 format-modifier cases, 85 math-option cases and
+141 HTML cases, including all 17 original HTML units, 16 fixed goldens and four
+original command ordering/newline regressions.
+
+Final full Gradle validation passes 2,569,008 tests in 122 suites, with no
+failures, errors or skips (10m 37s). The full-reader suite contributes all 1,454
+observations (3.376s). Every XML file is parsed completely and its testcase,
+failure/error/skipped elements agree with the declared counts. Both HTML and
+JUnit XML reports are retained. The daemon remains at the previously established
+3 GiB report budget; test workers remain at 2 GiB, sequential with recycling
+after 20 classes. No previous test or report is disabled.
+
+The last provenance/checker additions change only the new fixture's source
+manifest, preserving all 1,454 observations and their exact semantic hash.
+Test resources and the installed distribution are rebuilt afterward without
+replacing the complete full-run XML reports. The final corpus and copied test
+resource bytes agree. The original PNG used by the new end-to-end CLI check
+is included in the final source manifest.

@@ -79,26 +79,35 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   notes, raw capture, numbering, labels, styles and state/report semantics.
   Checked against the complete original Citation/Math modules, including all
   original document trees and 100,000-level finite witnesses. Full LaTeX reader
-  grammar and original reader/CLI AST assertions remain in progress.
+  grammar is implemented below; broader application/writer tests remain pending.
 - LaTeX Babel/Polyglossia language mappings and commands, nested quote contexts
   and default-language metadata/translation-cache effects, checked against the
   complete original Lang module and original inline trees. Full document reader
-  and original reader/CLI assertions remain in progress.
+  is implemented below; broader application/writer tests remain pending.
 - LaTeX SIunitx commands, complete unit/modifier tables, uncertainty/exponent
   number parsing, lists, ranges, angles and unit powers. Original-module checks
   include exact errors/state, every Haskell Char, original inline trees and deep
-  finite inputs. The complete LaTeX document reader remains in progress.
+  finite inputs. The complete document reader is implemented below.
 - LaTeX inline command modules: all eight registries, verbatim/listings/minted
   code, references and labels, acronyms, BibLaTeX formatting, translated names
   and accents. The NFC dependency uses pinned Unicode tables and a Kotlin
   normalization algorithm; 188,741 independent original observations include
   every Char/accent pair, all original NFC assertions and all 107 translations.
-  Full LaTeX reader/CLI assertions remain pending.
+  The complete document reader is implemented below.
 - LaTeX table environments, alignment/width/prefix/suffix parsing, nested spans,
   row padding repair and caption/label numbering, plus generic table compaction.
   The 95,246 independent observations include all original AST trees, all seven
-  environments and deep finite inputs. Full LaTeX reader/CLI assertions remain
-  pending.
+  environments and deep finite inputs. The complete document reader is
+  implemented below.
+- Complete LaTeX document reader grammar and public raw Sources entry points,
+  including includes, preambles, sections, lists, figures, notes, references,
+  metadata and common-state effects. All 90 original unit assertions and both
+  fixed reader goldens pass; 1,454 independent original observations also cover
+  all 362 matching command inputs at the reader AST level. Original final
+  command/writer/application assertions remain in scope. The installed CLI
+  accepts `latex`, including extension modifiers, strict UTF-8 inputs and
+  TEXINPUTS. Unicode case operations use the pinned text-2.1.2 profile; Gregorian
+  dates preserve unbounded years and SOURCE_DATE_EPOCH.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 - All 90 built-in extension names, custom extensions, six presets and the complete
@@ -400,6 +409,8 @@ python3 tools/import-toc-fixtures.py --check-source
 python3 tools/import-emoji-tables.py --check
 python3 tools/import-case-mappings.py --check
 python3 tools/import-text-212-lowercase.py --check
+python3 tools/import-text-212-case.py --check
+python3 tools/import-latex-reader-fixtures.py --check-source
 python3 tools/import-parser-state-fixtures.py --check-source
 python3 tools/import-html-state-fixtures.py --check-source
 python3 tools/import-uri-fixtures.py --check-source
@@ -424,8 +435,10 @@ python3 tools/import-tiff-binary-fixtures.py --check-source
 ./gradlew test :cli:installDist
 python3 tools/check-fb2-cli.py
 python3 tools/check-media-cli.py
+python3 tools/check-latex-cli.py
 cli/build/install/cli/bin/cli --from native --to json input.native --output output.json
 cli/build/install/cli/bin/cli --from json --to native --standalone --columns 80 output.json
+cli/build/install/cli/bin/cli --from latex --to native document.tex
 cli/build/install/cli/bin/cli --from fb2 --to native --standalone book.fb2
 cli/build/install/cli/bin/cli --from fb2 --to fb2 book.fb2 --output converted.fb2
 cli/build/install/cli/bin/cli --from fb2 --to json --extract-media media.zip book.fb2
@@ -433,7 +446,7 @@ cli/build/install/cli/bin/cli --from fb2 --to json --extract-media media.zip boo
 
 The installed launcher is currently called `cli`. Use `-` or omit the input
 filename to read standard input. Errors are written to standard error and return
-a nonzero exit status. Input formats are `fb2`, `json` and `native`. Output formats
+a nonzero exit status. Input formats are `fb2`, `json`, `latex` and `native`. Output formats
 are `fb2`, `json`, `native`, `html`/`html5`, `html4`, `s5`, `slidy`, `slideous`,
 `dzslides` and `revealjs`. `--extract-media` fills and extracts media,
 then rewrites image links; a `.zip` destination creates an archive.

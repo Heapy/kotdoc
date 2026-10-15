@@ -14,6 +14,8 @@ import io.heapy.kotdoc.options.UnsupportedExtensionException
 import io.heapy.kotdoc.options.MathMethod
 import io.heapy.kotdoc.options.MathMethodArgumentException
 import io.heapy.kotdoc.options.WriterOptions
+import io.heapy.kotdoc.options.ReaderOptions
+import io.heapy.kotdoc.errors.PandocError
 import io.heapy.kotdoc.options.DEFAULT_WEB_TEX_URL
 import io.heapy.kotdoc.options.DEFAULT_MATH_JAX_URL
 import io.heapy.kotdoc.options.DEFAULT_KA_TEX_URL
@@ -28,11 +30,11 @@ import kotlin.system.exitProcess
 /** Entry point for ported formats. Full Pandoc CLI parity is tracked in docs/PORTING.md. */
 fun main(args: Array<String>) {
     if (args.toList() == listOf("--help")) {
-        println("Usage: kotdoc [--from fb2|json|native] [--to FORMAT] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
+        println("Usage: kotdoc [--from fb2|json|latex|native] [--to FORMAT] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
         return
     }
     if (args.toList() == listOf("--list-input-formats")) {
-        println("fb2\njson\nnative")
+        println("fb2\njson\nlatex\nnative")
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
@@ -45,6 +47,9 @@ fun main(args: Array<String>) {
         var from = "json"
         var to = "json"
         var columns = 72
+        var tabStop = 4L
+        var preserveTabs = false
+        var defaultImageExtension = ""
         val htmlOptions = HtmlCliOptions()
         var mathMethod: MathMethod = MathMethod.MathML
         fun legacyMath(option: String, url: String? = null): MathMethod {
@@ -69,14 +74,17 @@ fun main(args: Array<String>) {
         while (i < args.size) {
             htmlOptions.consume(args, i)?.let { next -> i = next; continue }
             when (val arg = args[i++]) {
-                "--from", "-f" -> from = args.getOrNull(i++) ?: error("Missing input format")
-                "--to", "-t" -> to = args.getOrNull(i++) ?: error("Missing output format")
+                "--from", "-f", "--read", "-r" -> from = args.getOrNull(i++) ?: error("Missing input format")
+                "--to", "-t", "--write", "-w" -> to = args.getOrNull(i++) ?: error("Missing output format")
                 "--output", "-o" -> output = args.getOrNull(i++) ?: error("Missing output filename")
                 "--columns" -> columns = (args.getOrNull(i++) ?: error("Missing column count")).toInt()
                 "--math-method" -> mathMethod = MathMethod.fromArgument(args.getOrNull(i++) ?: error("Missing math method"))
                 "--mathml", "--gladtex", "--webtex", "--mathjax", "--katex" -> mathMethod = legacyMath(arg)
                 "--extract-media" -> extractMedia = args.getOrNull(i++) ?: error("Missing media output path")
                 "--resource-path" -> addResourcePaths(args.getOrNull(i++) ?: error("Missing resource search path"))
+                "--tab-stop" -> tabStop = (args.getOrNull(i++) ?: error("Missing tab stop")).toLong()
+                "--preserve-tabs" -> preserveTabs = true
+                "--default-image-extension" -> defaultImageExtension = args.getOrNull(i++) ?: error("Missing default image extension")
                 else -> {
                     if (arg.startsWith("--from=")) { from = arg.substringAfter('='); continue }
                     if (arg.startsWith("--to=")) { to = arg.substringAfter('='); continue }
@@ -87,6 +95,8 @@ fun main(args: Array<String>) {
                     if (arg.startsWith("--columns=")) { columns = arg.substringAfter('=').toInt(); continue }
                     if (arg.startsWith("--extract-media=")) { extractMedia = arg.substringAfter('='); continue }
                     if (arg.startsWith("--resource-path=")) { addResourcePaths(arg.substringAfter('=')); continue }
+                    if (arg.startsWith("--tab-stop=")) { tabStop = arg.substringAfter('=').toLong(); continue }
+                    if (arg.startsWith("--default-image-extension=")) { defaultImageExtension = arg.substringAfter('='); continue }
                     require(arg == "-" || !arg.startsWith("-")) { "Unsupported option: $arg" }
                     require(input == null) { "Only one input file is currently supported" }
                     input = arg
@@ -95,18 +105,21 @@ fun main(args: Array<String>) {
         }
         val inputFormat = FlavoredFormat.parse(from)
         val outputFormat = FlavoredFormat.parse(to)
-        require(inputFormat.name in listOf("fb2", "json", "native")) { "Supported input formats: fb2, json, native (requested $from)" }
+        require(inputFormat.name in listOf("fb2", "json", "latex", "native")) { "Supported input formats: fb2, json, latex, native (requested $from)" }
         require(outputFormat.name in listOf("fb2", "json", "native") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
-        ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
+        val inputExtensions = ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
         val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
         from = inputFormat.name
         to = outputFormat.name
         require(columns > 0) { "Column count must be positive" }
-        val text = if (input == null || input == "-") System.`in`.bufferedReader(Charsets.UTF_8).readText() else File(input).readText()
+        val inputBytes = if (input == null || input == "-") System.`in`.readBytes() else File(input).readBytes()
+        val text = if (from == "latex") "" else inputBytes.toString(Charsets.UTF_8)
         val media = MediaBag()
         var document = when (from) {
             "json" -> PandocJson.decode(text)
             "native" -> NativeReader.read(text)
+            "latex" -> LaTeXCliReader.read(inputBytes,if (input == null || input == "-") "" else input,
+                ReaderOptions(extensions=inputExtensions,columns=columns.toLong(),tabStop=tabStop,defaultImageExtension=defaultImageExtension),preserveTabs,resourcePaths).also { resourcePaths=it.resourcePaths }.document
             else -> FB2Reader.readWithEffects(text.removePrefix("\uFEFF")).also { result ->
                 result.mediaInsertions.forEach(media::insert)
                 for (message in result.messages) if (message is ReaderMessage.UnexpectedXmlElement)
@@ -144,6 +157,9 @@ fun main(args: Array<String>) {
     } catch (e: UnsupportedExtensionException) {
         System.err.println(e.message)
         exitProcess(23)
+    } catch (e: PandocError) {
+        System.err.println(e.renderError())
+        exitProcess(e.exitCode())
     } catch (e: Exception) {
         System.err.println("kotdoc: ${e.message}")
         exitProcess(1)
