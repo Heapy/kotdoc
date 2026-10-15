@@ -50,6 +50,32 @@ internal object MediaBagUri {
         if(tokens(path) { unreserved(it)||sub(it)||it in ":@/" }==null) return null
         return Parsed(scheme,path)
     }
+    /** Network.URI.parseURIReference: the same URI grammar plus relative-ref. */
+    fun parseReference(s: String): Parsed? {
+        parse(s)?.let { return it }
+        var body = s
+        val fragment = body.indexOf('#')
+        if (fragment >= 0) {
+            if (tokens(body.substring(fragment + 1)) { unreserved(it) || sub(it) || it in ":@/?" } == null) return null
+            body = body.substring(0, fragment)
+        }
+        val query = body.indexOf('?')
+        if (query >= 0) {
+            if (tokens(body.substring(query + 1)) { unreserved(it) || sub(it) || it in ":@/?" } == null) return null
+            body = body.substring(0, query)
+        }
+        val path = if (body.startsWith("//")) {
+            val end = body.indexOf('/', 2).let { if (it < 0) body.length else it }
+            if (!authority(body.substring(2, end))) return null
+            body.substring(end)
+        } else {
+            // path-noscheme's first segment excludes ':'. path-absolute does not.
+            if (!body.startsWith('/') && ':' in body.substringBefore('/')) return null
+            body
+        }
+        if (tokens(path) { unreserved(it) || sub(it) || it in ":@/" } == null) return null
+        return Parsed("", path)
+    }
     fun isKnown(s: String): Boolean {
         val escaped=buildString {
             s.codePoints().forEach { cp ->

@@ -6550,3 +6550,92 @@ as the full HTML module oracle. The installed original Pandoc 3.12.1 can provide
 CLI expectations, while API/state/structured-markup comparisons require compiling
 the actual complete module with its original dependencies. No other remaining
 Pandoc or calibre work is removed from scope.
+
+## Stateful HTML writer and original HTML tests
+
+`HtmlWriter` implements all eleven `Text.Pandoc.Writers.HTML` exports: HTML4/5
+strings and structured markup, EPUB2/3 strings, S5, Slidy, Slideous, DZSlides,
+Reveal.js and `tagWithAttributes`. The Kotlin session retains the original
+block/inline/table/note traversal and state, sections/TOC/slides, math methods and
+MathML annotations, template variables and defaults, raw-format gates, URI/media
+classification, dimensions, email obfuscation and attribute warning order.
+`HtmlWriterMarkup` retains Blaze tree structure, including external script text
+and structural syntax highlighting. Converted MathML remains deferred until its
+markup is demanded. `MediaBagUri.parseReference` implements the original relative
+reference grammar used by media classification.
+
+The new `tools/haskell-html-writer-reference` links the **complete unchanged**
+pinned Pandoc library and pandoc-types, rather than the earlier extracted HTML
+helpers. It invokes every exported writer API and observes output and the public
+chronological log. Sequence requests share the actual PandocPure common state.
+The existing separate foundation suites retain their full common-state checks;
+this oracle does not replace hidden library modules to inspect their state.
+The complete original HTML unit-test module runs unchanged. `OriginalHelpers.hs`
+changes only the original helper module declaration, checked byte-for-byte; its
+adapter additionally serializes original inputs and expectations. All seventeen
+original assertions and their seventeen observation checks pass natively. All
+sixteen original old-style HTML/literate/S5 goldens match the complete library.
+
+The native library's initial `-O2` build was terminated only after a process
+sample proved 39.8 GB physical memory and GC in BibTeX. Library-only `-O0` avoids
+that compiler resource failure without changing algorithms, modules or tests.
+The complete build succeeded and a repeat build with committed dependency freeze
+returned `Up to date`. Other dependencies and the observer retain `-O2`.
+
+The independent corpus contains 6,732 comparisons and verifies 798 source hashes:
+17 original HTML units, 16 original fixed goldens, all 266 accepted original AST
+documents through eleven writer variants (2,926 cases), 264 wrapping/prefix/quote
+cases, 18 span/CSL cases, 462 raw-format/math gates, 108 email cases, 528 media
+cases, 528 section/slide/note cases, 24 figures, 135 highlighting cases, 288 math
+cases, 180 template contexts, 7 original default templates, 66 ASCII entry-point
+cases, 66 nested-note/state cases, 1,088 attribute cases and 11 shared-runtime
+sequences. Corpus SHA-256:
+`226adb86760c29958cda9c83b7570a6fe219180f9c440d5d1aef76467b5df223`.
+All 6,733 HTML tests (including thirteen original source examples in one method)
+pass. The first independent run exposed two defects: pretty-printing MathML
+instead of using the original compact XML configuration, and setting Reveal's
+conditional `scrollProgressAuto` unconditionally. Both were fixed against the
+original source without changing expected results. All 27,031 formatter tests
+also check the new structural HTML outputs against the original native formatter
+expectations where applicable.
+
+The installed CLI exposes HTML/HTML4/HTML5 and all five slide targets, using the
+Kotlin library and original embedded templates. Writer-facing options include
+wrapping, TOC/depth, figure/table lists, numbering/offsets, sections, slide level,
+quotes, identifiers, reference locations, caption positions, DPI, ASCII,
+highlighting, custom templates and partials, repeated/JSON variables, CSS and
+header/body includes. Output extensions are applied, warnings use the ordinary
+Pandoc log, and application variables include source/output files, version,
+current directory and DZSlides core. Sixteen fragment/standalone defaults match
+both output and stderr of installed original Pandoc 3.12.1 across all eight CLI
+target names, including HTML aliases and all slide variants.
+
+Validation: all 1,815,850 tests in 101 suites pass with zero failures, errors or
+skips (7m 4s). All 104 CI source/fixture commands pass. The installed CLI passes
+all 234 prior comparisons and 141 new HTML comparisons (375 total), including
+the 17 original units, all 16 fixed goldens and four literal original CLI
+ordering/newline observations. The sixteen goldens also pass with the unchanged
+original `.native` files as CLI inputs. Literal CR is preserved by the byte-based
+CLI harness. Unsupported library extensions are checked against the original CLI
+rejection (including exit 23), rather than relaxing the format registry. Number
+offsets and standalone output retain the original CLI's flag ordering and final
+newline behavior. Installed/core JAR bytes match; all four HTML production
+classes, 54 full notices, 248 original assets and both indexes are verified.
+All 798 new source hashes match staged/original Git blobs, including the original
+`no.yaml` symlink and its target. The staged corpus is byte-identical, the helper
+module substitution is exact, all three upstream checkouts remain clean/pinned,
+and no earlier protected oracle/corpus changed. Exact-SHA CI for 9022b7c is now
+verified successful with all 115 recorded steps successful.
+
+The full objective remains active: original command tests include at least 158
+explicit HTML-family target cases whose other readers, resource embedding and
+application transformations still need porting; inferred targets are additional.
+This stage does not establish full Pandoc CLI parity. Every other remaining
+Pandoc reader/writer, application/Lua/property test, then calibre MOBI and its
+original tests, and other calibre formats absent from Pandoc remain in scope.
+Next is the HTML reader and its complete dependency boundary, starting with the
+MathML semantic reader and all 576 untouched original reader goldens. Existing
+XML.Light parsing can be reused, with the original permissive forest/first-root
+semantics retained. The HTML reader has 70 ordinary original assertions, its
+original QuickCheck round-trip property (default 25 successes), and the separate
+`html-reader.html` -> `html-reader.native` legacy golden; none is waived.

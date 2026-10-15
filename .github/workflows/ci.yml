@@ -57,6 +57,7 @@ jobs:
       - run: python3 tools/import-grid-table-fixtures.py --check-source
       - run: python3 tools/import-pandoc-xml-data.py --check
       - run: python3 tools/import-writer-html-fixtures.py --check-source
+      - run: python3 tools/import-html-writer-fixtures.py --check-source
       - run: python3 tools/import-writer-metadata-fixtures.py --check-source
       - run: python3 tools/import-writer-shared-fixtures.py --check-source
       - run: python3 tools/import-writer-environment-fixtures.py --check-source
@@ -121,6 +122,7 @@ jobs:
       - run: python3 tools/check-media-cli.py
       - run: python3 tools/check-extension-cli.py
       - run: python3 tools/check-math-cli.py
+      - run: python3 tools/check-html-cli.py
       - name: Exercise installed CLI
         run: |
           printf '%s\n' '{"pandoc-api-version":[1,23,1,2],"meta":{},"blocks":[]}' > /tmp/input.json

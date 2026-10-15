@@ -1,6 +1,8 @@
 package io.heapy.kotdoc.highlighting
 
 import io.heapy.kotdoc.highlighting.format.*
+import io.heapy.kotdoc.markup.BlazeRenderer
+import io.heapy.kotdoc.writers.HtmlWriterMarkup
 import kotlinx.serialization.json.*
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.Test
@@ -74,6 +76,14 @@ class FormatterTest {
             DynamicTest.dynamicTest("$index $op") {
                 val c=Json.parseToJsonElement(row).jsonObject
                 assertEquals(c.getValue("expected"),observe(c),"case $index: $row")
+                if (c.getValue("op").s() == "format") {
+                    val input = c.getValue("input").jsonArray
+                    val o = options(input[0]); val source = lines(input[2])
+                    val expected = c.getValue("expected").jsonObject
+                    assertEquals(expected.getValue("html-inline").s(), BlazeRenderer.renderText(HtmlWriterMarkup.inline(o, source)))
+                    assertEquals(expected.getValue("html-block").s(), BlazeRenderer.renderText(HtmlWriterMarkup.block(o, source, true)))
+                    assertEquals(expected.getValue("html4-block").s(), BlazeRenderer.renderText(HtmlWriterMarkup.block(o, source, false)))
+                }
             }
         }
     }

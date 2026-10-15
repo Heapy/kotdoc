@@ -14,7 +14,6 @@ import io.heapy.kotdoc.options.UnsupportedExtensionException
 import io.heapy.kotdoc.options.MathMethod
 import io.heapy.kotdoc.options.MathMethodArgumentException
 import io.heapy.kotdoc.options.WriterOptions
-import io.heapy.kotdoc.templates.Template
 import io.heapy.kotdoc.options.DEFAULT_WEB_TEX_URL
 import io.heapy.kotdoc.options.DEFAULT_MATH_JAX_URL
 import io.heapy.kotdoc.options.DEFAULT_KA_TEX_URL
@@ -29,7 +28,7 @@ import kotlin.system.exitProcess
 /** Entry point for ported formats. Full Pandoc CLI parity is tracked in docs/PORTING.md. */
 fun main(args: Array<String>) {
     if (args.toList() == listOf("--help")) {
-        println("Usage: kotdoc [--from fb2|json|native] [--to fb2|json|native] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
+        println("Usage: kotdoc [--from fb2|json|native] [--to FORMAT] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
         return
     }
     if (args.toList() == listOf("--list-input-formats")) {
@@ -37,7 +36,7 @@ fun main(args: Array<String>) {
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
-        println("fb2\njson\nnative")
+        println((listOf("fb2", "json", "native") + HtmlCliWriter.formats).sorted().joinToString("\n"))
         return
     }
     try {
@@ -46,7 +45,7 @@ fun main(args: Array<String>) {
         var from = "json"
         var to = "json"
         var columns = 72
-        var standalone = false
+        val htmlOptions = HtmlCliOptions()
         var mathMethod: MathMethod = MathMethod.MathML
         fun legacyMath(option: String, url: String? = null): MathMethod {
             val name = option.removePrefix("--")
@@ -68,12 +67,12 @@ fun main(args: Array<String>) {
         }
         var i = 0
         while (i < args.size) {
+            htmlOptions.consume(args, i)?.let { next -> i = next; continue }
             when (val arg = args[i++]) {
                 "--from", "-f" -> from = args.getOrNull(i++) ?: error("Missing input format")
                 "--to", "-t" -> to = args.getOrNull(i++) ?: error("Missing output format")
                 "--output", "-o" -> output = args.getOrNull(i++) ?: error("Missing output filename")
                 "--columns" -> columns = (args.getOrNull(i++) ?: error("Missing column count")).toInt()
-                "--standalone", "-s" -> standalone = true
                 "--math-method" -> mathMethod = MathMethod.fromArgument(args.getOrNull(i++) ?: error("Missing math method"))
                 "--mathml", "--gladtex", "--webtex", "--mathjax", "--katex" -> mathMethod = legacyMath(arg)
                 "--extract-media" -> extractMedia = args.getOrNull(i++) ?: error("Missing media output path")
@@ -96,9 +95,10 @@ fun main(args: Array<String>) {
         }
         val inputFormat = FlavoredFormat.parse(from)
         val outputFormat = FlavoredFormat.parse(to)
-        require(inputFormat.name in listOf("fb2", "json", "native") && outputFormat.name in listOf("fb2", "json", "native")) { "Supported input/output formats: fb2, json, native (requested $from -> $to)" }
+        require(inputFormat.name in listOf("fb2", "json", "native")) { "Supported input formats: fb2, json, native (requested $from)" }
+        require(outputFormat.name in listOf("fb2", "json", "native") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
         ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
-        ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
+        val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
         from = inputFormat.name
         to = outputFormat.name
         require(columns > 0) { "Column count must be positive" }
@@ -118,11 +118,12 @@ fun main(args: Array<String>) {
             document = MediaOperations.fill(document, media, resources, ::reportResource)
             document = MediaOperations.extract(destination, document, media, ::reportResource)
         }
-        val writerOptions = WriterOptions(columns=columns.toLong(), mathMethod=mathMethod,
-            template=if (standalone) Template.Empty else null)
+        val writerOptions = htmlOptions.finish(htmlOptions.options.copy(columns=columns.toLong(), mathMethod=mathMethod,
+            extensions=outputExtensions), to, input, output, resources)
         val rendered = when (to) {
             "json" -> PandocJson.encode(document)
             "native" -> NativeWriter.write(document, writerOptions)
+            in HtmlCliWriter.formats -> HtmlCliWriter.write(to, writerOptions, document)
             else -> FB2Writer.writeWithEffects(document, writerOptions, resources = resources).also { result ->
                 for (message in result.messages) when (message) {
                     is WriterMessage.CouldNotFetchResource -> System.err.println("[WARNING] Could not fetch resource ${message.path}" +
@@ -132,7 +133,7 @@ fun main(args: Array<String>) {
                 }
             }.text
         }
-        val converted = if (rendered.endsWith('\n')) rendered else "$rendered\n"
+        val converted = if (writerOptions.template != null || rendered.endsWith('\n')) rendered else "$rendered\n"
         if (output == null || output == "-") print(converted) else File(output).writeText(converted)
     } catch (e: MathMethodArgumentException) {
         System.err.println(e.message)
@@ -149,7 +150,7 @@ fun main(args: Array<String>) {
     }
 }
 
-private fun reportResource(event: ResourceEvent) {
+internal fun reportResource(event: ResourceEvent) {
     val message = when (event) {
         is ResourceEvent.CouldNotFetch -> "Could not fetch resource ${event.path}" + if (event.message.isEmpty()) "" else ": ${event.message}"
         is ResourceEvent.IgnoredIOError -> "IO Error (ignored): ${event.message}"

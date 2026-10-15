@@ -4,7 +4,10 @@ plugins {
 }
 
 kotlin { jvmToolchain(21) }
-dependencies { implementation(project(":core")) }
+dependencies {
+    implementation(project(":core"))
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+}
 application { mainClass = "io.heapy.kotdoc.cli.MainKt" }
 
 distributions {
