@@ -6,6 +6,9 @@ import java.io.ByteArrayOutputStream
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Locale
+import io.heapy.kotdoc.uri.PandocURI
+import io.heapy.kotdoc.parsing.attoparsec.AttoResult
+import io.heapy.kotdoc.parsing.attoparsec.TextParser
 
 object ResourceUri {
     /** Text.Pandoc.SelfContained.makeDataURI, including UTF8.toString normalization. */
@@ -21,17 +24,13 @@ object ResourceUri {
         val bytes = if (mime.endsWith("+xml")) contents.filter { it != 13.toByte() }.toByteArray() else contents
         return "data:$mime;base64,${java.util.Base64.getEncoder().encodeToString(bytes)}"
     }
-    private val schemes = checkNotNull(javaClass.getResource("/io/heapy/kotdoc/uri-schemes.txt")).readText().lines().toSet()
-    private val restrictedName = Regex("[A-Za-z0-9][A-Za-z0-9!#$&^_.+-]*")
-
-    fun isUri(value: String): Boolean = base64Data(value) != null ||
-        (parse(escape(value) { it.code < 128 })?.scheme?.lowercase(Locale.ROOT) in schemes)
+    fun isUri(value: String): Boolean = PandocURI.isURI(value)
 
     internal fun parse(value: String): URI? = try { URI(value) } catch (_: URISyntaxException) { null }
     internal fun escaped(value: String): String = escape(value.replace('\\', '/')) {
         it.isAsciiLetterOrDigit() || it in "-._~:/?#[]@!$&'()*+,;=%"
     }
-    fun urlEncode(value: String): String = escape(value) { it.isAsciiLetterOrDigit() || it in "-._~" }
+    fun urlEncode(value: String): String = PandocURI.urlEncode(value)
 
     private fun Char.isAsciiLetterOrDigit() = this in 'a'..'z' || this in 'A'..'Z' || this in '0'..'9'
     private fun escape(value: String, allowed: (Char) -> Boolean): String = buildString {
@@ -62,24 +61,11 @@ object ResourceUri {
 
     data class Data(val contents: ByteArray, val mime: String)
 
-    /** pBase64DataURI, including percent octets, case-insensitive scheme and MIME parameters. */
+    /** downloadOrRead requires the original parser followed by endOfInput. */
     fun base64Data(value: String): Data? {
-        if (!value.startsWith("data:", ignoreCase = true)) return null
-        val delimiter = value.indexOf(";base64,", 5)
-        if (delimiter < 0) return null
-        val parts = value.substring(5, delimiter).split(';')
-        val type = parts[0].split('/')
-        if (type.size != 2 || type.any { !restrictedName.matches(it) }) return null
-        val mime = StringBuilder(parts[0])
-        for (param in parts.drop(1)) {
-            val stripped = param.trimStart { it.isWhitespace() || it == '\u00a0' }
-            val key = stripped.substringBefore('=')
-            if ('=' !in stripped || !restrictedName.matches(key)) return null
-            mime.append(';').append(stripped)
-        }
-        val encoded = value.substring(delimiter + 8)
-        if (!Regex("(?:[A-Za-z0-9/+ \\t\\r\\n]|%[A-Fa-f0-9]{2})*=*").matches(encoded)) return null
-        return Data(decodeBase64Lenient(unescapeBytes(encoded)), mime.toString())
+        val result = PandocURI.pBase64DataURI.before(TextParser.endOfInput()).parseComplete(value)
+        if (result !is AttoResult.Done) return null
+        return Data(result.value.contents.value(), result.value.mime.value())
     }
 
     internal fun extractData(path: String): Data {
@@ -100,22 +86,35 @@ object ResourceUri {
         return result.toByteArray()
     }
 
+    /** base64-bytestring 1.2.1.0 strict decoder: padding is skipped while
+     * looking for either of the first two sextets, and terminates later ones. */
     internal fun decodeBase64Lenient(bytes: ByteArray): ByteArray {
         val output = ByteArrayOutputStream()
-        var buffer = 0
-        var bits = 0
-        for (byte in bytes) {
-            // The strict ByteString decoder stops at padding; the FB2 reader
-            // uses the distinct lazy ByteString decoder, which skips padding.
-            val c = byte.toInt() and 255
-            if (c == 61) break
-            val digit = when (c) {
-                in 65..90 -> c - 65; in 97..122 -> c - 97 + 26; in 48..57 -> c - 48 + 52
-                43 -> 62; 47 -> 63; else -> continue
+        var position = 0
+        fun next(skipPadding: Boolean): Int {
+            while (position < bytes.size) {
+                when (val c = bytes[position++].toInt() and 255) {
+                    in 65..90 -> return c - 65
+                    in 97..122 -> return c - 97 + 26
+                    in 48..57 -> return c - 48 + 52
+                    43 -> return 62
+                    47 -> return 63
+                    61 -> if (!skipPadding) return 64
+                }
             }
-            buffer = (buffer shl 6) or digit
-            bits += 6
-            if (bits >= 8) { bits -= 8; output.write((buffer ushr bits) and 255) }
+            return 64
+        }
+        while (true) {
+            val a = next(true)
+            val b = next(true)
+            if (a == 64 || b == 64) break
+            val c = next(false)
+            val d = next(false)
+            output.write((a shl 2) or (b ushr 4))
+            if (c == 64) break
+            output.write(((b shl 4) or (c ushr 2)) and 255)
+            if (d == 64) break
+            output.write(((c shl 6) or d) and 255)
         }
         return output.toByteArray()
     }

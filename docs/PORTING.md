@@ -57,6 +57,7 @@ format is implemented explicitly in Kotlin.
 | Shared writer helpers | `ast/DocumentShared.kt` | Original legacy-table and section examples, 500 section-idempotence samples, 471 independent section and 471 block-flattening comparisons |
 | XML.Light output | `xml/XmlOutput.kt` | Original FB2 goldens and explicit pretty-print, raw content, CDATA and escaping checks |
 | MediaBag and MIME tables | `resources/MediaBag.kt`, `MimeTypes.kt` | 2,172 original-Pandoc comparisons, including every MIME extension and reverse MIME type |
+| Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
 | `SelfContained.makeDataURI` | `resources/ResourceUri.kt` | 56 independent MIME/UTF-8/BOM/CR/binary cases, including original rejection of invalid text UTF-8 |
@@ -7421,3 +7422,102 @@ assertions/property/legacy golden. All other remaining Pandoc readers/writers,
 application/Lua/property tests and general lazy/partial-value contracts, followed
 by calibre MOBI with all original tests and the other calibre formats absent
 from Pandoc, remain in scope.
+
+## Complete finite Pandoc URI exports and incremental parsing
+
+`uri/PandocURI.kt` ports all six exports of the pinned `Text.Pandoc.URI`:
+`urlEncode`, `escapeURI`, `isURI`, `schemes`, `uriPathToPath` and
+`pBase64DataURI`. Text inputs pass through the original Text surrogate replacement
+boundary. URL encoding uses the exact HTTP query-component safe set and uppercase
+UTF-8 escapes. URI escaping preserves non-ASCII characters and percent signs,
+escaping GHC isSpace and precisely the source punctuation set. Recognition first
+checks the complete data-URI grammar without demanding decoded contents, then
+uses the complete pinned Network.URI parser and immutable 268-scheme registry.
+Windows paths drop exactly one leading slash; POSIX paths preserve it.
+
+The data-URI parser preserves case-insensitive `data:`, case-sensitive `;base64,`,
+restricted MIME names, GHC whitespace after parameter semicolons and original
+parameter normalization. Percent octets become Unicode Chars before UTF-8/Base64
+decoding, including non-ASCII octets and encoded padding. The prefix parser
+preserves remaining input; ResourceUri's downloadOrRead facade requires EOF as
+in the original PandocMonad caller. MIME and decoded bytes are independent
+Deferred fields. Existing resource/FB2/HTML URL recognition and encoding adapters
+now delegate to these exports; MediaBag URI recognition uses the same data-URI
+fast path. JVM HTTP transport/resolution and the separate extractURIData adapter
+remain existing IO boundaries, not a claim of complete PandocMonad parity.
+
+The strict base64-bytestring decoder previously stopped at every padding byte.
+The original skips padding while looking for the first two sextets of a group,
+then terminates on padding in the third/fourth position. The Kotlin decoder now
+follows that algorithm, including padding introduced by percent escapes.
+The FB2 lazy decoder remains its separate original algorithm.
+
+`parsing/attoparsec/` adds the independent incremental Text kernel required by
+this source grammar. It preserves Attoparsec's always-backtracking choice,
+atomic literal strings, character labels/context order, takeWhile demand,
+prefix results and immutable branchable Partial continuations. Feeding a
+terminal Done or Fail appends to its remaining input. Empty feed marks EOF for
+a Partial result. An immutable balanced chunk buffer avoids input replay/copy
+on every feed; an explicit parser/frame interpreter and Deferred result
+trampoline handle deep finite parses without JVM recursion. LookAhead restores
+position on success, retaining the original consumed position on failure.
+This ports the primitives/combinators used here, not all Attoparsec exports,
+ByteString/lazy APIs, QuickCheck machinery or infinite/diverging parser values.
+
+`tools/haskell-pandoc-uri-reference` compiles the exact original URI source for
+both CPP branches. The POSIX copy changes only the module name; the Windows copy
+also defines `_WINDOWS` before imports. The source checker verifies these exact
+transformations. This is needed because URI is hidden by Pandoc's Cabal package.
+Both copies call the original Pandoc MIME/UTF8 and pinned Attoparsec, network-uri,
+http-types, safe and base64-bytestring packages. The complete cached original
+Pandoc build is again verified against all **2,888 tracked files**, retaining
+only the prior three-module Cabal exposure adjustment. Production has no Haskell
+or upstream-program conversion dependency.
+
+The complete attoparsec **0.14.4** (74 regular archive files) and http-types
+**0.12.6** (21 files) releases are retained byte-for-byte, including original
+tests. Archive SHA-256 provenance is recorded. Both full license notices match
+their original bytes; the new http-types notice is packaged with the existing
+Attoparsec notice. Existing vendored Attoparsec/XML subsets remain unchanged.
+
+`tools/import-pandoc-uri-fixtures.py` captures **40,705 observations** and **141
+source hashes**, with Kotlin expectations supplied only by original programs:
+
+- all 268 schemes with casing and malformed/relative/Unicode URI boundaries;
+- seventeen aggregate witnesses over every **1,114,112 Haskell Char**, comparing
+  URL encoding, URI escaping and both platform path branches;
+- all 18 previous data-fetch examples, MIME/grammar boundaries, every split point
+  in both prefix and EOF modes, single-character fragmentation and terminal feed;
+- every percent octet in seven sextet/padding positions, plus ASCII/Unicode MIME
+  name/whitespace/Base64 predicate boundaries;
+- **19,531 exhaustive short Base64 byte inputs** and 1,000 seeded arbitrary byte
+  sequences, observed directly through the strict original decoder;
+- 6,260 synthetic kernel cases covering alternatives, labels, lookAhead, match,
+  many/many1/skipMany, failures and chunking, plus 80 branched continuations;
+- map/bind nesting and literal/many/backtracking feeds at 1,500, 10,000 and
+  **100,000** steps; four checks discarding bottom-valued parser results.
+
+Corpus SHA-256:
+`236aa94825846ee31bd0363ab707a6dd3a29c85a046eae2cb994d00720d7a1d3`.
+The original Attoparsec Text/Combinator tests were inspected for relevant contracts;
+this corpus does not claim a port of its entire dependency test suite. Existing
+protected original fixtures and upstream expected outputs are unchanged.
+
+Full Gradle validation passes **2,151,964 tests in 113 suites**, with zero
+failures, errors or skips (10m 43s). The new suite contributes 40,705 original
+observations and one immutability/deferred-tuple check. All **116 source/fixture
+checks** pass; all 141 source hashes match staged/root or pinned upstream Git
+blobs, and all three release pins and protected earlier corpora/oracles remain
+unchanged. Installed/core JAR bytes match, including the new URI/parser classes,
+all **56 full notices**, **250** Pandoc assets/indexes and unchanged MathML/text
+mapping data. All **375 installed CLI comparisons** pass: 14 FB2, 66 media,
+69 extension, 85 math and 141 HTML cases. Installed workflow smoke cases pass.
+Exact-SHA CI for **441068c**
+is verified successful. No existing tests were disabled or changed, and worker
+heap/recycling settings remain unchanged.
+
+The full objective remains active. The full HTML reader, raw LaTeX inline
+parsing, remaining original HTML assertions/property/goldens, other remaining
+Pandoc readers/writers, application/Lua/property tests and general lazy/partial
+value contracts still require work. Calibre MOBI and all original tests, followed
+by calibre formats absent from Pandoc, remain in scope.

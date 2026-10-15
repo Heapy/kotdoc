@@ -63,6 +63,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   All original Haskell MediaBag and Lua media API examples are translated into
   Kotlin API tests; this does not yet provide the Lua scripting engine.
 - Data URI creation preserves upstream UTF-8, BOM, CR and MIME behavior.
+- Complete finite `Text.Pandoc.URI` exports: encoding/escaping, scheme recognition,
+  POSIX/Windows URI paths and the incremental Base64 data-URI parser. Checked by
+  40,705 original-library observations, all Haskell Chars and 100,000-step parser
+  chains/chunk feeds. Parser results preserve independent deferred MIME/bytes.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 - All 90 built-in extension names, custom extensions, six presets and the complete
