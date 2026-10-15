@@ -19,7 +19,8 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - Table normalization and simple tables, with the original examples and nine
   upstream property checks plus an independent grid-occupancy oracle.
 - Additional Unicode, malformed input, API compatibility, and recursive
-  roundtrip tests. Current suite: 1,134,613 tests, no skipped tests.
+  roundtrip tests. Current validation totals are recorded in the
+  [porting ledger](docs/PORTING.md).
 - Pandoc builders, metadata helpers and both legacy/modern figure representations.
 - Full Unicode raw-format case folding and 64-bit AST integers.
 - Original Haskell AST Show/showsPrec for every node and associated table,
@@ -48,6 +49,9 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   raw XML, and math handling. All three original writer examples plus exact output
   and diagnostic comparisons for 266 upstream documents and 205 edge cases.
 - Shared section construction, block flattening, legacy tables and XML output.
+- TeXMath expression models, shared transformations, Unicode/TeX/Pandoc output
+  and the complete finite MathML expression writer, including all 561 original
+  MathML writer goldens. TeX parsing and the Pandoc math bridge remain in progress.
 - MediaBag, complete MIME/URI tables, data URI decoding, local resource paths,
   and HTTP resource fetching. Verified with 2,172 independent MediaBag/MIME cases,
   18 data URI cases and a local HTTP integration test.

@@ -27,6 +27,7 @@ format is implemented explicitly in Kotlin.
 | Complete `Text.Pandoc.Translations` loading/cache operations and typed `toTextM` | `translations/TranslationLoading.kt`, `Translations.kt`, `resources/PandocText.kt` | All four module functions, exact Value FromJSON, full Lang cache equality, ordered fallback, typed/host errors and re-entrant effects; 77,429 original observations, all 107 YAML files and all 65,536 two-byte UTF8 inputs |
 | `Text.Pandoc.Data` algorithms and reproducible timestamp helpers | `resources/PandocData.kt`, `PandocTime.kt`, `PandocFilePaths.kt` | Both embedded/installed branches on POSIX/Windows, actual 248-file TH catalog, three reference archives, user routing, enumeration and default directory selection; 5,663 independent original observations |
 | TeXMath finite expression model, shared transformations, Unicode and TeX/Pandoc output | `math/` | All 23 Exp constructors, Show/Eq/Ord, all Shared functions, complete Unicode and TeX renderer, complete writePandoc algorithm; 3,146 native observations, 3,721 original inputs and exhaustive Char mapping |
+| Complete finite TeXMath MathML writer and original XML.Light output | `math/MathMLWriter.kt`, `MathMLOperators.kt`, `MathNumbers.kt`, `xml/LegacyXml*.kt` | All 561 original MathML writer goldens, full 1,107-row dictionary, exact XML trees/serialization, every Char and numeric boundaries; 9,700 original observations |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
@@ -146,8 +147,9 @@ also remain to audit; no claim of complete pandoc-types parity is made.
 
 ## Next execution step
 
-Complete the remaining TeXMath readers/writers and Pandoc's math bridge required
-by the HTML writer. Then port all HTML writer entry points, including slides,
+Complete TeXMath parsing and Pandoc's math bridge required by the HTML writer.
+The full finite MathML writer is now implemented; remaining TeXMath readers and
+other writers/goldens still require their complete ports. Then port all HTML writer entry points, including slides,
 EPUB HTML, complete options/template/state behavior and every original writer
 and integration test, followed by the remaining formats. The expression/helper
 foundation below does not substitute for the remaining math parsing/writing.
@@ -6170,3 +6172,89 @@ updated project. Its download log confirms that all five previously missing
 Kotlin modules, including POM/module/JAR metadata, resolve directly from Maven
 Central. This verifies the resolution path locally; the new exact-SHA remote
 pipeline still needs to run.
+
+
+## Complete finite TeXMath MathML writer and original XML.Light output
+
+Translated every branch of Text.TeXMath.Writers.MathML, including the initial
+recursive convertible-under/over transformation, grouped/function-application
+handling, all number/identifier/operator/symbol styles, delimiters and fences,
+accent classification and vector-arrow substitution, all fraction modes,
+scripts, roots, phantom/boxed/cancelled expressions, scaling and arrays. The
+writer returns the original XML tree with source attribute/content order; it
+does not substitute HTML strings for the MathML model. Explicit work frames keep
+finite deeply nested formulas off the JVM stack.
+
+All 1,107 MathML dictionary rows are translated from the retained original
+source, with descriptions, forms, priorities, left/right spaces and ordered
+properties. Public table order and last-row map construction are retained.
+getMathMLOperator tries the requested form, then infix, postfix and prefix,
+including the source's repeated candidate when appropriate. Every row, every
+lookup form and every Haskell Char are compared with original execution.
+
+Added exact Rational-to-Double conversion and ties-to-even Integer/Int rounding
+from the original GHC definitions. Normal/subnormal values, signed underflow,
+overflow and signed 64-bit wrapping are retained. MathML widths use the existing
+verified GHC floatToDigits/FFFixed specialization, matching printf %.3f, then the
+source trailing-zero rule; scales use exact rational percentages. Native numeric
+witnesses include raw Double bits, formatted decimals and wrapped percentages.
+
+The writer imports xml 1.3.14, whose output differs from Pandoc's Text-based fork.
+Retained the complete original XML release and its license. The original release
+Cabal file is used; Hackage revision-2 metadata is retained separately. Added a
+separate String-based model with raw CharacterString names, URIs, prefixes,
+attribute/text/reference values and arbitrary Integer line fields. QName and
+attribute Eq/Ord match source semantics, including prefix-insensitive qualified
+names. Nested attribute/content lists are owned. Existing Pandoc XML code and
+protected expectation corpora remain unchanged.
+
+Translated all finite Text.XML.Light.Output productions and configurations:
+compact/pretty/content/element/top-level output, QName/attribute/CData rendering,
+short-empty callbacks, raw/verbatim CData splitting, numeric escapes, indentation,
+processing-instruction endings and the original XML header/newline distinctions.
+All Haskell Chars are compared for escaping, including unassigned/control/private
+characters and surrogate Chars. Raw String fields keep two surrogate Chars
+separate from a supplementary Char, including through output witnesses. This
+does not claim the XML parser/cursor/proc modules, generic Data/Typeable/Show
+interfaces or a full Haskell partial/lazy-string runtime.
+
+The independent oracle compiles complete unchanged texmath and xml source
+modules under its own frozen plan. The observing main supplies transport only;
+MathWire is a module-name-only copy of the protected earlier adapter. No Kotlin
+code runs while capturing expectations. Every one of the 561 original MathML
+writer golden files is checked against original output before Kotlin execution,
+and CI verifies the same exact original golden expectations. Additional inputs
+come from the earlier independently captured expression corpus in both display
+modes, all constructors/styles/accents, array alignments, function application,
+nested scaling/duplicate attributes, generated exact-rational boundaries, raw
+XML records and failing/conditional printer predicates.
+
+Serialized MathML views use exact length/SHA256 witnesses over big-endian
+32-bit Haskell Chars, alongside complete XML tree fields. They witness original
+raw character output without UTF8 normalization, while avoiding repeating large
+formatted strings in every JSON case. Generic XML observations retain complete
+raw codepoint arrays. Original UTF8 golden files are verified against their exact
+character sequence, including the header and final newline.
+
+There are 9,700 original observations and 3,791 source hashes. An additional
+Kotlin check verifies owned XML lists, nested duplicate-attribute order and exact
+compact rendering of a 10,000-level formula. Full TeX parsing, the Pandoc math
+bridge, remaining TeXMath formats/goldens, HTML writer and the rest of Pandoc and
+calibre remain pending within the unchanged complete objective.
+
+Corpus SHA-256:
+`9cd664b8492fdad77302572b5a7519a2985209092152268fdef3ca38aa59e022`.
+
+Validation: all 1,597,059 tests in 96 suites pass with zero failures, errors or
+skips, including 9,701 MathML/XML checks. All 99 source/fixture commands in CI and
+234 installed CLI checks pass (14 FB2, 66 media, 69 modifiers, 85 math). Worker
+heap/recycling limits are unchanged. The installed CLI uses the exact current
+core JAR; all 51 complete notices, 248 data assets and both indexes are byte-
+exact. Staged Git blobs match the complete new corpus and all 3,791 source hashes;
+all pinned submodule revisions match. No protected earlier corpus/oracle changed.
+
+The preceding plugin-resolution repair d209043 was published separately after
+fresh-cache verification. Its exact-SHA CI run 38677372152 was still running at
+publication of this writer stage. The failure of the earlier f01d4d9 pipeline
+was diagnosed before compilation, not hidden by claiming its tests had passed.
+The full objective remains active.

@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-mathml-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable mathml-reference
+  main-is: MathMLReference.hs
+  hs-source-dirs: .
+  other-modules: MathWire
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, texmath ==0.13.3.1, xml ==1.3.14,
+                 pandoc-types ==1.23.1.2, aeson ==2.2.3.0, text ==2.1.2,
+                 bytestring ==0.12.2.0, vector, containers ==0.7, pretty-show, binary ==0.8.9.3, crypton >=0.30 && <2.1
