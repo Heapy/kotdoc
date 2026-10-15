@@ -24,6 +24,7 @@ format is implemented explicitly in Kotlin.
 | Definition Eq/Ord dictionaries | `ast/AstComparison.kt` | Complete represented AST/associated types, distinct source operators, 75,470 original observations, all 266 documents and 17 original generators |
 | `Text.Pandoc.Logging` represented values and Verbosity instances | `logging/`, `parsing/Parsec.kt`, `ast/AstJsonValues.kt` | All 54 constructors, pretty/JSON/verbosity/Show/source Eq/Ord; 25,373 original observations, 266 ToJSON documents, raw names and 100,000-level structures |
 | `Class.CommonState` record and `PandocMonad` state/logging operations | `state/CommonState.kt`, `state/PandocState.kt` | All 13 fields/defaults, persistent reverse log, callbacks/typed errors/nested silence, headers, URL, media and cache identity; 3,615 native observations plus snapshot/identity checks |
+| Complete `Text.Pandoc.Translations` loading/cache operations and typed `toTextM` | `translations/TranslationLoading.kt`, `Translations.kt`, `resources/PandocText.kt` | All four module functions, exact Value FromJSON, full Lang cache equality, ordered fallback, typed/host errors and re-entrant effects; 77,429 original observations, all 107 YAML files and all 65,536 two-byte UTF8 inputs |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
@@ -5836,3 +5837,76 @@ remain byte-exact inside it. All 70 native-source hashes and exact corpus bytes
 were verified against staged Git blobs and the pinned Pandoc gitlink. Existing
 protected oracles/corpora remain unchanged. The complete Pandoc/calibre objective
 is still active; this validation proves this decoder stage and the current suite.
+
+
+## Complete Pandoc translation selection, parsing and caching
+
+Translated all four functions in the pinned Text.Pandoc.Translations module:
+readTranslations, setTranslations, getTranslations and translateTerm. The YAML
+decoder now feeds the exact Aeson Value model into the original Translations
+FromJSON instance, avoiding a numeric/JSON serialization roundtrip. Validation
+uses sorted Text keys, exact Term/type errors and the original Unicode T.strip.
+The prior JSON entry point retains its existing behavior and independent tests.
+All documents must parse and validate before the first translation table is
+selected; an empty document stream reports the source empty-YAML error.
+
+Language selection is lazy and retains a loaded table only when all six Lang
+fields compare equal. Equal rendered tags with different underlying records
+still invalidate the cache. Loading deduplicates full-tag, language/script and
+base-language candidates in original order. Only Pandoc errors from file reads
+and toTextM are swallowed during fallback; host errors propagate. Success caches
+the language captured before file effects run, while retaining other state
+changes made by callbacks. On final failure the original warning is reported
+before clearing the cache. A reporting exception leaves that clearing undone;
+re-entrant logging/state changes retain the existing report ordering. Missing
+terms report NoTranslation and return an empty string; present empty terms do
+not issue a warning.
+
+Added the typed PandocMonad toTextM entry point over the existing strict UTF8
+implementation. It strips one UTF8 BOM and CR bytes before decoding, then reports
+the original unfiltered input offset/byte through PandocUTF8DecodingError. Raw
+Haskell file-name characters become normalized Text only in error fields.
+
+The independent oracle compiles the complete unchanged Translations module and
+original Types/CommonState/Logging/Error/UTF8/Lang modules. Selected original
+PandocMonad get/put/report/toTextM/findDecodingError definitions are byte-exact
+projections checked against the pinned source. readDataFile is an observing
+effect boundary supplied with bytes/typed/host failures; it does not replace
+translation selection or cache behavior. Full default/user-directory routing,
+reference document archives, other PandocMonad IO and the remaining application/
+reader/writer/Lua/tests are not claimed implemented by this boundary. They,
+remaining YAML emission/includes/configuration suites and all calibre MOBI/tests/
+additional formats remain within the unchanged full objective.
+
+There are 77,429 independently captured cases: all 107 original YAML files both
+through readTranslations and runtime loading/all term lookups; the original
+OOXML en-US language-selection setup; earlier syntax/source literals as inputs
+only; all Term/value kinds; multiple-document and alias/merge failures; 100
+unique direct/parsed Lang inputs, a six-field cache relation matrix, all fallback
+ranks and duplicate candidate handling; log/file callback mutations, re-entry
+and typed/host failure ordering; BOM/CR transformations; every two-byte UTF8
+input, malformed offsets/raw paths and 500 generated operation sequences.
+Every expected table, error, warning, state write and file/log effect trace is
+actual original Haskell output. A separate identity check covers the loaded
+cache/state ownership contract.
+
+Corpus SHA-256:
+`646410acf1965d22e0ae4577ba8bf10c339c78926fe82cc73c757630ac851746`.
+All 196 source hashes, original file coverage and case/group totals are checked.
+The no.yaml symlink hash preserves its Git target spelling while runtime inputs
+use the actual resolved original file bytes. Cabal solver caches are excluded
+from the source inventory; the frozen plan rebuild is independently confirmed
+up-to-date. No existing protected oracle or expectation corpus was changed.
+
+The preceding 172b304 publication passed exact-SHA CI run 38664072385 with all
+106 steps completed successfully, no failures and no unfinished step.
+
+Validation: all 1,501,625 tests in 92 suites pass with zero failures, errors or
+skips, including 77,430 translation-loading tests and the unchanged 67,269
+translation-type tests. The worker remains limited to 2 GiB and recycles after
+20 classes. All 95 source/fixture checks and all 234 installed CLI checks pass
+(14 FB2, 66 media, 69 format modifiers, 85 math). The installed CLI uses the exact
+current core JAR; all 49 complete notices remain byte-exact. All 196 source hashes
+and exact corpus bytes were verified against staged Git blobs and the pinned
+Pandoc gitlink. The full objective remains active; standard user/default data
+file routing and the other remaining Pandoc/calibre work are still pending.

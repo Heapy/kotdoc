@@ -2,12 +2,22 @@
 // Copyright (C) 2006-2026 John MacFarlane. GPL-2.0-or-later.
 package io.heapy.kotdoc.resources
 
+import io.heapy.kotdoc.errors.PandocError
+import io.heapy.kotdoc.layout.CharacterString
+import io.heapy.kotdoc.layout.TextChars
+
 class PandocUtf8DecodingError(val path: String, val offset: Int, val byte: Int) : ResourceException(
     "UTF-8 decoding error in '$path' at byte offset $offset (${byte.toString(16).padStart(2, ' ')}).\n" +
         "The input must be a UTF-8 encoded text.",
 )
 
 object PandocText {
+    /** PandocMonad's typed-error variant; native paths become Text only in errors. */
+    fun toTextM(path: CharacterString, bytes: ByteArray): String = try {
+        toText(TextChars.fromPoints(path.points()),bytes)
+    } catch (error: PandocUtf8DecodingError) {
+        throw PandocError.PandocUTF8DecodingError(error.path,error.offset.toLong(),error.byte)
+    }
     /** Remove one leading UTF-8 BOM and every CR byte, then decode strictly. */
     fun toText(path: String, bytes: ByteArray): String {
         val start = if (bytes.size >= 3 && bytes[0] == 0xef.toByte() &&

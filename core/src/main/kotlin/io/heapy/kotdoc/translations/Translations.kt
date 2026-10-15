@@ -4,8 +4,11 @@ package io.heapy.kotdoc.translations
 
 import io.heapy.kotdoc.formats.HaskellString
 import io.heapy.kotdoc.json.PrettyJson
+import io.heapy.kotdoc.json.PrettyValue
+import io.heapy.kotdoc.layout.CharacterStringChars
 import io.heapy.kotdoc.layout.TextChars
 import io.heapy.kotdoc.parsing.ParserCharacters
+import io.heapy.kotdoc.yaml.YamlFromJsonResult
 import kotlinx.serialization.json.*
 import java.math.BigInteger
 
@@ -36,6 +39,31 @@ class Translations private constructor(private val values: Map<Term, String>) {
         fun concatenate(values: Iterable<Translations>): Translations =
             values.fold(empty) { accumulated, next -> accumulated + next }
 
+        /** Original FromJSON instance over the YAML decoder's exact Aeson Value. */
+        fun fromValue(value: PrettyValue): YamlFromJsonResult<Translations> {
+            fun failure(detail: String) = YamlFromJsonResult.Failure(CharacterStringChars.fromString("Error in $: $detail"))
+            fun mismatch(expected: String, item: PrettyValue): String {
+                val actual = when (item) {
+                    PrettyValue.Null -> "Null"
+                    is PrettyValue.Bool -> "Boolean"
+                    is PrettyValue.Number -> "Number"
+                    is PrettyValue.Text -> "String"
+                    is PrettyValue.Array -> "Array"
+                    is PrettyValue.Object -> "Object"
+                }
+                return "expected $expected, but encountered $actual"
+            }
+            if (value !is PrettyValue.Object) return failure(mismatch("Translations",value))
+            val result = linkedMapOf<Term,String>()
+            for (key in value.values.keys.sortedWith(PrettyJson.compare)) {
+                val term = Term.named(key) ?: return failure("Invalid Term name ${HaskellString.quote(key)}")
+                val item = value.values.getValue(key)
+                if (item !is PrettyValue.Text) return failure(mismatch("String",item))
+                result[term] = strip(item.value)
+            }
+            return YamlFromJsonResult.Success(Translations(result.toMap()))
+        }
+
         fun fromJson(value: JsonElement): Translations {
             if (value !is JsonObject) throw typeMismatch("Translations", value)
             // M.toList fixes validation order even when the JSON object was inserted differently.
@@ -45,13 +73,16 @@ class Translations private constructor(private val values: Map<Term, String>) {
                 val term = Term.named(key) ?: throw invalidName(key)
                 val item = normalized.getValue(key)
                 if (item !is JsonPrimitive || !item.isString) throw typeMismatch("String", item)
-                val points = TextChars.fromString(item.content).codePoints().toArray()
-                var start = 0; var end = points.size
-                while (start < end && ParserCharacters.isSpace(points[start])) start++
-                while (end > start && ParserCharacters.isSpace(points[end - 1])) end--
-                result[term] = String(points, start, end - start)
+                result[term] = strip(item.content)
             }
             return Translations(result.toMap())
+        }
+        private fun strip(value: String): String {
+            val points = TextChars.fromString(value).codePoints().toArray()
+            var start = 0; var end = points.size
+            while (start < end && ParserCharacters.isSpace(points[start])) start++
+            while (end > start && ParserCharacters.isSpace(points[end - 1])) end--
+            return String(points,start,end-start)
         }
     }
 }

@@ -61,6 +61,7 @@ jobs:
       - run: python3 tools/import-pretty-json-fixtures.py --check-source
       - run: python3 tools/import-logging-fixtures.py --check-source
       - run: python3 tools/import-translations-fixtures.py --check-source
+      - run: python3 tools/import-translation-loading-fixtures.py --check-source
       - run: python3 tools/import-lang-fixtures.py --check-source
       - run: python3 tools/import-error-fixtures.py --check-source
       - run: python3 tools/import-common-state-fixtures.py --check-source
