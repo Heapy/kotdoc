@@ -13,6 +13,7 @@ import java.util.concurrent.TimeoutException
 import java.util.concurrent.atomic.AtomicBoolean
 import io.heapy.kotdoc.layout.CharacterString
 import io.heapy.kotdoc.layout.CharacterStringChars as Chars
+import io.heapy.kotdoc.uri.NetworkURI
 
 sealed interface HttpFailureContent {
     data object IncompleteHeaders : HttpFailureContent
@@ -283,6 +284,35 @@ class HttpManagedConnection(val connection: HttpConnection, val release: (HttpRe
 data class HttpResponse<A>(val status: HttpStatus, val version: HttpVersion, val headers: List<HttpHeader>,
     val body: A, val close: () -> Unit, val originalRequest: HttpRequest, val early: List<HttpHeader>, val cookieJar: HttpCookieJar = HttpCookieJar.empty)
 object HttpResponses {
+    /** Original http-client policy: compare against the first host in the chain. */
+    fun getRedirectedRequest(original: HttpRequest, request: HttpRequest, headers: List<HttpHeader>,
+        cookieJar: HttpCookieJar, status: Long,
+    ): HttpRequest? {
+        if (status !in 300..399) return null
+        val location = headers.firstOrNull { it.named("location") }?.value ?: return null
+        val escaped = NetworkURI.escapeURIString(NetworkURI::isAllowedInURI, Chars.fromString(location.latin1()))
+        val uri = NetworkURI.parseURIReference(escaped) ?: return null
+        val resolved = NetworkURI.relativeTo(uri, HttpRequests.getUri(request))
+        val updated = when (val result = HttpRequests.setUriEither(request, resolved)) {
+            is HttpUriResult.Failure -> return null
+            is HttpUriResult.Success -> result.request
+        }
+        fun selected(header: HttpHeader) = request.shouldStripHeaderOnRedirect(HttpHeaderName(header.name))
+        val stripped = if (original.host != updated.host || !request.shouldStripHeaderOnRedirectIfOnDifferentHostOnly) {
+            updated.requestHeaders.filterNot(::selected)
+        } else {
+            // nubBy keeps the first current value and original spelling, even
+            // for duplicate names unrelated to the stripping predicate.
+            val seen = HashSet<HttpHeaderName>()
+            (updated.requestHeaders + original.requestHeaders.filter(::selected))
+                .filter { seen.add(HttpHeaderName(it.name)) }
+        }
+        val result = updated.copy(requestHeaders = stripped, cookieJar = if (request.cookieJar == null) null else cookieJar)
+        return if (status == 302L || status == 303L) result.copy(
+            method = HttpBytes.pack("GET"), requestBody = HttpRequestBody.Strict(HttpBytes.empty),
+            requestHeaders = result.requestHeaders.filterNot { it.named("content-type") },
+        ) else result
+    }
     fun hasNoBody(method: HttpBytes, status: Long) = method == HttpBytes.pack("HEAD") || status == 204L || status == 304L || status in 100..199
     fun getResponse(maxLength: Long?, maxHeaders: Long?, timeout: Long?, request: HttpRequest, managed: HttpManagedConnection,
         continuation: (() -> Unit)? = null, timeoutBoundary: HttpTimeoutBoundary = HttpSystemTimeout,

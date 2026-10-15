@@ -9026,3 +9026,78 @@ counts are 13,011 CookieJar, 8,792 Web.Cookie, 51,672 PSL, 3,176 request and
 2,693 response tests. This checkpoint does not assert a new full project suite
 run or complete Pandoc/calibre parity. Final staged hashes and release pins
 are audited before publication.
+
+### http-client redirected-request policy
+
+`HttpResponses.getRedirectedRequest` now translates the complete pure request
+policy from the pinned http-client 0.7.19 Response.hs. Both Request fields retain
+the original defaults: shouldStripHeaderOnRedirect is const False and
+shouldStripHeaderOnRedirectIfOnDifferentHostOnly is False. A typed HeaderName
+retains original bytes and Latin-1 folded equality/order, so predicates can
+observe either case-insensitive identity or original spelling.
+
+Only 300 through 399 are considered; the first case-insensitive Location is
+used, escaped from Char8 bytes and resolved against the current request using
+the existing Network.URI port. Invalid references, schemes and ports return
+Nothing. Credentials pass through the original setUriEither/basic-auth rules.
+302 and 303 always select GET, replace every body constructor with strict empty
+bytes and remove all Content-Type headers. Content-Length is deliberately not
+removed by this helper. Other 3xx responses preserve method/body, including
+HEAD and effectful body constructors. Cookie enablement comes from the current
+request; when enabled, the supplied response jar replaces it. Redirect counts
+are preserved here: loop limits belong to the not-yet-ported Core loop.
+
+Host comparison uses raw bytes against the original request in the chain,
+not a case-folded comparison against only the preceding hop. Stripping follows
+the current request predicate. Returning to the exact original host with the
+host-only option restores selected original headers after current headers,
+then applies first-value CI nubBy to the entire result, including unrelated
+duplicate names. Scheme/port changes on the same host do not count as host
+changes. Multi-hop observations preserve this restoration and auth precedence.
+
+The development observer links the actual frozen original getRedirectedRequest;
+no redirect algorithm is copied into it. The complete prior CookieJar source
+chain plus observer/importer inputs yields **557 source hashes**. Native Cabal
+plan source hashes are checked against actual cached release archives for
+http-client/network-uri/cookie/case-insensitive/iproute/appar; bytestring 0.12.2.0
+and time 1.14 are the original GHC boot packages. The independently captured
+corpus contains **6,172 observations** with semantic SHA256
+`191fd55ecb0e01d60de2a27d49d87dfdcd236dafce11705dc10e6308b9f6a20d`.
+It includes every status from -1 through 700, Int boundaries, every byte in
+Location and HeaderName, relative/raw bases, duplicate Location, body forms,
+invalid targets, header policies/original spelling, cookie enablement, auth,
+unrelated-field preservation and multi-hop chains. Failing predicates test
+validation demand order; builder/provider/IO bodies fail if executed. Only
+ErrorCall is caught by the observer; unexpected native exceptions abort capture.
+
+The new Kotlin suite runs all 6,172 expectations unchanged plus an ownership/
+effects check for preserved hooks/body objects and supplied cookie jars.
+All **85,517 HTTP tests in six suites** pass in the local 35s Gradle test/build
+run, with complete XML parsing confirming actual counts, no failures/errors/
+skips. The same installed JARs/classes/resources pass all **85,517 tests on
+Linux/x86_64 JDK 21** (5.986s), with no skips, aborts or failed containers.
+
+The installed/core JAR bytes agree. All 106 compiled HTTP classes, 65 complete
+notices, 250 Pandoc assets and the unchanged 60,137-byte PSL snapshot match
+build/source bytes. Relative to the published CookieJar distribution, every
+previous non-HTTP core entry and all 2,461 non-HTTP classes remain byte-identical;
+no old class is removed. Changes to old classes are confined to the HTTP
+package (including expected model ABI and shifted source debug tables).
+CLI and dependency JAR bytes remain identical. This does not assert a new full
+project test run or complete Pandoc/calibre compatibility.
+
+The retained upstream test-nonet ClientSpec's local-server header stripping,
+redirect history/limits and connection-close tests still require actual manager/
+transport effects; none is relabeled as a helper-only test or claimed passed
+here. Disabled live httpbin redirect tests likewise remain pending. Remaining
+work includes Core redirect loops/history/limits, real pool/socket/TLS/proxy/
+manager and automatic cookie effects, remaining Request/lazy/exception contracts,
+HTML CLI URL integration and the full remaining Pandoc/App/Lua/original suites,
+then calibre MOBI and formats absent from Pandoc with all their tests.
+
+All **136 source/fixture verifiers** pass (63.9s), including the new redirect
+source-chain check. CookieJar commit `0a915aa64a17f03daf71ef824e14fd27a34eeafb`
+is published and its full CI run `38812129359` has passed all 135 source checks
+and is executing the full Gradle suite at the time of this checkpoint. Its
+pending conclusion is not reported as success. Final staged source/pin auditing
+precedes publication of this request-policy checkpoint.

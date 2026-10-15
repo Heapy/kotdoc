@@ -35,6 +35,7 @@ jobs:
       - run: python3 tools/import-public-suffix-fixtures.py --check-source
       - run: python3 tools/import-web-cookie-fixtures.py --check-source
       - run: python3 tools/import-http-cookie-fixtures.py --check-source
+      - run: python3 tools/import-http-redirect-fixtures.py --check-source
       - run: python3 tools/import-parser-state-fixtures.py --check-source
       - run: python3 tools/import-html-state-fixtures.py --check-source
       - run: python3 tools/import-uri-fixtures.py --check-source

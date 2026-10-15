@@ -51,11 +51,20 @@ data class HttpHeader(val name: HttpBytes, val value: HttpBytes) : Comparable<Ht
     override fun compareTo(other: HttpHeader) = fold(name).compareTo(fold(other.name)).takeIf { it != 0 } ?: value.compareTo(other.value)
     companion object {
         // case-insensitive's ByteString instance uses Latin-1 case folding.
-        private fun fold(bytes: HttpBytes) = HttpBytes(bytes.bytes().map {
+        internal fun fold(bytes: HttpBytes) = HttpBytes(bytes.bytes().map {
             val b = it.toInt() and 255
             (if (b in 65..90 || b in 192..214 || b in 216..222) b + 32 else b).toByte()
         }.toByteArray())
     }
+}
+
+/** case-insensitive HeaderName retains the original spelling for predicates. */
+class HttpHeaderName(val original: HttpBytes) : Comparable<HttpHeaderName> {
+    constructor(name: String) : this(HttpBytes.pack(name))
+    val foldedCase: HttpBytes = HttpHeader.fold(original)
+    override fun equals(other: Any?) = other is HttpHeaderName && foldedCase == other.foldedCase
+    override fun hashCode() = foldedCase.hashCode()
+    override fun compareTo(other: HttpHeaderName) = foldedCase.compareTo(other.foldedCase)
 }
 
 data class HttpProxy(val host: HttpBytes, val port: Long) {
@@ -115,6 +124,8 @@ data class HttpRequest(
     val redactHeaders: List<HttpBytes> = listOf(HttpBytes.pack("Authorization")),
     val earlyHintHeadersReceived: (List<HttpHeader>) -> Unit = {},
     val cookieJar: HttpCookieJar? = HttpCookieJar.empty,
+    val shouldStripHeaderOnRedirect: (HttpHeaderName) -> Boolean = { false },
+    val shouldStripHeaderOnRedirectIfOnDifferentHostOnly: Boolean = false,
 ) {
     fun show(): String = buildString {
         fun field(name: String, value: Any) { append("  ").append(name.padEnd(21)).append("= ").append(value).append('\n') }

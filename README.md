@@ -9,28 +9,35 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP redirection request policy from http-client 0.7.19: relative/escaped
+  Location resolution, 302/303 method/body replacement, cookie enablement,
+  header stripping and original-host restoration with CI first-value merging.
+  Independent observations include multi-hop chains and every header/URI byte.
+  Redirect loops/history/limits and actual manager/network integration remain
+  pending, including the original local-server integration tests.
+
 - HTTP CookieJar generation/storage, domain/path/security selection, expiry,
   header insertion/removal and the original cookie ordering/duplicate rules.
   Request and response models retain cookie jars. All 15 original CookieSpec
   units and independent iproute/appar observations run in Kotlin. Automatic
-  manager/network cookie handling and redirects remain pending.
+  manager/network cookie handling and redirect loops remain pending.
 
 - Web.Cookie 0.5.1 header parsing/rendering, SetCookie fields, Eq/Show,
   SameSite/Partitioned and original cookie-date parsing/formatting. All nine
   original test families run independently; Kotlin translates the six literal
   units and three properties with 3,000 original generated inputs. HTTP cookie
-  manager integration and redirects remain pending.
+  manager integration and redirect loops remain pending.
 
 - The pinned http-client Public Suffix List: original 2015 tree, wildcard and
   exception lookup, effective TLD plus one, and binary tree serialization.
   All 7,349 original nodes have independent original-code observations.
-  HTTP manager/transport integration and redirects remain pending.
+  HTTP manager/transport integration and redirect loops remain pending.
 
 - HTTP response status/header parsing, 100 Continue/103 Early Hints, fixed,
   unlimited and chunked body readers, managed release effects and incremental
   gzip via streaming-commons 0.2.3.1/zlib. All original HeadersSpec, BodySpec,
   ResponseSpec and ConnectionSpec tests are translated. Full socket/TLS,
-  redirects, manager cookie handling and HTML CLI integration remain pending.
+  redirect loops, manager cookie handling and HTML CLI integration remain pending.
 
 - Native HTTP request preparation and HTTP/1.x wire writing from http-client
   0.7.19: URL/auth/proxy/query rules, exact header order, gzip policy, six body
