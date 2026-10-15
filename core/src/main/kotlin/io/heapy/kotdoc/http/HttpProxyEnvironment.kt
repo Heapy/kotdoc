@@ -1,6 +1,5 @@
 // Network.HTTP.Proxy 0.7.19, original authors and full BSD-3-Clause notice:
-// licenses/http-proxy-BSD-3-Clause.txt. This file ports the common environment
-// branch; the Windows registry branch remains pending.
+// licenses/http-proxy-BSD-3-Clause.txt. Windows registry branch: HttpWindowsProxy.kt.
 package io.heapy.kotdoc.http
 
 import io.heapy.kotdoc.parsing.RegexCharacters
@@ -44,6 +43,29 @@ object HttpProxyEnvironment {
         val modifier = envHelper(overrideName ?: "${protocol.show()}_proxy", environment)
         return { request ->
             val settings = modifier(request.host)
+            if (settings == null) when (fallback) {
+                HttpEnvHelper.FromRequest -> request
+                HttpEnvHelper.NoProxy -> request.copy(proxy = null)
+                is HttpEnvHelper.UseProxy -> request.copy(proxy = fallback.proxy)
+            } else {
+                val updated = request.copy(proxy = settings.proxy)
+                settings.auth?.let { HttpRequests.applyBasicProxyAuth(it.first, it.second, updated) } ?: updated
+            }
+        }
+    }
+
+    /** Original platform selection; Windows registry is read eagerly after env,
+     * even when a selected environment proxy will win for every request. */
+    fun systemProxyHelper(
+        overrideName: String?, protocol: HttpProxyProtocol, fallback: HttpEnvHelper,
+        environment: () -> List<Pair<String, String>> = ::systemEnvironment,
+        windows: Boolean = com.sun.jna.Platform.isWindows(),
+        registry: HttpProxyRegistry = HttpNativeWindowsRegistry,
+    ): (HttpRequest) -> HttpRequest {
+        val env = envHelper(overrideName ?: "${protocol.show()}_proxy", environment)
+        val system = if (windows) HttpWindowsProxy.systemProxy(protocol, registry) else null
+        return { request ->
+            val settings = env(request.host) ?: system?.invoke(request.host)
             if (settings == null) when (fallback) {
                 HttpEnvHelper.FromRequest -> request
                 HttpEnvHelper.NoProxy -> request.copy(proxy = null)

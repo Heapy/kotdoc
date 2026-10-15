@@ -147,3 +147,10 @@ licenses/appar-BSD-3-Clause.txt -text
 
 # Preserve complete original private KeyedPool module bytes.
 tools/haskell-keyed-pool-reference/*KeyedPool.hs -text whitespace=-trailing-space,-blank-at-eof
+
+# Preserve original Windows/safe release bytes, including mixed CRLF and whitespace.
+vendor/Win32-2.14.2.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/safe-0.3.21/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/Win32-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-eof
+licenses/safe-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-eof
+tools/haskell-http-windows-proxy-reference/OriginalWindowsProxy.hs -text whitespace=-trailing-space,-blank-at-eof

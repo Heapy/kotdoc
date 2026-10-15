@@ -19,6 +19,7 @@ format is implemented explicitly in Kotlin.
 
 | Source | Kotlin | Evidence |
 |---|---|---|
+| `Network.HTTP.Proxy` Windows branch and selected Win32 registry wrappers | `http/HttpWindowsProxy.kt`, `HttpNativeWindowsRegistry.kt` | 2,179 complete-original Windows-CPP observations with ordered registry effects; actual Windows API test has a dedicated CI job; Manager/environment backend remain pending |
 | `Network.HTTP.Proxy` common environment/non-Windows selection branch | `http/HttpProxyEnvironment.kt` | 4,460 independent complete-original observations, exact/folded names, lazy no_proxy, auth/fallback/Show; Windows registry and Manager integration remain pending |
 | pandoc-types `Text/Pandoc/Definition.hs` AST constructors | `core/.../ast/Pandoc.kt` | All node variants represented; JSON tests |
 | Definition derived Show/showsPrec | `ast/AstShow.kt` | All node/associated types; 36,970 native observations, 56 original values and 266 documents; deep/lazy boundaries |
@@ -9379,3 +9380,96 @@ cookie handling and responseOpenHistory, including the original local-server
 integration tests. HTML CLI integration, remaining Pandoc readers/writers/App/Lua
 and all original suites, then calibre MOBI and additional formats absent from
 Pandoc/all their tests remain in the original scope.
+
+### Windows HTTP proxy selection and selected native registry calls
+
+`http/HttpWindowsProxy.kt` now ports the Windows CPP branch of the pinned
+`Network.HTTP.Proxy`: registryProxyString, windowsProxyString selection,
+parseWindowsProxy, parseProxy/fixUserInfo/uri2proxy and systemProxy. The new
+`HttpProxyEnvironment.systemProxyHelper` combines the real platform branches.
+The prior `environmentProxyHelper` retains its explicit non-Windows behavior.
+All environment lookup rules from the preceding checkpoint remain unchanged.
+
+Registry state is read eagerly after the environment helper is constructed,
+even if the environment proxy will win. A bad environment variable fails before
+opening the registry; bad selected registry settings can fail construction even
+with a valid environment proxy. no_proxy bypass permits subsequent registry
+selection; registry bypass permits the supplied fallback. Neither fallback nor
+unauthenticated proxy selection removes existing Proxy-Authorization headers.
+The real manager has not yet been wired to these helpers.
+
+The original registry algorithm brackets HKCU Internet Settings open/close,
+queries a four-byte ProxyEnable, accepts only REG_DWORD, and treats any nonzero
+unsigned value as enabled. Only IOException is hidden; ErrorCall/async failures
+propagate, subject to the original close-exception precedence. ProxyOverride IO
+failure becomes an empty exception string; server/open/DWORD/close IO failure
+hides the entire registry result. Each callback's order is independently logged.
+Selected server entries use case-sensitive protocol prefixes and first-match
+semicolon/equal splitting. Plain host:port entries do not match the selection
+stage. URI parsing preserves its original scheme/authority fallback, accepted
+paths/queries, default/overflow port behavior and trailing-@/userinfo rules.
+Invalid selected settings throw the original content and exact Show text.
+Bypass matches raw Char8 host substrings, plus the exact localhost/127.0.0.1
+and literal <local> rule. Wildcards are not expanded; an empty host matches any
+exception string. No environment or registry reread occurs on application.
+
+`HttpNativeWindowsRegistry.kt` implements the selected Windows API calls through
+the existing JNA dependency, loading Advapi32 only on use. Its explicit binding
+reference is retained **Win32 2.14.2.1**, with its full original archive, source
+and BSD notice; this is not a claim to have reconstructed a Windows Pandoc build
+plan. The source calls **RegQueryValueW** for ProxyServer/ProxyOverride, reading
+a subkey's default value, rather than RegQueryValueExW named-string lookup. The
+adapter preserves that distinction, as well as RegOpenKeyW, a four-byte unsigned
+DWORD query via RegQueryValueExW, the original two-call string size/read pattern
+and RegCloseKey. Windows WCHAR decoding retains UTF-16 supplementary characters.
+Generic Win32 FFI/ForeignHANDLE runtime and localized OS exception Show are not
+claimed as ported. Defined registry string/DWORD calls are the scope here.
+
+The observer compiles the **complete original Proxy.hs with its Windows CPP
+branch enabled** on the observer host. Only module/export names, CPP selection,
+two imports to the exposed Internal re-export, and environment/Win32 effect
+imports change. Algorithm bytes, bracket/catch, alloca/peek, Network.URI and
+original Show remain unchanged. This controlled registry boundary does not
+pretend to run Windows DLLs on macOS. The original **safe 0.3.21 readDef** is
+compiled from its retained complete source/archive; its full Neil Mitchell
+notice is packaged too. Both archives' hashes and every extracted byte are
+checked. No standalone upstream ProxySpec exists; these observations are not
+mislabeled as original units. No Haskell executable is a production dependency.
+
+There are **2,179 independent Windows-branch observations**, semantic SHA256
+`dceeff9451af5f80ff4427cec7e0ffaab36334e463b0e6f2e6d5f542f3ed0443`,
+with **727 source hashes**. They include all preceding environment-helper
+inputs, direct parsers, every host byte at the bypass boundary, unsigned DWORD
+values/types, IO/non-IO/async failures and overriding close errors. Kotlin adds
+a non-Windows branch/identity/deferred-body check and two native-call boundary
+checks for HKCU handle representation, exact API sequence/sizes, unsigned
+DWORD, UTF-16 decoding and native error-code conversion.
+
+The full local HTTP run passes **95,471 tests** (20s final Gradle run), with
+exactly **one intentional platform skip**: the real Windows-registry test on
+macOS. Every suite XML is parsed fully; counts agree and no failure/error exists.
+The same **95,471 tests** pass on Linux/x86_64 JDK 21 (7.603s), with that same
+single Windows-only skip and no failed/aborted tests or containers.
+The dedicated `windows-proxy` CI job runs the common/Windows proxy and binding
+suites, including the real registry test. That test creates a unique temporary
+HKCU key, checks that a named ProxyServer value is not a subkey default, then
+checks real DWORD/Unicode subkey reads and combined selection. It deletes only
+its own temporary key and never edits actual Internet Settings. CI parses all
+four XML suites and requires exactly **6,645 tests with no skips**; actual
+Windows execution remains pending until that exact job succeeds.
+
+All **140 source/fixture verifiers** pass (67.3s). Installed/core JARs agree;
+all **138 HTTP classes**, **68 complete notices**, **250 Pandoc assets** and the
+original 60,137-byte PSL snapshot match source/build bytes. All **2,461 old
+non-HTTP classes**, every other old non-HTTP JAR entry and all CLI/dependency JAR
+bytes remain unchanged from the environment-proxy distribution. Only HTTP
+classes in the extended exception/proxy compilation units change or are added.
+This checkpoint does not claim a new full-project or complete Pandoc/calibre run.
+
+Exact preceding full CI runs `38819218765` (environment proxy, dd6043d) and
+`38817631586` (pool, a300ada) are still observed running at this checkpoint.
+Next work remains physical OS environment enumeration, actual Manager/pool/
+proxy/socket/TLS integration, manager mutation/override/status/error contracts,
+automatic cookies and responseOpenHistory, with all original local-server tests.
+The complete Pandoc port/all original tests, then calibre MOBI and its tests
+and additional formats absent from Pandoc/all their tests remain unchanged.

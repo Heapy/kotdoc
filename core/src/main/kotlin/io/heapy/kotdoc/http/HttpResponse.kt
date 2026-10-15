@@ -29,6 +29,7 @@ sealed interface HttpFailureContent {
     }
     data class InvalidStatusLine(val bytes: HttpBytes) : HttpFailureContent
     data class InvalidProxyEnvironmentVariable(val name: String, val value: String) : HttpFailureContent
+    data class InvalidProxySettings(val description: String) : HttpFailureContent
     data class ResponseBodyTooShort(val expected: ULong, val actual: ULong) : HttpFailureContent
     data class Zlib(val code: Int) : HttpFailureContent
     fun show(): String = when (this) {
@@ -44,11 +45,12 @@ sealed interface HttpFailureContent {
         }
         is InvalidStatusLine -> "InvalidStatusLine ${bytes.show()}"
         is InvalidProxyEnvironmentVariable -> "InvalidProxyEnvironmentVariable ${HaskellString.quoteCodePoints(name.codePoints().toArray())} ${HaskellString.quoteCodePoints(value.codePoints().toArray())}"
+        is InvalidProxySettings -> "InvalidProxySettings ${HaskellString.quoteCodePoints(description.codePoints().toArray())}"
         is ResponseBodyTooShort -> "ResponseBodyTooShort $expected $actual"
         is Zlib -> "HttpZlibException (ZlibException ${if (code < 0) "($code)" else code})"
     }
     fun showsPrec(precedence: Int): String {
-        val fields = this is TooManyRedirects || this is InvalidStatusLine || this is InvalidProxyEnvironmentVariable || this is ResponseBodyTooShort || this is Zlib
+        val fields = this is TooManyRedirects || this is InvalidStatusLine || this is InvalidProxyEnvironmentVariable || this is InvalidProxySettings || this is ResponseBodyTooShort || this is Zlib
         return if (fields && precedence > 10) "(${show()})" else show()
     }
 }

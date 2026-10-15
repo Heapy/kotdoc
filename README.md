@@ -12,8 +12,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - HTTP proxy selection from environment variables: original name precedence,
   URI/credential parsing, lazy no_proxy domain matching, fallback policy and
   duplicate authentication-header ordering. Independent observations use the
-  complete original non-Windows module. Windows registry selection and actual
-  HTTP manager integration remain pending.
+  complete original module on both CPP branches. Windows selection includes
+  protocol lists, literal/local bypasses, eager registry effects and error/close
+  ordering, with a native Advapi32 adapter and a dedicated Windows CI test.
+  Physical OS environment enumeration and HTTP manager integration remain pending.
 
 - HTTP keyed resource pool: idle-only per-key/global limits, LIFO reuse,
   exactly-once release, weak cleanup and the original 30-second idle reaper.
