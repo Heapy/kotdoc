@@ -118,3 +118,8 @@ tools/haskell-math-reader-reference/Text/TeXMath/Readers/TeX/Commands.hs -text w
 tools/haskell-pandoc-math-reference/Text/Pandoc/Class/PandocMonad.hs -text whitespace=-trailing-space,-blank-at-eof
 tools/haskell-pandoc-math-reference/Text/Pandoc/Shared.hs -text whitespace=-trailing-space,-blank-at-eof
 tools/haskell-pandoc-math-reference/Citeproc.hs -text whitespace=-trailing-space,-blank-at-eof
+
+# Preserve the original TimeLib release and exact writer environment projections.
+vendor/time-1.14/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-writer-environment-reference/SourceWriterEnvironment.hs -text whitespace=-blank-at-eof
+tools/haskell-writer-environment-reference/Text/Pandoc/Shared.hs -text whitespace=-blank-at-eof

@@ -6,6 +6,9 @@ import io.heapy.kotdoc.parsing.ParserCharacters
 import java.util.Locale
 
 object DocumentShared {
+    /** Parse an original Pandoc date format, restricted to years 1601–9999. */
+    fun normalizeDate(text: String): String? = DateNormalization.normalize(text)
+
     fun stringifyInlines(inlines: List<Inline>): String = buildString {
         fun go(inline: Inline) {
             when (inline) {

@@ -6480,3 +6480,73 @@ including full tests, source verification and installed CLI checks.
 
 The full objective remains active. The next required format work is the complete
 HTML writer and its original tests, not a reduced HTML rendering API.
+
+## Date normalization and metadata language setup for the HTML writer
+
+The full HTML writer also needs `Shared.normalizeDate` and
+`Writers.Shared.setupTranslations`. These are now implemented as
+`DocumentShared.normalizeDate` and `WriterShared.setupTranslations`. This stage
+provides those actual dependencies; the eleven HTML exports, original HTML
+writer tests, EPUB/slides integration and the rest of the original objective
+remain pending.
+
+Date normalization preserves the original eleven format alternatives and their
+order, GHC TimeLib 1.14 numeric padding, required/optional whitespace, ASCII digit
+grammar, case-insensitive English month matching using GHC Unicode mappings,
+1969–2068 two-digit-year pivot, Gregorian validity and 1601–9999 year restriction.
+Year-only and year/month inputs default the missing fields to January/1. Day
+numbers parsed with `%e` retain GHC Int64 wrapping before calendar validation.
+The implementation specializes the actual `normalizeDate` grammar; it does not
+claim a general port of `Data.Time` or its entire test suite.
+
+Language setup uses the existing exact metadata stringification, `toLang` warning
+and `setTranslations` state operations. It preserves lazy file loading, loaded
+equal-language tables, callback state mutations, report order and typed/host
+failures. The original default constructor places `US` in `langScript`, with
+`langRegion = Nothing`; this is intentionally preserved, including the cache
+equality consequence relative to a parsed `en-US` tag.
+
+The frozen `tools/haskell-writer-environment-reference` compiles byte-exact
+projections of those original bodies, their lookup/stringification dependencies
+and `setTranslations`, with unchanged original state/report/Lang modules. Its
+state instance and JSON/IORef transport only observe effects. All projection
+bodies are checked against the pinned upstream source before corpus validation.
+The native executable builds successfully again after freezing dependencies.
+The complete original TimeLib 1.14 release, including its tests and license, is
+retained byte-for-byte: 101 files match the original release archive, SHA-256
+`dfa0fe7cc9728e20d123a067161fa23ee27a5b180d58fa09d7738cb8ad737f3e`.
+Its full notice is also included in the distributed Kotlin JAR.
+
+All 61,878 independent native comparisons and the Kotlin cache/state identity
+check pass. They include metadata from every one of the 266 accepted original
+Pandoc documents, 144 original metadata representations, all eight original Lang
+unit inputs, 39 original date-metadata strings, 7,756 distinct original inline
+nodes, 30,036 year-boundary cases, 8,568 Gregorian calendar cases, all 100 two-digit
+years across 1,200 month/day combinations, 7,776 month-name/padding cases, 1,216
+whitespace cases, 40 integer overflow cases, 29 malformed/Unicode cases, 3,000
+mutations and 1,800 language-cache/verbosity/report-callback cases. State/effect
+comparisons include all thirteen common-state fields and every put/output event.
+Corpus SHA-256:
+`99b1125c32b6d3ac165d8093f798d0b5432f84141f958fb6dfdb890f9f99b72b`.
+The new source checker verifies 133 source hashes and is included in CI. No
+previous protected oracle or expectation corpus has changed.
+
+Validation: all 1,809,117 tests in 100 suites pass, with zero failures, errors or
+skips, including all 61,879 new native/identity checks. All 103 CI source/fixture
+commands and all 234 installed CLI comparisons pass (14 FB2, 66 media, 69 format
+modifiers, 85 math). Existing heap limits and worker recycling are unchanged.
+Installed/core JAR bytes match; all three affected production classes, 54 full
+license notices, 248 original data assets and both resource indexes are verified.
+All 133 new corpus source hashes match staged/original Git blobs, the staged
+corpus is byte-identical, and all 101 original TimeLib files match both the
+release archive and staged Git blobs. No earlier protected oracle/corpus changed;
+all upstream worktrees remain clean and pinned. Exact-SHA CI for ce152421 is now
+verified successful with all 114 recorded steps successful.
+
+The full objective remains active. Next is the complete stateful HTML writer,
+all eleven exports and every original unit/integration test. The existing
+`tools/haskell-writer-html-reference` covers only shared helpers; it cannot serve
+as the full HTML module oracle. The installed original Pandoc 3.12.1 can provide
+CLI expectations, while API/state/structured-markup comparisons require compiling
+the actual complete module with its original dependencies. No other remaining
+Pandoc or calibre work is removed from scope.

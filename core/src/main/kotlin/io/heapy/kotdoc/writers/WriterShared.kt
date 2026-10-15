@@ -14,11 +14,22 @@ import io.heapy.kotdoc.parsing.ParseState
 import io.heapy.kotdoc.parsing.SourcePos
 import io.heapy.kotdoc.parsing.ParserCharacters
 import io.heapy.kotdoc.parsing.RegexCharacters
+import io.heapy.kotdoc.language.Lang
+import io.heapy.kotdoc.state.PandocState
+import io.heapy.kotdoc.translations.setTranslations
 import java.util.ArrayDeque
 
-/** Pure shared writer operations. Haskell Char arguments use Unicode code
+/** Shared writer operations, with explicit state effects. Haskell Char arguments use Unicode code
  * points, including surrogate positions; Text arguments use scalar text. */
 object WriterShared {
+    /** Select metadata language lazily, preserving a table already loaded for it. */
+    fun setupTranslations(state: PandocState, metadata: Map<String, MetaValue>) {
+        val defaultLanguage = Lang("en", script = "US")
+        val text = DocumentShared.lookupMetaString("lang", metadata)
+        val language = if (text.isEmpty()) defaultLanguage else state.toLang(text) ?: defaultLanguage
+        state.setTranslations(language)
+    }
+
     fun isOrderedListMarker(text: String): Boolean = text.isNotEmpty() && text.last() in ".)" &&
         ListParsing.anyOrderedListMarker(ExampleNumbers).before(Parsec.eof())
             .run(ParseState(ParseInput(text),SourcePos(""),ExampleNumbers())).success
