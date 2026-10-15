@@ -123,3 +123,9 @@ tools/haskell-pandoc-math-reference/Citeproc.hs -text whitespace=-trailing-space
 vendor/time-1.14/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-writer-environment-reference/SourceWriterEnvironment.hs -text whitespace=-blank-at-eof
 tools/haskell-writer-environment-reference/Text/Pandoc/Shared.hs -text whitespace=-blank-at-eof
+
+# Preserve complete HTTP dependency releases and unchanged original test bodies.
+vendor/http-client-0.7.19/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/case-insensitive-1.2.1.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/bytestring-http-0.12.2.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-http-request-reference/OriginalRequestSpec.hs -text whitespace=-trailing-space,-blank-at-eof

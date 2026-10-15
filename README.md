@@ -9,6 +9,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- Native HTTP request preparation and HTTP/1.x wire writing from http-client
+  0.7.19: URL/auth/proxy/query rules, exact header order, gzip policy, six body
+  forms, Expect continuations, stream-size checks and file progress/reopening.
+  All 26 original RequestSpec/RequestBodySpec tests are translated and executed
+  independently; full URL transport/response/TLS and HTML CLI remain pending.
+
 - Typed document model covering every Pandoc 1.23 AST constructor.
 - Pandoc JSON reader and writer, including metadata, citations, tables, figures,
   API version validation, and ordered/duplicate attributes.

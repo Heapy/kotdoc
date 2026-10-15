@@ -151,3 +151,15 @@ lookahead explains a demand-order regression in token grouping. All 119 release
 files retain original bytes, including tests and notices. LICENSE matches the
 already retained licenses/text-BSD-2-Clause.txt byte for byte. This source retention
 is not a claim of completion for the complete Text library and its tests.
+
+
+HTTP request dependencies: `http-client-0.7.19/`,
+`case-insensitive-1.2.1.0/` and `bytestring-http-0.12.2.0/` retain complete,
+unchanged Hackage source releases, including their original tests. Each
+provenance.json records the archive URL and SHA256. The request observer uses
+these same versions from the original Pandoc frozen build. Existing
+`http-types-0.12.6/`, `network-uri-2.6.4.2/` and `blaze-builder-0.4.4.1/` remain
+unchanged. MIT and BSD notices are retained in the releases and licenses/.
+The new corpus hashes every retained file. These are development/oracle
+sources, not production Haskell dependencies; remaining transport/dependency
+APIs and tests are listed in docs/PORTING.md.

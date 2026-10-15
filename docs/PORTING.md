@@ -8514,3 +8514,121 @@ actual testcase/failure/error/skipped elements agree with the declared totals.
 Both HTML and JUnit XML reports are retained. The existing 3 GiB build-daemon
 report budget, 2 GiB sequential workers and recycling after 20 classes are
 unchanged. No previous test, report or source verifier is disabled.
+
+
+## HTTP request construction, wire effects and original request tests
+
+The preceding HTML checkpoint is concrete progress at
+85d905f19582a61ac7f12feb323c2495b14fdda1. This dependency phase follows the actual
+Pandoc Class.IO.HTTP caller: openURL uses parseUrlThrow, prepends the captured
+custom headers, and applies the lower-case http_proxy URL's parsed host/port.
+parseUrlThrow installs throwErrorStatusCodes even though parseRequest's default
+policy does nothing. The HTTP caller itself does not check statuses, but the
+installed request policy does. The old ResourceContext is not an equivalent
+implementation of this transport.
+
+New Kotlin http/HttpRequest.kt translates the request preparation and writing
+algorithms from pinned http-client 0.7.19. This includes raw Char/ByteString URL
+handling, method prefixes, case-insensitive schemes, URI update/relative merge,
+credential decoding, Basic/Bearer/proxy auth, proxy origin/CONNECT modes, query
+and partial-query encoding, URL-encoded bodies, gzip selection, Request Show
+with sensitive header redaction, and the two stock status policy selections.
+ByteString fields preserve arbitrary bytes independently of Unicode strings.
+The existing exact GHC numeric reader supplies readPositiveInt syntax and
+64-bit wrapping before its nonnegative guard.
+
+The writer translates all six body forms used by the source (strict, lazy
+chunks, byte-producing builder, fixed stream, chunked stream and IO body),
+Content-Length/Transfer-Encoding, ordered/duplicate/custom headers, implicit
+Host and Accept-Encoding, exact Expect: 100-continue continuations, stream size
+errors and observedStreamFile. Provider lifetimes use scoped callbacks; file
+providers reopen per use. Progress includes the EOF observation and retains the
+size captured before sending, even if a file subsequently changes. Empty
+popper chunks terminate a stream. Popper exceptions bypass the body-exception
+hook, whereas covered connection-write exceptions invoke that hook; streaming
+header writes remain outside that hook, as upstream.
+
+The translated Blaze toByteStringIO/bytestring threshold behavior retains
+individual connection writes, not just concatenated bytes: a 32,752-byte output
+buffer, the 8,160-byte copy threshold, direct large inserts, flushes and final
+empty buffers. The relevant original complete releases and notices are retained.
+New http-client (35 files), case-insensitive (12 files) and bytestring (67 files)
+releases are byte-checked against their actual source archives; only separate
+provenance.json files are added. Cabal's actual linked http-client and
+case-insensitive source SHA256s agree with those archives. Existing http-types,
+Network.URI and Blaze releases remain unchanged.
+
+The independent observer links the actual original http-client package from the
+Pandoc frozen dependency set. OriginalRequestSpec and OriginalRequestBodySpec
+change only module names. A minimal assertion runner executes every unchanged
+IO action, Eq/Show assertion, predicate and shouldReturn assertion. All **26
+original tests** pass before capture; the Kotlin suite translates all 26 with
+their literal expectations, including five original body variants in both
+Expect modes and the original 75,000-byte file verifier.
+
+The additional corpus contains **3,150 original observations** across URL/URI
+parsing, all byte and representative raw Unicode/surrogate URL characters,
+all percent-decoded auth bytes, all Latin-1 header folds/redaction, all query
+bytes, status policy switching, exact gzip membership/first-MIME semantics,
+proxy/header/body combinations, 270 exception-hook schedules, buffer boundaries,
+repeated file sends and post-capture file changes. The observer actually invokes
+the original checkResponse callback with a synthetic 404; this phase records
+policy selection without implementing response/status execution in Kotlin.
+The corpus has **204 independent source hashes** and semantic case SHA256
+`f8803c93de33c96e2a303dffc535b685947d7cef7e9852e2794cdc8ce6ea4086`.
+A provenance-only final recapture preserves every observation and this hash.
+
+Initial comparison found 18 differences: the GHC reader also accepts binary
+integer syntax, empty non-streaming Expect bodies still emit a final buffer,
+and large builder inserts preserve separate writes. Reusing the pinned numeric
+reader and translating the actual Blaze/bytestring write rules resolves these
+without changing original expectations. Later native fault-scope and file
+reopening probes pass as well. Targeted macOS/ARM64 validation passes all
+**3,176 tests**. Linux/x86_64 JDK 21 also passes all 3,176, with no failures,
+errors, skips or aborts (1.400s), at the unchanged 2 GiB worker budget.
+
+All **131** source/fixture verifiers pass (51.5s). Installed/core JAR bytes
+agree. All 37 new HTTP classes and the existing HTML/parsing/LaTeX/resource
+compiled classes agree with the JAR. All 61 full notices and 250 original Pandoc
+assets retain exact bytes. Every entry of the preceding HTML core JAR,
+including all 2,461 old class files, is unchanged; the CLI and dependency JARs
+are also byte-identical. Full project verification follows below.
+
+Remaining HTTP work includes response/header/body parsing, status-response and
+HttpException wrapping, redirects, cookies, manager reuse/configuration,
+proxy/network/TLS execution, and all remaining original http-client suites.
+The request model still needs the non-wire fields/arbitrary response callbacks,
+generic Blaze builders, RequestBody Monoid and lazy/partial/infinite contracts;
+this checkpoint does not claim complete http-client or URL transport parity.
+The existing CommonState manager and all old conversion code remain unchanged.
+HTML CLI is still pending that transport. The full objective remains unchanged:
+all Pandoc code and original tests, then calibre MOBI/all tests, then calibre
+formats absent from Pandoc and their tests. No Haskell oracle is a production
+conversion dependency.
+
+
+The preceding exact-SHA HTML CI run has now completed successfully:
+https://github.com/Heapy/kotdoc/actions/runs/38794239397.
+Git attributes explicitly preserve the complete retained HTTP release bytes and
+original RequestSpec whitespace. A staged-blob audit caught Git's default CRLF
+normalization in case-insensitive's original pg2189.txt; after renormalizing with
+-text attributes, all 204 source hashes agree with actual staged/pinned Git
+blobs. No upstream source or test bytes were edited to satisfy Git whitespace
+checks. Every older Kotlin source, test, corpus and observer remains unchanged.
+
+
+Final full Gradle validation passes **2,579,653 tests in 124 suites**, with no
+failures, errors or skips (12m 13s). Every XML report is fully parsed; actual
+case/failure/error/skipped elements agree with declared totals. The new HTTP
+request suite contributes all 3,176 tests (2.052s in this full run). Both HTML
+and JUnit XML reports remain enabled and retained. The existing 3 GiB build
+daemon and 2 GiB sequential/recycled test-worker budgets are unchanged.
+
+All six installed CLI checkers pass: 14 FB2, 66 media, 69 format modifiers,
+85 math options, 141 HTML writer and 101 LaTeX reader cases (**476 total**).
+The first checker invocation lacked JAVA_HOME and failed to locate a JVM;
+repeating with the same explicit JDK 21 used for Gradle passes every checker
+(395.0s). There was no source/expectation change for this environment correction.
+The Linux run, source checks, staged source archive audit and JAR preservation
+checks above also pass. This checkpoint completes request preparation/writing
+work recorded here, not the remaining complete transport or the full goal.
