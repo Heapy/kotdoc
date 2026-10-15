@@ -28,6 +28,7 @@ format is implemented explicitly in Kotlin.
 | `Text.Pandoc.Data` algorithms and reproducible timestamp helpers | `resources/PandocData.kt`, `PandocTime.kt`, `PandocFilePaths.kt` | Both embedded/installed branches on POSIX/Windows, actual 248-file TH catalog, three reference archives, user routing, enumeration and default directory selection; 5,663 independent original observations |
 | TeXMath finite expression model, shared transformations, Unicode and TeX/Pandoc output | `math/` | All 23 Exp constructors, Show/Eq/Ord, all Shared functions, complete Unicode and TeX renderer, complete writePandoc algorithm; 3,146 native observations, 3,721 original inputs and exhaustive Char mapping |
 | Complete finite TeXMath MathML writer and original XML.Light output | `math/MathMLWriter.kt`, `MathMLOperators.kt`, `MathNumbers.kt`, `xml/LegacyXml*.kt` | All 561 original MathML writer goldens, full 1,107-row dictionary, exact XML trees/serialization, every Char and numeric boundaries; 9,700 original observations |
+| Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
@@ -6258,3 +6259,72 @@ fresh-cache verification. Its exact-SHA CI run 38677372152 was still running at
 publication of this writer stage. The failure of the earlier f01d4d9 pipeline
 was diagnosed before compilation, not hidden by claiming its tests had passed.
 The full objective remains active.
+
+
+### TeX macro preprocessing and Unicode-to-TeX mapping
+
+Translated the complete finite algorithms of Readers.TeX.Macros and
+Unicode.ToTeX from the retained texmath 0.13.3.1 release. Macro parsing uses the
+existing continuation-based Parsec engine, preserving consumed/empty replies,
+backtracking, remaining input, source names/line/column, unchanged arbitrary
+Integer user state, error-message order and pretty errors. Generic parser input
+retains raw surrogate Chars; Text entry points apply original Text normalization.
+
+All newcommand/renewcommand/providecommand, DeclareMathOperator and
+newenvironment/renewenvironment variants are supported, including optional
+arguments, 0..9 argument counts, canonical Show, comment/delimiter rules,
+parameter substitution, escaped placeholders, nested same-name environments and
+later-definition shadowing. Expansion preserves the source 2*N+1 pass limit,
+macro-fired flag and complete-original-input fallback for cycles. Nonmatching
+macros and an empty macro list retain their distinct comment behavior. Truncated
+comments/backslashes and malformed definitions retain original unconsumed input.
+
+The complete 2,755-row Unicode mapping is generated in original order, with
+all command/package pairs, categories and comments. Character lookup retains the
+last duplicate record; command lookup retains first-record/first-command priority
+and contains all 2,832 original commands in source Text order. Base commands take
+precedence over package choices; package order, accent/radical empty groups,
+variation-selector handling, Unicode font fallback and escaping match source.
+The list renderer implements original foldr renderTeX with shared suffix lookahead
+using the existing explicit work stack and rope. The single-token renderer and
+protected earlier expectations are unchanged in behavior.
+
+Original GPL notices and the mapping's additional LPPL clause-6 notice are
+retained. The modified Kotlin mapping has distinct names and a change/support
+notice; the complete original mapping and release remain vendored. The official
+complete LPPL 1.3c text and mapping notice are included in distributed JARs.
+
+The independent oracle compiles unchanged complete texmath with a separate frozen
+Cabal plan. Its main transports original results only. There are 26,415 original
+observations and 3,822 source hashes, including complete record/command tables,
+all 1,114,112 Haskell Chars for classification and conversion in seven package
+environments, every record's package choices, canonical macro constructors,
+arguments/defaults, Unicode/raw names, Int64 source-position wrapping, errors,
+comments, malformed prefixes, cycles, transitive chains and deterministic fuzz.
+Serialized range witnesses hash exact output as big-endian 32-bit characters.
+All 149 original TeX input sections are retained byte-exact and execute original
+macro preprocessing; this is not a claim of full TeX reader/golden completion.
+
+All 26,415 native comparisons and an additional ownership/depth test pass. The
+latter checks immutable snapshots/maps, 1,500 nested groups and adjacent command
+spacing. The earlier 3,147 TeXMath checks also pass after list rendering was added.
+Corpus SHA-256:
+`195bafae516e70601453b1ccd3888bee4b5f25be1e1e53ad21c965b2c075f2c2`.
+
+The complete TeX reader and Commands tables, Pandoc math bridge, remaining
+TeXMath readers/writers/goldens, complete HTML writer and all other remaining
+Pandoc/calibre work remain pending under the original full objective.
+
+The exact-SHA CI runs for d209043 and 7c55eaf are now verified successful, with
+all 110 and 111 recorded steps successful respectively, including full tests,
+source checks and installed CLI checks.
+
+
+Validation: all 1,623,475 tests in 97 suites pass with zero failures, errors or
+skips, including 26,416 new macro/Unicode checks. All 100 source/fixture commands
+in CI and all 234 installed CLI checks pass (14 FB2, 66 media, 69 modifiers and
+85 math). The existing 2 GiB heap and worker-recycling policy are unchanged.
+Installed CLI/core JAR bytes match; all 53 complete notices, 248 data assets and
+two indexes are byte-exact. The staged new corpus and all 3,822 recorded source
+blobs match their independent hashes; all three pinned upstream revisions match.
+No protected earlier corpus or oracle changed. The full objective remains active.

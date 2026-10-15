@@ -52,8 +52,10 @@ object MathTeXRenderer {
     private fun append(a: Rope?,b: Rope?): Rope?=if(a==null) b else if(b==null) a else Rope(null,a,b)
     private fun text(s: String): Rope?=if(s.isEmpty()) null else Rope(s)
     private class EndGroup(val rest: Rope?)
-    fun renderTeX(tex: MathTeX,suffix: String=""): String {
-        var out=text(TextChars.fromString(suffix));val todo=ArrayDeque<Any>();todo.addLast(tex)
+    fun renderTeX(tex: MathTeX,suffix: String=""): String = renderTeXList(listOf(tex),suffix)
+    /** Original foldr renderTeX, retaining suffix lookahead across adjacent tokens. */
+    fun renderTeXList(tex: List<MathTeX>,suffix: String=""): String {
+        var out=text(TextChars.fromString(suffix));val todo=ArrayDeque<Any>();todo.addAll(tex)
         fun prepend(s: String) { out=append(text(s),out) }
         fun first()=out?.prefix?.codePointAt(0)
         while(todo.isNotEmpty()) when(val t=todo.removeLast()) {

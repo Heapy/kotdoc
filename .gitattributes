@@ -107,3 +107,6 @@ licenses/Texmath-GPL-2.0.txt -text whitespace=-trailing-space,-blank-at-eof,cr-a
 vendor/xml-1.3.14/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/ghc-mathml-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 licenses/XML-Light-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+
+licenses/LPPL-1.3c.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+licenses/Math-TeX-Mapping-NOTICE.txt -text

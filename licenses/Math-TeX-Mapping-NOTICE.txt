@@ -1,0 +1,27 @@
+kotdoc mathematical Unicode/TeX mapping translation (2026)
+
+This modified Kotlin work is named MathTeXUnicode.kt and
+MathTeXUnicodeData.kt in package io.heapy.kotdoc.math. It is maintained as part
+of https://github.com/Heapy/kotdoc; support for this translation belongs there.
+
+It translates Text.TeXMath.Unicode.ToTeX from texmath 0.13.3.1, copyright
+2014 Matthew Pickering, distributed under GPL version 2 or later. That module
+derives from the Unicode/LaTeX mapping copyright 2011 Günter Milde, originally
+distributed under LPPL version 1.3 or later. The original module's additional
+LPPL clause-6 notice is retained in its complete unmodified source.
+
+Changes: Kotlin types and immutable collections replace Haskell types; the
+ordered record table is generated as Kotlin source; lookup, package choice,
+symbol-map and Unicode fallback algorithms are translated to Kotlin. This is
+a distinct renamed work, not an update published by the upstream authors.
+
+The unmodified upstream module and original mapping are retained in:
+vendor/texmath-0.13.3.1/src/Text/TeXMath/Unicode/ToTeX.hs
+vendor/texmath-0.13.3.1/lib/totexmath/unimathsymbols.txt
+
+Their complete source release is available at:
+https://hackage.haskell.org/package/texmath-0.13.3.1/texmath-0.13.3.1.tar.gz
+
+The original GPL and LPPL texts accompany this work as Texmath-GPL-2.0.txt
+and LPPL-1.3c.txt. The unmodified originals remain available independently
+of this translation; names, credits and notices have not been removed.
