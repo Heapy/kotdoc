@@ -24,6 +24,7 @@ format is implemented explicitly in Kotlin.
 | Definition Eq/Ord dictionaries | `ast/AstComparison.kt` | Complete represented AST/associated types, distinct source operators, 75,470 original observations, all 266 documents and 17 original generators |
 | `Text.Pandoc.Logging` represented values and Verbosity instances | `logging/`, `parsing/Parsec.kt`, `ast/AstJsonValues.kt` | All 54 constructors, pretty/JSON/verbosity/Show/source Eq/Ord; 25,373 original observations, 266 ToJSON documents, raw names and 100,000-level structures |
 | `Class.CommonState` record and `PandocMonad` state/logging operations | `state/CommonState.kt`, `state/PandocState.kt` | All 13 fields/defaults, persistent reverse log, callbacks/typed errors/nested silence, headers, URL, media and cache identity; 3,615 native observations plus snapshot/identity checks |
+| libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | aeson-pretty defined-value library and numeric formatting dependency | `json/PrettyJson.kt`, `PrettySort.kt`, `ScientificNumber.kt` | All configuration modes, Aeson Text quoting, source natural/fused sorting and Scientific formatting; 21,522 original observations, 266 documents, 1,027 source hashes |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
@@ -5499,3 +5500,102 @@ are byte-exact in the built core JAR. The 31 manifest source hashes and exact
 corpus bytes were verified against staged Git blobs or the pinned Pandoc
 submodule commit. The previous bdad2bb publication passed exact-SHA CI run
 38651628767 with all 101 steps completed successfully.
+
+
+## YAML reader and scalar schema dependencies for translation loading
+
+Text.Pandoc.Translations requires the original YAML pipeline, not merely a parser
+for the 107 packaged translation files. The first dependency stage now translates
+libyaml 0.2.5 reader.c and the YAML 0.11.11.2 scalar schema/numeric/string-style
+functions. The scanner, syntax parser, anchor/merge/document state, exception
+rendering, generic FromJSON decoding, emitter and configuration/file/include APIs
+remain pending; readTranslations/getTranslations/setTranslations/translateTerm
+are not claimed implemented by these dependency helpers.
+
+YamlReader retains the original fixed logical raw/decoded buffer capacities,
+encoding detection/BOM skipping, explicit UTF8/UTF16LE/UTF16BE selection, batched
+prefetch, unread-character counts, raw-byte offsets, buffer compaction, EOF NUL,
+read-handler failures and error priority. Actual backing storage grows only to
+populated capacity so a tiny scalar does not allocate two large empty arrays;
+this preserves callback size requests and observed bytes/state. Scanner lookahead
+can read a byte without copying the entire buffer. The read handler owns the IO
+boundary; physical native allocation failures and invalid C callback contracts
+are not claimed equivalent to JVM memory errors.
+
+UTF8 failures distinguish invalid leading/trailing octets, incomplete sequences,
+overlong width and invalid Unicode values before rejecting YAML-prohibited
+control characters. UTF16 distinguishes incomplete code units, unexpected low
+surrogates, incomplete pairs and wrong second units. Encoding detection waits
+for three bytes or EOF even for a two-byte BOM. Explicit encoding does not strip
+a BOM. Offsets use unsigned 64-bit source size_t arithmetic, including wrapping
+and the original MAX_FILE_SIZE check after non-EOF fill. The EOF early return
+bypasses this check; synthetic boundary offsets are compared to actual native code.
+
+The scalar layer uses the original style/tag precedence: single/double quoted,
+StrTag and Folded yield strings; Literal does not force string typing. Null and
+boolean spellings are exactly the source alternatives. Other tags do not coerce
+content. Numeric parsing accepts lowercase unsigned 0x/0o, signed decimal with
+optional empty fractional digits and decimal exponent, preserves coefficient
+precision and wraps exponent arithmetic like source Int64. Full-input failures
+retain original Attoparsec messages. NaN/infinity, underscores, sexagesimal,
+uppercase numeric prefixes and signed prefixed integers remain ordinary strings
+according to this source schema. Scalar bytes use the existing source Text
+lenient UTF8 decoder. String-style selection chooses Literal for newline, quotes
+special/numeric text, and handles empty strings without invoking a custom style
+callback. Scalar events own bytes and raw anchor character values.
+
+Native evidence uses unchanged complete C api.c/reader.c for actual buffer state,
+and the complete installed original yaml Internal/libyaml/Attoparsec packages
+for numeric parsing, scalar-event decoding and stringScalar/defaultStringStyle.
+The C bridge constructs inputs/consumes characters and observes state only; no
+decoder is duplicated. Both frozen native programs are test oracles only.
+
+There are 82,635 independent fixture cases:
+
+- 1,088 grouped UTF8 cases execute all 1,114,112 code points;
+- 128 grouped UTF16 cases execute all 131,072 code units in both byte orders;
+- all 65,536 two-byte inputs, with actual buffer/error/EOF/callback state;
+- 1,332 chunk/BOM/input-failure cases, 75 unsigned-offset and 24 capacity cases;
+- all 107 original Pandoc YAML files under three input chunk plans (321 cases);
+- 2,500 seeded reader sequences; 257 numeric boundaries and 3,500 numeric fuzz cases;
+- 3,640 scalar style/tag cases, 3,856 malformed scalar byte cases and 378 string events.
+
+Corpus SHA-256:
+`981df8ac79badbdf48ed7e56e0bf803013c60c578d7448a0e58d78f594f2c6c3`.
+All 185 source/fixture hashes, complete Unicode domains, byte-pair inventory and
+all original translation paths are checked independently. The original no.yaml
+symlink is hashed as its target spelling and its bytes are loaded through nb.yaml.
+No pre-existing upstream expectations are changed. The 82,636 targeted tests
+pass, including a separate ownership/empty-strategy effect check. These tests
+validate the reader and schema stages; they do not substitute for porting the
+full original YAML test suite or full translation/Pandoc runtime.
+
+Complete original Hackage releases retained verbatim:
+
+- yaml 0.11.11.2: 34 regular files, archive SHA-256
+  `ee74923ee5b0fef74413c58aaa20ea59baf5d29d256a62fb47cc279570d9dc2f`;
+- libyaml 0.1.4: 8 regular files, archive SHA-256
+  `d6297ec9b1ebb4e4b580a4357d840d08a6f53e13a10c0c53ee74b973bba6fa13`;
+- libyaml-clib 0.2.5: 14 regular files, archive SHA-256
+  `04526bc54e5fcf471c2bd22854e6b519e162a6e3d654e866cd8862103c725149`.
+
+All 56 original files were byte-compared against their archives. Their complete
+BSD-2-Clause/BSD-2-Clause/MIT notices are preserved in the core JAR. The preceding
+95b757b publication passed exact-SHA CI run 38654151387 with all 102 steps
+completed successfully. Full Pandoc, all original tests and all calibre work
+remain within the unchanged goal.
+
+The first full-suite run exceeded the existing 2 GiB test worker heap because
+JUnit retains dynamic-test lambdas and the new factory captured the parsed JSON
+for every case, including all grouped Unicode arrays. The YAML factory now
+retains transport text only until each test runs and releases it before parsing;
+results remain the same independent native values and no cases are removed.
+The targeted 82,636 tests pass after this retention fix. The complete suite also
+passes at the unchanged 2 GiB worker limit in 6 minutes 6 seconds.
+
+Validation: all 1,382,157 tests in 88 suites pass with zero failures, errors or
+skips. All 91 source/fixture checks and 234 installed CLI checks pass (14 FB2,
+66 media, 69 format modifiers, 85 math options). All 49 complete original notices
+are byte-exact in the built core JAR. All 185 source hashes and the complete
+corpus were verified against staged Git blobs or the exact pinned Pandoc
+submodule. All 56 original YAML release files match their archives byte-for-byte.
