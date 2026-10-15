@@ -66,6 +66,7 @@ jobs:
       - run: python3 tools/import-common-state-fixtures.py --check-source
       - run: python3 tools/import-yaml-fixtures.py --check-source
       - run: python3 tools/import-yaml-scanner-fixtures.py --check-source
+      - run: python3 tools/import-yaml-parser-fixtures.py --check-source
       - run: python3 tools/import-toc-fixtures.py --check-source
       - run: python3 tools/import-emoji-tables.py --check
       - run: python3 tools/import-case-mappings.py --check

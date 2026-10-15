@@ -26,6 +26,7 @@ format is implemented explicitly in Kotlin.
 | `Class.CommonState` record and `PandocMonad` state/logging operations | `state/CommonState.kt`, `state/PandocState.kt` | All 13 fields/defaults, persistent reverse log, callbacks/typed errors/nested silence, headers, URL, media and cache identity; 3,615 native observations plus snapshot/identity checks |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
+| Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
 | aeson-pretty defined-value library and numeric formatting dependency | `json/PrettyJson.kt`, `PrettySort.kt`, `ScientificNumber.kt` | All configuration modes, Aeson Text quoting, source natural/fused sorting and Scientific formatting; 21,522 original observations, 266 documents, 1,027 source hashes |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
@@ -5679,3 +5680,85 @@ options). All 49 complete original notices remain byte-exact in the core JAR.
 All 176 source/fixture hashes and exact corpus bytes were verified against
 staged Git blobs or the exact pinned Pandoc submodule commit. No pre-existing
 oracle expectations or protected oracle implementations were modified.
+
+
+## Complete libyaml syntax parser algorithm
+
+Translated the complete libyaml 0.2.5 parser.c state machine on the Kotlin reader
+and scanner. All 24 state dispatcher cases and productions are represented,
+including implicit/explicit document starts/ends, empty document/node values,
+block/flow/indentless collections, ordered mapping entries inside sequences,
+anchor/tag property ordering, alias events, directives and tag expansion.
+Parser recursion is represented by the explicit state/mark stacks; a nested
+collection does not create an equally deep JVM call stack.
+
+The scanner now separates PEEK_TOKEN from SKIP_TOKEN, preserving token availability,
+parsed-token counts, delayed-key bookkeeping and stream-end timing during parser
+lookahead. Its public scan behavior remains independently checked against the
+same unchanged 8,641 original scanner observations. Parser errors use both source
+context/problem marks and exact text; reader/scanner failures retain their source
+priority. The first failure and the later empty terminal event remain distinct.
+
+YAML version handling accepts only source 1.1/1.2 and preserves duplicate/incompatible
+errors. User tag directives take precedence over default !/!! handles, duplicates
+fail at the source mark, and document end clears directive scope. Tag bytes are
+expanded without applying a different Unicode schema or treating C-string fields
+as length-bearing scalar bytes. Missing versus present empty tags/anchors remain
+distinct. Plain/quoted implicit flags, collection styles, explicit directive lists,
+version records, owned scalar bytes and all event marks follow original fields.
+Physical native allocation failures, invalid direct manipulation of internal C
+structures and generic partial values are not claimed equivalent to JVM behavior.
+
+The new native oracle compiles unchanged complete api/reader/scanner/parser modules.
+Its bridge only supplies bytes/chunk schedules and observes events, parser state,
+return/mark stacks, active tag directives, token availability, scanner queue/keys,
+reader state and errors after every yaml_parser_parse call. Previously published
+oracles/corpora and their expectations are unchanged. The scanner corpus is used
+only as an input inventory; every parser expected result is captured afresh from
+actual original C execution.
+
+There are 10,286 native observations: all 8,641 previous scanner inputs plus
+57 document/directive cases, 840 node-property order/tag cases, 124 collection
+production cases, 18 nested-stack cases through depth 300, 500 generated nested
+nodes and 106 byte-by-byte input-failure schedules. All 11 event kinds including
+the empty terminal event, normal/reader/scanner/parser results and all 22 normally
+observed parser states are present. Legacy dispatcher entries 6/7 are not assigned
+by normal original productions; their node routines are called directly and their
+corresponding dispatcher handlers are translated as well.
+
+Corpus SHA-256:
+`0002d61ee657df3b5cdd0ba2eef8af775a54de5d9873fd0773f63eba6b7edb18`.
+All 69 source/fixture hashes, case/group totals, event inventories and observed
+state inventories are checked. All 10,287 targeted parser tests and 8,642 scanner
+tests pass with zero failures/errors/skips. The additional parser check verifies
+byte/directive ownership and absent versus empty tag distinction. Dynamic fixture
+text is released before parsing so completed test lambdas retain no input trees.
+
+This stage parses syntax into libyaml events. Higher-level yaml anchor lookup,
+merge/warning/document conversion, FromJSON decoding, parse exception rendering,
+configuration/includes/emission and Pandoc translation loading/caching remain
+pending, together with remaining Pandoc formats/runtime/tests and all calibre
+work within the unchanged objective.
+
+The first combined full-suite run exceeded the unchanged 2 GiB worker heap.
+The parser's input transport is 147,650,483 characters, with a 23,800,235-character
+nested-stack trace; each case releases its transport text, but JUnit retains
+completed test descriptors from preceding classes until the worker exits. The
+complete test task now recycles its worker after every 20 classes, executing all
+classes/cases sequentially with the same 2 GiB per-worker limit. No expectations,
+tests or corpus entries are removed. Targeted parser/scanner validation passed
+before this full-run isolation change; the complete task passes with all cases after worker isolation.
+
+The preceding 7662684 publication passed exact-SHA CI run 38659627184 with all
+104 steps completed successfully. All 93 source checks still pass after the
+worker-isolation configuration change.
+
+Validation: all 1,401,086 tests in 90 suites pass with zero failures, errors or
+skips, recycling workers after 20 classes at the unchanged 2 GiB per-worker
+limit. All 93 source/fixture checks and all 234 installed CLI checks pass (14
+FB2, 66 media, 69 format modifiers, 85 math options). All 49 complete original
+notices remain byte-exact in the core JAR. All 69 source/fixture hashes and exact
+corpus bytes were verified against staged Git blobs or the exact pinned Pandoc
+submodule commit. The parser native corpus still has the same 10,286 cases and
+case hash after its source inventory verification update. No pre-existing
+native expectations, tests or protected reference implementations were changed.

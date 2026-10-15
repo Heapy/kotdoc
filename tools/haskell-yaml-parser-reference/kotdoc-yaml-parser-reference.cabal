@@ -1,0 +1,17 @@
+cabal-version: 3.0
+name: kotdoc-yaml-parser-reference
+version: 0.1.0.0
+build-type: Simple
+license: MIT
+executable yaml-parser-reference
+  main-is: YamlParserReference.hs
+  hs-source-dirs: .
+  c-sources: ParserBridge.c, ../../vendor/libyaml-clib-0.2.5/cbits/api.c,
+             ../../vendor/libyaml-clib-0.2.5/cbits/reader.c,
+             ../../vendor/libyaml-clib-0.2.5/cbits/scanner.c,
+             ../../vendor/libyaml-clib-0.2.5/cbits/parser.c
+  include-dirs: ../../vendor/libyaml-clib-0.2.5/cbits
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, text ==2.1.2,
+                 bytestring ==0.12.2.0, vector

@@ -20,6 +20,9 @@ class YamlScanner(private val reader: YamlReader) {
         private set
     private var started = false
     private var ended = false
+    internal val streamEndProduced: Boolean get() = ended
+    private var available = false
+    internal val tokenAvailable: Boolean get() = available
     private val queue = ArrayList<YamlToken>()
     private var head = 0
     private val indents = ArrayList<Int>()
@@ -33,6 +36,14 @@ class YamlScanner(private val reader: YamlReader) {
 
     fun next(): YamlScanResult {
         if (ended || failure != null) return YamlScanResult.End
+        val token = peekForParser() ?: return YamlScanResult.Failure(checkNotNull(failure))
+        consumeForParser()
+        return YamlScanResult.Token(token)
+    }
+    /** PEEK_TOKEN must not advance tokensParsed, the queue, or stream-end state. */
+    internal fun peekForParser(): YamlToken? {
+        if (failure != null) return null
+        if (available) return queue[head]
         return try {
             while (true) {
                 var more = head == queue.size
@@ -43,12 +54,17 @@ class YamlScanner(private val reader: YamlReader) {
                 if (!more) break
                 fetch()
             }
-            val token = queue[head++]
-            tokensParsed++
-            if (token.type == YamlTokenType.StreamEnd) ended = true
-            if (head > 1024 && head * 2 > queue.size) { queue.subList(0, head).clear(); head = 0 }
-            YamlScanResult.Token(token)
-        } catch (_: Stop) { YamlScanResult.Failure(checkNotNull(failure)) }
+            available = true
+            queue[head]
+        } catch (_: Stop) { null }
+    }
+    internal fun consumeForParser() {
+        check(available)
+        val token = queue[head++]
+        available = false
+        tokensParsed++
+        if (token.type == YamlTokenType.StreamEnd) ended = true
+        if (head > 1024 && head * 2 > queue.size) { queue.subList(0, head).clear(); head = 0 }
     }
     private fun fail(context: String?, start: YamlMark, problem: String): Nothing {
         failure = YamlScanFailure(3, problem, context, mark, start)

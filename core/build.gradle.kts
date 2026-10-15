@@ -17,6 +17,10 @@ tasks.test {
     // Allow headroom for more than 1,200,000 upstream observations and their full
     // expected outputs; the build daemon has its own budget in gradle.properties.
     maxHeapSize = "2g"
+    // JUnit retains completed dynamic-test descriptors until a worker exits.
+    // Recycle workers between groups of classes as the full upstream suite grows.
+    // All classes/cases still execute, sequentially, at the same per-worker budget.
+    forkEvery = 20
     systemProperty("jna.tmpdir", layout.buildDirectory.dir("jna").get().asFile.absolutePath)
     systemProperty("kotdoc.root", rootProject.projectDir.absolutePath)
 }
