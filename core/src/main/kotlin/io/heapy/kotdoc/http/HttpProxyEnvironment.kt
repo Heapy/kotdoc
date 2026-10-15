@@ -33,7 +33,7 @@ object HttpProxyEnvironment {
     fun httpProtocol(secure: Boolean) = if (secure) HttpProxyProtocol.HTTPSProxy else HttpProxyProtocol.HTTPProxy
 
     /** Snapshot once, including entry order and duplicate names at the effect boundary. */
-    fun systemEnvironment(): List<Pair<String, String>> = System.getenv().entries.map { it.key to it.value }
+    fun systemEnvironment(): List<Pair<String, String>> = io.heapy.kotdoc.resources.GhcEnvironment.getEnvironment()
 
     /** The original non-Windows systemProxyHelper branch. Registry selection is separate. */
     fun environmentProxyHelper(

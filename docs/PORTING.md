@@ -19,6 +19,7 @@ format is implemented explicitly in Kotlin.
 
 | Source | Kotlin | Evidence |
 |---|---|---|
+| GHC 9.12.2 getEnvironment/divvy and selected filesystem ROUNDTRIP decoding | `resources/GhcEnvironment.kt`, `GhcEnvironmentEncoding.kt` | 4,986 independent fixture groups per macOS/Linux, all byte pairs for 13 encodings, every Char through UTF8, live OS/JVM cache tests; complete GHC IO runtime and other host ABIs remain pending |
 | `Network.HTTP.Proxy` Windows branch and selected Win32 registry wrappers | `http/HttpWindowsProxy.kt`, `HttpNativeWindowsRegistry.kt` | 2,179 complete-original Windows-CPP observations with ordered registry effects; actual Windows API test has a dedicated CI job; Manager/environment backend remain pending |
 | `Network.HTTP.Proxy` common environment/non-Windows selection branch | `http/HttpProxyEnvironment.kt` | 4,460 independent complete-original observations, exact/folded names, lazy no_proxy, auth/fallback/Show; Windows registry and Manager integration remain pending |
 | pandoc-types `Text/Pandoc/Definition.hs` AST constructors | `core/.../ast/Pandoc.kt` | All node variants represented; JSON tests |
@@ -9480,3 +9481,126 @@ proxy/socket/TLS integration, manager mutation/override/status/error contracts,
 automatic cookies and responseOpenHistory, with all original local-server tests.
 The complete Pandoc port/all original tests, then calibre MOBI and its tests
 and additional formats absent from Pandoc/all their tests remain unchanged.
+
+### Live GHC environment blocks and filesystem byte decoding
+
+`resources/GhcEnvironment.kt` replaces the HTTP proxy backend's JVM environment
+map with live OS reads. On Darwin it reads `_NSGetEnviron`; on Linux/glibc it
+reads `environ`. Both keep original pointer order, duplicate names, nameless
+entries, entries without `=`, empty values and first-`=` splitting. Null blocks
+return before demanding the filesystem encoding. Pointers are enumerated before
+C strings are decoded, matching the original function's order. Each new HTTP
+helper captures a fresh snapshot once; later native changes affect a newly
+constructed helper without changing an already constructed one.
+
+Windows uses actual Kernel32 GetEnvironmentStringsW/FreeEnvironmentStringsW,
+with cleanup even for a null block and an ignored Bool result. Acquisition
+failure does not release; cleanup failure overrides the result as in bracket.
+The original seekNull advances by two-byte CWchar while peeking **Word8**. A
+Unicode character with a zero low byte can therefore split a record or end
+iteration early. This behavior is preserved, not replaced by a conventional
+UTF-16 environment parser. The original cWcharsToChars pair/surrogate behavior
+and divvy splitting are retained, including leading-`=` drive entries.
+
+`GhcEnvironmentEncoding.kt` ports the selected Unicode/ASCII/Latin1 decoder
+algorithms, BOM/default-BE state, per-string decoder reset and RoundtripFailure.
+A bad/truncated sequence consumes one byte, preserving ASCII or mapping bytes
+128..255 to U+DC80..U+DCFF. Native system iconv remains the original system effect
+for other codecs; it is not replaced by JVM Charset tables. The original 'a'
+encode/C-string/decode acceptance probe starts with two output bytes, doubles
+when output or NUL space is exhausted, and preserves iconv state on retries.
+Input/output positions, stateful recovery, error/close ordering and four-byte
+Char output are retained. The initial native filesystem codec is captured from
+the process C codeset; arbitrary replacement of GHC TextEncoding objects and
+the complete GHC IO/locale runtime are not claimed as implemented here.
+
+Some native iconv aliases yield **raw 32-bit Char slots beyond Unicode**, such
+as 0x110000, even though normal Haskell Char constructors reject them. Decoding
+and `getEnvironmentCodePoints` retain those raw slots in IntArrays without
+replacement or UTF-16 pair folding. Values can be interpreted as UInt for the
+full 32-bit range. `getEnvironment` is the UTF-16/String facade for representable
+values; callers needing the raw native slots use the code-point API. The HTTP
+backend uses the ordinary String facade. Other POSIX ABI constants and full
+GHC runtime state remain explicit integration gaps; native bindings at this
+checkpoint target Darwin, Linux/glibc and Windows.
+
+Pinned implementation sources are retained from GHC **9.12.2**, release commit
+`383be28ffdddf65b57b7b111bfc89808b4229ebc`. Every selected file was compared
+against the official source archive, whose SHA256 is
+`0e49cd5dde43f348c5716e5de9a5d7a0f8d68d945dc41cf75dfdefe65084f933`;
+the official test archive SHA256 is
+`cf142eadb4ff9b84ba49c01f52813acbeb742d57b21e64c46424563e0bf410aa`.
+Both match the release SHA256SUMS. SOURCE.json records the release and selected
+file hashes, including the complete base notice already packaged in the JAR.
+The whole original getEnvironment/divvy bodies are extracted without algorithm
+edits for both branches. POSIX block/encoding effects are injected; the Windows
+CWchar effect type is Word16 with its real Windows size/alignment. The original
+wide-character conversion body is extracted unchanged. GHC's actual codec
+implementation is used by the development-only observer, not the production
+converter. No original program is a production dependency.
+
+Separate native **macOS/aarch64** and **Linux/x86_64 GHC 9.12.2** observers check
+the full compiler patch version. They supply **4,986 fixture groups each**,
+with **751 source hashes** per corpus. These include all **851,968 byte-pair
+string decodes** across 13 codecs, all **1,114,112 Haskell Char inputs** encoded
+as raw UTF-8 (including surrogate inputs), BOM/endian/EOF cases, aliases,
+stateful streams and original environment pointer/UTF-16 layouts. Large Char
+ranges use independent original-output count/SHA256 checks. These are grouped
+observations, not 4,986 invented upstream unit tests.
+
+Semantic corpus SHA256:
+
+- macOS: `e9be5c6b225eea2426ad8c031349b639af1fb1620621a0eac8c1a59231481a75`
+- Linux: `703567e7fc72b86b0110d0d3bb9709b979cfdd2764291583ab1e87018d3c00a1`
+
+The original complete **T12494** source, stdout and registration are retained.
+Its full native executable must pass before capture on each platform. Kotlin's
+live tests cover its getEnvironment empty-value assertion; the separate Blank
+getEnv/getEnvDefault/setEnv APIs and the rest of that test are not mislabeled as
+ported. Controlled POSIX expectations are additionally checked against actual
+System.Environment.getEnvironment after temporarily replacing environ inside
+the disposable Haskell observer. Kotlin's isolated child JVM independently
+checks actual physical ordered/duplicate/malformed/null environ blocks. A
+native setenv test proves that the HTTP backend sees new values after the JVM
+cache was initialized, while an existing helper keeps its snapshot. Test
+variables are unique and removed; user environment contents are never printed.
+
+Initial Linux verification found a **test context mismatch**, not different
+expected decoding: the GHC observer used C locale `C`, while the JVM used UTF-8.
+The empty iconv name means the current C locale. The observer now records its
+actual locale; Kotlin applies/restores that exact locale for the observation.
+All preceding **4,980 expected values on each platform remain byte-for-byte
+semantically unchanged**; no expectation was derived from Kotlin. Six additional
+codec alias/probe cases were then captured from the original. The raw Char slot
+API fixes the initially exposed JVM String range limitation without dropping
+that original out-of-range observation.
+
+The final local run passes **100,460 tests** (38s Gradle run): all 95,471 HTTP
+checks and 4,989 environment checks. Every XML is parsed fully; declared and
+actual counts agree. Exactly one Windows-registry-only test is intentionally
+skipped on macOS. The same **100,460 tests** pass on Linux/x86_64 JDK 21 (11.108s),
+with that same single platform skip and no failures, errors or aborted tests or
+containers. All **142 source/fixture verifiers** pass (60.7s).
+
+The Windows CI job now selects the existing proxy/registry tests plus all 3,826
+applicable environment fixture groups, cleanup checks and actual Kernel32
+snapshot/mutation/empty-value/Unicode scan tests. Its XML guard requires
+**10,473 tests without skips**. Actual Windows execution of this new backend
+remains pending until the exact published job succeeds; prior Windows proxy
+success alone is not evidence for the new Kernel32 implementation.
+
+Installed/core JARs agree; all existing HTTP classes, 68 complete notices,
+250 Pandoc assets and the 60,137-byte PSL snapshot match source/build bytes.
+Every old JAR entry is unchanged except HttpProxyEnvironment.class's backend
+call. All **2,461 old non-HTTP classes**, CLI and dependency JARs remain identical
+to the preceding Windows-proxy distribution. New environment classes are added.
+The environment-proxy full CI run `38819218765` and Windows-proxy full CI run
+`38820697555` are now both verified successful. These results are scoped evidence,
+not a claim of full Pandoc/calibre parity.
+
+Next work remains actual Manager construction and request override/mutation,
+proxy/pool/connection acquisition, socket/TLS transport, status/error wrapping,
+automatic cookies and responseOpenHistory, with all original local-server tests.
+All remaining Pandoc readers/writers/App/Lua and original suites, then calibre
+MOBI and its tests and additional formats absent from Pandoc/all their tests
+remain in the original objective.

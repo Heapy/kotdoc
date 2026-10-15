@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/ghc/ghc",
+  "revision": "383be28ffdddf65b57b7b111bfc89808b4229ebc",
+  "tag": "ghc-9.12.2-release",
+  "officialArchives": {
+    "ghc-9.12.2-src.tar.xz": "0e49cd5dde43f348c5716e5de9a5d7a0f8d68d945dc41cf75dfdefe65084f933",
+    "ghc-9.12.2-testsuite.tar.xz": "cf142eadb4ff9b84ba49c01f52813acbeb742d57b21e64c46424563e0bf410aa"
+  },
+  "files": {
+    "LICENSE.txt": "768c070bd0b7d820d169ee8153d5487acfc262cbbc10dfce18d05c0bb2d2800d",
+    "tests/T12494.hs": "7b0fc2643e605ded79861a5f947eddd33374c139211b7b9692e9588b30f1c504",
+    "tests/all.T": "1915ffd68ce1775adcba8c5cf20279cb21bf7b6433a1c452c8528eb77af79334",
+    "tests/T12494.stdout": "076190cc4a97a559089642c26604e32dd2d3d618b41251732e9b57359723270d",
+    "GHC/Internal/IO/Encoding.hs": "1b517e6f7c3cd2753c5dd9fe210873cfed7a545eaaf92605d8909d2643539b64",
+    "GHC/Internal/System/Environment.hs": "7d815aa6f55e3b93e057506ebdf45824a331369b3c6630575d6de85a76c72863",
+    "GHC/Internal/Foreign/C/String.hs": "98ce02533ddd7abc9e84eb38f4e5906ada2d29539485a607cfe1f4d001c0602d",
+    "GHC/Internal/Foreign/C/String/Encoding.hs": "cfaf862a169f212b3d64dcc12ecb43d56fd2542829136fa9195b9cbcec5e9575",
+    "GHC/Internal/IO/Encoding/Failure.hs": "ce27efe1405d4e299d45af597cd6fddea3d205638d766f673241f7aa7f8c5f10",
+    "GHC/Internal/IO/Encoding/UTF32.hs": "6ba742090003f551b9e17fe38524287c7387ea041f2c46fac4acd9201b8403ba",
+    "GHC/Internal/IO/Encoding/UTF16.hs": "f2109fd2122c08f70dac7dd93c38462eddf8977bfadf27d4837e3251e6ad2f77",
+    "GHC/Internal/IO/Encoding/Latin1.hs": "b26bf7c09fecb0417baa7e208f04d9ec82fb5c370239f32e434bbf1363e472dc",
+    "GHC/Internal/IO/Encoding/Types.hs": "17ab1ca2385becc376ed5727204999e07989848349fb9235abbb092a7eaabd8a",
+    "GHC/Internal/IO/Encoding/Iconv.hs": "320c162a9fa54cc700b33772e9f7cb29c8f230581e966316ae40542edd80730c",
+    "GHC/Internal/IO/Encoding/UTF8.hs": "00db78df7e4a9a5404bd3dc9e379d59392ab698c907393a5fe61d74b9020194a"
+  }
+}

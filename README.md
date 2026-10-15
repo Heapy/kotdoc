@@ -9,6 +9,14 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- Live GHC-style OS environment snapshots on macOS, Linux/glibc and Windows,
+  retaining entry order, duplicates, empty/nameless entries and malformed-byte
+  surrogate escapes. Original Unicode/ASCII/Latin1 filesystem decoding and
+  native iconv behavior have separate macOS/Linux expectations. A code-point
+  API retains raw native Char slots that cannot fit a JVM String. HTTP proxy
+  configuration now reads this live backend; original Windows scanning rules
+  and native API checks are included in the Windows CI job.
+
 - HTTP proxy selection from environment variables: original name precedence,
   URI/credential parsing, lazy no_proxy domain matching, fallback policy and
   duplicate authentication-header ordering. Independent observations use the
@@ -16,7 +24,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   protocol lists, literal/local bypasses, eager registry effects and error/close
   ordering, with a native Advapi32 adapter verified by 6,645 Windows CI tests,
   including actual temporary-HKCU registry calls.
-  Physical OS environment enumeration and HTTP manager integration remain pending.
+  HTTP manager integration remains pending.
 
 - HTTP keyed resource pool: idle-only per-key/global limits, LIFO reuse,
   exactly-once release, weak cleanup and the original 30-second idle reaper.

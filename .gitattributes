@@ -154,3 +154,7 @@ vendor/safe-0.3.21/** -text whitespace=-trailing-space,-blank-at-eof,-space-befo
 licenses/Win32-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-eof
 licenses/safe-BSD-3-Clause.txt -text whitespace=-trailing-space,-blank-at-eof
 tools/haskell-http-windows-proxy-reference/OriginalWindowsProxy.hs -text whitespace=-trailing-space,-blank-at-eof
+
+# Preserve exact GHC environment/encoding implementation and extracted bodies.
+vendor/ghc-environment-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-environment-reference/Original*Environment.hs -text whitespace=-trailing-space,-blank-at-eof
