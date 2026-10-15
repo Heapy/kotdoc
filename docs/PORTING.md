@@ -60,6 +60,7 @@ format is implemented explicitly in Kotlin.
 | LaTeX tokenizer, token stream, complete state record and independent parsing/scoping helpers | `latex/LaTeXTokens.kt`, `LaTeXState.kt`, `LaTeXParsing.kt` | 8,973 original observations; all 90 reader unit inputs and 14 LaTeX files, every Haskell Char, all 30 fields/defaults and 100,000-step token/scoping/macro-stack witnesses; full reader remains pending |
 | LaTeX token grammar, macro expansion, evaluators and Sources bridges | `latex/LaTeXKernel.kt`, `LaTeXEvaluators.kt`, `LaTeXParsingBridge.kt` | 34,080 complete-original-module observations, both native numeric platforms, argument/default/xparse processors, conditionals, raw capture, scopes, global reports, exact errors and 100,000-token witnesses; full LaTeX reader/command-definition assertions remain pending |
 | LaTeX macro-definition module | `latex/LaTeXMacros.kt`, `LaTeXState.kt` | Complete finite Macro.hs algorithm; 1,553 original-module observations, all 33 definition commands, every Haskell Char through letterize, all 127 matching command inputs/90 reader unit inputs through the token component, and 100,000-level global scope/definition streams; full reader/CLI AST assertions remain pending |
+| LaTeX Citation and Math modules | `latex/LaTeXCitations.kt`, `LaTeXMathReader.kt` | Complete finite module algorithms; 22,557 original observations, all 52 citation commands/23 math environments, theorem/proof styles, labels, numbering, callback state/errors/reports, all 266 original AST documents and 100,000-level finite witnesses; complete reader/CLI assertions remain pending |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -7795,3 +7796,74 @@ assets/indexes and unchanged MathML/text mappings. Installed CLI workflow smoke
 cases pass. No reader or test was disabled, no worker memory/recycling setting
 changed, and no partial LaTeX reader was registered. Exact-SHA CI for the
 preceding **c66ce1bb** commit is verified successful.
+
+
+## LaTeX citations, mathematical environments and theorems
+
+`LaTeXCitations` ports the complete finite Citation.hs algorithm: all 52 command
+names, simple/multiple citation arguments, prefix/suffix placement, citation
+modes, footnote wrapping, citeauthor/citetext composition, nocite metadata and
+raw LaTeX capture. Optional bracket arguments use parseFromToks and retain macro
+and state changes. The implementation retains the source's citetext grouping:
+mconcat flattens the semicolon parser's lists of callback results; it does not
+merge each group into a single Inlines before extracting citations. Prefixes or
+suffixes returned by a separate callback are therefore not silently attached.
+
+`LaTeXMathReader` ports the complete finite Math.hs algorithm: math-mode scopes,
+dollar delimiters/nesting, all 23 environment entries and substitutions,
+theoremstyle, newtheorem, theoremEnvironment, proof and private block helpers.
+It preserves the empty-dollar fallback, math environment's distinct trimming,
+ASCII-only trimr whitespace, unmatched-brace failure, theorem-state snapshots,
+shared/missing numbering series, chapter/Int64 numbering and label updates.
+Only direct Para spans contribute theorem labels. Plain theorems walk nested
+blocks with the original single-image exception, then remove labels. Title and
+QED concatenation retain the original direct-list boundary behavior. Production
+uses the existing Kotlin parsing/state/walk/AST implementation, with no upstream
+runtime conversion dependency.
+
+The observer compiles complete pinned Citation.hs and Math.hs, changing only
+module/import names and private-helper exports. Parsing, Macro and the kernel
+observer are byte-identical protected copies from the preceding macro oracle;
+the complete state transport changes only its module name. The prepared library
+again verifies all 2,888 tracked original files, allowing only the same three
+packaging-only module exposures. All upstream tests and expectations are
+unchanged. Ordinary results compare complete AST JSON, all LaTeX state fields,
+remaining tokens, position, expanded flag, raw capture, parser/Pandoc errors and
+global reports. JSON numeric equality uses exact decimal values, matching Aeson
+Scientific equality for fixed/exponent spellings; no floating tolerance or
+conversion to Double is introduced.
+
+The corpus contains 22,557 independent observations with case SHA-256
+`81457be37b7fbd00072b509ad3fde84f1742aa5cbb11e04c47131f6e159ba941`.
+Every command is exercised with valid, malformed, Unicode, multi-key and
+prefix/suffix inputs. Stateful/failing callback cases cover optional-argument,
+math-mode and caption backtracking and global reports. All 266 original Native
+AST documents pass through the block walks/title/QED helpers; all 10,341 original
+inline lists and 30 citation lists exercise citation extraction/placement.
+Twelve deep finite witnesses compare hashes of complete original AST Show
+results plus final state for dollar nesting, citation streams, nested math modes
+and theorem block walks at 1,500, 10,000 and 100,000 levels/items.
+
+All 90 original LaTeX reader inputs and 36 matching command inputs also run
+through explicitly documented test callbacks. Those callbacks implement only
+literal tokens, groups, macro definitions, emph/textbf and citation commands;
+they are not readLaTeX and do not substitute for the original full-reader AST,
+CLI or report assertions. Those remain pending. The remaining Table, Lang,
+SIunitx and Inline modules and complete reader dispatch/grammar are still
+required, as are general partial Haskell-value behavior and remaining Parsing
+Show work. Other Pandoc readers/writers, complete application/Lua/property
+tests, then calibre MOBI and all its tests and additional calibre formats remain
+required by the unchanged full objective.
+
+Final full Gradle validation passes **2,219,128 tests in 117 suites**, with zero
+failures, errors or skips (11m 9s). The new suite contributes all **22,557**
+observations (18.850s in the full run). The identical new suite also passes on
+Linux x86_64/glibc 2.39/JDK 21.0.12.1 with the unchanged **2 GiB** heap limit
+(4.517s). All **122 source/fixture checks** pass. All **60** new corpus source
+hashes match staged/root or pinned upstream Git blobs; all three release pins,
+earlier corpora and earlier observers are unchanged. Installed/core JAR bytes
+match, including all **80 compiled LaTeX classes**, **56 full notices**, **250**
+Pandoc assets/indexes and unchanged MathML/text mappings. Installed CLI workflow
+smoke cases pass. No reader/test was disabled, no worker memory/recycling
+setting changed and no partial LaTeX CLI reader was registered. Exact-SHA CI for
+the preceding **6fe16ccf** commit is verified successful.

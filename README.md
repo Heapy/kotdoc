@@ -71,7 +71,15 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   stream semantics, all 30 state fields/defaults, scoped macro tables and raw/
   verbatim/local-input helpers. Checked by 8,973 original observations, including
   all 90 reader unit inputs, every Haskell Char and 100,000-step structures.
-  Macro expansion, command grammar and the full LaTeX reader remain in progress.
+- LaTeX token grammar, macro expansion, numeric evaluators, Sources bridges and
+  the complete finite macro-definition module, including global scope updates.
+  Checked by 34,080 kernel and 1,553 definition observations, both native numeric
+  platforms, all 33 definition commands and 100,000-step structures.
+- LaTeX citation commands and math/theorem/proof environments, with optional
+  notes, raw capture, numbering, labels, styles and state/report semantics.
+  Checked against the complete original Citation/Math modules, including all
+  original document trees and 100,000-level finite witnesses. Full LaTeX reader
+  grammar and original reader/CLI AST assertions remain in progress.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 - All 90 built-in extension names, custom extensions, six presets and the complete
@@ -191,8 +199,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - TeX token/macro data: all token kinds, scopes, expansion points, Macro fields
   and nine argument-specification forms. Original Eq/Ord/Show and token-to-Sources
   grouping are checked by 21,326 native observations, lazy/infinite prefixes and
-  100,000-node structures. Tokenization, macro expansion, xparse processing and
-  the full LaTeX reader remain in progress.
+  100,000-node structures. The full LaTeX document reader remains in progress.
 - Table-of-contents trees and lists, with original numbering, depth, section IDs,
   hidden sections and title cleanup. Chunk path templates preserve substitution
   order and filename sanitization.
