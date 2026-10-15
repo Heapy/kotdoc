@@ -88,6 +88,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   number parsing, lists, ranges, angles and unit powers. Original-module checks
   include exact errors/state, every Haskell Char, original inline trees and deep
   finite inputs. The complete LaTeX document reader remains in progress.
+- LaTeX inline command modules: all eight registries, verbatim/listings/minted
+  code, references and labels, acronyms, BibLaTeX formatting, translated names
+  and accents. The NFC dependency uses pinned Unicode tables and a Kotlin
+  normalization algorithm; 188,741 independent original observations include
+  every Char/accent pair, all original NFC assertions and all 107 translations.
+  Full LaTeX reader/CLI assertions remain pending.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 - All 90 built-in extension names, custom extensions, six presets and the complete

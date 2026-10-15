@@ -63,6 +63,7 @@ format is implemented explicitly in Kotlin.
 | LaTeX Citation and Math modules | `latex/LaTeXCitations.kt`, `LaTeXMathReader.kt` | Complete finite module algorithms; 22,557 original observations, all 52 citation commands/23 math environments, theorem/proof styles, labels, numbering, callback state/errors/reports, all 266 original AST documents and 100,000-level finite witnesses; complete reader/CLI assertions remain pending |
 | LaTeX Lang module | `latex/LaTeXLanguages.kt` | Complete finite language/quote algorithms; 30,431 original observations, all 85 Polyglossia mappings, Babel aliases, six quote/86 language commands, parser/common-state/cache/backtracking semantics, all 10,341 original inline lists and 100,000-level composition witnesses; complete reader/CLI assertions remain pending |
 | LaTeX SIunitx module | `latex/LaTeXSIunitx.kt` | Complete finite module algorithms; 34,007 original observations, all 12 commands/21 modifiers/152 unit keys, numeric values/errors, unit exponents/infix/options, all 10,341 original inline lists, every Haskell Char and deep finite inputs; full reader/CLI assertions remain pending |
+| LaTeX Inline module and pinned NFC dependency | `latex/LaTeXInlines.kt`, `CanonicalNormalization.kt` | All eight command registries/210 entries, original state/effects/errors and complete finite NFC path; 188,741 independent observations, 94,980 original NFC predicates, all Char/accent pairs, pinned Unicode tables and all 107 translations; full reader/CLI assertions remain pending |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -8047,3 +8048,92 @@ classes**, **204 parsing classes**, **56 full notices**, **250** Pandoc assets/
 indexes and unchanged MathML/text mappings. Installed workflow smoke cases pass.
 Exact-SHA CI for the preceding **8080d447** commit is verified successful. No
 reader/test was disabled and no partial LaTeX CLI reader was registered.
+
+
+## LaTeX inline commands and pinned canonical normalization
+
+`LaTeXInlines` ports the complete finite Readers/LaTeX/Inline.hs algorithms:
+all eight command registries (210 entries), rawInlineOr, labels/references,
+verbatim/lstinline/mintinline, listings language selection, Roman numeral
+arguments, accents, literal symbols, BibLaTeX formatting, translated names and
+singular/plural acronyms. Parsing retains exact consumed/empty replies, token
+remainders, source positions, raw captures, local-state restoration and
+common-state/log/cache effects. Term translation is deferred until parsing and
+uses the existing complete translation/Data implementation, including actual
+embedded YAML files, user replacements, fallback and cache behavior.
+
+The accent dependency exposed a real Unicode-version mismatch: original
+unicode-data 0.9.0 assigns combining classes to marks such as U+1ADE that ICU
+78.1 treats differently. This changes canonical ordering. The Kotlin
+`CanonicalNormalization` ports unicode-transforms 0.4.0.1's finite NFC path,
+with explicit recursive-decomposition work storage, stable canonical ordering,
+composition blocking, starter composition and algorithmic Hangul handling.
+It uses the pinned original tables rather than the host JDK/ICU normalizer.
+The original 121,106 observations remain unchanged; no differing expectations
+were replaced or tolerated.
+
+`import-unicode-nfc.py` extracts all 1,002 nonzero combining classes, 2,081
+immediate canonical decompositions, 961 combining compositions and 59 starter
+compositions, and verifies them with the compiled original functions. Every
+Haskell Char is queried for nonzero classes, combining/starter predicates and
+canonical decomposability; all source composition pairs are independently
+queried. The full original unicode-data and unicode-transforms source/test trees
+are retained from immutable Hackage archives, with full Apache-2.0 and
+BSD-3-Clause notices. Production conversion is Kotlin and does not invoke an
+upstream executable.
+
+The observer compiles the full original Inline module, with only its module
+name, two private exports, the OriginalParsing import and the public
+PandocMonad re-export import changed. All 2,888 prepared Pandoc files are
+verified; only the previously documented four-module packaging exposure differs.
+The observation/capture scripts preserve the original library and use explicit
+component callbacks rather than substituting an implementation for readLaTeX.
+
+The independent corpus contains **188,741 observations**. All 94,980 original
+normalization-column predicates pass both upstream and Kotlin. Seventeen digest
+witnesses compare all 1,114,112 Haskell Chars with all 22 distinct Inline accent
+marks (24,510,464 pairs). Additional observations exercise every pinned
+canonical decomposition, combining class and composition with ordering/blocking
+probes, all 11,172 Hangul syllables, all 38,025 jamo-range pairs including gaps
+and U+11A7, and 1,024 deterministic mixed sequences. All 10,341 inline lists
+from the 266 original AST documents exercise accent and BibLaTeX callbacks.
+Every name command loads each of the 107 original translation files; user
+replacement/decode failures, regional fallback, language changes and cache
+retention also run through the real translation layer. Twelve deep finite
+witnesses cover verbatim/code output and 100,000-level inline structures.
+
+All 90 original LaTeX reader inputs and 90 matching command inputs from 49
+files run through the documented component callback. Source hashes additionally
+cover 268 matching command files, including output occurrences and non-LaTeX
+commands; that number is not an executed command-input count. These component
+observations do not replace the original full-reader AST/CLI/report assertions.
+Table.hs, complete reader dispatch/grammar, remaining Parsing Show/partial-value
+semantics and all original full-reader assertions remain pending. The broader
+Pandoc readers/writers/application/Lua/property suites, calibre MOBI and all its
+tests, then calibre formats absent from Pandoc remain in the objective.
+
+The complete new suite passes on Linux/x86_64 JDK 21 in the unchanged 2 GiB
+worker budget: **188,741 tests, no failures/errors/skips** (9.099s). The preceding
+SIunitx checkpoint `bfc705f5afb547adc96c8c3bf5415242fff549ed` has successful
+exact-SHA CI: https://github.com/Heapy/kotdoc/actions/runs/38766769849.
+
+All **126 source/fixture checks** pass. The final Inline corpus contains **560
+source hashes** and case SHA256
+`229cc61c1bad4b291db262e394cd395505e6516dcbaa894348875024f7c6f8fe`.
+All source hashes match staged/root or pinned-submodule Git blobs; the original
+`no.yaml -> nb.yaml` symlink is also checked as a link and its dereferenced
+content is checked against the target Git blob. All earlier tracked conversion,
+test, fixture and observer bytes remain unchanged. The worker heap/recycling
+settings and all three release pins are unchanged. The 86-source-hash NFC table
+resource and full Unicode license/NOTICE copies have independent provenance
+checks. Original vendored source/benchmark whitespace is retained verbatim.
+
+Final full Gradle validation passes **2,472,308 tests in 120 suites**, with no
+failures, errors or skips (8m 35s). The Inline suite contributes all 188,741
+observations (9.709s in the full run). After the final license/provenance-only
+updates, test resources and the installed distribution are rebuilt; the entire
+188,741-case semantic hash remains unchanged. Installed/core JAR bytes match,
+including all **104 compiled LaTeX classes**, **204 parsing classes**, the pinned
+NFC data resource, all **59 full license/NOTICE files** and **250** Pandoc assets.
+Installed workflow smoke cases pass. No existing reader/test was disabled and
+no partial LaTeX CLI reader was registered.
