@@ -94,6 +94,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   normalization algorithm; 188,741 independent original observations include
   every Char/accent pair, all original NFC assertions and all 107 translations.
   Full LaTeX reader/CLI assertions remain pending.
+- LaTeX table environments, alignment/width/prefix/suffix parsing, nested spans,
+  row padding repair and caption/label numbering, plus generic table compaction.
+  The 95,246 independent observations include all original AST trees, all seven
+  environments and deep finite inputs. Full LaTeX reader/CLI assertions remain
+  pending.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 - All 90 built-in extension names, custom extensions, six presets and the complete
@@ -428,8 +433,9 @@ cli/build/install/cli/bin/cli --from fb2 --to json --extract-media media.zip boo
 
 The installed launcher is currently called `cli`. Use `-` or omit the input
 filename to read standard input. Errors are written to standard error and return
-a nonzero exit status. Input formats are `fb2`, `json` and `native`; output formats
-are also `fb2`, `json` and `native`. `--extract-media` fills and extracts media,
+a nonzero exit status. Input formats are `fb2`, `json` and `native`. Output formats
+are `fb2`, `json`, `native`, `html`/`html5`, `html4`, `s5`, `slidy`, `slideous`,
+`dzslides` and `revealjs`. `--extract-media` fills and extracts media,
 then rewrites image links; a `.zip` destination creates an archive.
 `--resource-path` accepts platform-separated directories and can be repeated;
 later flags are searched first. General CLI options, logging, and complete

@@ -64,6 +64,8 @@ format is implemented explicitly in Kotlin.
 | LaTeX Lang module | `latex/LaTeXLanguages.kt` | Complete finite language/quote algorithms; 30,431 original observations, all 85 Polyglossia mappings, Babel aliases, six quote/86 language commands, parser/common-state/cache/backtracking semantics, all 10,341 original inline lists and 100,000-level composition witnesses; complete reader/CLI assertions remain pending |
 | LaTeX SIunitx module | `latex/LaTeXSIunitx.kt` | Complete finite module algorithms; 34,007 original observations, all 12 commands/21 modifiers/152 unit keys, numeric values/errors, unit exponents/infix/options, all 10,341 original inline lists, every Haskell Char and deep finite inputs; full reader/CLI assertions remain pending |
 | LaTeX Inline module and pinned NFC dependency | `latex/LaTeXInlines.kt`, `CanonicalNormalization.kt` | All eight command registries/210 entries, original state/effects/errors and complete finite NFC path; 188,741 independent observations, 94,980 original NFC predicates, all Char/accent pairs, pinned Unicode tables and all 107 translations; full reader/CLI assertions remain pending |
+| LaTeX Table module and Shared.compactifyTable | `latex/LaTeXTables.kt`, `LaTeXTableRows.kt`, `ast/TableCompaction.kt` | All seven environments and finite module algorithms; 95,246 independent observations, ten AST Walkable shapes and Builder.Many Block, all original AST trees, row repair, parser state/errors and deep finite cases; full reader/CLI assertions remain pending |
+| Shared ASCII whitespace and text trimming | `ast/SharedText.kt` | isWS, trim, triml, trimr and stripTrailingNewlines; 119 independent observations including every Haskell Char, 13,369,344 text transformations and nine reproduced/fixed Table error regressions |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -8137,3 +8139,122 @@ including all **104 compiled LaTeX classes**, **204 parsing classes**, the pinne
 NFC data resource, all **59 full license/NOTICE files** and **250** Pandoc assets.
 Installed workflow smoke cases pass. No existing reader/test was disabled and
 no partial LaTeX CLI reader was registered.
+
+
+## LaTeX table environments, row repair and table compaction
+
+`LaTeXTables` implements the complete finite Readers/LaTeX/Table.hs algorithms:
+all seven environment entries, rule and line-break parsing, word splitting,
+alignment/width/repetition parsing, column prefix/suffix insertion with source
+position rewriting, raw-cell collection with protected ampersands, simple and
+empty cells, full multirow prototypes, nested multicolumn/multirow, table
+head/body assembly, caption attachment, label removal and table numbering.
+State changes and common-state reports use the existing parser/kernel machinery;
+no reader, parser or translation implementation is replaced by an upstream
+runtime dependency.
+
+`LaTeXTableRows` preserves the original padding-cell removal separately from the
+Builder's malformed-table normalization. Column/row spans are clamped only for
+recording overhang, while cell widths used to discard padding retain their raw
+values. Signed Int64 arithmetic and overflow are preserved. Persistent runs
+represent lazy replicate/repeat Nothing overhangs without allocating one entry
+per column, including widths above Int.MAX_VALUE. Ordinary row observations
+compare complete lists. Extra Int64 boundary probes use finite input overhangs
+and compare ten output overhang elements plus the entire returned cell list.
+They retain extreme widths/heights and overflow without requiring the original
+linear dropToWidth to traverse Long.MAX_VALUE empty entries. These are added
+probes; no original upstream test is removed or altered.
+
+`TableCompaction` ports Shared.compactifyTable with an explicit Walkable
+dictionary. It tests all block lists for zero or one Para/Plain, changes Para to
+Plain only when every list qualifies, then restores single Plain notes to Para.
+The Builder.Many Block dictionary traverses each block without treating the
+outer builder container as [Block]. This distinction is tested independently;
+treating both containers alike prevents LaTeX table cells from compacting.
+Notes, citations, captions, metadata and nested tables retain the original
+traversal scope through the existing complete finite AST visitor.
+
+The native observer compiles the complete original Table module, changing only
+its module name, private exports and OriginalParsing import. InlineObserver
+changes only the preceding observer's module name. The original Shared function
+and all other Pandoc implementations remain unchanged. The importer verifies
+all 2,888 prepared Pandoc files, the same four packaging exposures, immutable
+Parsec/Unicode archives, protected parent observers/corpora and full notices.
+The corpus contains **95,246 independent original observations**, with case
+SHA256 `aa1ddfb6e41f0233e10da9141a2a70895e5de1ab5c4fff8e5ccb9ea8b8ed8258`.
+It preserves all earlier captured observations when adding the final caption
+probes. All **574 source hashes** and source symlinks are checked.
+
+Compaction probes cover all original values in ten explicit Walkable shapes:
+266 documents, 10,341 inline lists, 54,642 inlines, 5,211 block lists, 10,272
+blocks, 242 table heads, 247 bodies, 242 feet, 752 rows and 2,394 cells. All
+5,211 block lists additionally use Builder.Many Block. Row repair covers every
+original table head/body, 425 exhaustive short finite-overhang cases, 1,500
+mixed malformed/spanning cases, 28 Int64 boundary probes and deep finite lists.
+Caption traversal uses every original document block tree with both absent and
+present labels, chapter numbering and explicit matching label/space removal.
+Twelve deep finite witnesses check complete original Show hashes through
+100,000 rows, overhang entries, inline nesting levels and alignment columns.
+
+All 90 original LaTeX reader input expressions and 19 matching command inputs
+from 17 files also run through the explicit table component callback. Twenty-
+eight matching command files are hashed. The callback supports paragraphs,
+tables, captions, labels, parbox, inline math and the earlier inline component;
+it is not readLaTeX. Original full-reader AST/CLI/report assertions still need
+the complete reader dispatch/grammar. Remaining Parsing derived Show/partial-
+value work and the full Pandoc reader/writer/application/Lua/property suites
+remain in scope, followed by calibre MOBI and all its tests and calibre formats
+absent from Pandoc. No partial LaTeX CLI reader is registered here.
+
+The final new suite passes on Linux/x86_64 JDK 21 with the unchanged 2 GiB
+worker budget: **95,246 tests, no failures/errors/skips** (7.681s). All **127
+source/fixture checks** pass. The original vendored files, previous corpora,
+release pins, worker heap and recycling settings are unchanged.
+
+The dependency audit also ports Shared.isWS, trim, triml, trimr and
+stripTrailingNewlines in `ast/SharedText.kt`. Shared whitespace is exactly SP,
+CR, LF and TAB, distinct from the broader character-class predicate. Nine new
+regression cases first demonstrated incorrect Unicode whitespace removal in
+alignment-repetition errors; all pass after the Table parser uses SharedText.
+Seventeen digest witnesses check every Haskell Char in three string shapes
+through all four text functions and isWS (13,369,344 text transformations).
+Original expectations remain unchanged. The final suite adds 119 whitespace
+observations to the preceding 95,127-case capture.
+
+The new dynamic-test factory streams fixture lines and releases each completed
+case's payload, bounding retention of duplicated AST JSON within the unchanged
+2 GiB worker limit. All cases remain independently executed. Two complete
+project attempts exhausted heap. The second run's stack trace localizes the
+failure after all nine workers finished to Gradle 9.8.1's
+`TestTreeModel.StoreLoader.finalizePath`, reached from
+`GenericHtmlTestReportGenerator.generate`. This is build-daemon report
+aggregation, not a Kotlin assertion failure or a worker heap failure.
+The installed Gradle implementation also loads the same full tree for JUnit
+XML (`TestTreeModelResultsProvider.useResultsFrom`), so disabling HTML alone
+would not address this retention. `gradle.properties` gives the build daemon
+3 GiB for both reports; workers remain at 2 GiB with sequential execution and
+recycling after 20 classes. No report or test is disabled. The full repeat with
+this report budget succeeds: **2,567,554 tests in 121 suites**, zero failures,
+errors or skips, in **10m 58s**. The new Table suite contributes 95,246 cases
+(13.034s). Every XML file is parsed completely and its actual testcase,
+failure/error/skipped elements agree with its declared counts. Both HTML and
+JUnit XML reports are generated successfully.
+
+Installed CLI validation passes 14 original FB2 conversions, 66 media cases,
+69 format modifier cases, 85 math-option cases and all 141 HTML cases, including
+17 original HTML units, 16 original fixed goldens and four original CLI
+ordering/newline regressions. All four workflow smoke cases also pass. The
+installed and core JARs have identical bytes; all 114 compiled LaTeX classes,
+204 parsing classes, TableCompaction/SharedText classes, 59 full license/NOTICE
+files, 250 Pandoc data assets and pinned NFC/MathML/text tables match the current
+compiled classes and source resources. README's CLI output-format list now
+includes the existing eight HTML/slide format names verified by these checks.
+The preceding Inline checkpoint `d98992dc4291a95d20b71b1f6453fe447b201b48`
+has successful exact-SHA CI:
+https://github.com/Heapy/kotdoc/actions/runs/38772705386.
+
+The next reader work can reuse Identifiers.uniqueIdent, include-cycle tracking,
+listings mappings and PandocDataRuntime file effects. Reader-level registerHeader,
+TEXINPUTS/include/listing effects and the full block/inline dispatch and grammar
+still require implementation. jbcontext has no index for this checkout; these
+dependencies were checked directly against pinned source paths.
