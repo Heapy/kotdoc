@@ -1,0 +1,5 @@
+<<< tex
+\neg(p\wedge q)\iff(\neg p)\vee(\neg q)
+  \overline{\bigcup_{i=1}^{n} A_{i}}=\bigcap_{i=1}^{n} \overline{A_{i}}
+>>> starmath
+neg (p and q) dlrarrow (neg p) or (neg q) overline {{oper ∪ from i = 1 to n A_i}} = oper ∩ from i = 1 to n overline {A_i}

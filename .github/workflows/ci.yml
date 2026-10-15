@@ -21,6 +21,7 @@ jobs:
       - run: python3 tools/import-media-fixtures.py --check-source
       - run: python3 tools/import-zip-codec-fixtures.py --check-source
       - run: python3 tools/import-pandoc-data-fixtures.py --check-source
+      - run: python3 tools/import-math-fixtures.py --check-source
       - run: python3 tools/import-media-operations.py --check-source
       - run: python3 tools/import-media-state-fixtures.py --check-source
       - run: python3 tools/import-extension-tables.py --check

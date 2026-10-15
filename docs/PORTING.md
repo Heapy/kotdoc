@@ -26,6 +26,7 @@ format is implemented explicitly in Kotlin.
 | `Class.CommonState` record and `PandocMonad` state/logging operations | `state/CommonState.kt`, `state/PandocState.kt` | All 13 fields/defaults, persistent reverse log, callbacks/typed errors/nested silence, headers, URL, media and cache identity; 3,615 native observations plus snapshot/identity checks |
 | Complete `Text.Pandoc.Translations` loading/cache operations and typed `toTextM` | `translations/TranslationLoading.kt`, `Translations.kt`, `resources/PandocText.kt` | All four module functions, exact Value FromJSON, full Lang cache equality, ordered fallback, typed/host errors and re-entrant effects; 77,429 original observations, all 107 YAML files and all 65,536 two-byte UTF8 inputs |
 | `Text.Pandoc.Data` algorithms and reproducible timestamp helpers | `resources/PandocData.kt`, `PandocTime.kt`, `PandocFilePaths.kt` | Both embedded/installed branches on POSIX/Windows, actual 248-file TH catalog, three reference archives, user routing, enumeration and default directory selection; 5,663 independent original observations |
+| TeXMath finite expression model, shared transformations, Unicode and TeX/Pandoc output | `math/` | All 23 Exp constructors, Show/Eq/Ord, all Shared functions, complete Unicode and TeX renderer, complete writePandoc algorithm; 3,146 native observations, 3,721 original inputs and exhaustive Char mapping |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
@@ -145,27 +146,18 @@ also remain to audit; no claim of complete pandoc-types parity is made.
 
 ## Next execution step
 
-Continue full options/logging infrastructure and HTTP/URI dependency semantics,
-then HTML and the remaining formats. Also continue Walk list properties and complete upstream
-generator/shrinker coverage. FB2's writer-specific math option is implemented;
-the shared WriterOptions record and full CLI option handling are still pending.
+Complete the remaining TeXMath readers/writers and Pandoc's math bridge required
+by the HTML writer. Then port all HTML writer entry points, including slides,
+EPUB HTML, complete options/template/state behavior and every original writer
+and integration test, followed by the remaining formats. The expression/helper
+foundation below does not substitute for the remaining math parsing/writing.
 
-Continue the options layer from `Text.Pandoc.Options`. The extension tables,
-format parsing, ReaderOptions fields/JSON/defaults and HighlightMethod/style JSON
-are implemented; the complete WriterOptions record and defaults still need its
-template/context and syntax-map dependencies, plus remaining highlighting
-behavior. These dependencies must be ported rather than replacing the record
-with a subset. Finite doclayout 0.6 rendering and document operations, and the
-doctemplates 0.11.1 Context/Val conversion, Template/Variable/Pipe, finite
-rendering/traversal and compilation are implemented, including exact parser
-diagnostics, partial loading/recursion and public application/file conveniences.
-All 22 original goldens and 15 unit cases now exercise the Kotlin compiler.
-Next are Pandoc's template resource wrappers and the remaining syntax-map/
-highlighting dependencies for the complete WriterOptions record/defaults.
-Also continue the remaining DocLayout interfaces recorded below.
-Context values and Template literals contain structured DocLayout documents. CLI `App.Opt` is
-a separate layer. The upstream writer math default is MathML (also used by the
-current FB2 writer options); FB2 renders non-WebTeX methods identically.
+Continue the remaining PandocMonad and HTTP/URI/XML infrastructure, complete
+CLI App.Opt/application behavior, scripting/filter/bibliography paths and the
+remaining pandoc-types generators/shrinkers and original property suites. The
+complete library WriterOptions record, syntax/highlighting/template dependencies,
+translation loading and standard data/reference archive algorithms are now
+implemented; this does not make the separate application/CLI layer complete.
 
 Current verification is recorded at the end of this ledger. Every push runs source
 fixture verification, Kotlin tests and installed CLI smoke checks in
@@ -6070,3 +6062,87 @@ subtree/index, while the new Data check verifies the whole catalog. Only that
 packager's hash changed in the old template manifest; every old case byte is
 unchanged. All 108 steps in the preceding exact-SHA CI run succeeded. The full
 Pandoc/calibre objective remains active.
+
+
+## TeXMath expression foundation required by the complete HTML writer
+
+The HTML writer's MathML and PlainMath branches require genuine TeXMath parsing
+and writing. Retained the complete original texmath 0.13.3.1 release, compatible
+with Pandoc's pinned constraint: all 3,762 original source/test files match the
+Hackage archive byte for byte, with no Cabal revision edits. The release archive
+SHA-256 is recorded in tools/haskell-math-reference/SOURCE.json. Its full license
+is retained and packaged. No production Haskell/binary dependency was added.
+
+Implemented all 23 finite Exp constructors with owned nested lists, every enum,
+the Operator/Record fields, default environment, source constructor/field order,
+iterative Exp equality/order and derived Show. Operator/Record Show and the TeX
+intermediate model's Show/Eq are also compared with original execution. Complete
+Haskell Read/Data/Typeable and partial/lazy-field behavior are still pending.
+
+Translated all Shared algorithms: immediate-child mapping, bottom-up expression
+and list-tail traversals, the two-pass fixTree, empty checks, convertible
+under/over handling, Greek/prime/RL-sequence predicates, all style/command/operator/
+diacritical/scaler tables and lookups, exact-rational spaces and readLength.
+The list visitor applies rewrites to every tail, including the empty tail.
+getSpaceChars retains source quirks: even zero/fractional-negative width can
+produce a hair space, and the whole-number part follows signed 64-bit Int
+conversion. Physical JVM string capacity remains a limit for enormous outputs.
+
+readLength retains decimal-only parsing, exact unit suffixes, source Double
+multiplication, ties-to-even Integer rounding and rational unit factors. Native
+observations expose GHC's Infinity-to-Integer decoding: overflow yields a signed
+2^1024 before division by 18. This behavior is translated rather than clamped or
+rejected. The corresponding original GHC Real and float decoder sources are
+retained/hashed, separately from protected earlier source inventories.
+
+Translated the full 1,031-row Unicode table in original order, including the
+source's last-row preference in both directions. All 14 styles and every
+1,114,112 Haskell Char are checked with original sparse lookup outputs; actual
+Text conversion separately checks surrogate replacement and supplementary text.
+The complete TeX renderer preserves control-word spacing, literal lookahead,
+space suppression, group collapsing/trimming and every escape branch. A rope
+and explicit tasks avoid recursive or quadratic deep-group rendering.
+
+Implemented all branches of writePandoc. Operator/symbol spacing, text styles,
+Unicode variants, sub/superscripts, delimiters, scaling, convertible under/over
+and the specialized combining-accent precedence match the original. Unsupported
+roots/fractions/matrices/other constructs return Nothing exactly as the source
+writer does. The DisplayType argument is unused by the original writer. This
+is an expression writer, not a replacement for the pending TeX parser.
+
+The independent oracle compiles the entire original package unchanged under a
+frozen GHC 9.12.2 plan. Only JSON transport is supplied. Original TeX/MathML/OMML/
+Read parsers process every original .test/.native input: 3,717 native successes
+and four native MathML failures. The 722 distinct successful trees seed the
+Kotlin expression/helper/output comparisons. This is provenance for defined
+input trees, not a claim that all those reader/writer golden suites are ported.
+Every original input remains inventoried, including the four native failures.
+
+There are 3,146 independent observations covering all constructors and tables,
+record/type instances, styles, symbol spacing, accent priority, seeded expression
+and numeric cases, both display modes, all Char mappings/escape decisions and
+TeX suffix/group spacing. The first comparison exposed a prime-symbol typo;
+later TeX Eq tests exposed singleton recursion. Both Kotlin defects were fixed
+without changing native expectations. An additional Kotlin check covers owned
+lists and 10,000-level expression traversal/ordering/Show/Pandoc/TeX rendering.
+All 3779 source hashes and full original-input coverage are verified in CI.
+
+Corpus SHA-256:
+`91e17bff1671e09a31d907dec41580792ac974200138e1490f9d97729245b9f8`.
+
+TeXMath readers, MathML/OMML/TeX/other writers, the full original golden and
+roundtrip suites, generic/partial/lazy interfaces, Pandoc's math bridge and the
+full HTML writer remain pending. All remaining Pandoc and calibre work stays
+within the original objective. The previous 798df7d publication passed exact-SHA
+CI run 38672865932 with all 109 steps successful.
+
+Validation: all 1,587,358 tests in 95 suites pass with zero failures, errors or
+skips, including 3,147 Math checks. All 98 source/fixture checks and all 234
+installed CLI checks pass (14 FB2, 66 media, 69 format modifiers, 85 math). The
+2 GiB worker limit and recycling after 20 classes remain unchanged. The installed
+CLI uses the exact current core JAR, with all 50 complete notices and all 248
+original data assets byte-exact. Staged Git blobs match the exact math corpus
+and every one of its 3,779 source hashes; pinned submodule revisions match.
+All earlier protected corpora and original source files remain unchanged. The
+full Pandoc/calibre objective remains active, with math parsing/writing and the
+HTML writer next.

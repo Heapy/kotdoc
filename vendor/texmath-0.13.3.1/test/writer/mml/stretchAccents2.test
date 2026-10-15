@@ -1,0 +1,23 @@
+<<< native
+[ EOver False (EIdentifier "xxx") (ESymbol Accent "\175")
+, ESymbol Rel "="
+, EOver
+    False
+    (EStyled TextItalic [ EIdentifier "xxx" ])
+    (ESymbol Accent "\175")
+]
+>>> mml
+<?xml version='1.0' ?>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mover>
+      <mi>xxx</mi>
+      <mo accent="true">¯</mo>
+    </mover>
+    <mo>=</mo>
+    <mover>
+      <mi mathvariant="italic">𝑥𝑥𝑥</mi>
+      <mo accent="true">¯</mo>
+    </mover>
+  </mrow>
+</math>

@@ -1,0 +1,8 @@
+{
+  "package": "texmath-0.13.3.1",
+  "url": "https://hackage.haskell.org/package/texmath-0.13.3.1/texmath-0.13.3.1.tar.gz",
+  "archiveSHA256": "48bbd445d15c0b9c1fc8580b07dd8f38fa712167fbcd19fedeeddbdc60137da9",
+  "files": 3762,
+  "cabalRevisedFiles": [],
+  "ghcSource": "https://github.com/ghc/ghc/blob/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Real.hs"
+}

@@ -101,3 +101,6 @@ licenses/Citeproc-BSD-2-Clause.txt -text whitespace=-trailing-space,-blank-at-eo
 vendor/yaml-0.11.11.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/libyaml-0.1.4/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/libyaml-clib-0.2.5/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/texmath-0.13.3.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/ghc-math-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/Texmath-GPL-2.0.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
