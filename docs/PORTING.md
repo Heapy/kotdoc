@@ -57,6 +57,7 @@ format is implemented explicitly in Kotlin.
 | Shared writer helpers | `ast/DocumentShared.kt` | Original legacy-table and section examples, 500 section-idempotence samples, 471 independent section and 471 block-flattening comparisons |
 | XML.Light output | `xml/XmlOutput.kt` | Original FB2 goldens and explicit pretty-print, raw content, CDATA and escaping checks |
 | MediaBag and MIME tables | `resources/MediaBag.kt`, `MimeTypes.kt` | 2,172 original-Pandoc comparisons, including every MIME extension and reverse MIME type |
+| LaTeX tokenizer, token stream, complete state record and independent parsing/scoping helpers | `latex/LaTeXTokens.kt`, `LaTeXState.kt`, `LaTeXParsing.kt` | 8,973 original observations; all 90 reader unit inputs and 14 LaTeX files, every Haskell Char, all 30 fields/defaults and 100,000-step token/scoping/macro-stack witnesses; command/macro parser still pending |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -7521,3 +7522,126 @@ parsing, remaining original HTML assertions/property/goldens, other remaining
 Pandoc readers/writers, application/Lua/property tests and general lazy/partial
 value contracts still require work. Calibre MOBI and all original tests, followed
 by calibre formats absent from Pandoc, remain in scope.
+
+## LaTeX tokenization, state and parser scoping
+
+The next dependency of HTML raw-TeX parsing is the original LaTeX reader, not a
+balanced-brace approximation. Its `Readers.LaTeX.Parsing` layer is now being
+ported directly. `latex/LaTeXTokens.kt` implements complete `tokenize`,
+`tokenizeSources`, `getInputTokens`, `untokenize`, `untoken`, token relocation and
+kind predicates, and the `TokStream` append/empty/uncons behavior. This extends
+the previously ported original TeX token/macro/argument models and Sources;
+it does not introduce a different intermediate token format.
+
+The tokenizer retains GHC isAlphaNum/isLetter, ASCII space/tab grouping, exact
+comments/newlines/control-sequence spelling, trailing command whitespace,
+makeatletter/makeatother and independent ExplSyntaxOn/Off mode switches. Argument
+indices include arbitrarily long decimal syntax followed by original 64-bit Int
+wrapping. Double-hash failures emit both Symbol tokens before resuming, and caret
+escapes recognize only lowercase hex. Source columns count Unicode Chars, not
+UTF-16 units. The original escaped-newline column-only update and second-newline
+fallback are retained, including their unusual positions. Each Sources chunk
+restarts tokenizer modes; getInputTokens replaces only the first chunk position
+with the current parser position. Empty chunks remain lazy about unused positions.
+
+Tokenization and source flattening retain deferred positions, token fields and
+list spines. Untokenize inserts a separating space after a letter-ending control
+sequence when the next nonempty token starts with a letter; skipped empty tokens
+need not expose their kind or position. The Text.concat singleton/list-spine
+inspection order is preserved for competing deferred errors. TokStream retains
+its expanded flag from the first nonempty operand and always resets it after a
+successful uncons. `unconsLazy` exposes the original lazy token field; the generic
+TokenStream adapter demands the token when projecting into its existing strict
+host tuple. Both use the same persistent tail.
+
+`latex/LaTeXState.kt` provides all **30 original fields and defaults**, the
+nonempty macro-table stack, DottedNum and TheoremSpec/TheoremStyle models, typed
+LaTeXEnv dispatch tables and the LP ReaderTokenParsec alias. It includes the
+original reader-options, quote-context, identifiers, macro, include-file,
+metadata and reverse-log instances. State retains identity rather than inventing
+an Eq instance absent upstream. DottedNum increment/render/derived Show and
+TheoremSpec's complete finite Eq are observed independently. Full derived Show
+for LaTeXState, TheoremSpec and TokStream and general partial-state demand remain
+pending; no complete port of the whole Parsing module is claimed.
+
+The macro-table stack uses persistent links with O(1) push/pop/active-table
+replacement and an immutable List view of outer scopes. Inspection caught an
+initial materialized-list design that copied all outer scopes on every push;
+that design was replaced before publication and checked against three original
+1,500/10,000/100,000-level witnesses. Updating an inner scope preserves all outer
+maps, and popping the last scope keeps the original nonempty table. All **8,970
+prior observations** remain unchanged when those three witnesses are added.
+
+`latex/LaTeXParsing.kt` ports the state-scoping helpers `withVerbatimMode`,
+`disablingWithRaw`, `parseFromToks`, `withRaw`, `getNextNumber`, `resetCaption` and
+MetaValue `addMeta`, with shared ReaderT environments. Success restores precisely
+the source fields while preserving other modifications; consumed/empty failure,
+try/alternative rollback and nested raw capture use the existing Parsec machine.
+Temporary token parsing clears raw accumulation and restores input/position/raw
+state on success. Raw output reverses only the counter delta and is independently
+lazy; outermost completion clears the accumulator, while nested scopes retain it.
+Chapter-aware numbering reads the selected counter without mutating state.
+
+`tools/haskell-latex-parsing-reference` compiles the **complete original Parsing
+module** with only its module name changed and the PandocMonad/report import
+routed through `Text.Pandoc.Class`, which reexports those exact original entities.
+The source checker verifies both edits; no behavior is replaced. It uses the
+complete original library build with all **2,888 tracked files** checked and the
+same three-module exposure-only adjustment as earlier phases.
+
+All **90 original `Tests.Readers.LaTeX` input expressions** are evaluated by a
+copy with unchanged test definitions. The module name and harness imports alone
+change: a capture harness collects (group/name, Text input), retaining the
+original constraints and helper operator without evaluating expected ASTs. This
+captures literal, computed and list-generated inputs. It is evidence for
+lexical coverage, **not** a claim that the 90 reader AST assertions have been
+ported or run through a Kotlin LaTeX reader.
+
+The new original-program corpus contains **8,973 observations** and **156 source
+hashes**:
+
+- all 90 original reader unit inputs and all **14 tracked `.latex`/`.tex`/`.sty`/
+  `.cls` test files**, with complete tokens, positions, kinds, text and untokenize;
+- seventeen aggregate witnesses over all **1,114,112 Haskell Char**, both alone
+  and following a backslash, including original Text surrogate replacement;
+- 4,681 exhaustive short tokenizer strings, 786 mode-transition cases, 132
+  argument-index/overflow examples and 1,280 caret-escape boundaries;
+- raw surrogate source names and Int64 position overflow, all split points for
+  mode-sensitive inputs, empty source chunks and current-position overrides;
+- synthetic control-word separators/empty tokens, complete stream flag/tail
+  behavior, dotted counters and all TheoremSpec field-equality boundaries;
+- all state defaults/updates/instances, macro-stack preservation, include and log
+  order, 455 parser-scope/failure/restoration observations and 108 chapter-counter
+  observations;
+- nine deferred-demand/competing-error cases and 1,500/10,000/**100,000**-level
+  token lists, mode sequences, empty Sources chunks, stream concatenations,
+  untokenize lists, nested raw scopes and macro-stack push/update/pop.
+
+Corpus SHA-256:
+`61200bf6f8f3739b16a0fd88a6072e9006cb12f230ae95defe74344c1b173afa`.
+Upstream expectations and all earlier protected corpora/oracles remain unchanged.
+
+Final full Gradle validation passes **2,160,937 tests in 114 suites**, with zero
+failures, errors or skips (7m 51s). The LaTeX suite contributes all 8,973 original
+observations (6.79s in the full run). All **117 source/fixture checks** pass; all
+156 source hashes match staged/root or pinned upstream Git blobs. All three
+release pins and protected earlier corpora/oracles are unchanged. Installed/core
+JAR bytes match, including all **27 compiled LaTeX class files**, **56 full
+notices**, **250** Pandoc assets/indexes and unchanged MathML/text mapping data.
+Installed CLI workflow smoke cases pass. No LaTeX CLI reader is registered by
+this foundation phase. Exact-SHA CI for **91ef73e** is verified successful.
+No original tests were disabled or changed; worker heap/recycling settings remain
+unchanged. The early full run was explicitly cancelled before replacing the
+quadratic stack; these totals are from the completed final implementation.
+
+The full objective remains active. The remaining Parsing token primitives,
+macro expansion (including all xparse/special macros), rawLaTeXParser/applyMacros,
+full LaTeX grammar/reader and original AST assertions still require ports.
+Original macro controls also live in command fixtures beyond the 90 unit inputs:
+`macros.md`, `4007.md`, `4253.md`, `5682.md`, `5740.md`, `7494.md`, `10915.md`,
+`4442.md`, `latex3-commands.md`, `latex-opt-arg-state.md` and
+`latex-tokenize-hash-positions.md`. Their full command/AST/report assertions remain
+pending. These
+are necessary for HTML raw LaTeX and the full HTML reader. Other remaining Pandoc
+readers/writers and application/Lua/property tests, then calibre MOBI with all
+original tests and other calibre formats absent from Pandoc, remain in scope.

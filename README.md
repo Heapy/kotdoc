@@ -67,6 +67,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   POSIX/Windows URI paths and the incremental Base64 data-URI parser. Checked by
   40,705 original-library observations, all Haskell Chars and 100,000-step parser
   chains/chunk feeds. Parser results preserve independent deferred MIME/bytes.
+- LaTeX reader foundation: complete tokenizer/source-token conversion and token
+  stream semantics, all 30 state fields/defaults, scoped macro tables and raw/
+  verbatim/local-input helpers. Checked by 8,973 original observations, including
+  all 90 reader unit inputs, every Haskell Char and 100,000-step structures.
+  Macro expansion, command grammar and the full LaTeX reader remain in progress.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 - All 90 built-in extension names, custom extensions, six presets and the complete
