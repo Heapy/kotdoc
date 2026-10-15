@@ -1,0 +1,27 @@
+cabal-version: 3.0
+name: kotdoc-data-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable data-reference
+  main-is: DataReference.hs
+  hs-source-dirs: ., ../../upstream/pandoc/src, ../../vendor/unicode-collation-0.1.3.7/src
+  other-modules: Text.Pandoc.Class.CommonState, Text.Pandoc.Class, Text.Pandoc.ClassWindows,
+                 Text.Pandoc.Data, Text.Pandoc.DataEmbedded, Text.Pandoc.DataInstalled,
+                 Text.Pandoc.DataEmbeddedWindows, Text.Pandoc.DataInstalledWindows,
+                 Text.Pandoc.Data.BakedIn, Text.Pandoc.Translations, Text.Pandoc.Translations.Types,
+                 Text.Pandoc.Logging, Text.Pandoc.Error, Text.Pandoc.Shared, Text.Pandoc.SharedWindows,
+                 Text.Pandoc.MediaBag, Text.Pandoc.MIME, Text.Pandoc.URI, Text.Pandoc.UTF8,
+                 Text.Collate.Lang, Codec.Archive.Zip, Codec.Archive.ZipWindows,
+                 System.Directory, Paths_pandoc, Citeproc, Hooks
+  default-language: Haskell2010
+  cpp-options: -DPANDOC_HTTP_SUPPORT
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2,
+                 aeson ==2.2.3.0, aeson-pretty ==0.8.11, text ==2.1.2,
+                 bytestring ==0.12.2.0, vector, containers ==0.7, filepath ==1.5.4.0,
+                 crypton >=0.30 && <2.1, mime-types >=0.1.1 && <0.2,
+                 network-uri ==2.6.4.2, attoparsec, http-types, base64-bytestring, safe,
+                 parsec ==3.1.18.0, binary ==0.8.9.3, template-haskell, th-lift-instances,
+                 data-default, http-client, mtl, transformers, directory, yaml ==0.11.11.2,
+                 time, file-embed, unix, digest, array, zlib ==0.7.1.1

@@ -25,6 +25,7 @@ format is implemented explicitly in Kotlin.
 | `Text.Pandoc.Logging` represented values and Verbosity instances | `logging/`, `parsing/Parsec.kt`, `ast/AstJsonValues.kt` | All 54 constructors, pretty/JSON/verbosity/Show/source Eq/Ord; 25,373 original observations, 266 ToJSON documents, raw names and 100,000-level structures |
 | `Class.CommonState` record and `PandocMonad` state/logging operations | `state/CommonState.kt`, `state/PandocState.kt` | All 13 fields/defaults, persistent reverse log, callbacks/typed errors/nested silence, headers, URL, media and cache identity; 3,615 native observations plus snapshot/identity checks |
 | Complete `Text.Pandoc.Translations` loading/cache operations and typed `toTextM` | `translations/TranslationLoading.kt`, `Translations.kt`, `resources/PandocText.kt` | All four module functions, exact Value FromJSON, full Lang cache equality, ordered fallback, typed/host errors and re-entrant effects; 77,429 original observations, all 107 YAML files and all 65,536 two-byte UTF8 inputs |
+| `Text.Pandoc.Data` algorithms and reproducible timestamp helpers | `resources/PandocData.kt`, `PandocTime.kt`, `PandocFilePaths.kt` | Both embedded/installed branches on POSIX/Windows, actual 248-file TH catalog, three reference archives, user routing, enumeration and default directory selection; 5,663 independent original observations |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
@@ -5993,3 +5994,79 @@ exact corpus bytes were verified against staged Git blobs and the pinned Pandoc
 gitlink. Original byte/expectation corpora remain unchanged; Git attributes keep
 the copied original ZIP source's final empty lines intact. The complete objective
 remains active, with Pandoc data/reference orchestration next.
+
+
+## Pandoc data routing, embedded assets and reference archives
+
+Translated the algorithms in Text.Pandoc.Data: readDataFile,
+readDefaultDataFile, getDataFileNames, defaultUserDataDir and the three private
+reference-archive builders. The runtime retains separate strict/lazy reads,
+existence, installation lookup, environment and clock effects. Embedded and
+installed branches execute the original routing rules on both POSIX and Windows.
+The user overlay keeps the source relative/parent guard and callback-visible
+state; a present override does not silently fall back after a failed read.
+Installed MANUAL.txt bypasses the data/ prefix, and missing-file errors retain
+the original raw or resolved filename as appropriate.
+
+Packaged all 248 entries returned by the original BakedIn Template Haskell
+catalog, preserving every byte and catalog order. This includes the existing
+62 templates, the manual, translations, styles and all reference-document parts.
+Raw Haskell filename characters stay distinct, including separate surrogate
+Chars. Returned asset bytes are owned by the caller. Default DOCX/PPTX/ODT
+assembly uses the original fixed 16/49/6 part lists, performs a fresh timestamp
+and data lookup for each part, and preserves original ZIP bytes, order and
+metadata. Existing user reference archives take the original lazy-read,
+parse-and-reserialize branch. The original ZIP codec's documented capacity and
+compiler-profile limits still apply.
+
+Added PandocMonad getTimestamp/getPOSIXTime algorithms, the Integer
+specialization of Shared.safeRead and raw UTCTime/POSIX picosecond conversion.
+SOURCE_DATE_EPOCH uses the original GHC numeric grammar, including parentheses,
+whitespace, negative signs and binary/octal/hexadecimal literals; invalid values
+fall back to the clock. Arbitrary Integer days/epochs, negative fractions and
+leap-second clipping retain source arithmetic. This does not claim a generic
+Haskell Read interpreter or all other time-library APIs.
+
+The independent oracle compiles full original Data bodies in four build/platform
+variants, with only module/import/CPP selectors adapted. The original BakedIn TH
+executes over the pinned data tree. Original timestamp, path-guard, safeRead and
+makeCanonical projections are checked against the pinned source; the unchanged
+ZIP modules and original Translations modules execute together. Only primitive
+file/directory/environment/clock effects are controlled. The frozen Cabal plan
+rebuild is confirmed up-to-date; no protected earlier oracle was changed.
+
+There are 5,663 native observations: every embedded asset in four variants,
+canonical/raw/user paths, installed lookup and enumeration, recursive directory
+IO order, all default-directory existence/failure combinations, reference
+assembly and real user archives, malformed archive and typed/host failures,
+state-changing callbacks, per-part changing clocks and an error at every part
+position. Timestamp lexical/fuzz and raw picosecond cases plus real translation
+loading exercise the integrated runtime. All 4,515 earlier captured expectations
+remain unchanged after adding the final per-part cases. A separate Kotlin check
+verifies payload ownership. The complete byte catalog and all 292 source hashes
+are checked in CI.
+
+Corpus SHA-256:
+`beca4597651087e9ce045b1662fa96d84c8d2dbab1f80e536e583f57031fde35`.
+
+Directory operations and PandocMonad primitives remain injectable effect
+boundaries; native filesystem/environment implementations and remaining monad,
+application, reader, writer, Lua and original test work are still pending.
+Source SomeException is observed as host failures at these boundaries; exact
+platform exception text and a complete GHC asynchronous-exception runtime are
+not claimed. Existing template-specific providers remain available separately.
+All calibre MOBI/tests and additional formats remain within the full objective.
+
+The preceding 6b7287b publication passed exact-SHA CI run 38670048638.
+
+Validation: all 1,584,211 tests in 94 suites pass with zero failures, errors or
+skips, including 5,664 Data checks. All 97 source/fixture checks and 234 installed
+CLI checks pass (14 FB2, 66 media, 69 format modifiers, 85 math). The installed
+core JAR matches the build output and contains all 248 byte-exact catalog assets,
+both indexes and 49 complete notices. Staged Git blobs match all 292 source
+hashes, the exact corpus and every embedded asset; upstream gitlinks match the
+pinned revisions. The old template packager check now verifies its template
+subtree/index, while the new Data check verifies the whole catalog. Only that
+packager's hash changed in the old template manifest; every old case byte is
+unchanged. All 108 steps in the preceding exact-SHA CI run succeeded. The full
+Pandoc/calibre objective remains active.

@@ -9,7 +9,8 @@ files={str(f.relative_to(source)):f.read_bytes() for f in sorted(source.rglob('*
 expected={'templates/'+name:data for name,data in files.items()}
 expected['templates.txt']=(''.join('templates/'+name+'\n' for name in files)).encode()
 if a.check:
- actual={str(f.relative_to(dest)):f.read_bytes() for f in dest.rglob('*') if f.is_file()}
+ actual={str(f.relative_to(dest)):f.read_bytes() for f in (dest/'templates').rglob('*') if f.is_file()}
+ actual['templates.txt']=(dest/'templates.txt').read_bytes()
  assert actual==expected,'Packaged Pandoc template drift'
 else:
  for name,data in expected.items():
