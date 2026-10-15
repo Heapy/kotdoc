@@ -136,3 +136,6 @@ tools/haskell-http-response-reference/Original*.hs -text whitespace=-trailing-sp
 core/src/test/resources/http-response/LICENSE -text
 licenses/streaming-commons-MIT.txt -text
 core/src/main/resources/io/heapy/kotdoc/http/public-suffix-list.bin -text
+vendor/cookie-0.5.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/cookie-MIT.txt -text
+tools/haskell-web-cookie-reference/OriginalCookieSpec.hs -text whitespace=-trailing-space,-blank-at-eof

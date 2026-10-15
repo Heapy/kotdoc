@@ -8827,3 +8827,91 @@ Kotlin module metadata that exposes the added declarations. CLI and dependency
 JARs are byte-identical too. Existing tests, corpora and observers are unchanged.
 This is an additive cookie dependency checkpoint; it does not assert a new full
 project suite run or completion of Pandoc/HTTP/calibre.
+
+### Web.Cookie header codec, record behavior and cookie dates
+
+The unchanged objective remains all Pandoc behavior and tests, then calibre
+MOBI/all tests and other calibre formats absent from Pandoc/all their tests.
+The preceding PSL checkpoint is published at 0d3cec0; its exact-SHA CI and the
+preceding response CI were re-polled and observed running, not assumed green.
+
+`http/WebCookies.kt` translates cookie 0.5.1 parseCookies/renderCookies and BS
+wrappers, parseCookiesText/renderCookiesText, parseSetCookie/renderSetCookie,
+the default/def record, all ten fields, SameSite values and SetCookie Eq/Show.
+Raw headers retain arbitrary bytes; textual cookies use the original lenient
+UTF-8 behavior and Text surrogate replacement. Parsing preserves first duplicate
+attributes, ASCII-space-only trimming, exact quote removal, raw attribute values
+and case-sensitive SameSite values. Rendering preserves the original field
+order, unquoted values and semicolon separators.
+
+Max-Age uses unbounded integer picoseconds, rejects non-digits, and retains the
+original empty-value `Prelude.read: no parse` error. That field is lazy: reading
+the name, copying the record, changing a differing name before Eq reaches
+Max-Age, and replacing Max-Age do not spuriously force the error. Eq against
+itself still forces the original record fields. Rational formatting floors
+negative fractions; Eq and Show retain the full picosecond value. This is a
+specific translated demand boundary, not a claim of complete Haskell runtime
+or generic Builder/lazy behavior.
+
+`http/CookieDates.kt` specializes the pinned time 1.14 parser/formatter paths for
+`%a, %d-%b-%Y %X GMT`. A read-only source exploration (jbcontext again had no
+index) established locale substitution, whitespace, name/literal case, digit
+widths, year parsing, calendar validation and UTC/display conversions. Gregorian
+dates and signed years remain unbounded; invalid month/day combinations and
+clock ranges are rejected. Weekdays are parsed but need not agree with the date.
+Two-digit years 0..69 gain 2000, 70..99 gain 1900. Leap seconds, negative raw
+DiffTime, picosecond Show and default zero-zone day adjustment follow the source.
+Existing PandocGregorian and PandocUtcTime are reused unchanged.
+
+Independent capture found nine initial mismatches on huge raw positive
+DiffTime. The actual FormatTime `%S` implementation explicitly floors to a
+machine Int, while Show Pico remains unbounded. Kotlin now preserves that
+Int64 wrap and negative padding; 21 further original boundary observations
+cover Int64 minimum/maximum, negative one-digit results, zero and fractions.
+No expected result was changed to accommodate Kotlin.
+
+The complete cookie release is retained unchanged (six original files plus
+provenance), with archive SHA256
+`1adde62726e3a3bbe147c02514fe0c4f5f2c5a2ff63842deac10c451a2a6f7a0`.
+Every archived file is compared byte-for-byte; the actual linked Cabal package
+source SHA agrees. Its full original MIT notice is copied to licenses and the
+core JAR. Existing Time/Text notices and sources remain unchanged.
+
+The native observer links actual cookie 0.5.1, time 1.14 and text 2.1.2 with the
+frozen GHC 9.12.2 dependencies. The entire original Spec.hs is retained with
+only its module name changed. Its actual Tasty/QuickCheck/HUnit main executes
+all **nine original test families**, including **1,000 cases per property**
+(replay seed 938), before capture. The observer also calls the original
+Arbitrary instances and all three original property functions to collect
+**3,000 reproducible inputs**. Kotlin translates the six literal assertions
+and the same three properties for those inputs. This finite run is not a
+claim to exhaust property domains or to port the whole QuickCheck runtime.
+
+The final corpus contains **8,786 independent observations**, including those
+3,000 property inputs, with semantic SHA256
+`2cc9d327995384e12bccf9830682041731790ef05c29322ce2ce08ed8e9dfbe0` and
+**508 source hashes**. Arbitrary bytes, invalid UTF-8, quotes/whitespace,
+duplicates, all renderer flag combinations, lazy record updates, Eq/Show,
+calendar boundaries and unbounded dates/intervals are covered. With the six
+literal original units, all **8,792 new tests pass locally**. Platform,
+source-integrity and installed-distribution validation follows.
+
+Remaining HTTP work includes cookie storage/generation and original CookieSpec,
+Data.IP loopback parsing, redirects, real pool/socket/TLS/proxy/manager effects,
+full exceptions and remaining Request/builder/lazy contracts. Generic Data.Time
+format/parser APIs and dependency/runtime suites are not claimed complete.
+All remaining Pandoc readers/writers/App/Lua and original tests, then calibre
+MOBI and additional formats/all their tests, remain active.
+
+Final validation passes all **8,792 tests** locally (1.146s suite time) and
+Linux/x86_64 JDK 21 (0.900s), with no failures, errors, skips or aborts. The
+local XML is fully parsed and its actual testcase count equals its declarations.
+All **134 source/fixture verifiers** pass (50.9s). The installed/core JAR bytes
+agree; all 95 compiled HTTP classes, 63 full notices and 250 Pandoc assets
+match source/build bytes. The existing original 60,137-byte suffix snapshot is
+unchanged. Relative to the published PSL distribution, all **2,547 existing
+classes and every previous core JAR entry**, including Kotlin module metadata,
+remain byte-identical. CLI and dependency JARs are byte-identical. All older
+implementations, tests, corpora and observers are unchanged. This additive
+codec/date checkpoint does not assert a new full project suite run or complete
+Pandoc/HTTP/calibre parity.

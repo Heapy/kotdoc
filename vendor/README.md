@@ -180,4 +180,14 @@ embedded tree is retained byte-for-byte as a 60,137-byte production resource.
 The development observer compiles those vendored modules directly; no source
 algorithm is rewritten in the observer. Lookup, tree models and serialization
 are translated to Kotlin. The original http-client MIT notice already ships
-with the core JAR. Full cookie parsing/storage and transport are still pending.
+with the core JAR. HTTP cookie storage and transport are still pending.
+
+`cookie-0.5.1/` retains all six unchanged Hackage release files plus archive
+provenance.json (SHA256 `1adde62726e3a3bbe147c02514fe0c4f5f2c5a2ff63842deac10c451a2a6f7a0`).
+The original MIT notice is also copied byte-for-byte to licenses/cookie-MIT.txt
+and the core JAR. Its complete Spec.hs supplies all nine native test families
+and the original Arbitrary/property definitions for the Kotlin cookie corpus.
+Date behavior is specialized from the already retained time-1.14 source. The
+observer links those exact original versions and checks the actual cookie
+archive SHA from its frozen Cabal plan. These sources remain development/oracle
+inputs; production cookie behavior is Kotlin.

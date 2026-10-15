@@ -1,0 +1,19 @@
+cabal-version: 3.0
+name: kotdoc-web-cookie-reference
+version: 0.1.0.0
+build-type: Simple
+license: MIT
+common environment
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, cookie ==0.5.1, aeson ==2.2.3.0,
+                 text ==2.1.2, bytestring ==0.12.2.0, time ==1.14,
+                 QuickCheck ==2.16.0.0, HUnit, tasty, tasty-hunit, tasty-quickcheck, vector
+executable web-cookie-reference
+  import: environment
+  main-is: WebCookieReference.hs
+  other-modules: OriginalCookieSpec
+executable original-cookie-tests
+  import: environment
+  main-is: OriginalCookieTests.hs
+  other-modules: OriginalCookieSpec

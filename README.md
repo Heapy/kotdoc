@@ -9,10 +9,16 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- Web.Cookie 0.5.1 header parsing/rendering, SetCookie fields, Eq/Show,
+  SameSite/Partitioned and original cookie-date parsing/formatting. All nine
+  original test families run independently; Kotlin translates the six literal
+  units and three properties with 3,000 original generated inputs. HTTP cookie
+  storage/generation and redirects remain pending.
+
 - The pinned http-client Public Suffix List: original 2015 tree, wildcard and
   exception lookup, effective TLD plus one, and binary tree serialization.
   All 7,349 original nodes have independent original-code observations.
-  Cookie parsing/storage and HTTP redirects remain pending.
+  HTTP cookie storage and redirects remain pending.
 
 - HTTP response status/header parsing, 100 Continue/103 Early Hints, fixed,
   unlimited and chunked body readers, managed release effects and incremental
