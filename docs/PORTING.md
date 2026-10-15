@@ -32,6 +32,7 @@ format is implemented explicitly in Kotlin.
 | Complete finite TeXMath expression-to-TeX writer | `math/MathTeXWriter.kt` | All three exports; 561 original writer goldens and four regressions; 32,292 original observations, all 561 round-trip results/verdicts (344 already fail upstream), package/Unicode/scope/array/space and deep-input coverage |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
+| Complete HTML reader tag-parsing/category modules | `html/HtmlTagParsing.kt`, `HtmlTagCategories.kt`, `HtmlTagMatching.kt`, `parsing/TokenParsec.kt`, `ParserMachine.kt` | All 14 Parsing functions, TagOmission and eight category values; 66,067 independent native observations, all 69 original HTML inputs/legacy input at the token boundary, exact consumed/empty state/errors and every Char for whitespace/Tag Show |
 | Complete `Text.Pandoc.Parsing.Math`, reader-option getter/guards and `Shared.trimMath` | `parsing/MathParsing.kt`, `ReaderOptionsAccess.kt`, `Parsec.kt` | Both math parsers, all delimiters/groups/comments, five original stream instances, exact state/errors and raw/Text error views; 10,304 independent observations including all 48 HTML and 138 Markdown math inputs |
 | Complete `Text.Pandoc.Writers.Math` bridge | `math/PandocMath.kt` | Both conversion functions and URL re-exports; exact AST/fallback, reporting, re-entrant state, deferred/shared generic writer results; 98,180 native observations over all 335 original Pandoc math nodes and 149 TeX inputs |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
@@ -6863,3 +6864,92 @@ state/tag/table/helper boundary and every other Pandoc reader/writer and
 application/Lua/property test, then calibre MOBI and its original tests and the
 other calibre formats absent from Pandoc. Exact-SHA CI for d1b8c70 and fb2f08f
 is verified successful (118 and 119 successful steps respectively).
+
+
+## Complete HTML tag parsing, categories and typed parser streams
+
+`HtmlTagParsing` implements all fourteen functions exported by
+`Text.Pandoc.Readers.HTML.Parsing`, plus the `TagOmission` type. The port retains
+position-token skipping, nonconsuming failure with the skipped token's error
+position, explicit versus implicit tag closing, td/th cross-closing, all original
+optional-tag/category rules, all three opening/closing omission policies,
+caller-supplied content/predicates and monoid concatenation, whitespace/comment
+skipping and the original backtracking boundaries. Attribute handling preserves
+missing versus empty values, first-match lookup, one-pass xml:lang/data-prefix
+normalization, the full standard-attribute exception set, first-wins duplicate
+removal, empty id precedence, Unicode class words and epub:type classes.
+
+`HtmlTagCategories` retains all eight exported sets/lists, including the duplicate
+`dt` in the original grouping-content list; callers cannot mutate the shared
+catalogs. `HtmlTagMatching` implements the Tag/Text form of TagSoup's asymmetric
+`(~==)` and exact derived Show for all six tag constructors. This includes the
+original comment/warning empty-left behavior, empty-name/value attribute matches,
+ordered duplicate attributes and parenthesized negative position arguments.
+This does not claim all remaining TagSoup utility APIs are ported.
+
+The character parser's consumed/empty interpreter is factored into
+`ParserMachine` over an arbitrary positioned state. Both the existing `Parsec`
+facade and the typed `TokenParsec<T,U,A>` use that single interpreter. The existing
+character reply type is a source alias for the generic reply. Typed token streams
+preserve arbitrary tokens rather than encoding tags as characters; tokenPrim,
+tokenPrimEx, EOF and caller state updates retain original behavior. Explicit
+work stacks/deferred nodes handle finite deep inputs. List-backed streams own
+their input spine; a separate contract test proves that nullable accepted values
+and nullable updated user state remain successful and that original input/state
+are retained. The pre-existing 10,304 math-parser observations also pass after
+the interpreter extraction.
+
+The oracle builds the **complete original Pandoc library**. Since its helper
+modules are hidden, `prepare.py` creates a separate copy and changes only Cabal
+module exposure declarations for Parsing, TagCategories and Types. Every one of
+**2,888 tracked original files** (implementation, tests, data and notices) is
+checked byte-for-byte; only that exact Cabal exposure edit is permitted. The
+original checkout is unchanged. The observer calls the original compiled
+functions, without module extraction or replacement. The complete original HTML
+test module and original helper assertions are compiled/run unchanged; a helper
+adapter additionally serializes literal inputs/expectations. All **69 ordinary
+assertions plus the original QuickCheck property** (25 cases) pass, along with
+69 serialization checks: **139 native tests**. A dependency freeze is retained
+and a repeated build reports `Up to date`.
+
+All **66,067 independent observations pass**, plus the ownership/nullable-state
+contract test. Coverage includes all eight category values; 40,328 opening and
+closing pairs over all 142 category/boundary names; 5,041 asymmetric tag matches;
+1,988 open/attribute matches; close/missing/empty/Show cases for all six tag
+constructors; all standard/prefixed attributes and duplicate permutations;
+7,242 predicate/position/backtracking observations; all omission policies and
+content/state effects; implicit closing and custom opening predicates; all 69
+original HTML unit inputs (276 parser compositions) and the complete original
+HTML-reader legacy input at the token boundary; raw source names/Int64 positions;
+2,000 seeded state/error/tag cases; and four deep/long streams (1,500 nested tags,
+30,000 position tokens, 15,000 content tokens and 15,000 in-tag content tokens).
+Thirty-four aggregate witnesses cover every Haskell Char for the HTML whitespace
+predicate and Show in all five textual tag constructors: 6,684,672 native results,
+not that many individual JUnit tests. Corpus SHA-256:
+`02ccd4ff067fa76cd8484b8795b5ee20c78a32c578f5c24a8e9fde6663e1d02d`.
+The manifest binds 332 source files; all 108 CI source/fixture commands pass.
+All 332 source hashes match staged Git blobs; the corpus and copied helper are
+byte-exact, previous protected corpora/oracles are unchanged, and every upstream
+checkout, release tag and root gitlink remains clean/pinned. Installed/core JAR
+bytes match and contain the new typed parser/tag classes, all 54 full notices,
+250 Pandoc data/index files and the unchanged MathML entity table. Installed
+workflow smoke checks pass. Exact-SHA CI for 6e59f89 is verified successful
+(120 successful steps).
+
+Full validation passes **1,943,257 tests in 105 suites**, with zero failures,
+errors or skips (8m 1s). All 375 installed CLI comparisons pass (14 FB2,
+66 media, 69 extension, 85 math and 141 HTML), alongside the workflow smoke
+checks. No tests were disabled and the original worker heap/recycling limits
+remain unchanged. The metadata checker was strengthened to verify the exact
+original/exposed Cabal hashes and tracked-file count. Recapture with the same
+original native program preserves all 66,067 request/expectation lines byte-for-
+byte and the same case hash; only the source-check manifest changes.
+
+The full objective remains active. These are the complete tag helper/category
+modules, not the complete HTML reader. HTMLState/HTMLLocal and the remaining
+ParserState/capability boundary, table parsing, shared metadata/code/URI helpers,
+raw LaTeX inline parsing and the HTML reader traversal still need Kotlin ports.
+The original HTML AST-level Kotlin assertions, original round-trip property and
+legacy golden remain pending. All other remaining Pandoc readers/writers and
+application/Lua/property tests, followed by calibre MOBI and its original tests
+and other calibre formats absent from Pandoc, remain in scope.

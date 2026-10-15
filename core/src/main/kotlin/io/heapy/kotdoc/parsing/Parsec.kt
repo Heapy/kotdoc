@@ -6,7 +6,6 @@ import io.heapy.kotdoc.formats.HaskellString
 import io.heapy.kotdoc.layout.CharacterString
 import io.heapy.kotdoc.layout.CharacterStringChars
 import io.heapy.kotdoc.layout.TextChars
-import java.util.ArrayDeque
 
 class SourcePos(val nameRaw: CharacterString, val line: Long = 1, val column: Long = 1) : Comparable<SourcePos> {
     constructor(name: String, line: Long = 1, column: Long = 1) : this(CharacterStringChars.fromString(name), line, column)
@@ -90,91 +89,22 @@ data class ParseInput(val text: String = "", val index: Int = 0, val stream: Cha
     fun updateSourcePos(position: SourcePos, point: Int): SourcePos =
         stream?.updateSourcePos(position, point) ?: position.advance(point)
 }
-data class ParseState<U>(val input: ParseInput, val position: SourcePos, val user: U)
-data class ParseReply<U, out A>(val success: Boolean, val value: A?, val state: ParseState<U>, val consumed: Boolean, val error: ParseError)
+data class ParseState<U>(val input: ParseInput, override val position: SourcePos, val user: U) : PositionedParserState
+typealias ParseReply<U, A> = ParserReply<ParseState<U>, A>
 
-/** Parsec's consumed/empty continuations, interpreted with an explicit work stack. */
-class Parsec<U, A> private constructor(private val node: Node<U>) {
-    private sealed interface Node<U> {
-        data class Primitive<U>(val run: (ParseState<U>) -> ParseReply<U, Any?>) : Node<U>
-        data class Bind<U>(val first: Node<U>, val next: (Any?) -> Node<U>) : Node<U>
-        data class Map<U>(val child: Node<U>, val f: (Any?) -> Any?) : Node<U>
-        data class Choice<U>(val first: Node<U>, val second: Node<U>) : Node<U>
-        data class Try<U>(val child: Node<U>) : Node<U>
-        data class Look<U>(val child: Node<U>) : Node<U>
-        data class Label<U>(val child: Node<U>, val labels: List<String>) : Node<U>
-        data class Many<U>(val child: Node<U>, val collect: Boolean) : Node<U>
-        data class Deferred<U>(val child: () -> Node<U>) : Node<U>
-    }
-    private sealed interface Frame<U> {
-        data class BindFirst<U>(val next: (Any?) -> Node<U>) : Frame<U>
-        data class BindSecond<U>(val first: ParseReply<U, Any?>) : Frame<U>
-        data class Map<U>(val f: (Any?) -> Any?) : Frame<U>
-        data class ChoiceFirst<U>(val second: Node<U>, val state: ParseState<U>) : Frame<U>
-        data class ChoiceSecond<U>(val error: ParseError) : Frame<U>
-        class Try<U> : Frame<U>
-        data class Look<U>(val state: ParseState<U>) : Frame<U>
-        data class Label<U>(val labels: List<String>) : Frame<U>
-        data class Many<U>(val node: Node.Many<U>, var state: ParseState<U>, val values: MutableList<Any?>, var consumed: Boolean = false) : Frame<U>
-    }
-    @Suppress("UNCHECKED_CAST")
-    fun run(initial: ParseState<U>): ParseReply<U, A> {
-        val stack = ArrayDeque<Frame<U>>()
-        var current: Node<U>? = node; var state = initial; var result: ParseReply<U, Any?>? = null
-        while (true) {
-            when (val n = current) {
-                is Node.Primitive -> { result = n.run(state); current = null }
-                is Node.Bind -> { stack.push(Frame.BindFirst(n.next)); current = n.first }
-                is Node.Map -> { stack.push(Frame.Map(n.f)); current = n.child }
-                is Node.Choice -> { stack.push(Frame.ChoiceFirst(n.second, state)); current = n.first }
-                is Node.Try -> { stack.push(Frame.Try()); current = n.child }
-                is Node.Look -> { stack.push(Frame.Look(state)); current = n.child }
-                is Node.Label -> { stack.push(Frame.Label(n.labels)); current = n.child }
-                is Node.Many -> { stack.push(Frame.Many(n, state, mutableListOf())); current = n.child }
-                is Node.Deferred -> current = n.child()
-                null -> {
-                    val r = checkNotNull(result)
-                    if (stack.isEmpty()) return r as ParseReply<U, A>
-                    when (val frame = stack.pop()) {
-                        is Frame.BindFirst -> if (r.success) {
-                            if (r.consumed || r.error.messages.isNotEmpty()) stack.push(Frame.BindSecond(r))
-                            state = r.state; current = frame.next(r.value)
-                        }
-                        is Frame.BindSecond -> if (!r.consumed) result = r.copy(
-                            consumed = frame.first.consumed,
-                            error = if (frame.first.error.messages.isEmpty()) r.error else frame.first.error.merge(r.error))
-                        is Frame.Map -> if (r.success) result = r.copy(value = frame.f(r.value))
-                        is Frame.ChoiceFirst -> if (!r.success && !r.consumed) {
-                            stack.push(Frame.ChoiceSecond(r.error)); state = frame.state; current = frame.second
-                        }
-                        is Frame.ChoiceSecond -> if (!r.consumed) result = r.copy(error = frame.error.merge(r.error))
-                        is Frame.Try -> if (!r.success) result = r.copy(consumed = false)
-                        is Frame.Look -> if (r.success) result = r.copy(state = frame.state, consumed = false, error = ParseError(frame.state.position))
-                        is Frame.Label -> if (!r.consumed && (!r.success || r.error.messages.isNotEmpty())) result = r.copy(error = r.error.labels(frame.labels))
-                        is Frame.Many -> if (r.success) {
-                            check(r.consumed) { "Text.ParserCombinators.Parsec.Prim.many: combinator 'many' is applied to a parser that accepts an empty string." }
-                            if (frame.node.collect) frame.values.add(r.value)
-                            frame.state = r.state; frame.consumed = true
-                            stack.push(frame); state = r.state; current = frame.node.child
-                        } else if (!r.consumed) result = ParseReply(true,
-                            if (frame.node.collect) frame.values.toList() else Unit, frame.state, frame.consumed, r.error)
-                    }
-                }
-            }
-        }
-    }
-    @Suppress("UNCHECKED_CAST")
-    fun <B> flatMap(next: (A) -> Parsec<U, B>): Parsec<U, B> = Parsec(Node.Bind(node) { next(it as A).node })
-    @Suppress("UNCHECKED_CAST")
-    fun <B> map(f: (A) -> B): Parsec<U, B> = Parsec(Node.Map(node) { f(it as A) })
-    infix fun or(other: Parsec<U, A>): Parsec<U, A> = Parsec(Node.Choice(node, other.node))
+/** Character-stream facade over the shared consumed/empty parser interpreter. */
+class Parsec<U, A> private constructor(private val machine: ParserMachine<ParseState<U>, A>) {
+    fun run(initial: ParseState<U>): ParseReply<U, A> = machine.run(initial)
+    fun <B> flatMap(next: (A) -> Parsec<U, B>): Parsec<U, B> = Parsec(machine.flatMap { next(it).machine })
+    fun <B> map(f: (A) -> B): Parsec<U, B> = Parsec(machine.map(f))
+    infix fun or(other: Parsec<U, A>): Parsec<U, A> = Parsec(machine or other.machine)
     fun <B> then(next: Parsec<U, B>): Parsec<U, B> = flatMap { next }
     fun <B> before(next: Parsec<U, B>): Parsec<U, A> = flatMap { value -> next.map { value } }
     fun combine(other: Parsec<U, A>, append: (A, A) -> A): Parsec<U, A> = flatMap { a -> other.map { b -> append(a, b) } }
-    fun attempt(): Parsec<U, A> = Parsec(Node.Try(node))
-    fun lookAhead(): Parsec<U, A> = Parsec(Node.Look(node))
-    fun label(text: String): Parsec<U, A> = Parsec(Node.Label(node, listOf(text)))
-    fun many(): Parsec<U, List<A>> = Parsec(Node.Many(node, true))
+    fun attempt(): Parsec<U, A> = Parsec(machine.attempt())
+    fun lookAhead(): Parsec<U, A> = Parsec(machine.lookAhead())
+    fun label(text: String): Parsec<U, A> = Parsec(machine.label(text))
+    fun many(): Parsec<U, List<A>> = Parsec(machine.many())
     /** Control.Applicative's default many retains errors differently from Parsec.many. */
     fun manyAlternative(): Parsec<U, List<A>> {
         class Chain<A>(val value: A, val next: Chain<A>?)
@@ -185,7 +115,7 @@ class Parsec<U, A> private constructor(private val node: Node<U>) {
             result
         }
     }
-    fun skipMany(): Parsec<U, Unit> = Parsec(Node.Many(node, false))
+    fun skipMany(): Parsec<U, Unit> = Parsec(machine.skipMany())
     fun many1(): Parsec<U, List<A>> = flatMap { first -> many().map { listOf(first) + it } }
     fun option(default: A): Parsec<U, A> = this or pure(default)
     fun optional(): Parsec<U, Unit> = map { Unit }.option(Unit)
@@ -193,9 +123,9 @@ class Parsec<U, A> private constructor(private val node: Node<U>) {
         (attempt().flatMap { unexpected<U, Unit>(show(it)) } or pure(Unit)).attempt()
 
     companion object {
-        fun <U, A> primitive(f: (ParseState<U>) -> ParseReply<U, A>): Parsec<U, A> = Parsec(Node.Primitive(f))
+        fun <U, A> primitive(f: (ParseState<U>) -> ParseReply<U, A>): Parsec<U, A> = Parsec(ParserMachine.primitive(f))
         fun <U, A> pure(value: A): Parsec<U, A> = primitive { ParseReply(true, value, it, false, ParseError(it.position)) }
-        fun <U, A> defer(parser: () -> Parsec<U, A>): Parsec<U, A> = Parsec(Node.Deferred { parser().node })
+        fun <U, A> defer(parser: () -> Parsec<U, A>): Parsec<U, A> = Parsec(ParserMachine.defer { parser().machine })
         fun <U, A> zero(): Parsec<U, A> = primitive { ParseReply(false, null, it, false, ParseError(it.position)) }
         fun <U> guard(condition: Boolean): Parsec<U, Unit> = if (condition) pure(Unit) else zero()
         fun <U, A> fail(message: String): Parsec<U, A> = failure(ParseMessage(MessageKind.Message, message))
