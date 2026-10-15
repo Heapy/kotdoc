@@ -46,37 +46,47 @@ class TheoremSpec(val name: TokenList, val style: TheoremStyle, val series: Stri
     }
 }
 /** NonEmpty macro table stack: updating the active scope preserves outer scopes. */
-class MacroScopes private constructor(val head: Map<String, Macro>, private val outer: Scope?) {
-    private class Scope(val value: Map<String, Macro>, val next: Scope?) {
-        val size: Int = (next?.size ?: 0) + 1
-    }
+class MacroScopes private constructor(private val current: Deferred<Map<String, Macro>>,
+                                     private val outer: Deferred<Scope?>, private val depth: Int) {
+    private class Scope(val value: Deferred<Map<String, Macro>>, val next: Deferred<Scope?>)
     constructor(head: Map<String, Macro> = emptyMap(), tail: List<Map<String, Macro>> = emptyList()) :
-        this(head, chain(tail))
+        this(Deferred.now(head), chain(tail), tail.size)
+    val head: Map<String, Macro> get() = current.value()
     val tail: List<Map<String, Macro>> = object : AbstractList<Map<String, Macro>>() {
-        override val size: Int get() = outer?.size ?: 0
+        override val size: Int get() = depth
         override fun get(index: Int): Map<String, Macro> {
             if (index !in indices) throw IndexOutOfBoundsException("index: $index, size: $size")
-            var current = outer!!
-            repeat(index) { current = current.next!! }
-            return current.value
+            var scope = outer.value()!!
+            repeat(index) { scope = scope.next.value()!! }
+            return scope.value.value()
         }
         override fun iterator(): Iterator<Map<String, Macro>> = object : Iterator<Map<String, Macro>> {
             private var current = outer
-            override fun hasNext() = current != null
+            private var remaining = depth
+            override fun hasNext() = remaining > 0
             override fun next(): Map<String, Macro> {
-                val next = current ?: throw NoSuchElementException()
+                if(remaining==0)throw NoSuchElementException()
+                val next = current.value() ?: throw NoSuchElementException()
                 current = next.next
-                return next.value
+                remaining--
+                return next.value.value()
             }
         }
     }
-    fun replaceHead(head: Map<String, Macro>) = MacroScopes(head, outer)
-    fun push() = MacroScopes(head, Scope(head, outer))
-    fun pop() = outer?.let { MacroScopes(it.value, it.next) } ?: this
+    fun replaceHead(head: Map<String, Macro>) = MacroScopes(Deferred.now(head), outer, depth)
+    fun push() = MacroScopes(current, Deferred.now(Scope(current, outer)), depth+1)
+    fun pop() = if(depth==0)this else outer.value()!!.let { MacroScopes(it.value,it.next,depth-1) }
+    /** NonEmpty.map: both outer tables and their transformations remain deferred. */
+    fun mapAll(update: (Map<String, Macro>)->Map<String, Macro>): MacroScopes {
+        fun map(xs: Deferred<Scope?>): Deferred<Scope?> = xs.mapValue { scope ->
+            scope?.let { Scope(it.value.mapValue(update), map(it.next)) }
+        }
+        return MacroScopes(current.mapValue(update),map(outer),depth)
+    }
     companion object {
-        private fun chain(values: List<Map<String, Macro>>): Scope? {
-            var result: Scope? = null
-            for (value in values.asReversed()) result = Scope(value, result)
+        private fun chain(values: List<Map<String, Macro>>): Deferred<Scope?> {
+            var result: Deferred<Scope?> = Deferred.now(null)
+            for (value in values.asReversed()) result = Deferred.now(Scope(Deferred.now(value), result))
             return result
         }
     }

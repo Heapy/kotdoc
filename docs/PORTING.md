@@ -57,8 +57,9 @@ format is implemented explicitly in Kotlin.
 | Shared writer helpers | `ast/DocumentShared.kt` | Original legacy-table and section examples, 500 section-idempotence samples, 471 independent section and 471 block-flattening comparisons |
 | XML.Light output | `xml/XmlOutput.kt` | Original FB2 goldens and explicit pretty-print, raw content, CDATA and escaping checks |
 | MediaBag and MIME tables | `resources/MediaBag.kt`, `MimeTypes.kt` | 2,172 original-Pandoc comparisons, including every MIME extension and reverse MIME type |
-| LaTeX tokenizer, token stream, complete state record and independent parsing/scoping helpers | `latex/LaTeXTokens.kt`, `LaTeXState.kt`, `LaTeXParsing.kt` | 8,973 original observations; all 90 reader unit inputs and 14 LaTeX files, every Haskell Char, all 30 fields/defaults and 100,000-step token/scoping/macro-stack witnesses; command definitions/full reader remain pending |
+| LaTeX tokenizer, token stream, complete state record and independent parsing/scoping helpers | `latex/LaTeXTokens.kt`, `LaTeXState.kt`, `LaTeXParsing.kt` | 8,973 original observations; all 90 reader unit inputs and 14 LaTeX files, every Haskell Char, all 30 fields/defaults and 100,000-step token/scoping/macro-stack witnesses; full reader remains pending |
 | LaTeX token grammar, macro expansion, evaluators and Sources bridges | `latex/LaTeXKernel.kt`, `LaTeXEvaluators.kt`, `LaTeXParsingBridge.kt` | 34,080 complete-original-module observations, both native numeric platforms, argument/default/xparse processors, conditionals, raw capture, scopes, global reports, exact errors and 100,000-token witnesses; full LaTeX reader/command-definition assertions remain pending |
+| LaTeX macro-definition module | `latex/LaTeXMacros.kt`, `LaTeXState.kt` | Complete finite Macro.hs algorithm; 1,553 original-module observations, all 33 definition commands, every Haskell Char through letterize, all 127 matching command inputs/90 reader unit inputs through the token component, and 100,000-level global scope/definition streams; full reader/CLI AST assertions remain pending |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -7726,3 +7727,71 @@ smoke cases pass. No LaTeX CLI reader is registered by this dependency phase;
 full original reader and command assertions remain required. The previous
 **a703f368** exact-SHA CI test job also completed successfully, including its
 complete source, Gradle and CLI checks.
+
+## LaTeX macro definitions and global scope transformations
+
+`LaTeXMacros` now implements the complete finite Macro.hs algorithm: macroDef,
+its quick command registry, all 33 definition commands, insertion/lookup,
+let/edef/xdef/def/gdef/global/newif, classic and xparse command/environment
+constructors, command/environment copies, letterize, bracketed numeric argument
+counts, xparse specifiers, modifiers, processors and body restrictions. It uses
+the preceding token/macro engine and the existing Pandoc state/reporting layer.
+No identity expansion or upstream program is used for production behavior.
+
+The implementation retains upstream behavior, including permissive Renew/Declare
+creation, New/Provide duplicate policies, global scope copied by let/copy,
+end-code helper definitions for document environments, unsupported argument
+specifier errors, required-delimiter fallback, optional-number read failure and
+Int64 wrapping. The original private helper/argument/default behavior is tested
+through definitions and calls, rather than a separately invented representation.
+The raw definition constructor is used only when latex_macros is disabled.
+
+`MacroScopes.mapAll` translates NonEmpty.map without eagerly traversing or
+materializing outer tables. The persistent stack stores deferred tables/tails;
+push, local head replacement and pop retain their constant-time structure.
+Global definitions affect inherited/outer groups, while local definitions and
+verbatim-mode state retain the original scoping behavior. Repeated global
+updates can leave unused outer tables unevaluated. Tests exercise both deeply
+nested scopes and long definition streams with 100,000 steps.
+
+The observer compiles the complete pinned Macro.hs and Parsing.hs. Macro changes
+are limited to its module/import names, two private helper exports, and a LINE
+pragma preserving the canonical source filename/line numbers in pattern-match
+errors. Parsing and transport copies are checked against the protected preceding
+observer byte-for-byte (only the transport module name changes). The prepared
+Pandoc build again verifies all **2,888** tracked files, allowing only the same
+three packaging-only module exposures. The original command/reader test files
+and their expectations are unchanged.
+
+The corpus contains **1,553** direct observations with case SHA-256
+`bac821036a4aa0965149279f80b4e07251cb2b6681f90f8fd8c50ab5134f4b5c`.
+All **127** matching original command inputs from **44** files and all **90**
+reader unit inputs run through the definition/token component with macros both
+enabled and disabled. Further cases cover every definition command and existing
+name policy, raw capture/backtracking, all xparse specifiers/modifiers/processors,
+malformed syntax, Int64 wrapping, snapshot/scoping semantics, nested definitions,
+newif, environment copies/helpers, global logging and all **1,114,112 Haskell
+Chars** through letterize (17 independent digest witnesses). Seven deep
+witnesses compare complete output hashes and final state, not just successful
+termination. All earlier corpora and observers remain protected.
+
+This component driver is not readLaTeX: the full reader AST/command/report
+assertions remain pending, including the complete CLI semantics of the 127/90
+inputs. General partial Haskell-value behavior and the remaining Parsing derived
+Show work also remain in scope. The next dependency is the full LaTeX reader
+and its command/environment dispatch. Other Pandoc readers/writers, complete
+application/Lua/property tests, then all requested calibre MOBI tests and the
+additional calibre formats remain required by the unchanged objective.
+
+Final full Gradle validation passes **2,196,571 tests in 116 suites**, with zero
+failures, errors or skips (8m 12s). The new macro suite contributes all **1,553**
+observations (11.340s in the full run). All 1,553 also pass under Linux
+x86_64/glibc 2.39/JDK 21 with the unchanged **2 GiB** heap limit (7.136s).
+All **121 source/fixture checks** pass; all **63** corpus source hashes match
+staged/root or pinned upstream Git blobs. All three release pins, earlier
+corpora and earlier observers remain unchanged. Installed/core JAR bytes match,
+including all **67 compiled LaTeX classes**, **56 full notices**, **250** Pandoc
+assets/indexes and unchanged MathML/text mappings. Installed CLI workflow smoke
+cases pass. No reader or test was disabled, no worker memory/recycling setting
+changed, and no partial LaTeX reader was registered. Exact-SHA CI for the
+preceding **c66ce1bb** commit is verified successful.
