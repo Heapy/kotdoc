@@ -6146,3 +6146,27 @@ and every one of its 3,779 source hashes; pinned submodule revisions match.
 All earlier protected corpora and original source files remain unchanged. The
 full Pandoc/calibre objective remains active, with math parsing/writing and the
 HTML writer next.
+
+
+## Plugin classpath repository availability
+
+CI run 38675344577 for f01d4d9 failed during root project configuration, before
+compilation or tests: Gradle could not resolve five Kotlin 2.4.21 plugin
+artifacts through plugins.gradle.org. The same artifacts currently return HTTP
+200 through both Plugin Portal and Maven Central, and a completely fresh local
+Gradle user/project cache resolves the original configuration successfully.
+Thus the observed failure is consistent with transient repository availability;
+it is not evidence of a Kotlin test regression.
+
+Plugin resolution previously used only Gradle's default Plugin Portal. Added
+explicit pluginManagement repositories with Maven Central first and Plugin
+Portal second, keeping all versions unchanged. This routes Kotlin's published
+artifacts directly to Maven Central instead of relying solely on the Portal
+proxy. Gradle's official plugin repository documentation supports this setup:
+https://docs.gradle.org/current/userguide/plugins_intermediate.html
+
+A second isolated empty artifact/project cache successfully configures the
+updated project. Its download log confirms that all five previously missing
+Kotlin modules, including POM/module/JAR metadata, resolve directly from Maven
+Central. This verifies the resolution path locally; the new exact-SHA remote
+pipeline still needs to run.
