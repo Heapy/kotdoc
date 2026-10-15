@@ -9,6 +9,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP response status/header parsing, 100 Continue/103 Early Hints, fixed,
+  unlimited and chunked body readers, managed release effects and incremental
+  gzip via streaming-commons 0.2.3.1/zlib. All original HeadersSpec, BodySpec,
+  ResponseSpec and ConnectionSpec tests are translated. Full socket/TLS,
+  redirects, cookies and HTML CLI integration remain pending.
+
 - Native HTTP request preparation and HTTP/1.x wire writing from http-client
   0.7.19: URL/auth/proxy/query rules, exact header order, gzip policy, six body
   forms, Expect continuations, stream-size checks and file progress/reopening.

@@ -163,3 +163,13 @@ unchanged. MIT and BSD notices are retained in the releases and licenses/.
 The new corpus hashes every retained file. These are development/oracle
 sources, not production Haskell dependencies; remaining transport/dependency
 APIs and tests are listed in docs/PORTING.md.
+
+
+`streaming-commons-0.2.3.1/` retains the complete unchanged Hackage release and
+archive provenance.json. Its Data.Streaming.Zlib inflater and http-client
+0.7.19 response readers supply the new incremental HTTP body algorithms.
+The original MIT license is also in licenses/streaming-commons-MIT.txt.
+The Kotlin inflater calls the system C zlib API through the already packaged
+JNA dependency; no Haskell code is a production dependency. Whole streaming-
+commons (including deflate/network/process/filesystem APIs and tests) is not
+claimed complete; see docs/PORTING.md for the remaining full objective.

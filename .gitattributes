@@ -129,3 +129,9 @@ vendor/http-client-0.7.19/** -text whitespace=-trailing-space,-blank-at-eof,-spa
 vendor/case-insensitive-1.2.1.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/bytestring-http-0.12.2.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-http-request-reference/OriginalRequestSpec.hs -text whitespace=-trailing-space,-blank-at-eof
+
+# Preserve streaming-commons release/test bytes and original HTTP test bodies.
+vendor/streaming-commons-0.2.3.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-http-response-reference/Original*.hs -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+core/src/test/resources/http-response/LICENSE -text
+licenses/streaming-commons-MIT.txt -text

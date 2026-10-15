@@ -18,7 +18,7 @@ import java.nio.file.Path
 import java.util.Base64
 
 /** ByteString fields must retain arbitrary bytes, including malformed UTF-8. */
-class HttpBytes(bytes: ByteArray) {
+class HttpBytes(bytes: ByteArray) : Comparable<HttpBytes> {
     private val data = bytes.copyOf()
     fun bytes() = data.copyOf()
     val size get() = data.size
@@ -26,6 +26,13 @@ class HttpBytes(bytes: ByteArray) {
     fun show() = HaskellString.quoteCodePoints(data.map { it.toInt() and 255 }.toIntArray())
     override fun equals(other: Any?) = other is HttpBytes && data.contentEquals(other.data)
     override fun hashCode() = data.contentHashCode()
+    override fun compareTo(other: HttpBytes): Int {
+        for (i in 0..<minOf(data.size, other.data.size)) {
+            val n = (data[i].toInt() and 255).compareTo(other.data[i].toInt() and 255)
+            if (n != 0) return n
+        }
+        return data.size.compareTo(other.data.size)
+    }
     operator fun plus(other: HttpBytes) = HttpBytes(data + other.data)
     companion object {
         val empty = HttpBytes(byteArrayOf())
@@ -35,10 +42,13 @@ class HttpBytes(bytes: ByteArray) {
     }
 }
 
-data class HttpHeader(val name: HttpBytes, val value: HttpBytes) {
+data class HttpHeader(val name: HttpBytes, val value: HttpBytes) : Comparable<HttpHeader> {
     constructor(name: String, value: String) : this(HttpBytes.pack(name), HttpBytes.pack(value))
     fun named(other: HttpBytes) = fold(name) == fold(other)
     fun named(other: String) = named(HttpBytes.pack(other))
+    override fun equals(other: Any?) = other is HttpHeader && named(other.name) && value == other.value
+    override fun hashCode() = 31 * fold(name).hashCode() + value.hashCode()
+    override fun compareTo(other: HttpHeader) = fold(name).compareTo(fold(other.name)).takeIf { it != 0 } ?: value.compareTo(other.value)
     companion object {
         // case-insensitive's ByteString instance uses Latin-1 case folding.
         private fun fold(bytes: HttpBytes) = HttpBytes(bytes.bytes().map {
@@ -103,6 +113,7 @@ data class HttpRequest(
     val onRequestBodyException: (Exception) -> Unit = { if (it !is IOException) throw it },
     val proxySecureMode: ProxySecureMode = ProxySecureMode.ProxySecureWithConnect,
     val redactHeaders: List<HttpBytes> = listOf(HttpBytes.pack("Authorization")),
+    val earlyHintHeadersReceived: (List<HttpHeader>) -> Unit = {},
 ) {
     fun show(): String = buildString {
         fun field(name: String, value: Any) { append("  ").append(name.padEnd(21)).append("= ").append(value).append('\n') }

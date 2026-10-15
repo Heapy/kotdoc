@@ -8632,3 +8632,135 @@ repeating with the same explicit JDK 21 used for Gradle passes every checker
 The Linux run, source checks, staged source archive audit and JAR preservation
 checks above also pass. This checkpoint completes request preparation/writing
 work recorded here, not the remaining complete transport or the full goal.
+
+
+## HTTP response parsing, incremental bodies and streaming zlib
+
+The preceding goal turn is concrete progress: public commit
+882027d0876ea5766bdbc24ac53c37dda4c2d657 and its synchronized clean mirror.
+This phase reads the pinned http-client 0.7.19 Connection, Headers, Body,
+Response and Types implementations and all four original related test suites.
+The checkout still has no jbcontext index; known exact source paths are used.
+The full Pandoc/calibre objective remains unchanged.
+
+New http/HttpResponse.kt translates the connection read/unread stack and
+idempotent close, raw-Char strippedHostName, connectionReadLine/With,
+connectionUnreadLine and dropTillBlankLine. The original chunk-sensitive length
+limit and unread-before-return effects are preserved. It parses status/version
+with the actual bounded bytestring-0.12.2.0 readInt contract, distinct from the
+wrapping GHC Read Int used for Content-Length and request ports. Header parsing
+retains ordered/duplicate fields, space-only stripping, ignored malformed final
+headers, early-hint unread behavior, count limits, up to three blank status
+lines, 100 Continue and repeated 103 Early Hints. Header validation preserves
+the original rule (LF in values) and complete diagnostic bytes.
+
+The timeout boundary preserves zero/negative timeout behavior and the separate
+Expect continuation scope. The default JVM effect uses an interruptible virtual
+thread/FutureTask deadline. Independent actual System.Timeout witnesses check
+zero, negative and successful deadlines, timeout during a delayed read, and a
+continuation lasting longer than the header timeout while remaining outside it.
+Full GHC asynchronous exception/runtime contracts are not inferred from these
+finite witnesses or claimed complete.
+
+Body readers translate constBodyReader, brRead, brReadSome, brConsume,
+makeUnlimitedReader, makeLengthReader, makeChunkedReader and makeGzipReader.
+They retain individual chunks, overshooting readSome, leftovers, trailers,
+raw framing, hexadecimal machine-Int overflow, EOF and repeated cleanup effects,
+short-body errors and exact error forcing. getResponse, lbsResponse,
+getOriginalRequest and hasNoBody preserve first-header Content-Length,
+case-insensitive exact Transfer-Encoding membership, no-body statuses/method,
+case-sensitive Connection close value, HTTP version reuse policy, release and
+keepAlive ordering, early hints and request-body erasure. The early-hint callback
+now belongs to HttpRequest, so getOriginalRequest retains it for another response.
+These managed effects are a real injectable resource boundary, not a claim that
+the actual connection pool or network transport is implemented.
+
+Parser/body failures have typed HttpFailureContent values and original
+HttpExceptionContentWrapper Show text. The remaining full HttpException,
+status/redirect responses and host/socket/TLS exceptions still require work.
+HttpHeader now has the original CI-name/byte-value Eq and tuple Ord, with a
+consistent Kotlin hash; HttpBytes has unsigned lexicographic Ord. This corrects
+the initial model's generated case-sensitive Header equality. The corpus has
+1,536 independent all-byte name/value/fold/prefix comparison witnesses.
+The old Request observation corpus and every previous expectation remain intact.
+
+New http/StreamingInflate.kt translates streaming-commons 0.2.3.1 init/feed,
+popper drain, dictionary retry, finish/flush, unused-input and completion APIs.
+It uses the existing JNA dependency to call the system C zlib primitives, with
+C-width-aware z_stream fields and scoped/GC-cleaned native allocations. The
+32,752-byte buffer, full-buffer pop, error-before-output rule, ignored init
+return, non-error Z_BUF_ERROR/Z_NEED_DICT, repeated stream-end behavior and
+flush semantics follow the original. HTTP gzip does not introduce validation
+at EOF or automatically reset for another member. No Haskell executable or
+whole-buffer gzip converter is a production dependency.
+
+The complete unchanged streaming-commons release (36 files) is verified against
+its Hackage archive SHA256
+`33d16c0c6080795800d9f0e490203ea3e50bd5034e5d077a0ddc04d33ea4dc6e`.
+Its original MIT notice is copied byte-for-byte to licenses and the core JAR.
+The actual linked Cabal source SHA agrees with that archive. Original LICENSE
+and test/LICENSE.gz are preserved verbatim in test resources.
+
+The independent observer links the actual frozen original packages. All **26
+original HeadersSpec, BodySpec, ResponseSpec and ConnectionSpec tests** run
+unchanged before capture, with only module-name packaging differences. Every
+original action, literal assertion and predicate is also translated to Kotlin.
+Five further original streaming-commons inflater units are translated: single
+and byte-at-a-time license inflation, different dictionary, large raw
+inflation (four default buffers plus one byte), and getUnusedInflate. The
+remaining full streaming-commons deflate/property and other suites stay pending.
+
+For release/keepAlive observations, OriginalResponse.hs preserves the entire
+original implementation; only its module/import packaging and pool capability
+boundary differ. The actual original ResponseSpec separately runs against the
+unmodified release and its original managed connection implementation. Additional
+observations record exact reads/unreads/writes, body chunks, errors, continuation,
+early-hint callbacks, cleanup/release/keepAlive and unread input. The observer
+also verifies getOriginalRequest retaining its early-hint callback on a second
+response. Direct inflater observations retain every feed/pop/flush/finish,
+unused byte and completion transition across valid, invalid, truncated,
+concatenated, dictionary and raw/gzip/zlib input.
+
+The final corpus contains **2,662 independent observations** and **257 source
+hashes**, with semantic case SHA256
+`4c890044c1e4c9dbfb0b60ad1be16d71f8fa015787a61362f2cf4e5c7837939f`.
+Together with 26 original HTTP tests and five inflater units it contributes
+**2,693 new tests**. Initial 1,146-case validation passed, followed by the callback,
+timeout, original inflater unit and CI-header equality/order extensions.
+Linux/x86_64 JDK 21 passes all final 2,693 tests (3.114s), with no failures,
+errors, skips or aborts, including actual native zlib calls and blocked-read
+interruption. The existing 2 GiB worker budget is unchanged.
+
+All **132 source/fixture verifiers** pass (58.4s). Installed and core JAR bytes
+agree; all 77 current HTTP compiled classes match the packaged bytes. All 62
+full notices and 250 Pandoc assets retain exact bytes. Comparison with the
+preceding request distribution preserves every old non-HTTP JAR entry and all
+2,461 old non-HTTP class files. Only the expected HTTP model/debug-table class
+bytes and Kotlin module metadata change; every previous class still exists.
+CLI and dependency JARs remain byte-identical. Full project validation follows.
+
+Remaining HTTP work includes real pool/socket/TLS/proxy/manager behavior,
+redirects/cookies, full exception/status response behavior, outstanding Request
+fields and general builder/Monoid/lazy contracts, complete dependency suites,
+and Windows native zlib distribution/loading. HTML CLI integration still waits
+for genuine URL transport parity. All remaining Pandoc readers/writers/App/Lua
+and original tests, then calibre MOBI/all tests and calibre formats missing from
+Pandoc/all their tests, remain in the full active objective.
+
+
+Final full Gradle validation passes **2,582,346 tests in 125 suites**, with no
+failures, errors or skips (9m 8s). All XML documents are fully parsed; actual
+case/failure/error/skipped elements agree with declared counts. The new response
+suite contributes all 2,693 tests (3.649s in the full run); the preceding request
+suite and every earlier suite also pass. Both HTML/XML reports, the 3 GiB build
+daemon and sequential/recycled 2 GiB test-worker budgets remain unchanged.
+
+The preceding request checkpoint's exact-SHA CI completed successfully:
+https://github.com/Heapy/kotdoc/actions/runs/38798913843.
+The staged source audit verifies all 257 hashes against actual staged/pinned
+Git blobs, with the three source release pins and submodules clean. Every older
+test, corpus and observer is unchanged. The only previous implementation file
+edited is the HTTP request model for CI equality/Ord and early-hint ownership;
+all other implementation files are new. The installed distribution and CLI
+byte-preservation checks above remain valid. This is a response/body foundation
+checkpoint; complete Pandoc and calibre conversion/test coverage remains active.
