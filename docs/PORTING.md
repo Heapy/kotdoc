@@ -35,6 +35,8 @@ format is implemented explicitly in Kotlin.
 | Shared metadata/space/code helpers and finite AST traversal | `ast/InlineShared.kt`, `DocumentShared.kt`, `PandocVisitor.kt` | addMetaField, extractSpaces, formatCode and htmlSpanLikeElements; 19,643 native observations, all 266 documents/10,584 inline lists, original stringify property/generators, every Char and 100,000-level finite trees |
 | Network.URI materialized finite runtime operations | `uri/NetworkURI.kt`, `URIParsing.kt`, `URI.kt`, `resources/MediaBagUri.kt` | Full parsing/validation, UTF8 escaping/decoding, normalization, relative resolution and deprecated accessors; 95,464 native observations, all 339 active original unit tests and both translated property predicates |
 | Complete HTML table parser and simple-cell query | `html/HtmlTableParsing.kt`, `ast/TableSimplicity.kt` | Full pTable traversal/normalization and caller state/effects; 6,539 independent original observations, all 266 Native documents, 42 HTML/HTML4/HTML5 table spans and all Char numeric-prefix/remainder witnesses |
+| Complete finite HTML document grammar and public Sources APIs | `html/HtmlReader.kt`, `HtmlSourceParsing.kt` | All 69 original units, original reader golden, all eight HTML files and 173 explicit command inputs; full AST/error/report comparisons, original roundTrip predicate and actual QuickCheck witnesses; CLI transport/application integration remains pending |
+| General Smart punctuation, TagSoup rendering and strict Pandoc UTF8.toText | `parsing/SmartParsing.kt`, `html/HtmlRendering.kt`, `resources/PandocUtf8.kt` | Direct original parsers with exact quote/last-string state, errors and Sources positions; original render/canonicalization behavior; every UTF-8 byte pair, every encoded Haskell Char, host UnicodeException ordering and iframe integration |
 | Complete HTML reader tag-parsing/category modules | `html/HtmlTagParsing.kt`, `HtmlTagCategories.kt`, `HtmlTagMatching.kt`, `parsing/TokenParsec.kt`, `ParserMachine.kt` | All 14 Parsing functions, TagOmission and eight category values; 66,067 independent native observations, all 69 original HTML inputs/legacy input at the token boundary, exact consumed/empty state/errors and every Char for whitespace/Tag Show |
 | Complete `Text.Pandoc.Parsing.Math`, reader-option getter/guards and `Shared.trimMath` | `parsing/MathParsing.kt`, `ReaderOptionsAccess.kt`, `Parsec.kt` | Both math parsers, all delimiters/groups/comments, five original stream instances, exact state/errors and raw/Text error views; 10,304 independent observations including all 48 HTML and 138 Markdown math inputs |
 | Complete `Text.Pandoc.Writers.Math` bridge | `math/PandocMath.kt` | Both conversion functions and URL re-exports; exact AST/fallback, reporting, re-entrant state, deferred/shared generic writer results; 98,180 native observations over all 335 original Pandoc math nodes and 149 TeX inputs |
@@ -173,9 +175,10 @@ also remain to audit; no claim of complete pandoc-types parity is made.
 Continue the remaining reader/writer/application suites against the pinned
 original tests. The complete LaTeX grammar and public raw Sources entry points
 are now implemented; extend their original command assertions through complete
-writers/application behavior. The HTML document reader can reuse the existing
-HTML token, state, table and new raw LaTeX foundations. Its full grammar and
-original reader tests remain pending. Remaining TeXMath reader/writer tests,
+writers/application behavior. The finite HTML document grammar and original reader
+assertions now reuse the HTML token/state/table and raw LaTeX foundations.
+Connect its CLI URL transport with the original IO.HTTP/PandocMonad behavior
+and continue the remaining command/application assertions. Remaining TeXMath reader/writer tests,
 dependency partial-value contracts and original property generators also remain
 part of the full port. Preserve exact options, state and error behavior as each
 format is connected.
@@ -8385,3 +8388,129 @@ Test resources and the installed distribution are rebuilt afterward without
 replacing the complete full-run XML reports. The final corpus and copied test
 resource bytes agree. The original PNG used by the new end-to-end CLI check
 is included in the final source manifest.
+
+
+## Complete finite HTML reader grammar, public Sources APIs and text dependencies
+
+`HtmlReader` ports Readers/HTML.hs using the preceding HTML state, token and
+table parsers and the actual LaTeX raw Sources bridge. All document/block/inline
+branches are implemented, including metadata and base URI, headings and stored
+identifier warnings, main extraction, malformed lists and definitions, pre/code,
+figures, SVG data images, MathML and original TeX annotations, quoted text,
+span/HTML/raw modes, EPUB notes and references, TOC/title-page suppression,
+checkboxes, iframe MIME routing, nested frames and the depth limit. The public
+Sources htmlTag/htmlInBalanced APIs preserve predicates, errors, raw text,
+positions and remaining chunks. All eight original module exports are represented;
+classification and toAttr reuse the same reader dependencies.
+
+`SmartParsing` implements the complete finite Smart module as ReaderT-aware
+character parsers. Quote context is separate from last-string position and
+options. Direct calls preserve start/end guards, failed-quote fallback,
+context restoration, apostrophes, ellipses and both dash conventions. The
+standalone state dictionary and HTML's local Reader context are both exercised.
+`HtmlRendering` implements canonicalizeTags and the complete finite TagSoup
+renderer, all three option callbacks, raw tags, minimized pairs, processing
+instructions, comment repair and duplicate/empty attributes. Simple Char case
+mapping for canonicalization is distinct from Shared.renderTags' full Text
+lowercase dictionary, including the dotted-I case.
+
+`PandocUtf8.toText` implements the exact strict path needed by iframe HTML:
+remove one leading UTF-8 BOM and every CR byte, then decode. A host
+UnicodeDecodeException remains distinct from PandocMonad's typed UTF8 error.
+The source's StrictTextBuilder forces the last buffered byte for incomplete
+prefixes, while invalid sequences report their lead byte. All 65,536 byte pairs,
+512 seeded malformed arrays, BOM/CR/code-point boundaries and every original
+encoded Haskell Char are checked independently. No original invalid byte is
+silently replaced. The complete UTF8 IO/lazy/general dependency suites remain
+in scope beyond this path.
+
+The observer links the actual original full HTML reader in the verified pinned
+library, with the same four packaging exposures and no implementation changes.
+All 2,888 prepared tracked files are checked. OriginalReaderTests keeps all 69
+input/expected expressions and the original roundTrip normalization/predicate.
+Only its module export and framework imports change. The adapter performs the
+original Helpers ToString and Haskell lines assertion before capture. Reader
+options for each unit group are independently rechecked against its complete
+original result. The original fixed reader golden is also validated with the
+original Native writer.
+
+The roundTrip translation performs the source's normalization and all three
+WrapPreserve HTML writer/readHtml rewrites, comparing every original HTML string
+and intermediate AST before the final predicate. It covers all 266 original
+documents, 25 additional original Arbitrary Blocks witnesses, and a separate
+actual QuickCheck run with the original generator, shrinker, size schedule,
+withMaxSuccess(25) and explicit replay seed. The original QuickCheck run succeeds
+with 25 observations. This does not replace the remaining full Kotlin
+QuickCheck/generator/shrinker work with a smaller fixture-only objective.
+
+Iframe effects are observed using a ReaderT/StateT fixture that overrides only
+openURL and delegates every other PandocMonad method to PandocPure. Success,
+MIME selection, nested common-state report order and depth limits retain the
+original reader implementation. A failed URL callback rolls back its StateT
+append in this fixture; the Kotlin adapter records successful returns accordingly.
+The production reader accepts an injected URL effect. CLI URL transport,
+original full command outputs/options and remaining application/HTTP behavior
+remain pending; no approximate HTML CLI reader is registered here.
+
+All eight original HTML files and 173 explicit HTML command inputs now exercise
+the full grammar. Their final command outputs and unrelated flags are separate
+remaining assertions. The inherited LaTeX corpus and every earlier observer,
+fixture, source release and license are unchanged. OriginalSmart.hs preserves
+its complete original body, changing only module/import packaging and using a
+verbatim General.isSpaceChar helper, checked by the importer.
+
+The first 830-case comparison found two test-adapter newline mismatches for
+standalone metadata Native output; implementing the original Haskell lines
+comparison on both operands resolves them without changing expectations or
+production output. Expanding direct Smart probes found 1,320 adapter failures
+from decoding the fixture context by enum ordinal; explicitly mapping the
+fixture's NoQuote/Single/Double tags resolves them. The original core enum/order
+and every captured expectation remain unchanged. Successful iframe tests also
+prove strict UTF-8/BOM/CR behavior instead of checking only missing URLs.
+
+The final new corpus contains **7469 independent original observations**, with **876
+source hashes** and semantic case SHA256
+`f37ca67714e38a5699a93e8466a978272aa5bf11cf620e0129e9866f52a6dcd3`.
+All previously captured observations are preserved on recapture. The targeted
+macOS/ARM64 suite passes every case, with no failures/errors/skips (8.763s).
+The encoded-Char witness compares a length-prefixed SHA256 over all 1,114,112
+Haskell Chars through original UTF8.fromText/toText, including surrogate
+replacement, CR removal and leading BOM removal. It does not inflate the
+individual dynamic-test count. Full project and Linux checks follow below.
+
+The Linux/x86_64 JDK 21 run passes all 7,469 new tests with no failures,
+errors, skips or aborts (5.021s), at the unchanged 2 GiB worker budget.
+All 130 source/fixture checks pass. All 876 manifest hashes match staged root
+or pinned upstream Git blobs, including exact symlink and target contents.
+The three upstream release pins and every previous corpus/observer remain
+unchanged. No previous conversion implementation, test or expectation is edited.
+
+The installed and core JAR bytes match. All current 93 HTML, 207 parsing,
+206 LaTeX and 55 resource class files match the compiled output. The packaged
+59 full license/NOTICE files and 250 Pandoc assets retain their original bytes.
+Comparison with the preceding LaTeX checkpoint distribution proves that all
+2,415 previously packaged class files and every previous JAR entry are exactly
+unchanged; the existing CLI and dependency JARs are byte-identical as well.
+All four installed workflow smoke cases pass. No CLI reader registration or
+transport behavior is changed in this library phase.
+
+The preceding LaTeX checkpoint cc67d32cc952cf22cd11f6bbddef0822a1256a99 has
+successful exact-SHA CI:
+https://github.com/Heapy/kotdoc/actions/runs/38787635645.
+
+The new prepare.py creates a fresh complete original tree and frozen project,
+changing only the four documented module exposures. This preparation was run
+and all 2,888 tracked source/test/data files verified; the complete observation
+corpus was then recaptured against that freshly prepared tree. The final source
+manifest includes the preparer and its documentation (876 hashes), while every
+observation line and the semantic case hash remain unchanged. These last
+provenance-only changes are copied into test resources after the full run;
+no test is rerun with altered expectations and the full XML reports are retained.
+
+Final full Gradle validation passes **2,576,477 tests in 123 suites**, with no
+failures, errors or skips (9m 39s). The new HTML reader suite contributes all
+7,469 observations (5.833s). Every XML report is parsed completely and its
+actual testcase/failure/error/skipped elements agree with the declared totals.
+Both HTML and JUnit XML reports are retained. The existing 3 GiB build-daemon
+report budget, 2 GiB sequential workers and recycling after 20 classes are
+unchanged. No previous test, report or source verifier is disabled.

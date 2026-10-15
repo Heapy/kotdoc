@@ -382,7 +382,17 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - TagSoup HTML tokenization, entities, positions, warnings and custom entity hooks.
   Preserves malformed-markup recovery, ordered attributes, script content and CDATA.
   Verified by original examples/properties and 3,670 independent Pandoc identifier
-  captures; the complete HTML document reader remains pending.
+  captures; the complete HTML grammar is implemented below; CLI URL transport remains pending.
+
+- Complete HTML reader grammar and public Sources tag/balanced-tag APIs,
+  including metadata, EPUB notes, lists, figures, MathML, SVG data images,
+  quotes, raw LaTeX, main-content extraction and injected iframe URL effects.
+  All 69 original units, the original fixed reader golden, all eight HTML files
+  and 173 explicit command inputs are compared against the original reader.
+  The 7,468 independent observations include exact intermediate round-trip HTML
+  and ASTs, all 266 original documents, an actual original QuickCheck run,
+  Smart punctuation, TagSoup rendering and strict iframe UTF-8. CLI URL transport
+  and final command/application assertions remain pending.
 
 See [the porting ledger](docs/PORTING.md) for the full remaining scope and caveats.
 Pinned upstream sources and original tests live in Git submodules; preserving
@@ -413,6 +423,7 @@ python3 tools/import-text-212-case.py --check
 python3 tools/import-latex-reader-fixtures.py --check-source
 python3 tools/import-parser-state-fixtures.py --check-source
 python3 tools/import-html-state-fixtures.py --check-source
+python3 tools/import-html-reader-fixtures.py --check-source
 python3 tools/import-uri-fixtures.py --check-source
 python3 tools/import-uri-unit-tests.py --check
 python3 tools/import-shared-inline-fixtures.py --check-source
