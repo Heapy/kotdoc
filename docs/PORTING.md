@@ -57,7 +57,8 @@ format is implemented explicitly in Kotlin.
 | Shared writer helpers | `ast/DocumentShared.kt` | Original legacy-table and section examples, 500 section-idempotence samples, 471 independent section and 471 block-flattening comparisons |
 | XML.Light output | `xml/XmlOutput.kt` | Original FB2 goldens and explicit pretty-print, raw content, CDATA and escaping checks |
 | MediaBag and MIME tables | `resources/MediaBag.kt`, `MimeTypes.kt` | 2,172 original-Pandoc comparisons, including every MIME extension and reverse MIME type |
-| LaTeX tokenizer, token stream, complete state record and independent parsing/scoping helpers | `latex/LaTeXTokens.kt`, `LaTeXState.kt`, `LaTeXParsing.kt` | 8,973 original observations; all 90 reader unit inputs and 14 LaTeX files, every Haskell Char, all 30 fields/defaults and 100,000-step token/scoping/macro-stack witnesses; command/macro parser still pending |
+| LaTeX tokenizer, token stream, complete state record and independent parsing/scoping helpers | `latex/LaTeXTokens.kt`, `LaTeXState.kt`, `LaTeXParsing.kt` | 8,973 original observations; all 90 reader unit inputs and 14 LaTeX files, every Haskell Char, all 30 fields/defaults and 100,000-step token/scoping/macro-stack witnesses; command definitions/full reader remain pending |
+| LaTeX token grammar, macro expansion, evaluators and Sources bridges | `latex/LaTeXKernel.kt`, `LaTeXEvaluators.kt`, `LaTeXParsingBridge.kt` | 34,080 complete-original-module observations, both native numeric platforms, argument/default/xparse processors, conditionals, raw capture, scopes, global reports, exact errors and 100,000-token witnesses; full LaTeX reader/command-definition assertions remain pending |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -7645,3 +7646,83 @@ pending. These
 are necessary for HTML raw LaTeX and the full HTML reader. Other remaining Pandoc
 readers/writers and application/Lua/property tests, then calibre MOBI with all
 original tests and other calibre formats absent from Pandoc, remain in scope.
+
+## LaTeX token grammar, expansion and Sources bridges
+
+The next Parsing dependency cycle now runs in Kotlin: `satisfyTok` expands the
+head of the stream, argument parsers consume through `satisfyTok`, and macro
+expansion recursively calls those parsers. No expansion identity stub or upstream
+runtime dependency is used. `LaTeXKernel` implements the token/group/delimiter,
+verbatim/URL, whitespace, dimension, key-value, raw-command, environment, label,
+caption and label-removal operations. It uses the existing consumed/empty
+ParsecT/ReaderT interpreter and persistent token/macro stacks.
+
+The macro engine implements positional/pattern/default arguments, recursive
+argument-default references with cycle guards, all xparse ArgSpec constructors
+and processors, body/verbatim-body arguments, optional embellishments, and both
+expansion points. Special macros include expandafter, xspace, primitive and
+xparse conditionals, ifstrequal, ProcessList, UseName, ExpandArgs and all four
+expandable evaluators. Conditional scanning recognizes aliases from all macro
+scopes. Nested parsers discard their local state while retaining global reporting
+and fatal PandocMacroLoop effects. Deferred argument resolution/substitution
+preserves unused body/default fields in the independently observed demand cases.
+
+`LaTeXParsingBridge` implements `rawLaTeXParser` and `applyMacros` over the existing
+Sources parser, including the extension guard, two token-parser passes, macro
+map merge, source-position boundary, unchanged lookahead and final control-word
+space handling. Its state dictionaries remain generic. The tests compare values,
+remaining tokens/source chunks, positions, macro tables, raw counters, caption,
+last label, parser failures and global logs directly against the original.
+
+Integer and floating evaluators retain the original grammar and rounding rules.
+The new GHC-formatting methods provide scientific output at explicit precision
+and shortest fixed decimal output. GHC's default atan2 formula must be used
+instead of C atan2: the original rejects atan(infinity,infinity). Integer-result
+rounding must convert Integer zero to positive Double zero. Invalid caret
+escapes reproduce GHC's chr bounds and error text. Transcendental Double primops
+use the host libm through the already retained JNA dependency.
+
+`tools/haskell-latex-kernel-reference` compiles the complete original
+LaTeX.Parsing module, with only its module name, public PandocMonad reexport
+import and additional private-helper exports changed. The generator verifies
+that transformation and all **2,888** prepared Pandoc files (the same three
+packaging-only module exposures documented in the previous phase). All earlier
+corpora and observers are retained unchanged. The **34,080** observations carry
+**17** source hashes and case SHA-256
+`09e6271aa7ad45148036a6c8a0c49e63820dc6205cf5536b8cab5cad4e344a95`.
+They include 24 evaluator expressions extracted from the original command
+fixtures, 5,000 signed binary operations, all evaluator functions and arities,
+1,600 atan2 operation-order cases, 14,576 scientific-format observations, 3,672
+token-parser/raw/backtracking cases, all argument processors/specifications,
+conditional and scope witnesses, 42 Sources-bridge cases, nine deferred-demand
+cases and finite expression/token inputs up to 10,000/100,000 levels or tokens.
+
+A second observer extracts the unchanged pure numeric declarations from Parsing
+and Shared. All **29,492** macOS/aarch64 results agree with the complete original
+module. The identical requests were compiled with GHC 9.12.2/text 2.1.2 on
+Ubuntu 24.04/glibc 2.39 x86_64; **89** libm-dependent floating results differ from
+macOS. The tests use exact native expectations, with no tolerance or skipped
+numeric cases. Both extraction/source checks verify request parity, unchanged
+non-floating results and every recorded platform difference. The Dockerfile pins
+its compiler/base images. Original upstream and GHC licenses remain in the JAR.
+
+This is not a completed LaTeX reader or a claim that all of Parsing's partial
+Haskell-value behavior/derived Show instances have been ported. Macro-definition
+commands in LaTeX/Macro.hs, the complete LaTeX reader and all original reader AST
+and command/report assertions remain pending. Other Pandoc readers/writers,
+application/Lua/property tests, then calibre MOBI and all its tests and the
+additional calibre formats remain required by the unchanged full objective.
+
+Final validation passes **2,195,018 tests in 115 suites**, with zero failures,
+errors or skips (6m 50s). The new suite contributes **34,081 tests** (4.498s in the
+full run), including the platform-corpus parity assertion. The same final 34,081
+cases also pass under Linux x86_64/glibc 2.39/JDK 21 with the unchanged **2 GiB**
+heap limit. All **120 source/fixture checks** pass. All **22** distinct source
+hashes agree with staged/root or pinned upstream Git blobs; the release pins,
+earlier corpora and earlier observers are unchanged. Installed/core JAR bytes
+match, including all **63 compiled LaTeX classes**, **56 full notices**, **250**
+Pandoc assets/indexes and unchanged MathML/text mappings. Installed CLI workflow
+smoke cases pass. No LaTeX CLI reader is registered by this dependency phase;
+full original reader and command assertions remain required. The previous
+**a703f368** exact-SHA CI test job also completed successfully, including its
+complete source, Gradle and CLI checks.

@@ -37,6 +37,30 @@ internal object HaskellDouble {
         return sign + decimal.setScale(decimals.coerceAtLeast(0), java.math.RoundingMode.HALF_EVEN).toPlainString()
     }
 
+    /** Numeric.showFFloat Nothing: fixed form of the original shortest digits. */
+    fun showFixed(value: Double): String {
+        if (!value.isFinite()) return show(value)
+        val sign = if (value.toRawBits() < 0) "-" else ""
+        val (ds, e) = if (value == 0.0) "0" to 0 else digits(abs(value))
+        return sign + if (e <= 0) "0." + "0".repeat(-e) + ds
+        else ds.take(e).padEnd(e, '0') + "." + ds.drop(e).ifEmpty { "0" }
+    }
+
+    /** Numeric.showEFloat (Just decimals), including GHC roundTo's ties to even. */
+    fun showExponent(value: Double, decimals: Int): String {
+        if (!value.isFinite()) return show(value)
+        val sign = if (value.toRawBits() < 0) "-" else ""
+        if (value == 0.0) return sign + if (decimals <= 0) "0e0" else "0." + "0".repeat(decimals) + "e0"
+        val (ds, e) = digits(abs(value))
+        val precision = if (decimals <= 0) 1 else decimals + 1
+        val decimal = java.math.BigDecimal(BigInteger(ds), ds.length-e)
+            .round(java.math.MathContext(precision, java.math.RoundingMode.HALF_EVEN))
+        val rounded = decimal.unscaledValue().toString()
+        val exponent = rounded.length - decimal.scale() - 1
+        val padded = rounded.padEnd(precision, '0')
+        return sign + padded.take(1) + (if (decimals <= 0) "" else "." + padded.drop(1)) + "e" + exponent
+    }
+
     private fun digits(value: Double): Pair<String, Int> {
         val bits = value.toRawBits()
         val exponentBits = ((bits ushr 52) and 0x7ff).toInt()
