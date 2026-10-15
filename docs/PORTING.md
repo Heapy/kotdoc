@@ -62,6 +62,7 @@ format is implemented explicitly in Kotlin.
 | LaTeX macro-definition module | `latex/LaTeXMacros.kt`, `LaTeXState.kt` | Complete finite Macro.hs algorithm; 1,553 original-module observations, all 33 definition commands, every Haskell Char through letterize, all 127 matching command inputs/90 reader unit inputs through the token component, and 100,000-level global scope/definition streams; full reader/CLI AST assertions remain pending |
 | LaTeX Citation and Math modules | `latex/LaTeXCitations.kt`, `LaTeXMathReader.kt` | Complete finite module algorithms; 22,557 original observations, all 52 citation commands/23 math environments, theorem/proof styles, labels, numbering, callback state/errors/reports, all 266 original AST documents and 100,000-level finite witnesses; complete reader/CLI assertions remain pending |
 | LaTeX Lang module | `latex/LaTeXLanguages.kt` | Complete finite language/quote algorithms; 30,431 original observations, all 85 Polyglossia mappings, Babel aliases, six quote/86 language commands, parser/common-state/cache/backtracking semantics, all 10,341 original inline lists and 100,000-level composition witnesses; complete reader/CLI assertions remain pending |
+| LaTeX SIunitx module | `latex/LaTeXSIunitx.kt` | Complete finite module algorithms; 34,007 original observations, all 12 commands/21 modifiers/152 unit keys, numeric values/errors, unit exponents/infix/options, all 10,341 original inline lists, every Haskell Char and deep finite inputs; full reader/CLI assertions remain pending |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -7962,3 +7963,87 @@ CI for the preceding **bd3fa5c7** commit is verified successful. No reader/test
 was disabled and no partial LaTeX CLI reader was registered.
 All five installed CLI check scripts also pass: **375 cases** comprising 14 FB2,
 66 media, 69 format-modifier, 85 math-option and 141 HTML conversions/errors.
+
+
+## LaTeX SIunitx numbers, quantities and unit expressions
+
+`LaTeXSIunitx` ports the complete finite Readers/LaTeX/SIunitx.hs algorithm:
+all 12 commands and v3 aliases, number/list/range/angle handlers, optional value
+prefixes, unit parts, recursive modifiers, prefix/suffix powers, subscripts,
+per/slash infixes and hyphen/spacing helpers. All 21 modifier entries and 152
+unique unit keys retain their original complete AST values (including the
+original duplicate Pa entry). Production uses Kotlin parsers/builders/walks,
+without an upstream converter dependency.
+
+The numeric grammar retains leading-plus removal, Unicode minus, permissive
+multiple-dot bases, comma replacement, uncertainty placement/trailing-zero
+rules, plus-minus/imaginary/multiplication/exponent syntax, ASCII-space removal
+and whole-input fallback to Builder.text on failure. It uses Pandoc's Sources
+char/string/satisfy primitives, not Parsec.Char's differently labeled/atomic
+primitives. Both complete formatted results and exact private parseNum errors,
+message lists and positions are independently observed. The immutable numeric
+parser graph is shared, matching the original top-level parser value.
+
+Unit parsing preserves scope/raw capture, separators, recursive modifier lookup,
+one suffix after ordinary bases, the distinct prefix branch, nested per/slash
+associativity and first-match duplicate per-mode options. Per prepends a minus
+to an existing superscript instead of performing algebraic negation; negative
+exponents can therefore retain the source's double-minus result. Hyphen walking
+changes only Str nodes throughout complete inline/block/citation trees. Lists
+retain empty semicolon parts, unconditional unit spacing and the source's final
+conjunction; angles retain only the first three parts and remove a leading plus
+without rewriting their minus characters. Unsupported rounding options remain
+ignored as upstream.
+
+The observer compiles the complete original SIunitx module, changing only its
+module/Parsing import, private exports and PandocMonad's public re-export import.
+The preceding driver copy changes only its module name; other complete original
+modules and state/token observers compile directly from protected preceding
+folders. The prepared library again verifies all 2,888 original files and only
+the four documented pandoc.cabal module exposures. All original test fixtures,
+earlier observers/corpora, vendored Parsec sources/tests and licenses remain
+unchanged. Capture verifies the exact immutable Parsec archive and every
+vendored source/test/license byte.
+
+The corpus contains 34,007 independent original observations with case SHA-256
+`4b460cf70b936565596981264a306b51ee0415eafe74da8057635ea4712b7bef`.
+All 3,182 numeric inputs have both formatting and full parser/error observations.
+All 3,192 modifier/unit combinations, every unit with prefix/suffix powers, all
+command aliases, malformed/grouped/ungrouped input, range/list/angle shapes,
+duplicate options, macro/raw/verbatim paths and stateful/failing callbacks are
+covered. Three intentional empty-successful callbacks preserve Parsec's original
+many-contract exception. All 10,341 inline lists from 266 original Native
+documents exercise the complete exponent hyphen walk and conditional spacing.
+Seventeen digest witnesses cover all 1,114,112 Haskell Chars through tonum.
+Eleven finite witnesses compare complete original AST Show hashes and final
+state: long uncertainty numbers, modifier recursion and 100,000-level exponent
+walks, plus per-infix chains up to 10,000 levels. Expected JSON is decoded per
+case to retain the full corpus within the unchanged 2 GiB worker heap; no case
+is omitted. JSON numeric equality remains exact decimal equality.
+
+All 90 original reader unit inputs and all 24 matching command inputs from the
+four original SIunitx command files also run through the documented component
+callbacks. The callbacks handle literal tokens, groups, formatting, macros,
+citations, language/quote and SIunitx commands; they are not readLaTeX. Original
+full-reader AST, HTML/native CLI golden and report assertions remain required.
+Inline, Table and the complete LaTeX reader dispatch/grammar remain pending,
+as do general partial Haskell-value behavior and remaining Parsing Show work.
+Other Pandoc readers/writers, all application/Lua/property tests, then calibre
+MOBI and all its tests and additional calibre formats remain in the unchanged
+full objective.
+
+
+Final full Gradle validation passes **2,283,567 tests in 119 suites**, with zero
+failures, errors or skips (10m 39s). The new SIunitx suite contributes all
+**34,007** observations (10.273s in the full run). The identical final suite
+passes on Linux x86_64/glibc 2.39/JDK 21 with the unchanged **2 GiB** heap limit
+(6.718s). All **124 source/fixture checks** pass; the final SIunitx check verifies
+**91** source hashes, including Sources and the Parsing re-export facade.
+All 34,007 expectations remain unchanged after correcting the primitive family;
+all source hashes agree with staged/root or pinned upstream Git blobs. The three
+release pins, earlier corpora/observers and worker memory/recycling settings are
+unchanged. Installed/core JAR bytes match, including all **93 compiled LaTeX
+classes**, **204 parsing classes**, **56 full notices**, **250** Pandoc assets/
+indexes and unchanged MathML/text mappings. Installed workflow smoke cases pass.
+Exact-SHA CI for the preceding **8080d447** commit is verified successful. No
+reader/test was disabled and no partial LaTeX CLI reader was registered.
