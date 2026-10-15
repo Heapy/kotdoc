@@ -23,6 +23,9 @@ sealed interface HttpFailureContent {
     data object ConnectionClosed : HttpFailureContent
     data object NoResponseDataReceived : HttpFailureContent
     data object InvalidChunkHeaders : HttpFailureContent
+    class TooManyRedirects(responses: List<HttpResponse<List<HttpBytes>>>) : HttpFailureContent {
+        val responses: List<HttpResponse<List<HttpBytes>>> = java.util.Collections.unmodifiableList(responses.toList())
+    }
     data class InvalidStatusLine(val bytes: HttpBytes) : HttpFailureContent
     data class ResponseBodyTooShort(val expected: ULong, val actual: ULong) : HttpFailureContent
     data class Zlib(val code: Int) : HttpFailureContent
@@ -34,14 +37,26 @@ sealed interface HttpFailureContent {
         ConnectionClosed -> "ConnectionClosed"
         NoResponseDataReceived -> "NoResponseDataReceived"
         InvalidChunkHeaders -> "InvalidChunkHeaders"
+        is TooManyRedirects -> "TooManyRedirects " + responses.joinToString(",", "[", "]") {
+            HttpResponses.showResponse(it, HttpBodies::showLazy)
+        }
         is InvalidStatusLine -> "InvalidStatusLine ${bytes.show()}"
         is ResponseBodyTooShort -> "ResponseBodyTooShort $expected $actual"
         is Zlib -> "HttpZlibException (ZlibException ${if (code < 0) "($code)" else code})"
     }
+    fun showsPrec(precedence: Int): String {
+        val fields = this is TooManyRedirects || this is InvalidStatusLine || this is ResponseBodyTooShort || this is Zlib
+        return if (fields && precedence > 10) "(${show()})" else show()
+    }
 }
-class HttpContentException(val failure: HttpFailureContent) : RuntimeException(
-    "HttpExceptionContentWrapper {unHttpExceptionContentWrapper = ${failure.show()}}",
-)
+class HttpContentException(val failure: HttpFailureContent) : RuntimeException() {
+    override val message: String? get() = "HttpExceptionContentWrapper {unHttpExceptionContentWrapper = ${failure.show()}}"
+}
+class HttpRequestException(val request: HttpRequest, val failure: HttpFailureContent) : RuntimeException() {
+    override val message: String? get() = "HttpExceptionRequest ${request.show()} ${failure.showsPrec(11)}"
+}
+/** Exact ResourceVanished condition; transport-specific IO error mapping is separate. */
+class HttpResourceVanishedException(message: String) : java.io.IOException(message)
 private fun fail(content: HttpFailureContent): Nothing = throw HttpContentException(content)
 
 data class HttpConnection(
@@ -209,6 +224,12 @@ object HttpHeaders {
 
 fun interface HttpBodyReader { fun read(): HttpBytes }
 object HttpBodies {
+    /** Lazy ByteString Show joins chunks without exposing chunk boundaries. */
+    fun showLazy(chunks: List<HttpBytes>): String {
+        val bytes = ByteArrayOutputStream()
+        chunks.forEach { bytes.write(it.bytes()) }
+        return HttpBytes(bytes.toByteArray()).show()
+    }
     val empty = HttpBodyReader { HttpBytes.empty }
     fun const(chunks: List<HttpBytes>): HttpBodyReader { val iter = chunks.iterator(); return HttpBodyReader { if (iter.hasNext()) iter.next() else HttpBytes.empty } }
     fun consume(reader: HttpBodyReader): List<HttpBytes> = buildList { while (true) { val b = reader.read(); if (b.size == 0) break; add(b) } }
@@ -284,6 +305,14 @@ class HttpManagedConnection(val connection: HttpConnection, val release: (HttpRe
 data class HttpResponse<A>(val status: HttpStatus, val version: HttpVersion, val headers: List<HttpHeader>,
     val body: A, val close: () -> Unit, val originalRequest: HttpRequest, val early: List<HttpHeader>, val cookieJar: HttpCookieJar = HttpCookieJar.empty)
 object HttpResponses {
+    fun <A> showResponse(response: HttpResponse<A>, showBody: (A) -> String, precedence: Int = 0): String {
+        fun headers(hs: List<HttpHeader>) = hs.joinToString(",", "[", "]") { "(${it.name.show()},${it.value.show()})" }
+        val shown = "Response {responseStatus = ${response.status.show()}, responseVersion = ${response.version.show()}, " +
+            "responseHeaders = ${headers(response.headers)}, responseBody = ${showBody(response.body)}, " +
+            "responseCookieJar = ${response.cookieJar.show()}, responseClose' = ResponseClose, " +
+            "responseOriginalRequest = ${response.originalRequest.show()}, responseEarlyHints = ${headers(response.early)}}"
+        return if (precedence > 10) "($shown)" else shown
+    }
     /** Original http-client policy: compare against the first host in the chain. */
     fun getRedirectedRequest(original: HttpRequest, request: HttpRequest, headers: List<HttpHeader>,
         cookieJar: HttpCookieJar, status: Long,

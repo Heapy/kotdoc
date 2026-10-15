@@ -9101,3 +9101,90 @@ is published and its full CI run `38812129359` has passed all 135 source checks
 and is executing the full Gradle suite at the time of this checkpoint. Its
 pending conclusion is not reported as success. Final staged source/pin auditing
 precedes publication of this request-policy checkpoint.
+
+### http-client redirect loops, history payloads and closed reads
+
+`http/HttpCore.kt` translates the actual Core.hs httpRedirect and httpRedirect'
+loops as `httpRedirect` and `httpRedirectWithRequest`. Both callback contracts
+are preserved, including the extended callback's potentially modified final
+request. A negative starting count throws before invoking the callback; zero
+still permits one callback. If that callback reports a redirect, its body is
+flushed/closed and its response appears in TooManyRedirects before another
+callback can run. The loop itself does not inspect request.redirectCount or
+status: those belong to the higher-level request/manager policy.
+
+Flushing uses the unchanged brReadSome port with limit 1024, retaining whole
+chunks and permitted overshoot. EOF stops consumption. The response is then
+closed, its byte-body snapshot is prepended to history, and the remaining count
+is decremented. History is reverse chronological and includes the last response
+that exhausted the limit. Iteration avoids JVM stack growth on long chains.
+A non-redirect response is returned unchanged and remains open/unread. Callback,
+read and close failures retain the original ordering; no unrequested finally
+cleanup is inserted where the original does not perform it.
+
+`handleClosedRead` suppresses only ConnectionClosed in the original content
+wrapper, ConnectionClosed in HttpExceptionRequest, or the exact IO
+ResourceVanished condition. A failure after partial body consumption discards
+all bytes from that brReadSome action, as the original catch does. Errors after
+1024 bytes need not be read at all. Ordinary IO errors, other HTTP failures,
+callback/close errors and asynchronous cancellation are rethrown. A typed
+ResourceVanished marker represents that specific condition; mapping actual
+platform socket errors remains transport work, not a catch-all IOException
+substitute. Generic GHC IO exception formatting is not claimed ported.
+
+TooManyRedirects now retains an immutable snapshot of byte-body Responses,
+including original headers, cookie jar, early hints, original request and close
+action. HttpExceptionRequest and concrete Response derived Show/precedence are
+available; body Show is supplied explicitly for the polymorphic response type.
+The old content-wrapper message is now evaluated when requested, preserving its
+nullable public message contract. Merely throwing or inspecting an exception
+must not force response/cookie Show and undefined cookie expiry. Original Show
+still forces that expiry if explicitly demanded. All preceding error-message
+expectations remain unchanged. Generic Haskell lazy/runtime behavior and the
+remaining HttpExceptionContent constructors are not declared complete.
+
+The observer links the actual frozen original Core functions; callbacks only
+supply scripted original requests, responses and read/close effects. An event
+log observes every callback argument, read and close. The request JSON prefix
+is copied byte-for-byte from the preceding observer except the module name and
+is checked as such. The **1,827 independently captured observations** have
+semantic SHA256
+`5a7bd88e56da43ddaf5bac4de1898098c7b527b0e0e4d6a44e8cf64f3676a8d2`
+and **565 source hashes**. They cover both APIs, negative/zero/Int-boundary
+limits, final and modified requests, whole-chunk flush thresholds, EOF,
+overshoot, reverse history, all header/status/body byte values, preclosed
+responses, failure locations, explicit final read/close effects, undefined
+cookie expiry and two original 10,000-hop chains. ErrorCall during result
+projection is recorded separately from errors raised by the original loop.
+Actual native http-client/network-uri/cookie/case-insensitive/iproute/appar
+archive hashes match the Cabal plan; bytestring 0.12.2.0 and time 1.14 remain
+original GHC boot packages.
+
+The new Kotlin suite translates all 1,827 expectations unchanged and adds three
+checks for final-response identity/ownership, unchanged exception identity and
+immutable history/field preservation without forcing cookie expiry. All
+**87,347 HTTP tests in seven suites** pass locally (final 29s Gradle test/build),
+with fully parsed XML counts and no failures/errors/skips. Linux/x86_64 JDK 21
+passes the same **87,347 tests** (6.473s), with no skips, aborts or failed
+containers. All **137 source/fixture verifiers** pass (60.6s).
+
+The installed/core JAR bytes agree; all 112 compiled HTTP classes, 65 complete
+notices, 250 Pandoc assets and the original 60,137-byte PSL snapshot match
+build/source bytes. Relative to the published request-policy distribution,
+every previous non-HTTP core entry and all 2,461 non-HTTP classes remain
+byte-identical; no old class is removed. Changed old entries are confined to
+HTTP model/behavior classes and their source debug tables. CLI/dependency JARs
+remain byte-identical. This checkpoint does not assert a new full project run
+or full Pandoc/calibre compatibility. Exact release pins and staged fixture
+source blobs are audited before publication.
+
+Actual responseOpen/responseOpenHistory integration remains pending. In
+particular, normal history bookkeeping performs its own first body read before
+the Core loop reads again; it must not be replaced with the exception history
+implemented here. Full manager modification/status/exception wrapping, real
+pool/socket/TLS/proxy and cookie effects, bracketed resource APIs and the
+original local-server ClientSpec redirect/history tests still remain. The
+original disabled live httpbin tests are not relabeled as executed. All other
+outstanding Request/builder/lazy contracts, HTML CLI URL integration and the
+full remaining Pandoc readers/writers/App/Lua/tests, then calibre MOBI and
+formats absent from Pandoc/all their tests, retain their full scope.
