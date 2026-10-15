@@ -113,3 +113,8 @@ licenses/Math-TeX-Mapping-NOTICE.txt -text
 
 # Preserve the unmodified hidden TeX Commands module used by the oracle.
 tools/haskell-math-reader-reference/Text/TeXMath/Readers/TeX/Commands.hs -text whitespace=-trailing-space,-blank-at-eof
+
+# Preserve byte-exact existing native state projections reused by the math oracle.
+tools/haskell-pandoc-math-reference/Text/Pandoc/Class/PandocMonad.hs -text whitespace=-trailing-space,-blank-at-eof
+tools/haskell-pandoc-math-reference/Text/Pandoc/Shared.hs -text whitespace=-trailing-space,-blank-at-eof
+tools/haskell-pandoc-math-reference/Citeproc.hs -text whitespace=-trailing-space,-blank-at-eof

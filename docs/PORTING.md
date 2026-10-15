@@ -30,6 +30,7 @@ format is implemented explicitly in Kotlin.
 | Complete finite TeXMath MathML writer and original XML.Light output | `math/MathMLWriter.kt`, `MathMLOperators.kt`, `MathNumbers.kt`, `xml/LegacyXml*.kt` | All 561 original MathML writer goldens, full 1,107-row dictionary, exact XML trees/serialization, every Char and numeric boundaries; 9,700 original observations |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
+| Complete `Text.Pandoc.Writers.Math` bridge | `math/PandocMath.kt` | Both conversion functions and URL re-exports; exact AST/fallback, reporting, re-entrant state, deferred/shared generic writer results; 98,180 native observations over all 335 original Pandoc math nodes and 149 TeX inputs |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
@@ -149,13 +150,14 @@ also remain to audit; no claim of complete pandoc-types parity is made.
 
 ## Next execution step
 
-Complete Pandoc's math bridge required by the HTML writer. The full finite
-TeX formula reader, macro preprocessing, Commands and MathML writer are now
-implemented; remaining TeXMath readers and
-other writers/goldens still require their complete ports. Then port all HTML writer entry points, including slides,
-EPUB HTML, complete options/template/state behavior and every original writer
-and integration test, followed by the remaining formats. The expression/helper
-foundation below does not substitute for the remaining math parsing/writing.
+Port all eleven HTML writer exports, including structured/string HTML4/HTML5,
+EPUB HTML, all slide entry points and tagWithAttributes. The finite TeX formula
+reader, macro preprocessing, Commands, MathML writer and Pandoc math bridge are
+now implemented; remaining TeXMath readers and other writers/goldens still
+require their complete ports. Preserve complete options/template/state behavior
+and port every original HTML writer and integration test before continuing the
+remaining formats. The foundations below do not substitute for the remaining
+format and application work.
 
 Continue the remaining PandocMonad and HTTP/URI/XML infrastructure, complete
 CLI App.Opt/application behavior, scripting/filter/bibliography paths and the
@@ -6410,3 +6412,71 @@ observation line is also byte-identical. Installed CLI/core JAR bytes match,
 including all 53 complete notices, 248 data assets and two indexes. Staged corpus
 bytes and all 3,826 source blobs match recorded independent hashes. All pinned
 upstream revisions match, and no protected earlier oracle/corpus changed.
+
+
+### Complete Text.Pandoc.Writers.Math bridge
+
+Translated both exported conversion functions and the two re-exported default
+URLs from the complete pinned original Writers.Math module. convertMath parses
+TeX, maps InlineMath/DisplayMath to the corresponding TeXMath display type, and
+returns either a fallback Inline or a generic writer result. A successful generic
+result uses the existing shared Deferred cell: the writer is not called until
+its value is demanded, runs once, retains object/null identity and memoizes host
+exceptions. The parsed finite expression list remains immutable. A parse failure
+reports CouldNotConvertTeXMath with the original error and preserves the exact
+raw formula between single or double dollar delimiters.
+
+texMathToInlines uses the complete previously ported TeX reader and writePandoc.
+Supported formulas return original Pandoc Inlines; a successful parse whose
+representation is unsupported reports the same warning with an empty reason
+and returns a fallback Str. Empty successful output remains empty. Exceptions
+from a writer or logging callback propagate instead of becoming fallback warnings.
+Logging uses the original report algorithm already ported in PandocState, so
+verbosity filters output without filtering the accumulated log, and re-entrant
+callbacks preserve their state changes and the original prepend order. The original
+host failure on the oversized-space case remains a host failure in Kotlin, with
+its state and log effects compared across both runtimes.
+
+The independent native oracle compiles complete unchanged Writers.Math and
+texmath 0.13.3.1. It reuses byte-identical exact state/Shared/Citeproc projections
+from the protected earlier state oracle; Options contains only the byte-exact
+two URL definitions imported by this module. Full original modules and notices
+remain retained. The observer supplies the state instance and pure writer demand
+instrumentation only, not conversion/report algorithms. It forces each returned
+generic value twice, including exceptions, and observes original sharing.
+
+The corpus contains 98,180 independent original observations and 3,794 source
+hashes: all 335 Math nodes from the complete preserved original Pandoc Native
+corpus, all 149 original TeX inputs through both conversion functions in both
+display modes, and all 23,332 distinct explicit inputs from the earlier complete
+TeX-reader corpus through both public paths and both modes. Additional cases
+cover all verbosity levels, seeded logs, all logging callbacks, nested reporting,
+typed/host callback errors, supported/unsupported/failed/empty formulas, generic
+Nothing/constant/throwing/Pandoc/probe writers, undemanded versus demanded
+results, repeated forcing, Unicode Text normalization and exact fallback/error
+strings. Every observation includes full state fields, chronological logs,
+output/writer events, AST JSON/Show or generic result, and exception status.
+
+All 98,180 native comparisons plus a Kotlin ownership/identity check pass. The
+latter verifies deferred object/null identity, one execution, memoized exception
+identity and immutable fallback lists. Corpus SHA-256:
+`e4363fbedec716c209874f04da0bfead06ace03b9b94aedceed368e658ce66b7`.
+No earlier protected oracle or corpus was changed.
+
+The complete HTML writer, remaining TeXMath formats, other Pandoc formats and
+application/property-test paths and all calibre work remain in the original scope.
+
+
+Validation: all 1,747,238 tests in 99 suites pass with zero failures, errors or
+skips, including 98,181 bridge/demand/identity checks. All 102 source/fixture
+commands and all 234 installed CLI checks pass (14 FB2, 66 media, 69 modifiers,
+85 math). The existing heap and worker-recycling settings are unchanged. Installed
+CLI/core JAR bytes match; all new bridge classes, 53 complete notices, 248 data
+assets and two indexes are verified. Staged new corpus bytes and all 3,794 source
+blobs match, including exact original upstream Git blobs; all three upstream
+worktrees are clean at pinned revisions. No earlier protected oracle/corpus
+changed. Exact-SHA CI for 2103253 is verified successful: all 113 recorded steps,
+including full tests, source verification and installed CLI checks.
+
+The full objective remains active. The next required format work is the complete
+HTML writer and its original tests, not a reduced HTML rendering API.
