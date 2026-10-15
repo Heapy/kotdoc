@@ -61,6 +61,7 @@ format is implemented explicitly in Kotlin.
 | LaTeX token grammar, macro expansion, evaluators and Sources bridges | `latex/LaTeXKernel.kt`, `LaTeXEvaluators.kt`, `LaTeXParsingBridge.kt` | 34,080 complete-original-module observations, both native numeric platforms, argument/default/xparse processors, conditionals, raw capture, scopes, global reports, exact errors and 100,000-token witnesses; full LaTeX reader/command-definition assertions remain pending |
 | LaTeX macro-definition module | `latex/LaTeXMacros.kt`, `LaTeXState.kt` | Complete finite Macro.hs algorithm; 1,553 original-module observations, all 33 definition commands, every Haskell Char through letterize, all 127 matching command inputs/90 reader unit inputs through the token component, and 100,000-level global scope/definition streams; full reader/CLI AST assertions remain pending |
 | LaTeX Citation and Math modules | `latex/LaTeXCitations.kt`, `LaTeXMathReader.kt` | Complete finite module algorithms; 22,557 original observations, all 52 citation commands/23 math environments, theorem/proof styles, labels, numbering, callback state/errors/reports, all 266 original AST documents and 100,000-level finite witnesses; complete reader/CLI assertions remain pending |
+| LaTeX Lang module | `latex/LaTeXLanguages.kt` | Complete finite language/quote algorithms; 30,431 original observations, all 85 Polyglossia mappings, Babel aliases, six quote/86 language commands, parser/common-state/cache/backtracking semantics, all 10,341 original inline lists and 100,000-level composition witnesses; complete reader/CLI assertions remain pending |
 | Complete finite `Text.Pandoc.URI` and incremental Text parser dependency | `uri/PandocURI.kt`, `parsing/attoparsec/` | All six exports, prefix/EOF and chunked parsing, independent deferred MIME/bytes, pinned scheme set, POSIX/Windows paths; 40,705 original observations, every Haskell Char and 100,000-deep parser/chunk feeds |
 | Resource fetching foundation | `resources/ResourceUri.kt`, `ResourceAccess.kt` | 18 original data URI cases, source SVG fetch, local search paths, bag precedence and local HTTP integration |
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
@@ -7867,3 +7868,97 @@ Pandoc assets/indexes and unchanged MathML/text mappings. Installed CLI workflow
 smoke cases pass. No reader/test was disabled, no worker memory/recycling
 setting changed and no partial LaTeX CLI reader was registered. Exact-SHA CI for
 the preceding **6fe16ccf** commit is verified successful.
+
+
+## LaTeX language mappings, quote contexts and translation selection
+
+`LaTeXLanguages` implements the complete finite Readers/LaTeX/Lang.hs algorithm:
+setDefaultLanguage, all 85 Polyglossia mapping functions, all Babel aliases, all
+six quote commands and all 86 inline language commands. Its public registries
+retain original key ordering and defer parser construction until an entry runs.
+They use the shared Kotlin token grammar, quote-context capability, InlineShared
+space extraction, six-field Lang model and Pandoc translation-state operations.
+
+The port retains the distinction between Babel and Polyglossia records, including
+the Greek polyton region/variant difference and classic Latin variant spelling.
+Option matching removes only ASCII spaces, preserves option order/case and
+retains unknown-option fallbacks. Language commands remove all brackets from
+raw options. Polyglossia inline commands extract boundary spaces/softbreaks;
+foreignlanguage and foreign/hyphen quotes keep their different wrapping rules.
+Quote choice observes the initial context and star, sets the callback context,
+and restores it on success with the original parser failure/backtracking rules.
+
+Recognized default languages replace the local lang metadata and call the real
+Kotlin setTranslations operation. Equal-language loaded tables are retained;
+other selections become lazy unloaded caches. The whole Lang record participates
+in equality. Unknown language names leave metadata and common state alone.
+Common-state changes survive parser try/lookAhead even when local metadata is
+rolled back. No upstream executable or test callback is used for production.
+
+The observer compiles the complete pinned Lang.hs, changing only its module
+name and Parsing import. It compiles the protected Parsing/Macro/Citation/Math
+and state/token helpers directly from the preceding observer folder; the copied
+observer driver changes only its module name. All transformations and 90 source
+hashes are checked. The complete prepared original library verifies all 2,888
+tracked files. Its only source difference is pandoc.cabal exposing the preceding
+three modules plus Class.CommonState, so the observer can inspect the actual
+original cache without replacing PandocMonad. Earlier prepared trees, observer
+sources, corpora, original tests and license notices are unchanged.
+
+Deep language compositions exposed repeated copying of growing diagnostics in
+the shared ParseError.merge path. The source retains a lazy list append, while
+the old Kotlin List.plus eagerly copied both operands on each merge. ParseMessages
+now keeps persistent concatenation nodes and traverses them with an explicit
+stack. Every message and duplicate remains in its original order; message
+formatting, comparison, position selection and public ParseError data fields are
+unchanged. Collection.size saturates at Int.MAX_VALUE while traversal retains
+larger shared lists. The generator verifies the immutable Parsec Hackage archive
+SHA-256 and every vendored source/test/license byte before capturing its Error
+observations. Existing upstream notices and fixtures remain unchanged.
+
+The corpus contains 30,431 original observations with case SHA-256
+`58d23df596f6d4635bbea0195b368361f8bfa82ebc94b30d3ad0fe8948aba07f`.
+It checks complete Lang Show/render results, ASTs, all 30 parser state fields,
+positions, remaining tokens, raw capture, errors, global reports and seeded
+common-state/cache values. Cases cover every registry/mapping, Babel aliases,
+malformed/unknown arguments, nested quotes, context-mutating/failing callbacks,
+macro expansion, ASCII versus Unicode whitespace, option order/bracket removal
+and full-record cache differences. All 10,341 inline lists from the 266 original
+Native documents run through language-space extraction and quote wrapping.
+Six finite witnesses compare hashes of complete original AST Show output and
+final state for 1,500/10,000/100,000 nested quote/language parser compositions.
+Eight direct original Parsec Error cases compare complete diagnostic-message
+hashes, counts and Show after 0/1/1,000/100,000 left/right-associated merges.
+Two additional cases observe unknown/position on shared exponentially large
+message lists without forcing those lists. A Kotlin ownership/indexing check
+ensures concatenation snapshots input leaves, retains order and supports shared
+lists beyond Int-sized counts without discarding their iterator contents.
+JSON numbers retain exact decimal equality, without floating tolerances.
+
+All 90 original LaTeX reader inputs and 12 matching command inputs from the
+tracked language/quote fixtures also run through the explicit component driver.
+Its callbacks support literal tokens, groups, emph/textbf, macro definitions,
+citations and language/quote commands; they are not the complete readLaTeX
+parser. Full original reader AST, CLI and report assertions remain required.
+Table, SIunitx, Inline and the complete LaTeX reader dispatch/grammar are still
+pending, as are general partial Haskell-value behavior and remaining Parsing
+Show work. Other Pandoc readers/writers, all application/Lua/property tests,
+then calibre MOBI and all its tests and additional calibre formats remain in
+the unchanged full objective.
+
+
+Final full Gradle validation passes **2,249,560 tests in 118 suites**, with zero
+failures, errors or skips (9m 29s). The new suite contributes **30,432 tests**:
+all 30,431 original observations plus the ownership/indexing assertion (6.780s
+in the full run). The identical final suite passes on Linux x86_64/glibc 2.39/
+JDK 21 with the unchanged **2 GiB** heap limit (6.409s). All **123 source/fixture
+checks** pass. All **90** new corpus source hashes match staged/root or pinned
+upstream Git blobs. The three release pins, earlier corpora/observers, ParseError
+public data fields, worker memory and recycling settings are unchanged.
+Installed/core JAR bytes match, including all **82 compiled LaTeX classes**,
+**204 parsing classes**, **56 full notices**, **250** Pandoc assets/indexes and
+unchanged MathML/text mappings. Installed workflow smoke cases pass. Exact-SHA
+CI for the preceding **bd3fa5c7** commit is verified successful. No reader/test
+was disabled and no partial LaTeX CLI reader was registered.
+All five installed CLI check scripts also pass: **375 cases** comprising 14 FB2,
+66 media, 69 format-modifier, 85 math-option and 141 HTML conversions/errors.

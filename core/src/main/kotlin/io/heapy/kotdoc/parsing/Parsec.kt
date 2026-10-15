@@ -49,7 +49,7 @@ data class ParseError(val position: SourcePos, val messages: List<ParseMessage> 
         if (messages.isEmpty() && other.messages.isNotEmpty()) return other
         val order = position.line.compareTo(other.position.line).takeIf { it != 0 }
             ?: position.column.compareTo(other.position.column)
-        return if (order > 0) this else if (order < 0) other else copy(messages = messages + other.messages)
+        return if (order > 0) this else if (order < 0) other else copy(messages = ParseMessages.append(messages,other.messages))
     }
     fun set(message: ParseMessage) = copy(messages = listOf(message) + messages.filter { it.kind != message.kind })
     fun labels(labels: List<String>): ParseError {
@@ -79,6 +79,48 @@ data class ParseError(val position: SourcePos, val messages: List<ParseMessage> 
     /** Text.pack . show, including replacement of each non-scalar source Char. */
     fun showText(): String = CharacterStringChars.build(showCharacters())
     override fun toString(): String = "$position:" + messageText()
+}
+/** Preserve Parsec's lazy (++) structure instead of copying a growing error list
+ * on every successful empty bind. Traversal uses an explicit stack so deeply
+ * associated diagnostics retain every message and its order without recursion. */
+private class ParseMessages private constructor(
+    private val left: List<ParseMessage>, private val right: List<ParseMessage>,
+) : AbstractList<ParseMessage>() {
+    // Collection.size saturates at MAX_VALUE; the iterator still retains every
+    // element, including shared diagnostic lists larger than an Int count.
+    override val size: Int = minOf(Int.MAX_VALUE.toLong(),left.size.toLong()+right.size).toInt()
+    override fun isEmpty() = false
+    override fun get(index: Int): ParseMessage {
+        if(index !in 0..<size)throw IndexOutOfBoundsException(index)
+        var at=index;var node: List<ParseMessage> = this
+        while(node is ParseMessages) {
+            if(at<node.left.size)node=node.left else {at-=node.left.size;node=node.right}
+        }
+        return node[at]
+    }
+    override fun iterator(): Iterator<ParseMessage> = object : Iterator<ParseMessage> {
+        private val pending=java.util.ArrayDeque<List<ParseMessage>>().apply { push(this@ParseMessages) }
+        private var leaf: Iterator<ParseMessage> = emptyList<ParseMessage>().iterator()
+        override fun hasNext(): Boolean {
+            while(!leaf.hasNext() && pending.isNotEmpty()) {
+                val next=pending.pop()
+                if(next is ParseMessages) {pending.push(next.right);pending.push(next.left)} else leaf=next.iterator()
+            }
+            return leaf.hasNext()
+        }
+        override fun next(): ParseMessage {
+            if(!hasNext())throw NoSuchElementException()
+            return leaf.next()
+        }
+    }
+    companion object {
+        fun append(left: List<ParseMessage>,right: List<ParseMessage>): List<ParseMessage> {
+            if(left.isEmpty())return right
+            if(right.isEmpty())return left
+            fun snapshot(value: List<ParseMessage>) = if(value is ParseMessages)value else value.toList()
+            return ParseMessages(snapshot(left),snapshot(right))
+        }
+    }
 }
 data class ParseInput(val text: String = "", val index: Int = 0, val stream: CharacterStream? = null) {
     constructor(stream: CharacterStream) : this(stream = stream, text = "")

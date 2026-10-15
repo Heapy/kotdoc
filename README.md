@@ -80,6 +80,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   Checked against the complete original Citation/Math modules, including all
   original document trees and 100,000-level finite witnesses. Full LaTeX reader
   grammar and original reader/CLI AST assertions remain in progress.
+- LaTeX Babel/Polyglossia language mappings and commands, nested quote contexts
+  and default-language metadata/translation-cache effects, checked against the
+  complete original Lang module and original inline trees. Full document reader
+  and original reader/CLI assertions remain in progress.
 - FB2 → FB2 CLI conversion preserves embedded media through the conversion;
   installed CLI stdout/stderr match Pandoc on all 14 tracked FB2 source files.
 - All 90 built-in extension names, custom extensions, six presets and the complete
