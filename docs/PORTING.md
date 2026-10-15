@@ -27,6 +27,7 @@ format is implemented explicitly in Kotlin.
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
 | Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | Complete libyaml syntax parser algorithm | `yaml/YamlParser.kt`, `YamlEvents.kt` | All 24 state dispatcher cases, directives/tag resolution, empty nodes and collection productions; 10,286 native event/error/per-call stack and peek-state observations |
+| yaml event-to-Value decoder and parse-exception pretty printing | `yaml/YamlValues.kt` | Demand-driven documents/anchors/merges, raw scalar keys, duplicate paths/order, all 11 pretty-error cases and Warning Eq/Show; 23,105 independent Haskell observations plus ownership, identity and conversion-order checks |
 | aeson-pretty defined-value library and numeric formatting dependency | `json/PrettyJson.kt`, `PrettySort.kt`, `ScientificNumber.kt` | All configuration modes, Aeson Text quoting, source natural/fused sorting and Scientific formatting; 21,522 original observations, 266 documents, 1,027 source hashes |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
@@ -5762,3 +5763,76 @@ corpus bytes were verified against staged Git blobs or the exact pinned Pandoc
 submodule commit. The parser native corpus still has the same 10,286 cases and
 case hash after its source inventory verification update. No pre-existing
 native expectations, tests or protected reference implementations were changed.
+
+
+## yaml event-to-Value decoding and parse exception display
+
+Translated the complete parse/parseAll/parseO/parseS/parseM value-building
+algorithm from yaml 0.11.11.2 Data.Yaml.Internal. Nested collections use explicit
+frames rather than a JVM call stack. Reader paths share persistent reverse-list
+tails, avoiding a copy of every ancestor path at every level; an additional
+10,000-level direct event-stream check verifies complete decoding and terminal
+event demand without involving scanner complexity. Event demand is preserved: sequence ends
+are peeked, mapping keys are consumed directly, and stream end leaves trailing
+events untouched. Empty byte input follows Text.Libyaml.decodeMarked's parser
+bypass; an empty event source yields Null for a single-document decode and an
+empty list for all-document decode. Single-document mode parses the whole stream
+before rejecting multiple documents, preserving later syntax/alias error priority.
+
+Anchors live across all documents in the stream, scalar anchors save the typed
+value even when the mapping key remains raw lenient-decoded text, and collection
+anchors become available only after the collection is complete. Alias references
+share completed immutable values. String aliases may serve as keys; other alias
+types fail with the source error. Properties use Text.Libyaml's separate event
+model, Char8 tag decoding, owned scalar bytes, exact styles and optional anchors.
+
+Mapping merges retain existing keys; sequences of merge objects retain the first
+object's value and ignore non-objects. The original merged-key tracking set is
+replaced at each merge, not accumulated. Explicit assignments remove their key
+from that set. Duplicate warnings retain root-first paths and reverse emission
+order, while NonStringKey retains the source reverse Reader path. All 11 original
+prettyPrintParseException branches are represented, including raw Haskell String
+characters, nested settings errors, libyaml zero-based marks, Aeson Value Show
+and pinned Unicode JSONPath classification/escaping. Warning equality and derived
+Show are represented as well. Generic exception display is supplied at the IO
+boundary; synthetic ProbeException tests verify the display branch without
+claiming all host exception types have been ported.
+
+The new independent oracle runs unchanged decodeHelper_/decodeAllHelper_, actual
+Text.Libyaml decoding and prettyPrintParseException under the frozen Haskell
+dependency plan. The previous syntax corpus supplies inputs only; no old expected
+output is reused. The 23,105 observations compare complete values with exact
+Scientific coefficient/exponent fields, warning paths and Show, raw error display
+characters and the exact number of demanded events. They include original source
+literals/files, malformed direct event streams, truncations, all scalar styles,
+invalid scalar UTF8 supplied directly, cross-document anchors, alias key types,
+repeated merge priority/tracking, trailing unused events, depth 300, every error
+display branch, raw surrogate characters and negative/path/precedence boundaries.
+
+Corpus SHA-256:
+`0d5b4d5fd6e21bb92568fb69456bbdee88f6df0ea2947f38155e1e0c78842c4a`.
+All 70 source hashes and exact case/group totals are checked. Kotlin production
+uses only its existing reader/scanner/parser/schema; Haskell remains a test oracle.
+No previously published oracle or expectation corpus was modified.
+
+Typed conversion callbacks are exposed after complete value parsing, with exact
+first-failure ordering and AesonException wrapping. The remaining FromJSON
+instances, full generic/async/IO exception boundary, derived Show ParseException,
+objToEvents/emission, includes/configuration/property/file suites, Pandoc
+translation loading/cache and other Pandoc readers/writers/application/Lua/tests
+remain pending, followed by all requested calibre MOBI/tests/additional formats.
+The complete objective above is unchanged.
+
+The preceding 5f0263b publication passed exact-SHA CI run 38661795109: all 105
+steps completed successfully, with no failed or unfinished step.
+
+Validation: the final implementation passes all 1,424,195 tests in 91 suites,
+with zero failures, errors or skips, including 23,109 YAML value tests and the
+10,000-level event-stream check. The full suite was rerun after replacing copied
+ancestor paths with shared reverse-list tails. All 94 source/fixture checks and
+234 installed CLI checks pass (14 FB2, 66 media, 69 format modifiers, 85 math).
+The installed CLI uses the exact final core JAR, and all 49 complete notices
+remain byte-exact inside it. All 70 native-source hashes and exact corpus bytes
+were verified against staged Git blobs and the pinned Pandoc gitlink. Existing
+protected oracles/corpora remain unchanged. The complete Pandoc/calibre objective
+is still active; this validation proves this decoder stage and the current suite.
