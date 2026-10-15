@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-zip-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable zip-reference
+  main-is: ZipReference.hs
+  hs-source-dirs: .
+  other-modules: Codec.Archive.Zip, Codec.Archive.ZipWindows
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, text ==2.1.2,
+                 bytestring ==0.12.2.0, vector, containers ==0.7, filepath ==1.5.4.0,
+                 binary ==0.8.9.3, time, directory, unix, digest, array, crypton, zlib ==0.7.1.1

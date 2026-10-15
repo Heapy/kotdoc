@@ -48,6 +48,7 @@ format is implemented explicitly in Kotlin.
 | `fillMediaBag`, `extractMedia`, `writeMedia` and Lua media API operations | `resources/MediaOperations.kt` | Every original Haskell MediaBag and Lua media API example translated to Kotlin; independent extraction/AST/report oracles and recoverable/fatal error checks |
 | `SelfContained.makeDataURI` | `resources/ResourceUri.kt` | 56 independent MIME/UTF-8/BOM/CR/binary cases, including original rejection of invalid text UTF-8 |
 | zip-archive media serialization dependency | `resources/MediaZip.kt` | Complete ZIP-byte comparison against Pandoc (headers, CRC, compression, order, collisions); independent JDK decompression |
+| zip-archive general record/binary codec and pure entry operations | `archive/ZipArchive.kt`, `templates/PartialPaths.kt` | Complete local/central/signature/end productions, record metadata, DOS dates, filename encoding, descriptors and PKWARE; 76,920 native observations, all 309 original archives and every Haskell Char in POSIX/Windows paths |
 | XML.Light parsing foundation and xml-conduit tokenizer dependency | `xml/XmlLight.kt` | Namespace-aware names, duplicate attributes, entity expansion, content forests, direct text and malformed input; oracle cases and six focused tests |
 | `Extensions` and format specifications | `options/Extensions.kt`, `ExtensionName.kt`, `FlavoredFormat.kt` | All 90 built-ins, six presets, all default/supported tables, set/diff operations and JSON; 96 registry, 140 extension-read, 317 path, 17 native-spec and 14 actual custom-reader oracle cases plus original Lua examples and algebra checks |
 | `Options.ReaderOptions` and independent option types | `options/ReaderOptions.kt`, `OptionTypes.kt`, `MathMethod.kt` | All ten reader fields/defaults and JSON; original construction/copy examples; 297 forced original option-codec cases and 13 genuine JSON-filter environment captures, plus field/type/integer/tuple checks |
@@ -5910,3 +5911,85 @@ current core JAR; all 49 complete notices remain byte-exact. All 196 source hash
 and exact corpus bytes were verified against staged Git blobs and the pinned
 Pandoc gitlink. The full objective remains active; standard user/default data
 file routing and the other remaining Pandoc/calibre work are still pending.
+
+
+## General ZIP record codec required by Pandoc data/reference archives
+
+The Text.Pandoc.Data branches for reference.docx/reference.pptx/reference.odt
+require general ZIP records and decoding, beyond the earlier media-only zero-
+timestamp encoder. Added the original archive/entry models, owned bytes and
+ordered membership, normalized add/delete/find, raw stored/deflated contents,
+PKWARE password verification/decryption and POSIX symlink metadata/target access.
+All represented Entry fields and equality are retained, including independent
+declared sizes/CRC, extra fields, file comments, versions, internal/external
+attributes, encryption verification bytes and arbitrary Integer timestamps.
+No new production binary/library dependency was added.
+
+Translated all local/central/digital-signature/end binary productions. Reading
+uses local offsets and preserves original validation/error order, size descriptor
+handling, the stored descriptor signature scanner's overlap limitations, deflate
+stream consumption and ignored multi-disk/end-directory bookkeeping. Central
+metadata is retained independently of local metadata and trailing input remains
+unconsumed. Writing preserves source UTF8 flags (including its treatment of
+encryption metadata), field truncation, full extra/comment/signature payloads,
+entry order, DOS timestamp clipping and the entry-count ZIP64 guard. JVM array
+capacity is lower than the source's 4 GiB archive threshold; physical oversized
+lazy payloads/allocation failures are not claimed represented by ByteArray.
+
+Paths use the pinned FilePath rules rather than filesystem normalization. Raw
+Haskell surrogate Chars remain separate from supplementary Chars through a
+reversible escape around the existing ASCII structural operators. Added the
+original takeDirectory/splitDirectories/dropTrailingPathSeparator operations;
+normalization preserves source rooted/trailing separator and Unicode drive-
+letter behavior. Every Haskell Char is observed in ordinary/drive-looking paths
+on both POSIX and the source's Windows CPP/import adapter.
+
+The retained source has a compiler-dependent CP437 string constant: the pinned
+GHC 9.12.2/macOS clang CPP splices its string-gap line continuations, introducing
+literal continuation spaces/backslashes/digits. The first comparison caught
+116 differences from a standard CP437 table. The Kotlin constant now translates
+the actual preprocessed declaration, retained in cp437-clang-cpp.txt and checked
+against the original line-splicing transformation. Native expectations were not
+changed to hide these failures. This profile preserves the pinned behavior;
+equivalence to other preprocessors/platform builds remains unverified. UTF8
+filename decoding retains the original lenient replacement behavior.
+
+The independent oracle compiles the complete retained original Zip.hs byte-for-
+byte. Its Windows adapter changes only module name, FilePath import and _WINDOWS
+selector; the original algorithm bodies stay unchanged. Original binary/zlib/
+time modules execute under the frozen plan, whose rebuild is confirmed up-to-
+date. The transport catches forced original exceptions and emits exact fields/
+bytes, with SHA256 witnesses for full compressed contents, decompressed contents
+and complete re-encoded bytes of every original archive to avoid duplicating
+large binary inputs in JSON. These witnesses are computed by original execution.
+
+There are 76,920 cases: every one of the 309 retained Pandoc DOCX/PPTX/ODT/EPUB/
+ZIP files; all 1,114,112 Haskell Chars in four path contexts (4,456,448 paths);
+every 16-bit DOS date with ordinary/extreme time fields; compression choices
+and buffer boundaries; arbitrary metadata, field-length wrapping, every
+truncation and header mutations, compression/version/encryption/offset failures,
+all byte filename inputs, malformed UTF8, stored/deflated signed/unsigned data
+descriptors, trailing compressed data, valid/invalid PKWARE, symlink masks,
+normalized archive updates/finds and binary/path fuzz inputs.
+
+Corpus SHA-256:
+`326003153dbd9fe25fa183af8be98d4d1d92fadb921211aa8d14333cdec229e7`.
+All 322 source hashes, case/group totals, full character ranges and original
+archive coverage are checked. The earlier media encoder/oracles/expectations
+remain unchanged. IO read/write/extraction, generic derived Show/Read instances,
+other CPP profiles and physical/lazy capacity behavior remain pending within
+the full goal, together with standard Pandoc data/reference archive orchestration
+and the remaining Pandoc application/formats/Lua/tests and all calibre work.
+
+The preceding 1cda9f3 publication passed exact-SHA CI run 38666899599: all 107
+steps completed successfully, with no failure or unfinished step.
+
+Validation: all 1,578,547 tests in 93 suites pass with zero failures, errors or
+skips, including 76,922 ZIP checks. All 96 source/fixture checks and 234 installed
+CLI checks pass (14 FB2, 66 media, 69 format modifiers, 85 math). The 2 GiB worker
+limit and recycling after 20 classes are unchanged. All 49 complete notices are
+byte-exact in the core JAR used by the installed CLI. All 322 source hashes and
+exact corpus bytes were verified against staged Git blobs and the pinned Pandoc
+gitlink. Original byte/expectation corpora remain unchanged; Git attributes keep
+the copied original ZIP source's final empty lines intact. The complete objective
+remains active, with Pandoc data/reference orchestration next.

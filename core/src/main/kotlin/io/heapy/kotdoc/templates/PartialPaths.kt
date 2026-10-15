@@ -60,6 +60,26 @@ enum class PartialPaths {
         else -> a + (if (this == Windows) "\\" else "/") + b
     }
     fun fileName(path: String): String = splitName(path).second
+    fun dropTrailingSeparator(path: String): String =
+        if (path.lastOrNull()?.let(::separator) == true && !(path.isNotEmpty() && splitDrive(path).second.isEmpty()))
+            path.trimEnd(::separator).ifEmpty { path.takeLast(1) } else path
+    fun directory(path: String): String {
+        val (directory, _) = splitName(path)
+        return dropTrailingSeparator(if (directory.isEmpty()) "." else directory)
+    }
+    fun directories(path: String): List<String> {
+        val (drive,tail) = splitDrive(path)
+        val parts = mutableListOf<String>()
+        if (drive.isNotEmpty()) parts.add(drive)
+        var at = 0
+        while (at < tail.length) {
+            val start = at
+            while (at < tail.length && !separator(tail[at])) at++
+            while (at < tail.length && separator(tail[at])) at++
+            parts.add(dropTrailingSeparator(tail.substring(start,at)))
+        }
+        return parts
+    }
     fun takeExtension(path: String): String = extension(path)
     fun baseName(path: String): String = fileName(path).let { it.dropLast(extension(it).length) }
     fun addExtension(path: String, extension: String): String {
