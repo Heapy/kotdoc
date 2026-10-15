@@ -9,6 +9,12 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP keyed resource pool: idle-only per-key/global limits, LIFO reuse,
+  exactly-once release, weak cleanup and the original 30-second idle reaper.
+  Independent original-code observations include controlled concurrency,
+  cancellation and real GC; JVM cleanup also covers a callback reference cycle.
+  Full request-manager/socket/history integration remains pending.
+
 - HTTP redirect loops for both original callback APIs, including modified final
   requests, whole-chunk body flushing, close/error ordering, limits and reverse
   response history in TooManyRedirects. Original exception/Response Show is

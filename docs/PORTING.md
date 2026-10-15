@@ -9188,3 +9188,110 @@ original disabled live httpbin tests are not relabeled as executed. All other
 outstanding Request/builder/lazy contracts, HTML CLI URL integration and the
 full remaining Pandoc readers/writers/App/Lua/tests, then calibre MOBI and
 formats absent from Pandoc/all their tests, retain their full scope.
+
+### http-client keyed resource pool and managed lifetime
+
+`http/KeyedPool.kt` ports Data.KeyedPool from the pinned complete http-client
+0.7.19 source as a real reusable resource pool. KeyedManaged exposes the original
+resource/reused properties, release and keepAlive; dummyManaged preserves its
+no-op release behavior. The existing HttpReuse constructors are shared. The
+pool will be wired into the actual HTTP manager next; existing HTTP helpers
+are not silently changed to use an invented manager or alternate transport.
+
+Only idle resources count toward per-key/global limits. Active acquisitions do
+not wait for a slot: a missing key creates another resource outside the state
+transaction. Returns keep newest entries first; a full pool discards the newly
+returned resource without evicting existing entries. An absent key still accepts
+its first entry when maxPerKey is nonpositive, provided the global limit allows
+it. A closed pool can still create fresh resources; subsequent reuse returns
+are destroyed. Nullable resources retain their presence independently of the
+absence of an idle entry.
+
+Release claims its exactly-once flag before any return/destroy effect. DontReuse
+suppresses destructor exceptions. Reuse overflow/closed-pool destruction is
+outside the state transaction and can throw; its flag remains claimed, so a
+second release does not repeat it. A clock failure also occurs after that flag
+is claimed. These are original behaviors, including their cleanup consequences,
+not corrections to fit the comments. Atomic claims and locked state updates
+preserve the tested concurrent schedules; create/destroy callbacks run outside
+the state lock, permitting another take or duplicate release to proceed.
+
+The real default runtime uses JVM Cleaner weak-owner cleanup, real UTC time
+and a lightweight JDK 21 virtual reaper thread. The thread does not inherit
+user InheritableThreadLocals, which could otherwise keep an owner alive through
+a captured request context. It checks every five seconds;
+empty maps wait until state changes. Reaper timestamps are read after this
+wait, with a 30-second inclusive deadline. The original prefix/span rule is
+retained even when wall-clock timestamps move backwards. Stale resources are
+removed atomically, then destroyed in ascending key/newest-first list order,
+with destructor errors suppressed. Reaper errors call the supplied handler
+and restart; a handler exception ends the reaper. Pool cleanup marks state
+closed before destroying all idle resources, suppressing destructor errors.
+Checked-out resource release closures retain pool lifetime; reaper/finalizer
+closures must not retain the pool's alive owner or its create callback.
+
+Clock, finalizer registration and reaper startup/delay are explicit effect
+boundaries. Production defaults perform actual effects; the deterministic
+observer/runtime can drive finalizer actions and reaper iterations without
+waiting 30 seconds. This is not a replacement for real JVM cleanup, which is
+also tested. It does not claim complete generic Haskell STM/GC/async masking,
+all possible Ord dictionaries, or other platform runtime APIs.
+
+Data.KeyedPool is private in the upstream package. The native observer therefore
+compiles the **complete original private module**, with just its module name
+changed, using original clocks, STM, weak IORefs and threads. A second complete
+copy changes only its module name and three effect-import lines for controlled
+clock/finalizer/reaper effects. Every remaining byte, including the full
+algorithm body and comments, is checked against the pinned source. Its MIT
+notice remains in the original archive, licenses and distributable JAR. No
+algorithm or expected result is rewritten in the observer. The plan uses the
+verified http-client 0.7.19 archive and original GHC boot base 4.21.0.0,
+bytestring 0.12.2.0, time 1.14, containers 0.7 and stm 2.5.3.1.
+
+The **1,478 independent observations** have semantic SHA256
+`82bf1e27bb5cac222107f8787c49404cef2f4207fb22e7dc81faeca7a0813426`
+and **575 source hashes**. Live and controlled cases cover nonpositive/large
+limits, arbitrary active acquisition, LIFO/key order, duplicate release,
+nullable resources, create/destructor/clock errors, closed pools, inclusive
+reaping/rollback, empty-map wakeup and handler restart/exit. Gated workers prove
+creation and overflow destruction do not hold the pool transaction, a second
+release sees the claimed flag before destruction completes, and interruption
+of blocked create/overflow destruction retains original state/cleanup behavior.
+
+All three actual native GC scenarios must complete before capture can succeed.
+Initial capture exposed retention in the observation harness: a lazy JSON
+result could still hold its Managed wrapper during later GC. Results are now
+serialized/detached per command, with stable roots keeping only the explicitly
+owned handle map/pool reference alive until forget operations. No upstream
+algorithm or expected GC outcome was changed. The final original GC observations
+and matching JVM Cleaner observations all complete successfully.
+
+The Kotlin suite executes all 1,478 expectations unchanged plus two checks:
+actual Cleaner collection of a pool cycle reachable through its create callback
+and a would-be inherited thread context,
+and propagation of the same overflow exception object only once. No original
+KeyedPool test module exists in the retained release; these observations are
+not labeled as invented original units. All **88,827 HTTP tests in eight suites**
+pass locally (final 15s Gradle run) and on **Linux/x86_64 JDK 21** (final 7.213s).
+Every XML is parsed fully; actual/declared counts match, with no failures,
+errors or skips. Linux likewise reports no failed/aborted/skipped containers.
+All **138 source/fixture verifiers** pass (44.3s).
+
+The installed/core JARs agree; all 120 compiled HTTP classes, 65 complete notices,
+250 Pandoc assets and the unchanged 60,137-byte PSL snapshot match source/build
+bytes. Every old JAR entry, including all **2,573 old classes**, remains
+byte-identical to the published redirect-loop distribution; all 2,461 non-HTTP
+classes, CLI and dependency JARs are unchanged. Only new pool classes are added.
+This checkpoint does not assert a new full project run or Pandoc/calibre parity.
+CookieJar commit 0a915aa's full CI run `38812129359` is now verified successful;
+request-policy run `38812985721` is also verified successful. The redirect-loop
+full CI run is still active at this point.
+
+Next work remains actual Manager construction/proxy/connection acquisition,
+request modification/override and exception/status wrapping, pool adapter and
+socket/TLS transport, automatic cookie handling and responseOpenHistory's
+separate first-read/history behavior, including all original local-server
+integration tests. All remaining Request/lazy contracts, HTML CLI URL integration,
+Pandoc readers/writers/App/Lua/original suites, then calibre MOBI and additional
+formats absent from Pandoc/all their tests remain in scope. Final staged source
+blobs and exact release pins are audited before publication.

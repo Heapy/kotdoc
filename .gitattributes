@@ -144,3 +144,6 @@ licenses/iproute-BSD-3-Clause.txt -text
 tools/haskell-http-cookie-reference/OriginalCookieSpec.hs -text whitespace=-trailing-space,-blank-at-eof
 vendor/appar-0.1.8/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 licenses/appar-BSD-3-Clause.txt -text
+
+# Preserve complete original private KeyedPool module bytes.
+tools/haskell-keyed-pool-reference/*KeyedPool.hs -text whitespace=-trailing-space,-blank-at-eof
