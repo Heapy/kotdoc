@@ -24,83 +24,132 @@ open class PandocVisitor {
 
     fun walk(document: Pandoc): Pandoc = document.copy(meta = walkMeta(document.meta), blocks = walkBlocks(document.blocks))
 
-    fun walkMeta(meta: Map<String, MetaValue>): Map<String, MetaValue> {
-        visitMeta(meta)
-        return transformMeta(walkMetaEntries(meta))
+    fun walkMeta(meta: Map<String, MetaValue>): Map<String, MetaValue> = walkValue(Kind.Meta, meta)
+    fun walkMetaValue(value: MetaValue): MetaValue = walkValue(Kind.MetaValue, value)
+    fun walkInlines(values: List<Inline>): List<Inline> = walkValue(Kind.Inlines, values)
+    fun walkBlocks(values: List<Block>): List<Block> = walkValue(Kind.Blocks, values)
+    fun walkInline(value: Inline): Inline = walkValue(Kind.Inline, value)
+    fun walkBlock(value: Block): Block = walkValue(Kind.Block, value)
+    fun walkCitation(value: Citation): Citation = walkValue(Kind.Citation, value)
+    fun walkCaption(value: Caption): Caption = walkValue(Kind.Caption, value)
+    fun walkCell(value: Cell): Cell = walkValue(Kind.Cell, value)
+    fun walkRow(value: Row): Row = walkValue(Kind.Row, value)
+    fun walkTableHead(value: TableHead): TableHead = walkValue(Kind.TableHead, value)
+    fun walkTableBody(value: TableBody): TableBody = walkValue(Kind.TableBody, value)
+    fun walkTableFoot(value: TableFoot): TableFoot = walkValue(Kind.TableFoot, value)
+
+    private enum class Kind { Meta, MetaEntries, MetaValue, Inlines, Blocks, Inline, Block, Citation, Caption, Cell, Row, TableHead, TableBody, TableFoot }
+    private data class Step(val kind: Kind, val value: Any)
+
+    @Suppress("UNCHECKED_CAST")
+    private fun <T : Any> walkValue(kind: Kind, value: T): T = walker(Step(kind, value)) as T
+
+    // Each call owns its continuation frames. Hooks retain their original
+    // preorder/postorder semantics without consuming the JVM call stack.
+    @Suppress("UNCHECKED_CAST")
+    private val walker = DeepRecursiveFunction<Step, Any> { (kind, input) ->
+        when (kind) {
+            Kind.Meta -> {
+                val value = input as Map<String, MetaValue>
+                visitMeta(value)
+                transformMeta(callRecursive(Step(Kind.MetaEntries, value)) as Map<String, MetaValue>)
+            }
+            Kind.MetaEntries -> {
+                val value = input as Map<String, MetaValue>
+                value.toSortedMap(UnicodeTextOrder).mapValues { callRecursive(Step(Kind.MetaValue, it.value)) as MetaValue }
+            }
+            Kind.MetaValue -> {
+                val value = input as MetaValue
+                visitMetaValue(value)
+                transformMetaValue(when (value) {
+                    is MetaValue.MetaMap -> value.copy(values = (callRecursive(Step(Kind.MetaEntries, value.values)) as Map<String, MetaValue>))
+                    is MetaValue.MetaList -> value.copy(values = value.values.map { callRecursive(Step(Kind.MetaValue, it)) as MetaValue })
+                    is MetaValue.MetaInlines -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is MetaValue.MetaBlocks -> value.copy(content = (callRecursive(Step(Kind.Blocks, value.content)) as List<Block>))
+                    is MetaValue.MetaBool, is MetaValue.MetaString -> value
+                })
+            }
+            Kind.Inlines -> {
+                val value = input as List<Inline>
+                visitInlines(value)
+                transformInlines(value.map { callRecursive(Step(Kind.Inline, it)) as Inline })
+            }
+            Kind.Blocks -> {
+                val value = input as List<Block>
+                visitBlocks(value)
+                transformBlocks(value.map { callRecursive(Step(Kind.Block, it)) as Block })
+            }
+            Kind.Inline -> {
+                val value = input as Inline
+                visitInline(value)
+                transformInline(when (value) {
+                    is Inline.Emph -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Underline -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Strong -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Strikeout -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Superscript -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Subscript -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.SmallCaps -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Quoted -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Cite -> value.copy(citations = value.citations.map { callRecursive(Step(Kind.Citation, it)) as Citation }, content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Link -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Image -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Note -> value.copy(blocks = (callRecursive(Step(Kind.Blocks, value.blocks)) as List<Block>))
+                    is Inline.Span -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Inline.Str, is Inline.Code, is Inline.Math, is Inline.RawInline,
+                    Inline.Space, Inline.SoftBreak, Inline.LineBreak -> value
+                })
+            }
+            Kind.Block -> {
+                val value = input as Block
+                visitBlock(value)
+                transformBlock(when (value) {
+                    is Block.Plain -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Block.Para -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Block.LineBlock -> value.copy(lines = value.lines.map { callRecursive(Step(Kind.Inlines, it)) as List<Inline> })
+                    is Block.BlockQuote -> value.copy(blocks = (callRecursive(Step(Kind.Blocks, value.blocks)) as List<Block>))
+                    is Block.OrderedList -> value.copy(items = value.items.map { callRecursive(Step(Kind.Blocks, it)) as List<Block> })
+                    is Block.BulletList -> value.copy(items = value.items.map { callRecursive(Step(Kind.Blocks, it)) as List<Block> })
+                    is Block.DefinitionList -> value.copy(items = value.items.map { (term, definitions) ->
+                        (callRecursive(Step(Kind.Inlines, term)) as List<Inline>) to definitions.map { callRecursive(Step(Kind.Blocks, it)) as List<Block> }
+                    })
+                    is Block.Header -> value.copy(content = (callRecursive(Step(Kind.Inlines, value.content)) as List<Inline>))
+                    is Block.Table -> value.copy(caption = (callRecursive(Step(Kind.Caption, value.caption)) as Caption), head = (callRecursive(Step(Kind.TableHead, value.head)) as TableHead),
+                        bodies = value.bodies.map { callRecursive(Step(Kind.TableBody, it)) as TableBody }, foot = (callRecursive(Step(Kind.TableFoot, value.foot)) as TableFoot))
+                    is Block.Figure -> value.copy(caption = (callRecursive(Step(Kind.Caption, value.caption)) as Caption), blocks = (callRecursive(Step(Kind.Blocks, value.blocks)) as List<Block>))
+                    is Block.Div -> value.copy(blocks = (callRecursive(Step(Kind.Blocks, value.blocks)) as List<Block>))
+                    is Block.CodeBlock, is Block.RawBlock, Block.HorizontalRule -> value
+                })
+            }
+            Kind.Citation -> {
+                val value = input as Citation
+                value.copy(
+                    citationPrefix = (callRecursive(Step(Kind.Inlines, value.citationPrefix)) as List<Inline>), citationSuffix = (callRecursive(Step(Kind.Inlines, value.citationSuffix)) as List<Inline>))
+            }
+            Kind.Caption -> {
+                val value = input as Caption
+                value.copy(short = value.short?.let { callRecursive(Step(Kind.Inlines, it)) as List<Inline> }, long = (callRecursive(Step(Kind.Blocks, value.long)) as List<Block>))
+            }
+            Kind.Cell -> {
+                val value = input as Cell
+                value.copy(blocks = (callRecursive(Step(Kind.Blocks, value.blocks)) as List<Block>))
+            }
+            Kind.Row -> {
+                val value = input as Row
+                value.copy(cells = value.cells.map { callRecursive(Step(Kind.Cell, it)) as Cell })
+            }
+            Kind.TableHead -> {
+                val value = input as TableHead
+                value.copy(rows = value.rows.map { callRecursive(Step(Kind.Row, it)) as Row })
+            }
+            Kind.TableBody -> {
+                val value = input as TableBody
+                value.copy(head = value.head.map { callRecursive(Step(Kind.Row, it)) as Row }, body = value.body.map { callRecursive(Step(Kind.Row, it)) as Row })
+            }
+            Kind.TableFoot -> {
+                val value = input as TableFoot
+                value.copy(rows = value.rows.map { callRecursive(Step(Kind.Row, it)) as Row })
+            }
+        }
     }
-
-    private fun walkMetaEntries(meta: Map<String, MetaValue>): Map<String, MetaValue> =
-        meta.toSortedMap(UnicodeTextOrder).mapValues { walkMetaValue(it.value) }
-
-    fun walkMetaValue(value: MetaValue): MetaValue {
-        visitMetaValue(value)
-        return transformMetaValue(when (value) {
-            is MetaValue.MetaMap -> value.copy(values = walkMetaEntries(value.values))
-            is MetaValue.MetaList -> value.copy(values = value.values.map(::walkMetaValue))
-            is MetaValue.MetaInlines -> value.copy(content = walkInlines(value.content))
-            is MetaValue.MetaBlocks -> value.copy(content = walkBlocks(value.content))
-            is MetaValue.MetaBool, is MetaValue.MetaString -> value
-        })
-    }
-
-    fun walkInlines(values: List<Inline>): List<Inline> {
-        visitInlines(values)
-        return transformInlines(values.map(::walkInline))
-    }
-
-    fun walkBlocks(values: List<Block>): List<Block> {
-        visitBlocks(values)
-        return transformBlocks(values.map(::walkBlock))
-    }
-
-    fun walkInline(value: Inline): Inline {
-        visitInline(value)
-        return transformInline(when (value) {
-            is Inline.Emph -> value.copy(content = walkInlines(value.content))
-            is Inline.Underline -> value.copy(content = walkInlines(value.content))
-            is Inline.Strong -> value.copy(content = walkInlines(value.content))
-            is Inline.Strikeout -> value.copy(content = walkInlines(value.content))
-            is Inline.Superscript -> value.copy(content = walkInlines(value.content))
-            is Inline.Subscript -> value.copy(content = walkInlines(value.content))
-            is Inline.SmallCaps -> value.copy(content = walkInlines(value.content))
-            is Inline.Quoted -> value.copy(content = walkInlines(value.content))
-            is Inline.Cite -> value.copy(citations = value.citations.map(::walkCitation), content = walkInlines(value.content))
-            is Inline.Link -> value.copy(content = walkInlines(value.content))
-            is Inline.Image -> value.copy(content = walkInlines(value.content))
-            is Inline.Note -> value.copy(blocks = walkBlocks(value.blocks))
-            is Inline.Span -> value.copy(content = walkInlines(value.content))
-            is Inline.Str, is Inline.Code, is Inline.Math, is Inline.RawInline,
-            Inline.Space, Inline.SoftBreak, Inline.LineBreak -> value
-        })
-    }
-
-    fun walkBlock(value: Block): Block {
-        visitBlock(value)
-        return transformBlock(when (value) {
-            is Block.Plain -> value.copy(content = walkInlines(value.content))
-            is Block.Para -> value.copy(content = walkInlines(value.content))
-            is Block.LineBlock -> value.copy(lines = value.lines.map(::walkInlines))
-            is Block.BlockQuote -> value.copy(blocks = walkBlocks(value.blocks))
-            is Block.OrderedList -> value.copy(items = value.items.map(::walkBlocks))
-            is Block.BulletList -> value.copy(items = value.items.map(::walkBlocks))
-            is Block.DefinitionList -> value.copy(items = value.items.map { (term, definitions) ->
-                walkInlines(term) to definitions.map(::walkBlocks)
-            })
-            is Block.Header -> value.copy(content = walkInlines(value.content))
-            is Block.Table -> value.copy(caption = walkCaption(value.caption), head = walkTableHead(value.head),
-                bodies = value.bodies.map(::walkTableBody), foot = walkTableFoot(value.foot))
-            is Block.Figure -> value.copy(caption = walkCaption(value.caption), blocks = walkBlocks(value.blocks))
-            is Block.Div -> value.copy(blocks = walkBlocks(value.blocks))
-            is Block.CodeBlock, is Block.RawBlock, Block.HorizontalRule -> value
-        })
-    }
-
-    fun walkCitation(value: Citation): Citation = value.copy(
-        citationPrefix = walkInlines(value.citationPrefix), citationSuffix = walkInlines(value.citationSuffix))
-    fun walkCaption(value: Caption): Caption = value.copy(short = value.short?.let(::walkInlines), long = walkBlocks(value.long))
-    fun walkCell(value: Cell): Cell = value.copy(blocks = walkBlocks(value.blocks))
-    fun walkRow(value: Row): Row = value.copy(cells = value.cells.map(::walkCell))
-    fun walkTableHead(value: TableHead): TableHead = value.copy(rows = value.rows.map(::walkRow))
-    fun walkTableBody(value: TableBody): TableBody = value.copy(head = value.head.map(::walkRow), body = value.body.map(::walkRow))
-    fun walkTableFoot(value: TableFoot): TableFoot = value.copy(rows = value.rows.map(::walkRow))
 }

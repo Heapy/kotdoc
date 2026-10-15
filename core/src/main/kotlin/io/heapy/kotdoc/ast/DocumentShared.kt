@@ -10,8 +10,17 @@ object DocumentShared {
     fun normalizeDate(text: String): String? = DateNormalization.normalize(text)
 
     fun stringifyInlines(inlines: List<Inline>): String = buildString {
-        fun go(inline: Inline) {
-            when (inline) {
+        data class Frame(val items: Iterator<Inline>, val closingQuote: String = "")
+        val frames = ArrayDeque<Frame>()
+        frames.addLast(Frame(inlines.iterator()))
+        while (frames.isNotEmpty()) {
+            val frame = frames.last()
+            if (!frame.items.hasNext()) {
+                frames.removeLast()
+                append(frame.closingQuote)
+                continue
+            }
+            when (val inline = frame.items.next()) {
                 is Inline.Str -> append(inline.text)
                 is Inline.Code -> append(inline.text)
                 is Inline.Math -> append(inline.text)
@@ -19,14 +28,13 @@ object DocumentShared {
                 is Inline.RawInline -> if (inline.format.value == "html" && inline.text.startsWith("<br")) append(' ')
                 is Inline.Note -> Unit
                 is Inline.Quoted -> {
-                    append(if (inline.type == QuoteType.SingleQuote) '‘' else '“')
-                    inline.content.forEach(::go)
-                    append(if (inline.type == QuoteType.SingleQuote) '’' else '”')
+                    val single = inline.type == QuoteType.SingleQuote
+                    append(if (single) '‘' else '“')
+                    frames.addLast(Frame(inline.content.iterator(), if (single) "’" else "”"))
                 }
-                else -> inlineChildren(inline).forEach(::go)
+                else -> frames.addLast(Frame(inlineChildren(inline).iterator()))
             }
         }
-        inlines.forEach(::go)
     }
 
     fun stringifyBlocks(blocks: List<Block>): String {

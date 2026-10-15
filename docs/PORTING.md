@@ -32,6 +32,7 @@ format is implemented explicitly in Kotlin.
 | Complete finite TeXMath expression-to-TeX writer | `math/MathTeXWriter.kt` | All three exports; 561 original writer goldens and four regressions; 32,292 original observations, all 561 round-trip results/verdicts (344 already fail upstream), package/Unicode/scope/array/space and deep-input coverage |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
+| Shared metadata/space/code helpers and finite AST traversal | `ast/InlineShared.kt`, `DocumentShared.kt`, `PandocVisitor.kt` | addMetaField, extractSpaces, formatCode and htmlSpanLikeElements; 19,643 native observations, all 266 documents/10,584 inline lists, original stringify property/generators, every Char and 100,000-level finite trees |
 | Network.URI materialized finite runtime operations | `uri/NetworkURI.kt`, `URIParsing.kt`, `URI.kt`, `resources/MediaBagUri.kt` | Full parsing/validation, UTF8 escaping/decoding, normalization, relative resolution and deprecated accessors; 95,464 native observations, all 339 active original unit tests and both translated property predicates |
 | Complete HTML table parser and simple-cell query | `html/HtmlTableParsing.kt`, `ast/TableSimplicity.kt` | Full pTable traversal/normalization and caller state/effects; 6,539 independent original observations, all 266 Native documents, 42 HTML/HTML4/HTML5 table spans and all Char numeric-prefix/remainder witnesses |
 | Complete HTML reader tag-parsing/category modules | `html/HtmlTagParsing.kt`, `HtmlTagCategories.kt`, `HtmlTagMatching.kt`, `parsing/TokenParsec.kt`, `ParserMachine.kt` | All 14 Parsing functions, TagOmission and eight category values; 66,067 independent native observations, all 69 original HTML inputs/legacy input at the token boundary, exact consumed/empty state/errors and every Char for whitespace/Tag Show |
@@ -7319,3 +7320,104 @@ reader traversal still need ports. The original full HTML AST assertions,
 property and legacy golden remain pending in Kotlin. All other remaining Pandoc
 readers/writers and application/Lua/property tests, then calibre MOBI with all
 original tests and other calibre formats absent from Pandoc, remain in scope.
+
+
+## Shared metadata/inline helpers and deep finite AST traversal
+
+`InlineShared` ports the complete `Text.Pandoc.Shared.addMetaField`,
+`extractSpaces`, `formatCode` and `htmlSpanLikeElements` operations used by the
+HTML reader. Metadata accumulation keeps the original distinction between an
+existing MetaList (append and flatten a new list by one level) and every other
+existing value (construct a two-element list, preserving a new nested list).
+All existing unrelated metadata is retained. Text, raw Haskell String,
+Bool, Inlines, Blocks and explicit recursive list/map converters are available;
+raw Haskell surrogate Chars pass through the original Text.pack replacement
+boundary. The span-like set retains all four elements and source ordering and
+cannot be mutated through a host-language cast.
+
+Space extraction inspects only the original first and last inline, distinguishes
+Space from SoftBreak, trims only those two constructors, invokes the supplied
+function exactly once even on an empty interior, and uses original Inlines
+Semigroup melding on the result. LineBreak is not treated as trim whitespace.
+Code formatting walks all nested inline lists bottom-up, including citation
+prefixes/suffixes, notes, table captions/cells, definitions and figures. The
+original groupBy predicate treats Str, Space, SoftBreak and Quoted as plaintext;
+other formatting remains outside Code while its children are processed. Runs
+become a single Code using the original stringifyInlines behavior and unchanged
+attributes, including empty Code text.
+
+The existing `PandocVisitor` now executes its complete materialized finite
+traversal through per-call DeepRecursiveFunction continuations. Public methods,
+named arguments, child/field order, preorder visits, postorder transformations,
+metadata key ordering and replacement-without-revisiting semantics are retained.
+Nested MetaMap entries still do not introduce an extra Meta hook. The
+stringifyInlines fold uses explicit iterator/quote frames, retaining skipped
+notes/citation metadata, quote punctuation, raw HTML br handling and all other
+original inline cases. This removes JVM recursion from both paths and allows
+code formatting on deep finite documents. It does not claim productive
+infinite/partial AST values or a port of general Haskell evaluation demand.
+
+`tools/haskell-shared-inline-reference` calls the complete original Pandoc Shared,
+Walk, Builder, Definition, Native reader and Arbitrary instances. No behavioral
+module is substituted. It reuses the already audited original-library build:
+all **2,888 tracked Pandoc files** match byte-for-byte, with only the previously
+documented three-module Cabal exposure adjustment retained to reuse that build.
+The standalone project also supports the normal unchanged upstream package.
+`OriginalSharedProperty.hs` contains the verbatim
+`stringifyInlinesMatchesStringify` signature and body from Tests.Shared, with
+source-extraction validation. Its original QuickCheck control passes **1,000
+trials at seed 314159**. Production conversion has no Haskell dependency.
+
+`tools/import-shared-inline-fixtures.py` captures **19,643** original observations
+and **641 source hashes**:
+
+- all **266 original Native documents** with source query/preorder and
+  walk/postorder inline-list traces, node/list replacements and full AST outputs;
+- all **10,584 original inline lists**, checked through code formatting, specialized
+  stringifyInlines and generic stringify;
+- **1,000 original-generator property inputs** at ten source size settings, plus
+  their direct formatter/stringifier observations. Kotlin translates the original
+  equality predicate; the QuickCheck generator/RNG/shrinker itself is not claimed
+  as a Kotlin port;
+- every Inline constructor, quote/raw-format/empty-text variants and three
+  attribute records; 4,352 group-boundary combinations, 1,800 wrapper/boundary
+  space cases and 540 metadata dictionary/merge/field-preservation cases;
+- seventeen aggregate witnesses covering every **1,114,112 Haskell Char** through
+  Builder.text, quoted stringification, formatCode, extractSpaces and raw-String
+  metadata insertion;
+- spans and alternating inline/note/block trees at **1,500**, **10,000** and
+  **100,000** levels, and nested quote stringification/code formatting at 1,500
+  and 5,000 levels.
+
+The Unicode aggregate transport uses typed raw-codepoint arrays for strings and
+sorted arrays for object fields, keeping witnesses independent of JSON key and
+string-escape spelling. All **19,626 initial non-aggregate request/results** are
+unchanged when those seventeen hashes switch to the explicit transport.
+Corpus SHA-256:
+`a81084e819aabc44d420402dd14a826a951eb79e967eab86c6a5be0cec45211c`.
+The original observations and existing Builder/Visitor/Shared tests pass; an
+additional ownership/callback check verifies immutable span-set behavior,
+metadata persistence and single invocation for an all-space input.
+
+All **115 CI source/fixture checks pass**. All **641 source hashes** match staged
+root Git blobs or clean pinned upstream blobs. Corpus bytes, earlier protected
+corpora/oracles and all three release pins are unchanged. Installed/core JAR
+bytes match and include the new helper/traversal classes, all **55 full notices**,
+**250** Pandoc assets/indexes and unchanged MathML/text-2.1.2 data. All installed
+workflow smoke cases and all **375 installed CLI comparisons** pass: 14 FB2,
+66 media, 69 extension, 85 math and 141 HTML cases. Exact-SHA CI for **8054e82**
+is verified successful.
+
+Full validation passes **2,111,258 tests in 112 suites**, with zero failures,
+errors or skips (10m 46s). The new suite contributes 19,643 original observations
+and one ownership/callback check. No original tests or protected expectations
+were disabled or changed; the existing 2 GiB worker/recycling limits remain
+unchanged.
+
+The full objective remains active. These are complete finite shared helpers,
+not the complete HTML reader. Remaining Text.Pandoc.URI helpers, raw LaTeX
+inline parsing and the HTML traversal still need ports, including the original full HTML AST
+assertions/property/legacy golden. All other remaining Pandoc readers/writers,
+application/Lua/property tests and general lazy/partial-value contracts, followed
+by calibre MOBI with all original tests and the other calibre formats absent
+from Pandoc, remain in scope.

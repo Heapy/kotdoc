@@ -168,6 +168,11 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   Haskell Chars, source Eq/Ord/Show, formatting and rectification, including all
   four original URI Show assertions and every Haskell Char. The full HTML reader
   traversal remains in progress.
+- Shared HTML reader helpers for metadata accumulation, boundary spaces, code
+  formatting and span-like elements. AST walk and inline stringification handle
+  deep finite documents without JVM recursion. Verified by 19,643 original-library
+  observations, all 10,584 inline lists from 266 Native documents, original
+  generator/property inputs, every Char and 100,000-level span/note structures.
 - Network.URI parsing, validation, escaping, normalization, relative resolution
   and deprecated accessors, sharing the existing Parsec interpreter. MediaBag
   delegates to this parser. Verified by 95,464 original-library observations,
@@ -364,6 +369,7 @@ python3 tools/import-parser-state-fixtures.py --check-source
 python3 tools/import-html-state-fixtures.py --check-source
 python3 tools/import-uri-fixtures.py --check-source
 python3 tools/import-uri-unit-tests.py --check
+python3 tools/import-shared-inline-fixtures.py --check-source
 python3 tools/import-identifier-fixtures.py --check-source
 python3 tools/import-html-entities.py --check
 python3 tools/import-tagsoup-fixtures.py --check
