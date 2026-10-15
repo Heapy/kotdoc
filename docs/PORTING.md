@@ -25,6 +25,7 @@ format is implemented explicitly in Kotlin.
 | `Text.Pandoc.Logging` represented values and Verbosity instances | `logging/`, `parsing/Parsec.kt`, `ast/AstJsonValues.kt` | All 54 constructors, pretty/JSON/verbosity/Show/source Eq/Ord; 25,373 original observations, 266 ToJSON documents, raw names and 100,000-level structures |
 | `Class.CommonState` record and `PandocMonad` state/logging operations | `state/CommonState.kt`, `state/PandocState.kt` | All 13 fields/defaults, persistent reverse log, callbacks/typed errors/nested silence, headers, URL, media and cache identity; 3,615 native observations plus snapshot/identity checks |
 | libyaml byte reader and yaml scalar schema/string-style helpers | `yaml/YamlReader.kt`, `yaml/YamlScalars.kt` | Complete defined reader transitions; 82,635 native cases, every UTF8 code point/UTF16 unit, all 65,536 byte pairs, actual buffers/errors, source numeric overflow and all scalar styles/tags |
+| Complete libyaml scanner algorithm | `yaml/YamlScanner.kt`, `YamlTokens.kt` | All 22 token kinds including terminal empty token; 8,641 native token/error/per-call state observations over directives, keys, indentation, tags, anchors, all scalar forms, encodings and original source inputs |
 | aeson-pretty defined-value library and numeric formatting dependency | `json/PrettyJson.kt`, `PrettySort.kt`, `ScientificNumber.kt` | All configuration modes, Aeson Text quoting, source natural/fused sorting and Scientific formatting; 21,522 original observations, 266 documents, 1,027 source hashes |
 | Definition JSON instances | `core/.../ast/PandocJson.kt` | 56 upstream fixtures × encoding/decoding checks |
 | `test/test-pandoc-types.hs` literal JSON examples | `UpstreamJsonTest.kt` | Independent typed expected values, exact JSON bytes |
@@ -5599,3 +5600,82 @@ skips. All 91 source/fixture checks and 234 installed CLI checks pass (14 FB2,
 are byte-exact in the built core JAR. All 185 source hashes and the complete
 corpus were verified against staged Git blobs or the exact pinned Pandoc
 submodule. All 56 original YAML release files match their archives byte-for-byte.
+
+
+## Complete libyaml scanner algorithm
+
+Translated the complete libyaml 0.2.5 scanner.c algorithm to Kotlin on the
+previously ported streaming byte reader. No native scanner, external converter,
+precomputed translation table or alternate YAML grammar is used in production.
+All token fetchers/scanners, delayed simple-key insertion, flow/indent stacks,
+whitespace/comment/BOM handling, directives, tags/anchors/aliases, URI escapes,
+quoted/plain/block scalar processing and scanner error branches are present.
+The C scanner API's empty token after stream-end or prior failure is represented
+by End, separate from the first Failure result.
+
+The queue preserves prospective simple-key token numbers, required-key failures,
+single-line/1024-character staleness, KEY/BLOCK-MAPPING-START insertion order and
+original block/flow restrictions. Indentation guards retain the source INT_MAX
+memory-error branch, while actual native allocation failures/invalid C memory
+contracts are not claimed equivalent to JVM errors. Queued token bytes and marks
+are immutable snapshots; terminal calls do not ask the reader for more input.
+
+Marks count Unicode characters, with source CRLF index advance and line/column
+reset. CR, LF and NEL normalize to LF inside scalars; LS/PS retain their original
+UTF8 bytes. Single-quoted doubling, double-quoted simple/hex escapes, escaped
+line breaks, folding/blank preservation, literal/folded chomping and explicit
+indentation follow the original transitions. Error context/problem text and
+both marks preserve the source spelling (including `hexdecimal`) and timing.
+Reader errors can preempt token recognition because filling the source reader
+prefetches a whole batch; native states verify this ordering.
+
+Tag URI escapes validate UTF8 octet widths/continuations exactly as the scanner,
+which intentionally differs from the reader's Unicode/overlong validation.
+Percent-decoded NUL terminates C-string tag/anchor fields; scalar byte fields
+retain embedded NUL because they have an explicit length. This distinction is
+preserved instead of normalizing or dropping all NULs indiscriminately.
+
+The new independent oracle compiles unchanged complete api.c/reader.c/scanner.c.
+Its bridge only supplies input/chunk plans and observes actual tokens, pending
+key records, queue, indentation/flow state, marks, reader buffers and error
+fields after every yaml_parser_scan call. GHC transports values and uses its
+original Read to decode quoted Haskell input literals; expected scanner output
+never runs Kotlin. Prior protected oracle directories/corpora are unchanged.
+
+There are 8,641 native observations:
+
+- 54 runs of 18 note-based and composed input examples;
+- all 117 original Pandoc/dependency YAML paths with three chunk plans (351 runs);
+- 430 decoded quoted literals from the complete original Haskell YAML tests;
+- 248 surrounding-context and 198 quoted/plain line-folding cases;
+- 840 block scalar/chomping/indent cases, 1,536 byte-character contexts;
+- 140 quoted-escape, 48 tag-URI and 48 directive cases;
+- 24 key-length, 66 indentation/flow, 20 buffer and 108 encoding cases;
+- 30 input-handler failure/EOF cases, 4,000 syntax fuzz and 500 byte fuzz cases.
+
+All 22 token kinds and normal/reader/scanner error families are observed.
+Corpus SHA-256:
+`a6ad24027b0e586ed2850949ee4e5f2977a22cac76632883e9127f165e3cfc20`.
+All 176 source/fixture hashes, original path inventory, groups and token-kind
+inventory are checked. The 8,642 targeted tests pass with zero failures/errors/
+skips, including token ownership and no reads after terminal calls. Transport
+text is released before each dynamic test parses its expected JSON, retaining
+the previous full-suite memory fix.
+
+Scanning these source literals/files is a component comparison, not a claim
+that the full original YAML parser/emitter/include/config/property suites are
+ported. Syntax parsing into events, tag/directive resolution, higher-level
+anchor/merge/document handling, translation loading/caching, the remaining
+Pandoc application/readers/writers/Lua/tests and all calibre work remain within
+the unchanged objective.
+
+The preceding 57b817c publication passed exact-SHA CI run 38657511399 with all
+103 steps completed successfully.
+
+Validation: all 1,390,799 tests in 89 suites pass with zero failures, errors or
+skips at the unchanged 2 GiB worker limit. All 92 source/fixture checks and all
+234 installed CLI checks pass (14 FB2, 66 media, 69 format modifiers, 85 math
+options). All 49 complete original notices remain byte-exact in the core JAR.
+All 176 source/fixture hashes and exact corpus bytes were verified against
+staged Git blobs or the exact pinned Pandoc submodule commit. No pre-existing
+oracle expectations or protected oracle implementations were modified.
