@@ -28,6 +28,7 @@ jobs:
       - run: python3 tools/import-tex-writer-fixtures.py --check-source
       - run: python3 tools/import-parse-math-fixtures.py --check-source
       - run: python3 tools/import-html-parsing-fixtures.py --check-source
+      - run: python3 tools/import-html-table-fixtures.py --check-source
       - run: python3 tools/import-math-reader-fixtures.py --check-source
       - run: python3 tools/import-pandoc-math-fixtures.py --check-source
       - run: python3 tools/import-media-operations.py --check-source

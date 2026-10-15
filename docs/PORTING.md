@@ -32,6 +32,7 @@ format is implemented explicitly in Kotlin.
 | Complete finite TeXMath expression-to-TeX writer | `math/MathTeXWriter.kt` | All three exports; 561 original writer goldens and four regressions; 32,292 original observations, all 561 round-trip results/verdicts (344 already fail upstream), package/Unicode/scope/array/space and deep-input coverage |
 | Complete finite TeXMath macro preprocessing and Unicode-to-TeX conversion | `math/MathMacros.kt`, `MathTeXUnicode.kt`, `MathTeXUnicodeData.kt` | All macro constructors, original Parsec replies/errors, bounded recursive expansion and all 2,755 ordered records/2,832 commands; 26,415 original observations, 149 original TeX inputs and exhaustive Char conversion |
 | Complete finite TeXMath TeX formula reader and Commands | `math/MathTeXReader.kt`, `MathTeXCommands*.kt`, `MathTeXReaderData.kt` | All reader productions and six command tables, exact trees/Show/errors, all 69 original native goldens; 25,581 independent original observations and every Char through readTeX |
+| Complete HTML table parser and simple-cell query | `html/HtmlTableParsing.kt`, `ast/TableSimplicity.kt` | Full pTable traversal/normalization and caller state/effects; 6,539 independent original observations, all 266 Native documents, 42 HTML/HTML4/HTML5 table spans and all Char numeric-prefix/remainder witnesses |
 | Complete HTML reader tag-parsing/category modules | `html/HtmlTagParsing.kt`, `HtmlTagCategories.kt`, `HtmlTagMatching.kt`, `parsing/TokenParsec.kt`, `ParserMachine.kt` | All 14 Parsing functions, TagOmission and eight category values; 66,067 independent native observations, all 69 original HTML inputs/legacy input at the token boundary, exact consumed/empty state/errors and every Char for whitespace/Tag Show |
 | Complete `Text.Pandoc.Parsing.Math`, reader-option getter/guards and `Shared.trimMath` | `parsing/MathParsing.kt`, `ReaderOptionsAccess.kt`, `Parsec.kt` | Both math parsers, all delimiters/groups/comments, five original stream instances, exact state/errors and raw/Text error views; 10,304 independent observations including all 48 HTML and 138 Markdown math inputs |
 | Complete `Text.Pandoc.Writers.Math` bridge | `math/PandocMath.kt` | Both conversion functions and URL re-exports; exact AST/fallback, reporting, re-entrant state, deferred/shared generic writer results; 98,180 native observations over all 335 original Pandoc math nodes and 149 TeX inputs |
@@ -6953,3 +6954,88 @@ The original HTML AST-level Kotlin assertions, original round-trip property and
 legacy golden remain pending. All other remaining Pandoc readers/writers and
 application/Lua/property tests, followed by calibre MOBI and its original tests
 and other calibre formats absent from Pandoc, remain in scope.
+
+
+## Complete HTML table parsing and simple-cell classification
+
+`HtmlTableParsing.pTable` implements the complete
+`Text.Pandoc.Readers.HTML.Table` module, including its private column/group,
+cell/row/header/body/footer and normalization algorithms. It preserves the exact
+caption/head/top-foot/body/bottom-foot parse order; optional/implicit closing;
+header-only row detection and mixed th/td backtracking; raw attribute versus CSS
+alignment precedence; rowspan/colspan Read behavior; CSS cleanup; row-heading
+vectors across spans, including Int64 wrapping; empty-table rejection; width
+padding; first-body-row alignments and simple/normal implicit widths. Relative
+width sums use original Int64 arithmetic; percentage/relative calculations retain
+NaN, infinities and signed zero. The existing Builder table-shape normalization
+is applied after the HTML module's own normalization, as in the original.
+
+The caller supplies the cell/caption `HtmlTagParser<U,Blocks>`, retaining arbitrary
+user state and external effects. `TableSimplicity.onlySimpleTableCells` implements
+the complete Shared helper. An iterative query visits nested inline/block/citation,
+note/caption/table structures, retaining LineBreak detection without JVM recursion.
+The existing Haskell numeric Read implementation is reused; no earlier production
+implementation or expectation needed changes to match this module.
+
+The reference builds the complete pinned Pandoc/pandoc-types libraries. As in the
+previous tag-helper stage, an independently verified copy changes only Cabal
+exposure metadata, now for Parsing, Types, TagCategories and Table. All 2,888
+tracked original implementation/test/data/notice files are checked, and the
+original checkout remains unchanged. The observer calls the real original pTable,
+safeRead and simple-cell query; it never implements their algorithms. All 69
+ordinary HTML assertions and the original QuickCheck property (25 successes)
+pass, plus 69 serialization checks: **139 native tests**. The dependency freeze
+is retained and a repeated native build reports `Up to date`.
+
+All **6,539 independent observations pass**. They cover:
+
+- the exact integer/Double Read grammar and 1,500 seeded numeric cases;
+- 784 percentage/relative/nonfinite/overflow width combinations and style/colgroup
+  precedence, omission and padding;
+- 1,512 span/alignment/header-vector/CSS cases, and all caption/head/body/foot
+  arrangements, including both top and bottom footers;
+- all **266 original Native documents** as arbitrary cell content and as direct
+  simple-cell queries;
+- all **42 table spans** found in original `.html`, `.html4` and `.html5` fixtures
+  through original tokenization/canonicalization, without newline rewriting;
+- all 69 original HTML unit inputs at the table-parser boundary, all relevant
+  block/simple-cell shapes and nested Note/Cite LineBreaks;
+- raw source names, Int64 positions, 1,500 seeded malformed/backtracking cases,
+  1,500 nested tables and a 1,500-row table; and
+- 10,000-level finite inline queries plus seventeen aggregate witnesses over every
+  Haskell Char as numeric prefix/remainder for both Int and Double: 4,456,448 Read
+  results, not that many separate JUnit tests.
+
+Normal table cases compare complete AST JSON and native Show, so nonfinite and
+signed-zero distinctions are retained. Deep nested-table cases compare complete
+AST Show independently of the general AST JSON encoder; this is not a claim of
+stack safety for that separate codec. Callback tests use original PandocMonad
+CommonState as an external effect trace. They prove that speculative headers,
+lookahead and failed tables restore Parsec input/user state while retaining
+external effects. All initial 6,441 request/expectation records were independently
+checked unchanged when these effect observations and 98 additional fixture/effect
+cases were added. Original literal expectations were not weakened.
+
+Corpus SHA-256:
+`9962829c32de6068efe4ae0b310cf1342bdc2adb1347c9eb2525c7af10adf510`.
+The manifest binds 617 original/observer source files; all 109 CI source/fixture
+commands pass. Exact-SHA CI for fe49e08 is verified successful (121 successful
+steps). All 617 source hashes match staged Git blobs; corpus/copied-helper bytes
+are exact, earlier protected corpora/oracles are unchanged, and upstream
+checkouts/release tags/root gitlinks remain clean and pinned. Installed/core JAR
+bytes match and include both new classes, all 54 full notices, 250 Pandoc assets/
+index files and the unchanged MathML entity table. Workflow smoke checks pass.
+
+Full validation passes **1,949,796 tests in 106 suites**, with zero failures,
+errors or skips (9m 44s). All 375 installed CLI comparisons pass: 14 FB2,
+66 media, 69 extension, 85 math and 141 HTML cases. No test registrations were
+disabled and existing 2 GiB worker/recycling limits remain unchanged.
+
+The full objective remains active. The HTML table module is complete at its
+caller-supplied content-parser boundary; it does not implement the full HTML
+reader's block parser. HTMLState/HTMLLocal and remaining ParserState/capabilities,
+shared metadata/code/URI helpers, raw LaTeX inline parsing and HTML traversal
+still need ports. The original full HTML AST assertions/property/legacy golden
+remain pending in Kotlin. All other Pandoc readers/writers and application/Lua/
+property tests, then calibre MOBI with all original tests and the other calibre
+formats absent from Pandoc, remain in scope.
