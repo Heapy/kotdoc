@@ -106,7 +106,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   markup-to-DocLayout wrapping. Checked against 71,478 original observations,
   including every byte pair, all 25 original HTML examples, constructor trees,
   Doc structure and partial values; all ten upstream markup properties are ported.
-  The complete HTML writer and remaining builder/HTML vocabulary APIs are pending.
+  The HTML writer is implemented; remaining builder/HTML vocabulary APIs are pending.
 - Annotated tables for writer output: clipped spans, exact covered column specs,
   continuous row/column numbers, separated row headers/body cells and inverse
   conversion. All six original tests are ported, with 1,400 independent native
@@ -121,13 +121,13 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   attributes, style updates and alignment names. Checked against 18,789 original
   Haskell observations, including every Unicode code point, every entity name,
   all HTML4/HTML5/RDFa attribute registries and 785 upstream attribute sets.
-  These utilities do not yet provide the XML reader/writer or full HTML writer.
+  The full XML reader/writer remains pending.
 - Writer metadata/template contexts: source callback ordering, template gating,
   variable precedence, exact rendered `meta-json`, field updates, strict language
   selection and metadata lookups. Checked against 11,241 original observations,
   including all 266 upstream metadata maps, three independent text dictionaries,
   every Unicode code point and nesting through 5,000 levels. The complete HTML
-  writer and remaining Shared helpers are still in progress.
+  writer is implemented; remaining Shared helpers are still in progress.
 - Pure writer helpers: display-math grouping, Unicode sub/superscripts, smart
   punctuation reversal, sentence splitting, delimiter whitespace, link removal,
   task-list extraction and XML identifier validation. Checked against 50,729
@@ -158,8 +158,16 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   text-2.1.2 lowercase table. Verified by 4,725 original-library observations,
   every Haskell Char, nested quote scopes, external log effects and all 266 Native
   documents. Another 34,920 original list-parser runs use the full state and check
-  preservation of every unrelated field. HTML reader state/environment integration
-  and general lazy/partial record-field demand remain in progress.
+  preservation of every unrelated field. General lazy/partial record-field demand
+  remains in progress.
+- HTML reader state: all eleven global fields and four local fields, original
+  capability instances and separate ReaderT environment scope. Character and
+  token parsers share the existing consumed/empty interpreter. Verified by 6,368
+  independent native observations, 100,000-step Reader compositions, quote/state
+  rollback and retained external effects. Full URI/authority records preserve raw
+  Haskell Chars, source Eq/Ord/Show, formatting and rectification, including all
+  four original URI Show assertions and every Haskell Char. URI parsing/resolution
+  and the full HTML reader traversal remain in progress.
 - TeX token/macro data: all token kinds, scopes, expansion points, Macro fields
   and nine argument-specification forms. Original Eq/Ord/Show and token-to-Sources
   grouping are checked by 21,326 native observations, lazy/infinite prefixes and
@@ -319,7 +327,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 - TagSoup HTML tokenization, entities, positions, warnings and custom entity hooks.
   Preserves malformed-markup recovery, ordered attributes, script content and CDATA.
   Verified by original examples/properties and 3,670 independent Pandoc identifier
-  captures; this does not yet implement the HTML document reader or writer.
+  captures; the complete HTML document reader remains pending.
 
 See [the porting ledger](docs/PORTING.md) for the full remaining scope and caveats.
 Pinned upstream sources and original tests live in Git submodules; preserving
@@ -347,6 +355,7 @@ python3 tools/import-emoji-tables.py --check
 python3 tools/import-case-mappings.py --check
 python3 tools/import-text-212-lowercase.py --check
 python3 tools/import-parser-state-fixtures.py --check-source
+python3 tools/import-html-state-fixtures.py --check-source
 python3 tools/import-identifier-fixtures.py --check-source
 python3 tools/import-html-entities.py --check
 python3 tools/import-tagsoup-fixtures.py --check

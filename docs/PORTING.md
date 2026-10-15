@@ -7129,3 +7129,98 @@ The original full HTML AST assertions/property/legacy golden remain pending in
 Kotlin. All other remaining Pandoc readers/writers and application/Lua/property
 tests, then calibre MOBI with all original tests and other calibre formats absent
 from Pandoc, remain in scope.
+
+
+## HTML reader state, local Reader environment and URI values
+
+`HtmlState` implements all eleven global fields of the original
+`Text.Pandoc.Readers.HTML.Types`, including the complete nested ParserState,
+Blocks note map, source-position map and concrete five-component URI value.
+`HtmlLocal` implements all four local fields and the original NoQuote/False
+initialization. `HtmlState.initial` mirrors readHtmlWithDepth: both option records
+start with the supplied options, and the supplied iframe depth retains Int64
+semantics. HTMLState itself has no invented original Default instance.
+
+HTML capability instances preserve the original ownership boundaries. Metadata
+and last-string positions update nested ParserState. Reader options are extracted
+from that nested record, even when readerOpts differs. Identifier/macro maps and
+logs belong to HTMLState itself and leave the corresponding nested fields alone.
+Local logs are accumulated in reverse order and exposed chronologically;
+reporting delegates to PandocState and keeps the local list.
+
+Character and typed-token Reader parser adapters reuse the existing Parsec
+consumed/empty interpreter. Their environment is separate from user state:
+ReaderT.local scopes quote/chapter/plain/list flags, while parser modifications
+and external PandocState effects follow their original rollback rules. Neither
+the interpreter nor earlier character/token parser behavior was replaced.
+Deferred environment transformations preserve ignored-context behavior; explicit
+lazy ask/quote adapters allow callbacks to ignore the selected result. Normal
+value adapters serve materialized contexts. These adapters do not claim general
+Haskell partial/infinite parser-result or record-field demand beyond the existing
+Deferred/Future APIs; that broader runtime boundary remains in scope.
+
+`URI` and `URIAuth` retain every original component as CharacterString, including
+individual surrogate Chars. Their Eq/Ord follows original field and Char ordering.
+URI Show keeps the original password mapping and ignores precedence; URIAuth
+keeps derived record Show and precedence. uriToString/uriAuthToString retain
+userinfo callbacks, skipped callbacks for empty/absent userinfo and raw suffixes.
+Rectification and absolute/relative predicates follow the original constructor
+values, including rectifying an empty scheme to `:`. Constructors do not introduce
+parsing, validation, normalization or java.net.URI behavior. Full Network.URI
+parsing, escaping, normalization and relative resolution remain pending.
+The original module's full Graham Klyne BSD notice is now retained alongside the
+existing network-uri package notice and is included in the JAR.
+
+The observer builds the complete pinned original Pandoc/pandoc-types libraries.
+A verified git-archive copy changes only three Cabal exposure declarations:
+HTML.Types, Parsing.Capabilities and TeX. All **2,888 original tracked files**
+retain their exact implementation/test/data/notice bytes, except that exposure
+metadata; the original checkout is unchanged. This retains the documented library
+`-O0` compiler resource setting and observer/dependency `-O2`, a dependency freeze,
+and an `Up to date` repeated native build.
+
+All **6,368 independent native observations pass**, including:
+
+- complete global/nested/local state projections, initialization, independent
+  updates and 1,500 seeded transitions;
+- 756 quote-scope/state collision cases, all local flags, original quote failure
+  text, nested option extraction and raw SourcePos/Int64 boundaries;
+- chronological local/global logs and scoped Reader effects retained across
+  failed alternatives, try and lookahead;
+- ignored environments, lazy ask/quote result adapters, ordinary Parsec
+  combinators, 10,000 nested scopes and 100,000-step map/bind/then/before/local
+  compositions for both character and typed-token input;
+- all **266 original Native documents** as HTML note content and nested metadata;
+- all **four original Network.URI Show assertions**, with their literal expected
+  strings preserved and checked separately from the native observations; and
+- component/authority formatting, rectification, callback demand and suffixes,
+  original URI comparison results and seventeen aggregate witnesses covering every
+  Haskell Char through URI Show, full rendering and URIAuth Show: **3,342,336
+  original rendered values**, not that many separate JUnit tests.
+
+All initial **6,242 native request/expectation records** remain unchanged when
+scoped effects and deep composition cases are added. Corpus SHA-256:
+`8826baa2a26e297337ee00e1d7c94fc35dee80b047877012877c39934c371ecb`.
+All **112 CI source/fixture checks pass**. Exact-SHA CI for 1763c99 is verified
+successful, with all 124 steps passing.
+
+All **776 source hashes** match staged root Git blobs or clean pinned upstream
+blobs. Corpus and new notice bytes match exactly; earlier protected corpora,
+oracles and release pins are unchanged. Installed/core JAR bytes match and
+include the new state/environment/URI classes, all **55 full notices**, 250 Pandoc
+assets/indexes and the unchanged MathML entity and text-2.1.2 lowercase data.
+Workflow smoke checks and all **375 installed CLI comparisons** pass: 14 FB2,
+66 media, 69 extension, 85 math and 141 HTML cases.
+
+Full validation passes **1,995,809 tests in 109 suites**, with zero failures,
+errors or skips (10m 27s). No original tests/corpora were disabled and the existing
+2 GiB worker/recycling limits remain unchanged.
+
+The full objective remains active. The global/local state boundary is available
+for assembling the HTML reader; shared metadata/code/URI helpers, URI parsing
+and relative resolution, raw LaTeX inline parsing and the reader traversal still
+need ports. The original full HTML AST assertions/property/legacy golden remain
+pending in Kotlin. General lazy/partial parser reply and record-field behavior,
+all other remaining Pandoc readers/writers and application/Lua/property tests,
+then calibre MOBI with all original tests and other calibre formats absent from
+Pandoc, remain in scope.
