@@ -9,28 +9,37 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- Native POSIX socket transport: nonblocking creation, original default options,
+  connect/SoError, readiness waits, send/sendAll/recv, bind/listen, socket/peer
+  names, shutdown and descriptor ownership. Separate Darwin/Linux observations
+  execute original native code and unchanged sendAll with controlled short-write
+  effects. Actual TCP tests include interruption during blocked IO and a pooled
+  HTTP connection reused after chunked and fixed-length responses. POSIX manager
+  helpers supply the original default raw factory. Windows, remaining network
+  APIs, exact GHC runtime semantics and TLS remain pending.
+
 - Native POSIX address resolution from network 3.2.9.0: actual getaddrinfo,
   ordered linked results, address/AddrInfo marshalling, IPv4/IPv6 rendering,
   Unix paths, native family/type/flag mappings and structured GHC IO errors.
   Independent original-code observations retain separate Darwin and Linux/glibc
   ABIs. Foreign C-string Ignore codecs preserve original buffer growth, BOM and
   iconv state; filesystem decoding retains its separate roundtrip policy.
-  Windows/Winsock, other ABIs, getNameInfo and socket syscalls remain pending.
+  Windows/Winsock, other ABIs, getNameInfo and remaining socket APIs are pending.
 
 - HTTP socket connection orchestration: original address racing with staggered
   attempts, last-input IO failure selection, cancellation/join ownership,
   socket setup/error cleanup, configurable receive size and manager raw-factory
   adapters. Independent observations execute unchanged http-client code and
-  original async with controlled OS effects. Native socket IO calls,
-  default raw transport and TLS remain pending; an explicit backend is required.
+  original async with controlled OS effects. Windows raw transport and TLS
+  remain pending; a native POSIX backend is supplied.
 
 - HTTP manager construction, connection-key selection, prepared proxy policies,
   CONNECT wire generation/parser callbacks and connection acquisition from the
   actual Kotlin keyed pool. Original retry/error policies and no-op closeManager
   behavior are retained. Independent observations use the original http-client
   Manager and KeyedPool with explicit transport effects. The default socket
-  factory, TLS transport and full request/history integration remain pending;
-  constructing a manager currently requires an explicit raw transport factory.
+  factory on Windows, TLS transport and full request/history integration remain
+  pending. POSIX helpers construct managers with the native default raw factory.
 
 - Live GHC-style OS environment snapshots on macOS, Linux/glibc and Windows,
   retaining entry order, duplicates, empty/nameless entries and malformed-byte

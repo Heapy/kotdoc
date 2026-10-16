@@ -93,6 +93,15 @@ class HttpManager internal constructor(
 )
 
 object HttpManagers {
+    /** Original default raw factory, using the implemented native POSIX ABI.
+     * Winsock initialization and its native IO backend remain a separate port. */
+    fun defaultPosixManagerSettings() = HttpManagerSettings(
+        rawConnection = rawConnectionModifySocket(HttpPosixSocketBackend(), {}),
+    )
+    fun newPosixManager(settings: HttpManagerSettings = defaultPosixManagerSettings(),
+        poolRuntime: KeyedPoolRuntime = KeyedPoolSystemRuntime,
+    ) = newManager(settings, {}, poolRuntime) // Original withSocketsDo is identity on POSIX.
+
     fun <S, A> rawConnectionModifySocket(backend: HttpSocketBackend<S, A>, tweak: (S) -> Unit,
         runtime: HttpSocketRaceRuntime = HttpSocketRaceSystemRuntime,
     ): () -> HttpConnector = { HttpConnector { address, host, port ->

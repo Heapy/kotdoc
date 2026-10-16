@@ -1,0 +1,10 @@
+{
+  "upstream": "GHC 9.12.2",
+  "revision": "383be28ffdddf65b57b7b111bfc89808b4229ebc",
+  "path": "libraries/ghc-internal/src/GHC/Internal",
+  "files": {
+    "System/Posix/Internals.hs": "7a4e3f72b5adae05a030a86e2d355b0e7f4149f5b525ce21a3c00bdea20c339f",
+    "Event/Thread.hs": "f287ca9db9f9eecd60735721bfda7395c2812f0f1d3df786f44544ca4244a95a",
+    "Event/Manager.hs": "894ad513fe83f0dfc4f0fe78c2633eab041704f20e03a15d52cf7b1d3326d8ea"
+  }
+}

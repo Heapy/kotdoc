@@ -9914,3 +9914,112 @@ responseOpenHistory, automatic cookies and the complete original local-server/
 httpbin suites remain pending. The complete original Pandoc readers/writers/App/
 Lua and all tests, followed by calibre MOBI/all tests and other formats absent
 from Pandoc/all their tests, remain required without narrowing the objective.
+
+### Native POSIX socket IO and default raw HTTP transport
+
+This checkpoint supplies an actual native POSIX HttpSocketBackend for the
+preceding address-resolution and connection-race ports. Network.Socket 3.2.9.0
+socket creation, connect, integer option calls, send/sendAll/recv, bind/listen,
+socket/peer names and shutdown execute through libc, not Java sockets or an
+external upstream executable. Java TCP peers are used only by tests.
+HttpManagers.defaultPosixManagerSettings/newPosixManager connect the original
+no-op-tweak default raw factory to this backend. General construction with
+explicit factories remains available; Windows/Winsock and TLS are not supplied
+by these POSIX-specific helpers.
+
+Native sockets retain original nonblocking flags, the absence of CLOEXEC on
+socket creation, IPv6Only=0 for IPv6 Stream/Datagram and DontFragment=1 for
+IPv4 where supported. Darwin follows original Posix.Internals: F_GETFL retries
+EINTR, and a failed F_SETFL write is deliberately ignored. Native comparison
+found and fixed an actual ABI error in the first binding: on Darwin/arm64,
+fcntl's variadic flags argument must use the variadic ABI. Calling it as fixed
+arity returned success but left O_NONBLOCK unset. The JNA varargs binding now
+passes the flags correctly; actual native flag checks and blocked-IO interruption
+prove the resulting sockets are nonblocking.
+
+The original errno guards distinguish a non-retrying option setter from EINTR
+retrying operations. MayBlock retries EINTR immediately, waits only for EAGAIN/
+EWOULDBLOCK and retries after readiness. Connect retries EINTR, waits for
+EINPROGRESS and then reads SoError; other failures retain original location,
+errno, description and IO-error type. sendAll preserves empty-input short
+circuiting, short writes, zero-write waiting and ByteString.drop bounds. It
+keeps one native buffer and advances views instead of repeatedly copying the
+remaining payload. recv rejects negative lengths at ByteString.recv and zero
+at recvBuf, retaining the original distinct structured errors and EOF result.
+The current HttpBytes/JVM-array representation still limits very large positive
+allocations; the full Haskell ByteString size domain remains unfinished.
+
+Socket objects preserve identity equality and their original descriptor Show
+following atomic invalidation. Explicit close ignores the C close result and
+runs once; a Cleaner provides the JVM ownership/finalizer boundary, and withFd
+uses a reachability fence. Native readiness uses poll with immediate readiness
+wakeups and a 20ms upper observation interval for Java interruption and owner
+invalidation. HUP/ERR wake the original syscall path for its actual result.
+This is a JVM boundary, not a claim to have ported the full GHC event manager,
+masking, signals, finalization or every close/reuse race.
+
+In particular, **two original event-manager observations remain unported and
+are explicitly skipped**: direct read/write registration of descriptor -1.
+Darwin's original kevent and Linux's modifyFdOnce produce backend-specific
+records; the second Darwin registration can also see the failed preceding
+registration's state. The current JVM poll boundary rejects invalid descriptors
+using threadWait/EBADF to avoid poll's silently ignored negative entries.
+These behaviors are not asserted equivalent. Both original expectations and
+selected original GHC Event.Thread/Manager sources are retained for completing
+the runtime port; the skips must be resolved before claiming completion.
+
+The observer compiles the entire original network release, changing only
+Options module visibility. Original send/waitWhen0/sendAll declarations and
+bodies are retained verbatim with controlled sendBuf/readiness effects, recording
+all remaining-byte views and zero-write waits. Actual GHC errno guards execute
+scripted native errno/results. Other observations call actual original socket
+creation/options, invalid-descriptor operations and TCP/half-close. Native ABI
+assets contain original header constants, poll layout and compiled option pairs.
+The same GHC 9.12.2/freeze and exact selected Hackage revisions run on both hosts.
+Every original source/test byte, extraction and retained source hash is checked.
+
+There are **366 independent observation groups per OS**, **364 implemented and
+two explicitly pending**, with **1,050 source hashes** per manifest. The groups
+cover 180 guard cases, 31 original sendAll traces, 17 actual invalid-socket/length
+cases, 120 actual creation/flag/default-option cases and 16 actual TCP exchanges,
+plus the two pending runtime observations. Semantic corpus SHA256 values are:
+
+- macOS: `9bcd43c5713d72c07e76d7c1935afe98c9bc3ee1bd5f269b033e9f79a18bb364`
+- Linux: `5b85b50c8179224b59ce7e8e982ff50ba31140bf0e724b57b1084d4c773f64c2`
+
+The Kotlin suite additionally translates **10 original ByteStringSpec TCP units**
+with the original literal message, checking send/sendAll/recv, closed/unconnected
+errors, receive overflow and EOF against independent Java peers. Five JVM/native
+integration checks cover read cancellation and concurrent close, interruption
+of a partly written 8MiB sendAll against a non-reading peer, bound socket identity/
+Show and repeated close, invalid-descriptor poll termination, and an actual
+HTTP manager connection reused after chunked and fixed responses whose headers
+arrive incrementally. There are **379 successful new tests** and the **two
+explicit pending GHC-runtime skips** on each supported POSIX host.
+
+All selected HTTP/environment checks pass their implemented assertions on both
+hosts: **110,155 successful tests** on macOS/aarch64 JDK 21 (69s Gradle build)
+and **110,155 successful tests** on Linux/x86_64 JDK 21 (76.987s). All **17 local
+XML suites** are fully parsed: **110,158 cases**, zero failures/errors and three
+skip records. One is the Windows-registry-only test; two are the explicitly
+pending GHC event-manager assumptions. The Linux console reports these as one
+platform skip and two assumption aborts, with no failed/aborted containers.
+All **148 source/fixture checks** pass (38.2s).
+
+Installed/core JARs agree: **216 HTTP classes**, **70 complete notices**, **250
+Pandoc assets**, all **four ABI assets** and the original **60,137-byte PSL**
+match source bytes. All **2,471 preceding non-HTTP classes** and every CLI/
+dependency JAR remain byte-identical. Nine changed old HTTP class entries have
+identical normalized javap instructions/signatures/constants; their changes
+are debug/metadata only. HttpManagers adds the two intended POSIX helpers.
+The preceding **e4e8555** address/C-string commit has a verified successful
+complete CI run **38836697051**, including full Linux and actual Windows jobs.
+
+Remaining required work includes the two retained event-manager observations,
+complete GHC runtime ownership/masking/signal/GC fidelity, Windows/Winsock, other
+ABIs, accept, datagram/vectored/message IO, all socket option value types,
+gracefulClose, Read/name-info/interface APIs, full HTTP request override/mutation,
+responseOpenHistory, automatic cookies, TLS and every original local-server/
+httpbin test. The complete original Pandoc readers/writers/App/Lua and all tests,
+then calibre MOBI/all tests and other formats absent from Pandoc/all their tests,
+remain required. This checkpoint does not redefine or complete the full goal.

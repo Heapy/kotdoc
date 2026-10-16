@@ -1,0 +1,55 @@
+{
+  "EAGAIN": 35,
+  "EBADF": 9,
+  "EINPROGRESS": 36,
+  "EINTR": 4,
+  "EWOULDBLOCK": 35,
+  "FD_CLOEXEC": 1,
+  "F_GETFD": 1,
+  "F_GETFL": 3,
+  "F_SETFL": 4,
+  "O_NONBLOCK": 4,
+  "POLLIN": 1,
+  "POLLNVAL": 32,
+  "POLLOUT": 4,
+  "SOCK_NONBLOCK": 0,
+  "options": {
+    "DontFragment": [
+      0,
+      28
+    ],
+    "IPv6Only": [
+      41,
+      27
+    ],
+    "NoDelay": [
+      6,
+      1
+    ],
+    "RecvBuffer": [
+      65535,
+      4098
+    ],
+    "ReuseAddr": [
+      65535,
+      4
+    ],
+    "SendBuffer": [
+      65535,
+      4097
+    ],
+    "SoError": [
+      65535,
+      4103
+    ],
+    "Type": [
+      65535,
+      4104
+    ]
+  },
+  "pollEvents": 4,
+  "pollFd": 0,
+  "pollRevents": 6,
+  "pollSize": 8,
+  "sockaddrStorageSize": 128
+}
