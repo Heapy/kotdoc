@@ -13889,3 +13889,41 @@ or later calibre stages.
 
 Cached diff check retains two whitespace/EOF diagnostics in verbatim original
 5107.md and writer.dokuwiki fixtures; production/test/tool/doc edits are clean.
+
+
+### Complete Edwards Donna field and constant tables checkpoint
+
+Kotlin ports the distinct Edwards Donna unsigned32x10 and unsigned64x5 field
+algorithms (15/16 helpers), all three common power schedules and every table.
+Only the accepted generic uint128 primitive is reused; no X25519 field formulas
+or BigInteger/native arithmetic dependency is introduced. Source wrap widths,
+operand direction before widening, profile-specific carries, aliases, guarded
+byte serialization and mutation order remain visible in raw observations.
+
+Independent original replay passes11,177 observations/19pins, corpus SHA256
+1033a89a06117f7a6d1e93f882a1932d752aa1215fa37ac0ec14b868050f0dad.
+Ordinary C and mechanically observed C agree before retaining158 complete
+power traces (245/7,254/11,251/11 weighted square/multiply schedules). Source
+preparation verifies nine original headers,15 mask/offset constants and every
+1030/515 table word plus24,576 packed bytes per profile. Kotlin replays all
+entries and returns defensive table snapshots.
+
+Fresh independent Gradle39023 passes19,655 actual tests with zero failures,
+errors or skips:11,198 Edwards and8,457 reused P256 field/uint128 checks. The
+earlier focused Edwards XML also independently confirms11,198/0. JAR/installDist
+passes with identical installed core JAR, exact original public-domain notice
+and two production classes without BigInteger/process/foreign references or
+native methods. Source/extractor/oracle/table verifiers pass.
+
+Raw-word parity outside source-produced redundant bounds is not a mathematical
+reduction guarantee. Nonpositive square_times counts retain documented source
+UB/unbounded schedules and are not tested as invented identity operations.
+Swap masks0/1 avoid signed-negation UB; original aligned byte casts retain C
+effective-type assumptions. Real32-bit OS ABI, JVM timing, physical erasure and
+address layout remain unproved. Complete modm, points, public wrappers and the
+original25-property/six-example Edwards suite remain pending, alongside X448/
+Decaf and remaining613/Pandoc/tests/calibre work. Local:613 stays open.
+
+Cached diff check reports17 cosmetic whitespace diagnostics: nine in verbatim
+original headers and eight in translated Kotlin power-helper lines. They are
+retained without changing arithmetic/source evidence; no other paths are flagged.

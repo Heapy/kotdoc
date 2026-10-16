@@ -1,0 +1,69 @@
+{
+  "status": "complete pinned field/helper/table source inventory; scalar/point/public remaining; independent verification is recorded in fixtures",
+  "archiveSha256": "9e2fcd5c9326d85076cb48cee7fdd9add98384d9d9b79af0ccba0ae9d99c5914",
+  "sources": {
+    "vendor/crypton-2.0.1/cbits/ed25519/curve25519-donna-32bit.h": "f92c32aa69d5a015a81b96bfd75063061447bcc60b79d7fa48f4056262addd39",
+    "vendor/crypton-2.0.1/cbits/ed25519/curve25519-donna-64bit.h": "200b6f43ab3ef2a4c835a79c3795d169f4762f19b51af1f950952587f6573310",
+    "vendor/crypton-2.0.1/cbits/ed25519/curve25519-donna-helpers.h": "a3cd2e774f9f57cfe16ac7b010085590464c602b9eb64e704d48b25860a7e9a1",
+    "vendor/crypton-2.0.1/cbits/ed25519/ed25519-donna-portable.h": "0499d9b7497e1dc7346c1b060d1019bc93536dcc18a2b7815336dc67901487a6",
+    "vendor/crypton-2.0.1/cbits/ed25519/ed25519-donna-portable-identify.h": "bc3f37b7106dfac8594367b598747664d65e1a3ed5125d70c525649785070a6d",
+    "vendor/crypton-2.0.1/cbits/ed25519/ed25519-donna.h": "b53f69909a80a6930879aa093a41831aa6f3f6e443187f159eacc96cb7e6294e",
+    "vendor/crypton-2.0.1/cbits/ed25519/ed25519-donna-32bit-tables.h": "4487a16e12cd57252df91364ad820cc5eb93d91cbc602fc21d96c676134754bc",
+    "vendor/crypton-2.0.1/cbits/ed25519/ed25519-donna-64bit-tables.h": "417c853c5ffddfc8b3e244096985fb919e872d9d4cc02e4f6c2047a1c5ec599c",
+    "vendor/crypton-2.0.1/cbits/ed25519/ed25519-donna-basepoint-table.h": "0bfcde5ac42fe07700b9c04b280d932c888d91a73597130201ff11dcfe629e3d"
+  },
+  "functions": {
+    "curve25519-donna-32bit.h": [
+      "curve25519_copy",
+      "curve25519_add",
+      "curve25519_add_after_basic",
+      "curve25519_add_reduce",
+      "curve25519_sub",
+      "curve25519_sub_after_basic",
+      "curve25519_sub_reduce",
+      "curve25519_neg",
+      "curve25519_mul",
+      "curve25519_square",
+      "curve25519_square_times",
+      "curve25519_expand",
+      "curve25519_contract",
+      "curve25519_move_conditional_bytes",
+      "curve25519_swap_conditional"
+    ],
+    "curve25519-donna-64bit.h": [
+      "curve25519_copy",
+      "curve25519_add",
+      "curve25519_add_after_basic",
+      "curve25519_add_reduce",
+      "curve25519_sub",
+      "curve25519_sub_after_basic",
+      "curve25519_sub_reduce",
+      "curve25519_neg",
+      "curve25519_mul",
+      "curve25519_mul_noinline",
+      "curve25519_square_times",
+      "curve25519_square",
+      "curve25519_expand",
+      "curve25519_contract",
+      "curve25519_move_conditional_bytes",
+      "curve25519_swap_conditional"
+    ],
+    "curve25519-donna-helpers.h": [
+      "curve25519_pow_two5mtwo0_two250mtwo0",
+      "curve25519_recip",
+      "curve25519_pow_two252m3"
+    ]
+  },
+  "tables": {
+    "profile32Words": 1030,
+    "profile64Words": 515,
+    "packedBasepointBytes": 24576
+  },
+  "limits": [
+    "Distinct Edwards Donna implementation: do not reuse X25519 field arithmetic.",
+    "Both algorithm profiles will run on native host, not actual32 OS ABI.",
+    "Source little-endian expand and conditional byte moves cast byte pointers to word pointers: alignment/effective-type constraints must be recorded in oracle metadata.",
+    "Conditional swap intended masks0/1; signed negation of INT_MIN for arbitrary mask is C UB.",
+    "square_times32 nonpositive count eventually signed decrement UB; square_times64 count0 requires2^64 iterations. Positive finite schedules only, no invented identity."
+  ]
+}
