@@ -15,28 +15,41 @@ enum class GhcCodingFailureMode(val suffix: String) {
 
 /** Configurable GHC C-string codecs. Each call opens fresh encoder/decoder
  * state; the suffix configures recovery and is not part of textEncodingName. */
-class GhcTextEncoding private constructor(
-    val textEncodingName: String,
-    val failureMode: GhcCodingFailureMode,
-    internal val codec: GhcEnvironmentEncoding,
-) {
+class GhcTextEncoding private constructor(private val definition: Lazy<Definition>) {
+    private class Definition(val name: String, val mode: GhcCodingFailureMode, val codec: GhcEnvironmentEncoding)
+    private constructor(name: String, mode: GhcCodingFailureMode, codec: GhcEnvironmentEncoding) : this(lazyOf(Definition(name, mode, codec)))
+    val textEncodingName: String get() = definition.value.name
+    val failureMode: GhcCodingFailureMode get() = definition.value.mode
+    internal val codec: GhcEnvironmentEncoding get() = definition.value.codec
     fun decode(bytes: ByteArray): IntArray = codec.decode(bytes)
     /** Excludes the C terminator; its reservation still affects GHC retries. */
     fun encode(points: IntArray, nullTerminate: Boolean = true): ByteArray = codec.encodeCString(points, nullTerminate)
 
-    fun charIsRepresentable(point: Int): Boolean = try {
-        val bytes = encode(intArrayOf(point))
-        val nul = bytes.indexOf(0)
-        decode(if (nul < 0) bytes else bytes.copyOf(nul)).contentEquals(intArrayOf(point))
-    } catch (_: IOException) { false }
+    fun charIsRepresentable(point: Int): Boolean {
+        // The original !enc is outside catch: failure to evaluate the encoding
+        // itself propagates, while a coding IOException becomes False.
+        val forced = codec
+        return try {
+            val bytes = forced.encodeCString(intArrayOf(point))
+            val nul = bytes.indexOf(0)
+            forced.decode(if (nul < 0) bytes else bytes.copyOf(nul)).contentEquals(intArrayOf(point))
+        } catch (_: IOException) { false }
+    }
 
     companion object {
+        internal fun deferred(initializer: () -> GhcTextEncoding): GhcTextEncoding =
+            GhcTextEncoding(ghcEncodingLazy { initializer().definition.value })
+
         fun mkTextEncoding(name: String): GhcTextEncoding {
             val encoding = name.substringBefore('/')
             val suffix = name.substring(encoding.length)
             val mode = GhcCodingFailureMode.entries.firstOrNull { it.suffix == suffix }
                 ?: throw GhcIOException(GhcIoError(IoErrorType.NoSuchThing, Chars.fromString("mkTextEncoding"),
                     Chars.fromString("unknown encoding:$name")))
+            return mkTextEncodingWithMode(encoding, mode)
+        }
+
+        internal fun mkTextEncodingWithMode(encoding: String, mode: GhcCodingFailureMode): GhcTextEncoding {
             val normalized = buildString { encoding.codePoints().forEach { if (it != 45) appendCodePoint(RegexCharacters.toUpper(it)) } }
             val canonical = when (normalized) {
                 "UTF8" -> "UTF-8"
@@ -48,7 +61,7 @@ class GhcTextEncoding private constructor(
                 "UTF32BE" -> "UTF-32BE"
                 else -> encoding
             }
-            val codec = GhcEnvironmentEncoding(encoding, failureMode = mode)
+            val codec = GhcEnvironmentEncoding(encoding, failureMode = mode, allowNativeSuffix = true)
             return GhcTextEncoding(codec.canonicalName(canonical), mode, codec)
         }
 

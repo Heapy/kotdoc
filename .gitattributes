@@ -196,3 +196,6 @@ licenses/tls-BSD-3-Clause.txt -text
 
 # Preserve pinned GHC text-encoding regression tests byte for byte.
 vendor/ghc-text-encoding-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# Retain exact GHC global-ref and initial codec-dispatch bodies.
+tools/haskell-encoding-globals-reference/Original*.hs -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol

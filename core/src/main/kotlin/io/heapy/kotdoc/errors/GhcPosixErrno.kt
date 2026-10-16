@@ -18,7 +18,7 @@ object GhcPosixErrno {
         stream.bufferedReader().use {Json.parseToJsonElement(it.readText()).jsonObject.getValue("errnoTypes").jsonArray.map {row->row.jsonArray.let {it[0].jsonPrimitive.int to IoErrorType.valueOf(it[1].jsonPrimitive.content)}}}
     }
     fun toError(location: CharacterString,code: Int,filename: CharacterString?=null,handle: ErrorHandle?=null,
-        encoding: ()->GhcForeignCString=GhcForeignCString::initialPosix,
+        encoding: ()->GhcForeignCString=GhcForeignCString::currentPosix,
     ): GhcIoError {
         val description=Memory(512).use {p->
             val result=libc.getFunction(if(Platform.isLinux()) "__xpg_strerror_r" else "strerror_r").invokeInt(arrayOf(code,p,com.sun.jna.NativeLong(512)))

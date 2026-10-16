@@ -125,7 +125,7 @@ data class NetworkAddressInfo(
         fun defaultHints(abi: NetworkSocketAbi)=NetworkAddressInfo(emptyList(),abi.family("AF_UNSPEC"),abi.socketType("NoSocketType"),0,NetworkSocketAddress.Inet(0u,0u),null)
     }
 }
-class NetworkSocketMemory(val abi: NetworkSocketAbi,private val codec: ()->GhcForeignCString=GhcForeignCString::initialPosix) {
+class NetworkSocketMemory(val abi: NetworkSocketAbi,private val codec: ()->GhcForeignCString=GhcForeignCString::currentPosix) {
     fun size(address: NetworkSocketAddress)=when(address) {
         is NetworkSocketAddress.Inet->abi.address("v4Size")
         is NetworkSocketAddress.Inet6->abi.address("v6Size")
@@ -203,7 +203,7 @@ object NetworkPosixNameFunctions: NetworkNameFunctions {
  * order and duplicate entries. No JVM DNS cache or InetAddress parser is used. */
 class NetworkNameResolver(
     val abi: NetworkSocketAbi,private val functions: NetworkNameFunctions,
-    private val encoding: ()->GhcForeignCString=GhcForeignCString::initialPosix,
+    private val encoding: ()->GhcForeignCString=GhcForeignCString::currentPosix,
     private val initializeSockets: ()->Unit,
     private val darwin: Boolean,
 ) {
@@ -227,6 +227,6 @@ class NetworkNameResolver(
         }}}
     }
     companion object {
-        fun posix()=NetworkNameResolver(NetworkSocketAbi.currentPosix,NetworkPosixNameFunctions,GhcForeignCString::initialPosix,{},Platform.isMac())
+        fun posix()=NetworkNameResolver(NetworkSocketAbi.currentPosix,NetworkPosixNameFunctions,GhcForeignCString::currentPosix,{},Platform.isMac())
     }
 }

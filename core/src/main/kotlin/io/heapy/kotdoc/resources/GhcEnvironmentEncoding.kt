@@ -24,6 +24,7 @@ internal class GhcEnvironmentEncoding(
     ignoreFailures: Boolean = false,
     private val failureMode: GhcCodingFailureMode = if (ignoreFailures) GhcCodingFailureMode.Ignore else GhcCodingFailureMode.Roundtrip,
     private val uncheckedLatin1: Boolean = false,
+    allowNativeSuffix: Boolean = false,
 ) {
     private val normalized = buildString { name.codePoints().forEach { if (it != 45) appendCodePoint(RegexCharacters.toUpper(it)) } }
     private val builtin = when {
@@ -33,7 +34,7 @@ internal class GhcEnvironmentEncoding(
         else -> null
     }
     init {
-        if (name.contains("//")) unknownEncoding()
+        if (!allowNativeSuffix && name.contains("//")) unknownEncoding()
         if (builtin == null) {
             // The Windows code-page backend is a separate upstream module.
             // POSIX iconv must never be loaded on Windows.

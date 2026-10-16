@@ -75,7 +75,7 @@ class GhcEnvironmentLookupTest {
                         }
                         val filesystem = {
                             val encoding = v.getValue("filesystem").jsonPrimitive.content
-                            events.add(buildJsonObject { put("filesystem", encoding) }); check(v, "filesystemFailure"); GhcEnvironmentEncoding(encoding)
+                            events.add(buildJsonObject { put("filesystem", encoding) }); check(v, "filesystemFailure"); GhcTextEncoding.mkTextEncoding(encoding + "//ROUNDTRIP")
                         }
                         val query: (Pointer) -> Pointer? = { p ->
                             val bytes = p.getByteArray(0, p.indexOf(0, 0).toInt())

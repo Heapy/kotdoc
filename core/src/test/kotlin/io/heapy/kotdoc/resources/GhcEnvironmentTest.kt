@@ -101,7 +101,7 @@ class GhcEnvironmentTest {
             "posix","live" -> {
                 val records=v.getValue("records").takeUnless {it is JsonNull}?.jsonArray?.map(::bytes)
                 EnvironmentTestMemory.records(records) {block ->
-                    EnvironmentTestMemory.rawPairs(GhcEnvironment.posixEnvironmentCodePoints({block}) {GhcEnvironmentEncoding(v.getValue("encoding").jsonPrimitive.content)})
+                    EnvironmentTestMemory.rawPairs(GhcEnvironment.posixEnvironmentCodePoints({block}) {GhcTextEncoding.mkTextEncoding(v.getValue("encoding").jsonPrimitive.content + "//ROUNDTRIP")})
                 }
             }
             "windows" -> {

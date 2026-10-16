@@ -40,9 +40,8 @@ internal object GhcNativeWindowsLookup: GhcWindowsLookupApi {
 
 object GhcEnvironmentLookup {
     private val libc by lazy { NativeLibrary.getInstance(Platform.C_LIBRARY_NAME) }
-    private val initialFileSystem by lazy { GhcEnvironmentEncoding(GhcLocaleEncodingName.initial) }
     fun lookupEnv(name: CharacterString): CharacterString? = if (Platform.isWindows()) windowsLookup(name, GhcNativeWindowsLookup)
-        else posixLookup(name, GhcForeignCString::initialPosix, { initialFileSystem }) { libc.getFunction("getenv").invokePointer(arrayOf(it)) }
+        else posixLookup(name, GhcForeignCString::currentPosix, GhcEncodings::getFileSystemEncoding) { libc.getFunction("getenv").invokePointer(arrayOf(it)) }
     fun getEnv(name: CharacterString): CharacterString {
         val value = lookupEnv(name)
         if (value != null) return value
@@ -50,12 +49,12 @@ object GhcEnvironmentLookup {
             GhcWindowsErrors.throwLastError("getEnv", GhcNativeWindowsLookup)
         missing(name)
     }
-    internal fun posixLookup(name: CharacterString, foreign: () -> GhcForeignCString, filesystem: () -> GhcEnvironmentEncoding,
+    internal fun posixLookup(name: CharacterString, foreign: () -> GhcForeignCString, filesystem: () -> GhcTextEncoding,
         query: (Pointer) -> Pointer?): CharacterString? = foreign().withCString(name) { encoded ->
         val value = query(encoded)
         if (value == null) null else CharacterString(filesystem().decode(value.getByteArray(0, value.indexOf(0, 0).toInt())))
     }
-    internal fun posixGet(name: CharacterString, foreign: () -> GhcForeignCString, filesystem: () -> GhcEnvironmentEncoding,
+    internal fun posixGet(name: CharacterString, foreign: () -> GhcForeignCString, filesystem: () -> GhcTextEncoding,
         query: (Pointer) -> Pointer?): CharacterString = posixLookup(name, foreign, filesystem, query) ?: missing(name)
     internal fun windowsLookup(name: CharacterString, api: GhcWindowsLookupApi): CharacterString? {
         val units = GhcWindowsErrors.wideUnits(name)

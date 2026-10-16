@@ -10741,3 +10741,112 @@ live system getters still use initial locale codecs. TLS parameters,
 certificate stores/validation and the actual TLS engine remain unfinished.
 The full Pandoc port/all tests, calibre MOBI/all tests and additional formats
 absent from Pandoc/all their tests remain the unchanged objective.
+
+### Shared GHC encoding refs, lazy initial CAFs and native consumers checkpoint
+
+`GhcEncodings` now translates the three independent process-wide locale,
+filesystem and foreign encoding refs. Getters and setters exchange an encoding
+value without demanding its definition. Initial encoding CAFs remain shared
+and accessible independently of later ref writes; a saved value is unaffected
+by subsequent settings. `GhcTextEncoding` supports deferred definitions and
+memoizes both their values and synchronous evaluation failures. POSIX initial
+codecs use the shared native locale-name snapshot with the source ERROR,
+ROUNDTRIP and IGNORE policies, respectively. The internal mkTextEncoding'
+entry point accepts the native charset independently of recovery-mode suffix
+parsing, matching the source's initial-encoding construction. The native locale
+snapshot also retains a synchronous initialization failure. argvEncoding follows
+the current filesystem ref on POSIX and selects UTF-8 independently on Windows.
+
+The existing native getEnvironment/getEnv, Foreign.C.String binding, resolver,
+canonical-name memory reader and POSIX errno-description defaults now consult
+these refs. Explicit source-effect callbacks remain injectable. Legacy explicit
+foreign codec construction retains IGNORE behavior; construction from a
+TextEncoding follows all of its configured policies. The initialPosix helper
+still refers to the initial foreign encoding, while production defaults use
+currentPosix. No JVM environment or DNS cache substitutes for native operations.
+
+The new delayed definition is significant for source ordering: non-null empty
+environment blocks retrieve a filesystem setting but do not demand its codec;
+getEnvironment enumerates all native pointers before decoding any record;
+lookupEnv scans the returned C string before demanding its filesystem codec,
+and missing values never retrieve it. An encoding retrieved before a write
+remains stable through the whole operation. charIsRepresentable forces the
+encoding itself outside its IOException handler, exactly as the source's bang
+pattern requires; a deferred encoding initialization error is not converted
+into False.
+
+The observer compiles unchanged mkGlobal and its three bindings with only
+initial values parameterized per case, plus the unchanged POSIX mkTextEncoding'
+and unknownEncodingErr bodies. Original source bodies/platform selection are
+verified. Real Haskell thunks/IORefs perform all evaluation/caching; a lazy Map
+holds saved snapshots without accidentally forcing them. The native branch
+calls actual GHC global settings, System.Environment, Foreign.C.String and
+Foreign.C.Error against a scoped native environ block. Both original GHC
+encoding/errno implementations, notices and the environment-address bridge are
+retained and hashed. An independent Linux GHC 9.12.2 build reproduces **all
+3,308 observations** exactly, including **812 actual native programs** and
+**2,496 controlled original-code programs**. There are **31 source hashes**;
+semantic SHA256 is
+`887bac1e07ac3967dc6caaa158998efe9a2d16dba90992c01c6e8d6abd864ec3`.
+
+Cases cover all three refs, initial-CAF aliases, both argv branches, setter/read
+laziness, every ordering of initial demands, shared charset capture, cached
+initial/installed failures, replacement and restoration, saved snapshots and
+all four coding policies. Native cases cover every pair of 20 builtin
+foreign/filesystem settings, independence of locale encoding, missing/empty/NUL
+lookups, raw environment bytes, configured C-string conversion and errno
+messages. One original native program mutates the second environ pointer while
+the codec is first forced: its current result must retain the previously read
+pointer list, while the next call sees the mutation. Another changes the ref
+while the first codec is forced, proving all current records use its snapshot.
+Null/empty blocks and poisoned foreign/filesystem encodings prove demand order.
+
+Native JUnit observations run in a child JVM that restores its own environ and
+settings, with file-based protocol I/O, a bounded deadline and cleanup. A
+separate isolated POSIX binding test constructs resolver/memory consumers before
+changing settings, checks host bytes and canonical names, and changes the foreign
+setting during getaddrinfo to prove the later canonical-name conversion fetches
+it again. On Windows that platform test instead executes actual Kernel32 wide
+environment calls while all three byte-encoding refs are poisoned, and verifies
+independent UTF-8 argv. A controlled eight-thread JVM check demands the same
+failing CAF concurrently, verifies a single evaluation/shared exception, and
+replaces its ref without waiting for the old evaluation. These two extra tests
+bring the new POSIX class to **3,310 actual cases**. Windows selects **2,498**
+controlled/platform/concurrency cases, with an explicit **22,030 total Windows
+proxy/environment/encoding cases** and no skips required by CI.
+
+On macOS/aarch64 JDK 21, all **140,633 selected HTTP/environment/encoding tests**
+pass (75s final Gradle build). **140,634 cases** include only the actual Windows
+Registry skip; all **28 XML suites** are fully parsed with matching declared
+and actual case/failure/error/skip counts. Linux/x86_64 JDK 21 independently
+passes the same **140,633 tests** (77.707s JUnit), without aborted/failed tests
+or containers. The final platform-test factory structure is separately verified
+on Linux with all **3,310 new cases passing** (862ms JUnit). All **158 source/
+fixture verifiers** pass (38.2s).
+
+Installed/core JAR identity and exact packaging are verified for the new
+encoding state/definitions, all **343 HTTP classes**, **22 TLS error classes**,
+**77 complete notices**, **250 Pandoc assets**, **six native ABI assets** and
+the **60,137-byte PSL**. Of **2,850 preexisting classes**, **2,834** are
+byte-identical. Three HTTP callback classes and the errno callback now fetch
+the current foreign encoding. Other changed classes are the encoding/resource
+implementation and direct callers; the two neighboring lookup-result data
+classes have identical javap bytecode/descriptors with shifted source locations.
+Every other preceding JAR entry and all CLI/dependency JAR bytes remain unchanged.
+
+The preceding 58d0871 full CI run **38855745348** completed successfully on both
+Linux and actual Windows. In 4d06372 run **38857107790**, Windows passed all
+19,532 cases; its full Linux job is still running at this checkpoint.
+
+This does not complete GHC's encoding/runtime layer. Windows initial code-page
+codec construction remains explicitly unimplemented; the new refs/setters can
+carry builtin encodings on Windows, and its wide environment/argv paths bypass
+those initial byte codecs. Full CodePage tables/API codecs, streaming BufferCodec
+interfaces, file-handle encoding, RTS recursive-black-hole/async exception
+semantics, exact weak-memory IORef behavior and remaining ABIs still require
+translation and verification. No POSIX iconv or invented UTF-8 default is used
+to stand in for Windows code pages. TLS parameters, certificate stores/validation,
+the actual TLS engine and integration with the remaining resource-I/O seams are
+still incomplete. The full Pandoc port/all tests, calibre MOBI/all tests and
+additional formats absent from Pandoc/all their tests remain the unchanged
+objective.
