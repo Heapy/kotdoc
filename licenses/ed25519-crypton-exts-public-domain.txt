@@ -1,0 +1,5 @@
+/*
+    Public domain by Olivier Chéron <olivier.cheron@gmail.com>
+
+    Arithmetic extensions to Ed25519-donna
+*/

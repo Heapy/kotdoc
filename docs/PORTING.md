@@ -13967,3 +13967,45 @@ open. This does not close local:613.
 
 Cached diff check retains50 whitespace diagnostics only in verbatim original
 and mechanically observed C headers; Kotlin/test/tool/doc edits are clean.
+
+
+### Complete portable Edwards Donna point engine checkpoint
+
+Kotlin ports all18 portable base helpers,12 Crypton point exports and two
+private selectors in both field/scalar profiles, reusing accepted field/MODM
+and immutable tables. Source formulas, partial coordinate writes, negative-root
+unpack/failure state, exact-object aliases, wrapped uint32 selector comparison,
+nonboolean move flags and custom packed tables retain raw behavior. Variable
+scalarmul intentionally preserves the source destination==input identity
+overwrite before precomputation; actual252 doubles are not changed to match
+the source comment's256. Public byte-wrapper/modern policies are separate.
+
+Independent ordinary/observed C replay passes25,184 cases/40pins, corpus SHA256
+b4073a80817e73f821e15c0c69b75d783ccdd77e0b6b2ae63d3f0c6e9b6d830a.
+Every result includes guarded input/output state before222 trace rows/14,906
+checkpoints are retained. All32positions×256 signed-byte selectors/profile,
+all eight torsion multiples, raw/off-curve tuples, aliases and sourcefailure
+writes replay without normalization. Source/extraction checks pass. Fresh
+original Haskell100 generator tuples and the complete31-example suite
+(25properties×100trials+six literals) pass; Kotlin translates16point families
+across both profiles and five point literal examples, with prior scalar9+1
+already accepted. Saved Gradle72678 XML independently confirms28,426 actual
+tests, zero failures/errors/skips.
+
+All32 frozen path hashes remain exact. Independent artifact checks reuse the
+fresh completed DokuWiki74539 corejar/installDist without another build: core
+JAR equals installed JAR, both Donna/Olivier notices match byte-exact, and two
+point classes have no BigInteger/process/foreign references or native methods.
+No DokuWiki test counts are attributed to point coverage.
+
+Portable forced profiles on one64-bit host do not prove assembly/SSE or real32
+ABI equivalence. Source bounded arithmetic applies; raw out-of-range scalar
+windows are parity records, not arbitrary mathematical multiplication. Invalid
+selector indices/signbit>1, partial struct/byte-word overlaps, pointer lifetime,
+layout, constant timing and physical erasure are not claimed. Public immutable
+wrappers/modern Edwards, Decaf/X448 and remaining613/full Pandoc/tests/calibre
+stages remain open. This does not close local:613.
+
+Cached diff check retains63 cosmetic whitespace diagnostics:48 in original/
+observed C headers and15 in translated Kotlin formula lines. No arithmetic or
+original bytes were changed for formatting; other staged paths are clean.
