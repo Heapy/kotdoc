@@ -1,0 +1,27 @@
+{
+  "shrinkCases": 184,
+  "shrinkSha256": "cddb154401ad726f390aada900865cf89ec144ae922b443b360e5d0a255c17d1",
+  "cases": 500,
+  "predicates": 12,
+  "generator": "unchanged Text.Pandoc.Arbitrary; QuickCheck 2.16.0.0 mkQCGen; seeds 1..500, sizes cycling 0/1/3/8/30; Pandoc original resize 8",
+  "observationsSha256": "8fffd4229b2477f4d98e40b741184c8f4cc1934624dbd0b7b95b6a634b392232",
+  "sources": {
+    "upstream/pandoc-types/test/test-pandoc-types.hs": "01449d435f3ac3c6c93639eb1a432237e3efc42e1f30b0c97a02eb0cd67e7312",
+    "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs": "792f2fadfa8e1b7eb0334a8dedaca4f87651a0bd44fbb3a496a0a2e0728213ae",
+    "upstream/pandoc-types/src/Text/Pandoc/Definition.hs": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+    "upstream/pandoc-types/src/Text/Pandoc/Walk.hs": "d4fa82796d51bbe960a73b736a95c61b0310a1d540fc7390a550f680df179c32",
+    "upstream/pandoc-types/src/Text/Pandoc/Builder.hs": "94ae6bb8d22865e2aef201a68839e9cf87bc0deddc2e4b14c2b20afb063238ad",
+    "upstream/pandoc-types/src/Text/Pandoc/Generic.hs": "ab5c794b067deead9a55727f04951c65865b29efbdb4bf181d71b1aa1b542762",
+    "licenses/pandoc-types-BSD-3-Clause.txt": "9f0bd78c71eacf3a7824bf5ac7215a1b3d6a2714dc740f261064934c2c721596",
+    "licenses/QuickCheck-BSD-3-Clause.txt": "17035f93180f20bc9c9eb2fd5e0c8836c699b6dedae654b3f2a7a76e737bf2b9",
+    "core/src/main/resources/io/heapy/kotdoc/text-2.1.2-case.json": "2f29fa1dbbee2169979e36a730be8f5d1607035edc92f3533eef144b59d8977e",
+    "vendor/quickcheck-2.16.0.0/Arbitrary.hs": "3e6080d44aa480fc75287071aa774939f8e74f1b533d2653cbe216bacdc99044",
+    "vendor/quickcheck-2.16.0.0/Gen.hs": "f25a2aabd07d39e063bc813df93474f269cf491646275f76641c063a2f530694",
+    "tools/import-types-properties-fixtures.py": "0d4c8e95d61541a6d27cf1044cf1e54306cc904d6fe506c1193852ab4ab6f6a7",
+    "tools/haskell-types-properties-reference/TypesPropertiesReference.hs": "11d275c67887df3b8f3add1d0fb53e823c90bebfa63069c624003d0ff165b62d",
+    "tools/haskell-types-properties-reference/kotdoc-types-properties-reference.cabal": "427bc73d21905ae91fa561ecaa73ddec86eafededd1b2ad8481da4f0564ad883",
+    "tools/haskell-types-properties-reference/cabal.project": "56ffa5300bebfae315a54c64c5efa7e05cede12efa5e62334e6ec13f593fe379",
+    "tools/haskell-types-properties-reference/cabal.project.freeze": "04c73a4df34f4a1226d47ad52e3202be68d71f7d47ae4c1279fbbdbeee16f901",
+    "tools/haskell-types-properties-reference/README.md": "06199d78f6016c9974232819e5badef32c52ed70d53517d7cc0479939024f3bb"
+  }
+}
