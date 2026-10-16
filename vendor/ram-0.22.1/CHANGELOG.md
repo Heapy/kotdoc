@@ -1,0 +1,233 @@
+## 0.22.1
++ Use correct signatures for 'memset' and 'memcpy'
+The WASM linker is more strict about function signatures matching, see https://releases.llvm.org/11.1.0/tools/lld/docs/WebAssembly.html#function-signatures
+
+thanks @clinton-grc
+
+## 0.22.0
++ Added `slice :: ByteArray bs => bs -> Int -> Int -> Maybe bs`
+  and `unsafeSlice :: ByteArray bs => bs -> Int -> Int -> bs`
+  to `Data.ByteArray.Methods` (re-exported via `Data.ByteArray`).
+  `slice bs offset len` extracts `len` bytes starting at `offset`.
+  Returns `Nothing` for negative offset/length or out-of-bounds access.
+  `unsafeSlice` calls `error` on invalid arguments. (closes #7)
++ Added `map :: (ByteArrayAccess ba, ByteArray ba) => (Word8 -> Word8) -> ba -> ba`
+  to `Data.ByteArray.Methods` (re-exported via `Data.ByteArray`).
+  Applies a function to each byte of a byte array. (closes #5)
+
+## 0.21.1
++ Reverted 0.21.0 changes: restored custom Base16/Base32/Base64 encode/decode,
+  the GHC.Prim-based `Bytes` implementation, and `readWord8OffAddr#`-based FNV
+  hashing. The `base16`, `base32`, `base64`, and `text` dependencies are removed
+  again.
++ Deleted `Data.Memory.Internal.CompatPrim64` (unreferenced).
++ Added GitHub Actions CI (nix + cabal matrix).
+
+## 0.21.0
+
++ `Data.ByteArray.Encoding`: replaced custom Base16/Base32/Base64 encode/decode
+  with `base16`, `base32`, and `base64` library calls. Input is converted to
+  `ByteString` via `B.convert`, the library function is applied, and the result
+  is converted back. `Base64OpenBSD` retains its custom implementation (no
+  library equivalent exists).
++ `Data.ByteArray.Bytes`: replaced low-level `GHC.Prim` `MutableByteArray#`
+  implementation with `newtype Bytes = Bytes ByteString`. Both use GHC's pinned
+  allocator; `ByteString` already implements `ByteArrayAccess` / `ByteArray`.
++ `Data.Memory.Hash.FNV`: replaced `readWord8OffAddr#` (GHC.Prim) with
+  `Foreign.Storable.peekByteOff` — portable and equivalent.
++ `Data.Memory.Internal.CompatPrim64`: deleted (was entirely unreferenced).
++ New dependencies: `base16 >=1.0 && <2`, `base32 >=0.4 && <1`,
+  `base64 >=1.0 && <2`, `text >=1.0 && <3`.
++ Net reduction: ~350 lines removed.
+
+## 0.20.1
++ Remove `WITH_BYTESTRING_SUPPORT` CPP flag. `ByteString` instances for
+  `ByteArrayAccess` and `ByteArray` are now always compiled in, since
+  `bytestring` is an unconditional dependency.
+
+## 0.20
++ Drop Data.Internal.Memory.Deepseq module to prevent confusion.
+  we can just use the one from deepseq.
+
+## 0.19
++ Forked from memory
++ Dropped all dependencies for basement and the like
+
+Removed all `basement` package dependencies from the `memory` Haskell library (v0.18.0), replacing them with equivalents from `base`, `ghc-prim`, `deepseq`, and standard libraries. Also rewrote the test suite to eliminate `foundation` and `basement` test framework dependencies.
+
+### Library Changes
+- `Data.ByteArray.Bytes`: removed `Basement.IntegralConv` (→ `fromIntegral`), removed `Basement.NormalForm` conditional instances
+- `Data.ByteArray.ScrubbedBytes`: removed `Basement.NormalForm` conditional instances
+- `Data.ByteArray.Sized`: removed `Basement.Imports`, `Basement.Nat`, `Basement.Sized.List`, `Basement.BlockN`, etc.; defined `ListN` locally; imported from `GHC.TypeLits`, `Data.Proxy`, `Data.Memory.Internal.DeepSeq`
+- `Data.ByteArray.Types`: removed entire `#ifdef WITH_BASEMENT_SUPPORT` block (Block/UArray/String instances)
+- `Data.ByteArray.Methods`: removed basement `SPECIALIZE` pragmas
+- `Data.Memory.Encoding.Base16/32/64`: replaced `Basement.Bits` with `Data.Bits`, replaced `integralUpsize` with `fromIntegral`
+- `Data.Memory.Hash.FNV`: replaced `.^.` with `xor`, `integralUpsize` with `fromIntegral`
+
+### Test Suite Changes
+- Replaced `foundation`/`Foundation.Check` test framework with `tasty` + `QuickCheck`
+- Implemented custom `Test.Tasty.Providers` types (`QCTest`, `IOTest`) in `Imports.hs` to avoid needing `tasty-quickcheck` and `tasty-hunit` (not pre-built in nix store)
+- Rewrote `Tests.hs`, `SipHash.hs`, `Utils.hs` to use new test framework
+- Created `/projects/memory/cabal.project` with `tests: True`
+
+## 0.18
+
+* drop support for ghc < 8.8
+* compat with ghc 9.4
+
+## ...
+
+## 0.14.18
+
+* Branch/Release Snafu
+
+## 0.14.17
+
+* Require basement >= 0.0.7, Fix compilation with GHC 8,6
+* Cleanup CPP, dropping support for much older version
+
+## 0.14.16
+
+* Fix compilation with a newer basement (>= 0.0.7) and an older GHC (< 8.0)
+
+## 0.14.15
+
+* Convert tests to foundation checks
+* Convert CI to haskell-ci
+* Fix compilation without foundation
+* Introduce ByteArrayL and associated method, as a type level sized version of ByteArray
+* Add NormalForm for Bytes and ScrubbedBytes
+
+## 0.14.14
+
+* Fix bounds issues with empty strings in base64 and base32
+* Improve tests compatibility w.r.t old basement version
+
+## 0.14.13
+
+* Handle compat SPECIALIZE for older GHC
+
+## 0.14.12
+
+* Optimise copy operations and convert
+* Add instance of ByteArrayAccess and ByteArray for Block
+* Add Block and UArray in memory's tests
+
+## 0.14.11
+
+* Fix issue in unBase64 with an empty bytestring that would cause a segfault
+
+## 0.14.10
+
+* Reintroduce foundation compatibility with old version
+
+## 0.14.9
+
+* Reduce dependency to basement
+
+## 0.14.8
+
+* Fix incompatibility with foundation 0.0.14
+
+## 0.14.7
+
+* Fix typo in state passing
+
+## 0.14.6
+
+* Fix allocRet using unit of bytes but using as unit of ty directly without adaptation
+
+## 0.14.5
+
+* Fix bug in memXorWith not working as advertised if source different from destination
+
+## 0.14.4
+
+* Add support for foundation uarray creation
+* optimise memXorWith
+
+## 0.14.3
+
+* Add support for foundation uarray peeking
+
+## 0.14.2
+
+* Fix use of ghc 8.2 touch
+* Prevent span from reading past buffer
+* cleanup .prof spam
+
+## 0.14.1
+
+* Fix `Show` instance of Bytes (Oliver Chéron)
+
+## 0.14
+
+* Improve fromW64BE
+* Add IsString instance for ScrubbedBytes
+
+## 0.13
+
+* Add combinator to check for end of parsing.
+
+## 0.12
+
+* Fix compilation with mkWeak and latest GHC (Lars Kuhtz)
+
+## 0.11
+
+* add support for GHC 8.0.1
+
+## 0.10
+
+* make memConstEqual more constant not using boolean comparaison
+
+## 0.9
+
+* memConstEqual was comparing length times the first byte instead of comparing all the bytes one to one
+
+## 0.8
+
+* Add Base64 variants (Luke Taylor)
+* Fix compilation on Haiku (Jessica Hamilton)
+
+## 0.7
+
+* Fix fixed sized scrubber written too hastily, that would zero out memory, as the index
+  was written through byte size, whereas the primitive would consider it as WordX type index.
+  it would helps if Ghc.Prim had better documentation.
+
+## 0.6
+
+* Fix compilation on architecture where endianness is not a compile time define related
+  to their cabal arch().
+
+## 0.5
+
+* Add Base32 support (Nicolas Di Prima)
+* Fix build on 32 bit by simplifying scrubber, and adding Word64 type + operations compatibility
+
+## 0.4
+
+* Add Ord instances for SipHash and FnvHash (Nicolas Di Prima)
+* Fix GHC-7.2 build by defining unsafeShiftL (Adam Bergmark)
+* Fix show instance of Bytes to properly display each bytes instead of just the end one
+* Add View type that emulate a view on a ByteArray type (Nicolas Di Prima)
+
+## 0.3
+
+* fix missing modules from tests on sdist
+
+## 0.2
+
+* make concat more generic as to what the output is going to be, and at the same
+  time reduce the constraint on the input to just Access
+* make all byte array operation safer related to negative size. now replicate, zero, and alloc will returns
+  an empty byte array when asking for negative size
+* replace 'pack' in Data.ByteArray.Pack by 'fill', as to not conflict with 'Data.ByteArray.pack'.
+  Also swap the length and monadic action to be more naturally used
+* add a deprecated 'pack' that alias to 'fill' for now
+* loosen constraint of Data.ByteArray.Pack.putBytes from ByteArray to ByteArrayAccess
+
+## 0.1
+
+* Initial release

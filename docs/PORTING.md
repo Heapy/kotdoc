@@ -13400,3 +13400,47 @@ pandoc-types semantic requirement. Complete shrinker Char/lazy/deep/partial
 acceptance, typed Read and Eq/Ord dictionaries, all public Walk/Builder/Generic
 exports and effects, and authoritative inventory reconciliation remain open.
 Local:611, full Pandoc/all tests and all subsequent calibre stages remain required.
+
+
+## Public specialized P256 values and original P256Spec (2026-10-16)
+
+Ported the two public value types and all thirty exported terms of pinned
+`Crypto.PubKey.ECC.P256`. Scalar/Point use owned native-representation bytes;
+RAM 0.22.1 supplies the independently observed Eq/Show/NFData contracts. Scalar
+Show remains `Scalar <scrubbed-bytes>`; Point Show quotes raw storage bytes.
+Public constructors preserve distinct size/coordinate errors and integer bounds,
+scalarReduce is explicit, RNG makes exactly one 32-byte request without zero/order
+retry, and infinity policies preserve original operand identity and raw quirks.
+BigInteger is used only for the source Integer conversion boundary; arithmetic
+calls the specialized Kotlin word/field/point engines.
+
+The original public module and pinned RAM provide **9,877 independent
+observations**, **56 source hashes**, semantic SHA-256
+**92fbafe1cf2899aa35bcd21430d6e96f9f67a8624d2ad527cb9cf432bc1e07e9**.
+Both Kotlin digit profiles replay them. The complete unchanged original P256Spec
+passes **31 examples**, including twenty property families at 200 successes each
+and eleven literals. Kotlin translates every family/literal with original-module
+inputs/results; the 400 captured generator rows are separate from the native
+Hspec trial stream. The complete original test source is mechanically retained.
+
+Independent review found and corrected an omitted edge/documentation claim:
+original scalarInv(n) terminates with zero and is now an explicit independent
+regression. ScalarInv(0) is not assigned a finite result; its unbounded source
+loop and bounded-prefix evidence remain. Production did not change for this fix.
+Separate original-module replay, extraction/source checks and all original-suite
+checks pass. Fresh focused XML after the fix has **19,813 actual tests** with
+no failures/errors/skips. The preceding unchanged-production combined run passes
+**115,274 actual public/word/field/point tests**, also without failures/errors/
+skips; its count predates the two added edge assertions. JAR/installDist checks
+pass with byte-identical standalone/installed core JARs and exact RAM/crypton/
+P256 notices. Bytecode BigInteger calls are only constructors, signum, bitLength
+and toByteArray; there is no native/ProcessBuilder conversion dependency.
+
+The public oracle observes a 64-bit little-endian native host; big-endian and
+actual 32-bit OS ABI are not established. JVM timing/GC/finalizer/pinned-address
+and secure-erasure parity, retained copies, allocation failure and general GHC
+bottom/lazy behavior remain unproved. Cleaner ownership and local pointDh cleanup
+have explicit Kotlin tests, not claims of lexical native-finalizer equivalence.
+Modern Crypto.ECC policies, generic ECC/ECDH/subgroup suites, other cryptography/
+trust/TLS work, full Pandoc/all tests and subsequent calibre stages remain open.
+This checkpoint does not complete local:613.
