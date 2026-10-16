@@ -13829,3 +13829,32 @@ the original pointer-access precondition. Finite ownership/NFData checks do not
 prove GHC bottom/laziness, physical erasure, pinned addresses, real32-bit ABI or
 JVM constant timing. X448/Edwards and remaining cryptography/trust/TLS, full
 Pandoc/tests and subsequent calibre stages remain open; local:613 stays open.
+
+
+### Finite complete Eq/Ord dictionary and method audit
+
+The source matrix now covers25 concrete dictionaries and225 Eq/Ord method
+slots, joining unchanged75,470 original observations with5,855 new original
+requests. It retains79 constructors,92 independent immediate-field changes,
+73 competing field pairs,19 original generator families, Many IEEE contexts
+and126 individual demand/method probes. Expected responses are original
+Haskell bytes; no existing expectation was rewritten.
+
+The demonstrated implementation gap was the two Builder.Many dictionaries.
+AstComparison.Inlines/Blocks now preserve containers Seq's known-length-first
+equality and list-based ordering/default methods. Min/max preserve caller
+wrappers using the original <= selection policy, including nontrivial NaN
+direction. Independent review checked actual GHC derived/Seq interface/source
+bodies and replayed all5,855 new responses byte-exact. Both source verifiers
+pass, including unchanged75,470 observations/426pins. Saved fresh Gradle1879
+XML independently counts81,325 actual tests, zero failures/errors/skips.
+
+This finite source-backed gate does not claim arbitrary StrictData bottoms,
+invalid/infinite Seq spines or general GHC runtime equivalence. Walk's58
+dictionaries/174 methods and140 module-owned export entries before member
+expansion remain open. Local:611, full Pandoc/tests and subsequent calibre
+stages remain open.
+
+Cached diff check reports 46 whitespace/EOF diagnostics only in the verbatim
+GhcDerivedEqOrd compiler dump; original dump bytes are intentionally preserved.
+Production/test/tool/doc edits have no whitespace diagnostics.

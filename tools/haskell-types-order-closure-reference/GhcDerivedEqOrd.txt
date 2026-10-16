@@ -1,0 +1,1549 @@
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Pandoc where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.Pandoc a1_ae9G a2_ae9H)
+      (Text.Pandoc.Definition.Pandoc b1_ae9I b2_ae9J)
+      = (((a1_ae9G GHC.Classes.== b1_ae9I))
+           GHC.Classes.&& ((a2_ae9H GHC.Classes.== b2_ae9J)))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Pandoc where
+    GHC.Classes.compare a_ae9K b_ae9L
+      = case a_ae9K of
+          Text.Pandoc.Definition.Pandoc a1_ae9M a2_ae9N
+            -> case b_ae9L of
+                 Text.Pandoc.Definition.Pandoc b1_ae9O b2_ae9P
+                   -> case (GHC.Classes.compare a1_ae9M b1_ae9O) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ -> (a2_ae9N `GHC.Classes.compare` b2_ae9P)
+                        GHC.Types.GT -> GHC.Types.GT
+    (GHC.Classes.<) a_ae9T b_ae9U
+      = case a_ae9T of
+          Text.Pandoc.Definition.Pandoc a1_ae9V a2_ae9W
+            -> case b_ae9U of
+                 Text.Pandoc.Definition.Pandoc b1_ae9X b2_ae9Y
+                   -> case (GHC.Classes.compare a1_ae9V b1_ae9X) of
+                        GHC.Types.LT -> GHC.Types.True
+                        GHC.Types.EQ -> (a2_ae9W GHC.Classes.< b2_ae9Y)
+                        GHC.Types.GT -> GHC.Types.False
+    (GHC.Classes.<=) a_ae9Z b_aea0
+      = GHC.Classes.not ((GHC.Classes.<) b_aea0 a_ae9Z)
+    (GHC.Classes.>) a_aea1 b_aea2 = (GHC.Classes.<) b_aea2 a_aea1
+    (GHC.Classes.>=) a_aea3 b_aea4
+      = GHC.Classes.not ((GHC.Classes.<) a_aea3 b_aea4)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Meta where
+    (GHC.Classes.==)
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> GHC.Types.Bool)
+          ((GHC.Classes.==)
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+    (GHC.Classes./=)
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> GHC.Types.Bool)
+          ((GHC.Classes./=)
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Meta where
+    GHC.Classes.compare
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> GHC.Types.Ordering)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> GHC.Types.Ordering)
+          (GHC.Classes.compare
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+    (GHC.Classes.<)
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> GHC.Types.Bool)
+          ((GHC.Classes.<)
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+    (GHC.Classes.<=)
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> GHC.Types.Bool)
+          ((GHC.Classes.<=)
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+    (GHC.Classes.>)
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> GHC.Types.Bool)
+          ((GHC.Classes.>)
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+    (GHC.Classes.>=)
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> GHC.Types.Bool)
+          ((GHC.Classes.>=)
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+    GHC.Classes.max
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> Text.Pandoc.Definition.Meta)
+          (GHC.Classes.max
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+    GHC.Classes.min
+      = GHC.Prim.coerce
+          @(Data.Map.Internal.Map
+              Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue
+            -> Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue)
+          @(Text.Pandoc.Definition.Meta
+            -> Text.Pandoc.Definition.Meta -> Text.Pandoc.Definition.Meta)
+          (GHC.Classes.min
+             @(Data.Map.Internal.Map
+                 Data.Text.Internal.Text Text.Pandoc.Definition.MetaValue))
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.MetaValue where
+    (GHC.Classes.==) a_aegz b_aegA
+      = case
+            (case (GHC.Magic.dataToTag# a_aegz) of
+               a#_aegV
+                 -> case (GHC.Magic.dataToTag# b_aegA) of
+                      b#_aegW -> a#_aegV GHC.Prim./=# b#_aegW)
+        of
+          1# -> GHC.Types.False
+          _ -> case a_aegz of
+                 (Text.Pandoc.Definition.MetaMap a1_aegX)
+                   -> case b_aegA of
+                        (Text.Pandoc.Definition.MetaMap b1_aegY)
+                          -> ((a1_aegX GHC.Classes.== b1_aegY))
+                 (Text.Pandoc.Definition.MetaList a1_aegZ)
+                   -> case b_aegA of
+                        (Text.Pandoc.Definition.MetaList b1_aeh0)
+                          -> ((a1_aegZ GHC.Classes.== b1_aeh0))
+                 (Text.Pandoc.Definition.MetaBool a1_aeh1)
+                   -> case b_aegA of
+                        (Text.Pandoc.Definition.MetaBool b1_aeh2)
+                          -> ((a1_aeh1 GHC.Classes.== b1_aeh2))
+                 (Text.Pandoc.Definition.MetaString a1_aeh3)
+                   -> case b_aegA of
+                        (Text.Pandoc.Definition.MetaString b1_aeh4)
+                          -> ((a1_aeh3 GHC.Classes.== b1_aeh4))
+                 (Text.Pandoc.Definition.MetaInlines a1_aeh5)
+                   -> case b_aegA of
+                        (Text.Pandoc.Definition.MetaInlines b1_aeh6)
+                          -> ((a1_aeh5 GHC.Classes.== b1_aeh6))
+                 (Text.Pandoc.Definition.MetaBlocks a1_aeh7)
+                   -> case b_aegA of
+                        (Text.Pandoc.Definition.MetaBlocks b1_aeh8)
+                          -> ((a1_aeh7 GHC.Classes.== b1_aeh8))
+                 _ -> GHC.Types.True
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.MetaValue where
+    GHC.Classes.compare a_aeh9 b_aeha
+      = case a_aeh9 of
+          Text.Pandoc.Definition.MetaMap a1_aehb
+            -> case b_aeha of
+                 Text.Pandoc.Definition.MetaMap b1_aehc
+                   -> (a1_aehb `GHC.Classes.compare` b1_aehc)
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.MetaList a1_aehd
+            -> case b_aeha of
+                 Text.Pandoc.Definition.MetaMap {} -> GHC.Types.GT
+                 Text.Pandoc.Definition.MetaList b1_aehe
+                   -> (a1_aehd `GHC.Classes.compare` b1_aehe)
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.MetaBool a1_aehf
+            -> case (GHC.Magic.dataToTag# b_aeha) of
+                 b#_aehg
+                   -> if (GHC.Prim.tagToEnum# (b#_aehg GHC.Prim.># 2#)) then
+                          GHC.Types.LT
+                      else
+                          case b_aeha of
+                            Text.Pandoc.Definition.MetaBool b1_aehh
+                              -> (a1_aehf `GHC.Classes.compare` b1_aehh)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.MetaString a1_aehi
+            -> case (GHC.Magic.dataToTag# b_aeha) of
+                 b#_aehj
+                   -> if (GHC.Prim.tagToEnum# (b#_aehj GHC.Prim.<# 3#)) then
+                          GHC.Types.GT
+                      else
+                          case b_aeha of
+                            Text.Pandoc.Definition.MetaString b1_aehk
+                              -> (a1_aehi `GHC.Classes.compare` b1_aehk)
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.MetaInlines a1_aehl
+            -> case b_aeha of
+                 Text.Pandoc.Definition.MetaBlocks {} -> GHC.Types.LT
+                 Text.Pandoc.Definition.MetaInlines b1_aehm
+                   -> (a1_aehl `GHC.Classes.compare` b1_aehm)
+                 _ -> GHC.Types.GT
+          Text.Pandoc.Definition.MetaBlocks a1_aehn
+            -> case b_aeha of
+                 Text.Pandoc.Definition.MetaBlocks b1_aeho
+                   -> (a1_aehn `GHC.Classes.compare` b1_aeho)
+                 _ -> GHC.Types.GT
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Citation where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.Citation a1_aeiC a2_aeiD a3_aeiE a4_aeiF
+                                       a5_aeiG a6_aeiH)
+      (Text.Pandoc.Definition.Citation b1_aeiI b2_aeiJ b3_aeiK b4_aeiL
+                                       b5_aeiM b6_aeiN)
+      = (((a1_aeiC GHC.Classes.== b1_aeiI))
+           GHC.Classes.&&
+             (((a2_aeiD GHC.Classes.== b2_aeiJ))
+                GHC.Classes.&&
+                  (((a3_aeiE GHC.Classes.== b3_aeiK))
+                     GHC.Classes.&&
+                       (((a4_aeiF GHC.Classes.== b4_aeiL))
+                          GHC.Classes.&&
+                            (((a5_aeiG GHC.Classes.== b5_aeiM))
+                               GHC.Classes.&& ((a6_aeiH GHC.Classes.== b6_aeiN)))))))
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Inline where
+    (GHC.Classes.==) a_aekc b_aekd
+      = case
+            (case (GHC.Magic.dataToTag# a_aekc) of
+               a#_aeke
+                 -> case (GHC.Magic.dataToTag# b_aekd) of
+                      b#_aekf -> a#_aeke GHC.Prim./=# b#_aekf)
+        of
+          1# -> GHC.Types.False
+          _ -> case a_aekc of
+                 (Text.Pandoc.Definition.Str a1_aekg)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Str b1_aekh)
+                          -> ((a1_aekg GHC.Classes.== b1_aekh))
+                 (Text.Pandoc.Definition.Emph a1_aeki)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Emph b1_aekj)
+                          -> ((a1_aeki GHC.Classes.== b1_aekj))
+                 (Text.Pandoc.Definition.Underline a1_aekk)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Underline b1_aekl)
+                          -> ((a1_aekk GHC.Classes.== b1_aekl))
+                 (Text.Pandoc.Definition.Strong a1_aekm)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Strong b1_aekn)
+                          -> ((a1_aekm GHC.Classes.== b1_aekn))
+                 (Text.Pandoc.Definition.Strikeout a1_aeko)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Strikeout b1_aekp)
+                          -> ((a1_aeko GHC.Classes.== b1_aekp))
+                 (Text.Pandoc.Definition.Superscript a1_aekq)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Superscript b1_aekr)
+                          -> ((a1_aekq GHC.Classes.== b1_aekr))
+                 (Text.Pandoc.Definition.Subscript a1_aeks)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Subscript b1_aekt)
+                          -> ((a1_aeks GHC.Classes.== b1_aekt))
+                 (Text.Pandoc.Definition.SmallCaps a1_aeku)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.SmallCaps b1_aekv)
+                          -> ((a1_aeku GHC.Classes.== b1_aekv))
+                 (Text.Pandoc.Definition.Quoted a1_aekw a2_aekx)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Quoted b1_aeky b2_aekz)
+                          -> (((a1_aekw GHC.Classes.== b1_aeky))
+                                GHC.Classes.&& ((a2_aekx GHC.Classes.== b2_aekz)))
+                 (Text.Pandoc.Definition.Cite a1_aekA a2_aekB)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Cite b1_aekC b2_aekD)
+                          -> (((a1_aekA GHC.Classes.== b1_aekC))
+                                GHC.Classes.&& ((a2_aekB GHC.Classes.== b2_aekD)))
+                 (Text.Pandoc.Definition.Code a1_aekE a2_aekF)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Code b1_aekG b2_aekH)
+                          -> (((a1_aekE GHC.Classes.== b1_aekG))
+                                GHC.Classes.&& ((a2_aekF GHC.Classes.== b2_aekH)))
+                 (Text.Pandoc.Definition.Math a1_aekI a2_aekJ)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Math b1_aekK b2_aekL)
+                          -> (((a1_aekI GHC.Classes.== b1_aekK))
+                                GHC.Classes.&& ((a2_aekJ GHC.Classes.== b2_aekL)))
+                 (Text.Pandoc.Definition.RawInline a1_aekM a2_aekN)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.RawInline b1_aekO b2_aekP)
+                          -> (((a1_aekM GHC.Classes.== b1_aekO))
+                                GHC.Classes.&& ((a2_aekN GHC.Classes.== b2_aekP)))
+                 (Text.Pandoc.Definition.Link a1_aekQ a2_aekR a3_aekS)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Link b1_aekT b2_aekU b3_aekV)
+                          -> (((a1_aekQ GHC.Classes.== b1_aekT))
+                                GHC.Classes.&&
+                                  (((a2_aekR GHC.Classes.== b2_aekU))
+                                     GHC.Classes.&& ((a3_aekS GHC.Classes.== b3_aekV))))
+                 (Text.Pandoc.Definition.Image a1_aekW a2_aekX a3_aekY)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Image b1_aekZ b2_ael0 b3_ael1)
+                          -> (((a1_aekW GHC.Classes.== b1_aekZ))
+                                GHC.Classes.&&
+                                  (((a2_aekX GHC.Classes.== b2_ael0))
+                                     GHC.Classes.&& ((a3_aekY GHC.Classes.== b3_ael1))))
+                 (Text.Pandoc.Definition.Note a1_ael2)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Note b1_ael3)
+                          -> ((a1_ael2 GHC.Classes.== b1_ael3))
+                 (Text.Pandoc.Definition.Span a1_ael4 a2_ael5)
+                   -> case b_aekd of
+                        (Text.Pandoc.Definition.Span b1_ael6 b2_ael7)
+                          -> (((a1_ael4 GHC.Classes.== b1_ael6))
+                                GHC.Classes.&& ((a2_ael5 GHC.Classes.== b2_ael7)))
+                 _ -> GHC.Types.True
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Inline where
+    GHC.Classes.compare a_ael8 b_ael9
+      = case a_ael8 of
+          Text.Pandoc.Definition.Str a1_aela
+            -> case b_ael9 of
+                 Text.Pandoc.Definition.Str b1_aelb
+                   -> (a1_aela `GHC.Classes.compare` b1_aelb)
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Emph a1_aelc
+            -> case b_ael9 of
+                 Text.Pandoc.Definition.Str {} -> GHC.Types.GT
+                 Text.Pandoc.Definition.Emph b1_aeld
+                   -> (a1_aelc `GHC.Classes.compare` b1_aeld)
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Underline a1_aele
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelf
+                   -> if (GHC.Prim.tagToEnum# (b#_aelf GHC.Prim.># 2#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Underline b1_aelg
+                              -> (a1_aele `GHC.Classes.compare` b1_aelg)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Strong a1_aelh
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aeli
+                   -> if (GHC.Prim.tagToEnum# (b#_aeli GHC.Prim.># 3#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Strong b1_aelj
+                              -> (a1_aelh `GHC.Classes.compare` b1_aelj)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Strikeout a1_aelk
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aell
+                   -> if (GHC.Prim.tagToEnum# (b#_aell GHC.Prim.># 4#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Strikeout b1_aelm
+                              -> (a1_aelk `GHC.Classes.compare` b1_aelm)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Superscript a1_aeln
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelo
+                   -> if (GHC.Prim.tagToEnum# (b#_aelo GHC.Prim.># 5#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Superscript b1_aelp
+                              -> (a1_aeln `GHC.Classes.compare` b1_aelp)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Subscript a1_aelq
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelr
+                   -> if (GHC.Prim.tagToEnum# (b#_aelr GHC.Prim.># 6#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Subscript b1_aels
+                              -> (a1_aelq `GHC.Classes.compare` b1_aels)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.SmallCaps a1_aelt
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelu
+                   -> if (GHC.Prim.tagToEnum# (b#_aelu GHC.Prim.># 7#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.SmallCaps b1_aelv
+                              -> (a1_aelt `GHC.Classes.compare` b1_aelv)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Quoted a1_aelw a2_aelx
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aely
+                   -> if (GHC.Prim.tagToEnum# (b#_aely GHC.Prim.># 8#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Quoted b1_aelz b2_aelA
+                              -> case (GHC.Classes.compare a1_aelw b1_aelz) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aelx `GHC.Classes.compare` b2_aelA)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Cite a1_aelB a2_aelC
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelD
+                   -> if (GHC.Prim.tagToEnum# (b#_aelD GHC.Prim.># 9#)) then
+                          GHC.Types.LT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Cite b1_aelE b2_aelF
+                              -> case (GHC.Classes.compare a1_aelB b1_aelE) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aelC `GHC.Classes.compare` b2_aelF)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Code a1_aelG a2_aelH
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelI
+                   -> if (GHC.Prim.tagToEnum# (b#_aelI GHC.Prim.<# 10#)) then
+                          GHC.Types.GT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Code b1_aelJ b2_aelK
+                              -> case (GHC.Classes.compare a1_aelG b1_aelJ) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aelH `GHC.Classes.compare` b2_aelK)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Math a1_aelL a2_aelM
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelN
+                   -> if (GHC.Prim.tagToEnum# (b#_aelN GHC.Prim.<# 14#)) then
+                          GHC.Types.GT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Math b1_aelO b2_aelP
+                              -> case (GHC.Classes.compare a1_aelL b1_aelO) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aelM `GHC.Classes.compare` b2_aelP)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.RawInline a1_aelQ a2_aelR
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelS
+                   -> if (GHC.Prim.tagToEnum# (b#_aelS GHC.Prim.<# 15#)) then
+                          GHC.Types.GT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.RawInline b1_aelT b2_aelU
+                              -> case (GHC.Classes.compare a1_aelQ b1_aelT) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aelR `GHC.Classes.compare` b2_aelU)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Link a1_aelV a2_aelW a3_aelX
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aelY
+                   -> if (GHC.Prim.tagToEnum# (b#_aelY GHC.Prim.<# 16#)) then
+                          GHC.Types.GT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Link b1_aelZ b2_aem0 b3_aem1
+                              -> case (GHC.Classes.compare a1_aelV b1_aelZ) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ
+                                     -> case (GHC.Classes.compare a2_aelW b2_aem0) of
+                                          GHC.Types.LT -> GHC.Types.LT
+                                          GHC.Types.EQ -> (a3_aelX `GHC.Classes.compare` b3_aem1)
+                                          GHC.Types.GT -> GHC.Types.GT
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Image a1_aem2 a2_aem3 a3_aem4
+            -> case (GHC.Magic.dataToTag# b_ael9) of
+                 b#_aem5
+                   -> if (GHC.Prim.tagToEnum# (b#_aem5 GHC.Prim.<# 17#)) then
+                          GHC.Types.GT
+                      else
+                          case b_ael9 of
+                            Text.Pandoc.Definition.Image b1_aem6 b2_aem7 b3_aem8
+                              -> case (GHC.Classes.compare a1_aem2 b1_aem6) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ
+                                     -> case (GHC.Classes.compare a2_aem3 b2_aem7) of
+                                          GHC.Types.LT -> GHC.Types.LT
+                                          GHC.Types.EQ -> (a3_aem4 `GHC.Classes.compare` b3_aem8)
+                                          GHC.Types.GT -> GHC.Types.GT
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Note a1_aem9
+            -> case b_ael9 of
+                 Text.Pandoc.Definition.Span {} -> GHC.Types.LT
+                 Text.Pandoc.Definition.Note b1_aema
+                   -> (a1_aem9 `GHC.Classes.compare` b1_aema)
+                 _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Span a1_aemb a2_aemc
+            -> case b_ael9 of
+                 Text.Pandoc.Definition.Span b1_aemd b2_aeme
+                   -> case (GHC.Classes.compare a1_aemb b1_aemd) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ -> (a2_aemc `GHC.Classes.compare` b2_aeme)
+                        GHC.Types.GT -> GHC.Types.GT
+                 _ -> GHC.Types.GT
+          _ -> case (GHC.Magic.dataToTag# a_ael8) of
+                 a#_aemf
+                   -> case (GHC.Magic.dataToTag# b_ael9) of
+                        b#_aemg
+                          -> if (GHC.Prim.tagToEnum# (a#_aemf GHC.Prim.<# b#_aemg)) ::
+                                  GHC.Types.Bool then
+                                 GHC.Types.LT
+                             else
+                                 if (GHC.Prim.tagToEnum# (a#_aemf GHC.Prim.==# b#_aemg)) ::
+                                      GHC.Types.Bool then
+                                     GHC.Types.EQ
+                                 else
+                                     GHC.Types.GT
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Block where
+    (GHC.Classes.==) a_aepE b_aepF
+      = case
+            (case (GHC.Magic.dataToTag# a_aepE) of
+               a#_aepG
+                 -> case (GHC.Magic.dataToTag# b_aepF) of
+                      b#_aepH -> a#_aepG GHC.Prim./=# b#_aepH)
+        of
+          1# -> GHC.Types.False
+          _ -> case a_aepE of
+                 (Text.Pandoc.Definition.Plain a1_aepI)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.Plain b1_aepJ)
+                          -> ((a1_aepI GHC.Classes.== b1_aepJ))
+                 (Text.Pandoc.Definition.Para a1_aepK)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.Para b1_aepL)
+                          -> ((a1_aepK GHC.Classes.== b1_aepL))
+                 (Text.Pandoc.Definition.LineBlock a1_aepM)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.LineBlock b1_aepN)
+                          -> ((a1_aepM GHC.Classes.== b1_aepN))
+                 (Text.Pandoc.Definition.CodeBlock a1_aepO a2_aepP)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.CodeBlock b1_aepQ b2_aepR)
+                          -> (((a1_aepO GHC.Classes.== b1_aepQ))
+                                GHC.Classes.&& ((a2_aepP GHC.Classes.== b2_aepR)))
+                 (Text.Pandoc.Definition.RawBlock a1_aepS a2_aepT)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.RawBlock b1_aepU b2_aepV)
+                          -> (((a1_aepS GHC.Classes.== b1_aepU))
+                                GHC.Classes.&& ((a2_aepT GHC.Classes.== b2_aepV)))
+                 (Text.Pandoc.Definition.BlockQuote a1_aepW)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.BlockQuote b1_aepX)
+                          -> ((a1_aepW GHC.Classes.== b1_aepX))
+                 (Text.Pandoc.Definition.OrderedList a1_aepY a2_aepZ)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.OrderedList b1_aeq0 b2_aeq1)
+                          -> (((a1_aepY GHC.Classes.== b1_aeq0))
+                                GHC.Classes.&& ((a2_aepZ GHC.Classes.== b2_aeq1)))
+                 (Text.Pandoc.Definition.BulletList a1_aeq2)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.BulletList b1_aeq3)
+                          -> ((a1_aeq2 GHC.Classes.== b1_aeq3))
+                 (Text.Pandoc.Definition.DefinitionList a1_aeq4)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.DefinitionList b1_aeq5)
+                          -> ((a1_aeq4 GHC.Classes.== b1_aeq5))
+                 (Text.Pandoc.Definition.Header a1_aeq6 a2_aeq7 a3_aeq8)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.Header b1_aeq9 b2_aeqa b3_aeqb)
+                          -> (((a1_aeq6 GHC.Classes.== b1_aeq9))
+                                GHC.Classes.&&
+                                  (((a2_aeq7 GHC.Classes.== b2_aeqa))
+                                     GHC.Classes.&& ((a3_aeq8 GHC.Classes.== b3_aeqb))))
+                 (Text.Pandoc.Definition.Table a1_aeqc a2_aeqd a3_aeqe a4_aeqf
+                                               a5_aeqg a6_aeqh)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.Table b1_aeqi b2_aeqj b3_aeqk b4_aeql
+                                                      b5_aeqm b6_aeqn)
+                          -> (((a1_aeqc GHC.Classes.== b1_aeqi))
+                                GHC.Classes.&&
+                                  (((a2_aeqd GHC.Classes.== b2_aeqj))
+                                     GHC.Classes.&&
+                                       (((a3_aeqe GHC.Classes.== b3_aeqk))
+                                          GHC.Classes.&&
+                                            (((a4_aeqf GHC.Classes.== b4_aeql))
+                                               GHC.Classes.&&
+                                                 (((a5_aeqg GHC.Classes.== b5_aeqm))
+                                                    GHC.Classes.&&
+                                                      ((a6_aeqh GHC.Classes.== b6_aeqn)))))))
+                 (Text.Pandoc.Definition.Figure a1_aeqo a2_aeqp a3_aeqq)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.Figure b1_aeqr b2_aeqs b3_aeqt)
+                          -> (((a1_aeqo GHC.Classes.== b1_aeqr))
+                                GHC.Classes.&&
+                                  (((a2_aeqp GHC.Classes.== b2_aeqs))
+                                     GHC.Classes.&& ((a3_aeqq GHC.Classes.== b3_aeqt))))
+                 (Text.Pandoc.Definition.Div a1_aequ a2_aeqv)
+                   -> case b_aepF of
+                        (Text.Pandoc.Definition.Div b1_aeqw b2_aeqx)
+                          -> (((a1_aequ GHC.Classes.== b1_aeqw))
+                                GHC.Classes.&& ((a2_aeqv GHC.Classes.== b2_aeqx)))
+                 _ -> GHC.Types.True
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Block where
+    GHC.Classes.compare a_aeqy b_aeqz
+      = case a_aeqy of
+          Text.Pandoc.Definition.Plain a1_aeqA
+            -> case b_aeqz of
+                 Text.Pandoc.Definition.Plain b1_aeqB
+                   -> (a1_aeqA `GHC.Classes.compare` b1_aeqB)
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Para a1_aeqC
+            -> case b_aeqz of
+                 Text.Pandoc.Definition.Plain {} -> GHC.Types.GT
+                 Text.Pandoc.Definition.Para b1_aeqD
+                   -> (a1_aeqC `GHC.Classes.compare` b1_aeqD)
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.LineBlock a1_aeqE
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aeqF
+                   -> if (GHC.Prim.tagToEnum# (b#_aeqF GHC.Prim.># 2#)) then
+                          GHC.Types.LT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.LineBlock b1_aeqG
+                              -> (a1_aeqE `GHC.Classes.compare` b1_aeqG)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.CodeBlock a1_aeqH a2_aeqI
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aeqJ
+                   -> if (GHC.Prim.tagToEnum# (b#_aeqJ GHC.Prim.># 3#)) then
+                          GHC.Types.LT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.CodeBlock b1_aeqK b2_aeqL
+                              -> case (GHC.Classes.compare a1_aeqH b1_aeqK) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aeqI `GHC.Classes.compare` b2_aeqL)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.RawBlock a1_aeqM a2_aeqN
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aeqO
+                   -> if (GHC.Prim.tagToEnum# (b#_aeqO GHC.Prim.># 4#)) then
+                          GHC.Types.LT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.RawBlock b1_aeqP b2_aeqQ
+                              -> case (GHC.Classes.compare a1_aeqM b1_aeqP) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aeqN `GHC.Classes.compare` b2_aeqQ)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.BlockQuote a1_aeqR
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aeqS
+                   -> if (GHC.Prim.tagToEnum# (b#_aeqS GHC.Prim.># 5#)) then
+                          GHC.Types.LT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.BlockQuote b1_aeqT
+                              -> (a1_aeqR `GHC.Classes.compare` b1_aeqT)
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.OrderedList a1_aeqU a2_aeqV
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aeqW
+                   -> if (GHC.Prim.tagToEnum# (b#_aeqW GHC.Prim.># 6#)) then
+                          GHC.Types.LT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.OrderedList b1_aeqX b2_aeqY
+                              -> case (GHC.Classes.compare a1_aeqU b1_aeqX) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ -> (a2_aeqV `GHC.Classes.compare` b2_aeqY)
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.GT
+          Text.Pandoc.Definition.BulletList a1_aeqZ
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aer0
+                   -> if (GHC.Prim.tagToEnum# (b#_aer0 GHC.Prim.<# 7#)) then
+                          GHC.Types.GT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.BulletList b1_aer1
+                              -> (a1_aeqZ `GHC.Classes.compare` b1_aer1)
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.DefinitionList a1_aer2
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aer3
+                   -> if (GHC.Prim.tagToEnum# (b#_aer3 GHC.Prim.<# 8#)) then
+                          GHC.Types.GT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.DefinitionList b1_aer4
+                              -> (a1_aer2 `GHC.Classes.compare` b1_aer4)
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Header a1_aer5 a2_aer6 a3_aer7
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aer8
+                   -> if (GHC.Prim.tagToEnum# (b#_aer8 GHC.Prim.<# 9#)) then
+                          GHC.Types.GT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.Header b1_aer9 b2_aera b3_aerb
+                              -> case (GHC.Classes.compare a1_aer5 b1_aer9) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ
+                                     -> case (GHC.Classes.compare a2_aer6 b2_aera) of
+                                          GHC.Types.LT -> GHC.Types.LT
+                                          GHC.Types.EQ -> (a3_aer7 `GHC.Classes.compare` b3_aerb)
+                                          GHC.Types.GT -> GHC.Types.GT
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.HorizontalRule
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aerc
+                   -> if (GHC.Prim.tagToEnum# (b#_aerc GHC.Prim.<# 10#)) then
+                          GHC.Types.GT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.HorizontalRule -> GHC.Types.EQ
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Table a1_aerd a2_aere a3_aerf a4_aerg
+                                       a5_aerh a6_aeri
+            -> case (GHC.Magic.dataToTag# b_aeqz) of
+                 b#_aerj
+                   -> if (GHC.Prim.tagToEnum# (b#_aerj GHC.Prim.<# 11#)) then
+                          GHC.Types.GT
+                      else
+                          case b_aeqz of
+                            Text.Pandoc.Definition.Table b1_aerk b2_aerl b3_aerm b4_aern
+                                                         b5_aero b6_aerp
+                              -> case (GHC.Classes.compare a1_aerd b1_aerk) of
+                                   GHC.Types.LT -> GHC.Types.LT
+                                   GHC.Types.EQ
+                                     -> case (GHC.Classes.compare a2_aere b2_aerl) of
+                                          GHC.Types.LT -> GHC.Types.LT
+                                          GHC.Types.EQ
+                                            -> case (GHC.Classes.compare a3_aerf b3_aerm) of
+                                                 GHC.Types.LT -> GHC.Types.LT
+                                                 GHC.Types.EQ
+                                                   -> case (GHC.Classes.compare a4_aerg b4_aern) of
+                                                        GHC.Types.LT -> GHC.Types.LT
+                                                        GHC.Types.EQ
+                                                          -> case
+                                                                 (GHC.Classes.compare
+                                                                    a5_aerh b5_aero)
+                                                             of
+                                                               GHC.Types.LT -> GHC.Types.LT
+                                                               GHC.Types.EQ
+                                                                 -> (a6_aeri
+                                                                       `GHC.Classes.compare`
+                                                                         b6_aerp)
+                                                               GHC.Types.GT -> GHC.Types.GT
+                                                        GHC.Types.GT -> GHC.Types.GT
+                                                 GHC.Types.GT -> GHC.Types.GT
+                                          GHC.Types.GT -> GHC.Types.GT
+                                   GHC.Types.GT -> GHC.Types.GT
+                            _ -> GHC.Types.LT
+          Text.Pandoc.Definition.Figure a1_aerq a2_aerr a3_aers
+            -> case b_aeqz of
+                 Text.Pandoc.Definition.Div {} -> GHC.Types.LT
+                 Text.Pandoc.Definition.Figure b1_aert b2_aeru b3_aerv
+                   -> case (GHC.Classes.compare a1_aerq b1_aert) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ
+                          -> case (GHC.Classes.compare a2_aerr b2_aeru) of
+                               GHC.Types.LT -> GHC.Types.LT
+                               GHC.Types.EQ -> (a3_aers `GHC.Classes.compare` b3_aerv)
+                               GHC.Types.GT -> GHC.Types.GT
+                        GHC.Types.GT -> GHC.Types.GT
+                 _ -> GHC.Types.GT
+          Text.Pandoc.Definition.Div a1_aerw a2_aerx
+            -> case b_aeqz of
+                 Text.Pandoc.Definition.Div b1_aery b2_aerz
+                   -> case (GHC.Classes.compare a1_aerw b1_aery) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ -> (a2_aerx `GHC.Classes.compare` b2_aerz)
+                        GHC.Types.GT -> GHC.Types.GT
+                 _ -> GHC.Types.GT
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Caption where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.Caption a1_aevg a2_aevh)
+      (Text.Pandoc.Definition.Caption b1_aevi b2_aevj)
+      = (((a1_aevg GHC.Classes.== b1_aevi))
+           GHC.Classes.&& ((a2_aevh GHC.Classes.== b2_aevj)))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Caption where
+    GHC.Classes.compare a_aevk b_aevl
+      = case a_aevk of
+          Text.Pandoc.Definition.Caption a1_aevm a2_aevn
+            -> case b_aevl of
+                 Text.Pandoc.Definition.Caption b1_aevo b2_aevp
+                   -> case (GHC.Classes.compare a1_aevm b1_aevo) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ -> (a2_aevn `GHC.Classes.compare` b2_aevp)
+                        GHC.Types.GT -> GHC.Types.GT
+    (GHC.Classes.<) a_aevq b_aevr
+      = case a_aevq of
+          Text.Pandoc.Definition.Caption a1_aevs a2_aevt
+            -> case b_aevr of
+                 Text.Pandoc.Definition.Caption b1_aevu b2_aevv
+                   -> case (GHC.Classes.compare a1_aevs b1_aevu) of
+                        GHC.Types.LT -> GHC.Types.True
+                        GHC.Types.EQ -> (a2_aevt GHC.Classes.< b2_aevv)
+                        GHC.Types.GT -> GHC.Types.False
+    (GHC.Classes.<=) a_aevw b_aevx
+      = GHC.Classes.not ((GHC.Classes.<) b_aevx a_aevw)
+    (GHC.Classes.>) a_aevy b_aevz = (GHC.Classes.<) b_aevz a_aevy
+    (GHC.Classes.>=) a_aevA b_aevB
+      = GHC.Classes.not ((GHC.Classes.<) a_aevA b_aevB)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.TableFoot where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.TableFoot a1_aevX a2_aevY)
+      (Text.Pandoc.Definition.TableFoot b1_aevZ b2_aew0)
+      = (((a1_aevX GHC.Classes.== b1_aevZ))
+           GHC.Classes.&& ((a2_aevY GHC.Classes.== b2_aew0)))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.TableFoot where
+    GHC.Classes.compare a_aew1 b_aew2
+      = case a_aew1 of
+          Text.Pandoc.Definition.TableFoot a1_aew3 a2_aew4
+            -> case b_aew2 of
+                 Text.Pandoc.Definition.TableFoot b1_aew5 b2_aew6
+                   -> case (GHC.Classes.compare a1_aew3 b1_aew5) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ -> (a2_aew4 `GHC.Classes.compare` b2_aew6)
+                        GHC.Types.GT -> GHC.Types.GT
+    (GHC.Classes.<) a_aew7 b_aew8
+      = case a_aew7 of
+          Text.Pandoc.Definition.TableFoot a1_aew9 a2_aewa
+            -> case b_aew8 of
+                 Text.Pandoc.Definition.TableFoot b1_aewb b2_aewc
+                   -> case (GHC.Classes.compare a1_aew9 b1_aewb) of
+                        GHC.Types.LT -> GHC.Types.True
+                        GHC.Types.EQ -> (a2_aewa GHC.Classes.< b2_aewc)
+                        GHC.Types.GT -> GHC.Types.False
+    (GHC.Classes.<=) a_aewd b_aewe
+      = GHC.Classes.not ((GHC.Classes.<) b_aewe a_aewd)
+    (GHC.Classes.>) a_aewf b_aewg = (GHC.Classes.<) b_aewg a_aewf
+    (GHC.Classes.>=) a_aewh b_aewi
+      = GHC.Classes.not ((GHC.Classes.<) a_aewh b_aewi)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Row where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.Row a1_aewE a2_aewF)
+      (Text.Pandoc.Definition.Row b1_aewG b2_aewH)
+      = (((a1_aewE GHC.Classes.== b1_aewG))
+           GHC.Classes.&& ((a2_aewF GHC.Classes.== b2_aewH)))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Row where
+    GHC.Classes.compare a_aewI b_aewJ
+      = case a_aewI of
+          Text.Pandoc.Definition.Row a1_aewK a2_aewL
+            -> case b_aewJ of
+                 Text.Pandoc.Definition.Row b1_aewM b2_aewN
+                   -> case (GHC.Classes.compare a1_aewK b1_aewM) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ -> (a2_aewL `GHC.Classes.compare` b2_aewN)
+                        GHC.Types.GT -> GHC.Types.GT
+    (GHC.Classes.<) a_aewO b_aewP
+      = case a_aewO of
+          Text.Pandoc.Definition.Row a1_aewQ a2_aewR
+            -> case b_aewP of
+                 Text.Pandoc.Definition.Row b1_aewS b2_aewT
+                   -> case (GHC.Classes.compare a1_aewQ b1_aewS) of
+                        GHC.Types.LT -> GHC.Types.True
+                        GHC.Types.EQ -> (a2_aewR GHC.Classes.< b2_aewT)
+                        GHC.Types.GT -> GHC.Types.False
+    (GHC.Classes.<=) a_aewU b_aewV
+      = GHC.Classes.not ((GHC.Classes.<) b_aewV a_aewU)
+    (GHC.Classes.>) a_aewW b_aewX = (GHC.Classes.<) b_aewX a_aewW
+    (GHC.Classes.>=) a_aewY b_aewZ
+      = GHC.Classes.not ((GHC.Classes.<) a_aewY b_aewZ)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Cell where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.Cell a1_aexl a2_aexm a3_aexn a4_aexo
+                                   a5_aexp)
+      (Text.Pandoc.Definition.Cell b1_aexq b2_aexr b3_aexs b4_aext
+                                   b5_aexu)
+      = (((a1_aexl GHC.Classes.== b1_aexq))
+           GHC.Classes.&&
+             (((a2_aexm GHC.Classes.== b2_aexr))
+                GHC.Classes.&&
+                  (((a3_aexn GHC.Classes.== b3_aexs))
+                     GHC.Classes.&&
+                       (((a4_aexo GHC.Classes.== b4_aext))
+                          GHC.Classes.&& ((a5_aexp GHC.Classes.== b5_aexu))))))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Cell where
+    GHC.Classes.compare a_aexv b_aexw
+      = case a_aexv of
+          Text.Pandoc.Definition.Cell a1_aexx a2_aexy a3_aexz a4_aexA a5_aexB
+            -> case b_aexw of
+                 Text.Pandoc.Definition.Cell b1_aexC b2_aexD b3_aexE b4_aexF b5_aexG
+                   -> case (GHC.Classes.compare a1_aexx b1_aexC) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ
+                          -> case (GHC.Classes.compare a2_aexy b2_aexD) of
+                               GHC.Types.LT -> GHC.Types.LT
+                               GHC.Types.EQ
+                                 -> case (GHC.Classes.compare a3_aexz b3_aexE) of
+                                      GHC.Types.LT -> GHC.Types.LT
+                                      GHC.Types.EQ
+                                        -> case (GHC.Classes.compare a4_aexA b4_aexF) of
+                                             GHC.Types.LT -> GHC.Types.LT
+                                             GHC.Types.EQ -> (a5_aexB `GHC.Classes.compare` b5_aexG)
+                                             GHC.Types.GT -> GHC.Types.GT
+                                      GHC.Types.GT -> GHC.Types.GT
+                               GHC.Types.GT -> GHC.Types.GT
+                        GHC.Types.GT -> GHC.Types.GT
+    (GHC.Classes.<) a_aexH b_aexI
+      = case a_aexH of
+          Text.Pandoc.Definition.Cell a1_aexJ a2_aexK a3_aexL a4_aexM a5_aexN
+            -> case b_aexI of
+                 Text.Pandoc.Definition.Cell b1_aexO b2_aexP b3_aexQ b4_aexR b5_aexS
+                   -> case (GHC.Classes.compare a1_aexJ b1_aexO) of
+                        GHC.Types.LT -> GHC.Types.True
+                        GHC.Types.EQ
+                          -> case (GHC.Classes.compare a2_aexK b2_aexP) of
+                               GHC.Types.LT -> GHC.Types.True
+                               GHC.Types.EQ
+                                 -> case (GHC.Classes.compare a3_aexL b3_aexQ) of
+                                      GHC.Types.LT -> GHC.Types.True
+                                      GHC.Types.EQ
+                                        -> case (GHC.Classes.compare a4_aexM b4_aexR) of
+                                             GHC.Types.LT -> GHC.Types.True
+                                             GHC.Types.EQ -> (a5_aexN GHC.Classes.< b5_aexS)
+                                             GHC.Types.GT -> GHC.Types.False
+                                      GHC.Types.GT -> GHC.Types.False
+                               GHC.Types.GT -> GHC.Types.False
+                        GHC.Types.GT -> GHC.Types.False
+    (GHC.Classes.<=) a_aexT b_aexU
+      = GHC.Classes.not ((GHC.Classes.<) b_aexU a_aexT)
+    (GHC.Classes.>) a_aexV b_aexW = (GHC.Classes.<) b_aexW a_aexV
+    (GHC.Classes.>=) a_aexX b_aexY
+      = GHC.Classes.not ((GHC.Classes.<) a_aexX b_aexY)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.TableBody where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.TableBody a1_aeyF a2_aeyG a3_aeyH a4_aeyI)
+      (Text.Pandoc.Definition.TableBody b1_aeyJ b2_aeyK b3_aeyL b4_aeyM)
+      = (((a1_aeyF GHC.Classes.== b1_aeyJ))
+           GHC.Classes.&&
+             (((a2_aeyG GHC.Classes.== b2_aeyK))
+                GHC.Classes.&&
+                  (((a3_aeyH GHC.Classes.== b3_aeyL))
+                     GHC.Classes.&& ((a4_aeyI GHC.Classes.== b4_aeyM)))))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.TableBody where
+    GHC.Classes.compare a_aeyN b_aeyO
+      = case a_aeyN of
+          Text.Pandoc.Definition.TableBody a1_aeyP a2_aeyQ a3_aeyR a4_aeyS
+            -> case b_aeyO of
+                 Text.Pandoc.Definition.TableBody b1_aeyT b2_aeyU b3_aeyV b4_aeyW
+                   -> case (GHC.Classes.compare a1_aeyP b1_aeyT) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ
+                          -> case (GHC.Classes.compare a2_aeyQ b2_aeyU) of
+                               GHC.Types.LT -> GHC.Types.LT
+                               GHC.Types.EQ
+                                 -> case (GHC.Classes.compare a3_aeyR b3_aeyV) of
+                                      GHC.Types.LT -> GHC.Types.LT
+                                      GHC.Types.EQ -> (a4_aeyS `GHC.Classes.compare` b4_aeyW)
+                                      GHC.Types.GT -> GHC.Types.GT
+                               GHC.Types.GT -> GHC.Types.GT
+                        GHC.Types.GT -> GHC.Types.GT
+    (GHC.Classes.<) a_aeyX b_aeyY
+      = case a_aeyX of
+          Text.Pandoc.Definition.TableBody a1_aeyZ a2_aez0 a3_aez1 a4_aez2
+            -> case b_aeyY of
+                 Text.Pandoc.Definition.TableBody b1_aez3 b2_aez4 b3_aez5 b4_aez6
+                   -> case (GHC.Classes.compare a1_aeyZ b1_aez3) of
+                        GHC.Types.LT -> GHC.Types.True
+                        GHC.Types.EQ
+                          -> case (GHC.Classes.compare a2_aez0 b2_aez4) of
+                               GHC.Types.LT -> GHC.Types.True
+                               GHC.Types.EQ
+                                 -> case (GHC.Classes.compare a3_aez1 b3_aez5) of
+                                      GHC.Types.LT -> GHC.Types.True
+                                      GHC.Types.EQ -> (a4_aez2 GHC.Classes.< b4_aez6)
+                                      GHC.Types.GT -> GHC.Types.False
+                               GHC.Types.GT -> GHC.Types.False
+                        GHC.Types.GT -> GHC.Types.False
+    (GHC.Classes.<=) a_aez7 b_aez8
+      = GHC.Classes.not ((GHC.Classes.<) b_aez8 a_aez7)
+    (GHC.Classes.>) a_aez9 b_aeza = (GHC.Classes.<) b_aeza a_aez9
+    (GHC.Classes.>=) a_aezb b_aezc
+      = GHC.Classes.not ((GHC.Classes.<) a_aezb b_aezc)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.TableHead where
+    (GHC.Classes.==)
+      (Text.Pandoc.Definition.TableHead a1_aezM a2_aezN)
+      (Text.Pandoc.Definition.TableHead b1_aezO b2_aezP)
+      = (((a1_aezM GHC.Classes.== b1_aezO))
+           GHC.Classes.&& ((a2_aezN GHC.Classes.== b2_aezP)))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.TableHead where
+    GHC.Classes.compare a_aezQ b_aezR
+      = case a_aezQ of
+          Text.Pandoc.Definition.TableHead a1_aezS a2_aezT
+            -> case b_aezR of
+                 Text.Pandoc.Definition.TableHead b1_aezU b2_aezV
+                   -> case (GHC.Classes.compare a1_aezS b1_aezU) of
+                        GHC.Types.LT -> GHC.Types.LT
+                        GHC.Types.EQ -> (a2_aezT `GHC.Classes.compare` b2_aezV)
+                        GHC.Types.GT -> GHC.Types.GT
+    (GHC.Classes.<) a_aezW b_aezX
+      = case a_aezW of
+          Text.Pandoc.Definition.TableHead a1_aezY a2_aezZ
+            -> case b_aezX of
+                 Text.Pandoc.Definition.TableHead b1_aeA0 b2_aeA1
+                   -> case (GHC.Classes.compare a1_aezY b1_aeA0) of
+                        GHC.Types.LT -> GHC.Types.True
+                        GHC.Types.EQ -> (a2_aezZ GHC.Classes.< b2_aeA1)
+                        GHC.Types.GT -> GHC.Types.False
+    (GHC.Classes.<=) a_aeA2 b_aeA3
+      = GHC.Classes.not ((GHC.Classes.<) b_aeA3 a_aeA2)
+    (GHC.Classes.>) a_aeA4 b_aeA5 = (GHC.Classes.<) b_aeA5 a_aeA4
+    (GHC.Classes.>=) a_aeA6 b_aeA7
+      = GHC.Classes.not ((GHC.Classes.<) a_aeA6 b_aeA7)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.CitationMode where
+    (GHC.Classes.==) a_aeAt b_aeAu
+      = case (GHC.Magic.dataToTag# a_aeAt) of
+          a#_aeAv
+            -> case (GHC.Magic.dataToTag# b_aeAu) of
+                 b#_aeAw -> (GHC.Prim.tagToEnum# (a#_aeAv GHC.Prim.==# b#_aeAw))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.CitationMode where
+    GHC.Classes.compare a_aeAx b_aeAy
+      = case (GHC.Magic.dataToTag# a_aeAx) of
+          a#_aeAz
+            -> case (GHC.Magic.dataToTag# b_aeAy) of
+                 b#_aeAA
+                   -> if (GHC.Prim.tagToEnum# (a#_aeAz GHC.Prim.<# b#_aeAA)) ::
+                           GHC.Types.Bool then
+                          GHC.Types.LT
+                      else
+                          if (GHC.Prim.tagToEnum# (a#_aeAz GHC.Prim.==# b#_aeAA)) ::
+                               GHC.Types.Bool then
+                              GHC.Types.EQ
+                          else
+                              GHC.Types.GT
+    (GHC.Classes.<) a_aeAB b_aeAC
+      = case (GHC.Magic.dataToTag# a_aeAB) of
+          a#_aeAD
+            -> case (GHC.Magic.dataToTag# b_aeAC) of
+                 b#_aeAE -> (GHC.Prim.tagToEnum# (a#_aeAD GHC.Prim.<# b#_aeAE))
+    (GHC.Classes.<=) a_aeAF b_aeAG
+      = GHC.Classes.not ((GHC.Classes.<) b_aeAG a_aeAF)
+    (GHC.Classes.>) a_aeAH b_aeAI = (GHC.Classes.<) b_aeAI a_aeAH
+    (GHC.Classes.>=) a_aeAJ b_aeAK
+      = GHC.Classes.not ((GHC.Classes.<) a_aeAJ b_aeAK)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.MathType where
+    (GHC.Classes.==) a_aeAW b_aeAX
+      = case (GHC.Magic.dataToTag# a_aeAW) of
+          a#_aeAY
+            -> case (GHC.Magic.dataToTag# b_aeAX) of
+                 b#_aeAZ -> (GHC.Prim.tagToEnum# (a#_aeAY GHC.Prim.==# b#_aeAZ))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.MathType where
+    GHC.Classes.compare a_aeB0 b_aeB1
+      = case a_aeB0 of
+          Text.Pandoc.Definition.DisplayMath
+            -> case b_aeB1 of
+                 Text.Pandoc.Definition.DisplayMath -> GHC.Types.EQ
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.InlineMath
+            -> case b_aeB1 of
+                 Text.Pandoc.Definition.InlineMath -> GHC.Types.EQ
+                 _ -> GHC.Types.GT
+    (GHC.Classes.<) a_aeB2 b_aeB3
+      = case a_aeB2 of
+          Text.Pandoc.Definition.DisplayMath
+            -> case b_aeB3 of
+                 Text.Pandoc.Definition.DisplayMath -> GHC.Types.False
+                 _ -> GHC.Types.True
+          Text.Pandoc.Definition.InlineMath
+            -> case b_aeB3 of
+                 Text.Pandoc.Definition.InlineMath -> GHC.Types.False
+                 _ -> GHC.Types.False
+    (GHC.Classes.<=) a_aeB4 b_aeB5
+      = GHC.Classes.not ((GHC.Classes.<) b_aeB5 a_aeB4)
+    (GHC.Classes.>) a_aeB6 b_aeB7 = (GHC.Classes.<) b_aeB7 a_aeB6
+    (GHC.Classes.>=) a_aeB8 b_aeB9
+      = GHC.Classes.not ((GHC.Classes.<) a_aeB8 b_aeB9)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.QuoteType where
+    (GHC.Classes.==) a_aeBj b_aeBk
+      = case (GHC.Magic.dataToTag# a_aeBj) of
+          a#_aeBl
+            -> case (GHC.Magic.dataToTag# b_aeBk) of
+                 b#_aeBm -> (GHC.Prim.tagToEnum# (a#_aeBl GHC.Prim.==# b#_aeBm))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.QuoteType where
+    GHC.Classes.compare a_aeBn b_aeBo
+      = case a_aeBn of
+          Text.Pandoc.Definition.SingleQuote
+            -> case b_aeBo of
+                 Text.Pandoc.Definition.SingleQuote -> GHC.Types.EQ
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.DoubleQuote
+            -> case b_aeBo of
+                 Text.Pandoc.Definition.DoubleQuote -> GHC.Types.EQ
+                 _ -> GHC.Types.GT
+    (GHC.Classes.<) a_aeBp b_aeBq
+      = case a_aeBp of
+          Text.Pandoc.Definition.SingleQuote
+            -> case b_aeBq of
+                 Text.Pandoc.Definition.SingleQuote -> GHC.Types.False
+                 _ -> GHC.Types.True
+          Text.Pandoc.Definition.DoubleQuote
+            -> case b_aeBq of
+                 Text.Pandoc.Definition.DoubleQuote -> GHC.Types.False
+                 _ -> GHC.Types.False
+    (GHC.Classes.<=) a_aeBr b_aeBs
+      = GHC.Classes.not ((GHC.Classes.<) b_aeBs a_aeBr)
+    (GHC.Classes.>) a_aeBt b_aeBu = (GHC.Classes.<) b_aeBu a_aeBt
+    (GHC.Classes.>=) a_aeBv b_aeBw
+      = GHC.Classes.not ((GHC.Classes.<) a_aeBv b_aeBw)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.ColSpan where
+    (GHC.Classes.==)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan -> GHC.Types.Bool)
+          ((GHC.Classes.==) @GHC.Types.Int)
+    (GHC.Classes./=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan -> GHC.Types.Bool)
+          ((GHC.Classes./=) @GHC.Types.Int)
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.ColSpan where
+    GHC.Classes.compare
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Ordering)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan -> GHC.Types.Ordering)
+          (GHC.Classes.compare @GHC.Types.Int)
+    (GHC.Classes.<)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan -> GHC.Types.Bool)
+          ((GHC.Classes.<) @GHC.Types.Int)
+    (GHC.Classes.<=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan -> GHC.Types.Bool)
+          ((GHC.Classes.<=) @GHC.Types.Int)
+    (GHC.Classes.>)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan -> GHC.Types.Bool)
+          ((GHC.Classes.>) @GHC.Types.Int)
+    (GHC.Classes.>=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan -> GHC.Types.Bool)
+          ((GHC.Classes.>=) @GHC.Types.Int)
+    GHC.Classes.max
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan)
+          (GHC.Classes.max @GHC.Types.Int)
+    GHC.Classes.min
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int)
+          @(Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan
+            -> Text.Pandoc.Definition.ColSpan)
+          (GHC.Classes.min @GHC.Types.Int)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.RowSpan where
+    (GHC.Classes.==)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan -> GHC.Types.Bool)
+          ((GHC.Classes.==) @GHC.Types.Int)
+    (GHC.Classes./=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan -> GHC.Types.Bool)
+          ((GHC.Classes./=) @GHC.Types.Int)
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.RowSpan where
+    GHC.Classes.compare
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Ordering)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan -> GHC.Types.Ordering)
+          (GHC.Classes.compare @GHC.Types.Int)
+    (GHC.Classes.<)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan -> GHC.Types.Bool)
+          ((GHC.Classes.<) @GHC.Types.Int)
+    (GHC.Classes.<=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan -> GHC.Types.Bool)
+          ((GHC.Classes.<=) @GHC.Types.Int)
+    (GHC.Classes.>)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan -> GHC.Types.Bool)
+          ((GHC.Classes.>) @GHC.Types.Int)
+    (GHC.Classes.>=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan -> GHC.Types.Bool)
+          ((GHC.Classes.>=) @GHC.Types.Int)
+    GHC.Classes.max
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan)
+          (GHC.Classes.max @GHC.Types.Int)
+    GHC.Classes.min
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int)
+          @(Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan
+            -> Text.Pandoc.Definition.RowSpan)
+          (GHC.Classes.min @GHC.Types.Int)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.ColWidth where
+    (GHC.Classes.==) a_aeC8 b_aeC9
+      = case
+            (case (GHC.Magic.dataToTag# a_aeC8) of
+               a#_aeCa
+                 -> case (GHC.Magic.dataToTag# b_aeC9) of
+                      b#_aeCb -> a#_aeCa GHC.Prim./=# b#_aeCb)
+        of
+          1# -> GHC.Types.False
+          _ -> case a_aeC8 of
+                 (Text.Pandoc.Definition.ColWidth a1_aeCc)
+                   -> case b_aeC9 of
+                        (Text.Pandoc.Definition.ColWidth b1_aeCd)
+                          -> ((a1_aeCc GHC.Classes.== b1_aeCd))
+                 _ -> GHC.Types.True
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.ColWidth where
+    GHC.Classes.compare a_aeCe b_aeCf
+      = case a_aeCe of
+          Text.Pandoc.Definition.ColWidth a1_aeCg
+            -> case b_aeCf of
+                 Text.Pandoc.Definition.ColWidth b1_aeCh
+                   -> (a1_aeCg `GHC.Classes.compare` b1_aeCh)
+                 _ -> GHC.Types.LT
+          Text.Pandoc.Definition.ColWidthDefault
+            -> case b_aeCf of
+                 Text.Pandoc.Definition.ColWidthDefault -> GHC.Types.EQ
+                 _ -> GHC.Types.GT
+    (GHC.Classes.<) a_aeCi b_aeCj
+      = case a_aeCi of
+          Text.Pandoc.Definition.ColWidth a1_aeCk
+            -> case b_aeCj of
+                 Text.Pandoc.Definition.ColWidth b1_aeCl
+                   -> (a1_aeCk GHC.Classes.< b1_aeCl)
+                 _ -> GHC.Types.True
+          Text.Pandoc.Definition.ColWidthDefault
+            -> case b_aeCj of
+                 Text.Pandoc.Definition.ColWidthDefault -> GHC.Types.False
+                 _ -> GHC.Types.False
+    (GHC.Classes.<=) a_aeCm b_aeCn
+      = GHC.Classes.not ((GHC.Classes.<) b_aeCn a_aeCm)
+    (GHC.Classes.>) a_aeCo b_aeCp = (GHC.Classes.<) b_aeCp a_aeCo
+    (GHC.Classes.>=) a_aeCq b_aeCr
+      = GHC.Classes.not ((GHC.Classes.<) a_aeCq b_aeCr)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.Alignment where
+    (GHC.Classes.==) a_aeCJ b_aeCK
+      = case (GHC.Magic.dataToTag# a_aeCJ) of
+          a#_aeCL
+            -> case (GHC.Magic.dataToTag# b_aeCK) of
+                 b#_aeCM -> (GHC.Prim.tagToEnum# (a#_aeCL GHC.Prim.==# b#_aeCM))
+  
+  instance GHC.Classes.Ord Text.Pandoc.Definition.Alignment where
+    GHC.Classes.compare a_aeCN b_aeCO
+      = case (GHC.Magic.dataToTag# a_aeCN) of
+          a#_aeCP
+            -> case (GHC.Magic.dataToTag# b_aeCO) of
+                 b#_aeCQ
+                   -> if (GHC.Prim.tagToEnum# (a#_aeCP GHC.Prim.<# b#_aeCQ)) ::
+                           GHC.Types.Bool then
+                          GHC.Types.LT
+                      else
+                          if (GHC.Prim.tagToEnum# (a#_aeCP GHC.Prim.==# b#_aeCQ)) ::
+                               GHC.Types.Bool then
+                              GHC.Types.EQ
+                          else
+                              GHC.Types.GT
+    (GHC.Classes.<) a_aeCR b_aeCS
+      = case (GHC.Magic.dataToTag# a_aeCR) of
+          a#_aeCT
+            -> case (GHC.Magic.dataToTag# b_aeCS) of
+                 b#_aeCU -> (GHC.Prim.tagToEnum# (a#_aeCT GHC.Prim.<# b#_aeCU))
+    (GHC.Classes.<=) a_aeCV b_aeCW
+      = GHC.Classes.not ((GHC.Classes.<) b_aeCW a_aeCV)
+    (GHC.Classes.>) a_aeCX b_aeCY = (GHC.Classes.<) b_aeCY a_aeCX
+    (GHC.Classes.>=) a_aeCZ b_aeD0
+      = GHC.Classes.not ((GHC.Classes.<) a_aeCZ b_aeD0)
+  
+  instance GHC.Classes.Eq Text.Pandoc.Definition.RowHeadColumns where
+    (GHC.Classes.==)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns -> GHC.Types.Bool)
+          ((GHC.Classes.==) @GHC.Types.Int)
+    (GHC.Classes./=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns -> GHC.Types.Bool)
+          ((GHC.Classes./=) @GHC.Types.Int)
+  
+  instance GHC.Classes.Ord
+             Text.Pandoc.Definition.RowHeadColumns where
+    GHC.Classes.compare
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Ordering)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns -> GHC.Types.Ordering)
+          (GHC.Classes.compare @GHC.Types.Int)
+    (GHC.Classes.<)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns -> GHC.Types.Bool)
+          ((GHC.Classes.<) @GHC.Types.Int)
+    (GHC.Classes.<=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns -> GHC.Types.Bool)
+          ((GHC.Classes.<=) @GHC.Types.Int)
+    (GHC.Classes.>)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns -> GHC.Types.Bool)
+          ((GHC.Classes.>) @GHC.Types.Int)
+    (GHC.Classes.>=)
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Bool)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns -> GHC.Types.Bool)
+          ((GHC.Classes.>=) @GHC.Types.Int)
+    GHC.Classes.max
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns)
+          (GHC.Classes.max @GHC.Types.Int)
+    GHC.Classes.min
+      = GHC.Prim.coerce
+          @(GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int)
+          @(Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns
+            -> Text.Pandoc.Definition.RowHeadColumns)
+          (GHC.Classes.min @GHC.Types.Int)
+  
+  instance GHC.Classes.Eq
+             Text.Pandoc.Definition.ListNumberDelim where
+    (GHC.Classes.==) a_aeDG b_aeDH
+      = case (GHC.Magic.dataToTag# a_aeDG) of
+          a#_aeDI
+            -> case (GHC.Magic.dataToTag# b_aeDH) of
+                 b#_aeDJ -> (GHC.Prim.tagToEnum# (a#_aeDI GHC.Prim.==# b#_aeDJ))
+  
+  instance GHC.Classes.Ord
+             Text.Pandoc.Definition.ListNumberDelim where
+    GHC.Classes.compare a_aeDK b_aeDL
+      = case (GHC.Magic.dataToTag# a_aeDK) of
+          a#_aeDM
+            -> case (GHC.Magic.dataToTag# b_aeDL) of
+                 b#_aeDN
+                   -> if (GHC.Prim.tagToEnum# (a#_aeDM GHC.Prim.<# b#_aeDN)) ::
+                           GHC.Types.Bool then
+                          GHC.Types.LT
+                      else
+                          if (GHC.Prim.tagToEnum# (a#_aeDM GHC.Prim.==# b#_aeDN)) ::
+                               GHC.Types.Bool then
+                              GHC.Types.EQ
+                          else
+                              GHC.Types.GT
+    (GHC.Classes.<) a_aeDO b_aeDP
+      = case (GHC.Magic.dataToTag# a_aeDO) of
+          a#_aeDQ
+            -> case (GHC.Magic.dataToTag# b_aeDP) of
+                 b#_aeDR -> (GHC.Prim.tagToEnum# (a#_aeDQ GHC.Prim.<# b#_aeDR))
+    (GHC.Classes.<=) a_aeDS b_aeDT
+      = GHC.Classes.not ((GHC.Classes.<) b_aeDT a_aeDS)
+    (GHC.Classes.>) a_aeDU b_aeDV = (GHC.Classes.<) b_aeDV a_aeDU
+    (GHC.Classes.>=) a_aeDW b_aeDX
+      = GHC.Classes.not ((GHC.Classes.<) a_aeDW b_aeDX)
+  
+  instance GHC.Classes.Eq
+             Text.Pandoc.Definition.ListNumberStyle where
+    (GHC.Classes.==) a_aeEb b_aeEc
+      = case (GHC.Magic.dataToTag# a_aeEb) of
+          a#_aeEd
+            -> case (GHC.Magic.dataToTag# b_aeEc) of
+                 b#_aeEe -> (GHC.Prim.tagToEnum# (a#_aeEd GHC.Prim.==# b#_aeEe))
+  
+  instance GHC.Classes.Ord
+             Text.Pandoc.Definition.ListNumberStyle where
+    GHC.Classes.compare a_aeEf b_aeEg
+      = case (GHC.Magic.dataToTag# a_aeEf) of
+          a#_aeEh
+            -> case (GHC.Magic.dataToTag# b_aeEg) of
+                 b#_aeEi
+                   -> if (GHC.Prim.tagToEnum# (a#_aeEh GHC.Prim.<# b#_aeEi)) ::
+                           GHC.Types.Bool then
+                          GHC.Types.LT
+                      else
+                          if (GHC.Prim.tagToEnum# (a#_aeEh GHC.Prim.==# b#_aeEi)) ::
+                               GHC.Types.Bool then
+                              GHC.Types.EQ
+                          else
+                              GHC.Types.GT
+    (GHC.Classes.<) a_aeEj b_aeEk
+      = case (GHC.Magic.dataToTag# a_aeEj) of
+          a#_aeEl
+            -> case (GHC.Magic.dataToTag# b_aeEk) of
+                 b#_aeEm -> (GHC.Prim.tagToEnum# (a#_aeEl GHC.Prim.<# b#_aeEm))
+    (GHC.Classes.<=) a_aeEn b_aeEo
+      = GHC.Classes.not ((GHC.Classes.<) b_aeEo a_aeEn)
+    (GHC.Classes.>) a_aeEp b_aeEq = (GHC.Classes.<) b_aeEq a_aeEp
+    (GHC.Classes.>=) a_aeEr b_aeEs
+      = GHC.Classes.not ((GHC.Classes.<) a_aeEr b_aeEs)
+  
+  instance GHC.Classes.Ord a =>
+           GHC.Classes.Ord (Text.Pandoc.Builder.Many a) where
+    GHC.Classes.compare
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3 -> GHC.Types.Ordering)
+          @(Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3 -> GHC.Types.Ordering)
+          (GHC.Classes.compare @(Data.Sequence.Internal.Seq a_a1HX3))
+    (GHC.Classes.<)
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3 -> GHC.Types.Bool)
+          @(Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3 -> GHC.Types.Bool)
+          ((GHC.Classes.<) @(Data.Sequence.Internal.Seq a_a1HX3))
+    (GHC.Classes.<=)
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3 -> GHC.Types.Bool)
+          @(Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3 -> GHC.Types.Bool)
+          ((GHC.Classes.<=) @(Data.Sequence.Internal.Seq a_a1HX3))
+    (GHC.Classes.>)
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3 -> GHC.Types.Bool)
+          @(Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3 -> GHC.Types.Bool)
+          ((GHC.Classes.>) @(Data.Sequence.Internal.Seq a_a1HX3))
+    (GHC.Classes.>=)
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3 -> GHC.Types.Bool)
+          @(Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3 -> GHC.Types.Bool)
+          ((GHC.Classes.>=) @(Data.Sequence.Internal.Seq a_a1HX3))
+    GHC.Classes.max
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3)
+          @(Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3)
+          (GHC.Classes.max @(Data.Sequence.Internal.Seq a_a1HX3))
+    GHC.Classes.min
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3
+            -> Data.Sequence.Internal.Seq a_a1HX3)
+          @(Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3
+            -> Text.Pandoc.Builder.Many a_a1HX3)
+          (GHC.Classes.min @(Data.Sequence.Internal.Seq a_a1HX3))
+  
+  instance GHC.Classes.Eq a =>
+           GHC.Classes.Eq (Text.Pandoc.Builder.Many a) where
+    (GHC.Classes.==)
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX9
+            -> Data.Sequence.Internal.Seq a_a1HX9 -> GHC.Types.Bool)
+          @(Text.Pandoc.Builder.Many a_a1HX9
+            -> Text.Pandoc.Builder.Many a_a1HX9 -> GHC.Types.Bool)
+          ((GHC.Classes.==) @(Data.Sequence.Internal.Seq a_a1HX9))
+    (GHC.Classes./=)
+      = GHC.Prim.coerce
+          @(Data.Sequence.Internal.Seq a_a1HX9
+            -> Data.Sequence.Internal.Seq a_a1HX9 -> GHC.Types.Bool)
+          @(Text.Pandoc.Builder.Many a_a1HX9
+            -> Text.Pandoc.Builder.Many a_a1HX9 -> GHC.Types.Bool)
+          ((GHC.Classes./=) @(Data.Sequence.Internal.Seq a_a1HX9))
+  

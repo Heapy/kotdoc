@@ -2,6 +2,8 @@
 // Copyright (c) 2006-2023 John MacFarlane. BSD-3-Clause; see licenses/.
 // Lists, tuples, Maybe and defaults follow GHC 9.12.2 GHC.Classes / Maybe.
 // Copyright 2004 The University Court of the University of Glasgow; BSD-style.
+// Sequence: Ross Paterson 2005, Louis Wasserman 2009, Bertram Felgenhauer,
+// David Feuer, Ross Paterson and Milan Straka 2014; BSD-style.
 // Map instances: containers 0.7, Copyright (c) Daan Leijen 2002 and
 // Andriy Palamarchuk 2008. See the retained original notices in licenses/.
 package io.heapy.kotdoc.ast
@@ -20,6 +22,8 @@ class AstComparison<A> private constructor() {
 
     companion object {
         val Pandoc = AstComparison<io.heapy.kotdoc.ast.Pandoc>()
+        val Inlines = AstComparison<io.heapy.kotdoc.ast.Inlines>()
+        val Blocks = AstComparison<io.heapy.kotdoc.ast.Blocks>()
         val Meta = AstComparison<Map<String, MetaValue>>()
         val MetaValue = AstComparison<io.heapy.kotdoc.ast.MetaValue>()
         val Inline = AstComparison<io.heapy.kotdoc.ast.Inline>()
@@ -131,7 +135,7 @@ private object AstOrderEngine {
         else -> error("Unsupported AST comparison: ${v.javaClass}")
     }
     private fun compareOnly(v: Any) = v is Inline || v is Block || v is MetaValue ||
-        v is List<*> || v is Map<*, *> || v is Citation || v is Format
+        v is List<*> || v is Map<*, *> || v is Citation || v is Format || v is Inlines || v is Blocks
 
     private fun relation(sign: Int, op: AstOp): Int = when (op) {
         AstOp.Compare -> sign.compareTo(0)
@@ -223,6 +227,13 @@ private object AstOrderEngine {
                         } else if (op == AstOp.LessEqual || op == AstOp.GreaterEqual) 1 - sign else sign
                     })
                     todo.addLast(if (reverse) Work(b, a, child) else Work(a, b, child))
+                } else if ((a is Inlines && b is Inlines) || (a is Blocks && b is Blocks)) {
+                    // Many derives every method by coercion to containers Seq.
+                    // Seq Eq tests finite length before any element, unlike list Eq.
+                    val xs=if(a is Inlines) a.values else (a as Blocks).values
+                    val ys=if(b is Inlines) b.values else (b as Blocks).values
+                    if(op==AstOp.Equal && xs.size!=ys.size) result=0
+                    else todo.addLast(Work(xs,ys,op))
                 } else if (a is List<*> && b is List<*>) {
                     todo.addLast(Lists(a.iterator(), b.iterator(), op))
                 } else if (a is Map<*, *> && b is Map<*, *>) {

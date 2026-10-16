@@ -1,0 +1,445 @@
+  $fEqSeq :: GHC.Classes.Eq a => GHC.Classes.Eq (Seq a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(LC(L,C(1,L)),A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Eq a).
+                @(Seq a) ($fEqSeq_$c== @a v) ($fEqSeq_$c/= @a v)]
+be2cb9ee2af9a97e4acf816482d72f12
+  $fEqSeq_$c/= ::
+    GHC.Classes.Eq a => Seq a -> Seq a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(SC(S,C(1,L)),A)><SL><SL>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @a
+                ($dEq['GHC.Types.Many] :: GHC.Classes.Eq a)
+                (eta['GHC.Types.Many] :: Seq a)
+                (eta1['GHC.Types.Many] :: Seq a) ->
+              case $fEqSeq_$c== @a $dEq eta eta1 of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+4341f8d0107f2bc27c2cc6e03a685de2
+  $fEqSeq_$c== ::
+    GHC.Classes.Eq a => Seq a -> Seq a -> GHC.Types.Bool
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,L)),A)><SL><SL>]
+e9fecc60f637ee3193efa07d657adfdb
+  $fEqViewL :: GHC.Classes.Eq a => GHC.Classes.Eq (ViewL a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,L)),A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Eq a).
+                @(ViewL a) ($fEqViewL_$c== @a v) ($fEqViewL_$c/= @a v)]
+a68388b70073cfc99a3b778528c01c4f
+  $fEqViewL1 :: ()
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+d81005549305576d05aa2679ef8ed994
+  $fEqViewL_$c/= ::
+    GHC.Classes.Eq a => ViewL a -> ViewL a -> GHC.Types.Bool
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,L)),A)><SL><SL>, Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @a
+                ($dEq['GHC.Types.Many] :: GHC.Classes.Eq a)
+                (eta['GHC.Types.Many] :: ViewL a)
+                (eta1['GHC.Types.Many] :: ViewL a) ->
+              case $fEqViewL_$c== @a $dEq eta eta1 of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+00503e5952ffc4b798f5c0c2b3f0df7a
+  $fEqViewL_$c== ::
+    GHC.Classes.Eq a => ViewL a -> ViewL a -> GHC.Types.Bool
+  [LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,L)),A)><SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dEq['GHC.Types.Many] :: GHC.Classes.Eq a)
+                (a1['GHC.Types.Many] :: ViewL a)
+                (b['GHC.Types.Many] :: ViewL a) ->
+              case GHC.Prim.dataToTagSmall#
+                     @'GHC.Types.Lifted
+                     @(ViewL a)
+                     a1 of a# { DEFAULT ->
+              case GHC.Prim.dataToTagSmall#
+                     @'GHC.Types.Lifted
+                     @(ViewL a)
+                     b of b# { DEFAULT ->
+              case GHC.Prim./=# a# b# of ds {
+                DEFAULT
+                -> case a1 of wild {
+                     EmptyL -> GHC.Types.True
+                     :< a2 a3
+                     -> case b of wild1 {
+                          EmptyL -> case $fEqViewL1 ret_ty GHC.Types.Bool of {}
+                          :< b1 b2
+                          -> case GHC.Classes.== @a $dEq a2 b1 of wild2 {
+                               GHC.Types.False -> GHC.Types.False
+                               GHC.Types.True -> $fEqSeq_$c== @a $dEq a3 b2 } } }
+                1# -> GHC.Types.False } } }]
+8996b56c4224b23e45e87d4d074694b0
+  $fEqViewR :: GHC.Classes.Eq a => GHC.Classes.Eq (ViewR a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,L)),A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Eq a).
+                @(ViewR a) ($fEqViewR_$c== @a v) ($fEqViewR_$c/= @a v)]
+fc35d23fbf55baf295bd9f729cfe1dc8
+  $fEqViewR1 :: ()
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+c9f657db630d873e0c1b150f4af20982
+  $fEqViewR_$c/= ::
+    GHC.Classes.Eq a => ViewR a -> ViewR a -> GHC.Types.Bool
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(LC(L,C(1,L)),A)><SL><SL>, Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @a
+                ($dEq['GHC.Types.Many] :: GHC.Classes.Eq a)
+                (eta['GHC.Types.Many] :: ViewR a)
+                (eta1['GHC.Types.Many] :: ViewR a) ->
+              case $fEqViewR_$c== @a $dEq eta eta1 of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+a62851125054f1edfb56fcbef7d18de4
+  $fEqViewR_$c== ::
+    GHC.Classes.Eq a => ViewR a -> ViewR a -> GHC.Types.Bool
+  [LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(LC(L,C(1,L)),A)><SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dEq['GHC.Types.Many] :: GHC.Classes.Eq a)
+                (a1['GHC.Types.Many] :: ViewR a)
+                (b['GHC.Types.Many] :: ViewR a) ->
+              case GHC.Prim.dataToTagSmall#
+                     @'GHC.Types.Lifted
+                     @(ViewR a)
+                     a1 of a# { DEFAULT ->
+              case GHC.Prim.dataToTagSmall#
+                     @'GHC.Types.Lifted
+                     @(ViewR a)
+                     b of b# { DEFAULT ->
+              case GHC.Prim./=# a# b# of ds {
+                DEFAULT
+                -> case a1 of wild {
+                     EmptyR -> GHC.Types.True
+                     :> a2 a3
+                     -> case b of wild1 {
+                          EmptyR -> case $fEqViewR1 ret_ty GHC.Types.Bool of {}
+                          :> b1 b2
+                          -> case $fEqSeq_$c== @a $dEq a2 b1 of wild2 {
+                               GHC.Types.False -> GHC.Types.False
+                               GHC.Types.True -> GHC.Classes.== @a $dEq a3 b2 } } }
+                1# -> GHC.Types.False } } }]
+a488a8a6a7a5f40b1126ea30a2b00201
+
+  $fOrdSeq :: GHC.Classes.Ord a => GHC.Classes.Ord (Seq a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(LC(L,C(1,L)),A),LC(L,C(1,L)),A,A,A,A,A,A)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(Seq a)
+                ($fOrdSeq_$cp1Ord @a v)
+                ($fOrdSeq_$ccompare @a v)
+                ($fOrdSeq_$c< @a v)
+                ($fOrdSeq_$c<= @a v)
+                ($fOrdSeq_$c> @a v)
+                (\ (x['GHC.Types.Many] :: Seq a) (y['GHC.Types.Many] :: Seq a) ->
+                 $fOrdSeq_$c<= @a v y x)
+                ($fOrdSeq_$cmax @a v)
+                ($fOrdSeq_$cmin @a v)]
+cbdaf86463193932caf171aa1984923f
+  $fOrdSeq_$c< ::
+    GHC.Classes.Ord a => Seq a -> Seq a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: Seq a)
+                (y['GHC.Types.Many] :: Seq a) ->
+              case $fOrdSeq_$c<= @a $dOrd y x of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+64f7793fc4ba3a27618c5479b974bca8
+  $fOrdSeq_$c<= ::
+    GHC.Classes.Ord a => Seq a -> Seq a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>]
+97b4d6882264179e8a3c827dcfe6d949
+  $fOrdSeq_$c> ::
+    GHC.Classes.Ord a => Seq a -> Seq a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: Seq a)
+                (y['GHC.Types.Many] :: Seq a) ->
+              case $fOrdSeq_$c<= @a $dOrd x y of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+e482862ff80e34d13427390f7fa91ca8
+  $fOrdSeq_$ccompare ::
+    GHC.Classes.Ord a => Seq a -> Seq a -> GHC.Types.Ordering
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>]
+39899383db53c91594a6ce162a3504a7
+  $fOrdSeq_$cmax :: GHC.Classes.Ord a => Seq a -> Seq a -> Seq a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: Seq a)
+                (y['GHC.Types.Many] :: Seq a) ->
+              case $fOrdSeq_$c<= @a $dOrd x y of wild {
+                GHC.Types.False -> x GHC.Types.True -> y }]
+edd823960f834f4e5b0aab414d2c6572
+  $fOrdSeq_$cmin :: GHC.Classes.Ord a => Seq a -> Seq a -> Seq a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: Seq a)
+                (y['GHC.Types.Many] :: Seq a) ->
+              case $fOrdSeq_$c<= @a $dOrd x y of wild {
+                GHC.Types.False -> y GHC.Types.True -> x }]
+10957079864902c93f10adbdd16228b4
+  $fOrdSeq_$cp1Ord :: GHC.Classes.Ord a => GHC.Classes.Eq (Seq a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(LC(L,C(1,L)),A),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a) ->
+              $fEqSeq @a (GHC.Classes.$p1Ord @a $dOrd)]
+5edde793a7efc142a036b394d3520b5c
+  $fOrdViewL :: GHC.Classes.Ord a => GHC.Classes.Ord (ViewL a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(MP(LC(L,C(1,L)),A),LC(L,C(1,L)),A,A,A,A,A,A)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(ViewL a)
+                ($fOrdViewL_$cp1Ord @a v)
+                ($fOrdViewL_$ccompare @a v)
+                ($fOrdViewL_$c< @a v)
+                ($fOrdViewL_$c<= @a v)
+                (\ (a1['GHC.Types.Many] :: ViewL a)
+                   (b['GHC.Types.Many] :: ViewL a) ->
+                 $fOrdViewL_$c< @a v b a1)
+                ($fOrdViewL_$c>= @a v)
+                ($fOrdViewL_$cmax @a v)
+                ($fOrdViewL_$cmin @a v)]
+40a1621c6f3ef788d69cb7049bdb3879
+  $fOrdViewL_$c< ::
+    GHC.Classes.Ord a => ViewL a -> ViewL a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (a1['GHC.Types.Many] :: ViewL a)
+                (b['GHC.Types.Many] :: ViewL a) ->
+              case a1 of wild {
+                EmptyL
+                -> case b of wild1 {
+                     EmptyL -> GHC.Types.False :< ipv ipv1 -> GHC.Types.True }
+                :< a2 a3
+                -> case b of wild1 {
+                     EmptyL -> GHC.Types.False
+                     :< b1 b2
+                     -> case GHC.Classes.compare @a $dOrd a2 b1 of wild2 {
+                          GHC.Types.LT -> GHC.Types.True
+                          GHC.Types.EQ -> $fOrdSeq_$c< @a $dOrd a3 b2
+                          GHC.Types.GT -> GHC.Types.False } } }]
+c3ff0e3aa0a9e4582fc2376f7027fbbb
+  $fOrdViewL_$c<= ::
+    GHC.Classes.Ord a => ViewL a -> ViewL a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (a1['GHC.Types.Many] :: ViewL a)
+                (b['GHC.Types.Many] :: ViewL a) ->
+              case b of wild {
+                EmptyL
+                -> case a1 of wild1 {
+                     EmptyL -> GHC.Types.True :< ipv ipv1 -> GHC.Types.False }
+                :< a2 a3
+                -> case a1 of wild1 {
+                     EmptyL -> GHC.Types.True
+                     :< b1 b2
+                     -> case GHC.Classes.compare @a $dOrd a2 b1 of wild2 {
+                          GHC.Types.LT -> GHC.Types.False
+                          GHC.Types.EQ -> $fOrdSeq_$c<= @a $dOrd b2 a3
+                          GHC.Types.GT -> GHC.Types.True } } }]
+d1d3a275ba790c13dd21513e4bc6bea1
+  $fOrdViewL_$c>= ::
+    GHC.Classes.Ord a => ViewL a -> ViewL a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (a1['GHC.Types.Many] :: ViewL a)
+                (b['GHC.Types.Many] :: ViewL a) ->
+              case a1 of wild {
+                EmptyL
+                -> case b of wild1 {
+                     EmptyL -> GHC.Types.True :< ipv ipv1 -> GHC.Types.False }
+                :< a2 a3
+                -> case b of wild1 {
+                     EmptyL -> GHC.Types.True
+                     :< b1 b2
+                     -> case GHC.Classes.compare @a $dOrd a2 b1 of wild2 {
+                          GHC.Types.LT -> GHC.Types.False
+                          GHC.Types.EQ -> $fOrdSeq_$c<= @a $dOrd b2 a3
+                          GHC.Types.GT -> GHC.Types.True } } }]
+fd5eb0334f3d61cc043666a3d91526f6
+  $fOrdViewL_$ccompare ::
+    GHC.Classes.Ord a => ViewL a -> ViewL a -> GHC.Types.Ordering
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>]
+908d185804184de3e967ca00dd2f2dbe
+  $fOrdViewL_$cmax ::
+    GHC.Classes.Ord a => ViewL a -> ViewL a -> ViewL a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: ViewL a)
+                (y['GHC.Types.Many] :: ViewL a) ->
+              case y of wild {
+                EmptyL -> x
+                :< a1 a2
+                -> case x of wild1 {
+                     EmptyL -> wild
+                     :< b1 b2
+                     -> case GHC.Classes.compare @a $dOrd a1 b1 of wild2 {
+                          GHC.Types.LT -> wild1
+                          GHC.Types.EQ
+                          -> case $fOrdSeq_$c<= @a $dOrd b2 a2 of wild3 {
+                               GHC.Types.False -> wild1 GHC.Types.True -> wild }
+                          GHC.Types.GT -> wild } } }]
+be5a283a9a30e162279232a379ddf9f4
+  $fOrdViewL_$cmin ::
+    GHC.Classes.Ord a => ViewL a -> ViewL a -> ViewL a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,SC(S,C(1,L)),A,A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: ViewL a)
+                (y['GHC.Types.Many] :: ViewL a) ->
+              case y of wild {
+                EmptyL -> case x of wild1 { DEFAULT -> EmptyL @a }
+                :< a1 a2
+                -> case x of wild1 {
+                     EmptyL -> EmptyL @a
+                     :< b1 b2
+                     -> case GHC.Classes.compare @a $dOrd a1 b1 of wild2 {
+                          GHC.Types.LT -> wild
+                          GHC.Types.EQ
+                          -> case $fOrdSeq_$c<= @a $dOrd b2 a2 of wild3 {
+                               GHC.Types.False -> wild GHC.Types.True -> wild1 }
+                          GHC.Types.GT -> wild1 } } }]
+89c5699523225ebe0ef6d3a4d657fb5f
+  $fOrdViewL_$cp1Ord :: GHC.Classes.Ord a => GHC.Classes.Eq (ViewL a)
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(1P(LC(L,C(1,L)),A),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a) ->
+              $fEqViewL @a (GHC.Classes.$p1Ord @a $dOrd)]
+5a5fb217f006806b469a740c1b0c4e20
+  $fOrdViewR :: GHC.Classes.Ord a => GHC.Classes.Ord (ViewR a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(MP(LC(L,C(1,L)),A),LC(L,C(1,L)),LC(L,C(1,L)),A,A,A,A,A)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(ViewR a)
+                ($fOrdViewR_$cp1Ord @a v)
+                ($fOrdViewR_$ccompare @a v)
+                ($fOrdViewR_$c< @a v)
+                ($fOrdViewR_$c<= @a v)
+                (\ (a1['GHC.Types.Many] :: ViewR a)
+                   (b['GHC.Types.Many] :: ViewR a) ->
+                 $fOrdViewR_$c< @a v b a1)
+                ($fOrdViewR_$c>= @a v)
+                ($fOrdViewR_$cmax @a v)
+                ($fOrdViewR_$cmin @a v)]
+5cd9c461208a26a5fd3410f7b7c7f3fa
+  $fOrdViewR_$c< ::
+    GHC.Classes.Ord a => ViewR a -> ViewR a -> GHC.Types.Bool
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,LC(S,C(1,L)),MC(1,C(1,L)),A,A,A,A,A)><1L><1L>]
+b807f6d005ed85f5824b31e306351d67
+  $fOrdViewR_$c<= ::
+    GHC.Classes.Ord a => ViewR a -> ViewR a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3,
+   Strictness: <LP(A,LC(S,C(1,L)),LC(S,C(1,L)),A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (a1['GHC.Types.Many] :: ViewR a)
+                (b['GHC.Types.Many] :: ViewR a) ->
+              case $fOrdViewR_$c< @a $dOrd b a1 of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+ad1d2016f0fa46bde59cce54d17d9e0c
+  $fOrdViewR_$c>= ::
+    GHC.Classes.Ord a => ViewR a -> ViewR a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3,
+   Strictness: <LP(A,LC(S,C(1,L)),LC(S,C(1,L)),A,A,A,A,A)><1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (a1['GHC.Types.Many] :: ViewR a)
+                (b['GHC.Types.Many] :: ViewR a) ->
+              case $fOrdViewR_$c< @a $dOrd a1 b of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+19234791ca5d590688bddc878b9ed9e0
+  $fOrdViewR_$ccompare ::
+    GHC.Classes.Ord a => ViewR a -> ViewR a -> GHC.Types.Ordering
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,LC(L,C(1,L)),A,A,A,A,A,A)><1L><1L>]
+2a430ca4d6aa80f4067b23c752cb85f2
+  $fOrdViewR_$cmax ::
+    GHC.Classes.Ord a => ViewR a -> ViewR a -> ViewR a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,LC(S,C(1,L)),LC(S,C(1,L)),A,A,A,A,A)><SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: ViewR a)
+                (y['GHC.Types.Many] :: ViewR a) ->
+              case $fOrdViewR_$c< @a $dOrd y x of wild {
+                GHC.Types.False -> y GHC.Types.True -> x }]
+529ceecc4b79192cc77a99e8f03bf5d7
+  $fOrdViewR_$cmin ::
+    GHC.Classes.Ord a => ViewR a -> ViewR a -> ViewR a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,LC(S,C(1,L)),LC(S,C(1,L)),A,A,A,A,A)><SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (x['GHC.Types.Many] :: ViewR a)
+                (y['GHC.Types.Many] :: ViewR a) ->
+              case $fOrdViewR_$c< @a $dOrd y x of wild {
+                GHC.Types.False -> x GHC.Types.True -> y }]
+28ce6ed6bd2c8716b9ec385dd144781a
+  $fOrdViewR_$cp1Ord :: GHC.Classes.Ord a => GHC.Classes.Eq (ViewR a)
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(1P(LC(L,C(1,L)),A),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a) ->
+              $fEqViewR @a (GHC.Classes.$p1Ord @a $dOrd)]
+bdfe72442374abe6183fae8ea1691d2d

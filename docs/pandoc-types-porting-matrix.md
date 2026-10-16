@@ -13,7 +13,7 @@ Source authority: pinned upstream/pandoc-types/{src/Text/Pandoc/{Arbitrary,Defin
 | Nine inherited empty shrink families | `Arbitrary.hs:288-307,348-407`; QuickCheck `Arbitrary.shrink` default | `cdf2b84906e91b1baad740738564855677966acb`: 270 original inputs, nine explicit Kotlin APIs; compound Citation/Alignment hooks retained | Covered original default no-op semantics on the represented inputs; standalone generator domain remains gateA |
 | All original registered tests | `test/test-pandoc-types.hs:tests` | Existing 56 paired JSON literals and two table literals; exact Walk evidence above | All 81 source registrations have concrete Kotlin mappings and executed finite evidence in remaining-property-manifest.json; whole semantic API and other gates remain open |
 | Derived Read | Definition.hs23 data/newtypes; Builder.hs Many; native GHC dictionaries | Accepted06317ca31379e7fb09a1c4579d4167e50f55d62a:16,954 native requests,25 concrete dictionaries/79 constructors+5 aliases, four Read class methods plus Prelude.read | Finite typed matrix independently accepted. NativeReader integration is the next checkpoint below |
-| Eq/Ord | Definition.hs derived/manual dictionaries; Builder.hs Many | Existing `AstComparison`, 75,470 independent observations, source dictionary dumps | Audit open; retain existing implementation unless a concrete gap/defect is demonstrated |
+| Eq/Ord | Definition.hs derived/manual dictionaries; Builder.hs Many | Existing75,470 independent observations plus current5,855 original requests,225 explicit method slots | Finite source audit accepted; Many dictionaries added for a demonstrated gap. Gradle81,325 passes; independent native/source review passes |
 | Whole public semantic API | exports/instances of Definition/Walk/Builder/Generic | Existing typed AST/builders/visitor/table helpers | Open: enumerate every export/instance and assign native evidence; missing APIs block611 closure |
 
 Accepted verification for the second checkpoint: actual JUnit XML7,375 cases, zero failures/errors/skips; both fixture source verifiers and independent original byte-for-byte replay passed. This is the verification of those named slices, not completion611. Test inventory snapshot `5bbf0f27f96e0ef3c369d7684c5be898da2bdf4f` is a separate accepted audit snapshot. The next accepted generator-domain commit `43db34fe4fd20707b4891e81378c059acdc09d22` passed actual JUnit17,613 cases, zero failures/errors/skips, all three source verifiers and independent raw original replay. Neither count establishes completion611.
@@ -313,3 +313,47 @@ This Kotlin entry accepts String corresponding to upstream ToSources Text.
 Upstream ToSources Sources identity and [(FilePath,Text)] per-chunk newline/source
 position handling are separate unrepresented multi-source APIs; this checkpoint
 must not be described as implementing those overloads or completing all Pandoc.
+
+
+## Eq/Ord 25-dictionary / 225-method checkpoint
+
+Accepted Native integration is a4479abd39f15c094994637bae5c3105b88fe941, with268
+independent CLI responses and52,121 passing regression assertions. The FB2 proof
+is accepted separately in e279d0e6fbf2bbecef8c2ed5be7c393670583adf. This ordering
+checkpoint changes no Native/Read/FB2 test or production file.
+
+`order-closure-manifest.json` enumerates all25 concrete Eq/Ord dictionaries and
+all225 slots: eq/ne/compare/lt/le/gt/ge/minimum/maximum. Its source census contains
+all79 constructors in actual original Data order. The5,855 new original requests
+include all constructor cross-products;92 immediate-field changes;73 competing
+field pairs (distinct changed fields on opposite operands);19 original Arbitrary
+families at40 seeds and sizes0/1/3/8/30; integer bounds and Format folds; Many
+constructor/sequence/IEEE contexts; and126 individual Many demand/method probes.
+All native response lines are retained verbatim. Complete original min/max Show
+and source <= plus actual class/Seq selection bodies prove caller preservation.
+
+The old75,470 observations, all266 document inputs,17 generator families,
+18 IEEE contexts, lazy/deep/partial and100,000-step structures remain unchanged.
+Their source/hash verifier and entire existing Kotlin suite pass in isolation.
+New and old methods execute together:81,325 assertions, zero failures. Isolation
+compiles both tests into an immutable jar, avoiding dependencies on live Gradle
+class outputs. No original expectation is changed.
+
+The demonstrated production gap was Builder.Many: neither Inlines nor Blocks
+had an AstComparison dictionary. GHC's actual derived methods coerce to Seq.
+Seq Eq compares known finite lengths before elements; Ord compares list elements
+and uses the source defaults. The two new dictionaries preserve that distinction
+and caller wrappers for min/max. Known-spine partial elements verify demand and
+method direction; arbitrary bottom-valued StrictData fields, invalid/infinite Seq
+spines and a general GHC runtime are not claimed.
+
+Source evidence retains45 complete actual GHC9.12.2 derived Eq/Ord blocks, actual
+installed containers0.7 Seq dictionary interface boundaries and the unchanged
+original Sequence source/license. Handwritten Format Eq/Ord and Citation Ord are
+pinned directly in Definition.hs; class/list/tuple/Maybe/Map/primitive delegation
+retains the old authority and observations. Final focused Gradle1879 passed in
+1m44s: actual JUnit XML81,325 cases (75,470 existing plus5,855 new), zero failures,
+errors or skips. Both ordering source verifiers and diff checks pass. Independent
+review replayed all5,855 original responses byte-exact and parsed saved81,325
+actual XML cases with no failures/errors/skips; source/default/demand review passes. Walk's58 dictionaries/174 methods and140 module-owned
+export entries before member expansion remain open; this is not completion611.
