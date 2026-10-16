@@ -7,7 +7,7 @@ import io.heapy.kotdoc.crypto.CryptoEccSimpleTypes.Point
 import io.heapy.kotdoc.x509.X509EcPoint
 import java.math.BigInteger
 
-/** Source capability classes; X448 is a separate remaining checkpoint. */
+/** Source capability classes and pinned curve-family instances. */
 object CryptoEcc {
     enum class Error { CryptoError_PointSizeInvalid,CryptoError_PointFormatInvalid,CryptoError_PublicKeySizeInvalid,CryptoError_SecretKeySizeInvalid,CryptoError_PointCoordinatesInvalid,CryptoError_PointSubgroupInvalid,CryptoError_ScalarMultiplicationInvalid,CryptoError_EcScalarOutOfBounds,CryptoError_SharedSecretSizeInvalid }
     sealed interface Failable<out T> {
@@ -118,6 +118,10 @@ object CryptoEcc {
     }
     object P384: SimplePrime<CryptoEccSimpleTypes.SEC_p384r1>(CryptoEccSimpleTypes.curve(CryptoEccSimpleTypes.SEC_p384r1))
     object P521: SimplePrime<CryptoEccSimpleTypes.SEC_p521r1>(CryptoEccSimpleTypes.curve(CryptoEccSimpleTypes.SEC_p521r1))
+    object X448: EllipticCurveDH<CryptoCurve448.PublicKey,CryptoCurve448.SecretKey> by CryptoEccX448 {
+        override fun toString()=CryptoEccX448.toString()
+    }
+
     object X25519: EllipticCurveDH<CryptoCurve25519.PublicKey,CryptoCurve25519.SecretKey> {
         private val raw=CryptoCurve25519()
         override val sizeBits=255

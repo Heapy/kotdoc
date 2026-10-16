@@ -14405,3 +14405,28 @@ local helper; generic template errors outside Muse and general App metadata
 remain CLI gaps. The --output= alias is resolved for this narrow registration.
 RST writer22 original tests/8182 commands and the rest of local:618,612,621
 remain OPEN; this checkpoint does not complete Pandoc or later calibre.
+
+
+### Public Curve448 and modern X448 DH checkpoint
+
+The pinned Curve448 module's three immutable byte types and six functions are
+ported with raw56-byte constructors, RAM Show/Eq/NFData observations, owned
+input/output snapshots and one56-byte unclamped RNG request. Public raw DH
+ignores the native status and permits zero exactly as the source; modern X448
+adds the source all-zero rejection and only EllipticCurve/DH capabilities.
+No arithmetic/basepoint capability or additional range policy is introduced.
+
+Independent replay passed11189 actual Haskell/RAM observations and59 source
+pins, four original Curve448 KATs, the eight-example X448 modern partition and
+the complete52-example modern native supporting suite. The corpus is replayed
+against all four accepted raw profiles (44756 comparisons). Saved Gradle59616
+XML contains84661 actual zero-failure/error/skip cases:44818 new plus39843
+X25519/Ed25519/prime regression cases. Own15 frozen hashes,13 packaged classes,
+absence of BigInteger references and exact crypton/RAM notices were verified;
+jar/installDist passed. No accepted raw engine source changed.
+
+Valid random providers must return the requested size; malformed providers are
+outside the source contract. Cleaner erasure is best effort; JVM constant timing,
+physical erasure, general GHC demand equivalence and real32-bit ABI are not
+claimed. Public Ed448/SHAKE/signatures and remaining number/primality/trust/
+chain work keep local:613 and the complete Pandoc/calibre goal OPEN.
