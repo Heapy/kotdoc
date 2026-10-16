@@ -1,0 +1,63 @@
+
+vectors
+  11*G [✔]
+  123*G [✔]
+  134*G [✔]
+  123*G + 11*G [✔]
+scalar arithmetic
+  scalarDecodeLong.scalarEncode==id [✔]
+    +++ OK, passed 100 tests.
+  curve order [✔]
+  addition with zero [✔]
+    +++ OK, passed 100 tests.
+  addition associative [✔]
+    +++ OK, passed 100 tests.
+  addition commutative [✔]
+    +++ OK, passed 100 tests.
+  multiplication with zero [✔]
+    +++ OK, passed 100 tests.
+  multiplication with one [✔]
+    +++ OK, passed 100 tests.
+  multiplication associative [✔]
+    +++ OK, passed 100 tests.
+  multiplication commutative [✔]
+    +++ OK, passed 100 tests.
+  multiplication distributive [✔]
+    +++ OK, passed 100 tests.
+point arithmetic
+  pointDecode.pointEncode==id [✔]
+    +++ OK, passed 100 tests.
+  pointEncode.pointDecode==id [✔]
+    +++ OK, passed 100 tests.
+  addition with identity [✔]
+    +++ OK, passed 100 tests.
+  addition associative [✔]
+    +++ OK, passed 100 tests.
+  addition commutative [✔]
+    +++ OK, passed 100 tests.
+  negation [✔]
+    +++ OK, passed 100 tests.
+  doubling [✔]
+    +++ OK, passed 100 tests.
+  multiplication by cofactor [✔]
+    +++ OK, passed 100 tests.
+  prime order [✔]
+    +++ OK, passed 100 tests.
+  8-torsion point [✔]
+  scalarmult with zero [✔]
+    +++ OK, passed 100 tests.
+  scalarmult with one [✔]
+    +++ OK, passed 100 tests.
+  scalarmult with two [✔]
+    +++ OK, passed 100 tests.
+  scalarmult with curve order - 1 [✔]
+    +++ OK, passed 100 tests.
+  scalarmult commutative [✔]
+    +++ OK, passed 100 tests.
+  scalarmult distributive [✔]
+    +++ OK, passed 100 tests.
+  double scalarmult [✔]
+    +++ OK, passed 100 tests.
+
+Finished in 0.0782 seconds
+31 examples, 0 failures

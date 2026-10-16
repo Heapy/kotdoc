@@ -7,7 +7,7 @@ import io.heapy.kotdoc.crypto.CryptoEccSimpleTypes.Point
 import io.heapy.kotdoc.x509.X509EcPoint
 import java.math.BigInteger
 
-/** Source capability classes; X448/Edwards are separate remaining checkpoints. */
+/** Source capability classes; X448 is a separate remaining checkpoint. */
 object CryptoEcc {
     enum class Error { CryptoError_PointSizeInvalid,CryptoError_PointFormatInvalid,CryptoError_PublicKeySizeInvalid,CryptoError_SecretKeySizeInvalid,CryptoError_PointCoordinatesInvalid,CryptoError_PointSubgroupInvalid,CryptoError_ScalarMultiplicationInvalid,CryptoError_EcScalarOutOfBounds,CryptoError_SharedSecretSizeInvalid }
     sealed interface Failable<out T> {
@@ -134,4 +134,24 @@ object CryptoEcc {
         }
     }
 
+    object Edwards25519: EllipticCurveBasepointArith<CryptoEdwards25519.Point,CryptoEdwards25519.Scalar> {
+        override fun toString()="Curve_Edwards25519"
+        private val raw=CryptoEdwards25519()
+        override val sizeBits=255
+        override val orderBits=253
+        override fun generateScalar(random: (Int)->ByteArray)=raw.scalarGenerate(random)
+        override fun encodePoint(p: CryptoEdwards25519.Point)=raw.pointEncode(p)
+        override fun decodePoint(bytes: ByteArray)=raw.pointDecode(bytes)
+        override fun encodeScalar(s: CryptoEdwards25519.Scalar)=raw.scalarEncode(s).reversedArray()
+        override fun decodeScalar(bytes: ByteArray): Failable<CryptoEdwards25519.Scalar> = if(bytes.size==32)raw.scalarDecodeLong(bytes.reversedArray())else Failable.Failed(Error.CryptoError_SecretKeySizeInvalid)
+        override fun scalarToPoint(s: CryptoEdwards25519.Scalar)=raw.toPoint(s)
+        override fun pointAdd(a: CryptoEdwards25519.Point,b: CryptoEdwards25519.Point)=raw.pointAdd(a,b)
+        override fun pointNegate(p: CryptoEdwards25519.Point)=raw.pointNegate(p)
+        override fun pointSmul(s: CryptoEdwards25519.Scalar,p: CryptoEdwards25519.Point)=raw.pointMul(s,p)
+        override fun pointsSmulVarTime(a: CryptoEdwards25519.Scalar,b: CryptoEdwards25519.Scalar,p: CryptoEdwards25519.Point)=raw.pointsMulVarTime(a,b,p)
+        override fun scalarToInteger(s: CryptoEdwards25519.Scalar)=CryptoSerializeLE.os2ip(raw.scalarEncode(s))
+        override fun scalarFromInteger(n: BigInteger): Failable<CryptoEdwards25519.Scalar> = when(val bytes=CryptoSerializeLE.i2ospOf(32,n)){CryptoMaybe.None->Failable.Failed(Error.CryptoError_SecretKeySizeInvalid);is CryptoMaybe.Some->raw.scalarDecodeLong(bytes.value)}
+        override fun scalarAdd(a: CryptoEdwards25519.Scalar,b: CryptoEdwards25519.Scalar)=raw.scalarAdd(a,b)
+        override fun scalarMul(a: CryptoEdwards25519.Scalar,b: CryptoEdwards25519.Scalar)=raw.scalarMul(a,b)
+    }
 }

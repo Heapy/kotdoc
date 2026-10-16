@@ -14045,3 +14045,31 @@ local:611, full Pandoc/tests and later calibre work remain open.
 
 Cached diff check retains two whitespace/EOF diagnostics only in the verbatim
 GhcMonoid interface dump; source byte comparison passes and other paths are clean.
+
+### Public Edwards25519 and modern arithmetic adapter checkpoint
+
+The abstract owned Scalar/Point API now ports all15 original functions and
+Eq/Show/NFData observations; the modern Edwards instance supplies18 methods
+without inventing a DH capability. Source contracts preserve LE0..64 scalar
+decode/reduction, BE32 modern serialization, Integer bounds, point error order,
+noncanonical/torsion acceptance, one64-byte RNG request and fresh result ownership.
+No accepted field/scalar/point engine was changed.
+
+Independent source review and original replay pass6,194 observations/26pins,
+the complete31-example public suite (25properties×100 plus six literals),
+and100 original modern DRG tuples. The source-forced Edwards modern native
+suite is supporting evidence; its other-curve DH tests do not establish X448.
+Saved fresh7376 Gradle XML independently confirms12,418 actual tests with
+zero failures/errors/skips, including both portable profiles and ownership/
+capability checks. The frozen15-file hashes match. Completed jar/installDist
+packages the eight public wrapper classes and byte-exact crypton/RAM notices;
+wrapper bytecode has no BigInteger dependency. Modern Integer serialization
+uses the existing explicit conversion boundary only.
+
+Scalar Show's payload non-demand and Point Show/NFData demand have finite
+original probes and explicit Lazy adapters; arbitrary Haskell heap equivalence
+is not claimed. Cleaner storage is best effort: no constant-time JIT, secure GC
+erasure, locked memory, temporary-copy lifetime, FFI scheduling or real32-bit
+OS parity claim. Public/modern Edwards is accepted within these source contracts;
+X448/Decaf448, remaining crypton dependencies and the full local:613/Pandoc
+and later calibre scope remain open.
