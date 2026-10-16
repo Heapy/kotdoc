@@ -13486,3 +13486,23 @@ attribution, executable Kotlin mappings, other OS/feature profiles, dependency
 embedded/non-Cabal suites, dynamic Lua variants and calibre directional format/
 test inventories remain open. Listing registrations executes no test assertions
 and does not complete local:622, full Pandoc or subsequent calibre stages.
+
+
+### Original QuickCheck finite vector runtime checkpoint
+
+The Kotlin test-helper vector now constructs a finite read-only memoized list
+without recursive generator construction or eager element callbacks. The original
+Gen bind/ap split tree determines each element seed and tail seed. Per-list
+synchronized cells retain successful, nullable and synchronous failure results.
+Independent native replay matches all 180 seed/size/count value records and ten
+demand stages byte-for-byte; the retained replicateM/liftA2 compiler unfolding
+also matches the actual installed GHC 9.12.2 interface byte-for-byte.
+
+Source/payload verification passes. Fresh focused XML has 33,466 actual tests,
+zero failures/errors/skips; independent inspection confirms 182 new cases
+(180 native value rows, one ten-stage native demand comparison and one adapter
+bounds/run-isolation test). Accepted generator/shrinker/property regressions
+remain green. This establishes the represented finite deterministic callback
+contract, not general asynchronous/cyclic GHC thunk or lazy Gen semantics.
+Typed Read, Eq/Ord and complete public API/effect coverage remain open; local:611,
+full Pandoc/tests and later calibre stages are not completed.

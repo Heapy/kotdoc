@@ -1,0 +1,1478 @@
+Magic: Wanted 33214052,
+       got    33214052
+Version: Wanted 9122,
+         got    9122
+Way: Wanted ,
+     got    
+interface GHC.Internal.Control.Monad 9122
+  interface hash: 24459aa3d0d83bcaf2d6e383694e5a9d
+  ABI hash: d32f6eea30db9524a516666ce59b0482
+  export-list hash: 3d5e244daed7c608f0ffe0ebcccf1af2
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: fab6d345fb59f26a84062ddc11ba2c4a
+  opt_hash: d4bd5770180ee3e5d15327f4d84fe9db
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  src_hash: a12e9b6d70c368f91d12d6218193eecd
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  GHC.Internal.Base.=<<
+  GHC.Internal.Base.ap
+  GHC.Internal.Base.join
+  GHC.Internal.Base.liftM
+  GHC.Internal.Base.liftM2
+  GHC.Internal.Base.liftM3
+  GHC.Internal.Base.liftM4
+  GHC.Internal.Base.liftM5
+  GHC.Internal.Base.when
+  <$!>
+  <=<
+  >=>
+  filterM
+  foldM
+  foldM_
+  forever
+  guard
+  mapAndUnzipM
+  mfilter
+  replicateM
+  replicateM_
+  unless
+  zipWithM
+  zipWithM_
+  GHC.Internal.Data.Foldable.forM_
+  GHC.Internal.Data.Foldable.mapM_
+  GHC.Internal.Data.Foldable.msum
+  GHC.Internal.Data.Foldable.sequence_
+  GHC.Internal.Data.Functor.void
+  GHC.Internal.Data.Traversable.forM
+  GHC.Internal.Base.Functor{GHC.Internal.Base.<$ GHC.Internal.Base.fmap}
+  GHC.Internal.Base.Monad{GHC.Internal.Base.>> GHC.Internal.Base.>>= GHC.Internal.Base.return}
+  GHC.Internal.Base.MonadPlus{GHC.Internal.Base.mplus GHC.Internal.Base.mzero}
+  GHC.Internal.Control.Monad.Fail.MonadFail{GHC.Internal.Control.Monad.Fail.fail}
+  GHC.Internal.Data.Traversable.Traversable|{GHC.Internal.Data.Traversable.mapM GHC.Internal.Data.Traversable.sequence}
+defaults:
+direct module dependencies: ghc-internal-9.1202.0:GHC.Internal.Base
+                            ghc-internal-9.1202.0:GHC.Internal.Control.Monad.Fail
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Foldable
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Functor
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Traversable
+                            ghc-internal-9.1202.0:GHC.Internal.List
+                            ghc-internal-9.1202.0:GHC.Internal.Num
+boot module dependencies: (ghc-internal-9.1202.0,
+                           GHC.Internal.ByteOrder {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Conc.Sync)
+                          (ghc-internal-9.1202.0, GHC.Internal.Data.Version {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Enum)
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception)
+                          (ghc-internal-9.1202.0,
+                           GHC.Internal.Exception.Backtrace {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception.Type)
+                          (ghc-internal-9.1202.0, GHC.Internal.Fingerprint {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.IO)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Encoding)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Exception)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Handle)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Handle.Text)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Handle.Types)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.StdHandles)
+                          (ghc-internal-9.1202.0, GHC.Internal.Num)
+                          (ghc-internal-9.1202.0, GHC.Internal.Real)
+                          (ghc-internal-9.1202.0, GHC.Internal.Stack {-# SOURCE #-})
+direct package dependencies:
+plugin package dependencies:
+orphans: GHC.Internal.Base GHC.Internal.Float GHC.Prim.Ext
+family instance modules: GHC.Internal.Data.Functor.Const
+                         GHC.Internal.Data.Functor.Identity GHC.Internal.Data.Monoid
+                         GHC.Internal.Data.Semigroup.Internal GHC.Internal.Data.Type.Ord
+                         GHC.Internal.Generics GHC.Internal.IO.Exception
+import  -/  ghc-internal:GHC.Internal.Base 29ec812ead60248b1e26cd94a9165d97
+  exports: 713796e2e0f3bbf03b9e83554d1a1d39
+  *> 8c075115389110b64b18db1497e64c7b
+  <$ 302cb12220d9727167292ab75ed9d4f0
+  =<< 460f10b851b9a72572068210a639e392
+  >> 4a93f884c815498ed6df657060f5abab
+  >>= 5e32fdcb8e60c60ef6dc41606c9f0753
+  Alternative 720d867cd0ac67ad00c47b302c45058d
+  Applicative d221ed5c3ad0fa327772185c44405cab
+  Functor b9d34ad3ee458699bdca49643ee59798
+  Monad 0f08c257868aee15a4ec3f43ddcbd79b
+  MonadPlus 6d1230da1cd361fa2fcdc4cb5619ff3a
+  ap a992be4f82e7aeb77ba47e1048fb9e11
+  empty 3a9827dad3d951911f03f0ea2e2b9b16
+  flip fe5f19eb6df7b41aec420860c9f57d29
+  fmap 593ace7e5c31c425b830d44ae2259206
+  foldr 763ab7133386c6fdf6d7cee21d346e00
+  id 9a1db68e97baa159475d6711c3e11314
+  join a44ba2df76fdd04e632c22ac7885fe0b
+  liftA2 5dbbb7a9f4efcc994357f3ddf2c75bd7
+  liftM 534818e87625d902203365edcfa1b9c0
+  liftM2 80c2153e1e17a0356d464a25531ced50
+  liftM3 c9d3ee7545a98f0e48302f52b9518317
+  liftM4 ef662568fb816a2dd4b66e386872e453
+  liftM5 1c411e5dc7205064910c2c3bd4585891
+  mplus 424b38a39c0603bfe87161c45da87b26
+  mzero 834ea07cbb83feaad871eb48d271ab52
+  otherwise c896f2b20cdef1fcdf5030a536a26aee
+  pure 551731ef1be29091c0d84f263135bb76
+  return df4e334a7f50f715e7d6615f32a06b2b
+  when 099e743bf5f8bee15558de65bf64b057
+import  -/  ghc-internal:GHC.Internal.Control.Monad.Fail bb4e4f9bd7a195f33a944d2070ddc392
+  exports: 28d914607fb5983eb8356a220b2e55ff
+  MonadFail 2c259717de6104afb3d4012395ebfe96
+  fail 6ada28275d60474a088cdc7140cd2791
+import  -/  ghc-internal:GHC.Internal.Data.Foldable 25c4b17f475ad6cf536e951dbaaa377c
+  exports: e1d7c676f7462ae636256cd5b038f5c2
+  Foldable c058c9c6e36e473f3148aef5af5a7f84
+  foldlM a64258130da14b989b8a5ee677777a12
+  forM_ 91d227e0b7696c09af636d0fbe114884
+  mapM_ 392cc95508c323e269b089b4d0acd749
+  msum cc171288b340cc3d8f58747391bbe24d
+  sequenceA_ c3471e33f754aa7dd73d5da1fb3e0323
+  sequence_ a9a223c6a2f68c2cc2d31e93b98af19e
+import  -/  ghc-internal:GHC.Internal.Data.Functor 189063a05bcbeaa277bded15bf96fe94
+  exports: 63813b9e7d74c7bd3465607c0d3324cb
+  <$> 0650f3351e52725757abe0c1764e1300
+  void f56ce5c0a39da7ecf75f57d927d08511
+import  -/  ghc-internal:GHC.Internal.Data.Traversable b9e5b9f40afb89dd34cee771b215b1e7
+  exports: b59bac24b4324c3f0062243d1da8a0c9
+  forM b7fb3da539ce017d74954445dba7779b
+  mapM 197e7cc0bacbcabdfe8cbef5e79ded00
+  sequence 41e865a8df18e25071e06d14db1b05db
+  sequenceA a34742de93ef0517ff997b1bbfc52a90
+  traverse 0409ddf5671a4c4b759fd3b432abe076
+import  -/  ghc-internal:GHC.Internal.List a5078bd7d87c446ced3216d37242823b
+  exports: df5010bea1b1e3736955185731a83325
+  unzip 9ccd367351abf886b0217ec2d08e9100
+  zipWith 3d2c38c27151ebb6f26bbc33a2ed8067
+import  -/  ghc-internal:GHC.Internal.Num 67698e6e339010ee3a443f0e69b912f7
+  exports: 93d6faa025f33d5fc883321a7a610005
+  - 6a79a34e2d0b8cd81c1bb714b6a9e0e9
+import  -/  GHC.Classes 94513e804d2e9dfa3393f6f9ff56cf25
+import  -/  GHC.Types 7413e2b6d5ee6e022b89c3eebbd39565
+fixities infixl 4 <$!>, infixr 1 <=<, infixr 1 >=>
+d6dde58b19a4889340562d8f5dfdb541
+  $trModule :: GHC.Types.Module
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla> GHC.Types.Module $trModule3 $trModule1]
+065a44b7673013802bede93271b66240
+  $trModule1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule2]
+70ef5a3a64afad32f7f955596097b757
+  $trModule2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.Internal.Control.Monad"#]
+7bc5973e3ae620bba3d4f34e93ea777f
+  $trModule3 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule4]
+b0372e8d170507f39627c82be55b253a
+  $trModule4 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "ghc-internal"#]
+eeba4242f3a68ce0e5cd6002a55d631a
+  $w$sreplicateM ::
+    GHC.Prim.Int#
+    -> GHC.Internal.Maybe.Maybe a -> GHC.Internal.Maybe.Maybe [a]
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <L><ML>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (f['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe a) ->
+              case GHC.Prim.<=# ww 0# of lwild {
+                DEFAULT
+                -> case f of wild {
+                     GHC.Internal.Maybe.Nothing -> GHC.Internal.Maybe.Nothing @[a]
+                     GHC.Internal.Maybe.Just x
+                     -> letrec {
+                          $wloop :: GHC.Prim.Int# -> GHC.Internal.Maybe.Maybe [a]
+                            NotJoinPoint [Arity: 1, Strictness: <L>, Inline: [2]]
+                          = \ (ww1['GHC.Types.Many] :: GHC.Prim.Int#) ->
+                            case GHC.Prim.<=# ww1 0# of lwild1 {
+                              DEFAULT
+                              -> case $wloop (GHC.Prim.-# ww1 1#) of wild1 {
+                                   GHC.Internal.Maybe.Nothing -> GHC.Internal.Maybe.Nothing @[a]
+                                   GHC.Internal.Maybe.Just y
+                                   -> GHC.Internal.Maybe.Just @[a] (GHC.Types.: @a x y) }
+                              1# -> replicateM1 @a }
+                        } in
+                        case $wloop (GHC.Prim.-# ww 1#) of wild1 {
+                          GHC.Internal.Maybe.Nothing -> GHC.Internal.Maybe.Nothing @[a]
+                          GHC.Internal.Maybe.Just y
+                          -> GHC.Internal.Maybe.Just @[a] (GHC.Types.: @a x y) } }
+                1# -> replicateM1 @a }]
+47176ce806ab6db75f900b246ec7868e
+  $w$sreplicateM1 ::
+    GHC.Prim.Int#
+    -> GHC.Types.IO a
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [a] #)
+  [HasNoCafRefs, TagSig: <TagTuple[TagProper]>,
+   LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <L><LC(S,L)><L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (f['GHC.Types.Many] :: GHC.Types.IO a)
+                (eta['GHC.Types.Many] :: GHC.Prim.State#
+                                           GHC.Prim.RealWorld)[OneShot] ->
+              letrec {
+                $wloop :: GHC.Prim.Int#
+                          -> GHC.Prim.State# GHC.Prim.RealWorld
+                          -> (# GHC.Prim.State# GHC.Prim.RealWorld, [a] #)
+                  NotJoinPoint [Arity: 2, Strictness: <L><L>, Inline: [2]]
+                = \ (ww1['GHC.Types.Many] :: GHC.Prim.Int#)
+                    (eta1['GHC.Types.Many] :: GHC.Prim.State#
+                                                GHC.Prim.RealWorld)[OneShot] ->
+                  case GHC.Prim.<=# ww1 0# of lwild {
+                    DEFAULT
+                    -> case f `cast` (GHC.Types.N:IO <a>_R)
+                              eta1 of ds { (#,#) ipv ipv1 ->
+                       case $wloop (GHC.Prim.-# ww1 1#) ipv of ds1 { (#,#) ipv2 ipv3 ->
+                       (# ipv2, GHC.Types.: @a ipv1 ipv3 #) } }
+                    1# -> (# eta1, GHC.Types.[] @a #) }
+              } in
+              $wloop ww eta]
+0eaff145b25dcbb7c519ab722469d77e
+  $wreplicateM ::
+    GHC.Internal.Base.Applicative m => GHC.Prim.Int# -> m a -> m [a]
+  StrWork([!])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,MC(1,L),A,LC(S,C(1,C(1,L))),A,A)><L><L>,
+   Inline: [2],
+   Unfolding: Core: StableUser
+              \ @m :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (f['GHC.Types.Many] :: m a) ->
+              letrec {
+                loop :: GHC.Types.Int -> m [a] NotJoinPoint [Arity: 1]
+                = \ (cnt['GHC.Types.Many] :: GHC.Types.Int) ->
+                  case GHC.Classes.leInt cnt (GHC.Types.I# 0#) of wild {
+                    GHC.Types.False
+                    -> GHC.Internal.Base.liftA2
+                         @m
+                         $dApplicative
+                         @a
+                         @[a]
+                         @[a]
+                         (\ (ds['GHC.Types.Many] :: a) (ds1['GHC.Types.Many] :: [a]) ->
+                          GHC.Types.: @a ds ds1)
+                         f
+                         (loop
+                            (case cnt of wild1 { GHC.Types.I# x ->
+                             GHC.Types.I# (GHC.Prim.-# x 1#) }))
+                    GHC.Types.True
+                    -> GHC.Internal.Base.pure @m $dApplicative @[a] (GHC.Types.[] @a) }
+              } in
+              loop (GHC.Types.I# ww)]
+3f3198f42932c0cae5aa6eeda2264434
+  $wreplicateM_ ::
+    GHC.Internal.Base.Applicative m => GHC.Prim.Int# -> m a -> m ()
+  StrWork([!])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,MC(1,L),A,A,LC(S,C(1,L)),A)><L><L>, Inline: [2],
+   Unfolding: Core: StableUser
+              \ @m :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (f['GHC.Types.Many] :: m a) ->
+              letrec {
+                loop :: GHC.Types.Int -> m () NotJoinPoint [Arity: 1]
+                = \ (cnt['GHC.Types.Many] :: GHC.Types.Int) ->
+                  case GHC.Classes.leInt cnt (GHC.Types.I# 0#) of wild {
+                    GHC.Types.False
+                    -> GHC.Internal.Base.*>
+                         @m
+                         $dApplicative
+                         @a
+                         @()
+                         f
+                         (loop
+                            (case cnt of wild1 { GHC.Types.I# x ->
+                             GHC.Types.I# (GHC.Prim.-# x 1#) }))
+                    GHC.Types.True
+                    -> GHC.Internal.Base.pure @m $dApplicative @() GHC.Tuple.() }
+              } in
+              loop (GHC.Types.I# ww)]
+4d3fbae45e07e021573dc27cba829043
+  (<$!>) :: GHC.Internal.Base.Monad m => (a -> b) -> m a -> m b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,1C(1,C(1,L)),A,LC(S,L))><LC(S,L)><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <2,FalseFalse>
+              \ @m :: * -> *
+                @a
+                @b
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                (f['GHC.Types.Many] :: a -> b)
+                (m1['GHC.Types.Many] :: m a) ->
+              GHC.Internal.Base.>>=
+                @m
+                $dMonad
+                @a
+                @b
+                m1
+                (\ (x['GHC.Types.Many] :: a) ->
+                 case f x of z { DEFAULT ->
+                 GHC.Internal.Base.return @m $dMonad @b z })]
+c353063cbd63eb8f0181561b71634ed0
+  (<=<) ::
+    GHC.Internal.Base.Monad m => (b -> m c) -> (a -> m b) -> a -> m c
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <SP(A,SC(S,C(1,L)),A,A)><L><MC(1,L)><L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: * -> *
+                @b
+                @c
+                @a
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                (x['GHC.Types.Many] :: b -> m c)
+                (y['GHC.Types.Many] :: a -> m b)
+                (eta['GHC.Types.Many] :: a) ->
+              >=> @m @a @b @c $dMonad y x eta]
+142493cf581ebed01257916f09bcc054
+  (>=>) ::
+    GHC.Internal.Base.Monad m => (a -> m b) -> (b -> m c) -> a -> m c
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <SP(A,1C(1,C(1,L)),A,A)><MC(1,L)><L><L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: * -> *
+                @a
+                @b
+                @c
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                (f['GHC.Types.Many] :: a -> m b)
+                (g['GHC.Types.Many] :: b -> m c)
+                (x['GHC.Types.Many] :: a) ->
+              GHC.Internal.Base.>>= @m $dMonad @b @c (f x) g]
+a6647dadfb62843d0dcf0ec428ae8350
+  filterM ::
+    GHC.Internal.Base.Applicative m =>
+    (a -> m GHC.Types.Bool) -> [a] -> m [a]
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <SP(A,MC(1,L),A,LC(S,C(1,C(1,L))),A,A)><LC(S,L)>,
+   Inline: (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseFalse>
+              \ @m :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (p['GHC.Types.Many] :: a -> m GHC.Types.Bool) ->
+              GHC.Internal.Base.foldr
+                @a
+                @(m [a])
+                (\ (x['GHC.Types.Many] :: a) ->
+                 GHC.Internal.Base.liftA2
+                   @m
+                   $dApplicative
+                   @GHC.Types.Bool
+                   @[a]
+                   @[a]
+                   (\ (flg['GHC.Types.Many] :: GHC.Types.Bool) ->
+                    case flg of wild {
+                      GHC.Types.False -> GHC.Internal.Base.id @[a]
+                      GHC.Types.True
+                      -> \ (v['GHC.Types.Many] :: [a]) -> GHC.Types.: @a x v })
+                   (p x))
+                (GHC.Internal.Base.pure @m $dApplicative @[a] (GHC.Types.[] @a))]
+d03787c48163ebe0b19f76d3b7ef4853
+  foldM ::
+    (GHC.Internal.Data.Foldable.Foldable t,
+     GHC.Internal.Base.Monad m) =>
+    (b -> a -> m b) -> b -> t a -> m b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 5, Arity: 5,
+   Strictness: <1P(A,A,A,1C(1,C(1,C(1,L))),A,A,A,A,A,A,A,A,A,A,A,A,A)><LP(L,LC(S,L),L,L)><L><L><L>,
+   Inline:,
+   Unfolding: Core: StableUser <0,TrueTrue>
+              GHC.Internal.Data.Foldable.foldlM]
+85a85fba01bffebf6cc99818dd383334
+  foldM1 ::
+    (a -> b -> GHC.Types.IO a)
+    -> a
+    -> [b]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, a #)
+  [HasNoCafRefs, TagSig: <TagTuple[TagDunno]>,
+   LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <LC(S,C(1,C(1,L)))><L><1L><L>, CPR: 1, Inline:,
+   Unfolding: Core: <vanilla>
+              \ @a
+                @b
+                (f['GHC.Types.Many] :: a -> b -> GHC.Types.IO a)
+                (z0['GHC.Types.Many] :: a)
+                (xs['GHC.Types.Many] :: [b])
+                (eta['GHC.Types.Many] :: GHC.Prim.State#
+                                           GHC.Prim.RealWorld)[OneShot] ->
+              letrec {
+                go1 :: [b]
+                       -> a
+                       -> GHC.Prim.State# GHC.Prim.RealWorld
+                       -> (# GHC.Prim.State# GHC.Prim.RealWorld, a #)
+                  JoinPoint(3) [Arity: 3, Strictness: <1L><L><L>]
+                = \ (ds['GHC.Types.Many] :: [b])
+                    (eta1['GHC.Types.Many] :: a)
+                    (eta2['GHC.Types.Many] :: GHC.Prim.State#
+                                                GHC.Prim.RealWorld)[OneShot] ->
+                  case ds of wild {
+                    [] -> (# eta2, eta1 #)
+                    : y ys
+                    -> case (f eta1 y) `cast` (GHC.Types.N:IO <a>_R)
+                              eta2 of ds1 { (#,#) ipv ipv1 ->
+                       go1 ys ipv1 ipv } }
+              } in
+              go1 xs z0 eta]
+08b8e7b85f1a90151dfc67f91cf060e0
+  foldM_ ::
+    (GHC.Internal.Data.Foldable.Foldable t,
+     GHC.Internal.Base.Monad m) =>
+    (b -> a -> m b) -> b -> t a -> m ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 5, Arity: 5,
+   Strictness: <SP(A,A,A,1C(1,C(1,C(1,L))),A,A,A,A,A,A,A,A,A,A,A,A,A)><SP(L,LC(S,L),SC(S,L),L)><L><L><L>,
+   Inline:,
+   Unfolding: Core: StableUser
+              \ @t :: * -> *
+                @m :: * -> *
+                @b
+                @a
+                ($dFoldable['GHC.Types.Many] :: GHC.Internal.Data.Foldable.Foldable
+                                                  t)
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                (f['GHC.Types.Many] :: b -> a -> m b)
+                (a1['GHC.Types.Many] :: b)
+                (xs['GHC.Types.Many] :: t a) ->
+              GHC.Internal.Base.>>
+                @m
+                $dMonad
+                @b
+                @()
+                (GHC.Internal.Data.Foldable.foldlM
+                   @t
+                   @m
+                   @b
+                   @a
+                   $dFoldable
+                   $dMonad
+                   f
+                   a1
+                   xs)
+                (GHC.Internal.Base.return @m $dMonad @() GHC.Tuple.())]
+b647cea04b6eedbed77176c443c5e11f
+  foldM_$sfoldM ::
+    (a -> b -> GHC.Internal.Maybe.Maybe a)
+    -> a -> [b] -> GHC.Internal.Maybe.Maybe a
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LC(S,C(1,L))><L><1L>, Inline:,
+   Unfolding: Core: <vanilla>
+              \ @a
+                @b
+                (f['GHC.Types.Many] :: a -> b -> GHC.Internal.Maybe.Maybe a)
+                (z0['GHC.Types.Many] :: a)
+                (xs['GHC.Types.Many] :: [b]) ->
+              letrec {
+                go1 :: [b] -> a -> GHC.Internal.Maybe.Maybe a
+                  JoinPoint(2) [Arity: 2, Strictness: <1L><L>]
+                = \ (ds['GHC.Types.Many] :: [b]) (eta['GHC.Types.Many] :: a) ->
+                  case ds of wild {
+                    [] -> GHC.Internal.Maybe.Just @a eta
+                    : y ys
+                    -> case f eta y of wild1 {
+                         GHC.Internal.Maybe.Nothing -> GHC.Internal.Maybe.Nothing @a
+                         GHC.Internal.Maybe.Just x -> go1 ys x } }
+              } in
+              go1 xs z0]
+a1b3b29174cdd348a26748ab8c4458fe
+  foldM_1 :: GHC.Internal.Maybe.Maybe ()
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Maybe.Just],
+   Unfolding: Core: <vanilla>
+              GHC.Internal.Maybe.Just @() GHC.Tuple.()]
+15b94a2241a1c77454a0e6d99131a184
+  foldM_2 ::
+    (a -> b -> GHC.Types.IO a)
+    -> a
+    -> [b]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  [HasNoCafRefs, TagSig: <TagTuple[TagProper]>,
+   LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <LC(S,C(1,C(1,L)))><L><1L><L>, CPR: 1(, 1), Inline:,
+   Unfolding: Core: StableSystem <4,TrueFalse>
+              \ @a
+                @b
+                (f['GHC.Types.Many] :: a -> b -> GHC.Types.IO a)
+                (a1['GHC.Types.Many] :: a)
+                (xs['GHC.Types.Many] :: [b])
+                (s['GHC.Types.Many] :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+              let {
+                $j :: GHC.Prim.State# GHC.Prim.RealWorld
+                      -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                  JoinPoint(1) [Arity: 1, Strictness: <L>]
+                = \ (ipv['GHC.Types.Many] :: GHC.Prim.State#
+                                               GHC.Prim.RealWorld)[OneShot] ->
+                  (# ipv, GHC.Tuple.() #)
+              } in
+              letrec {
+                go1 :: [b]
+                       -> a
+                       -> GHC.Prim.State# GHC.Prim.RealWorld
+                       -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                  JoinPoint(3) [Arity: 3, Strictness: <SL><L><L>]
+                = \ (ds['GHC.Types.Many] :: [b])
+                    (eta['GHC.Types.Many] :: a)
+                    (eta1['GHC.Types.Many] :: GHC.Prim.State#
+                                                GHC.Prim.RealWorld)[OneShot] ->
+                  case ds of wild {
+                    [] -> $j eta1
+                    : y ys
+                    -> case (f eta y) `cast` (GHC.Types.N:IO <a>_R)
+                              eta1 of ds1 { (#,#) ipv ipv1 ->
+                       go1 ys ipv1 ipv } }
+              } in
+              go1 xs a1 s]
+e3186dd82adc14bc6e214c0f1729e10d
+  foldM__$sfoldM_ ::
+    (a -> b -> GHC.Internal.Maybe.Maybe a)
+    -> a -> [b] -> GHC.Internal.Maybe.Maybe ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LC(S,C(1,L))><L><1L>, Inline:,
+   Unfolding: Core: <vanilla>
+              \ @a
+                @b
+                (f['GHC.Types.Many] :: a -> b -> GHC.Internal.Maybe.Maybe a)
+                (a1['GHC.Types.Many] :: a)
+                (xs['GHC.Types.Many] :: [b]) ->
+              letrec {
+                go1 :: [b] -> a -> GHC.Internal.Maybe.Maybe ()
+                  JoinPoint(2) [Arity: 2, Strictness: <1L><L>]
+                = \ (ds['GHC.Types.Many] :: [b]) (eta['GHC.Types.Many] :: a) ->
+                  case ds of wild {
+                    [] -> foldM_1
+                    : y ys
+                    -> case f eta y of wild1 {
+                         GHC.Internal.Maybe.Nothing -> GHC.Internal.Maybe.Nothing @()
+                         GHC.Internal.Maybe.Just x -> go1 ys x } }
+              } in
+              go1 xs a1]
+b8527048bdb2dcfaffbcaa7a62b48af8
+  forever :: GHC.Internal.Base.Applicative f => f a -> f b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <SP(A,A,A,A,SC(S,C(1,L)),A)><L>, Inline: (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseFalse>
+              \ @f :: * -> *
+                @a
+                @b
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                (a1['GHC.Types.Many] :: f a) ->
+              letrec {
+                a' :: f b NotJoinPoint []
+                = GHC.Internal.Base.*> @f $dApplicative @a @b a1 a'
+              } in
+              a']
+d72dd6f36415cdaf352bc231cc1979a5
+  guard :: GHC.Internal.Base.Alternative f => GHC.Types.Bool -> f ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <SP(SP(A,1C(1,L),A,A,A,A),ML,A,A,A)><1L>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                ($dAlternative['GHC.Types.Many] :: GHC.Internal.Base.Alternative f)
+                (eta['GHC.Types.Many] :: GHC.Types.Bool) ->
+              case eta of wild {
+                GHC.Types.False -> GHC.Internal.Base.empty @f $dAlternative @()
+                GHC.Types.True
+                -> GHC.Internal.Base.pure
+                     @f
+                     (GHC.Internal.Base.$p1Alternative @f $dAlternative)
+                     @()
+                     GHC.Tuple.() }]
+b7410c083c5d175412bb907d877fe890
+  mapAndUnzipM ::
+    GHC.Internal.Base.Applicative m =>
+    (a -> m (b, c)) -> [a] -> m ([b], [c])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(SP(1C(1,C(1,L)),A),MC(1,L),A,LC(S,C(1,C(1,L))),A,A)><LC(S,L)><ML>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <2,FalseFalse>
+              \ @m :: * -> *
+                @a
+                @b
+                @c
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (eta['GHC.Types.Many] :: a -> m (b, c))
+                (eta1['GHC.Types.Many] :: [a]) ->
+              GHC.Internal.Base.fmap
+                @m
+                (GHC.Internal.Base.$p1Applicative @m $dApplicative)
+                @[(b, c)]
+                @([b], [c])
+                (GHC.Internal.Base.foldr
+                   @(b, c)
+                   @([b], [c])
+                   (\ (ds['GHC.Types.Many] :: (b, c))
+                      (ds1['GHC.Types.Many] :: ([b], [c])) ->
+                    case ds of wild { (,) a1 b1 ->
+                    (GHC.Types.: @b a1 (case ds1 of wild1 { (,) as bs -> as }),
+                     GHC.Types.: @c b1 (case ds1 of wild1 { (,) as bs -> bs })) })
+                   (GHC.Types.[] @b, GHC.Types.[] @c))
+                (GHC.Internal.Base.foldr
+                   @a
+                   @(m [(b, c)])
+                   (\ (x['GHC.Types.Many] :: a)
+                      (ys['GHC.Types.Many] :: m [(b, c)])[OneShot] ->
+                    GHC.Internal.Base.liftA2
+                      @m
+                      $dApplicative
+                      @(b, c)
+                      @[(b, c)]
+                      @[(b, c)]
+                      (\ (ds['GHC.Types.Many] :: (b, c))
+                         (ds1['GHC.Types.Many] :: [(b, c)]) ->
+                       GHC.Types.: @(b, c) ds ds1)
+                      (eta x)
+                      ys)
+                   (GHC.Internal.Base.pure
+                      @m
+                      $dApplicative
+                      @[(b, c)]
+                      (GHC.Types.[] @(b, c)))
+                   eta1)]
+f6ed3e5f90b7323b7c33aa62ce1f9bd0
+  mfilter ::
+    GHC.Internal.Base.MonadPlus m =>
+    (a -> GHC.Types.Bool) -> m a -> m a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,SP(A,1C(1,C(1,L)),A,LC(S,L)),ML,A)><LC(S,L)><L>,
+   Inline:,
+   Unfolding: Core: StableUser
+              \ @m :: * -> *
+                @a
+                ($dMonadPlus['GHC.Types.Many] :: GHC.Internal.Base.MonadPlus m)
+                (eta['GHC.Types.Many] :: a -> GHC.Types.Bool)
+                (eta1['GHC.Types.Many] :: m a) ->
+              let {
+                $dMonad :: GHC.Internal.Base.Monad m NotJoinPoint []
+                = GHC.Internal.Base.$p2MonadPlus @m $dMonadPlus
+              } in
+              GHC.Internal.Base.>>=
+                @m
+                $dMonad
+                @a
+                @a
+                eta1
+                (\ (a1['GHC.Types.Many] :: a) ->
+                 case eta a1 of wild {
+                   GHC.Types.False -> GHC.Internal.Base.mzero @m $dMonadPlus @a
+                   GHC.Types.True -> GHC.Internal.Base.return @m $dMonad @a a1 })]
+407f6e2286f466b5ea7057ac3123a48c
+  replicateM ::
+    GHC.Internal.Base.Applicative m => GHC.Types.Int -> m a -> m [a]
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,LC(S,L),A,LC(S,C(1,C(1,L))),A,A)><1!P(L)><L>,
+   Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @m :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (cnt0['GHC.Types.Many] :: GHC.Types.Int)
+                (f['GHC.Types.Many] :: m a) ->
+              case cnt0 of wild { GHC.Types.I# ww ->
+              $wreplicateM @m @a $dApplicative ww f }]
+c7d01c32c1b9d29ad42bc2d287e20f91
+  replicateM1 :: GHC.Internal.Maybe.Maybe [a]
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Maybe.Just],
+   Unfolding: Core: <vanilla>
+              \ @a -> GHC.Internal.Maybe.Just @[a] (GHC.Types.[] @a)]
+16d8791b856d4cb6671804d4a8a337ac
+  replicateM2 ::
+    GHC.Types.Int
+    -> GHC.Types.IO a
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [a] #)
+  [HasNoCafRefs, TagSig: <TagTuple[TagProper]>,
+   LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1!P(L)><LC(S,L)><L>, CPR: 1, Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                (cnt0['GHC.Types.Many] :: GHC.Types.Int)
+                (f['GHC.Types.Many] :: GHC.Types.IO a)
+                (eta['GHC.Types.Many] :: GHC.Prim.State#
+                                           GHC.Prim.RealWorld)[OneShot] ->
+              case cnt0 of wild { GHC.Types.I# ww ->
+              $w$sreplicateM1 @a ww f eta }]
+49d5aa8d5d6e3a9df0e5061f84afe749
+  replicateM_ ::
+    GHC.Internal.Base.Applicative m => GHC.Types.Int -> m a -> m ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,LC(S,L),A,A,LC(S,C(1,L)),A)><1!P(L)><L>,
+   Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @m :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (cnt0['GHC.Types.Many] :: GHC.Types.Int)
+                (f['GHC.Types.Many] :: m a) ->
+              case cnt0 of wild { GHC.Types.I# ww ->
+              $wreplicateM_ @m @a $dApplicative ww f }]
+921bae07b44a928e2c7b35d2f66a586b
+  replicateM_$sreplicateM ::
+    GHC.Types.Int
+    -> GHC.Internal.Maybe.Maybe a -> GHC.Internal.Maybe.Maybe [a]
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1!P(L)><ML>, Inline: [2],
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ @a
+                (cnt0['GHC.Types.Many] :: GHC.Types.Int)
+                (f['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe a) ->
+              case cnt0 of wild { GHC.Types.I# ww -> $w$sreplicateM @a ww f }]
+e470ea00e6068f46ebbde1180bb97aff
+  replicateM_1 ::
+    GHC.Types.Int
+    -> GHC.Types.IO a
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  [HasNoCafRefs, TagSig: <TagTuple[TagProper]>,
+   LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1!P(L)><LC(S,P(L,A))><L>, CPR: 1(, 1), Inline:,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                (cnt0['GHC.Types.Many] :: GHC.Types.Int)
+                (f['GHC.Types.Many] :: GHC.Types.IO a)
+                (eta['GHC.Types.Many] :: GHC.Prim.State#
+                                           GHC.Prim.RealWorld)[OneShot] ->
+              letrec {
+                loop :: GHC.Types.Int
+                        -> GHC.Prim.State# GHC.Prim.RealWorld
+                        -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                  JoinPoint(2) [Arity: 2, Strictness: <S!P(L)><L>, Inline: [2],
+                                Unfolding: Core: StableSystem <2,TrueFalse>
+                                           \ (cnt['GHC.Types.Many] :: GHC.Types.Int)
+                                             (eta1['GHC.Types.Many] :: GHC.Prim.State#
+                                                                         GHC.Prim.RealWorld)[OneShot] ->
+                                           case cnt of wild { GHC.Types.I# ww -> $wloop ww eta1 }]
+                = \ (cnt['GHC.Types.Many] :: GHC.Types.Int)
+                    (eta1['GHC.Types.Many] :: GHC.Prim.State#
+                                                GHC.Prim.RealWorld)[OneShot] ->
+                  case cnt of wild { GHC.Types.I# ww -> $wloop ww eta1 }
+                $wloop :: GHC.Prim.Int#
+                          -> GHC.Prim.State# GHC.Prim.RealWorld
+                          -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                  JoinPoint(2) [Arity: 2, Strictness: <L><L>, Inline: [2]]
+                = \ (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                    (eta1['GHC.Types.Many] :: GHC.Prim.State#
+                                                GHC.Prim.RealWorld)[OneShot] ->
+                  case GHC.Prim.<=# ww 0# of lwild {
+                    DEFAULT
+                    -> case f `cast` (GHC.Types.N:IO <a>_R)
+                              eta1 of ds1 { (#,#) ipv ipv1 ->
+                       loop (GHC.Types.I# (GHC.Prim.-# ww 1#)) ipv }
+                    1# -> (# eta1, GHC.Tuple.() #) }
+              } in
+              loop cnt0 eta]
+c1679202b418be9687be799534547556
+  replicateM__$sreplicateM_ ::
+    GHC.Types.Int
+    -> GHC.Internal.Maybe.Maybe a -> GHC.Internal.Maybe.Maybe ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1!P(L)><ML>, Inline:,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ @a
+                (cnt0['GHC.Types.Many] :: GHC.Types.Int)
+                (f['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe a) ->
+              letrec {
+                loop :: GHC.Types.Int -> GHC.Internal.Maybe.Maybe ()
+                  JoinPoint(1) [Arity: 1, Strictness: <S!P(L)>, Inline: [2],
+                                Unfolding: Core: StableSystem <1,TrueFalse>
+                                           \ (cnt['GHC.Types.Many] :: GHC.Types.Int) ->
+                                           case cnt of wild { GHC.Types.I# ww -> $wloop ww }]
+                = \ (cnt['GHC.Types.Many] :: GHC.Types.Int) ->
+                  case cnt of wild { GHC.Types.I# ww -> $wloop ww }
+                $wloop :: GHC.Prim.Int# -> GHC.Internal.Maybe.Maybe ()
+                  JoinPoint(1) [Arity: 1, Strictness: <L>, Inline: [2]]
+                = \ (ww['GHC.Types.Many] :: GHC.Prim.Int#) ->
+                  case GHC.Prim.<=# ww 0# of lwild {
+                    DEFAULT
+                    -> case f of wild {
+                         GHC.Internal.Maybe.Nothing -> GHC.Internal.Maybe.Nothing @()
+                         GHC.Internal.Maybe.Just _m1
+                         -> loop (GHC.Types.I# (GHC.Prim.-# ww 1#)) }
+                    1# -> foldM_1 }
+              } in
+              loop cnt0]
+5ea88345abd38c978168f274ca2c1f2f
+  unless ::
+    GHC.Internal.Base.Applicative f => GHC.Types.Bool -> f () -> f ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,1C(1,L),A,A,A,A)><1L><ML>, Inline:,
+   Unfolding: Core: StableUser
+              \ @f :: * -> *
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                (p['GHC.Types.Many] :: GHC.Types.Bool)
+                (s['GHC.Types.Many] :: f ()) ->
+              case p of wild {
+                GHC.Types.False -> s
+                GHC.Types.True
+                -> GHC.Internal.Base.pure @f $dApplicative @() GHC.Tuple.() }]
+b7075577c057448d143655da1f762d43
+  unless1 ::
+    GHC.Types.Bool
+    -> GHC.Types.IO ()
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1L><MC(1,L)><L>, Inline:,
+   Unfolding: Core: <vanilla>
+              \ (p['GHC.Types.Many] :: GHC.Types.Bool)
+                (s['GHC.Types.Many] :: GHC.Types.IO ())
+                (eta['GHC.Types.Many] :: GHC.Prim.State#
+                                           GHC.Prim.RealWorld)[OneShot] ->
+              case p of wild {
+                GHC.Types.False -> s `cast` (GHC.Types.N:IO <()>_R) eta
+                GHC.Types.True -> (# eta, GHC.Tuple.() #) }]
+02916b41b2a81fdc7e4b33fc6c0bd5b3
+  unless_$sunless ::
+    GHC.Types.Bool
+    -> GHC.Internal.Maybe.Maybe () -> GHC.Internal.Maybe.Maybe ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><ML>, Inline:,
+   Unfolding: Core: <vanilla>
+              \ (p['GHC.Types.Many] :: GHC.Types.Bool)
+                (s['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe ()) ->
+              case p of wild { GHC.Types.False -> s GHC.Types.True -> foldM_1 }]
+b20141542c106fd6516f6e73139646d5
+  zipWithM ::
+    GHC.Internal.Base.Applicative m =>
+    (a -> b -> m c) -> [a] -> [b] -> m [c]
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <SP(A,MC(1,L),A,LC(S,C(1,C(1,L))),A,A)><LC(S,C(1,L))><1L><ML>,
+   Inline: (sat-args=3),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @m :: * -> *
+                @a
+                @b
+                @c
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (f['GHC.Types.Many] :: a -> b -> m c)
+                (xs['GHC.Types.Many] :: [a])
+                (ys['GHC.Types.Many] :: [b]) ->
+              GHC.Internal.List.foldr2
+                @a
+                @b
+                @(m [c])
+                (GHC.Internal.List.zipWithFB
+                   @(m c)
+                   @(m [c])
+                   @(m [c])
+                   @a
+                   @b
+                   (\ (x['GHC.Types.Many] :: m c) (ys1['GHC.Types.Many] :: m [c]) ->
+                    GHC.Internal.Base.liftA2
+                      @m
+                      $dApplicative
+                      @c
+                      @[c]
+                      @[c]
+                      (\ (ds['GHC.Types.Many] :: c) (ds1['GHC.Types.Many] :: [c]) ->
+                       GHC.Types.: @c ds ds1)
+                      x
+                      ys1)
+                   f)
+                (GHC.Internal.Base.pure @m $dApplicative @[c] (GHC.Types.[] @c))
+                xs
+                ys]
+41b43bd14c7efbd637bf61b92db08c0c
+  zipWithM_ ::
+    GHC.Internal.Base.Applicative m =>
+    (a -> b -> m c) -> [a] -> [b] -> m ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <SP(A,MC(1,L),A,A,LC(S,C(1,L)),A)><LC(S,C(1,L))><1L><ML>,
+   Inline: (sat-args=3),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @m :: * -> *
+                @a
+                @b
+                @c
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative m)
+                (f['GHC.Types.Many] :: a -> b -> m c)
+                (xs['GHC.Types.Many] :: [a])
+                (ys['GHC.Types.Many] :: [b]) ->
+              GHC.Internal.List.foldr2
+                @a
+                @b
+                @(m ())
+                (GHC.Internal.List.zipWithFB
+                   @(m c)
+                   @(m ())
+                   @(m ())
+                   @a
+                   @b
+                   (GHC.Internal.Data.Foldable.sequenceA__c @m @c @() $dApplicative)
+                   f)
+                (GHC.Internal.Base.pure @m $dApplicative @() GHC.Tuple.())
+                xs
+                ys]
+"USPEC foldM @[] @IO @_ @_" forall @a
+                                   @b
+                                   ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad
+                                                                  GHC.Types.IO)
+                                   ($dFoldable['GHC.Types.Many] :: GHC.Internal.Data.Foldable.Foldable
+                                                                     []).
+  foldM @[] @GHC.Types.IO @a @b $dFoldable $dMonad
+  = (foldM1 @a @b)
+      `cast`
+    (<a -> b -> GHC.Types.IO a>_R
+     %<'GHC.Types.Many>_N ->_R <a>_R
+     %<'GHC.Types.Many>_N ->_R <[b]>_R
+     %<'GHC.Types.Many>_N ->_R Sym (GHC.Types.N:IO <a>_R))
+"USPEC foldM @[] @Maybe @_ @_" forall @a
+                                      @b
+                                      ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad
+                                                                     GHC.Internal.Maybe.Maybe)
+                                      ($dFoldable['GHC.Types.Many] :: GHC.Internal.Data.Foldable.Foldable
+                                                                        []).
+  foldM @[] @GHC.Internal.Maybe.Maybe @a @b $dFoldable $dMonad
+  = foldM_$sfoldM @a @b
+"USPEC foldM_ @[] @IO @_ @_" forall @a
+                                    @b
+                                    ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad
+                                                                   GHC.Types.IO)
+                                    ($dFoldable['GHC.Types.Many] :: GHC.Internal.Data.Foldable.Foldable
+                                                                      []).
+  foldM_ @[] @GHC.Types.IO @a @b $dFoldable $dMonad
+  = (foldM_2 @a @b)
+      `cast`
+    (<a -> b -> GHC.Types.IO a>_R
+     %<'GHC.Types.Many>_N ->_R <a>_R
+     %<'GHC.Types.Many>_N ->_R <[b]>_R
+     %<'GHC.Types.Many>_N ->_R Sym (GHC.Types.N:IO <()>_R))
+"USPEC foldM_ @[] @Maybe @_ @_" forall @a
+                                       @b
+                                       ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad
+                                                                      GHC.Internal.Maybe.Maybe)
+                                       ($dFoldable['GHC.Types.Many] :: GHC.Internal.Data.Foldable.Foldable
+                                                                         []).
+  foldM_ @[] @GHC.Internal.Maybe.Maybe @a @b $dFoldable $dMonad
+  = foldM__$sfoldM_ @a @b
+"USPEC replicateM @IO @_" forall @a
+                                 ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative
+                                                                      GHC.Types.IO).
+  replicateM @GHC.Types.IO @a $dApplicative
+  = (replicateM2 @a)
+      `cast`
+    (<GHC.Types.Int>_R
+     %<'GHC.Types.Many>_N ->_R <GHC.Types.IO a>_R
+     %<'GHC.Types.Many>_N ->_R Sym (GHC.Types.N:IO <[a]>_R))
+"USPEC replicateM @Maybe @_" forall @a
+                                    ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative
+                                                                         GHC.Internal.Maybe.Maybe).
+  replicateM @GHC.Internal.Maybe.Maybe @a $dApplicative
+  = replicateM_$sreplicateM @a
+"USPEC replicateM_ @IO @_" forall @a
+                                  ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative
+                                                                       GHC.Types.IO).
+  replicateM_ @GHC.Types.IO @a $dApplicative
+  = (replicateM_1 @a)
+      `cast`
+    (<GHC.Types.Int>_R
+     %<'GHC.Types.Many>_N ->_R <GHC.Types.IO a>_R
+     %<'GHC.Types.Many>_N ->_R Sym (GHC.Types.N:IO <()>_R))
+"USPEC replicateM_ @Maybe @_" forall @a
+                                     ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative
+                                                                          GHC.Internal.Maybe.Maybe).
+  replicateM_ @GHC.Internal.Maybe.Maybe @a $dApplicative
+  = replicateM__$sreplicateM_ @a
+"USPEC unless @IO" forall ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative
+                                                               GHC.Types.IO).
+  unless @GHC.Types.IO $dApplicative
+  = unless1
+      `cast`
+    (<GHC.Types.Bool>_R
+     %<'GHC.Types.Many>_N ->_R <GHC.Types.IO ()>_R
+     %<'GHC.Types.Many>_N ->_R Sym (GHC.Types.N:IO <()>_R))
+"USPEC unless @Maybe" forall ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative
+                                                                  GHC.Internal.Maybe.Maybe).
+  unless @GHC.Internal.Maybe.Maybe $dApplicative = unless_$sunless
+Warnings:
+  Deprecated names:
+  Deprecated exports:
+trusted: trustworthy
+require own pkg trusted: True
+docs:
+  Just module header:
+         Just text:
+                -- |
+-- Module      :  GHC.Internal.Control.Monad
+-- Copyright   :  (c) The University of Glasgow 2001
+-- License     :  BSD-style (see the file libraries/base/LICENSE)
+--
+-- Maintainer  :  libraries@haskell.org
+-- Stability   :  provisional
+-- Portability :  portable
+--
+-- The 'Functor', 'Monad' and 'MonadPlus' classes,
+-- with some useful operations on monads.
+              identifiers:
+                {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:14:9-15}
+                GHC.Internal.Base.Functor
+                {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:14:20-24}
+                GHC.Internal.Base.Monad
+                {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:14:32-40}
+                GHC.Internal.Base.MonadPlus
+       export docs:
+         []
+       declaration docs:
+         [guard -> [text:
+                      -- | Conditional failure of 'Alternative' computations. Defined by
+--
+-- @
+-- guard True  = 'pure' ()
+-- guard False = 'empty'
+-- @
+--
+-- ==== __Examples__
+--
+-- Common uses of 'guard' include conditionally signalling an error in
+-- an error monad and conditionally rejecting the current choice in an
+-- 'Alternative'-based parser.
+--
+-- As an example of signalling an error in the error monad 'Maybe',
+-- consider a safe division function @safeDiv x y@ that returns
+-- 'Nothing' when the denominator @y@ is zero and @'Just' (x \`div\`
+-- y)@ otherwise. For example:
+--
+-- >>> safeDiv 4 0
+-- Nothing
+--
+-- >>> safeDiv 4 2
+-- Just 2
+--
+-- A definition of @safeDiv@ using guards, but not 'guard':
+--
+-- @
+-- safeDiv :: Int -> Int -> Maybe Int
+-- safeDiv x y | y /= 0    = Just (x \`div\` y)
+--             | otherwise = Nothing
+-- @
+--
+-- A definition of @safeDiv@ using 'guard' and 'Monad' @do@-notation:
+--
+-- @
+-- safeDiv :: Int -> Int -> Maybe Int
+-- safeDiv x y = do
+--   guard (y /= 0)
+--   return (x \`div\` y)
+-- @
+                    identifiers:
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:95:30-40}
+                      GHC.Internal.Base.Alternative
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:98:19-22}
+                      GHC.Internal.Base.pure
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:99:19-23}
+                      GHC.Internal.Base.empty
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:104:20-24}
+                      guard
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:106:5-15}
+                      GHC.Internal.Base.Alternative
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:108:61-65}
+                      GHC.Internal.Maybe.Maybe
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:110:5-11}
+                      GHC.Internal.Maybe.Nothing
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:110:53-56}
+                      GHC.Internal.Maybe.Just
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:119:53-57}
+                      guard
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:127:37-41}
+                      guard
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:127:49-53}
+                      GHC.Internal.Base.Monad],
+          <$!> -> [text:
+                     -- | Strict version of 'Data.Functor.<$>'.
+--
+-- @since base-4.8.0.0
+                   identifiers:],
+          <=< -> [text:
+                    -- | Right-to-left composition of Kleisli arrows. @('>=>')@, with the arguments
+-- flipped.
+--
+-- Note how this operator resembles function composition @('.')@:
+--
+-- > (.)   ::            (b ->   c) -> (a ->   b) -> a ->   c
+-- > (<=<) :: Monad m => (b -> m c) -> (a -> m b) -> a -> m c
+                  identifiers:
+                    {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:188:54-56}
+                    >=>
+                    {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:191:61}
+                    GHC.Internal.Base..],
+          >=> -> [text:
+                    -- | Left-to-right composition of 'Control.Arrow.Kleisli' arrows.
+--
+-- \'@(bs '>=>' cs) a@\' can be understood as the @do@ expression
+--
+-- @
+-- do b <- bs a
+--    cs b
+-- @
+--
+-- or in terms of @'(>>=)'@ as
+--
+-- > bs a >>= cs
+                  identifiers:
+                    {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:175:12-14}
+                    >=>
+                    {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:182:22-24}
+                    GHC.Internal.Base.>>=],
+          filterM -> [text:
+                        -- | This generalizes the list-based 'Data.List.filter' function.
+--
+-- > runIdentity (filterM (Identity . p) xs) == filter p xs
+--
+-- ==== __Examples__
+--
+-- >>> filterM (\x -> do
+--       putStrLn ("Keep: " ++ show x ++ "?")
+--       answer <- getLine
+--       pure (answer == "y"))
+--     [1, 2, 3]
+-- Keep: 1?
+-- y
+-- Keep: 2?
+-- n
+-- Keep: 3?
+-- y
+-- [1,3]
+--
+-- >>> filterM (\x -> do
+--       putStr (show x)
+--       x' <- readLn
+--       pure (x == x'))
+--     [1, 2, 3]
+-- 12
+-- 22
+-- 33
+-- [2,3]
+                      identifiers:],
+          foldM -> [text:
+                      {-| The 'foldM' function is analogous to 'Data.Foldable.foldl', except that its result is
+encapsulated in a monad. Note that 'foldM' works from left-to-right over
+the list arguments. This could be an issue where @('>>')@ and the `folded
+function' are not commutative.
+
+
+> foldM f a1 [x1, x2, ..., xm]
+>
+> ==
+>
+> do
+>   a2 <- f a1 x1
+>   a3 <- f a2 x2
+>   ...
+>   f am xm
+
+If right-to-left evaluation is required, the input list should be reversed.
+
+Note: 'foldM' is the same as 'foldlM'
+-}
+                    identifiers:
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:258:11-15}
+                      foldM
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:259:37-41}
+                      foldM
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:260:53-54}
+                      GHC.Internal.Base.>>
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:276:8-12}
+                      foldM
+                      {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:276:31-36}
+                      GHC.Internal.Data.Foldable.foldlM],
+          foldM_ -> [text:
+                       -- | Like 'foldM', but discards the result.
+                     identifiers:
+                       {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:285:12-16}
+                       foldM],
+          forever -> [text:
+                        -- | Repeat an action indefinitely.
+--
+-- ==== __Examples__
+--
+-- A common use of 'forever' is to process input from network sockets,
+-- 'System.IO.Handle's, and channels
+-- (e.g. 'Control.Concurrent.MVar.MVar' and
+-- 'Control.Concurrent.Chan.Chan').
+--
+-- For example, here is how we might implement an [echo
+-- server](https://en.wikipedia.org/wiki/Echo_Protocol), using
+-- 'forever' both to listen for client connections on a network socket
+-- and to echo client input on client connection handles:
+--
+-- @
+-- echoServer :: Socket -> IO ()
+-- echoServer socket = 'forever' $ do
+--   client <- accept socket
+--   'Control.Concurrent.forkFinally' (echo client) (\\_ -> hClose client)
+--   where
+--     echo :: Handle -> IO ()
+--     echo client = 'forever' $
+--       hGetLine client >>= hPutStrLn client
+-- @
+--
+-- Note that "forever" isn't necessarily non-terminating.
+-- If the action is in a @'MonadPlus'@ and short-circuits after some number of iterations.
+-- then @'forever'@ actually returns `mzero`, effectively short-circuiting its caller.
+                      identifiers:
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:202:21-27}
+                        forever
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:209:5-11}
+                        forever
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:214:25-31}
+                        forever
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:219:23-29}
+                        forever
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:224:28-36}
+                        GHC.Internal.Base.MonadPlus
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:225:11-17}
+                        forever
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:225:39-43}
+                        GHC.Internal.Base.mzero],
+          mapAndUnzipM -> [text:
+                             -- | The 'mapAndUnzipM' function maps its first argument over a list, returning
+-- the result as a pair of lists. This function is mainly used with complicated
+-- data structures or a state monad.
+                           identifiers:
+                             {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:235:11-22}
+                             mapAndUnzipM],
+          mfilter -> [text:
+                        -- | Direct 'MonadPlus' equivalent of 'Data.List.filter'.
+--
+-- ==== __Examples__
+--
+-- The 'Data.List.filter' function is just 'mfilter' specialized to
+-- the list monad:
+--
+-- @
+-- 'Data.List.filter' = ( 'mfilter' :: (a -> Bool) -> [a] -> [a] )
+-- @
+--
+-- An example using 'mfilter' with the 'Maybe' monad:
+--
+-- >>> mfilter odd (Just 1)
+-- Just 1
+-- >>> mfilter odd (Just 2)
+-- Nothing
+--
+                      identifiers:
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:391:14-22}
+                        GHC.Internal.Base.MonadPlus
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:395:45-51}
+                        mfilter
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:399:28-34}
+                        mfilter
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:402:22-28}
+                        mfilter
+                        {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:402:41-45}
+                        GHC.Internal.Maybe.Maybe],
+          replicateM -> [text:
+                           -- | @'replicateM' n act@ performs the action @act@ @n@ times,
+-- and then returns the list of results.
+--
+-- @replicateM n (pure x) == 'replicate' n x@
+--
+-- ==== __Examples__
+--
+-- >>> replicateM 3 getLine
+-- hi
+-- heya
+-- hiya
+-- ["hi","heya","hiya"]
+--
+-- >>> import Control.Monad.State
+-- >>> runState (replicateM 3 $ state $ \s -> (s, s + 1)) 1
+-- ([1,2,3],4)
+--
+                         identifiers:
+                           {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:312:8-17}
+                           replicateM],
+          replicateM_ -> [text:
+                            -- | Like 'replicateM', but discards the result.
+--
+-- ==== __Examples__
+--
+-- >>> replicateM_ 3 (putStr "a")
+-- aaa
+                          identifiers:
+                            {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:340:12-21}
+                            replicateM],
+          unless -> [text:
+                       -- | The reverse of 'when'.
+--
+-- ==== __Examples__
+--
+-- >>> do x <- getLine
+--        unless (x == "hi") (putStrLn "hi!")
+-- comingupwithexamplesisdifficult
+-- hi!
+--
+-- >>> unless (pi > exp 1) Nothing
+-- Just ()
+                     identifiers:
+                       {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:358:22-25}
+                       GHC.Internal.Base.when],
+          zipWithM -> [text:
+                         -- | The 'zipWithM' function generalizes 'zipWith' to arbitrary applicative functors.
+                       identifiers:
+                         {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:244:11-18}
+                         zipWithM
+                         {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:244:43-49}
+                         GHC.Internal.List.zipWith],
+          zipWithM_ -> [text:
+                          -- | 'zipWithM_' is the extension of 'zipWithM' which ignores the final result.
+                        identifiers:
+                          {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:251:7-15}
+                          zipWithM_
+                          {libraries/ghc-internal/src/GHC/Internal/Control/Monad.hs:251:39-46}
+                          zipWithM]]
+       arg docs:
+         []
+       documentation structure:
+         section heading, level 1:
+           text:
+             -- * Functor and monad classes
+           identifiers:
+         avails:
+           [GHC.Internal.Base.Functor{GHC.Internal.Base.Functor,
+                                      GHC.Internal.Base.<$, GHC.Internal.Base.fmap}]
+         avails:
+           [GHC.Internal.Base.Monad{GHC.Internal.Base.Monad,
+                                    GHC.Internal.Base.>>=, GHC.Internal.Base.>>,
+                                    GHC.Internal.Base.return}]
+         avails:
+           [GHC.Internal.Control.Monad.Fail.MonadFail{GHC.Internal.Control.Monad.Fail.MonadFail,
+                                                      GHC.Internal.Control.Monad.Fail.fail}]
+         avails:
+           [GHC.Internal.Base.MonadPlus{GHC.Internal.Base.MonadPlus,
+                                        GHC.Internal.Base.mzero, GHC.Internal.Base.mplus}]
+         section heading, level 1:
+           text:
+             -- * Functions
+           identifiers:
+         section heading, level 2:
+           text:
+             -- ** Naming conventions
+           identifiers:
+         reference to named chunk: naming
+         section heading, level 2:
+           text:
+             -- ** Basic @Monad@ functions
+           identifiers:
+         avails:
+           [GHC.Internal.Data.Traversable.Traversable{GHC.Internal.Data.Traversable.mapM}]
+         avails:
+           [GHC.Internal.Data.Foldable.mapM_]
+         avails:
+           [GHC.Internal.Data.Traversable.forM]
+         avails:
+           [GHC.Internal.Data.Foldable.forM_]
+         avails:
+           [GHC.Internal.Data.Traversable.Traversable{GHC.Internal.Data.Traversable.sequence}]
+         avails:
+           [GHC.Internal.Data.Foldable.sequence_]
+         avails:
+           [GHC.Internal.Base.=<<]
+         avails:
+           [>=>]
+         avails:
+           [<=<]
+         avails:
+           [forever]
+         avails:
+           [GHC.Internal.Data.Functor.void]
+         section heading, level 2:
+           text:
+             -- ** Generalisations of list functions
+           identifiers:
+         avails:
+           [GHC.Internal.Base.join]
+         avails:
+           [GHC.Internal.Data.Foldable.msum]
+         avails:
+           [mfilter]
+         avails:
+           [filterM]
+         avails:
+           [mapAndUnzipM]
+         avails:
+           [zipWithM]
+         avails:
+           [zipWithM_]
+         avails:
+           [foldM]
+         avails:
+           [foldM_]
+         avails:
+           [replicateM]
+         avails:
+           [replicateM_]
+         section heading, level 2:
+           text:
+             -- ** Conditional execution of monadic expressions
+           identifiers:
+         avails:
+           [guard]
+         avails:
+           [GHC.Internal.Base.when]
+         avails:
+           [unless]
+         section heading, level 2:
+           text:
+             -- ** Monadic lifting operators
+           identifiers:
+         avails:
+           [GHC.Internal.Base.liftM]
+         avails:
+           [GHC.Internal.Base.liftM2]
+         avails:
+           [GHC.Internal.Base.liftM3]
+         avails:
+           [GHC.Internal.Base.liftM4]
+         avails:
+           [GHC.Internal.Base.liftM5]
+         avails:
+           [GHC.Internal.Base.ap]
+         section heading, level 2:
+           text:
+             -- ** Strict monadic functions
+           identifiers:
+         avails:
+           [<$!>]
+       named chunks:
+         "setup":
+           text:
+             -- $setup
+-- >>> import Prelude
+-- >>> let safeDiv x y = guard (y /= 0) >> Just (x `div` y :: Int)
+           identifiers:
+       haddock options:
+       language:
+         Just Haskell2010
+       language extensions:
+         MonomorphismRestriction
+         DeepSubsumption
+         RelaxedPolyRec
+         ForeignFunctionInterface
+         DoAndIfThenElse
+         EmptyDataDecls
+         PatternGuards
+         DatatypeContexts
+         TraditionalRecordSyntax
+         StarIsType
+         CUSKs
+         FieldSelectors
+         ListTuplePuns
+extensible fields:
+

@@ -66,9 +66,25 @@ internal object OriginalQuickCheck {
         var remaining = ticket
         xs.first { (weight,_) -> remaining -= weight; remaining <= 0 }.second
     }
-    fun <A> vector(size: Int, gen: Gen<A>): Gen<List<A>> {
-        if (size <= 0) return pure(emptyList())
-        return zip(gen, vector(size-1,gen)) { head,tail -> listOf(head) + tail }
+    private class VectorCell<A>(val result: Result<A>)
+    /** replicateM/liftA2(:) preserves lazy, shared elements on a finite spine. */
+    fun <A> vector(size: Int, gen: Gen<A>): Gen<List<A>> = Gen { r,n ->
+        val count = size
+        if (count <= 0) emptyList() else object : AbstractList<A>() {
+            override val size = count
+            private val seeds = mutableListOf(r)
+            private val cells = mutableMapOf<Int,VectorCell<A>>()
+            override fun get(index: Int): A = synchronized(this) {
+                if (index < 0 || index >= size) throw IndexOutOfBoundsException("index=$index size=$size")
+                cells[index]?.let { return@synchronized it.result.getOrThrow() }
+                // ap's first bind runs the element at left. Its second bind runs
+                // the tail at right.left; right.right feeds the ignored pure.
+                while (seeds.size <= index) seeds += seeds.last().split().second.split().first
+                val cell = VectorCell(runCatching { gen.run(seeds[index].split().first,n) })
+                cells[index] = cell // Include null values and synchronous failures.
+                cell.result.getOrThrow()
+            }
+        }
     }
     fun <A> list(gen: Gen<A>, nonempty: Boolean = false): Gen<List<A>> = sized { n ->
         chooseInt(if(nonempty) 1 else 0, if(nonempty) maxOf(1,n) else n).bind { vector(it,gen) }

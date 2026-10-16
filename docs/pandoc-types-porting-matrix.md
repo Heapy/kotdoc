@@ -9,7 +9,7 @@ Source authority: pinned upstream/pandoc-types/{src/Text/Pandoc/{Arbitrary,Defin
 | Original twelve Walk predicates | `test/test-pandoc-types.hs:p_walk,p_walkList,p_query,p_queryList` and twelve registrations | `665c5daf970f0981b2851fc4d50fc35ad0dd004a`: 500 original generator inputs, 6,000 independent Data.Generics expectations | Covered original predicates; all public Walk instances/effects remain separate gateE |
 | Actual QCGen/Gen and original Pandoc seed replay | `Arbitrary.hs:288-289`; QuickCheck2.16.0.0 `Gen.hs`, `Random.hs`; splitmix0.1.3.2 | `cdf2b84906e91b1baad740738564855677966acb`: 420 primitive seed/size cases and 500 complete source Pandoc trees | Covered initial seed replay; accepted standalone/helper domain below. Large/deep/partial generator runtime audit remains open |
 | All nineteen default generators and helper domain | `Arbitrary.hs:all19 instances,realString,arbAttr,arbInline/Block/Inlines/Row/Table*/Cell` | `43db34fe4fd20707b4891e81378c059acdc09d22`: 5,700 exact standalone values and 4,538 private/domain observations; all18 Attr choices,20 Inline/14 Block/22 enum root witnesses, text endpoints | Covered named finite matrixA; broad large/deep/partial generator demand remains in the runtime audit |
-| Ten explicit shrink families | `Arbitrary.hs:36-111,114-142,178-211,309-346` | `665c5daf970f0981b2851fc4d50fc35ad0dd004a`: 104 complete small candidate lists, 80 original raw prefixes, one partial-head demand test | Partial: deterministic constructor/Char/size/deep/partial matrix remains open |
+| Ten explicit shrink families | `Arbitrary.hs:36-111,114-142,178-211,309-346` | `fde33c3346204ff8f2eee836ef445fd302a0bdc4`: 134 named lists, all1,114,112 Char, six demand probes; focused XML33,284; supplements665c5da | Covered named finite gateB, all constructors and represented known-spine demand; no general GHC evaluation runtime claimed |
 | Nine inherited empty shrink families | `Arbitrary.hs:288-307,348-407`; QuickCheck `Arbitrary.shrink` default | `cdf2b84906e91b1baad740738564855677966acb`: 270 original inputs, nine explicit Kotlin APIs; compound Citation/Alignment hooks retained | Covered original default no-op semantics on the represented inputs; standalone generator domain remains gateA |
 | All original registered tests | `test/test-pandoc-types.hs:tests` | Existing 56 paired JSON literals and two table literals; exact Walk evidence above | All 81 source registrations have concrete Kotlin mappings and executed finite evidence in remaining-property-manifest.json; whole semantic API and other gates remain open |
 | Derived Read | Definition.hs23 data/newtypes; Builder.hs Many; native GHC dictionaries | Existing Native reader fixtures support complete document syntax | Open: typed dictionary, precedence, prefix/remainder, failure and deep matrix |
@@ -81,7 +81,7 @@ literals and both original table literals remain unchanged and are included in
 the focused regression. This checkpoint does not close the shrink/Read/ordering
 or whole public semantic API gates.
 
-## Ordered shrinking closure checkpoint (awaiting independent review)
+## Accepted ordered shrinking closure checkpoint
 
 Finite acceptance rows: all20 Inline and14 Block root constructors and their
 34 wrapper flatten/no-flatten cases; seven table/caption cases;32 list-boundary
@@ -120,8 +120,8 @@ behavior. local:611 remains open.
 Focused verification: Gradle session48118 completed successfully in2m05s.
 Actual JUnit XML has33,284 cases (prior32,056 plus1,228 new), zero failures,
 errors or skips. The1,228 new cases are134 ordered lists,1,088 full Char batches
-and six finite demand observations. All five source verifiers and diff checks
-must remain green before integration; independent original replay/review is pending.
+and six finite demand observations. All five source verifiers and diff checks passed; independent original replay
+and review accepted `fde33c3346204ff8f2eee836ef445fd302a0bdc4`.
 
 Initial exact-source census for the subsequent API audit: Definition has37 export
 entries,23 data/newtypes and five aliases; Builder has74 own export entries plus
@@ -134,3 +134,53 @@ ordering audit has25 concrete Definition/Many Inline/Many Block dictionaries and
 225 nine-method slots; Read has the same25 concrete dictionaries plus five
 Definition aliases and dependency grammars. These finite source rows require a
 separate explicit symbol/evidence census; this count does not mark them covered.
+
+## Vector runtime checkpoint and finite implementation sequence
+
+The next runtime correction replaces recursively constructed/eager vectorOf
+results with finite lazy memoized Lists. Exact authority is QuickCheck2.16.0.0
+Gen.vectorOf=Control.Monad.replicateM, Gen Applicative(<*>)=ap and Monad(>>=), plus
+the retained GHC9.12.2 interface unfolding of replicateM via liftA2(:). Original
+native evidence has180 seed/size/count records, complete small vectors and named
+100000-element indices; ten actual native demand stages cover length without
+elements, selected-element demand, repeated successful/nullable values and shared
+synchronous exceptions. Two Kotlin test methods supplement180 native value
+cases: one executes all ten native stages, one checks finite adapter bounds and
+per-run cache isolation. Fresh Gradle64342 passed actual XML33,466 cases
+(prior33,284 plus182), zero failures/errors/skips; six source verifiers pass.
+Independent original replay and review accepted this checkpoint; no source
+expectation is rewritten. This closes the identified vector construction gap
+for the represented finite regression; it does not turn Kotlin into a general lazy Gen interpreter.
+
+The following implementation sequence has explicit source rows and acceptance:
+
+1. Finish/review this vector correction and rerun all19 accepted generator
+   instance matrices, all19 shrink source families and the original81 registered
+   test mapping. Keep callbacks deterministic and finite; concurrent/cyclic or
+   asynchronous GHC thunk semantics are outside this represented-value contract.
+2. Add actual native readsPrec/readPrec/readList observations and a Kotlin typed
+   ReadDictionary API for25 concrete dictionaries: Pandoc, Meta, MetaValue,
+   ListNumberStyle, ListNumberDelim, Format, RowHeadColumns, Alignment, ColWidth,
+   Row, TableHead, TableBody, TableFoot, Caption, Cell, RowSpan, ColSpan, Block,
+   QuoteType, MathType, Inline, Citation, CitationMode, Many Inline and Many Block.
+   Include five aliases Attr/Target/ListAttributes/ColSpec/ShortCaption and the
+   primitive/List/Maybe/Map/Seq grammar dependencies in the same source census.
+   Every constructor, precedence -1/0/10/11, exact remainder, rejection/lexical
+   boundary and deep finite path needs original expected results. NativeReader's
+   private generic expression parser greedily consumes applications and demands
+   EOF; its current Pandoc-only adaptation cannot serve these contracts. Reuse
+   validated lexical rules where possible; preserve its existing expectations.
+3. Audit all225 Eq/Ord method slots against the existing AstComparison original
+   dictionaries and75470+ observations. Fill concrete missing source rows (e.g.
+   the18 Many Inline/Block method slots) without replacing already-proven source
+   behavior. Join aliases/dependency IEEE and finite demand rows explicitly.
+4. Expand140 module-owned export entries to exact constructor/record/class-member
+   IDs, reconcile58 Walk dictionaries/174 walk/walkM/query slots, four Generic
+   functions, Definition algebra/numeric wrappers and Builder methods/instances.
+   Implement missing public behavior with native state/effect traces and typed
+   root/container inputs, then execute each exact source row. An unmapped member
+   prevents closure; the original12 Pandoc properties cannot substitute for it.
+5. Reconcile accepted source evidence with the integrator's ledger/inventory and
+   run relevant complete regression. Close611 only when all named gates have no
+   unresolved implementation/evidence rows; closing611 still does not mean the
+   entire Pandoc/calibre port is complete.
