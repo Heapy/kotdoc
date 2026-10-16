@@ -14359,3 +14359,22 @@ integrity case and jar/installDist;68 source pins and69 frozen paths match.
 This is finite protocol/demand evidence, not arbitrary GHC heap equivalence.
 The140 module-owned exports,350 instance members and JSON supplement audit
 remain open; local:611 and the full Pandoc/calibre goal are not complete.
+
+
+### Decaf remaining multiplication and X448 raw engine checkpoint
+
+The remaining17 point definitions now join the accepted28 geometry definitions
+(and header copy); conditional MSVC ctz remains a separate non-host branch.
+Independent replay passed2852 rows/50 pins/four profiles,12 actual assertion
+probes,14656843 ordered field writes and eight full table comparisons.
+Independent integer models passed1096 checks plus228 defined negative-shift
+prefixes. Saved Gradle97490 XML has2915 actual cases with no failures/errors/
+skips; jar/installDist contain three new classes and the exact MIT notice.
+Actual Haskell ABI239 observations and the unchanged29-example upstream suite
+are supporting evidence, not public Ed448 completeness. Original wNAF signed
+shift UB is separated from normalized observers, compiler observations and
+defined-prefix mathematics. Raw aliases, failure outputs, zero-variable
+nonsecret identity and profile-specific masks are preserved. Forced32 profiles
+are host execution, not real32-bit ABI proof or universal caller-range proof.
+Public/modern X448, Ed448/SHAKE/signatures and the remaining crypto/Pandoc/
+calibre scope of local:613 remain OPEN.

@@ -1,0 +1,39 @@
+
+Ed448
+  gen secretkey [✔]
+  gen publickey
+    0 [✔]
+    1 [✔]
+    2 [✔]
+    3 [✔]
+    4 [✔]
+    5 [✔]
+    6 [✔]
+    7 [✔]
+  gen signature
+    0 [✔]
+    1 [✔]
+    2 [✔]
+    3 [✔]
+    4 [✔]
+    5 [✔]
+    6 [✔]
+    7 [✔]
+  verify sig
+    0 [✔]
+    1 [✔]
+    2 [✔]
+    3 [✔]
+    4 [✔]
+    5 [✔]
+    6 [✔]
+    7 [✔]
+Curve448
+  KATs
+    0 [✔]
+    1 [✔]
+    2 [✔]
+    3 [✔]
+
+Finished in <elapsed> seconds
+29 examples, 0 failures

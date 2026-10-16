@@ -1,0 +1,312 @@
+{
+  "functions": [
+    {
+      "name": "crypton_gf_invert",
+      "line": 131,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "deisogenize",
+      "line": 156,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_encode",
+      "line": 244,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_decode",
+      "line": 250,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_sub",
+      "line": 303,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_add",
+      "line": 335,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_double_internal",
+      "line": 368,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_double",
+      "line": 391,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_negate",
+      "line": 395,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "cond_neg_niels",
+      "line": 407,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "pt_to_pniels",
+      "line": 415,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "pniels_to_pt",
+      "line": 425,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "niels_to_pt",
+      "line": 439,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "add_niels_to_pt",
+      "line": 450,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "sub_niels_from_pt",
+      "line": 472,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "add_pniels_to_pt",
+      "line": 494,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "sub_pniels_from_pt",
+      "line": 506,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "prepare_fixed_window",
+      "line": 518,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_scalarmul",
+      "line": 540,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "point_double_scalarmul",
+      "line": 601,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "point_dual_scalarmul",
+      "line": 679,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "point_eq",
+      "line": 783,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_valid",
+      "line": 809,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_debugging_torque",
+      "line": 828,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_debugging_pscale",
+      "line": 847,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "crypton_gf_batch_invert",
+      "line": 866,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "batch_normalize_niels",
+      "line": 891,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "precompute",
+      "line": 918,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "constant_time_lookup_niels",
+      "line": 984,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "precomputed_scalarmul",
+      "line": 993,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "point_cond_sel",
+      "line": 1040,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "direct_scalarmul",
+      "line": 1050,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "point_mul_by_ratio_and_encode_like_eddsa",
+      "line": 1067,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "point_decode_like_eddsa_and_mul_by_ratio",
+      "line": 1160,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "crypton_decaf_x448",
+      "line": 1264,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "crypton_decaf_ed448_convert_public_key_to_x448",
+      "line": 1335,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "crypton_decaf_x448_generate_key",
+      "line": 1371,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "point_mul_by_ratio_and_encode_like_x448",
+      "line": 1378,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "crypton_decaf_x448_derive_public_key",
+      "line": 1398,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "recode_wnaf",
+      "line": 1431,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "prepare_wnaf_table",
+      "line": 1484,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "precompute_wnafs",
+      "line": 1521,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "base_double_scalarmul_non_secret",
+      "line": 1540,
+      "checkpoint": "multiplication-and-x448"
+    },
+    {
+      "name": "point_destroy",
+      "line": 1611,
+      "checkpoint": "geometry-codecs-niels"
+    },
+    {
+      "name": "precomputed_destroy",
+      "line": 1617,
+      "checkpoint": "multiplication-and-x448"
+    }
+  ],
+  "headerHelpers": [
+    {
+      "name": "point_copy",
+      "file": "include/decaf/point_448.h",
+      "checkpoint": "geometry-codecs-niels",
+      "line": 296
+    }
+  ],
+  "conditional": [
+    {
+      "name": "ctz",
+      "guard": "_MSC_VER",
+      "checkpoint": "not compiled in these Clang profiles"
+    }
+  ],
+  "profiles": [
+    {
+      "fieldBits": 32,
+      "scalarBits": 32,
+      "radix": 28,
+      "vectorMasks32": false
+    },
+    {
+      "fieldBits": 64,
+      "scalarBits": 64,
+      "radix": 56,
+      "vectorMasks32": false
+    },
+    {
+      "fieldBits": 64,
+      "scalarBits": 32,
+      "radix": 56,
+      "vectorMasks32": false
+    },
+    {
+      "fieldBits": 64,
+      "scalarBits": 32,
+      "radix": 56,
+      "vectorMasks32": true
+    }
+  ],
+  "constants": [
+    "EDWARDS_D=-39081",
+    "TWISTED_D=-39082",
+    "EFF_D=39082",
+    "COFACTOR=4",
+    "IMAGINE_TWIST=0",
+    "EDDSA_USE_SIGMA_ISOGENY=0",
+    "COMBS_N=5",
+    "COMBS_T=5",
+    "COMBS_S=18",
+    "WINDOW_BITS=5",
+    "WNAF_FIXED=5",
+    "WNAF_VAR=3",
+    "RISTRETTO_FACTOR",
+    "point_scalarmul_adjustment",
+    "precomputed_scalarmul_adjustment",
+    "x448_base_point",
+    "point_identity"
+  ],
+  "tables": {
+    "fieldElements": 340,
+    "base": 4,
+    "comb": 240,
+    "wnaf": 96,
+    "literal56bitWords": 2720,
+    "split28bitWords": 5440
+  },
+  "domains": {
+    "mask_t": "documented zero/allones; raw noncanonical masks retained separately, generic versus SIMD32 repeated mask policy",
+    "allow_identity/pick_b": "API bool word; all nonzero accepted by bool_to_mask",
+    "point_add/sub": "source documented same-point aliases; full raw results, no validity precheck",
+    "deisogenize": "three restrict output fields disjoint from input; toggle_rotation ignored by fixed cofactor4 branch",
+    "private Niels transforms": "disjoint point/Niels storage; in-place Niels negate and point update supported",
+    "before_double": "nonzero leaves t stale; raw representation is not a complete valid point until later completion",
+    "point inversion": "assert_nonzero requires nonzero input; separately observed abort forzero",
+    "Ed448 encode": "affinizing denominator nonzero; all-zero point separately aborts",
+    "prepare_fixed_window": "positive table count with sufficient capacity; finite zero count observation still writes element0",
+    "serialization": "source byte order and typed buffer boundaries; general cross-type pointer aliasing/JVM layout not claimed",
+    "pending recode_wnaf": "signed delta<<pos for negative delta has C UB; preserve original and investigate before later port",
+    "pending base_double_scalarmul_non_secret": "scalar2 zero branch returns identity before considering scalar1; preserve/test source quirk in later family"
+  },
+  "acceptedGeometryCommit": "14bb1a158816f486b9a18d73a5f6ba4a61a3d4f9"
+}

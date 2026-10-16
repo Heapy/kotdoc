@@ -1,0 +1,3510 @@
+{
+  "kind": "finite actual caller field-write ranges; universal caller range invariant remains unproven",
+  "profiles": {
+    "field32/api32/neonFalse": {
+      "scalarmul": {
+        "rows": 28,
+        "fieldWrites": 215712,
+        "labels": {
+          "sqr": {
+            "writes": 49980,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 18
+          },
+          "add_nr": {
+            "writes": 46200,
+            "maxWord": "0000000020000006",
+            "aboveRadix": 421692
+          },
+          "subx_nr": {
+            "writes": 24976,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 10
+          },
+          "sub_nr": {
+            "writes": 21224,
+            "maxWord": "0000000010000001",
+            "aboveRadix": 274
+          },
+          "mul": {
+            "writes": 60900,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 474
+          },
+          "sub": {
+            "writes": 504,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 138
+          },
+          "add": {
+            "writes": 980,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 200
+          },
+          "mulw": {
+            "writes": 476,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 2912,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 90
+          },
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 484
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 480
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "doubleScalarmul": {
+        "rows": 70,
+        "fieldWrites": 674100,
+        "labels": {
+          "sqr": {
+            "writes": 125230,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 98
+          },
+          "add_nr": {
+            "writes": 137760,
+            "maxWord": "000000001ffff57e",
+            "aboveRadix": 1102508
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "000000000ffffc7a",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 75180,
+            "maxWord": "000000000fffffed",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 211260,
+            "maxWord": "000000000ffffe02",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 2450,
+            "maxWord": "000000000ff97cad",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 4830,
+            "maxWord": "000000000ffd4b6f",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 2380,
+            "maxWord": "000000000ffc381f",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 14630,
+            "maxWord": "000000000ffffe02",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "000000000ffb238a",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "000000000ffb238a",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "000000000ffeca32",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "dualScalarmul": {
+        "rows": 70,
+        "fieldWrites": 744940,
+        "labels": {
+          "sub": {
+            "writes": 6300,
+            "maxWord": "000000000ff917b6",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 12600,
+            "maxWord": "000000000fff8de7",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 10500,
+            "maxWord": "000000000ffff807",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "000000000ffdb0e1",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "000000000ffdb0e1",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "000000000fffd93f",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 234640,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 140
+          },
+          "copy": {
+            "writes": 12600,
+            "maxWord": "000000000fffead8",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 85890,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 2530
+          },
+          "add_nr": {
+            "writes": 152670,
+            "maxWord": "000000001fff4504",
+            "aboveRadix": 1177570
+          },
+          "sqr": {
+            "writes": 125160,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 70
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "000000000fffe6c6",
+            "aboveRadix": 0
+          },
+          "weak_reduce": {
+            "writes": 4200,
+            "maxWord": "000000000fffc87e",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedScalarmul": {
+        "rows": 52,
+        "fieldWrites": 85904,
+        "labels": {
+          "cond_swap0": {
+            "writes": 4680,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 4680,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 4680,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 52,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 52,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 35100,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 1556
+          },
+          "copy": {
+            "writes": 52,
+            "maxWord": "0000000000000001",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 14768,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 780
+          },
+          "add_nr": {
+            "writes": 16536,
+            "maxWord": "0000000020000000",
+            "aboveRadix": 138458
+          },
+          "sqr": {
+            "writes": 3536,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 204
+          },
+          "subx_nr": {
+            "writes": 1768,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 68
+          }
+        }
+      },
+      "recodeWnaf": {
+        "rows": 84,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "fieldWrites": 169568,
+        "labels": {
+          "sub": {
+            "writes": 278,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 22
+          },
+          "add": {
+            "writes": 530,
+            "maxWord": "000000000ffae858",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 252,
+            "maxWord": "000000000fd24188",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42954,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 46
+          },
+          "add_nr": {
+            "writes": 38256,
+            "maxWord": "000000001ffff34c",
+            "aboveRadix": 305470
+          },
+          "subx_nr": {
+            "writes": 21468,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 16788,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 47736,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 1306,
+            "maxWord": "000000000fff7cd2",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precompute": {
+        "rows": 7,
+        "fieldWrites": 62930,
+        "labels": {
+          "sqr": {
+            "writes": 12110,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 1298
+          },
+          "add_nr": {
+            "writes": 12397,
+            "maxWord": "0000000020000006",
+            "aboveRadix": 109197
+          },
+          "subx_nr": {
+            "writes": 6048,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 432
+          },
+          "sub_nr": {
+            "writes": 5684,
+            "maxWord": "0000000010000001",
+            "aboveRadix": 747
+          },
+          "mul": {
+            "writes": 18074,
+            "maxWord": "0000000010000003",
+            "aboveRadix": 1452
+          },
+          "mulw": {
+            "writes": 1225,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "weak_reduce": {
+            "writes": 665,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 49
+          },
+          "sub": {
+            "writes": 560,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 90
+          },
+          "add": {
+            "writes": 1120,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 120
+          },
+          "copy": {
+            "writes": 3360,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 70
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "000000000fbdb8cb",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 1680,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputeWnafs": {
+        "rows": 7,
+        "fieldWrites": 7644,
+        "labels": {
+          "sub": {
+            "writes": 231,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 23
+          },
+          "add": {
+            "writes": 462,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 32
+          },
+          "mulw": {
+            "writes": 231,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 5
+          },
+          "add_nr": {
+            "writes": 672,
+            "maxWord": "0000000020000006",
+            "aboveRadix": 5678
+          },
+          "subx_nr": {
+            "writes": 14,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 1
+          },
+          "sub_nr": {
+            "writes": 658,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 45
+          },
+          "mul": {
+            "writes": 3094,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 169
+          },
+          "copy": {
+            "writes": 1561,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 49
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "000000000e9aec32",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 672,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "prepareWnafTable": {
+        "rows": 30,
+        "fieldWrites": 5340,
+        "labels": {
+          "sub": {
+            "writes": 306,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 41
+          },
+          "add": {
+            "writes": 612,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 58
+          },
+          "mulw": {
+            "writes": 306,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 96,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 16
+          },
+          "add_nr": {
+            "writes": 828,
+            "maxWord": "0000000020000006",
+            "aboveRadix": 7071
+          },
+          "subx_nr": {
+            "writes": 48,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 4
+          },
+          "sub_nr": {
+            "writes": 780,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 70
+          },
+          "mul": {
+            "writes": 2112,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 123
+          },
+          "copy": {
+            "writes": 252,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 21
+          }
+        }
+      },
+      "lookupNiels": {
+        "rows": 22,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "batchInvert": {
+        "rows": 5,
+        "fieldWrites": 630,
+        "labels": {
+          "copy": {
+            "writes": 250,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 365,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 40
+          },
+          "sqr": {
+            "writes": 10,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 5,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 2
+          }
+        }
+      },
+      "normalizeNiels": {
+        "rows": 7,
+        "fieldWrites": 1897,
+        "labels": {
+          "copy": {
+            "writes": 675,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 796,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 42
+          },
+          "sqr": {
+            "writes": 14,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 2
+          },
+          "strong_reduce": {
+            "writes": 405,
+            "maxWord": "000000000fff7f52",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "directScalarmul": {
+        "rows": 180,
+        "fieldWrites": 947246,
+        "labels": {
+          "deserialize": {
+            "writes": 180,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 218972,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 425
+          },
+          "sub": {
+            "writes": 2800,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 549
+          },
+          "add": {
+            "writes": 5234,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 939
+          },
+          "mulw": {
+            "writes": 2678,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 15
+          },
+          "mul": {
+            "writes": 268004,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 1682
+          },
+          "isr": {
+            "writes": 302,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 45
+          },
+          "cond_neg": {
+            "writes": 11526,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 92
+          },
+          "copy": {
+            "writes": 12990,
+            "maxWord": "0000000010000007",
+            "aboveRadix": 270
+          },
+          "add_nr": {
+            "writes": 201300,
+            "maxWord": "0000000020000006",
+            "aboveRadix": 1762617
+          },
+          "subx_nr": {
+            "writes": 108824,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 18
+          },
+          "sub_nr": {
+            "writes": 92476,
+            "maxWord": "0000000010000001",
+            "aboveRadix": 810
+          },
+          "cond_swap0": {
+            "writes": 10980,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 1044
+          },
+          "cond_swap1": {
+            "writes": 10980,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 1035
+          }
+        }
+      },
+      "x448": {
+        "rows": 66,
+        "fieldWrites": 651486,
+        "labels": {
+          "deserialize": {
+            "writes": 66,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 330,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 59268,
+            "maxWord": "0000000010000001",
+            "aboveRadix": 2548
+          },
+          "cond_swap1": {
+            "writes": 59268,
+            "maxWord": "0000000010000004",
+            "aboveRadix": 90
+          },
+          "add_nr": {
+            "writes": 118272,
+            "maxWord": "000000002000000a",
+            "aboveRadix": 1190372
+          },
+          "sub_nr": {
+            "writes": 118272,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 2816
+          },
+          "mul": {
+            "writes": 147972,
+            "maxWord": "000000001000000b",
+            "aboveRadix": 2650
+          },
+          "sqr": {
+            "writes": 118404,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 5106
+          },
+          "mulw": {
+            "writes": 29568,
+            "maxWord": "0000000010000000",
+            "aboveRadix": 7
+          },
+          "isr": {
+            "writes": 66,
+            "maxWord": "000000000fffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "generateKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "000000000ffec9bd",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "000000000ffec9bd",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "000000000fff70d2",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "000000000fd68bae",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "000000000ff5a670",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "000000000fffe7db",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "000000000fef069c",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "000000000ffffea5",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "000000001ffbd654",
+            "aboveRadix": 70888
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "000000000fff6dc2",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "000000000fffc174",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "000000000ffbfc79",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "derivePublicKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "000000000ffec9bd",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "000000000ffec9bd",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "000000000fff70d2",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "000000000fd68bae",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "000000000ff5a670",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "000000000fffe7db",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "000000000fef069c",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "000000000ffffea5",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "000000001ffbd654",
+            "aboveRadix": 70888
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "000000000fff6dc2",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "000000000fffc174",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "000000000ffbfc79",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedDestroy": {
+        "rows": 1,
+        "fieldWrites": 0,
+        "labels": {}
+      }
+    },
+    "field64/api64/neonFalse": {
+      "scalarmul": {
+        "rows": 28,
+        "fieldWrites": 215712,
+        "labels": {
+          "sqr": {
+            "writes": 49980,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 14
+          },
+          "add_nr": {
+            "writes": 46200,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 312
+          },
+          "subx_nr": {
+            "writes": 24976,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 10
+          },
+          "sub_nr": {
+            "writes": 21224,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 274
+          },
+          "mul": {
+            "writes": 60900,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 330
+          },
+          "sub": {
+            "writes": 504,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 132
+          },
+          "add": {
+            "writes": 980,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 174
+          },
+          "mulw": {
+            "writes": 476,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 2912,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 66
+          },
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 444
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 434
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "doubleScalarmul": {
+        "rows": 70,
+        "fieldWrites": 674100,
+        "labels": {
+          "sqr": {
+            "writes": 125230,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 98
+          },
+          "add_nr": {
+            "writes": 137760,
+            "maxWord": "00ffffdfcbfc8a90",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "00fffff4dce95d14",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 75180,
+            "maxWord": "00fffffedce61eaa",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 211260,
+            "maxWord": "00ffffefa6276b70",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 2450,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 4830,
+            "maxWord": "00ffd4b6f941afa2",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 2380,
+            "maxWord": "00ffc381fd3ec600",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 14630,
+            "maxWord": "00fffb42712a3471",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "00ffeca320973fc9",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "dualScalarmul": {
+        "rows": 70,
+        "fieldWrites": 740740,
+        "labels": {
+          "sub": {
+            "writes": 6300,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 12600,
+            "maxWord": "00ffb90bb9a9be9d",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 10500,
+            "maxWord": "00ffff80720a5fec",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "00ffc03ffc6c885b",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 234640,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 140
+          },
+          "copy": {
+            "writes": 12600,
+            "maxWord": "00fffead8925fa24",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 85890,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2520
+          },
+          "add_nr": {
+            "writes": 152670,
+            "maxWord": "00fffd2069ae3210",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 125160,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 70
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "00fffa27cbc65854",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedScalarmul": {
+        "rows": 52,
+        "fieldWrites": 85904,
+        "labels": {
+          "cond_swap0": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 52,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 52,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 35100,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1556
+          },
+          "copy": {
+            "writes": 52,
+            "maxWord": "0000000000000001",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 14768,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 780
+          },
+          "add_nr": {
+            "writes": 16536,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1270
+          },
+          "sqr": {
+            "writes": 3536,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 204
+          },
+          "subx_nr": {
+            "writes": 1768,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 68
+          }
+        }
+      },
+      "recodeWnaf": {
+        "rows": 84,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "fieldWrites": 169152,
+        "labels": {
+          "sub": {
+            "writes": 278,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 20
+          },
+          "add": {
+            "writes": 530,
+            "maxWord": "00ffae85800a3a77",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 252,
+            "maxWord": "00f93c643dfe859d",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42920,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 34
+          },
+          "add_nr": {
+            "writes": 38166,
+            "maxWord": "00ffffde7bffe49d",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 21452,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 16714,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 47544,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 1296,
+            "maxWord": "00fff3ac3c4a836f",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precompute": {
+        "rows": 7,
+        "fieldWrites": 62265,
+        "labels": {
+          "sqr": {
+            "writes": 12110,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 1297
+          },
+          "add_nr": {
+            "writes": 12397,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1685
+          },
+          "subx_nr": {
+            "writes": 6048,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 432
+          },
+          "sub_nr": {
+            "writes": 5684,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 747
+          },
+          "mul": {
+            "writes": 18074,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1331
+          },
+          "mulw": {
+            "writes": 1225,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 560,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 85
+          },
+          "add": {
+            "writes": 1120,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 105
+          },
+          "copy": {
+            "writes": 3360,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 50
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "00fbdb8cbd8dc9c2",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 1680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputeWnafs": {
+        "rows": 7,
+        "fieldWrites": 7644,
+        "labels": {
+          "sub": {
+            "writes": 231,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 22
+          },
+          "add": {
+            "writes": 462,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 29
+          },
+          "mulw": {
+            "writes": 231,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 4
+          },
+          "add_nr": {
+            "writes": 672,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 52
+          },
+          "subx_nr": {
+            "writes": 14,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "sub_nr": {
+            "writes": 658,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 45
+          },
+          "mul": {
+            "writes": 3094,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 148
+          },
+          "copy": {
+            "writes": 1561,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "00e9aec326677f27",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 672,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "prepareWnafTable": {
+        "rows": 30,
+        "fieldWrites": 5340,
+        "labels": {
+          "sub": {
+            "writes": 306,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 39
+          },
+          "add": {
+            "writes": 612,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 54
+          },
+          "mulw": {
+            "writes": 306,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 96,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 12
+          },
+          "add_nr": {
+            "writes": 828,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 83
+          },
+          "subx_nr": {
+            "writes": 48,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 4
+          },
+          "sub_nr": {
+            "writes": 780,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 70
+          },
+          "mul": {
+            "writes": 2112,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 97
+          },
+          "copy": {
+            "writes": 252,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 17
+          }
+        }
+      },
+      "lookupNiels": {
+        "rows": 22,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "batchInvert": {
+        "rows": 5,
+        "fieldWrites": 630,
+        "labels": {
+          "copy": {
+            "writes": 250,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 365,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "sqr": {
+            "writes": 10,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 5,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2
+          }
+        }
+      },
+      "normalizeNiels": {
+        "rows": 7,
+        "fieldWrites": 1897,
+        "labels": {
+          "copy": {
+            "writes": 675,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 796,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 42
+          },
+          "sqr": {
+            "writes": 14,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2
+          },
+          "strong_reduce": {
+            "writes": 405,
+            "maxWord": "00ffc877aba2b2d6",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "directScalarmul": {
+        "rows": 180,
+        "fieldWrites": 978138,
+        "labels": {
+          "deserialize": {
+            "writes": 180,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 226116,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 405
+          },
+          "sub": {
+            "writes": 2880,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 663
+          },
+          "add": {
+            "writes": 5382,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1011
+          },
+          "mulw": {
+            "writes": 2754,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 15
+          },
+          "mul": {
+            "writes": 276732,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1609
+          },
+          "isr": {
+            "writes": 306,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 45
+          },
+          "cond_neg": {
+            "writes": 11898,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 91
+          },
+          "copy": {
+            "writes": 13410,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 264
+          },
+          "add_nr": {
+            "writes": 207900,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1248
+          },
+          "subx_nr": {
+            "writes": 112392,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 24
+          },
+          "sub_nr": {
+            "writes": 95508,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 1080
+          },
+          "cond_swap0": {
+            "writes": 11340,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1296
+          },
+          "cond_swap1": {
+            "writes": 11340,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1284
+          }
+        }
+      },
+      "x448": {
+        "rows": 66,
+        "fieldWrites": 651486,
+        "labels": {
+          "deserialize": {
+            "writes": 66,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 330,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 59268,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 2531
+          },
+          "cond_swap1": {
+            "writes": 59268,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 84
+          },
+          "add_nr": {
+            "writes": 118272,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 5150
+          },
+          "sub_nr": {
+            "writes": 118272,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2815
+          },
+          "mul": {
+            "writes": 147972,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2641
+          },
+          "sqr": {
+            "writes": 118404,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 5065
+          },
+          "mulw": {
+            "writes": 29568,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 5
+          },
+          "isr": {
+            "writes": 66,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "generateKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00fff70d2f9af433",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "00fd68baee18a246",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "00f62b86487484c0",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "00fffd97040fc744",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "00ffff0a24523f27",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "00fffdc91fd75de5",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "00ffecfa112939ee",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "00ffda9ddae6639b",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "derivePublicKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00fff70d2f9af433",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "00fd68baee18a246",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "00f62b86487484c0",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "00fffd97040fc744",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "00ffff0a24523f27",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "00fffdc91fd75de5",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "00ffecfa112939ee",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "00ffda9ddae6639b",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedDestroy": {
+        "rows": 1,
+        "fieldWrites": 0,
+        "labels": {}
+      }
+    },
+    "field64/api32/neonFalse": {
+      "scalarmul": {
+        "rows": 28,
+        "fieldWrites": 215712,
+        "labels": {
+          "sqr": {
+            "writes": 49980,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 14
+          },
+          "add_nr": {
+            "writes": 46200,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 312
+          },
+          "subx_nr": {
+            "writes": 24976,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 10
+          },
+          "sub_nr": {
+            "writes": 21224,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 274
+          },
+          "mul": {
+            "writes": 60900,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 330
+          },
+          "sub": {
+            "writes": 504,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 132
+          },
+          "add": {
+            "writes": 980,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 174
+          },
+          "mulw": {
+            "writes": 476,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 2912,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 66
+          },
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 450
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 454
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "doubleScalarmul": {
+        "rows": 70,
+        "fieldWrites": 674100,
+        "labels": {
+          "sqr": {
+            "writes": 125230,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 98
+          },
+          "add_nr": {
+            "writes": 137760,
+            "maxWord": "00ffffa08eda82a4",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "00fffdf6bb495c3d",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 75180,
+            "maxWord": "00fffffedce61eaa",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 211260,
+            "maxWord": "00fffff72500548b",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 2450,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 4830,
+            "maxWord": "00ffd4b6f941afa2",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 2380,
+            "maxWord": "00ffc381fd3ec600",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 14630,
+            "maxWord": "00fffd430c894be0",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "00ffeca320973fc9",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "dualScalarmul": {
+        "rows": 70,
+        "fieldWrites": 740740,
+        "labels": {
+          "sub": {
+            "writes": 6300,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 12600,
+            "maxWord": "00ffb90bb9a9be9d",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 10500,
+            "maxWord": "00ffff80720a5fec",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "00ffc03ffc6c885b",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 234640,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 140
+          },
+          "copy": {
+            "writes": 12600,
+            "maxWord": "00fffead8925fa24",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 85890,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2520
+          },
+          "add_nr": {
+            "writes": 152670,
+            "maxWord": "00fffa5e80102e15",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 125160,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 70
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "00fffa27cbc65854",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedScalarmul": {
+        "rows": 52,
+        "fieldWrites": 85904,
+        "labels": {
+          "cond_swap0": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 52,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 52,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 35100,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1556
+          },
+          "copy": {
+            "writes": 52,
+            "maxWord": "0000000000000001",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 14768,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 780
+          },
+          "add_nr": {
+            "writes": 16536,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1270
+          },
+          "sqr": {
+            "writes": 3536,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 204
+          },
+          "subx_nr": {
+            "writes": 1768,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 68
+          }
+        }
+      },
+      "recodeWnaf": {
+        "rows": 84,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "fieldWrites": 169302,
+        "labels": {
+          "sub": {
+            "writes": 278,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 22
+          },
+          "add": {
+            "writes": 530,
+            "maxWord": "00ffae85800a3a77",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 252,
+            "maxWord": "00f93c643dfe859d",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42904,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 34
+          },
+          "add_nr": {
+            "writes": 38196,
+            "maxWord": "00ffff9d22d00cbc",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 21444,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 16752,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 47640,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 1306,
+            "maxWord": "00fff12260c9557e",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precompute": {
+        "rows": 7,
+        "fieldWrites": 62265,
+        "labels": {
+          "sqr": {
+            "writes": 12110,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 1297
+          },
+          "add_nr": {
+            "writes": 12397,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1685
+          },
+          "subx_nr": {
+            "writes": 6048,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 432
+          },
+          "sub_nr": {
+            "writes": 5684,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 747
+          },
+          "mul": {
+            "writes": 18074,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1331
+          },
+          "mulw": {
+            "writes": 1225,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 560,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 85
+          },
+          "add": {
+            "writes": 1120,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 105
+          },
+          "copy": {
+            "writes": 3360,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 50
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "00fbdb8cbd8dc9c2",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 1680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputeWnafs": {
+        "rows": 7,
+        "fieldWrites": 7644,
+        "labels": {
+          "sub": {
+            "writes": 231,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 22
+          },
+          "add": {
+            "writes": 462,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 29
+          },
+          "mulw": {
+            "writes": 231,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 4
+          },
+          "add_nr": {
+            "writes": 672,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 52
+          },
+          "subx_nr": {
+            "writes": 14,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "sub_nr": {
+            "writes": 658,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 45
+          },
+          "mul": {
+            "writes": 3094,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 148
+          },
+          "copy": {
+            "writes": 1561,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "00e9aec326677f27",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 672,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "prepareWnafTable": {
+        "rows": 30,
+        "fieldWrites": 5340,
+        "labels": {
+          "sub": {
+            "writes": 306,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 39
+          },
+          "add": {
+            "writes": 612,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 54
+          },
+          "mulw": {
+            "writes": 306,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 96,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 12
+          },
+          "add_nr": {
+            "writes": 828,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 83
+          },
+          "subx_nr": {
+            "writes": 48,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 4
+          },
+          "sub_nr": {
+            "writes": 780,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 70
+          },
+          "mul": {
+            "writes": 2112,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 97
+          },
+          "copy": {
+            "writes": 252,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 17
+          }
+        }
+      },
+      "lookupNiels": {
+        "rows": 22,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "batchInvert": {
+        "rows": 5,
+        "fieldWrites": 630,
+        "labels": {
+          "copy": {
+            "writes": 250,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 365,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "sqr": {
+            "writes": 10,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 5,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2
+          }
+        }
+      },
+      "normalizeNiels": {
+        "rows": 7,
+        "fieldWrites": 1897,
+        "labels": {
+          "copy": {
+            "writes": 675,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 796,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 42
+          },
+          "sqr": {
+            "writes": 14,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2
+          },
+          "strong_reduce": {
+            "writes": 405,
+            "maxWord": "00ffc877aba2b2d6",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "directScalarmul": {
+        "rows": 180,
+        "fieldWrites": 947246,
+        "labels": {
+          "deserialize": {
+            "writes": 180,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 218972,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 395
+          },
+          "sub": {
+            "writes": 2800,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 531
+          },
+          "add": {
+            "writes": 5234,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 837
+          },
+          "mulw": {
+            "writes": 2678,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 15
+          },
+          "mul": {
+            "writes": 268004,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1268
+          },
+          "isr": {
+            "writes": 302,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 45
+          },
+          "cond_neg": {
+            "writes": 11526,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 92
+          },
+          "copy": {
+            "writes": 12990,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 198
+          },
+          "add_nr": {
+            "writes": 201300,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 936
+          },
+          "subx_nr": {
+            "writes": 108824,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 18
+          },
+          "sub_nr": {
+            "writes": 92476,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 810
+          },
+          "cond_swap0": {
+            "writes": 10980,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 972
+          },
+          "cond_swap1": {
+            "writes": 10980,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 963
+          }
+        }
+      },
+      "x448": {
+        "rows": 66,
+        "fieldWrites": 651486,
+        "labels": {
+          "deserialize": {
+            "writes": 66,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 330,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 59268,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 2528
+          },
+          "cond_swap1": {
+            "writes": 59268,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 78
+          },
+          "add_nr": {
+            "writes": 118272,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 5138
+          },
+          "sub_nr": {
+            "writes": 118272,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2803
+          },
+          "mul": {
+            "writes": 147972,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2623
+          },
+          "sqr": {
+            "writes": 118404,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 5062
+          },
+          "mulw": {
+            "writes": 29568,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 5
+          },
+          "isr": {
+            "writes": 66,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "generateKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00fff70d2f9af433",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "00fd68baee18a246",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "00f6f277c4319d8f",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "00fffc98fc9e6491",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "00ffff0a24523f27",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "00fffb2ff58176c9",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "00ffeb3904e299ce",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "00ffee313f1e56e2",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "derivePublicKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00fff70d2f9af433",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "00fd68baee18a246",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "00f6f277c4319d8f",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "00fffc98fc9e6491",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "00ffff0a24523f27",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "00fffb2ff58176c9",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "00ffeb3904e299ce",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "00ffee313f1e56e2",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedDestroy": {
+        "rows": 1,
+        "fieldWrites": 0,
+        "labels": {}
+      }
+    },
+    "field64/api32/neonTrue": {
+      "scalarmul": {
+        "rows": 28,
+        "fieldWrites": 215712,
+        "labels": {
+          "sqr": {
+            "writes": 49980,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 14
+          },
+          "add_nr": {
+            "writes": 46200,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 312
+          },
+          "subx_nr": {
+            "writes": 24976,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 10
+          },
+          "sub_nr": {
+            "writes": 21224,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 274
+          },
+          "mul": {
+            "writes": 60900,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 330
+          },
+          "sub": {
+            "writes": 504,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 132
+          },
+          "add": {
+            "writes": 980,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 174
+          },
+          "mulw": {
+            "writes": 476,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 2912,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 66
+          },
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 432
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 436
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "doubleScalarmul": {
+        "rows": 70,
+        "fieldWrites": 674100,
+        "labels": {
+          "sqr": {
+            "writes": 125230,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 98
+          },
+          "add_nr": {
+            "writes": 137760,
+            "maxWord": "00ffffff6e1d45f6",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "00ffffc64ffc2e41",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 75180,
+            "maxWord": "00fffffedce61eaa",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 211260,
+            "maxWord": "00ffffccbe99ae0c",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 2450,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 4830,
+            "maxWord": "00ffd4b6f941afa2",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 2380,
+            "maxWord": "00ffc381fd3ec600",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 14630,
+            "maxWord": "00fffe13af252dc1",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "00fe2472ded2fea6",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "00ffeca320973fc9",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "dualScalarmul": {
+        "rows": 70,
+        "fieldWrites": 740740,
+        "labels": {
+          "sub": {
+            "writes": 6300,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 12600,
+            "maxWord": "00ffb90bb9a9be9d",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 10500,
+            "maxWord": "00ffff80720a5fec",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 12600,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 12600,
+            "maxWord": "00ff80d4c4df8ed2",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 12600,
+            "maxWord": "00ffc03ffc6c885b",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 234640,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 140
+          },
+          "copy": {
+            "writes": 12600,
+            "maxWord": "00fffead8925fa24",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 85890,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2520
+          },
+          "add_nr": {
+            "writes": 152670,
+            "maxWord": "00fffc4ccb3be3f7",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 125160,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 70
+          },
+          "subx_nr": {
+            "writes": 62580,
+            "maxWord": "00fffa27cbc65854",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedScalarmul": {
+        "rows": 52,
+        "fieldWrites": 85904,
+        "labels": {
+          "cond_swap0": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 4680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 52,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 52,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 35100,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1556
+          },
+          "copy": {
+            "writes": 52,
+            "maxWord": "0000000000000001",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 14768,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 780
+          },
+          "add_nr": {
+            "writes": 16536,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1270
+          },
+          "sqr": {
+            "writes": 3536,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 204
+          },
+          "subx_nr": {
+            "writes": 1768,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 68
+          }
+        }
+      },
+      "recodeWnaf": {
+        "rows": 84,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "fieldWrites": 169592,
+        "labels": {
+          "sub": {
+            "writes": 278,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 24
+          },
+          "add": {
+            "writes": 530,
+            "maxWord": "00ffae85800a3a77",
+            "aboveRadix": 0
+          },
+          "mulw": {
+            "writes": 252,
+            "maxWord": "00f93c643dfe859d",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42948,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 34
+          },
+          "add_nr": {
+            "writes": 38262,
+            "maxWord": "00ffff179da52b86",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 21464,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 16798,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 47760,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 1300,
+            "maxWord": "00fff12260c9557e",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precompute": {
+        "rows": 7,
+        "fieldWrites": 62265,
+        "labels": {
+          "sqr": {
+            "writes": 12110,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 1297
+          },
+          "add_nr": {
+            "writes": 12397,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1685
+          },
+          "subx_nr": {
+            "writes": 6048,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 432
+          },
+          "sub_nr": {
+            "writes": 5684,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 747
+          },
+          "mul": {
+            "writes": 18074,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1331
+          },
+          "mulw": {
+            "writes": 1225,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 560,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 85
+          },
+          "add": {
+            "writes": 1120,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 105
+          },
+          "copy": {
+            "writes": 3360,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 50
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "00fbdb8cbd8dc9c2",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 1680,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputeWnafs": {
+        "rows": 7,
+        "fieldWrites": 7644,
+        "labels": {
+          "sub": {
+            "writes": 231,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 22
+          },
+          "add": {
+            "writes": 462,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 29
+          },
+          "mulw": {
+            "writes": 231,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 42,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 4
+          },
+          "add_nr": {
+            "writes": 672,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 52
+          },
+          "subx_nr": {
+            "writes": 14,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "sub_nr": {
+            "writes": 658,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 45
+          },
+          "mul": {
+            "writes": 3094,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 148
+          },
+          "copy": {
+            "writes": 1561,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "00e9aec326677f27",
+            "aboveRadix": 0
+          },
+          "strong_reduce": {
+            "writes": 672,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "prepareWnafTable": {
+        "rows": 30,
+        "fieldWrites": 5340,
+        "labels": {
+          "sub": {
+            "writes": 306,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 39
+          },
+          "add": {
+            "writes": 612,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 54
+          },
+          "mulw": {
+            "writes": 306,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 96,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 12
+          },
+          "add_nr": {
+            "writes": 828,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 83
+          },
+          "subx_nr": {
+            "writes": 48,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 4
+          },
+          "sub_nr": {
+            "writes": 780,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 70
+          },
+          "mul": {
+            "writes": 2112,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 97
+          },
+          "copy": {
+            "writes": 252,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 17
+          }
+        }
+      },
+      "lookupNiels": {
+        "rows": 22,
+        "fieldWrites": 0,
+        "labels": {}
+      },
+      "batchInvert": {
+        "rows": 5,
+        "fieldWrites": 630,
+        "labels": {
+          "copy": {
+            "writes": 250,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 365,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "sqr": {
+            "writes": 10,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 5,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2
+          }
+        }
+      },
+      "normalizeNiels": {
+        "rows": 7,
+        "fieldWrites": 1897,
+        "labels": {
+          "copy": {
+            "writes": 675,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 40
+          },
+          "mul": {
+            "writes": 796,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 42
+          },
+          "sqr": {
+            "writes": 14,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1
+          },
+          "isr": {
+            "writes": 7,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2
+          },
+          "strong_reduce": {
+            "writes": 405,
+            "maxWord": "00ffc877aba2b2d6",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "directScalarmul": {
+        "rows": 180,
+        "fieldWrites": 947246,
+        "labels": {
+          "deserialize": {
+            "writes": 180,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 218972,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 395
+          },
+          "sub": {
+            "writes": 2800,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 531
+          },
+          "add": {
+            "writes": 5234,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 837
+          },
+          "mulw": {
+            "writes": 2678,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 15
+          },
+          "mul": {
+            "writes": 268004,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 1268
+          },
+          "isr": {
+            "writes": 302,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 45
+          },
+          "cond_neg": {
+            "writes": 11526,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 92
+          },
+          "copy": {
+            "writes": 12990,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 198
+          },
+          "add_nr": {
+            "writes": 201300,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 936
+          },
+          "subx_nr": {
+            "writes": 108824,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 18
+          },
+          "sub_nr": {
+            "writes": 92476,
+            "maxWord": "0100000000000001",
+            "aboveRadix": 810
+          },
+          "cond_swap0": {
+            "writes": 10980,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 972
+          },
+          "cond_swap1": {
+            "writes": 10980,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 963
+          }
+        }
+      },
+      "x448": {
+        "rows": 66,
+        "fieldWrites": 651486,
+        "labels": {
+          "deserialize": {
+            "writes": 66,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 330,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          },
+          "cond_swap0": {
+            "writes": 59268,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 2528
+          },
+          "cond_swap1": {
+            "writes": 59268,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 84
+          },
+          "add_nr": {
+            "writes": 118272,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 5147
+          },
+          "sub_nr": {
+            "writes": 118272,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2818
+          },
+          "mul": {
+            "writes": 147972,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 2629
+          },
+          "sqr": {
+            "writes": 118404,
+            "maxWord": "0100000000000003",
+            "aboveRadix": 5062
+          },
+          "mulw": {
+            "writes": 29568,
+            "maxWord": "0100000000000000",
+            "aboveRadix": 5
+          },
+          "isr": {
+            "writes": 66,
+            "maxWord": "00ffffffffffffff",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "generateKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00fff70d2f9af433",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "00f643169169d9ef",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "00f93f3b5fde4028",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "00ffff2f9f168929",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "00ffff0a24523f27",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "00fffb9dae9a4523",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "00fffa632caecc0c",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "00ffe8b074cd3171",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "derivePublicKey": {
+        "rows": 28,
+        "fieldWrites": 46452,
+        "labels": {
+          "cond_swap0": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_swap1": {
+            "writes": 2520,
+            "maxWord": "00ffec9bd57a0282",
+            "aboveRadix": 0
+          },
+          "cond_neg": {
+            "writes": 2520,
+            "maxWord": "00fff70d2f9af433",
+            "aboveRadix": 0
+          },
+          "add": {
+            "writes": 28,
+            "maxWord": "00f643169169d9ef",
+            "aboveRadix": 0
+          },
+          "sub": {
+            "writes": 28,
+            "maxWord": "00f93f3b5fde4028",
+            "aboveRadix": 0
+          },
+          "mul": {
+            "writes": 18956,
+            "maxWord": "00ffff2f9f168929",
+            "aboveRadix": 0
+          },
+          "copy": {
+            "writes": 56,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          },
+          "sub_nr": {
+            "writes": 7952,
+            "maxWord": "00ffff0a24523f27",
+            "aboveRadix": 0
+          },
+          "add_nr": {
+            "writes": 8904,
+            "maxWord": "00fffb9dae9a4523",
+            "aboveRadix": 0
+          },
+          "sqr": {
+            "writes": 1988,
+            "maxWord": "00fffa632caecc0c",
+            "aboveRadix": 0
+          },
+          "subx_nr": {
+            "writes": 952,
+            "maxWord": "00ffe8b074cd3171",
+            "aboveRadix": 0
+          },
+          "isr": {
+            "writes": 28,
+            "maxWord": "00fef069c8fb8b87",
+            "aboveRadix": 0
+          }
+        }
+      },
+      "precomputedDestroy": {
+        "rows": 1,
+        "fieldWrites": 0,
+        "labels": {}
+      }
+    }
+  },
+  "totalFieldWrites": 14656843,
+  "compiledTableComparisons": [
+    {
+      "profile": "field32/api32/neonFalse",
+      "operation": "precompute",
+      "equal": true,
+      "differentWordIndices": []
+    },
+    {
+      "profile": "field32/api32/neonFalse",
+      "operation": "precomputeWnafs",
+      "equal": true,
+      "differentWordIndices": []
+    },
+    {
+      "profile": "field64/api64/neonFalse",
+      "operation": "precompute",
+      "equal": true,
+      "differentWordIndices": []
+    },
+    {
+      "profile": "field64/api64/neonFalse",
+      "operation": "precomputeWnafs",
+      "equal": true,
+      "differentWordIndices": []
+    },
+    {
+      "profile": "field64/api32/neonFalse",
+      "operation": "precompute",
+      "equal": true,
+      "differentWordIndices": []
+    },
+    {
+      "profile": "field64/api32/neonFalse",
+      "operation": "precomputeWnafs",
+      "equal": true,
+      "differentWordIndices": []
+    },
+    {
+      "profile": "field64/api32/neonTrue",
+      "operation": "precompute",
+      "equal": true,
+      "differentWordIndices": []
+    },
+    {
+      "profile": "field64/api32/neonTrue",
+      "operation": "precomputeWnafs",
+      "equal": true,
+      "differentWordIndices": []
+    }
+  ],
+  "originalUndefinedShiftCompilerObservations": {
+    "field32/api32/neonFalse": {
+      "recodeWnaf": {
+        "rows": 84,
+        "matches": {
+          "clang-O0": 84,
+          "clang-O2": 84,
+          "clang-O3": 84
+        }
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "matches": {
+          "clang-O0": 28,
+          "clang-O2": 28,
+          "clang-O3": 28
+        }
+      }
+    },
+    "field64/api64/neonFalse": {
+      "recodeWnaf": {
+        "rows": 84,
+        "matches": {
+          "clang-O0": 84,
+          "clang-O2": 84,
+          "clang-O3": 84
+        }
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "matches": {
+          "clang-O0": 28,
+          "clang-O2": 28,
+          "clang-O3": 28
+        }
+      }
+    },
+    "field64/api32/neonFalse": {
+      "recodeWnaf": {
+        "rows": 84,
+        "matches": {
+          "clang-O0": 84,
+          "clang-O2": 84,
+          "clang-O3": 84
+        }
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "matches": {
+          "clang-O0": 28,
+          "clang-O2": 28,
+          "clang-O3": 28
+        }
+      }
+    },
+    "field64/api32/neonTrue": {
+      "recodeWnaf": {
+        "rows": 84,
+        "matches": {
+          "clang-O0": 84,
+          "clang-O2": 84,
+          "clang-O3": 84
+        }
+      },
+      "baseDoubleScalarmulNonSecret": {
+        "rows": 28,
+        "matches": {
+          "clang-O0": 28,
+          "clang-O2": 28,
+          "clang-O3": 28
+        }
+      }
+    }
+  },
+  "assertionProbes": [
+    {
+      "bits": 32,
+      "scalarBits": 32,
+      "vectorMasks32": false,
+      "case": 0,
+      "returncode": -6
+    },
+    {
+      "bits": 32,
+      "scalarBits": 32,
+      "vectorMasks32": false,
+      "case": 1,
+      "returncode": -6
+    },
+    {
+      "bits": 32,
+      "scalarBits": 32,
+      "vectorMasks32": false,
+      "case": 2,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 64,
+      "vectorMasks32": false,
+      "case": 0,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 64,
+      "vectorMasks32": false,
+      "case": 1,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 64,
+      "vectorMasks32": false,
+      "case": 2,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 32,
+      "vectorMasks32": false,
+      "case": 0,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 32,
+      "vectorMasks32": false,
+      "case": 1,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 32,
+      "vectorMasks32": false,
+      "case": 2,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 32,
+      "vectorMasks32": true,
+      "case": 0,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 32,
+      "vectorMasks32": true,
+      "case": 1,
+      "returncode": -6
+    },
+    {
+      "bits": 64,
+      "scalarBits": 32,
+      "vectorMasks32": true,
+      "case": 2,
+      "returncode": -6
+    }
+  ]
+}
