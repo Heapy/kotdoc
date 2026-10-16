@@ -3,6 +3,9 @@ tools/haskell-http-manager-reference/http-client-0.7.19/** -text whitespace=-tra
 vendor/network-3.2.9.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/async-2.2.6/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-http-socket-reference/OriginalSocket*.hs -text whitespace=-trailing-space,-blank-at-eof
+tools/haskell-network-address-reference/network-3.2.9.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol linguist-vendored=true
+tools/haskell-network-address-reference/SocketPatterns.hs -text whitespace=-blank-at-eof
+vendor/ghc-network-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/** linguist-vendored=true
 # Keep the upstream source byte-for-byte, including its final empty line.
 vendor/zip-archive-0.5/Zip.hs whitespace=-blank-at-eof

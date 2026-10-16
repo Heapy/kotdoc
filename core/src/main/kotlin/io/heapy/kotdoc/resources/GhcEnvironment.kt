@@ -17,11 +17,7 @@ internal interface GhcWindowsEnvironmentApi : StdCallLibrary {
 object GhcEnvironment {
     private val libc by lazy { NativeLibrary.getInstance(Platform.C_LIBRARY_NAME) }
     private val windows by lazy { Native.load("Kernel32", GhcWindowsEnvironmentApi::class.java) }
-    private val fileSystemEncoding by lazy {
-        val codeSet = if (Platform.isMac()) 0 else 14 // Darwin/glibc CODESET.
-        val name = libc.getFunction("nl_langinfo").invokePointer(arrayOf(codeSet)).getString(0, "US-ASCII")
-        GhcEnvironmentEncoding(name)
-    }
+    private val fileSystemEncoding by lazy { GhcEnvironmentEncoding(GhcLocaleEncodingName.initial) }
 
     /** UTF-16 facade. Use getEnvironmentCodePoints to retain unsafe out-of-range
      * Char slots produced by some native iconv aliases without replacement. */

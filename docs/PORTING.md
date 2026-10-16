@@ -9800,3 +9800,117 @@ responseOpenHistory, automatic cookies and original local-server/httpbin
 integration tests remain pending. The full original Pandoc port and all tests,
 then calibre MOBI/all tests and other formats missing from Pandoc/all their
 tests remain required without narrowing the objective.
+
+### Native POSIX network addresses, foreign C strings and errno
+
+This checkpoint translates network **3.2.9.0** address types, their native
+marshalling and getAddrInfo/followAddrInfo for **Darwin 64-bit little endian**
+and **Linux/glibc 64-bit little endian**. The native adapter calls libc's actual
+getaddrinfo/freeaddrinfo/gai_strerror through JNA; it does not replace lookup
+with Java InetAddress, its DNS cache or its address parser. Native socket IO
+and the default HTTP raw backend are still separate unfinished work.
+
+Family/socket-type values retain signed CInt ordering, named-pattern aliases,
+first-alias Show selection, unsupported -1 values and General constructors.
+AddrInfo flags retain original ordered bit packing/unpacking, unknown-bit
+handling and duplicate input behavior. IPv4 host words retain native byte
+order while ports and IPv6 address words use network order. IPv6 Show keeps
+original first-longest-zero compression and mapped/compatible IPv4 forms.
+SockAddr Eq/Ord follows original constructor and field order, including unsigned
+fields and individual Haskell Char slots in Unix paths. Unix marshalling uses
+Char-to-CChar truncation, original capacity checks, Darwin sa_len and Linux
+abstract-path sizing; original C-string peek truncates at the first NUL.
+
+Both ABI assets come from original native headers and Storable instances,
+including platform-dependent family widths and AddrInfo pointer offsets.
+The original AddrInfo alignment is CInt alignment, and poke zeros ai_addrlen
+using CSize width, even where the actual field is narrower. These details are
+preserved rather than replaced with a guessed JVM struct. Successful lookup
+copies the full linked result in order before freeing once, retaining duplicate
+nodes and null versus empty canonical names. Failure while copying also frees
+the result. A successful native call returning a null root produces the original
+NoSuchThing record. Socket initialization precedes host and service encoding;
+Darwin removes the first AI_NUMERICSERV flag when service is Nothing, while
+error context retains the original hints. gai_strerror executes before fetching
+the foreign codec used to decode its returned C string.
+
+GHC **9.12.2** foreign C-string encoding initially uses IgnoreCodingFailure,
+independently of filesystem RoundtripFailure. The shared locale encoding name
+is captured once. Built-in UTF-8/16/32, ASCII and Latin1 encoders/decoders and
+native stateful iconv retain malformed-input recovery, surrogate handling,
+embedded C NUL, empty input and encoder buffer growth. Original withCStringLen
+and Len0 restart the input after growth without resetting BOM/iconv state;
+the Kotlin encoder preserves that behavior. The charIsRepresentable validation
+catches any IOException and reports the original structured unknown-encoding
+error. A reusable GhcIOException now carries the original IOError record and
+defers rendering; HTTP exception display recognizes this native IO carrier.
+
+POSIX errno conversion retains every original errnoToIOError guard in order,
+including aliases and unavailable constants, raw errno/location/filename/handle
+fields and the original 512-byte strerror buffer behavior. Linux calls the
+POSIX int-returning __xpg_strerror_r, rather than the incompatible GNU variant.
+The GHC wrapper's ERANGE ellipsis and other-failure fallback are retained.
+The new original GHC source snapshot includes Foreign.C.Error, configurable
+Foreign.C.String.Encoding and cbits/strerror.c with revision and file hashes;
+the existing complete GHC license is packaged unchanged.
+
+The development observer compiles the **whole pinned network release** with
+only Info/Types module visibility changed in network.cabal. Every other original
+source/test byte is checked. Original pattern-table bodies are retained verbatim;
+errno guards are enumerated in their original order. Original native code
+performs marshalling, lookup, linked traversal, C-string conversions, error
+construction and Show. The observer checks the complete GHC version 9.12.2.
+The Linux build uses the same freeze and exact selected Hackage Cabal revisions.
+No expected conversion algorithm is reimplemented in the observer.
+
+There are **5,411 independent observation groups per native platform**, with
+**972 source hashes** each. They include all 256 IPv6 zero-run patterns,
+unsigned address ordering, Unix path/length/NUL edges, named integer aliases,
+every AI flag combination with unknown bits, original AddrInfo zeroing, 165
+native errno cases, 61 actual lookup cases, and controlled linked lists with
+duplicates, malformed UTF-8 and empty/NUL canonical names. Two original lookup
+examples have matching input observations; this is not a claim that the entire
+original network test suite has been ported. The original IPv6 AI_ADDRCONFIG
+unit, remaining network tests and full local-server suites remain pending.
+
+The codec observations cover **28,966,912 Char inputs** in independently hashed
+encoding groups (all 0..0x10ffff slots for 13 codecs and two terminator modes)
+and **851,968 two-byte decodes**, plus empty, malformed, alias and shift-state
+edges. Error projections use the original raw ioe_description field: replacing
+the initial ioeGetErrorString accessor changed only 205 description fields,
+leaving Show and all other observed fields unchanged. Kotlin never supplies
+expected values. Final semantic corpus SHA256 values are:
+
+- macOS: `09b8894991030f59ac3afb84cd4643699e76a8e3302c2d698ce9b9922b1557c6`
+- Linux: `1f101c45281950c1664c15a7ae5c1443698b9258bf895f198708db4fe8a81844`
+
+Each POSIX host runs its native corpus and the other platform's **911 controlled
+ABI cases**, plus two ownership/effect-order checks: **6,324 new tests**. Native
+codec, errno and actual resolver results are not compared against another OS's
+expectations. Both controlled ABIs are tested independently of system lookup.
+
+All selected HTTP/environment checks pass on both hosts: **109,776 successful
+tests** on macOS/aarch64 JDK 21 (62s Gradle build), and the same **109,776 tests**
+on Linux/x86_64 JDK 21 (76.859s). All **16 local XML suites** are fully parsed;
+actual testcase/failure/error/skip counts agree with their declarations. The one
+Windows-registry-only test is intentionally skipped on POSIX; no test fails,
+errors or aborts. All **146 source/fixture checks** pass (38.2s).
+
+Installed/core JARs agree, including **202 HTTP classes**, **70 complete notices**,
+**250 Pandoc assets**, both native ABI assets and the unchanged **60,137-byte**
+PSL. All CLI/dependency JARs remain byte-identical. Of **2,465 preceding non-HTTP
+classes**, only the three intended environment/encoding entries change.
+Normalized javap instructions/signatures/constants for all other changed old
+class entries are identical except the two intended HTTP IO-exception wrappers;
+remaining HTTP differences are metadata/debug information. The preceding socket
+commit **8eb8021** has a verified successful complete CI run **38831296360**,
+including both full Linux checks and the actual Windows registry job.
+
+This is still an incomplete port. Windows/Winsock/native code-page support,
+other ABIs, mutable GHC encoding globals and raw out-of-Unicode String integration,
+network Read instances/getNameInfo, socket syscalls/nonblocking polling and
+cancellation, default manager raw transport, TLS, request override/mutation,
+responseOpenHistory, automatic cookies and the complete original local-server/
+httpbin suites remain pending. The complete original Pandoc readers/writers/App/
+Lua and all tests, followed by calibre MOBI/all tests and other formats absent
+from Pandoc/all their tests, remain required without narrowing the objective.

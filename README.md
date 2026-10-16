@@ -9,11 +9,19 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- Native POSIX address resolution from network 3.2.9.0: actual getaddrinfo,
+  ordered linked results, address/AddrInfo marshalling, IPv4/IPv6 rendering,
+  Unix paths, native family/type/flag mappings and structured GHC IO errors.
+  Independent original-code observations retain separate Darwin and Linux/glibc
+  ABIs. Foreign C-string Ignore codecs preserve original buffer growth, BOM and
+  iconv state; filesystem decoding retains its separate roundtrip policy.
+  Windows/Winsock, other ABIs, getNameInfo and socket syscalls remain pending.
+
 - HTTP socket connection orchestration: original address racing with staggered
   attempts, last-input IO failure selection, cancellation/join ownership,
   socket setup/error cleanup, configurable receive size and manager raw-factory
   adapters. Independent observations execute unchanged http-client code and
-  original async with controlled OS effects. Native Network.Socket ABI calls,
+  original async with controlled OS effects. Native socket IO calls,
   default raw transport and TLS remain pending; an explicit backend is required.
 
 - HTTP manager construction, connection-key selection, prepared proxy policies,

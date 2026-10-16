@@ -1,0 +1,10 @@
+{
+  "revision": "383be28ffdddf65b57b7b111bfc89808b4229ebc",
+  "archiveSha256": "0e49cd5dde43f348c5716e5de9a5d7a0f8d68d945dc41cf75dfdefe65084f933",
+  "files": {
+    "LICENSE.txt": "768c070bd0b7d820d169ee8153d5487acfc262cbbc10dfce18d05c0bb2d2800d",
+    "libraries/ghc-internal/cbits/strerror.c": "bf3a2129e508a108611b734864b63b234fae319c544c1cc500a53a2b7a91953b",
+    "libraries/ghc-internal/src/GHC/Internal/Foreign/C/Error.hs": "7d907e45b55f3574dffa9a19cb26ece2e670e7172083cb7911000c38df6f1c1b",
+    "libraries/ghc-internal/src/GHC/Internal/Foreign/C/String/Encoding.hs": "cfaf862a169f212b3d64dcc12ecb43d56fd2542829136fa9195b9cbcec5e9575"
+  }
+}

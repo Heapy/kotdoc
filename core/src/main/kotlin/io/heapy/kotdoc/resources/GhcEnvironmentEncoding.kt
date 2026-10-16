@@ -10,10 +10,15 @@ import com.sun.jna.Pointer
 import com.sun.jna.ptr.PointerByReference
 import io.heapy.kotdoc.parsing.RegexCharacters
 import java.io.IOException
+import io.heapy.kotdoc.errors.GhcPosixErrno
+import io.heapy.kotdoc.errors.GhcIOException
+import io.heapy.kotdoc.errors.GhcIoError
+import io.heapy.kotdoc.errors.IoErrorType
+import io.heapy.kotdoc.layout.CharacterStringChars as Chars
 
 /** A filesystem decoder with GHC's RoundtripFailure recovery, not replacement.
  * Stateful iconv descriptors are created afresh for each C string. */
-internal class GhcEnvironmentEncoding(private val name: String) {
+internal class GhcEnvironmentEncoding(private val name: String, private val ignoreFailures: Boolean = false) {
     private val normalized = buildString { name.codePoints().forEach { if (it != 45) appendCodePoint(RegexCharacters.toUpper(it)) } }
     private val builtin = when {
         normalized in listOf("UTF8", "UTF16", "UTF16LE", "UTF16BE", "UTF32", "UTF32LE", "UTF32BE") -> normalized
@@ -22,8 +27,9 @@ internal class GhcEnvironmentEncoding(private val name: String) {
         else -> null
     }
     init {
-        if (name.contains("//")) throw IOException("mkTextEncoding: $name//ROUNDTRIP")
+        if (name.contains("//")) unknownEncoding()
         if (builtin == null) {
+            val supported = try {
             // Original mkIconvEncoding validates an encode/C-string/decode
             // roundtrip for 'a', not just whether iconv_open accepts the name.
             val descriptor = openIconv("UTF-32LE", name)
@@ -56,9 +62,13 @@ internal class GhcEnvironmentEncoding(private val name: String) {
                     checkNotNull(answer)
                 }
             } finally { closeIconv(descriptor) }
-            if (!iconv(encoded).contentEquals(intArrayOf(97))) throw IOException("mkTextEncoding: $name")
+            iconv(encoded).contentEquals(intArrayOf(97))
+            } catch (_: IOException) { false } // charIsRepresentable catches every IOException.
+            if (!supported) unknownEncoding()
         }
     }
+
+    private fun unknownEncoding(): Nothing = throw GhcIOException(GhcIoError(IoErrorType.NoSuchThing, Chars.fromString("mkTextEncoding"), Chars.fromString("unknown encoding:$name//${if (ignoreFailures) "IGNORE" else "ROUNDTRIP"}")))
 
     /** Raw 32-bit GHC Char slots: iconv can produce values beyond Unicode. */
     fun decode(bytes: ByteArray): IntArray = if (builtin == null) iconv(bytes) else buildList<Int> {
@@ -113,8 +123,9 @@ internal class GhcEnvironmentEncoding(private val name: String) {
                     if (cp in 0..0x10ffff && cp !in 0xd800..0xdfff) { point = cp.toInt(); consumed = 4 }
                 }
             }
-            if (point < 0) { point = if (lead < 128) lead else 0xdc00 + lead; consumed = 1 }
-            appendCodePoint(point); at += consumed
+            if (point < 0) { if (!ignoreFailures) appendCodePoint(if (lead < 128) lead else 0xdc00 + lead); consumed = 1 }
+            else appendCodePoint(point)
+            at += consumed
         }
     }.toIntArray()
 
@@ -146,10 +157,10 @@ internal class GhcEnvironmentEncoding(private val name: String) {
                                     appendCodePoint(cp); offset += 4
                                 }
                                 at = bytes.size - remaining.toInt()
-                                if (result == -1L && error !in listOf(7, 22, if (Platform.isMac()) 92 else 84)) throw IOException("iconvRecoder: errno $error")
+                                if (result == -1L && error !in listOf(7, 22, if (Platform.isMac()) 92 else 84)) throw GhcPosixErrno.exception("iconvRecoder", error)
                                 if (remaining > 0 && (result != -1L || error != 7 && written < capacity)) {
                                     val b = bytes[at].toInt() and 255
-                                    appendCodePoint(if (b < 128) b else 0xdc00 + b); at++
+                                    if (!ignoreFailures) appendCodePoint(if (b < 128) b else 0xdc00 + b); at++
                                 }
                             } }
                         }
@@ -157,6 +168,85 @@ internal class GhcEnvironmentEncoding(private val name: String) {
                 }
             }
         } finally { closeIconv(descriptor) }
+    }
+
+    /** GHC withEncodedCString/tryFillBuffer using IgnoreCodingFailure. Each
+     * growth restarts the input while retaining the encoder state, including
+     * an already emitted BOM or iconv shift state. The returned bytes exclude
+     * the final C terminator, but the caller's reservation affects retries. */
+    fun encodeIgnoringErrors(points: IntArray, nullTerminate: Boolean = true): ByteArray {
+        val descriptor = if (builtin == null) openIconv("UTF-32LE", name) else null
+        var doneBom = false
+        try {
+            if (points.isEmpty()) return byteArrayOf() // tryFillBuffer checks empty input before OutputUnderflow.
+            var capacity = points.size.toLong() + 1
+            while (true) {
+                var retry = false
+                val result = Memory(capacity).use { output ->
+                    var at = 0; var used = 0L
+                    if (builtin == "UTF16" || builtin == "UTF32") {
+                        val bom = if (builtin == "UTF16") byteArrayOf(-2, -1) else byteArrayOf(0, 0, -2, -1)
+                        if (!doneBom) {
+                            if (capacity < bom.size) retry = true else {
+                                output.write(0, bom, 0, bom.size); used = bom.size.toLong(); doneBom = true
+                            }
+                        }
+                    }
+                    if (descriptor == null) {
+                        val unit = when { builtin!!.startsWith("UTF16") -> 2; builtin.startsWith("UTF32") -> 4; else -> 1 }
+                        val little = builtin.endsWith("LE")
+                        fun put(value: Int) { output.setByte(used++, value.toByte()) }
+                        fun word16(n: Int) { if (little) {put(n); put(n ushr 8)} else {put(n ushr 8); put(n)} }
+                        while (!retry && at < points.size) {
+                            if (capacity - used < unit) { retry = true; break }
+                            val cp = points[at]
+                            if (cp in 0xd800..0xdfff || builtin == "ASCII" && cp !in 0..127 || builtin == "LATIN1" && cp !in 0..255) { at++; continue }
+                            val size = when {
+                                builtin == "UTF8" -> if (cp < 128) 1 else if (cp < 2048) 2 else if (cp < 65536) 3 else 4
+                                unit == 2 -> if (cp < 65536) 2 else 4
+                                else -> unit
+                            }
+                            if (capacity - used < size) { retry = true; break }
+                            when {
+                                builtin == "UTF8" -> when (size) {
+                                    1 -> put(cp)
+                                    2 -> {put(0xc0 or (cp ushr 6)); put(0x80 or (cp and 63))}
+                                    3 -> {put(0xe0 or (cp ushr 12)); put(0x80 or ((cp ushr 6) and 63)); put(0x80 or (cp and 63))}
+                                    else -> {put(0xf0 or (cp ushr 18)); put(0x80 or ((cp ushr 12) and 63)); put(0x80 or ((cp ushr 6) and 63)); put(0x80 or (cp and 63))}
+                                }
+                                unit == 2 -> if (cp < 65536) word16(cp) else {word16(0xd800 + ((cp - 65536) ushr 10)); word16(0xdc00 + ((cp - 65536) and 1023))}
+                                unit == 4 -> for (i in 0..3) put(cp ushr (if (little) 8 * i else 8 * (3 - i)))
+                                else -> put(cp)
+                            }
+                            at++
+                        }
+                    } else {
+                        Memory(maxOf(1, points.size).toLong() * 4).use { input ->
+                            for (i in points.indices) for (j in 0..3) input.setByte(i.toLong() * 4 + j, (points[i] ushr (8*j)).toByte())
+                            while (!retry && at < points.size) {
+                                Memory(Native.POINTER_SIZE.toLong()).use { inLeft -> Memory(Native.POINTER_SIZE.toLong()).use { outLeft ->
+                                    inLeft.setNativeLong(0, com.sun.jna.NativeLong((points.size - at).toLong() * 4))
+                                    outLeft.setNativeLong(0, com.sun.jna.NativeLong(capacity - used))
+                                    val incoming = PointerByReference(input.share(at.toLong() * 4))
+                                    val outgoing = PointerByReference(output.share(used))
+                                    val r = iconvFunction.invokeLong(arrayOf(descriptor, incoming, inLeft, outgoing, outLeft))
+                                    val error = Native.getLastError(); val remaining = inLeft.getNativeLong(0).toLong(); val free = outLeft.getNativeLong(0).toLong()
+                                    at = points.size - (remaining shr 2).toInt(); used = capacity - free
+                                    if (r == -1L && error !in listOf(7, 22, if (Platform.isMac()) 92 else 84)) throw GhcPosixErrno.exception("iconvRecoder", error)
+                                    if (at < points.size) {
+                                        if (r == -1L && (error == 7 || error == (if (Platform.isMac()) 92 else 84) && free == 0L)) retry = true
+                                        else at++ // recoverEncode IgnoreCodingFailure consumes one Char.
+                                    }
+                                } }
+                            }
+                        }
+                    }
+                    if (retry || nullTerminate && used == capacity) null else output.getByteArray(0, used.toInt())
+                }
+                if (result != null) return result
+                capacity = Math.multiplyExact(capacity, 2)
+            }
+        } finally { if (descriptor != null) closeIconv(descriptor) }
     }
 
     companion object {
@@ -167,11 +257,11 @@ internal class GhcEnvironmentEncoding(private val name: String) {
         private val iconvFunction by lazy { function("iconv") }
         private fun openIconv(from: String, to: String): Pointer {
             val p = function("iconv_open").invokePointer(arrayOf(to, from))
-            if (Pointer.nativeValue(p) == -1L) throw IOException("mkTextEncoding: $from")
+            if (Pointer.nativeValue(p) == -1L) throw GhcPosixErrno.exception("mkTextEncoding", Native.getLastError())
             return p
         }
         private fun closeIconv(p: Pointer) {
-            if (function("iconv_close").invokeInt(arrayOf(p)) == -1) throw IOException("Iconv.close: errno ${Native.getLastError()}")
+            if (function("iconv_close").invokeInt(arrayOf(p)) == -1) throw GhcPosixErrno.exception("Iconv.close", Native.getLastError())
         }
     }
 }

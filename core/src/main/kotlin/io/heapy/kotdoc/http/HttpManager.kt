@@ -3,17 +3,18 @@
 package io.heapy.kotdoc.http
 
 import io.heapy.kotdoc.errors.GhcIoError
+import io.heapy.kotdoc.errors.GhcIOException
 import java.io.IOException
 
 /** The source SomeException carries its own Show dictionary. Foreign JVM
  * exceptions retain identity; callers can supply their original dictionary. */
 interface HttpExceptionShow { fun showsPrec(precedence: Int): String }
 class HttpExceptionValue(val exception: Throwable, private val display: (Int) -> String = { p ->
-    if (exception is HttpExceptionShow) exception.showsPrec(p) else exception.toString()
+    when (exception) { is HttpExceptionShow -> exception.showsPrec(p); is GhcIOException -> exception.error.toString(); else -> exception.toString() }
 }) {
     fun showsPrec(precedence: Int) = display(precedence)
 }
-class HttpGhcIOException(val error: GhcIoError) : IOException(error.toString()), HttpExceptionShow {
+class HttpGhcIOException(error: GhcIoError) : GhcIOException(error), HttpExceptionShow {
     override fun showsPrec(precedence: Int) = error.toString()
 }
 
