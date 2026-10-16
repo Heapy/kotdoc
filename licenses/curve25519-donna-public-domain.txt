@@ -1,0 +1,24 @@
+/* Copyright 2008, Google Inc.
+ * All rights reserved.
+ *
+ * Code released into the public domain.
+ *
+ * curve25519-donna: Curve25519 elliptic curve, public key function
+ *
+ * http://code.google.com/p/curve25519-donna/
+ *
+ * Adam Langley <agl@imperialviolet.org>
+ *
+ * Derived from public domain C code by Daniel J. Bernstein <djb@cr.yp.to>
+ *
+ * More information about curve25519 can be found here
+ *   http://cr.yp.to/ecdh.html
+ *
+ * djb's sample implementation of curve25519 is written in a special assembly
+ * language called qhasm and uses the floating point registers.
+ *
+ * This is, almost, a clean room reimplementation from the curve25519 paper. It
+ * uses many of the tricks described therein. Only the crecip function is taken
+ * from the sample implementation.
+ */
+

@@ -13629,3 +13629,31 @@ unmapped; runtime availability/counts, factory/import/inheritance/generated
 closure, fixture expectations and Kotlin mappings stay open. Full Pandoc
 acceptance still precedes MOBI6/KF8/old-Kindle and additional calibre format
 implementation. This inventory does not complete local:622 or the full port.
+
+
+### Donna X25519 redundant field prefixes
+
+Kotlin ports all fifteen Donna32 and nine Donna64 field helpers before fmonty,
+retaining signed32 casts/signed64 limbs, unsigned64/128 terms, carry/reduction
+stages, contract packing and source buffer mutations. The generic accepted
+unsigned128 primitive is reused; there is no BigInteger/native/subprocess field
+arithmetic. Independent source comparison also checks all nineteen product and
+nineteen square-inner coefficient polynomials against the exact 32-bit source.
+
+Unmodified original C-prefix replay passes 6,734 raw observations/eleven source
+pins, SHA256 fabebb4db080364f7626971f1f400bff17798da12c2bdfb2c42fa89b54c56c17.
+Full padded buffers, aliases, guards/tails, range labels, traces and byte
+serialization remain original expectations. Exact prefix extraction and both
+Google BSD/public-domain notices pass. Fresh independent Donna plus reused
+P256-field/wide-helper regression XML has 15,203 actual tests (6,746 Donna and
+8,457 existing field), zero failures/errors/skips. JAR/installDist passes; the
+installed core JAR is identical, both Donna notices match, and Donna bytecode
+contains no BigInteger/foreign/ProcessBuilder references or native methods.
+
+Signed negative/overflowing C left shifts are selected pinned-clang observations,
+not universal ISO-C results. Outside-precondition Donna64 difference cases are
+raw words only. fsquare_times(0) means 2^64 unsigned do-while iterations and is
+explicitly excluded from finite replay; no identity answer is invented. Real
+32-bit ABI, timing, physical erasure and other host profiles remain unproved.
+The ladder, inversion and public X25519 API, X448/Edwards, other crypto/trust/TLS,
+full Pandoc/tests and later calibre stages remain open; local:613 is not closed.
