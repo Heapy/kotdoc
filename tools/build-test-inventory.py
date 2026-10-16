@@ -22,6 +22,9 @@ spec.loader.exec_module(extraction)
 census_spec = importlib.util.spec_from_file_location('test_inventory_census', ROOT / 'tools/census-test-inventory.py')
 census = importlib.util.module_from_spec(census_spec)
 census_spec.loader.exec_module(census)
+runtime_spec = importlib.util.spec_from_file_location('runtime_test_inventory', ROOT / 'tools/runtime-test-inventory.py')
+runtime = importlib.util.module_from_spec(runtime_spec)
+runtime_spec.loader.exec_module(runtime)
 
 
 def digest(path):
@@ -130,13 +133,13 @@ def checkpoint_evidence():
         return [dict(path=p, sha256=digest(p)) for p in paths]
     commit='cdf2b84906e91b1baad740738564855677966acb'
     submodule_pins={}
-    def committed_bytes(path):
+    def committed_bytes(path,revision=commit):
         for folder in ('upstream/pandoc-types','upstream/pandoc','upstream/calibre'):
             if path.startswith(folder+'/'):
-                if folder not in submodule_pins:
-                    submodule_pins[folder]=subprocess.check_output(['git','rev-parse',commit+':'+folder],cwd=ROOT,text=True).strip()
-                return subprocess.check_output(['git','show',submodule_pins[folder]+':'+path[len(folder)+1:]],cwd=ROOT/folder)
-        return subprocess.check_output(['git','show',commit+':'+path],cwd=ROOT)
+                if (revision,folder) not in submodule_pins:
+                    submodule_pins[(revision,folder)]=subprocess.check_output(['git','rev-parse',revision+':'+folder],cwd=ROOT,text=True).strip()
+                return subprocess.check_output(['git','show',submodule_pins[(revision,folder)]+':'+path[len(folder)+1:]],cwd=ROOT/folder)
+        return subprocess.check_output(['git','show',revision+':'+path],cwd=ROOT)
     generator_manifest_path='core/src/test/resources/pandoc-types/quickcheck-manifest.json'
     generator_manifest=json.loads(committed_bytes(generator_manifest_path))
     historical_sources=[]
@@ -156,7 +159,29 @@ def checkpoint_evidence():
         expectation_origin='Unchanged-source QuickCheck/splitmix/random and original no-op shrink captures; 500 original generator inputs. Sources and artifact hashes read from the recorded Git commit, not concurrent checkout work.',
         fresh_execution_in_this_checkpoint=False,
         gap='Historical finite seeded replay does not establish all seeds/all nineteen generator-instance boundaries, full shrinker lazy/deep/partial acceptance, table/Figure/JSON original-generator replays or Read/ordering. Not additional registered upstream source tests.')
-    return [historical_generator,dict(id='local:610/p256-word-observations', kind='oracle-observation-corpus',
+    domain_commit='43db34fe4fd20707b4891e81378c059acdc09d22'
+    domain_path='core/src/test/resources/pandoc-types/generator-domain-manifest.json'
+    domain_manifest=json.loads(committed_bytes(domain_path,domain_commit))
+    domain_sources=[]
+    for path,expected in domain_manifest['sources'].items():
+        actual=hashlib.sha256(committed_bytes(path,domain_commit)).hexdigest()
+        if actual!=expected:raise ValueError('Historical domain source hash differs: '+path)
+        domain_sources.append(dict(path=path,sha256=actual))
+    domain_artifacts=[domain_path,'core/src/test/resources/pandoc-types/standalone-generators.jsonl.gz',
+                      'core/src/test/resources/pandoc-types/generator-helpers.jsonl.gz',
+                      AST+'OriginalTypesGeneratorDomainTest.kt',AST+'OriginalSeededTypesArbitrary.kt',
+                      'docs/pandoc-types-porting-matrix.md']
+    historical_domain=dict(id='local:611/standalone-generator-domain-43db34fe',
+        kind='historical-generator-domain-observations',recorded_commit=domain_commit,
+        recorded_kotlin_checks=17613,preceding_check_count=7375,
+        standalone_generator_observations=domain_manifest['standaloneCases'],helper_domain_observations=domain_manifest['helperCases'],
+        instances=19,payloads=domain_manifest['payloads'],
+        artifacts_from_recorded_commit=[dict(path=p,sha256=hashlib.sha256(committed_bytes(p,domain_commit)).hexdigest()) for p in domain_artifacts],
+        independent_sources_from_recorded_commit=domain_sources,
+        expectation_origin='Nineteen unchanged-source seeded generator instances and private helpers loaded in original GHC module context; accepted commit blobs, never current checkout expectations.',
+        fresh_execution_in_this_checkpoint=False,
+        gap='Finite source-generated observations are not additional upstream source tests, universal seed/domain/shrinker fidelity, table/Figure/JSON property closure or Read/ordering parity.')
+    return [historical_domain,historical_generator,dict(id='local:610/p256-word-observations', kind='oracle-observation-corpus',
                  recorded_commit='ad16fb3980bf56b6d405da745f1f07910a2599f2',
                  observations=crypto['cases'], semantic_sha256=crypto['caseHash'],
                  artifacts=assets([crypto_path, 'tools/p256-words-reference/README.md',
@@ -171,14 +196,14 @@ def checkpoint_evidence():
                  generated_inputs=pt['cases'], assertion_trials=pt['predicates'] * pt['cases'],
                  ordered_shrink_observations=pt['shrinkCases'], recorded_kotlin_checks=6185,
                  semantic_sha256=pt['observationsSha256'], shrink_sha256=pt['shrinkSha256'],
-                 artifacts=assets([pt_path, 'core/src/test/resources/pandoc-types/properties.jsonl.gz',
+                 artifacts_from_recorded_commit=[dict(path=p,sha256=hashlib.sha256(committed_bytes(p,'665c5daf970f0981b2851fc4d50fc35ad0dd004a')).hexdigest()) for p in [pt_path, 'core/src/test/resources/pandoc-types/properties.jsonl.gz',
                                    'core/src/test/resources/pandoc-types/shrink.jsonl.gz',
                                    AST + 'OriginalTypesPropertiesTest.kt', AST + 'OriginalTypesShrinkTest.kt',
                                    AST + 'OriginalTypesShrink.kt', AST + 'OriginalTypesArbitrary.kt',
-                                   'tools/haskell-types-properties-reference/README.md']),
+                                   'tools/haskell-types-properties-reference/README.md']],
                  expectation_origin='Unchanged pinned Text.Pandoc.Arbitrary inputs; independent Data.Generics.everywhere/everything; original ordered shrink outputs.',
                  fresh_execution_in_this_checkpoint=False,
-                 artifact_snapshot_role='Current checkout hashes; historical recorded_commit/counts do not assert these files are byte-identical to that commit or freshly validated.',
+                 artifact_snapshot_role='Immutable Git blobs from recorded_commit; concurrent checkout artifacts are not attributed to this historical result.',
                  gap='Historical 6185-check evidence boundary: full generator/shrinker acceptance, nine no-op shrink APIs, broader Unicode/deep/partial coverage, other properties and Read/ordering were not discharged here. The separate cdf2b849 record adds finite seeded/no-op evidence; this old gap is not current global status.')]
 
 
@@ -254,19 +279,20 @@ def build():
         ('upstream/calibre/src/calibre/utils/run_tests.py', 'Conditional runtime suites, including embedded find_tests'),
         ('upstream/calibre/src/calibre/customize/ui.py', 'Input/output format enumeration, aliases and enabled plugins'),
         ('upstream/calibre/src/calibre/customize/builtins.py', 'Built-in conversion plugin registry')]]
-    return dict(schema_version=3, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations and a Haskell module/site census; NOT complete global runtime leaf inventory or port coverage.',
+    return dict(schema_version=4, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations, a Haskell module/site census and original native runtime Tasty census; NOT all conditional profiles, complete expectation attribution or port coverage.',
                 counting_units=dict(source_test='Registered predicate/example; paired examples retain two assertion names.', trial='Generated property input, not another source test.', observation='Oracle capture, not another source test.', registry='Suite/factory/import candidate, not a source test count.'),
                 pins=pins, roots=roots, sources=[dict(path=p, sha256=digest(p)) for p in sorted(paths)],
                 registry=sorted(entries, key=lambda r: r['id']), pandoc_types=pt_inventory(),
-                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json')],
+                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json'), runtime.source_file('tools/runtime-test-inventory.py'), runtime.source_file('tools/prepare-test-inventory-runtime.py'), runtime.source_file('tools/test-inventory-runtime-reference/RuntimeInventory.hs'), runtime.source_file('docs/test-inventory-runtime.json')],
                 pandoc_command=extraction.command_inventory(), pandoc_old=extraction.old_inventory(), pandoc_lua=extraction.lua_inventory(),
                 checkpoint_evidence=checkpoint_evidence(), pandoc_haskell_census=census.haskell_inventory(),
+                pandoc_runtime=runtime.runtime_inventory(extraction.command_inventory(),extraction.old_inventory()),
                 pandoc_lua_nested=census.lua_leaves(extraction.lua_inventory()),
                 separate_requirements=[dict(id=x, status='unmapped', gap=g) for x, g in [
                     ('pandoc-types/generators-shrinkers', 'Audit every Arbitrary instance/generator/shrinker independently; Kotlin seeded samples do not port QuickCheck semantics.'),
                     ('pandoc-types/Read', 'Derived Read and lexical/partial contracts require separate acceptance beyond JSON examples.'),
                     ('pandoc-types/Eq-Ord', 'Existing comparison corpora require a separately reviewed mapping; observations are not registered test counts.'),
-                    ('pandoc/all-leaves', 'Command/Old and finite nested Lua registrations remain unmapped. Haskell registration-site census preserves all reachable module roots but requires helper/list/comprehension and conditional multiplicity expansion before claiming complete runtime leaf inventory; map every assertion.'),
+                    ('pandoc/all-leaves', 'Command/Old and finite nested Lua registrations remain unmapped. Original native-profile runtime Tasty census establishes helper/list/comprehension multiplicities. Other OS/build/conditional profiles, precise generated-leaf expectation attribution and every executable mapping remain required.'),
                     ('dependencies/all-leaves', 'Cabal declarations/test trees are source discovery only; embedded doctests and non-cabal runners require audit.'),
                     ('calibre/formats-and-tests', 'Reconcile runtime suite IDs, embedded tests, standalone/doctest/RapydScript runners and directional additional-format matrix; map Kotlin evidence.')]])
 
@@ -282,7 +308,7 @@ def main():
         args.snapshot.write_text(data)
     elif not args.snapshot.exists() or args.snapshot.read_text() != data:
         raise SystemExit('Inventory differs: source paths/hashes, registrations, pins or mappings changed. Review and refresh with --write.')
-    print(f"Verified {len(result['sources'])} source/assets, {len(result['registry'])} registry candidates, 81 pandoc-types source tests (56 paired examples; 137 assertions/property registrations). {len(result['pandoc_command'])} Command goldens, {len(result['pandoc_old'])} Old registrations, {len(result['pandoc_lua']['registrations'])} Lua registrations. {len(result['pandoc_haskell_census']['modules'])} remaining Haskell module roots and {len(result['pandoc_lua_nested']['leaves'])} nested Lua registrations; Haskell site multiplicities and global leaf inventory remain incomplete.")
+    print(f"Verified {len(result['sources'])} source/assets, {len(result['registry'])} registry candidates, 81 pandoc-types source tests (56 paired examples; 137 assertions/property registrations). {len(result['pandoc_command'])} Command goldens, {len(result['pandoc_old'])} Old registrations, {len(result['pandoc_lua']['registrations'])} Lua registrations. {len(result['pandoc_haskell_census']['modules'])} remaining Haskell module roots and {len(result['pandoc_lua_nested']['leaves'])} nested Lua registrations; {len(result['pandoc_runtime']['leaves'])} native-profile Tasty leaves; other profiles, precise expectation attribution and global scope remain incomplete.")
 
 
 if __name__ == '__main__':

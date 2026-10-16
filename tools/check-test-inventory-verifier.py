@@ -26,6 +26,8 @@ with tempfile.TemporaryDirectory(prefix='kotdoc-test-inventory-') as folder:
         'lost-source': lambda x: x['sources'].pop(),
         'source-hash-drift': lambda x: x['sources'][0].update(sha256='0' * 64),
         'lost-registration': lambda x: x['registry'].pop(),
+        'lost-runtime-leaf': lambda x: x['pandoc_runtime']['leaves'].pop(),
+        'changed-runtime-path': lambda x: x['pandoc_runtime']['leaves'][0]['components'].append('invented'),
         'lost-haskell-module': lambda x: x['pandoc_haskell_census']['modules'].pop(),
         'lost-haskell-site': lambda x: next(m for m in x['pandoc_haskell_census']['modules'] if m['registration_sites'])['registration_sites'].pop(),
         'lost-haskell-reference': lambda x: x['pandoc_haskell_census']['module_registrations'].pop(),

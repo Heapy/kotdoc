@@ -13464,3 +13464,25 @@ finite lists and finite prefixes, not infinite/partial spine or general GHC
 bottom/exception semantics. Typed Read, Eq/Ord, public API/vector coverage,
 remaining dependency work, full Pandoc/tests and later calibre stages remain
 open; local:611 is not completed.
+
+
+### Original Pandoc native runtime registration inventory
+
+The untouched pinned test-pandoc binary and an export-only original-tree observer
+agree on 4,465 runtime registrations for GHC 9.12.2/macOS/aarch64 with HTTP and
+embedded data enabled. These comprise 1,870 Command, 174 Old and 2,421 remaining
+reader/writer/common leaves. JSON component paths preserve 29 duplicate paths
+and truncated/dotted/newline labels; IDs include duplicate occurrence. Command
+and Old multiplicities reconcile with independently extracted source records.
+All 2,888 Pandoc and 19 pandoc-types tracked source/assets match pinned Git blobs.
+
+Independent existing-binary replay passes without rebuilding or running original
+assertions. Seven runtime, eight extraction and eight census regressions pass;
+the snapshot verifier rejects all eighteen independent corruption cases. The
+17,613-check generator evidence is explicitly historical and reads immutable
+43db34fe4fd20707b4891e81378c059acdc09d22 blobs, not current shrinker sources.
+All 4,465 runtime records remain unmapped. Exact generated-leaf expectation
+attribution, executable Kotlin mappings, other OS/feature profiles, dependency
+embedded/non-Cabal suites, dynamic Lua variants and calibre directional format/
+test inventories remain open. Listing registrations executes no test assertions
+and does not complete local:622, full Pandoc or subsequent calibre stages.

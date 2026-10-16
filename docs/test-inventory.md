@@ -12,6 +12,8 @@ Pandoc conversion tests or calibre programs:
 
 ```sh
 python3 tools/build-test-inventory.py
+python3 tools/check-test-inventory-runtime.py
+python3 tools/check-test-inventory-census.py
 python3 tools/check-test-inventory-extraction.py
 python3 tools/check-test-inventory-verifier.py
 python3 tools/import-pandoc-json-fixtures.py --check
@@ -51,19 +53,12 @@ parity are not established, and other properties still use Kotlin samples.
 
 Local:610 is a separate **observation corpus**, not new source-test coverage:
 79,934 original C P-256 word observations and 79,946 recorded Kotlin checks.
-Its provenance does not claim all public P256Spec tests. Both evidence records
-verify committed source hashes and retain artifact hashes; their test counts
-are earlier recorded results, **not fresh executions by inventory tools**.
-Artifact hashes describe the current checkout snapshot, not a claim of byte
-identity with the historical recorded commit or validation by its recorded count.
-The word-checkpoint gap is its historical evidence boundary, not current global
-status of the separately implemented field checkpoint.
-The current artifact hashes were independently reviewed after commit
-`cdf2b84906e91b1baad740738564855677966acb`. Its separate seeded-generator
-checkpoint passed 7,375 checks, as recorded in `PORTING.md`; the machine evidence
-record above intentionally retains the earlier 6,185-check historical result.
-The newer no-op/generator evidence will receive a separate machine record in a
-subsequent inventory checkpoint, rather than being attributed to the older commit.
+Its provenance does not claim all public P256Spec tests. The counts are historical results, **not fresh executions by inventory tools**.
+The 6,185-check artifact hashes now come from immutable Git blobs at
+`665c5daf970f0981b2851fc4d50fc35ad0dd004a`; concurrent shrinker edits are excluded.
+The word corpus retains explicitly labelled current-checkout artifact hashes.
+Each historical gap describes that checkpoint's boundary, not current global status.
+Separate 7,375 and 17,613-check records preserve later evidence independently.
 Read/ordering and full generator/shrinker acceptance remain separate requirements.
 
 `mapped` means an identified source assertion has an explicit executable link,
@@ -195,9 +190,9 @@ Text equality, with CR filtering only for its failure diff display. A helper
 body, a call of that helper, a reused named list and a comprehension template must
 not be added together as distinct executed source tests.
 
-Examples still requiring semantic expansion are Markdown's nested math/list
+Examples whose runtime multiplicities are now captured below are Markdown's nested math/list
 comprehensions, Shared's named helper lists and RTF's `map rtfTest` matrix. The
-census records computed-syntax markers without assigning multiplicity. None of
+lexical census records computed-syntax markers without assigning multiplicity; the runtime capture supplies multiplicity for its explicit profile. None of
 the 60 reachable module sources contains a CPP branch directive at this pin;
 the detector is nevertheless tested against both branches and never selects a
 branch. Library/build flags and future conditional registration remain explicit
@@ -238,8 +233,44 @@ Exact finite seed replay still does not establish all seeds, all generator
 instances/boundaries, complete shrinker acceptance or the other original
 properties/Read/ordering contracts. No new upstream source properties are counted.
 
-This checkpoint leaves the global leaf inventory open: Haskell helper/list/
-comprehension expansion and independent leaf expectations; all executable
-mappings; dynamic/platform Lua variants; dependency embedded/non-Cabal suites;
+## Native runtime registration census
+
+`test-inventory-runtime.json` preserves **4,465 original Tasty leaves** for
+GHC 9.12.2, macOS/aarch64, Pandoc 3.12.1, pandoc-types 1.23.1.2 and Tasty 1.5.4,
+with HTTP and embedded data enabled. Counts are Command 1,870, Old 174,
+Readers 1,686, Writers 636, Shared 32, MediaBag 4, XML 1 and ImageSize 62.
+The remaining reader/writer/common trees therefore contribute 2,421 leaves.
+This establishes concrete multiplicities of named lists, maps and comprehensions
+for this profile, replacing lexical site counts for that purpose.
+
+An isolated development build compiles the untouched original test binary. A
+second observer imports the same original test tree with only its Main module
+header renamed/exported. It uses Tasty's tree fold to retain component arrays;
+its joined names must match the original `--list-tests` stdout byte for byte.
+Neither process invokes test callbacks or assertions. Source catalog verification
+checks all 2,888 Pandoc and 19 pandoc-types tracked files against pinned Git blobs.
+See `tools/test-inventory-runtime-reference/README.md` for build/replay commands.
+
+Stable IDs hash exact JSON component arrays and append duplicate occurrence
+ordinals. This preserves 29 duplicate paths, dotted labels and 48 truncated
+labels without guessing components by splitting display names. Command and Old
+leaves reconcile exactly to their source records, including duplicate occurrence
+multiplicities. Other leaves retain their original module root and source hashes;
+precise generated-leaf-to-expression/expectation attribution remains open.
+All 4,465 records remain **unmapped**. Runtime registration is not Kotlin coverage.
+The verifier rejects profile, source, registration and multiplicity drift;
+negative tests also cover duplicate/dotted/newline identities and malformed captures.
+Clean replay canonicalizes order because original directory enumeration can vary;
+each replay still compares its original CLI and observer byte for byte.
+
+A separate immutable record at `43db34fe4fd20707b4891e81378c059acdc09d22`
+preserves **17,613 recorded Kotlin checks**: the preceding 7,375 plus 5,700
+standalone generator observations and 4,538 helper observations over 19 instances.
+These finite generator observations add no upstream source leaves. All artifacts
+and independent sources in this record come from that commit, not current WIP.
+
+This checkpoint leaves the global leaf inventory open: precise Haskell generated
+leaf expectations and executable mappings; other build/platform profiles;
+dynamic/platform Lua variants; dependency embedded/non-Cabal suites;
 calibre runtime/factory reconciliation; and directional additional-format
 matrices. `local:622` and the full port remain incomplete.
