@@ -14202,3 +14202,49 @@ expanded350-instance/JSON audit and full local:611/Pandoc/tests remain open.
 Staged diff checking preserves eight whitespace/EOF diagnostics only in the
 verbatim GHC Identity interface, original syb Basics source and syb license.
 Their exact source bytes pass verification; other checkpoint paths are clean.
+
+### Complete Decaf448 scalar source checkpoint
+
+The specialized Kotlin scalar engine ports all16 scalar.c functions plus header
+copy and called bzero utility, with all five constants and14×32/7×64 word
+profiles. Independent source review checks Montgomery N+1 accumulators/high
+carry, signed borrow correction, conditional masks, halve carry, raw equality,
+uint64 construction, decode/decode_long chunking and failure output, exact
+object/byte aliases, full encode and requested zeroed storage. Accepted field
+and other crypto APIs are unchanged.
+
+Own extraction/source and native replay pass6,900 rows/30 pins, with65,852 trace
+states and130 defined inverse prefixes. Every API32 row additionally replays
+unchanged native code with ARCH64:3,450 mixed-profile observations match raw
+outputs/traces (profile layout metadata remains separately observed). Actual
+pinned AArch64 Haskell linkage uses API32/scalar words and ARCH64; independent
+FFI replay passes389 public scalar observations. Its unchanged29 Ed448/Curve448
+examples remain native supporting evidence, not implemented Kotlin signatures
+or point/public completeness. Independent canonical integer checks pass376
+results without generating expected fixtures. All31 frozen hashes match.
+
+Saved fresh8910 Gradle XML independently confirms10,511 actual tests with zero
+failures/errors/skips:6,900 raw rows+3,450 mixed-profile cases+30 pins+130 prefix
+checks+one integrity check. Completed jar/installDist contains exactly three
+scalar classes without BigInteger and byte-exact packaged Decaf notice; the
+installed/core JARs match. No redundant Gradle rerun was needed.
+
+Original scalar_invert has undefined negative C shift counts for its last three
+rounds. Original Clang O0/O2/O3 observations are preserved separately; a bounded
+observer proves every defined prefix before the first negative count. Kotlin
+implements the explicitly normalized zero-tail extension, independently checked
+against canonical modular inversion. This is not ISO-C equivalence for undefined
+inputs, and raw unreduced observations do not extend canonical guarantees.
+Pointers/sizes/alignment, finite alias cases, signed-shift convention and
+forced-profile versus real OS ABI limits remain explicit. Functional destroy/
+bzero parity does not prove JVM/JIT secure erasure or constant-time execution.
+
+The existing transparent Decaf notice still distinguishes preserved copyright
+headers from separately supplied standard MIT text because referenced LICENSE.txt
+is absent from the pinned archive. Points/precomputed tables, X448 public/modern,
+Ed448/SHAKE, number/primality/signatures/trust/chain and full local:613/Pandoc/
+tests/later calibre remain open.
+
+Cached diff checking retains93 whitespace/EOF diagnostics only in exact original
+C/header copies and the mechanically derived bounded/normalized observers.
+Their source transformations/bytes verify; all other staged paths are clean.
