@@ -1,0 +1,28 @@
+{
+  "standaloneCases": 5700,
+  "helperCases": 4538,
+  "payloads": {
+    "standalone-generators": "914b6f331e295f70c9c0d3f2e3775a4b8f8499661eae5a8e71aa72bd59ff3203",
+    "generator-helpers": "cac8ab03f475dd991dbe1b4141cccdcbde84f76ea32fb7a0f9a9ab3b50730c1d"
+  },
+  "sources": {
+    "tools/import-types-generator-domain-fixtures.py": "dd1ebf9ab9c49af4d04c1e3e090174f1033b94f7d8630df241a58a55428657f0",
+    "tools/haskell-types-generator-reference/StandaloneGeneratorsReference.hs": "15bf64223fc89f68d17d3d3b1d88fd5a2b76e7e9a2a025e7d66512dade6faf89",
+    "tools/haskell-types-generator-reference/PrivateGeneratorObservations.expr": "e28a0b2a168272ed97bb91122d578cae7731f1216daaf01989a4efef846b48c1",
+    "tools/haskell-types-generator-reference/kotdoc-types-generator-reference.cabal": "1b84630d10048b97e149f4685144e209e46b014077222036bca1ca9f07f5225e",
+    "tools/haskell-types-generator-reference/cabal.project": "56ffa5300bebfae315a54c64c5efa7e05cede12efa5e62334e6ec13f593fe379",
+    "tools/haskell-types-generator-reference/cabal.project.freeze": "04c73a4df34f4a1226d47ad52e3202be68d71f7d47ae4c1279fbbdbeee16f901",
+    "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs": "792f2fadfa8e1b7eb0334a8dedaca4f87651a0bd44fbb3a496a0a2e0728213ae",
+    "upstream/pandoc-types/src/Text/Pandoc/Definition.hs": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+    "upstream/pandoc-types/src/Text/Pandoc/Builder.hs": "94ae6bb8d22865e2aef201a68839e9cf87bc0deddc2e4b14c2b20afb063238ad",
+    "vendor/quickcheck-2.16.0.0/Arbitrary.hs": "3e6080d44aa480fc75287071aa774939f8e74f1b533d2653cbe216bacdc99044",
+    "vendor/quickcheck-2.16.0.0/Gen.hs": "f25a2aabd07d39e063bc813df93474f269cf491646275f76641c063a2f530694",
+    "vendor/quickcheck-2.16.0.0/Random.hs": "d42a32aa9e74f70516f0088d0331ddcbfce193784b09a402057c07f781934f44",
+    "vendor/splitmix-0.1.3.2/SplitMix.hs": "0e2b4181c8520dc186a074a1a8bed8cf40d249571367abaaf870554e511cf437",
+    "vendor/random-1.3.1/Internal.hs": "db411f5de80541ba1f886bba2685ad69fd91c73253d89f1ffac0f83436d70aec",
+    "licenses/pandoc-types-BSD-3-Clause.txt": "9f0bd78c71eacf3a7824bf5ac7215a1b3d6a2714dc740f261064934c2c721596",
+    "licenses/QuickCheck-BSD-3-Clause.txt": "17035f93180f20bc9c9eb2fd5e0c8836c699b6dedae654b3f2a7a76e737bf2b9",
+    "licenses/splitmix-BSD-3-Clause.txt": "5f3facf95bb7d0de63aac65ff31e1c071cf37cfa28a56cadf236eac1bd9c9fa3",
+    "licenses/random-LICENSE.txt": "e06262d9e31494d84bb3a2f3ef5805502deb7568cea6e677a81a28b69153f557"
+  }
+}

@@ -13299,3 +13299,36 @@ invalid buffers/pointers, actual 32-bit OS ABI and timing/erasure remain outside
 the evidence. Public Haskell P256 wrapper policies, complete P256/ECC/ECDH/
 subgroup suites and remaining crypto/trust/TLS work still require porting.
 Local:613 and the full Pandoc/calibre objective remain open.
+
+
+## Standalone generator domain and source constructor witnesses (2026-10-16)
+
+Every one of the nineteen original pandoc-types Arbitrary instances now has
+direct unchanged-source seeded replay: 50 seeds and requested sizes 0/1/2/3/8/30
+give **5,700 complete typed observations**. Seven default Kotlin wrappers retain
+the source resize3 and builder-list policies instead of inferring them through
+Pandoc generation. Private realString/arbAttr/arbInlines/arbInline/arbBlock and
+row/head/body/foot/cell helpers are observed by loading unchanged Arbitrary.hs
+in its GHC module context; no export patch or substitute implementation is used.
+
+The **4,538 helper/domain observations** include depth -1/0/1/2/3/4, sizes0/1/3,
+all eighteen Attr choices, source-generated text boundary witnesses (codepoints
+32/127/128/9999 and lengths0/8), and 56 named constructor witnesses (twenty Inline,
+fourteen Block and twenty-two enum constructors). Expectations remain original
+outputs, never Kotlin-generated or rewritten. Existing 420/270/500 payloads are
+unchanged; the QuickCheck manifest refreshes changed reference README/cabal hashes.
+
+Independent review checked wrappers, source expressions, helper context and
+fixture provenance. Separate original execution reproduces all 5,700 standalone
+and 4,538 private-helper rows byte for byte. Source/payload verification passes.
+Fresh JDK 21 no-cache XML confirms **17,613 actual tests**, comprising 10,238 new
+generator-domain checks plus the previous 7,375 tests, with no failures/errors/
+skips. No production converter changed.
+
+The new finite acceptance matrix in `docs/pandoc-types-porting-matrix.md` retains
+explicit open gates. This seed/depth/size corpus is not proof for every possible
+seed, arbitrary size or undefined/infinite value. Complete lazy/deep/partial
+shrinker and Unicode acceptance, original-generator table/Figure/JSON property
+replays, derived Read/ordering dictionaries and every public semantic export/
+instance still require evidence. Local:611, full Pandoc/tests and subsequent
+calibre stages remain open.

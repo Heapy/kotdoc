@@ -1,0 +1,39 @@
+let {
+  run :: Test.QuickCheck.Gen.Gen a -> Int -> Int -> a;
+  run g seed size = Test.QuickCheck.Gen.unGen g (Test.QuickCheck.Random.mkQCGen seed) size;
+  emit :: String -> Int -> Int -> Int -> String -> Data.Aeson.Value -> Data.Aeson.Value;
+  emit kind depth seed size witness value = Data.Aeson.object
+    [("kind",Data.Aeson.toJSON kind),("depth",Data.Aeson.toJSON depth),
+     ("seed",Data.Aeson.toJSON seed),("size",Data.Aeson.toJSON size),
+     ("witness",Data.Aeson.toJSON witness),("expected",value)];
+  parameterized = concat [[
+    emit "inlines" depth seed size "" (Data.Aeson.toJSON (run (arbInlines depth) seed size)),
+    emit "inline" depth seed size "" (Data.Aeson.toJSON (run (arbInline depth) seed size)),
+    emit "block" depth seed size "" (Data.Aeson.toJSON (run (arbBlock depth) seed size)),
+    emit "row" depth seed size "" (Data.Aeson.toJSON (run (arbRow depth) seed size)),
+    emit "head" depth seed size "" (Data.Aeson.toJSON (run (arbTableHead depth) seed size)),
+    emit "body" depth seed size "" (Data.Aeson.toJSON (run (arbTableBody depth) seed size)),
+    emit "foot" depth seed size "" (Data.Aeson.toJSON (run (arbTableFoot depth) seed size)),
+    emit "cell" depth seed size "" (Data.Aeson.toJSON (run (arbCell depth) seed size))
+    ] | seed <- [1..20], size <- [0,1,3], depth <- [-1,0,1,2,3,4]];
+  attributes = [emit "attr" 0 seed size "" (Data.Aeson.toJSON (run arbAttr seed size)) | seed <- [1..512], size <- [0,1,3]];
+  strings = [emit "text" 0 seed size "" (Data.Aeson.toJSON (run realString seed size)) | seed <- [1..20], size <- [0,1,3]];
+  witness :: String -> (Data.Text.Text -> Bool) -> Data.Aeson.Value;
+  witness name predicate = (case [(seed,value) | seed <- [1..1000000], let value=run realString seed 3, predicate value] of {
+    ((seed,value):_) -> emit "text" 0 seed 3 name (Data.Aeson.toJSON value);
+    [] -> error ("Missing original realString witness: " ++ name)});
+  constructors :: (Data.Data.Data a, Data.Aeson.ToJSON a) => String -> Test.QuickCheck.Gen.Gen a -> Int -> [String] -> [Data.Aeson.Value];
+  constructors kind gen depth names = [case [(seed,value) | seed <- [1..1000000], let value=run gen seed 3, Data.Data.showConstr (Data.Data.toConstr value)==name] of {
+    ((seed,value):_) -> emit kind depth seed 3 ("constructor:" ++ name) (Data.Aeson.toJSON value);
+    [] -> error ("Missing constructor witness: " ++ name)} | name <- names];
+  constructorWitnesses = constructors "inline" (arbInline 2) 2 ["Str", "Emph", "Underline", "Strong", "Strikeout", "Superscript", "Subscript", "SmallCaps", "Quoted", "Cite", "Code", "Space", "SoftBreak", "LineBreak", "Math", "RawInline", "Link", "Image", "Note", "Span"] ++
+    constructors "block" (arbBlock 2) 2 ["Plain", "Para", "LineBlock", "CodeBlock", "RawBlock", "BlockQuote", "OrderedList", "BulletList", "DefinitionList", "Header", "HorizontalRule", "Table", "Figure", "Div"] ++
+    constructors "mode" (arbitrary :: Test.QuickCheck.Gen.Gen CitationMode) 0 ["AuthorInText","SuppressAuthor","NormalCitation"] ++
+    constructors "math" (arbitrary :: Test.QuickCheck.Gen.Gen MathType) 0 ["DisplayMath","InlineMath"] ++
+    constructors "quote" (arbitrary :: Test.QuickCheck.Gen.Gen QuoteType) 0 ["SingleQuote","DoubleQuote"] ++
+    constructors "alignment" (arbitrary :: Test.QuickCheck.Gen.Gen Alignment) 0 ["AlignLeft","AlignRight","AlignCenter","AlignDefault"] ++
+    constructors "style" (arbitrary :: Test.QuickCheck.Gen.Gen ListNumberStyle) 0 ["DefaultStyle","Example","Decimal","LowerRoman","UpperRoman","LowerAlpha","UpperAlpha"] ++
+    constructors "delim" (arbitrary :: Test.QuickCheck.Gen.Gen ListNumberDelim) 0 ["DefaultDelim","Period","OneParen","TwoParens"];
+  witnesses = [witness ("char" ++ show point) (Data.Text.any (== toEnum point)) | point <- [32,127,128,9999]] ++
+    [witness ("length" ++ show n) ((==n) . Data.Text.length) | n <- [0,8]]
+} in mapM_ (Data.ByteString.Lazy.Char8.putStrLn . Data.Aeson.encode) (parameterized ++ attributes ++ strings ++ witnesses ++ constructorWitnesses)

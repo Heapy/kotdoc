@@ -21,8 +21,8 @@
     "core/src/test/resources/pandoc-types/properties.jsonl.gz": "a371cb547d2c43c84fdbfe8df3d3c1a97c272e74e6727aa870c1b1a75568dab4",
     "tools/haskell-types-generator-reference/QuickCheckReference.hs": "2ddeb7bb496fb705a8f4d7e29c7d6cdecee04b817e372265653dd1cafc1e804a",
     "tools/haskell-types-generator-reference/NoShrinkReference.hs": "f4c06beb23575b3a08c94c80b14aac868f2235e4a49f5a641fff5a643435d17e",
-    "tools/haskell-types-generator-reference/README.md": "ff960e1442f99891b89cd5db4e014ebb8d715c610503580272caf1ec230b53a8",
-    "tools/haskell-types-generator-reference/kotdoc-types-generator-reference.cabal": "3b48ba3e90e31085e3388a5c4c9ca57601bb9b5e8395e45141f4fa1867991399",
+    "tools/haskell-types-generator-reference/README.md": "0fd7bea194e6b913d189593f9b8353c9cf49ba6462fb35bc4f0c3f571ae53a0a",
+    "tools/haskell-types-generator-reference/kotdoc-types-generator-reference.cabal": "1b84630d10048b97e149f4685144e209e46b014077222036bca1ca9f07f5225e",
     "tools/haskell-types-generator-reference/cabal.project": "56ffa5300bebfae315a54c64c5efa7e05cede12efa5e62334e6ec13f593fe379",
     "tools/haskell-types-generator-reference/cabal.project.freeze": "04c73a4df34f4a1226d47ad52e3202be68d71f7d47ae4c1279fbbdbeee16f901"
   }

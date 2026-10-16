@@ -41,6 +41,13 @@ internal object OriginalSeededTypesArbitrary {
     ) { Citation(it.at(0),it.at(1),it.at(2),it.at(3),it.at(4),it.at(5)) }
     fun inline():Gen<Inline> = inline(2).resize(3)
     fun block():Gen<Block> = block(2).resize(3)
+    fun inlines():Gen<List<Inline>> = list(inline())
+    fun blocks():Gen<List<Block>> = list(block())
+    fun row():Gen<Row> = row(2).resize(3)
+    fun head():Gen<TableHead> = head(2).resize(3)
+    fun body():Gen<TableBody> = body(2).resize(3)
+    fun foot():Gen<TableFoot> = foot(2).resize(3)
+    fun cell():Gen<Cell> = cell(2).resize(3)
     fun inlines(depth:Int):Gen<List<Inline>> = OriginalQuickCheck.suchThat(list(inline(depth),true)) {
         it.first()!=Inline.Space && it.first()!=Inline.SoftBreak
     }
