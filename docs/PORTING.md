@@ -12567,3 +12567,66 @@ independent platform oracle captures, huge context buffers beyond JVM byte-array
 capacity and broader stress remain work. Full Pandoc/all tests, calibre MOBI/all
 tests and all additional formats absent from Pandoc/all tests remain the required
 end state; CA loading does not complete that objective.
+
+## Binary polynomial arithmetic and all F2m properties (2026-10-16)
+
+Ported every public operation of crypton 2.0.1 `Crypto.Number.F2m` to
+`io.heapy.kotdoc.crypto.F2m`: XOR addition, polynomial reduction and
+multiplication, raw/reduced squaring, exponentiation, square roots, extended-GCD
+inversion, division and quadratic solving by trace/half-trace. The binary
+polynomial representation is BigInteger. The original BSD notice remains in
+the standalone and installed core artifacts. X509 binary-curve point validation
+now uses this complete shared module instead of its two private partial helpers.
+
+The implementation retains unreduced input behavior, zero/one modulus edge
+cases, signed XOR, nonunit results, exact error texts and deferred Maybe payloads.
+Strict entry order is independently observed against the pinned optimized GHC
+9.12.2/AArch64 reference, including different error boundaries in standalone
+multiplication and multiplication mapped under Maybe. These are observations of
+that build, not a promise that every Haskell compiler chooses identical ordering
+among bottoms. Exponentiation uses an explicit stack, preserving the observed
+guard order without adding the JVM recursive-call limit. Sparse and dense
+exponents through 16,385 bits are independently replayed.
+
+The original `tests/Number/F2mSpec.hs`, `Imports.hs` and `Utils.hs` run unchanged
+against the full pinned crypton package and Hspec 2.11.18. All **29 examples**
+pass with seed 1729 and QuickCheck max-success 200. The fixed GF(2^16) property
+checks every element from 0 through 65,535. The general square-root property
+commented out upstream stays disabled; it is not counted as an active test.
+
+The reference additionally compiles mechanically extracted, unchanged active
+property expressions, including their Positive/NonNegative wrappers. Extraction
+is verified byte for byte. Kotlin ports all 29 expressions and replays concrete
+inputs against their independent Haskell outcomes. The corpus also records each
+of the **65,536 actual GF(2^16) square roots**, not only a shared round-trip
+invariant. It covers sparse/dense polynomials through degree 2048, unreduced
+values, reducible moduli, inverse failures, quadratic trace, signed/zero/one
+boundaries, ignored arguments, error precedence and Maybe constructor versus
+payload demand. Original degree-zero square-root and negative-polynomial GCD
+inputs that can fail to terminate are excluded from finite observation batches;
+no invented finite fallback is assigned. Resource/timing behavior for these
+undefined inputs and other GHC/platform builds remains unverified.
+
+The independent corpus contains **76,971 observations**, **448 source hashes**
+and semantic SHA-256
+**bdc7e9c76efa68dde0ed09137ed9531804cafb0bf34b9f18ae56f37a3bbbad0a**.
+Generation and complete independent replay pass. The final JDK 21 regression
+passes **626,098 tests across twenty-three ASN1/X509/hourglass/F2m suites**, with
+exact XML counts and no failures/errors/skips. All **180 source/fixture
+verifiers** pass. Windows CI now requires **652,992 tests**, including every
+F2m observation. The preceding c00cb01d Windows job passes its 576,021-test gate;
+its full Linux job is still live at this observation.
+
+The installed CLI native/JSON/native round-trip passes. Standalone and installed
+core JARs are identical and contain **3,420 classes** and **90 byte-exact
+notices**. All **560 baseline assets** remain byte-exact and no class from that
+retained baseline is missing. No upstream program is a production arithmetic
+or conversion dependency. As in upstream F2m, no constant-time guarantee is
+provided by this module.
+
+Prime modular arithmetic (including the upstream secure exponent/inverse
+contracts), general ECC point/scalar arithmetic, signature/trust/chain
+validation and the remaining cryptographic operations/tests are still pending.
+The existing native TLS, encoding/resource, platform oracle and stress gaps
+remain open. Full Pandoc/all tests, calibre MOBI/all tests and all additional
+formats absent from Pandoc/all tests remain the required end state.

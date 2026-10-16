@@ -5,6 +5,7 @@ package io.heapy.kotdoc.x509
 import io.heapy.kotdoc.asn1.Asn1Maybe
 import io.heapy.kotdoc.asn1.Asn1Oid
 import java.math.BigInteger
+import io.heapy.kotdoc.crypto.F2m
 
 sealed class X509EcPoint {
     data object Infinity : X509EcPoint() { override fun toString() = "PointO" }
@@ -52,20 +53,6 @@ object X509Ec {
     fun getCurveByName(name: X509CurveName) = X509NamedCurveParameters.curves[name.ordinal]
     fun lookupCurveNameByOid(oid: Asn1Oid) = X509CurveOids.byOid(oid)
     fun curveSizeBits(curve: X509EcCurve) = curve.modulus.abs().bitLength().coerceAtLeast(1) - if (curve is X509EcCurve.Binary) 1 else 0
-    private fun binaryMod(f: BigInteger, input: BigInteger): BigInteger {
-        if (f.signum() < 0 || input.signum() < 0) error("modF2m: negative number represent no binary polynomial")
-        if (f.signum() == 0) error("modF2m: cannot divide by zero polynomial")
-        var n = input
-        while (n.signum() != 0 && n.bitLength() >= f.bitLength()) n = n.xor(f.shiftLeft(n.bitLength() - f.bitLength()))
-        return n
-    }
-    private fun binaryMultiply(f: BigInteger, a: BigInteger, b: BigInteger): BigInteger {
-        if (f.signum() < 0 || a.signum() < 0 || b.signum() < 0) error("mulF2m: negative number represent no binary polynomial")
-        if (f.signum() == 0) error("mulF2m: cannot multiply modulo zero polynomial")
-        var v = b; var shifted = a; var product = BigInteger.ZERO
-        while (v.signum() != 0) { if (v.testBit(0)) product = product.xor(shifted); v = v.shiftRight(1); shifted = shifted.shiftLeft(1) }
-        return binaryMod(f,product)
-    }
     fun isPointValid(curve: X509EcCurve, point: X509EcPoint) = isPointValidDeferred(lazyOf(curve),point)
     fun isPointValidDeferred(curve: Lazy<X509EcCurve>, point: X509EcPoint): Boolean {
         if (point === X509EcPoint.Infinity) return true
@@ -85,10 +72,10 @@ object X509Ec {
             is X509EcCurve.Binary -> {
                 if (modulus.signum() < 0) error("modF2m: negative number represent no binary polynomial")
                 val x = point.x
-                if (binaryMod(modulus,x) != x) false else {
+                if (F2m.modF2m(modulus,x) != x) false else {
                     val y = point.y
-                    binaryMod(modulus,y) == y && binaryMultiply(modulus,
-                        binaryMultiply(modulus,x.xor(c.common.a),x).xor(y),x).xor(c.common.b).xor(binaryMultiply(modulus,y,y)) == BigInteger.ZERO
+                    F2m.modF2m(modulus,y) == y && F2m.mulF2m(modulus,
+                        F2m.mulF2m(modulus,x.xor(c.common.a),x).xor(y),x).xor(c.common.b).xor(F2m.mulF2m(modulus,y,y)) == BigInteger.ZERO
                 }
             }
         }
