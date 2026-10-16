@@ -1,0 +1,3776 @@
+Magic: Wanted 33214052,
+       got    33214052
+Version: Wanted 9122,
+         got    9122
+Way: Wanted ,
+     got    
+interface GHC.Internal.Data.Monoid [family instance module] 9122
+  interface hash: 079c0e1919f267beed7d56bd9d4b7316
+  ABI hash: 32ffcf07b8a629feb9bc0446e31b2739
+  export-list hash: b3e87b6f02b892706cfc65864a63c421
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: e000628fa6e7033675837a7f3b5f9cc9
+  opt_hash: d4bd5770180ee3e5d15327f4d84fe9db
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  src_hash: 04918d0795d999046dab25c23481dbe1
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  GHC.Internal.Base.Monoid{GHC.Internal.Base.mappend GHC.Internal.Base.mconcat GHC.Internal.Base.mempty}
+  GHC.Internal.Base.Semigroup|{GHC.Internal.Base.<>}
+  Ap{Ap getAp}
+  First{First getFirst}
+  Last{Last getLast}
+  GHC.Internal.Data.Semigroup.Internal.All{GHC.Internal.Data.Semigroup.Internal.All GHC.Internal.Data.Semigroup.Internal.getAll}
+  GHC.Internal.Data.Semigroup.Internal.Alt{GHC.Internal.Data.Semigroup.Internal.Alt GHC.Internal.Data.Semigroup.Internal.getAlt}
+  GHC.Internal.Data.Semigroup.Internal.Any{GHC.Internal.Data.Semigroup.Internal.Any GHC.Internal.Data.Semigroup.Internal.getAny}
+  GHC.Internal.Data.Semigroup.Internal.Dual{GHC.Internal.Data.Semigroup.Internal.Dual GHC.Internal.Data.Semigroup.Internal.getDual}
+  GHC.Internal.Data.Semigroup.Internal.Endo{GHC.Internal.Data.Semigroup.Internal.Endo GHC.Internal.Data.Semigroup.Internal.appEndo}
+  GHC.Internal.Data.Semigroup.Internal.Product{GHC.Internal.Data.Semigroup.Internal.Product GHC.Internal.Data.Semigroup.Internal.getProduct}
+  GHC.Internal.Data.Semigroup.Internal.Sum{GHC.Internal.Data.Semigroup.Internal.Sum GHC.Internal.Data.Semigroup.Internal.getSum}
+defaults:
+direct module dependencies: ghc-internal-9.1202.0:GHC.Internal.Base
+                            ghc-internal-9.1202.0:GHC.Internal.Control.Monad.Fail
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Semigroup.Internal
+                            ghc-internal-9.1202.0:GHC.Internal.Enum
+                            ghc-internal-9.1202.0:GHC.Internal.Generics
+                            ghc-internal-9.1202.0:GHC.Internal.Num
+                            ghc-internal-9.1202.0:GHC.Internal.Read
+                            ghc-internal-9.1202.0:GHC.Internal.Show
+boot module dependencies: (ghc-internal-9.1202.0,
+                           GHC.Internal.ByteOrder {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Data.Version {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Enum)
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception.Type {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.IO {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Num)
+                          (ghc-internal-9.1202.0, GHC.Internal.Real)
+direct package dependencies:
+plugin package dependencies:
+orphans: GHC.Internal.Base GHC.Internal.Float GHC.Prim.Ext
+family instance modules: GHC.Internal.Data.Semigroup.Internal
+                         GHC.Internal.Data.Type.Ord GHC.Internal.Generics
+import  -/  ghc-internal:GHC.Internal.Base 29ec812ead60248b1e26cd94a9165d97
+  exports: 713796e2e0f3bbf03b9e83554d1a1d39
+  $ 664c58473f0bfda3b1e4170cfa02eeda
+  *> 8c075115389110b64b18db1497e64c7b
+  . 18d93cd4c466696aa88d05c72ba7a6ba
+  :| 03a9dd0aa9b5a92cd263f81be2d23cbc
+  <$ 302cb12220d9727167292ab75ed9d4f0
+  <* 5e84fd6e0788dfafd84b8d940eec2745
+  <*> fe4a33c8f0405baca5c0e5c0b99d1155
+  <> d96f10699e74e05fcd37e50e83f513d8
+  <|> 6d7031993cefcdafe4ec0e80b5279970
+  >> 4a93f884c815498ed6df657060f5abab
+  >>= 5e32fdcb8e60c60ef6dc41606c9f0753
+  Alternative 720d867cd0ac67ad00c47b302c45058d
+  Applicative d221ed5c3ad0fa327772185c44405cab
+  Functor b9d34ad3ee458699bdca49643ee59798
+  Monad 0f08c257868aee15a4ec3f43ddcbd79b
+  MonadPlus 6d1230da1cd361fa2fcdc4cb5619ff3a
+  Monoid 1d3beb14a290d634076f8d6aebd6fef1
+  Semigroup 78df3bce97a4387ca4c872173c36befd
+  empty 3a9827dad3d951911f03f0ea2e2b9b16
+  fmap 593ace7e5c31c425b830d44ae2259206
+  liftA2 5dbbb7a9f4efcc994357f3ddf2c75bd7
+  many dbdc789c471ecaf054147638b9b8b22c
+  mappend 369280c8359af17444fe906b0aa956e2
+  mconcat 87f652c30c55f0b452579f281bd8f54e
+  mempty 41e87ad8bbbe61548a7c976e5e330c60
+  mplus 424b38a39c0603bfe87161c45da87b26
+  mzero 834ea07cbb83feaad871eb48d271ab52
+  otherwise c896f2b20cdef1fcdf5030a536a26aee
+  pure 551731ef1be29091c0d84f263135bb76
+  return df4e334a7f50f715e7d6615f32a06b2b
+  some ce27d571370765ae694251912c4b3690
+import  -/  ghc-internal:GHC.Internal.Control.Monad.Fail bb4e4f9bd7a195f33a944d2070ddc392
+  exports: 28d914607fb5983eb8356a220b2e55ff
+  MonadFail 2c259717de6104afb3d4012395ebfe96
+  fail 6ada28275d60474a088cdc7140cd2791
+import  -/  ghc-internal:GHC.Internal.Data.Semigroup.Internal 6635b6b4b89aff30890be8ce51e588e0
+  exports: 496743e33325fddfebf3f163736547df
+  All 91a15d1e2a82d77df7f88c7e230fd1ca
+  All 4b6293f2df969c5ab0852a85b713b8e7
+  Alt f17af76e3780875fbed0617aae0551d2
+  Alt 526713e9783b1f48a3982540669dd04f
+  Any 7edf1fdc1f62145429a99cec3b683281
+  Any 8174ee71f3839bcc6f50a1ce67237b45
+  Dual 34086a258584600f2d97bf1c0e0993ec
+  Dual e2b2cf34111b4162f9e3ff6f9c1c3ccd
+  Endo 44f8357403fe3a80e0d7df21994595ce
+  Endo c9a9df5c37d3b6f28933b952e89025f9
+  Product a9d57dc7c05595519d958d290bc52d2e
+  Product 9e63fc1b432e34906f6f88cb8f6fefc6
+  Sum a509c1d9db4b5215f672bd2cff759d44
+  Sum 51134af2b78555c74683c6bc1b2f4547
+  appEndo 2a98b62d24b61a9b6e5c1f61df97a2fa
+  getAll ab0992988909a10298be0bb748726608
+  getAlt 1c2ccd4c0120d47c1a364a41cdb47446
+  getAny f53c4b94af2a53c9a48ae485e39276e2
+  getDual c19c3f78f422721d106d865b25286f67
+  getProduct b088ef466223f889713e231584253730
+  getSum 17c59026dbda6a0f8d1a7339dc92eb47
+  stimesIdempotentMonoid 3bffd2bf37f9f84379afc9a3d34079a8
+import  -/  ghc-internal:GHC.Internal.Enum 5613b34cbe03d56d2e094943a893fef9
+  exports: b9b9912848ac24f741fe5d7d84af70f2
+  Bounded 0c215d33455cba14ba3d622b8945e2df
+  Enum 643995c0fdb4aa947bca5521d1ddffe9
+  enumFrom 42f0562b5bd13974a93706acf2a72a4c
+  enumFromThen e7270e29e07eab50f150a248c7b36009
+  enumFromThenTo 8cf86ea898e1a36d2f2a486c038643ed
+  enumFromTo fef102e7ddf5f5805b884077494312b0
+  fromEnum ad1d9388d6ff6e28a7aee56a215ce844
+  maxBound 9e69ed18711329e89ce30e71e4221cde
+  minBound 4a444cab2c9d08200b030b8ae995267e
+  pred a2f91a4f1765847d7c3d62ade9f2f251
+  succ 99faf005d28b5d365cdbe94cc26f8474
+  toEnum 75b01a117ec5b666c218ab80075d3d9e
+import  -/  ghc-internal:GHC.Internal.Generics 927095b7d6bbfd7e3e9b98553e8664b5
+  exports: be4942afd160bdaeec9ed9e76c95487d
+  Generic 2911b71414523ea22bf7544b83c55bcf
+  Generic1 88d5a35d9195ff7f4002ea24f2236c34
+  K1 e61fdef3943f9414c835dee6e77acd8c
+  M1 2eb2649086abcb69cb02300dd13d3c92
+  Rec1 f5aa38ef447dab7347758efa4cf0e263
+  unRec1 8a7a1efc473f820dc6488f9c029eba57
+import  -/  ghc-internal:GHC.Internal.Num 67698e6e339010ee3a443f0e69b912f7
+  exports: 93d6faa025f33d5fc883321a7a610005
+  * e2279b161eff43bcb0b84289b7cef7ea
+  + 27a5c98b791cb3aef596a5285634118f
+  Num c89e8101b756aab365536a40755279d4
+  abs 22446423842806bb63f98768100100ac
+  fromInteger ae3fadd03bbe5be44105eccaa6c2e04f
+  negate 3e8290f1e0e537bccf937ae22947f1cd
+  signum 5a42db91538095e74a5d86eb4ec37946
+import  -/  ghc-internal:GHC.Internal.Read 054d4a3e94e8a3f43ca1a7efe0f12fa1
+  exports: f054178120f44e860fca715d14e6e6d1
+  Read 10735ddf61c633e9afd772ca98d7f611
+  expectP 47ca42cbbc864c41003ad56b13bb6713
+  parens 60aef5897b41e320737c2a74e35110c3
+  readField 21bcfacf05e57457999ca4f5fd662b96
+  readListDefault 115aba2ce1de4f0a6b57f0dabafc71dd
+  readListPrecDefault c0b8a19c2b2afa4886bb4aff7847a446
+  readPrec 3b4c996105ebfc5a58364439a5a43968
+import  -/  ghc-internal:GHC.Internal.Show 74471ccfb5e62f876955e74ed45644dc
+  exports: 05a50c874a3ac9ed2cfe1a1eec41fe1a
+  Show d4611d93916cbbc06f6faaac357ad8f5
+  showParen e9ad760fc8186a1d311f9a20120820aa
+  showString 90eff2fce97a079a53ba612f392caf56
+  showsPrec 9e3604205c45b939cf99e511bbb0cb9e
+import  -/  ghc-internal:GHC.Internal.Text.ParserCombinators.ReadPrec ea989a204474a3bceccbb5a49a46400e
+  prec b5317c5ec86f043ecf10789ee731c413
+  reset 309ec9ca579a5900fce3ecd9ae537dd5
+import  -/  ghc-internal:GHC.Internal.Text.Read.Lex b878033ced6cce2a3279c754767a7c15
+  Ident 9c7ea80d63e9d1f3557cc1b11a6c0368
+  Punc 8a3adbcec78a2a43508d75cfb07b55e7
+import  -/  GHC.Classes 94513e804d2e9dfa3393f6f9ff56cf25
+73b9262ce27aa7f20107876cdb32080a
+  $fAlternativeAp ::
+    GHC.Internal.Base.Alternative f =>
+    GHC.Internal.Base.Alternative (Ap f)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Alternative f).
+                @(Ap f)
+                ($fAlternativeAp_$cp1Alternative @f v)
+                (GHC.Internal.Base.empty @f v)
+                  `cast`
+                (forall (a :: <*>_N). Sym (N:Ap <*>_N <f>_R) <a>_N)
+                (GHC.Internal.Base.<|> @f v)
+                  `cast`
+                (forall (a :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                (GHC.Internal.Base.some @f v)
+                  `cast`
+                (forall (a :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <[a]>_N)
+                (GHC.Internal.Base.many @f v)
+                  `cast`
+                (forall (a :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <[a]>_N)]
+0a5776f40687d0467744259eedf862e5
+  $fAlternativeAp_$cp1Alternative ::
+    GHC.Internal.Base.Alternative f =>
+    GHC.Internal.Base.Applicative (Ap f)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(MP(ML,ML),ML,ML,ML,ML,ML),A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                ($dAlternative['GHC.Types.Many] :: GHC.Internal.Base.Alternative
+                                                     f) ->
+              $fApplicativeAp
+                @f
+                (GHC.Internal.Base.$p1Alternative @f $dAlternative)]
+f21b2e2dd9f464f8da95a6c2d5d6a5bc
+  $fApplicativeAp ::
+    GHC.Internal.Base.Applicative f =>
+    GHC.Internal.Base.Applicative (Ap f)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(MP(ML,ML),ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Applicative f).
+                @(Ap f)
+                ($fApplicativeAp_$cp1Applicative @f v)
+                (GHC.Internal.Base.pure @f v)
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                (GHC.Internal.Base.<*> @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a -> b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N)
+                (GHC.Internal.Base.liftA2 @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N) (c :: <*>_N).
+                 <a -> b -> c>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <c>_N)
+                (GHC.Internal.Base.*> @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N)
+                (GHC.Internal.Base.<* @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+ee18355b59c3f505b5b2bb1987ff4ebc
+  $fApplicativeAp_$cp1Applicative ::
+    GHC.Internal.Base.Applicative f => GHC.Internal.Base.Functor (Ap f)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(ML,ML),A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative
+                                                     f) ->
+              $fFunctorAp @f (GHC.Internal.Base.$p1Applicative @f $dApplicative)]
+e86318fcb307c1a1f84c5f4cd2efa236
+  $fApplicativeFirst :: GHC.Internal.Base.Applicative First
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Applicative],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @First
+                $fFunctorFirst
+                GHC.Internal.Base.$fApplicativeMaybe_$cpure
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c<*>
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:First <a -> b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$cliftA2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N) (c :: <*>_N).
+                 <a -> b -> c>_R
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <c>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c*>
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c<*
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N)]
+7a92b852dcdf78b0ffe45e7bcf357416
+  $fApplicativeLast :: GHC.Internal.Base.Applicative Last
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Applicative],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Last
+                $fFunctorLast
+                GHC.Internal.Base.$fApplicativeMaybe_$cpure
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c<*>
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:Last <a -> b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$cliftA2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N) (c :: <*>_N).
+                 <a -> b -> c>_R
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <c>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c*>
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c<*
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N)]
+37ea601ceb72a26104140fb351d79cfe
+  $fBoundedAp ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Enum.Bounded a) =>
+    GHC.Internal.Enum.Bounded (Ap f a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <LP(A,L,A,A,A,A)><LP(ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                    (v1['GHC.Types.Many] :: GHC.Internal.Enum.Bounded a).
+                @(Ap f a)
+                ($fBoundedAp2 @f @a v v1) `cast` (Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fBoundedAp1 @f @a v v1) `cast` (Sym (N:Ap <*>_N <f>_R) <a>_N)]
+39c00c7c4d46ab2a66afc0dba4a90902
+  $fBoundedAp1 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Enum.Bounded a) =>
+    f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(A,1C(1,L),A,A,A,A)><MP(A,1L)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dBounded['GHC.Types.Many] :: GHC.Internal.Enum.Bounded a) ->
+              GHC.Internal.Base.pure
+                @f
+                $dApplicative
+                @a
+                (GHC.Internal.Enum.maxBound @a $dBounded)]
+ec6789011fa03d41bc773ed0c956d4b2
+  $fBoundedAp2 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Enum.Bounded a) =>
+    f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(A,1C(1,L),A,A,A,A)><MP(1L,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dBounded['GHC.Types.Many] :: GHC.Internal.Enum.Bounded a) ->
+              GHC.Internal.Base.pure
+                @f
+                $dApplicative
+                @a
+                (GHC.Internal.Enum.minBound @a $dBounded)]
+a47adacaacaf96917ae01d0c6e0ca5ad
+  $fEnumAp ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Enum.Enum (f a) =>
+    GHC.Internal.Enum.Enum (Ap f a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @k
+                    @f :: k -> *
+                    @a :: k
+                    (v['GHC.Types.Many] :: GHC.Internal.Enum.Enum (f a)).
+                @(Ap f a)
+                (GHC.Internal.Enum.succ @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N)
+                (GHC.Internal.Enum.pred @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N)
+                (GHC.Internal.Enum.toEnum @(f a) v)
+                  `cast`
+                (<GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N)
+                (GHC.Internal.Enum.fromEnum @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Enum.enumFrom @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Ap <k>_N <f>_R) <a>_N])_R)
+                (GHC.Internal.Enum.enumFromThen @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Ap <k>_N <f>_R) <a>_N])_R)
+                (GHC.Internal.Enum.enumFromTo @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Ap <k>_N <f>_R) <a>_N])_R)
+                (GHC.Internal.Enum.enumFromThenTo @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Ap <k>_N <f>_R) <a>_N])_R)]
+32f13444e8deeaa16e2a8a2db2a2c690
+  $fEqAp ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Classes.Eq (f a) =>
+    GHC.Classes.Eq (Ap f a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML)>, Inline: CONLIKE,
+   Unfolding: DFun: @k
+                    @f :: k -> *
+                    @a :: k
+                    (v['GHC.Types.Many] :: GHC.Classes.Eq (f a)).
+                @(Ap f a)
+                (GHC.Classes.== @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes./= @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)]
+6c35bd83c09196cdc8db95a44954376b
+  $fEqFirst :: GHC.Classes.Eq a => GHC.Classes.Eq (First a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,L)),A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Eq a).
+                @(First a)
+                (GHC.Internal.Maybe.$fEqMaybe_$c== @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fEqMaybe_$c/= @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)]
+6a893c84235a1e8c5000eae54facc39a
+  $fEqLast :: GHC.Classes.Eq a => GHC.Classes.Eq (Last a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,L)),A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Eq a).
+                @(Last a)
+                (GHC.Internal.Maybe.$fEqMaybe_$c== @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fEqMaybe_$c/= @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)]
+e6466b9f6e4a9882e3220a4e86c5123f
+  $fFunctorAp ::
+    GHC.Internal.Base.Functor f => GHC.Internal.Base.Functor (Ap f)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML)>, Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Functor f).
+                @(Ap f)
+                (GHC.Internal.Base.fmap @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N)
+                (GHC.Internal.Base.<$ @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+6fd188891e6605bdfabb688f5647b4af
+  $fFunctorFirst :: GHC.Internal.Base.Functor First
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Functor],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @First
+                GHC.Internal.Base.$fApplicativeMaybe_$cfmap
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N)
+                GHC.Internal.Base.$fFunctorMaybe_$c<$
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N)]
+d3aaf96bc4fffd16b349568524a36d0b
+  $fFunctorLast :: GHC.Internal.Base.Functor Last
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Functor],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Last
+                GHC.Internal.Base.$fApplicativeMaybe_$cfmap
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N)
+                GHC.Internal.Base.$fFunctorMaybe_$c<$
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N)]
+72684d2f13d7ae9959cf972807e26647
+  $fGeneric1TYPEFirst :: GHC.Internal.Generics.Generic1 First
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic1],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @(*) @First $fGeneric1TYPEFirst_$cfrom1 $fGeneric1TYPEFirst_$cto1]
+15df10dfdffd10827579b6f13f0d16d2
+  $fGeneric1TYPEFirst_$cfrom1 ::
+    First a -> GHC.Internal.Generics.Rep1 First a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a (x['GHC.Types.Many] :: First a) -> x)
+                `cast`
+              (forall (a :: <*>_N).
+               <First a>_R
+               %<'GHC.Types.Many>_N ->_R (Sym (GHC.Internal.Generics.N:Rec1
+                                                   <*>_N (Sym N:First))
+                                          ; Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.S>_P
+                                                     <'GHC.Internal.Generics.MetaSel
+                                                        ('GHC.Internal.Maybe.Just "getFirst")
+                                                        'GHC.Internal.Generics.NoSourceUnpackedness
+                                                        'GHC.Internal.Generics.NoSourceStrictness
+                                                        'GHC.Internal.Generics.DecidedLazy>_P
+                                                     <GHC.Internal.Generics.Rec1
+                                                        GHC.Internal.Maybe.Maybe>_R)
+                                          ; Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.C>_P
+                                                     <'GHC.Internal.Generics.MetaCons
+                                                        "First"
+                                                        'GHC.Internal.Generics.PrefixI
+                                                        'GHC.Types.True>_P
+                                                     <GHC.Internal.Generics.M1
+                                                        GHC.Internal.Generics.S
+                                                        ('GHC.Internal.Generics.MetaSel
+                                                           ('GHC.Internal.Maybe.Just "getFirst")
+                                                           'GHC.Internal.Generics.NoSourceUnpackedness
+                                                           'GHC.Internal.Generics.NoSourceStrictness
+                                                           'GHC.Internal.Generics.DecidedLazy)
+                                                        (GHC.Internal.Generics.Rec1
+                                                           GHC.Internal.Maybe.Maybe)>_R)
+                                          ; Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.D>_P
+                                                     <'GHC.Internal.Generics.MetaData
+                                                        "First"
+                                                        "GHC.Internal.Data.Monoid"
+                                                        "ghc-internal"
+                                                        'GHC.Types.True>_P
+                                                     <GHC.Internal.Generics.M1
+                                                        GHC.Internal.Generics.C
+                                                        ('GHC.Internal.Generics.MetaCons
+                                                           "First"
+                                                           'GHC.Internal.Generics.PrefixI
+                                                           'GHC.Types.True)
+                                                        (GHC.Internal.Generics.M1
+                                                           GHC.Internal.Generics.S
+                                                           ('GHC.Internal.Generics.MetaSel
+                                                              ('GHC.Internal.Maybe.Just "getFirst")
+                                                              'GHC.Internal.Generics.NoSourceUnpackedness
+                                                              'GHC.Internal.Generics.NoSourceStrictness
+                                                              'GHC.Internal.Generics.DecidedLazy)
+                                                           (GHC.Internal.Generics.Rec1
+                                                              GHC.Internal.Maybe.Maybe))>_R)
+                                          ; Sub (Sym Rep1_First)) <a>_N)]
+851bd757637564df5bae20b800620c17
+  $fGeneric1TYPEFirst_$cto1 ::
+    GHC.Internal.Generics.Rep1 First a -> First a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (GHC.Internal.Generics.$fGeneric1k:.:1
+                 @(*)
+                 @GHC.Internal.Maybe.Maybe)
+                `cast`
+              (forall (p :: <*>_N).
+               (Sym (GHC.Internal.Generics.N:M1
+                         <*>_N
+                         <GHC.Internal.Generics.S>_P
+                         <'GHC.Internal.Generics.MetaSel
+                            ('GHC.Internal.Maybe.Just "getFirst")
+                            'GHC.Internal.Generics.NoSourceUnpackedness
+                            'GHC.Internal.Generics.NoSourceStrictness
+                            'GHC.Internal.Generics.DecidedLazy>_P
+                         <GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <*>_N
+                           <GHC.Internal.Generics.C>_P
+                           <'GHC.Internal.Generics.MetaCons
+                              "First" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.S
+                              ('GHC.Internal.Generics.MetaSel
+                                 ('GHC.Internal.Maybe.Just "getFirst")
+                                 'GHC.Internal.Generics.NoSourceUnpackedness
+                                 'GHC.Internal.Generics.NoSourceStrictness
+                                 'GHC.Internal.Generics.DecidedLazy)
+                              (GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe)>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <*>_N
+                           <GHC.Internal.Generics.D>_P
+                           <'GHC.Internal.Generics.MetaData
+                              "First"
+                              "GHC.Internal.Data.Monoid"
+                              "ghc-internal"
+                              'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.C
+                              ('GHC.Internal.Generics.MetaCons
+                                 "First" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+                              (GHC.Internal.Generics.M1
+                                 GHC.Internal.Generics.S
+                                 ('GHC.Internal.Generics.MetaSel
+                                    ('GHC.Internal.Maybe.Just "getFirst")
+                                    'GHC.Internal.Generics.NoSourceUnpackedness
+                                    'GHC.Internal.Generics.NoSourceStrictness
+                                    'GHC.Internal.Generics.DecidedLazy)
+                                 (GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe))>_R)
+                ; Sub (Sym Rep1_First)) <p>_N
+               %<'GHC.Types.Many>_N ->_R GHC.Internal.Generics.N:Rec1
+                                             <*>_N (Sym N:First) <p>_N)]
+8efdf3c86095e8d63ac4130c86cf54fa
+  $fGeneric1TYPELast :: GHC.Internal.Generics.Generic1 Last
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic1],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @(*) @Last $fGeneric1TYPELast_$cfrom1 $fGeneric1TYPELast_$cto1]
+3c1b923336fbd40df7d30eec024f272b
+  $fGeneric1TYPELast_$cfrom1 ::
+    Last a -> GHC.Internal.Generics.Rep1 Last a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a (x['GHC.Types.Many] :: Last a) -> x)
+                `cast`
+              (forall (a :: <*>_N).
+               <Last a>_R
+               %<'GHC.Types.Many>_N ->_R (Sym (GHC.Internal.Generics.N:Rec1
+                                                   <*>_N (Sym N:Last))
+                                          ; Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.S>_P
+                                                     <'GHC.Internal.Generics.MetaSel
+                                                        ('GHC.Internal.Maybe.Just "getLast")
+                                                        'GHC.Internal.Generics.NoSourceUnpackedness
+                                                        'GHC.Internal.Generics.NoSourceStrictness
+                                                        'GHC.Internal.Generics.DecidedLazy>_P
+                                                     <GHC.Internal.Generics.Rec1
+                                                        GHC.Internal.Maybe.Maybe>_R)
+                                          ; Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.C>_P
+                                                     <'GHC.Internal.Generics.MetaCons
+                                                        "Last"
+                                                        'GHC.Internal.Generics.PrefixI
+                                                        'GHC.Types.True>_P
+                                                     <GHC.Internal.Generics.M1
+                                                        GHC.Internal.Generics.S
+                                                        ('GHC.Internal.Generics.MetaSel
+                                                           ('GHC.Internal.Maybe.Just "getLast")
+                                                           'GHC.Internal.Generics.NoSourceUnpackedness
+                                                           'GHC.Internal.Generics.NoSourceStrictness
+                                                           'GHC.Internal.Generics.DecidedLazy)
+                                                        (GHC.Internal.Generics.Rec1
+                                                           GHC.Internal.Maybe.Maybe)>_R)
+                                          ; Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.D>_P
+                                                     <'GHC.Internal.Generics.MetaData
+                                                        "Last"
+                                                        "GHC.Internal.Data.Monoid"
+                                                        "ghc-internal"
+                                                        'GHC.Types.True>_P
+                                                     <GHC.Internal.Generics.M1
+                                                        GHC.Internal.Generics.C
+                                                        ('GHC.Internal.Generics.MetaCons
+                                                           "Last"
+                                                           'GHC.Internal.Generics.PrefixI
+                                                           'GHC.Types.True)
+                                                        (GHC.Internal.Generics.M1
+                                                           GHC.Internal.Generics.S
+                                                           ('GHC.Internal.Generics.MetaSel
+                                                              ('GHC.Internal.Maybe.Just "getLast")
+                                                              'GHC.Internal.Generics.NoSourceUnpackedness
+                                                              'GHC.Internal.Generics.NoSourceStrictness
+                                                              'GHC.Internal.Generics.DecidedLazy)
+                                                           (GHC.Internal.Generics.Rec1
+                                                              GHC.Internal.Maybe.Maybe))>_R)
+                                          ; Sub (Sym Rep1_Last)) <a>_N)]
+f016aa58c13a0748963242744b604860
+  $fGeneric1TYPELast_$cto1 ::
+    GHC.Internal.Generics.Rep1 Last a -> Last a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (GHC.Internal.Generics.$fGeneric1k:.:1
+                 @(*)
+                 @GHC.Internal.Maybe.Maybe)
+                `cast`
+              (forall (p :: <*>_N).
+               (Sym (GHC.Internal.Generics.N:M1
+                         <*>_N
+                         <GHC.Internal.Generics.S>_P
+                         <'GHC.Internal.Generics.MetaSel
+                            ('GHC.Internal.Maybe.Just "getLast")
+                            'GHC.Internal.Generics.NoSourceUnpackedness
+                            'GHC.Internal.Generics.NoSourceStrictness
+                            'GHC.Internal.Generics.DecidedLazy>_P
+                         <GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <*>_N
+                           <GHC.Internal.Generics.C>_P
+                           <'GHC.Internal.Generics.MetaCons
+                              "Last" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.S
+                              ('GHC.Internal.Generics.MetaSel
+                                 ('GHC.Internal.Maybe.Just "getLast")
+                                 'GHC.Internal.Generics.NoSourceUnpackedness
+                                 'GHC.Internal.Generics.NoSourceStrictness
+                                 'GHC.Internal.Generics.DecidedLazy)
+                              (GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe)>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <*>_N
+                           <GHC.Internal.Generics.D>_P
+                           <'GHC.Internal.Generics.MetaData
+                              "Last" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.C
+                              ('GHC.Internal.Generics.MetaCons
+                                 "Last" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+                              (GHC.Internal.Generics.M1
+                                 GHC.Internal.Generics.S
+                                 ('GHC.Internal.Generics.MetaSel
+                                    ('GHC.Internal.Maybe.Just "getLast")
+                                    'GHC.Internal.Generics.NoSourceUnpackedness
+                                    'GHC.Internal.Generics.NoSourceStrictness
+                                    'GHC.Internal.Generics.DecidedLazy)
+                                 (GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe))>_R)
+                ; Sub (Sym Rep1_Last)) <p>_N
+               %<'GHC.Types.Many>_N ->_R GHC.Internal.Generics.N:Rec1
+                                             <*>_N (Sym N:Last) <p>_N)]
+6cb2e54898e762293266bb55d899b534
+  $fGeneric1kAp ::
+    forall k (f :: k -> *). GHC.Internal.Generics.Generic1 (Ap f)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic1],
+   Inline: CONLIKE,
+   Unfolding: DFun: @k @f :: k -> *.
+                @k
+                @(Ap f)
+                ($fGeneric1kAp_$cfrom1 @k @f)
+                ($fGeneric1kAp_$cto1 @k @f)]
+bd7d6566020a6b63f8ce886ba92bd4ae
+  $fGeneric1kAp_$cfrom1 ::
+    forall k (f :: k -> *) (a :: k).
+    Ap f a -> GHC.Internal.Generics.Rep1 (Ap f) a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @k @f :: k -> * @a :: k (x['GHC.Types.Many] :: Ap f a) -> x)
+                `cast`
+              (forall (k :: <*>_N) (f :: <k -> *>_N) (a :: <k>_N).
+               <Ap f a>_R
+               %<'GHC.Types.Many>_N ->_R N:Ap
+                                             <k>_N
+                                             (Sym (GHC.Internal.Generics.N:Rec1 <k>_N <f>_R)
+                                              ; Sym (GHC.Internal.Generics.N:M1
+                                                         <k>_N
+                                                         <GHC.Internal.Generics.S>_P
+                                                         <'GHC.Internal.Generics.MetaSel
+                                                            ('GHC.Internal.Maybe.Just "getAp")
+                                                            'GHC.Internal.Generics.NoSourceUnpackedness
+                                                            'GHC.Internal.Generics.NoSourceStrictness
+                                                            'GHC.Internal.Generics.DecidedLazy>_P
+                                                         <GHC.Internal.Generics.Rec1 f>_R)
+                                              ; Sym (GHC.Internal.Generics.N:M1
+                                                         <k>_N
+                                                         <GHC.Internal.Generics.C>_P
+                                                         <'GHC.Internal.Generics.MetaCons
+                                                            "Ap"
+                                                            'GHC.Internal.Generics.PrefixI
+                                                            'GHC.Types.True>_P
+                                                         <GHC.Internal.Generics.M1
+                                                            GHC.Internal.Generics.S
+                                                            ('GHC.Internal.Generics.MetaSel
+                                                               ('GHC.Internal.Maybe.Just "getAp")
+                                                               'GHC.Internal.Generics.NoSourceUnpackedness
+                                                               'GHC.Internal.Generics.NoSourceStrictness
+                                                               'GHC.Internal.Generics.DecidedLazy)
+                                                            (GHC.Internal.Generics.Rec1 f)>_R)
+                                              ; Sym (GHC.Internal.Generics.N:M1
+                                                         <k>_N
+                                                         <GHC.Internal.Generics.D>_P
+                                                         <'GHC.Internal.Generics.MetaData
+                                                            "Ap"
+                                                            "GHC.Internal.Data.Monoid"
+                                                            "ghc-internal"
+                                                            'GHC.Types.True>_P
+                                                         <GHC.Internal.Generics.M1
+                                                            GHC.Internal.Generics.C
+                                                            ('GHC.Internal.Generics.MetaCons
+                                                               "Ap"
+                                                               'GHC.Internal.Generics.PrefixI
+                                                               'GHC.Types.True)
+                                                            (GHC.Internal.Generics.M1
+                                                               GHC.Internal.Generics.S
+                                                               ('GHC.Internal.Generics.MetaSel
+                                                                  ('GHC.Internal.Maybe.Just "getAp")
+                                                                  'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                  'GHC.Internal.Generics.NoSourceStrictness
+                                                                  'GHC.Internal.Generics.DecidedLazy)
+                                                               (GHC.Internal.Generics.Rec1 f))>_R)
+                                              ; Sub (Sym (Rep1_Ap <k>_N <f>_N))) <a>_N)]
+d329b69aace09ccafb02a385bb50a88f
+  $fGeneric1kAp_$cto1 ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Generics.Rep1 (Ap f) a -> Ap f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              GHC.Internal.Generics.$fGeneric1k:.:1
+                `cast`
+              (forall (k :: <*>_N) (f :: <k -> *>_N) (p :: <k>_N).
+               (Sym (GHC.Internal.Generics.N:M1
+                         <k>_N
+                         <GHC.Internal.Generics.S>_P
+                         <'GHC.Internal.Generics.MetaSel
+                            ('GHC.Internal.Maybe.Just "getAp")
+                            'GHC.Internal.Generics.NoSourceUnpackedness
+                            'GHC.Internal.Generics.NoSourceStrictness
+                            'GHC.Internal.Generics.DecidedLazy>_P
+                         <GHC.Internal.Generics.Rec1 f>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <k>_N
+                           <GHC.Internal.Generics.C>_P
+                           <'GHC.Internal.Generics.MetaCons
+                              "Ap" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.S
+                              ('GHC.Internal.Generics.MetaSel
+                                 ('GHC.Internal.Maybe.Just "getAp")
+                                 'GHC.Internal.Generics.NoSourceUnpackedness
+                                 'GHC.Internal.Generics.NoSourceStrictness
+                                 'GHC.Internal.Generics.DecidedLazy)
+                              (GHC.Internal.Generics.Rec1 f)>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <k>_N
+                           <GHC.Internal.Generics.D>_P
+                           <'GHC.Internal.Generics.MetaData
+                              "Ap" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.C
+                              ('GHC.Internal.Generics.MetaCons
+                                 "Ap" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+                              (GHC.Internal.Generics.M1
+                                 GHC.Internal.Generics.S
+                                 ('GHC.Internal.Generics.MetaSel
+                                    ('GHC.Internal.Maybe.Just "getAp")
+                                    'GHC.Internal.Generics.NoSourceUnpackedness
+                                    'GHC.Internal.Generics.NoSourceStrictness
+                                    'GHC.Internal.Generics.DecidedLazy)
+                                 (GHC.Internal.Generics.Rec1 f))>_R)
+                ; Sub (Sym (Rep1_Ap <k>_N <f>_N))) <p>_N
+               %<'GHC.Types.Many>_N ->_R GHC.Internal.Generics.N:Rec1
+                                             <k>_N (Sym (N:Ap <k>_N <f>_R)) <p>_N)]
+b0b6ec36eb723b36ae8400abdc9f76c5
+  $fGenericAp ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Generics.Generic (Ap f a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic],
+   Inline: CONLIKE,
+   Unfolding: DFun: @k @f :: k -> * @a :: k.
+                @(Ap f a)
+                ($fGenericAp_$cfrom @k @f @a)
+                ($fGenericAp_$cto @k @f @a)]
+7ffa2f5680620057aa283fac7bd0b850
+  $fGenericAp_$cfrom ::
+    forall k (f :: k -> *) (a :: k) x.
+    Ap f a -> GHC.Internal.Generics.Rep (Ap f a) x
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @k @f :: k -> * @a :: k @x (x1['GHC.Types.Many] :: Ap f a) ->
+               x1)
+                `cast`
+              (forall (k :: <*>_N) (f :: <k -> *>_N) (a :: <k>_N) (x :: <*>_N).
+               <Ap f a>_R
+               %<'GHC.Types.Many>_N ->_R N:Ap <k>_N <f>_R <a>_N
+                                         ; Sym (GHC.Internal.Generics.N:K1
+                                                    <*>_N <GHC.Internal.Generics.R>_P <f a>_R <x>_P)
+                                         ; (Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.S>_P
+                                                     <'GHC.Internal.Generics.MetaSel
+                                                        ('GHC.Internal.Maybe.Just "getAp")
+                                                        'GHC.Internal.Generics.NoSourceUnpackedness
+                                                        'GHC.Internal.Generics.NoSourceStrictness
+                                                        'GHC.Internal.Generics.DecidedLazy>_P
+                                                     <GHC.Internal.Generics.K1
+                                                        GHC.Internal.Generics.R (f a)>_R)
+                                            ; Sym (GHC.Internal.Generics.N:M1
+                                                       <*>_N
+                                                       <GHC.Internal.Generics.C>_P
+                                                       <'GHC.Internal.Generics.MetaCons
+                                                          "Ap"
+                                                          'GHC.Internal.Generics.PrefixI
+                                                          'GHC.Types.True>_P
+                                                       <GHC.Internal.Generics.M1
+                                                          GHC.Internal.Generics.S
+                                                          ('GHC.Internal.Generics.MetaSel
+                                                             ('GHC.Internal.Maybe.Just "getAp")
+                                                             'GHC.Internal.Generics.NoSourceUnpackedness
+                                                             'GHC.Internal.Generics.NoSourceStrictness
+                                                             'GHC.Internal.Generics.DecidedLazy)
+                                                          (GHC.Internal.Generics.K1
+                                                             GHC.Internal.Generics.R (f a))>_R)
+                                            ; Sym (GHC.Internal.Generics.N:M1
+                                                       <*>_N
+                                                       <GHC.Internal.Generics.D>_P
+                                                       <'GHC.Internal.Generics.MetaData
+                                                          "Ap"
+                                                          "GHC.Internal.Data.Monoid"
+                                                          "ghc-internal"
+                                                          'GHC.Types.True>_P
+                                                       <GHC.Internal.Generics.M1
+                                                          GHC.Internal.Generics.C
+                                                          ('GHC.Internal.Generics.MetaCons
+                                                             "Ap"
+                                                             'GHC.Internal.Generics.PrefixI
+                                                             'GHC.Types.True)
+                                                          (GHC.Internal.Generics.M1
+                                                             GHC.Internal.Generics.S
+                                                             ('GHC.Internal.Generics.MetaSel
+                                                                ('GHC.Internal.Maybe.Just "getAp")
+                                                                'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                'GHC.Internal.Generics.NoSourceStrictness
+                                                                'GHC.Internal.Generics.DecidedLazy)
+                                                             (GHC.Internal.Generics.K1
+                                                                GHC.Internal.Generics.R (f a)))>_R)
+                                            ; Sub (Sym (Rep_Ap <k>_N <f>_N <a>_N))) <x>_N)]
+c9e9041c83d2c291667782734f54c2f2
+  $fGenericAp_$cto ::
+    forall k (f :: k -> *) (a :: k) x.
+    GHC.Internal.Generics.Rep (Ap f a) x -> Ap f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @k
+                 @f :: k -> *
+                 @a :: k
+                 @x
+                 (ds6['GHC.Types.Many] :: GHC.Internal.Generics.Rep (Ap f a) x) ->
+               ds6)
+                `cast`
+              (forall (k :: <*>_N) (f :: <k -> *>_N) (a :: <k>_N) (x :: <*>_N).
+               <GHC.Internal.Generics.Rep (Ap f a) x>_R
+               %<'GHC.Types.Many>_N ->_R (Sub (Rep_Ap <k>_N <f>_N <a>_N)
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.D>_P
+                                                <'GHC.Internal.Generics.MetaData
+                                                   "Ap"
+                                                   "GHC.Internal.Data.Monoid"
+                                                   "ghc-internal"
+                                                   'GHC.Types.True>_P
+                                                <GHC.Internal.Generics.M1
+                                                   GHC.Internal.Generics.C
+                                                   ('GHC.Internal.Generics.MetaCons
+                                                      "Ap"
+                                                      'GHC.Internal.Generics.PrefixI
+                                                      'GHC.Types.True)
+                                                   (GHC.Internal.Generics.M1
+                                                      GHC.Internal.Generics.S
+                                                      ('GHC.Internal.Generics.MetaSel
+                                                         ('GHC.Internal.Maybe.Just "getAp")
+                                                         'GHC.Internal.Generics.NoSourceUnpackedness
+                                                         'GHC.Internal.Generics.NoSourceStrictness
+                                                         'GHC.Internal.Generics.DecidedLazy)
+                                                      (GHC.Internal.Generics.K1
+                                                         GHC.Internal.Generics.R (f a)))>_R
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.C>_P
+                                                <'GHC.Internal.Generics.MetaCons
+                                                   "Ap"
+                                                   'GHC.Internal.Generics.PrefixI
+                                                   'GHC.Types.True>_P
+                                                <GHC.Internal.Generics.M1
+                                                   GHC.Internal.Generics.S
+                                                   ('GHC.Internal.Generics.MetaSel
+                                                      ('GHC.Internal.Maybe.Just "getAp")
+                                                      'GHC.Internal.Generics.NoSourceUnpackedness
+                                                      'GHC.Internal.Generics.NoSourceStrictness
+                                                      'GHC.Internal.Generics.DecidedLazy)
+                                                   (GHC.Internal.Generics.K1
+                                                      GHC.Internal.Generics.R (f a))>_R
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.S>_P
+                                                <'GHC.Internal.Generics.MetaSel
+                                                   ('GHC.Internal.Maybe.Just "getAp")
+                                                   'GHC.Internal.Generics.NoSourceUnpackedness
+                                                   'GHC.Internal.Generics.NoSourceStrictness
+                                                   'GHC.Internal.Generics.DecidedLazy>_P
+                                                <GHC.Internal.Generics.K1
+                                                   GHC.Internal.Generics.R (f a)>_R) <x>_N
+                                         ; GHC.Internal.Generics.N:K1
+                                               <*>_N <GHC.Internal.Generics.R>_P <f a>_R <x>_P
+                                         ; Sym (N:Ap <k>_N <f>_R) <a>_N)]
+bd7cad65d49cddc90af82f5961dd7d27
+  $fGenericFirst :: GHC.Internal.Generics.Generic (First a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic],
+   Inline: CONLIKE,
+   Unfolding: DFun: @a.
+                @(First a) ($fGenericFirst_$cfrom @a) ($fGenericFirst_$cto @a)]
+63780ae3a8c601db86d9894c67725f54
+  $fGenericFirst_$cfrom ::
+    First a -> GHC.Internal.Generics.Rep (First a) x
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a @x (x1['GHC.Types.Many] :: First a) -> x1)
+                `cast`
+              (forall (a :: <*>_N) (x :: <*>_N).
+               <First a>_R
+               %<'GHC.Types.Many>_N ->_R N:First <a>_N
+                                         ; Sym (GHC.Internal.Generics.N:K1
+                                                    <*>_N
+                                                    <GHC.Internal.Generics.R>_P
+                                                    <GHC.Internal.Maybe.Maybe a>_R
+                                                    <x>_P)
+                                         ; (Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.S>_P
+                                                     <'GHC.Internal.Generics.MetaSel
+                                                        ('GHC.Internal.Maybe.Just "getFirst")
+                                                        'GHC.Internal.Generics.NoSourceUnpackedness
+                                                        'GHC.Internal.Generics.NoSourceStrictness
+                                                        'GHC.Internal.Generics.DecidedLazy>_P
+                                                     <GHC.Internal.Generics.K1
+                                                        GHC.Internal.Generics.R
+                                                        (GHC.Internal.Maybe.Maybe a)>_R)
+                                            ; Sym (GHC.Internal.Generics.N:M1
+                                                       <*>_N
+                                                       <GHC.Internal.Generics.C>_P
+                                                       <'GHC.Internal.Generics.MetaCons
+                                                          "First"
+                                                          'GHC.Internal.Generics.PrefixI
+                                                          'GHC.Types.True>_P
+                                                       <GHC.Internal.Generics.M1
+                                                          GHC.Internal.Generics.S
+                                                          ('GHC.Internal.Generics.MetaSel
+                                                             ('GHC.Internal.Maybe.Just "getFirst")
+                                                             'GHC.Internal.Generics.NoSourceUnpackedness
+                                                             'GHC.Internal.Generics.NoSourceStrictness
+                                                             'GHC.Internal.Generics.DecidedLazy)
+                                                          (GHC.Internal.Generics.K1
+                                                             GHC.Internal.Generics.R
+                                                             (GHC.Internal.Maybe.Maybe a))>_R)
+                                            ; Sym (GHC.Internal.Generics.N:M1
+                                                       <*>_N
+                                                       <GHC.Internal.Generics.D>_P
+                                                       <'GHC.Internal.Generics.MetaData
+                                                          "First"
+                                                          "GHC.Internal.Data.Monoid"
+                                                          "ghc-internal"
+                                                          'GHC.Types.True>_P
+                                                       <GHC.Internal.Generics.M1
+                                                          GHC.Internal.Generics.C
+                                                          ('GHC.Internal.Generics.MetaCons
+                                                             "First"
+                                                             'GHC.Internal.Generics.PrefixI
+                                                             'GHC.Types.True)
+                                                          (GHC.Internal.Generics.M1
+                                                             GHC.Internal.Generics.S
+                                                             ('GHC.Internal.Generics.MetaSel
+                                                                ('GHC.Internal.Maybe.Just
+                                                                   "getFirst")
+                                                                'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                'GHC.Internal.Generics.NoSourceStrictness
+                                                                'GHC.Internal.Generics.DecidedLazy)
+                                                             (GHC.Internal.Generics.K1
+                                                                GHC.Internal.Generics.R
+                                                                (GHC.Internal.Maybe.Maybe a)))>_R)
+                                            ; Sub (Sym (Rep_First <a>_N))) <x>_N)]
+b26df17ddeb91590fa5f9a501d2c6e85
+  $fGenericFirst_$cto ::
+    GHC.Internal.Generics.Rep (First a) x -> First a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a
+                 @x
+                 (ds6['GHC.Types.Many] :: GHC.Internal.Generics.Rep (First a) x) ->
+               ds6)
+                `cast`
+              (forall (a :: <*>_N) (x :: <*>_N).
+               <GHC.Internal.Generics.Rep (First a) x>_R
+               %<'GHC.Types.Many>_N ->_R (Sub (Rep_First <a>_N)
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.D>_P
+                                                <'GHC.Internal.Generics.MetaData
+                                                   "First"
+                                                   "GHC.Internal.Data.Monoid"
+                                                   "ghc-internal"
+                                                   'GHC.Types.True>_P
+                                                <GHC.Internal.Generics.M1
+                                                   GHC.Internal.Generics.C
+                                                   ('GHC.Internal.Generics.MetaCons
+                                                      "First"
+                                                      'GHC.Internal.Generics.PrefixI
+                                                      'GHC.Types.True)
+                                                   (GHC.Internal.Generics.M1
+                                                      GHC.Internal.Generics.S
+                                                      ('GHC.Internal.Generics.MetaSel
+                                                         ('GHC.Internal.Maybe.Just "getFirst")
+                                                         'GHC.Internal.Generics.NoSourceUnpackedness
+                                                         'GHC.Internal.Generics.NoSourceStrictness
+                                                         'GHC.Internal.Generics.DecidedLazy)
+                                                      (GHC.Internal.Generics.K1
+                                                         GHC.Internal.Generics.R
+                                                         (GHC.Internal.Maybe.Maybe a)))>_R
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.C>_P
+                                                <'GHC.Internal.Generics.MetaCons
+                                                   "First"
+                                                   'GHC.Internal.Generics.PrefixI
+                                                   'GHC.Types.True>_P
+                                                <GHC.Internal.Generics.M1
+                                                   GHC.Internal.Generics.S
+                                                   ('GHC.Internal.Generics.MetaSel
+                                                      ('GHC.Internal.Maybe.Just "getFirst")
+                                                      'GHC.Internal.Generics.NoSourceUnpackedness
+                                                      'GHC.Internal.Generics.NoSourceStrictness
+                                                      'GHC.Internal.Generics.DecidedLazy)
+                                                   (GHC.Internal.Generics.K1
+                                                      GHC.Internal.Generics.R
+                                                      (GHC.Internal.Maybe.Maybe a))>_R
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.S>_P
+                                                <'GHC.Internal.Generics.MetaSel
+                                                   ('GHC.Internal.Maybe.Just "getFirst")
+                                                   'GHC.Internal.Generics.NoSourceUnpackedness
+                                                   'GHC.Internal.Generics.NoSourceStrictness
+                                                   'GHC.Internal.Generics.DecidedLazy>_P
+                                                <GHC.Internal.Generics.K1
+                                                   GHC.Internal.Generics.R
+                                                   (GHC.Internal.Maybe.Maybe a)>_R) <x>_N
+                                         ; GHC.Internal.Generics.N:K1
+                                               <*>_N
+                                               <GHC.Internal.Generics.R>_P
+                                               <GHC.Internal.Maybe.Maybe a>_R
+                                               <x>_P
+                                         ; Sym N:First <a>_N)]
+b6b2e3098e1695b1b3f620375c063e72
+  $fGenericLast :: GHC.Internal.Generics.Generic (Last a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic],
+   Inline: CONLIKE,
+   Unfolding: DFun: @a.
+                @(Last a) ($fGenericLast_$cfrom @a) ($fGenericLast_$cto @a)]
+b36606693ac1ff0419b6051946cb57bb
+  $fGenericLast_$cfrom ::
+    Last a -> GHC.Internal.Generics.Rep (Last a) x
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a @x (x1['GHC.Types.Many] :: Last a) -> x1)
+                `cast`
+              (forall (a :: <*>_N) (x :: <*>_N).
+               <Last a>_R
+               %<'GHC.Types.Many>_N ->_R N:Last <a>_N
+                                         ; Sym (GHC.Internal.Generics.N:K1
+                                                    <*>_N
+                                                    <GHC.Internal.Generics.R>_P
+                                                    <GHC.Internal.Maybe.Maybe a>_R
+                                                    <x>_P)
+                                         ; (Sym (GHC.Internal.Generics.N:M1
+                                                     <*>_N
+                                                     <GHC.Internal.Generics.S>_P
+                                                     <'GHC.Internal.Generics.MetaSel
+                                                        ('GHC.Internal.Maybe.Just "getLast")
+                                                        'GHC.Internal.Generics.NoSourceUnpackedness
+                                                        'GHC.Internal.Generics.NoSourceStrictness
+                                                        'GHC.Internal.Generics.DecidedLazy>_P
+                                                     <GHC.Internal.Generics.K1
+                                                        GHC.Internal.Generics.R
+                                                        (GHC.Internal.Maybe.Maybe a)>_R)
+                                            ; Sym (GHC.Internal.Generics.N:M1
+                                                       <*>_N
+                                                       <GHC.Internal.Generics.C>_P
+                                                       <'GHC.Internal.Generics.MetaCons
+                                                          "Last"
+                                                          'GHC.Internal.Generics.PrefixI
+                                                          'GHC.Types.True>_P
+                                                       <GHC.Internal.Generics.M1
+                                                          GHC.Internal.Generics.S
+                                                          ('GHC.Internal.Generics.MetaSel
+                                                             ('GHC.Internal.Maybe.Just "getLast")
+                                                             'GHC.Internal.Generics.NoSourceUnpackedness
+                                                             'GHC.Internal.Generics.NoSourceStrictness
+                                                             'GHC.Internal.Generics.DecidedLazy)
+                                                          (GHC.Internal.Generics.K1
+                                                             GHC.Internal.Generics.R
+                                                             (GHC.Internal.Maybe.Maybe a))>_R)
+                                            ; Sym (GHC.Internal.Generics.N:M1
+                                                       <*>_N
+                                                       <GHC.Internal.Generics.D>_P
+                                                       <'GHC.Internal.Generics.MetaData
+                                                          "Last"
+                                                          "GHC.Internal.Data.Monoid"
+                                                          "ghc-internal"
+                                                          'GHC.Types.True>_P
+                                                       <GHC.Internal.Generics.M1
+                                                          GHC.Internal.Generics.C
+                                                          ('GHC.Internal.Generics.MetaCons
+                                                             "Last"
+                                                             'GHC.Internal.Generics.PrefixI
+                                                             'GHC.Types.True)
+                                                          (GHC.Internal.Generics.M1
+                                                             GHC.Internal.Generics.S
+                                                             ('GHC.Internal.Generics.MetaSel
+                                                                ('GHC.Internal.Maybe.Just "getLast")
+                                                                'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                'GHC.Internal.Generics.NoSourceStrictness
+                                                                'GHC.Internal.Generics.DecidedLazy)
+                                                             (GHC.Internal.Generics.K1
+                                                                GHC.Internal.Generics.R
+                                                                (GHC.Internal.Maybe.Maybe a)))>_R)
+                                            ; Sub (Sym (Rep_Last <a>_N))) <x>_N)]
+f7e9c45f21f914df6dea155a31a0f5ac
+  $fGenericLast_$cto ::
+    GHC.Internal.Generics.Rep (Last a) x -> Last a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a
+                 @x
+                 (ds6['GHC.Types.Many] :: GHC.Internal.Generics.Rep (Last a) x) ->
+               ds6)
+                `cast`
+              (forall (a :: <*>_N) (x :: <*>_N).
+               <GHC.Internal.Generics.Rep (Last a) x>_R
+               %<'GHC.Types.Many>_N ->_R (Sub (Rep_Last <a>_N)
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.D>_P
+                                                <'GHC.Internal.Generics.MetaData
+                                                   "Last"
+                                                   "GHC.Internal.Data.Monoid"
+                                                   "ghc-internal"
+                                                   'GHC.Types.True>_P
+                                                <GHC.Internal.Generics.M1
+                                                   GHC.Internal.Generics.C
+                                                   ('GHC.Internal.Generics.MetaCons
+                                                      "Last"
+                                                      'GHC.Internal.Generics.PrefixI
+                                                      'GHC.Types.True)
+                                                   (GHC.Internal.Generics.M1
+                                                      GHC.Internal.Generics.S
+                                                      ('GHC.Internal.Generics.MetaSel
+                                                         ('GHC.Internal.Maybe.Just "getLast")
+                                                         'GHC.Internal.Generics.NoSourceUnpackedness
+                                                         'GHC.Internal.Generics.NoSourceStrictness
+                                                         'GHC.Internal.Generics.DecidedLazy)
+                                                      (GHC.Internal.Generics.K1
+                                                         GHC.Internal.Generics.R
+                                                         (GHC.Internal.Maybe.Maybe a)))>_R
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.C>_P
+                                                <'GHC.Internal.Generics.MetaCons
+                                                   "Last"
+                                                   'GHC.Internal.Generics.PrefixI
+                                                   'GHC.Types.True>_P
+                                                <GHC.Internal.Generics.M1
+                                                   GHC.Internal.Generics.S
+                                                   ('GHC.Internal.Generics.MetaSel
+                                                      ('GHC.Internal.Maybe.Just "getLast")
+                                                      'GHC.Internal.Generics.NoSourceUnpackedness
+                                                      'GHC.Internal.Generics.NoSourceStrictness
+                                                      'GHC.Internal.Generics.DecidedLazy)
+                                                   (GHC.Internal.Generics.K1
+                                                      GHC.Internal.Generics.R
+                                                      (GHC.Internal.Maybe.Maybe a))>_R
+                                          ; GHC.Internal.Generics.N:M1
+                                                <*>_N
+                                                <GHC.Internal.Generics.S>_P
+                                                <'GHC.Internal.Generics.MetaSel
+                                                   ('GHC.Internal.Maybe.Just "getLast")
+                                                   'GHC.Internal.Generics.NoSourceUnpackedness
+                                                   'GHC.Internal.Generics.NoSourceStrictness
+                                                   'GHC.Internal.Generics.DecidedLazy>_P
+                                                <GHC.Internal.Generics.K1
+                                                   GHC.Internal.Generics.R
+                                                   (GHC.Internal.Maybe.Maybe a)>_R) <x>_N
+                                         ; GHC.Internal.Generics.N:K1
+                                               <*>_N
+                                               <GHC.Internal.Generics.R>_P
+                                               <GHC.Internal.Maybe.Maybe a>_R
+                                               <x>_P
+                                         ; Sym N:Last <a>_N)]
+efc180097597a21f4a208ab07cde9442
+  $fMonadAp ::
+    GHC.Internal.Base.Monad f => GHC.Internal.Base.Monad (Ap f)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Monad f).
+                @(Ap f)
+                ($fMonadAp_$cp1Monad @f v)
+                (GHC.Internal.Base.>>= @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R (<a>_R
+                                            %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N)
+                (GHC.Internal.Base.>> @f v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <b>_N)
+                (GHC.Internal.Base.return @f v)
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+9e26d68edb49188ac1654b2179e66ec9
+  $fMonadAp_$cp1Monad ::
+    GHC.Internal.Base.Monad f => GHC.Internal.Base.Applicative (Ap f)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(MP(ML,ML),ML,ML,ML,ML,ML),A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad f) ->
+              $fApplicativeAp @f (GHC.Internal.Base.$p1Monad @f $dMonad)]
+0f2fa048e94f182fabdb4d4b8f810535
+  $fMonadFailAp ::
+    GHC.Internal.Control.Monad.Fail.MonadFail f =>
+    GHC.Internal.Control.Monad.Fail.MonadFail (Ap f)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML),ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    (v['GHC.Types.Many] :: GHC.Internal.Control.Monad.Fail.MonadFail
+                                             f).
+                @(Ap f)
+                ($fMonadFailAp_$cp1MonadFail @f v)
+                (GHC.Internal.Control.Monad.Fail.fail @f v)
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Internal.Base.String>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+20bcbb8c22c00c86198b41252c7e0024
+  $fMonadFailAp_$cp1MonadFail ::
+    GHC.Internal.Control.Monad.Fail.MonadFail f =>
+    GHC.Internal.Base.Monad (Ap f)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML),A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                ($dMonadFail['GHC.Types.Many] :: GHC.Internal.Control.Monad.Fail.MonadFail
+                                                   f) ->
+              $fMonadAp
+                @f
+                (GHC.Internal.Control.Monad.Fail.$p1MonadFail @f $dMonadFail)]
+52b25fcea92d5ab592448f900dcd510a
+  $fMonadFirst :: GHC.Internal.Base.Monad First
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Monad], Inline: CONLIKE,
+   Unfolding: DFun:.
+                @First
+                $fApplicativeFirst
+                GHC.Internal.Base.$fMonadMaybe_$c>>=
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R (<a>_R
+                                            %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N)
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c*>
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$cpure
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N)]
+ec4b1b7fe4c5bfa4eac50fbaa2725f8c
+  $fMonadLast :: GHC.Internal.Base.Monad Last
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Monad], Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Last
+                $fApplicativeLast
+                GHC.Internal.Base.$fMonadMaybe_$c>>=
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R (<a>_R
+                                            %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N)
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$c*>
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <b>_N)
+                GHC.Internal.Base.$fApplicativeMaybe_$cpure
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N)]
+0f0a293b333ec49fb1983d290777d480
+  $fMonadPlusAp ::
+    GHC.Internal.Base.MonadPlus f => GHC.Internal.Base.MonadPlus (Ap f)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML,ML),MP(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML),ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.MonadPlus f).
+                @(Ap f)
+                ($fMonadPlusAp_$cp1MonadPlus @f v)
+                ($fMonadPlusAp_$cp2MonadPlus @f v)
+                (GHC.Internal.Base.mzero @f v)
+                  `cast`
+                (forall (a :: <*>_N). Sym (N:Ap <*>_N <f>_R) <a>_N)
+                (GHC.Internal.Base.mplus @f v)
+                  `cast`
+                (forall (a :: <*>_N).
+                 Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+ce8b78d6cffee80cdda4576e84f8028e
+  $fMonadPlusAp_$cp1MonadPlus ::
+    GHC.Internal.Base.MonadPlus f =>
+    GHC.Internal.Base.Alternative (Ap f)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML,ML),A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                ($dMonadPlus['GHC.Types.Many] :: GHC.Internal.Base.MonadPlus f) ->
+              $fAlternativeAp @f (GHC.Internal.Base.$p1MonadPlus @f $dMonadPlus)]
+c8acb95eca0a87c0164bd62c695e2b63
+  $fMonadPlusAp_$cp2MonadPlus ::
+    GHC.Internal.Base.MonadPlus f => GHC.Internal.Base.Monad (Ap f)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(A,1P(MP(MP(ML,ML),ML,ML,ML,ML,ML),ML,ML,ML),A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                ($dMonadPlus['GHC.Types.Many] :: GHC.Internal.Base.MonadPlus f) ->
+              $fMonadAp @f (GHC.Internal.Base.$p2MonadPlus @f $dMonadPlus)]
+4895a69d36fbee5174119869b63b218a
+  $fMonoidAp ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Monoid a) =>
+    GHC.Internal.Base.Monoid (Ap f a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <LP(A,L,A,LC(L,C(1,C(1,L))),A,A)><LP(LP(L,A,A),L,A,A)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                    (v1['GHC.Types.Many] :: GHC.Internal.Base.Monoid a).
+                @(Ap f a)
+                ($fMonoidAp_$cp1Monoid @f @a v v1)
+                ($fMonoidAp1 @f @a v v1) `cast` (Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fMonoidAp_$cmappend @f @a v v1)
+                ($fMonoidAp_$cmconcat @f @a v v1)]
+238bf798809096a47205114ccee614ce
+  $fMonoidAp1 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Monoid a) =>
+    f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(A,1C(1,L),A,A,A,A)><MP(A,1L,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid a) ->
+              GHC.Internal.Base.pure
+                @f
+                $dApplicative
+                @a
+                (GHC.Internal.Base.mempty @a $dMonoid)]
+d5c8bfde4deea52df687296cd33568ca
+  $fMonoidAp_$cmappend ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Monoid a) =>
+    Ap f a -> Ap f a -> Ap f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <1!P(A,A,A,1C(1,C(1,C(1,L))),A,A)><M!P(1!P(1L,A,A),A,A,A)><L><L>,
+   Inline: (sat-args=0),
+   Unfolding: Core: StableUser <2,FalseFalse>
+              (\ @f :: * -> *
+                 @a
+                 ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                 ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid a)
+                 (eta['GHC.Types.Many] :: Ap f a)
+                 (eta1['GHC.Types.Many] :: Ap f a) ->
+               GHC.Internal.Base.liftA2
+                 @f
+                 $dApplicative
+                 @a
+                 @a
+                 @a
+                 (GHC.Internal.Base.<> @a (GHC.Internal.Base.$p1Monoid @a $dMonoid))
+                 eta `cast` (N:Ap <*>_N <f>_R <a>_N)
+                 eta1 `cast` (N:Ap <*>_N <f>_R <a>_N))
+                `cast`
+              (forall (f :: <* -> *>_N) (a :: <*>_N).
+               <GHC.Internal.Base.Applicative f>_R
+               %<'GHC.Types.Many>_N ->_R <GHC.Internal.Base.Monoid a>_R
+               %<'GHC.Types.Many>_N ->_R <Ap f a>_R
+               %<'GHC.Types.Many>_N ->_R <Ap f a>_R
+               %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+1115c7b825d447c42f2a1e46b0b88818
+  $fMonoidAp_$cmconcat ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Monoid a) =>
+    [Ap f a] -> Ap f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,MC(1,L),A,LC(S,C(1,C(1,L))),A,A)><LP(MP(1L,A,A),ML,A,A)><1L>,
+   Inline: (sat-args=0),
+   Unfolding: Core: StableUser <2,FalseFalse>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid a)
+                (eta['GHC.Types.Many] :: [Ap f a]) ->
+              GHC.Internal.Base.foldr
+                @(Ap f a)
+                @(Ap f a)
+                (\ (eta1['GHC.Types.Many] :: Ap f a)
+                   (eta2['GHC.Types.Many] :: Ap f a)[OneShot] ->
+                 GHC.Internal.Base.liftA2
+                   @f
+                   $dApplicative
+                   @a
+                   @a
+                   @a
+                   (GHC.Internal.Base.<> @a (GHC.Internal.Base.$p1Monoid @a $dMonoid))
+                   eta1 `cast` (N:Ap <*>_N <f>_R <a>_N)
+                   eta2 `cast` (N:Ap <*>_N <f>_R <a>_N))
+                  `cast`
+                (<Ap f a>_R
+                 %<'GHC.Types.Many>_N ->_R <Ap f a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                (GHC.Internal.Base.pure
+                   @f
+                   $dApplicative
+                   @a
+                   (GHC.Internal.Base.mempty @a $dMonoid))
+                  `cast`
+                (Sym (N:Ap <*>_N <f>_R) <a>_N)
+                eta]
+c6459682b8395ce41ca824c41088f660
+  $fMonoidAp_$cp1Monoid ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Monoid a) =>
+    GHC.Internal.Base.Semigroup (Ap f a)
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <LP(A,A,A,LC(L,C(1,C(1,L))),A,A)><MP(1P(L,A,A),A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid a) ->
+              $fSemigroupAp
+                @f
+                @a
+                $dApplicative
+                (GHC.Internal.Base.$p1Monoid @a $dMonoid)]
+3d17d2477b6f1305e8d499aa985a08c2
+  $fMonoidFirst :: GHC.Internal.Base.Monoid (First a)
+  DFunId
+  [LambdaFormInfo: LFCon[GHC.Internal.Base.C:Monoid],
+   Inline: CONLIKE,
+   Unfolding: DFun: @a.
+                @(First a)
+                ($fSemigroupFirst @a)
+                (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:First <a>_N)
+                ($fMonoidFirst_$c<> @a)
+                (\ (eta['GHC.Types.Many] :: [First a]) ->
+                 GHC.Internal.Base.foldr
+                   @(First a)
+                   @(First a)
+                   ($fMonoidFirst_$c<> @a)
+                   (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:First <a>_N)
+                   eta)]
+37433f4693ad43e1486c745e384ed635
+  $fMonoidFirst_$c<> :: First a -> First a -> First a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><ML>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                (ds6['GHC.Types.Many] :: First a)
+                (b['GHC.Types.Many] :: First a) ->
+              case ds6 `cast` (N:First <a>_N) of wild {
+                GHC.Internal.Maybe.Nothing -> b
+                GHC.Internal.Maybe.Just ipv -> wild `cast` (Sym N:First <a>_N) }]
+b82c9b6480b1cfa161cbd68b8e132bf1
+  $fMonoidLast :: GHC.Internal.Base.Monoid (Last a)
+  DFunId
+  [LambdaFormInfo: LFCon[GHC.Internal.Base.C:Monoid],
+   Inline: CONLIKE,
+   Unfolding: DFun: @a.
+                @(Last a)
+                ($fSemigroupLast @a)
+                (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:Last <a>_N)
+                ($fMonoidLast_$c<> @a)
+                (\ (eta['GHC.Types.Many] :: [Last a]) ->
+                 GHC.Internal.Base.foldr
+                   @(Last a)
+                   @(Last a)
+                   ($fMonoidLast_$c<> @a)
+                   (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:Last <a>_N)
+                   eta)]
+cb9a2cebc165d0457b4bb5c211d8e717
+  $fMonoidLast_$c<> :: Last a -> Last a -> Last a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <ML><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                (a1['GHC.Types.Many] :: Last a)
+                (ds6['GHC.Types.Many] :: Last a) ->
+              case ds6 `cast` (N:Last <a>_N) of wild {
+                GHC.Internal.Maybe.Nothing -> a1
+                GHC.Internal.Maybe.Just ipv -> wild `cast` (Sym N:Last <a>_N) }]
+74bc9782dd9e349672064700c04ea8ce
+  $fNumAp ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    GHC.Internal.Num.Num (Ap f a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2,
+   Strictness: <LP(LP(L,A),LC(S,L),A,L,A,A)><LP(L,A,ML,L,ML,ML,LC(S,L))>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                    (v1['GHC.Types.Many] :: GHC.Internal.Num.Num a).
+                @(Ap f a)
+                ($fNumAp6 @f @a v v1)
+                  `cast`
+                (Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fNumAp_$c- @f @a v v1)
+                ($fNumAp5 @f @a v v1)
+                  `cast`
+                (Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fNumAp4 @f @a v v1)
+                  `cast`
+                (Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fNumAp3 @f @a v v1)
+                  `cast`
+                (Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fNumAp2 @f @a v v1)
+                  `cast`
+                (Sym (N:Ap <*>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fNumAp1 @f @a v v1)
+                  `cast`
+                (<GHC.Num.Integer.Integer>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+91f4f1bae5e027ba5e5973417c663fc4
+  $fNumAp1 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    GHC.Num.Integer.Integer -> f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1P(A,1C(1,L),A,A,A,A)><MP(A,A,A,A,A,A,1C(1,L))><L>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a)
+                (eta['GHC.Types.Many] :: GHC.Num.Integer.Integer) ->
+              GHC.Internal.Base.pure
+                @f
+                $dApplicative
+                @a
+                (GHC.Internal.Num.fromInteger @a $dNum eta)]
+a8632d5ed596946af198ec8948e9cea6
+  $fNumAp2 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    f a -> f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(1P(1C(1,L),A),A,A,A,A,A)><MP(A,A,A,A,A,1L,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a) ->
+              GHC.Internal.Base.fmap
+                @f
+                (GHC.Internal.Base.$p1Applicative @f $dApplicative)
+                @a
+                @a
+                (GHC.Internal.Num.signum @a $dNum)]
+fd53008d5caa36066e164b84f38648fb
+  $fNumAp3 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    f a -> f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(1P(1C(1,L),A),A,A,A,A,A)><MP(A,A,A,A,1L,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a) ->
+              GHC.Internal.Base.fmap
+                @f
+                (GHC.Internal.Base.$p1Applicative @f $dApplicative)
+                @a
+                @a
+                (GHC.Internal.Num.abs @a $dNum)]
+31b9f42fe2b58ce36b480f9238115dd6
+  $fNumAp4 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    f a -> f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(1P(1C(1,L),A),A,A,A,A,A)><MP(A,A,A,1L,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a) ->
+              GHC.Internal.Base.fmap
+                @f
+                (GHC.Internal.Base.$p1Applicative @f $dApplicative)
+                @a
+                @a
+                (GHC.Internal.Num.negate @a $dNum)]
+5879ece06d834bf7f5109217ed21e8c9
+  $fNumAp5 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    f a -> f a -> f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(A,A,A,1C(1,L),A,A)><MP(A,A,1L,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a) ->
+              GHC.Internal.Base.liftA2
+                @f
+                $dApplicative
+                @a
+                @a
+                @a
+                (GHC.Internal.Num.* @a $dNum)]
+f95c9a57c8e6018c6fb8b323a57ca3c5
+  $fNumAp6 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    f a -> f a -> f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1P(A,A,A,1C(1,L),A,A)><MP(1L,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a) ->
+              GHC.Internal.Base.liftA2
+                @f
+                $dApplicative
+                @a
+                @a
+                @a
+                (GHC.Internal.Num.+ @a $dNum)]
+3a2ea825eaac5e53eb889e77a17d89e8
+  $fNumAp_$c- ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Num.Num a) =>
+    Ap f a -> Ap f a -> Ap f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <S!P(M!P(1C(1,C(1,L)),A),A,A,1C(1,C(1,C(1,L))),A,A)><L!P(ML,A,A,ML,A,A,A)><L><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <4,FalseFalse>
+              (\ @f :: * -> *
+                 @a
+                 ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                 ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a)
+                 (eta['GHC.Types.Many] :: Ap f a)
+                 (eta1['GHC.Types.Many] :: Ap f a) ->
+               GHC.Internal.Base.liftA2
+                 @f
+                 $dApplicative
+                 @a
+                 @a
+                 @a
+                 (GHC.Internal.Num.+ @a $dNum)
+                 eta `cast` (N:Ap <*>_N <f>_R <a>_N)
+                 (GHC.Internal.Base.fmap
+                    @f
+                    (GHC.Internal.Base.$p1Applicative @f $dApplicative)
+                    @a
+                    @a
+                    (GHC.Internal.Num.negate @a $dNum)
+                    eta1 `cast` (N:Ap <*>_N <f>_R <a>_N)))
+                `cast`
+              (forall (f :: <* -> *>_N) (a :: <*>_N).
+               <GHC.Internal.Base.Applicative f>_R
+               %<'GHC.Types.Many>_N ->_R <GHC.Internal.Num.Num a>_R
+               %<'GHC.Types.Many>_N ->_R <Ap f a>_R
+               %<'GHC.Types.Many>_N ->_R <Ap f a>_R
+               %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)]
+66fbbb89c8847f099c00d764724f64f0
+  $fOrdAp ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Classes.Ord (f a) =>
+    GHC.Classes.Ord (Ap f a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @k
+                    @f :: k -> *
+                    @a :: k
+                    (v['GHC.Types.Many] :: GHC.Classes.Ord (f a)).
+                @(Ap f a)
+                ($fOrdAp_$cp1Ord @k @f @a v)
+                (GHC.Classes.compare @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Ordering>_R)
+                (GHC.Classes.< @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.<= @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.> @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.>= @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.max @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N)
+                (GHC.Classes.min @(f a) v)
+                  `cast`
+                (Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <k>_N <f>_R) <a>_N)]
+43a2f7d268f9f7070da84057d67ac95a
+  $fOrdAp_$cp1Ord ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Classes.Ord (f a) =>
+    GHC.Classes.Eq (Ap f a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(ML,ML),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord (f a)) ->
+              $fEqAp @k @f @a (GHC.Classes.$p1Ord @(f a) $dOrd)]
+a71ba70aeb6a79052ebedaeae9c32245
+  $fOrdFirst :: GHC.Classes.Ord a => GHC.Classes.Ord (First a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(MP(LC(L,C(1,L)),A),LC(S,C(1,L)),LC(L,C(1,L)),A,A,A,A,A)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(First a)
+                ($fOrdFirst_$cp1Ord @a v)
+                (GHC.Internal.Maybe.$fOrdMaybe_$ccompare @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Ordering>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$c< @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$c<= @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (\ (a1['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe a)
+                   (b['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe a) ->
+                 GHC.Internal.Maybe.$fOrdMaybe_$c< @a v b a1)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$c>= @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$cmax @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N)
+                (GHC.Internal.Maybe.$fOrdMaybe_$cmin @a v)
+                  `cast`
+                (Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:First <a>_N)]
+cbbea7e4ad7df992d0c09f94382ddcf4
+  $fOrdFirst_$cp1Ord :: GHC.Classes.Ord a => GHC.Classes.Eq (First a)
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(1P(LC(L,C(1,L)),A),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a) ->
+              $fEqFirst @a (GHC.Classes.$p1Ord @a $dOrd)]
+510a0baf81549ab6adfa768201c5f6b8
+  $fOrdLast :: GHC.Classes.Ord a => GHC.Classes.Ord (Last a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(MP(LC(L,C(1,L)),A),LC(S,C(1,L)),LC(L,C(1,L)),A,A,A,A,A)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(Last a)
+                ($fOrdLast_$cp1Ord @a v)
+                (GHC.Internal.Maybe.$fOrdMaybe_$ccompare @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Ordering>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$c< @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$c<= @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (\ (a1['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe a)
+                   (b['GHC.Types.Many] :: GHC.Internal.Maybe.Maybe a) ->
+                 GHC.Internal.Maybe.$fOrdMaybe_$c< @a v b a1)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$c>= @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Maybe.$fOrdMaybe_$cmax @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N)
+                (GHC.Internal.Maybe.$fOrdMaybe_$cmin @a v)
+                  `cast`
+                (Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N
+                 %<'GHC.Types.Many>_N ->_R Sym N:Last <a>_N)]
+3cc2fdd112a06e007599058394c827ba
+  $fOrdLast_$cp1Ord :: GHC.Classes.Ord a => GHC.Classes.Eq (Last a)
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(1P(LC(L,C(1,L)),A),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a) ->
+              $fEqLast @a (GHC.Classes.$p1Ord @a $dOrd)]
+652077bae3defc74418d14a580864eea
+  $fReadAp ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Read.Read (f a) =>
+    GHC.Internal.Read.Read (Ap f a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(A,A,LC(L,C(S,L)),A)>, Inline: CONLIKE,
+   Unfolding: DFun: @k
+                    @f :: k -> *
+                    @a :: k
+                    (v['GHC.Types.Many] :: GHC.Internal.Read.Read (f a)).
+                @(Ap f a)
+                ($fReadAp_$creadsPrec @k @f @a v)
+                ($fReadAp_$creadList @k @f @a v)
+                ($fReadAp1 @k @f @a v)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <Ap f a>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <Ap f a>_R))
+                ($fReadAp_$creadListPrec @k @f @a v)]
+8c565764e9af42c9f2e947b10db42bc7
+  $fReadAp1 ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Read.Read (f a) =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Ap f a -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> GHC.Internal.Text.ParserCombinators.ReadP.P b
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(A,A,1C(1,C(S,L)),A)>]
+3ab27345d5d116ad69bd3f92d432912a
+  $fReadAp_$creadList ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Read.Read (f a) =>
+    GHC.Internal.Text.ParserCombinators.ReadP.ReadS [Ap f a]
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(A,A,1C(1,C(S,L)),A)>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read (f a)) ->
+              GHC.Internal.Text.ParserCombinators.ReadP.run
+                @[Ap f a]
+                (((GHC.Internal.Read.list
+                     @(Ap f a)
+                     ($fReadAp1 @k @f @a $dRead)
+                       `cast`
+                     (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                      %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                         <Ap f a>_R)
+                      ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                                 <Ap f a>_R)))
+                    `cast`
+                  (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                       <[Ap f a]>_R)
+                    GHC.Internal.Read.$fReadArray9)
+                   `cast`
+                 (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP <[Ap f a]>_R)
+                   @[Ap f a]
+                   (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                      @[Ap f a]))]
+35679cf22ac1088e1bd9a39c1903a785
+  $fReadAp_$creadListPrec ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Read.Read (f a) =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.ReadPrec [Ap f a]
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(A,A,1C(1,C(S,L)),A)>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read (f a)) ->
+              GHC.Internal.Read.list
+                @(Ap f a)
+                ($fReadAp1 @k @f @a $dRead)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <Ap f a>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <Ap f a>_R))]
+5302b18372478d2c752959515f3286e4
+  $fReadAp_$creadsPrec ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Read.Read (f a) =>
+    GHC.Types.Int
+    -> GHC.Internal.Text.ParserCombinators.ReadP.ReadS (Ap f a)
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <MP(A,A,1C(1,C(S,L)),A)><L>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read (f a))
+                (eta['GHC.Types.Many] :: GHC.Types.Int) ->
+              GHC.Internal.Text.ParserCombinators.ReadP.run
+                @(Ap f a)
+                ($fReadAp1
+                   @k
+                   @f
+                   @a
+                   $dRead
+                   eta
+                   @(Ap f a)
+                   (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                      @(Ap f a)))]
+87786c6f7a7e569be755b13dbc483a8b
+  $fReadFirst ::
+    GHC.Internal.Read.Read a => GHC.Internal.Read.Read (First a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <L>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Read.Read a).
+                @(First a)
+                ($fReadFirst_$creadsPrec @a v)
+                ($fReadFirst_$creadList @a v)
+                ($fReadFirst1 @a v)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <First a>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <First a>_R))
+                ($fReadFirst_$creadListPrec @a v)]
+dc045c4cdb8507cc5fb882259035b972
+  $fReadFirst1 ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (First a -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> GHC.Internal.Text.ParserCombinators.ReadP.P b
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <L><L><L>, CPR: 2, Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (eta['GHC.Types.Many] :: GHC.Internal.Text.ParserCombinators.ReadPrec.Prec)
+                @b
+                (eta1['GHC.Types.Many] :: First a
+                                          -> GHC.Internal.Text.ParserCombinators.ReadP.P b) ->
+              case $w$creadPrec @a $dRead eta @b eta1 of wild { MkSolo# ww ->
+              GHC.Internal.Text.ParserCombinators.ReadP.Look @b ww }]
+52c4aff0b2d3b9f70a06bd3636151b74
+  $fReadFirst_$creadList ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadP.ReadS [First a]
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <L>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a) ->
+              GHC.Internal.Text.ParserCombinators.ReadP.run
+                @[First a]
+                (((GHC.Internal.Read.list
+                     @(First a)
+                     ($fReadFirst1 @a $dRead)
+                       `cast`
+                     (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                      %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                         <First a>_R)
+                      ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                                 <First a>_R)))
+                    `cast`
+                  (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                       <[First a]>_R)
+                    GHC.Internal.Read.$fReadArray9)
+                   `cast`
+                 (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP <[First a]>_R)
+                   @[First a]
+                   (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                      @[First a]))]
+205ee723db878a7ac9cdf172dfe40d73
+  $fReadFirst_$creadListPrec ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.ReadPrec [First a]
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <L>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a) ->
+              GHC.Internal.Read.list
+                @(First a)
+                ($fReadFirst1 @a $dRead)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <First a>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <First a>_R))]
+ea3dfb7018f0db9c3ce8303a6ef3b5d6
+  $fReadFirst_$creadsPrec ::
+    GHC.Internal.Read.Read a =>
+    GHC.Types.Int
+    -> GHC.Internal.Text.ParserCombinators.ReadP.ReadS (First a)
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <L><L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (eta['GHC.Types.Many] :: GHC.Types.Int) ->
+              GHC.Internal.Text.ParserCombinators.ReadP.run
+                @(First a)
+                (case $w$creadPrec
+                        @a
+                        $dRead
+                        eta
+                        @(First a)
+                        (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                           @(First a)) of wild { MkSolo# ww ->
+                 GHC.Internal.Text.ParserCombinators.ReadP.Look @(First a) ww })]
+9588067c04362d87c2dd871f0e3b82c6
+  $fReadLast ::
+    GHC.Internal.Read.Read a => GHC.Internal.Read.Read (Last a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <L>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Read.Read a).
+                @(Last a)
+                ($fReadLast_$creadsPrec @a v)
+                ($fReadLast_$creadList @a v)
+                ($fReadLast1 @a v)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <Last a>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <Last a>_R))
+                ($fReadLast_$creadListPrec @a v)]
+090c05b001bf9e7b9e8cda5e03b17059
+  $fReadLast1 ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Last a -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> GHC.Internal.Text.ParserCombinators.ReadP.P b
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <L><L><L>, CPR: 2, Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (eta['GHC.Types.Many] :: GHC.Internal.Text.ParserCombinators.ReadPrec.Prec)
+                @b
+                (eta1['GHC.Types.Many] :: Last a
+                                          -> GHC.Internal.Text.ParserCombinators.ReadP.P b) ->
+              case $w$creadPrec1 @a $dRead eta @b eta1 of wild { MkSolo# ww ->
+              GHC.Internal.Text.ParserCombinators.ReadP.Look @b ww }]
+b9cf42f52ed5c98078ef7151809e82a3
+  $fReadLast_$creadList ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadP.ReadS [Last a]
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <L>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a) ->
+              GHC.Internal.Text.ParserCombinators.ReadP.run
+                @[Last a]
+                (((GHC.Internal.Read.list
+                     @(Last a)
+                     ($fReadLast1 @a $dRead)
+                       `cast`
+                     (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                      %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                         <Last a>_R)
+                      ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                                 <Last a>_R)))
+                    `cast`
+                  (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                       <[Last a]>_R)
+                    GHC.Internal.Read.$fReadArray9)
+                   `cast`
+                 (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP <[Last a]>_R)
+                   @[Last a]
+                   (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                      @[Last a]))]
+b6af58dd78dc6700b743f67f975963a5
+  $fReadLast_$creadListPrec ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.ReadPrec [Last a]
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <L>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a) ->
+              GHC.Internal.Read.list
+                @(Last a)
+                ($fReadLast1 @a $dRead)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <Last a>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <Last a>_R))]
+90562355c6bfc06e13995e400402cd5b
+  $fReadLast_$creadsPrec ::
+    GHC.Internal.Read.Read a =>
+    GHC.Types.Int
+    -> GHC.Internal.Text.ParserCombinators.ReadP.ReadS (Last a)
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <L><L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (eta['GHC.Types.Many] :: GHC.Types.Int) ->
+              GHC.Internal.Text.ParserCombinators.ReadP.run
+                @(Last a)
+                (case $w$creadPrec1
+                        @a
+                        $dRead
+                        eta
+                        @(Last a)
+                        (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                           @(Last a)) of wild { MkSolo# ww ->
+                 GHC.Internal.Text.ParserCombinators.ReadP.Look @(Last a) ww })]
+1ba570f30a73fd9d1d64a3475e90d693
+  $fSemigroupAp ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Semigroup a) =>
+    GHC.Internal.Base.Semigroup (Ap f a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <LP(A,A,A,LC(L,C(1,C(1,L))),A,A)><LP(L,A,A)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @f :: * -> *
+                    @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                    (v1['GHC.Types.Many] :: GHC.Internal.Base.Semigroup a).
+                @(Ap f a)
+                ($fSemigroupAp1 @f @a v v1)
+                  `cast`
+                (<Ap f a>_R
+                 %<'GHC.Types.Many>_N ->_R <Ap f a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Ap <*>_N <f>_R) <a>_N)
+                ($fSemigroupAp_$csconcat @f @a v v1)
+                ($fSemigroupAp_$cstimes @f @a v v1)]
+17de19042ec61f7d557cf459d3b3a2b0
+  $fSemigroupAp1 ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Semigroup a) =>
+    Ap f a -> Ap f a -> f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <1P(A,A,A,1C(1,C(1,C(1,L))),A,A)><MP(1L,A,A)><L><L>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dSemigroup['GHC.Types.Many] :: GHC.Internal.Base.Semigroup a)
+                (ds6['GHC.Types.Many] :: Ap f a)
+                (ds7['GHC.Types.Many] :: Ap f a) ->
+              GHC.Internal.Base.liftA2
+                @f
+                $dApplicative
+                @a
+                @a
+                @a
+                (GHC.Internal.Base.<> @a $dSemigroup)
+                ds6 `cast` (N:Ap <*>_N <f>_R <a>_N)
+                ds7 `cast` (N:Ap <*>_N <f>_R <a>_N)]
+37f7726f588afb5316dcfc417ac86a3e
+  $fSemigroupAp_$csconcat ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Semigroup a) =>
+    GHC.Internal.Base.NonEmpty (Ap f a) -> Ap f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,A,A,SC(S,C(1,C(1,L))),A,A)><MP(1L,A,A)><1!P(L,1L)>,
+   Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dSemigroup['GHC.Types.Many] :: GHC.Internal.Base.Semigroup a)
+                (ds6['GHC.Types.Many] :: GHC.Internal.Base.NonEmpty (Ap f a)) ->
+              case ds6 of wild { GHC.Internal.Base.:| ww ww1 ->
+              $w$csconcat @f @a $dApplicative $dSemigroup ww ww1 }]
+201cf626f6dad611f799d15cdaa4b336
+  $fSemigroupAp_$cstimes ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Semigroup a,
+     GHC.Internal.Real.Integral b) =>
+    b -> Ap f a -> Ap f a
+  [LambdaFormInfo: LFReEntrant 5, Arity: 5,
+   Strictness: <LP(A,A,A,LC(L,C(1,C(1,L))),A,A)><LP(L,A,A)><SP(1P(LP(A,A,A,A,A,A,L),SP(1P(SC(S,C(1,L)),A),A,A,1C(1,C(1,L)),A,A,A,A),A),A,LC(L,C(1,L)),LC(L,C(1,L)),A,A,A,A,A)><L><L>]
+4fb51ef906a9a1330f53dfc9148d27f4
+  $fSemigroupFirst :: GHC.Internal.Base.Semigroup (First a)
+  DFunId
+  [LambdaFormInfo: LFCon[GHC.Internal.Base.C:Semigroup],
+   Inline: CONLIKE,
+   Unfolding: DFun: @a.
+                @(First a)
+                ($fMonoidFirst_$c<> @a)
+                ($fSemigroupFirst_$csconcat @a)
+                ($fSemigroupFirst_$cstimes @a)]
+94297aad42aaf601864f74c7b4d37d45
+  $fSemigroupFirst_$csconcat ::
+    GHC.Internal.Base.NonEmpty (First a) -> First a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(1L,ML)>,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ @a
+                (ds6['GHC.Types.Many] :: GHC.Internal.Base.NonEmpty (First a)) ->
+              case ds6 of wild { GHC.Internal.Base.:| first rest ->
+              case first `cast` (N:First <a>_N) of wild1 {
+                GHC.Internal.Maybe.Nothing
+                -> letrec {
+                     go1 :: [First a] -> First a
+                       JoinPoint(1) [Arity: 1, Strictness: <SL>]
+                     = \ (ds7['GHC.Types.Many] :: [First a]) ->
+                       case ds7 of wild2 {
+                         [] -> (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:First <a>_N)
+                         : y ys
+                         -> case y `cast` (N:First <a>_N) of wild3 {
+                              GHC.Internal.Maybe.Nothing -> go1 ys
+                              GHC.Internal.Maybe.Just ipv -> wild3 `cast` (Sym N:First <a>_N) } }
+                   } in
+                   go1 rest
+                GHC.Internal.Maybe.Just ipv
+                -> wild1 `cast` (Sym N:First <a>_N) } }]
+5ecf7b4e3cb7e02f36ca2adb43513e4d
+  $fSemigroupFirst_$cstimes ::
+    GHC.Internal.Real.Integral b => b -> First a -> First a
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(SP(SP(A,A,A,A,A,A,SC(S,L)),SP(A,SC(S,C(1,L)),A,A,A,A,A,A),A),A,A,A,A,A,A,A,A)><L><ML>]
+f01ae5021c0f8f3ffec72ba35153ea0e
+  $fSemigroupLast :: GHC.Internal.Base.Semigroup (Last a)
+  DFunId
+  [LambdaFormInfo: LFCon[GHC.Internal.Base.C:Semigroup],
+   Inline: CONLIKE,
+   Unfolding: DFun: @a.
+                @(Last a)
+                ($fMonoidLast_$c<> @a)
+                ($fSemigroupLast_$csconcat @a)
+                ($fSemigroupLast_$cstimes @a)]
+54865daa00adc5db10b3c11289ffa515
+  $fSemigroupLast1 :: Last a -> [Last a] -> Last a
+  [HasNoCafRefs, TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <ML><1L>]
+d0a5e173cd02e7f851d59409cd3334d2
+  $fSemigroupLast_$csconcat ::
+    GHC.Internal.Base.NonEmpty (Last a) -> Last a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(ML,1L)>,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ @a
+                (ds6['GHC.Types.Many] :: GHC.Internal.Base.NonEmpty (Last a)) ->
+              case ds6 of wild { GHC.Internal.Base.:| a1 as ->
+              $fSemigroupLast1 @a a1 as }]
+19b1fd747af886be1116ac74434c930a
+  $fSemigroupLast_$cstimes ::
+    GHC.Internal.Real.Integral b => b -> Last a -> Last a
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(SP(SP(A,A,A,A,A,A,SC(S,L)),SP(A,SC(S,C(1,L)),A,A,A,A,A,A),A),A,A,A,A,A,A,A,A)><L><ML>]
+71de7089f263b99f13be0b0d299c68e7
+  $fShowAp ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Show.Show (f a) =>
+    GHC.Internal.Show.Show (Ap f a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,C(S,L))),A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @k
+                    @f :: k -> *
+                    @a :: k
+                    (v['GHC.Types.Many] :: GHC.Internal.Show.Show (f a)).
+                @(Ap f a)
+                ($fShowAp_$cshowsPrec @k @f @a v)
+                ($fShowAp_$cshow @k @f @a v)
+                ($fShowAp_$cshowList @k @f @a v)]
+1eb157571e2c53be1b9edd919a244c38
+  $fShowAp1 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "}"#]
+df8c123d9853ac760fa2275fa3af6cad
+  $fShowAp2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Ap {getAp = "#]
+68c696b8152b57bea4eafd94f9c02343
+  $fShowAp3 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# 0#]
+6817e32e7dbcc1249d052e0321a8c00a
+  $fShowAp4 :: [GHC.Types.Char]
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla> GHC.CString.unpackCString# $fShowAp1]
+49c76fac3685c10198f79d51c89a91f2
+  $fShowAp_$cshow ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Show.Show (f a) =>
+    Ap f a -> GHC.Internal.Base.String
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <MP(1C(1,C(1,C(1,L))),A,A)><L>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show (f a))
+                (x['GHC.Types.Many] :: Ap f a) ->
+              GHC.CString.unpackAppendCString#
+                $fShowAp2
+                (GHC.Internal.Show.showsPrec
+                   @(f a)
+                   $dShow
+                   $fShowAp3
+                   x `cast` (N:Ap <k>_N <f>_R <a>_N)
+                   $fShowAp4)]
+93bb65509d55f9f6efcf8e59fb92824b
+  $fShowAp_$cshowList ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Show.Show (f a) =>
+    [Ap f a] -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,C(S,L))),A,A)><1L><L>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show (f a))
+                (ls['GHC.Types.Many] :: [Ap f a])
+                (s['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+              GHC.Internal.Show.showList__
+                @(Ap f a)
+                (\ (ds6['GHC.Types.Many] :: Ap f a) ->
+                 $w$cshowsPrec @k @f @a $dShow 0# ds6)
+                ls
+                s]
+f4aa2a2361364a952de38ee6af3c8282
+  $fShowAp_$cshowsPrec ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Show.Show (f a) =>
+    GHC.Types.Int -> Ap f a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><1!P(L)><L>, Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show (f a))
+                (a1['GHC.Types.Many] :: GHC.Types.Int)
+                (ds6['GHC.Types.Many] :: Ap f a) ->
+              case a1 of wild { GHC.Types.I# ww ->
+              $w$cshowsPrec @k @f @a $dShow ww ds6 }]
+4f324f43dca6bc740dddcc932b44ba2f
+  $fShowFirst ::
+    GHC.Internal.Show.Show a => GHC.Internal.Show.Show (First a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,C(S,L))),A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Show.Show a).
+                @(First a)
+                ($fShowFirst_$cshowsPrec @a v)
+                ($fShowFirst_$cshow @a v)
+                ($fShowFirst_$cshowList @a v)]
+b5c89b819d43335cad3c50477fa5fe49
+  $fShowFirst1 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "First {getFirst = "#]
+3e8b0c7bd2eb96065b1d698a6e6b45a2
+  $fShowFirst2 :: [GHC.Types.Char]
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla> GHC.CString.unpackCString# $fShowFirst3]
+0cd5d8e10028e541baedb80120d3add8
+  $fShowFirst3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Nothing}"#]
+7c396b173e147e2a996a89fc6ef94728
+  $fShowFirst_$cshow ::
+    GHC.Internal.Show.Show a => First a -> GHC.Internal.Base.String
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <MP(1C(1,C(1,C(1,L))),A,A)><ML>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (x['GHC.Types.Many] :: First a) ->
+              GHC.CString.unpackAppendCString#
+                $fShowFirst1
+                (case x `cast` (N:First <a>_N) of wild {
+                   GHC.Internal.Maybe.Nothing -> $fShowFirst2
+                   GHC.Internal.Maybe.Just b1
+                   -> GHC.CString.unpackAppendCString#
+                        GHC.Internal.Show.$fShowMaybe1
+                        (GHC.Internal.Show.showsPrec
+                           @a
+                           $dShow
+                           GHC.Internal.Show.appPrec1
+                           b1
+                           $fShowAp4) })]
+9e024e70a702d0e9016e8a6000d63922
+  $fShowFirst_$cshowList ::
+    GHC.Internal.Show.Show a => [First a] -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,C(S,L))),A,A)><1L><L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (ls['GHC.Types.Many] :: [First a])
+                (s['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+              GHC.Internal.Show.showList__
+                @(First a)
+                (\ (ds6['GHC.Types.Many] :: First a) ->
+                 $w$cshowsPrec1 @a $dShow 0# ds6)
+                ls
+                s]
+21eba36463f282d384b3e1a7af16cdcc
+  $fShowFirst_$cshowsPrec ::
+    GHC.Internal.Show.Show a =>
+    GHC.Types.Int -> First a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><1!P(L)><ML>, Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (a1['GHC.Types.Many] :: GHC.Types.Int)
+                (ds6['GHC.Types.Many] :: First a) ->
+              case a1 of wild { GHC.Types.I# ww ->
+              $w$cshowsPrec1 @a $dShow ww ds6 }]
+d40d102f50baf701bcd836633cd78417
+  $fShowLast ::
+    GHC.Internal.Show.Show a => GHC.Internal.Show.Show (Last a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,C(S,L))),A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Show.Show a).
+                @(Last a)
+                ($fShowLast_$cshowsPrec @a v)
+                ($fShowLast_$cshow @a v)
+                ($fShowLast_$cshowList @a v)]
+14df97c77bea109caa742e955509c7dd
+  $fShowLast1 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Last {getLast = "#]
+8d2354ff7736d6a3f16440e32a482c22
+  $fShowLast_$cshow ::
+    GHC.Internal.Show.Show a => Last a -> GHC.Internal.Base.String
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <MP(1C(1,C(1,C(1,L))),A,A)><ML>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (x['GHC.Types.Many] :: Last a) ->
+              GHC.CString.unpackAppendCString#
+                $fShowLast1
+                (case x `cast` (N:Last <a>_N) of wild {
+                   GHC.Internal.Maybe.Nothing -> $fShowFirst2
+                   GHC.Internal.Maybe.Just b1
+                   -> GHC.CString.unpackAppendCString#
+                        GHC.Internal.Show.$fShowMaybe1
+                        (GHC.Internal.Show.showsPrec
+                           @a
+                           $dShow
+                           GHC.Internal.Show.appPrec1
+                           b1
+                           $fShowAp4) })]
+c40dec662c7b0043ed0b35f68a148aeb
+  $fShowLast_$cshowList ::
+    GHC.Internal.Show.Show a => [Last a] -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,C(S,L))),A,A)><1L><L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (ls['GHC.Types.Many] :: [Last a])
+                (s['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+              GHC.Internal.Show.showList__
+                @(Last a)
+                (\ (ds6['GHC.Types.Many] :: Last a) ->
+                 $w$cshowsPrec2 @a $dShow 0# ds6)
+                ls
+                s]
+f265e3d8ae8cb6218e4ab49dea09cd2b
+  $fShowLast_$cshowsPrec ::
+    GHC.Internal.Show.Show a =>
+    GHC.Types.Int -> Last a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><1!P(L)><ML>, Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (a1['GHC.Types.Many] :: GHC.Types.Int)
+                (ds6['GHC.Types.Many] :: Last a) ->
+              case a1 of wild { GHC.Types.I# ww ->
+              $w$cshowsPrec2 @a $dShow ww ds6 }]
+2eeb84e755a20bbc4d9d4b1e8ecb5572
+  $tc'Ap :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                1630155876103201680#Word64
+                95865292930599865#Word64
+                $trModule
+                $tc'Ap2
+                3#
+                $tc'Ap1]
+acd23718c6e6762b3254b0934e2c3998
+  $tc'Ap1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+b3dd1494014af09d45289b627d7dddd9
+  $tc'Ap2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'Ap3]
+a0209213a371ac5c9f3a8402e80a67fb
+  $tc'Ap3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'Ap"#]
+543f962731780aa37ac054f805f08cdf
+  $tc'First :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                12624415335031921532#Word64
+                2708467247199317051#Word64
+                $trModule
+                $tc'First2
+                1#
+                $tc'First1]
+6806a478bebd7280aed01243f3b0f42b
+  $tc'First1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+aba9f7848a964ff40e2b7519ad733803
+  $tc'First2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'First3]
+e64f6255ac2c8e4616bf426f347816d8
+  $tc'First3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'First"#]
+4eaf855eb08dc75251c2b920fd5508ae
+  $tc'Last :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                6736352477300654715#Word64
+                12981076616016569487#Word64
+                $trModule
+                $tc'Last2
+                1#
+                $tc'Last1]
+fe5e870953e11874227ea91da606a10a
+  $tc'Last1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+c1ba96e3a6d45c84fbfccaab55d8556c
+  $tc'Last2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'Last3]
+29f4112a274c72a2f660cfe7125f01e0
+  $tc'Last3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'Last"#]
+f6c29ab4f778e67534a64c277b6f8f46
+  $tcAp :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                6313985694593343810#Word64
+                3879791403582843470#Word64
+                $trModule
+                $tcAp2
+                1#
+                $tcAp1]
+d5829d845117637a133f96ad61d75046
+  $tcAp1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+25886d5e6726602c74e112138a8184e2
+  $tcAp2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcAp3]
+585fbf6b0b3c5596e7173ead6bbbaa3b
+  $tcAp3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Ap"#]
+cae15315dd2b8b9a957c1ae896992747
+  $tcFirst :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                8922176396612812532#Word64
+                12917542339491896429#Word64
+                $trModule
+                $tcFirst1
+                0#
+                GHC.Types.krep$*Arr*]
+851725bb1489d54c89d6b4505e7d74ee
+  $tcFirst1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcFirst2]
+3942b7575c0c05b815bef27060603d4d
+  $tcFirst2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "First"#]
+77906e0962e12cce4a6cb0bf45413a1b
+  $tcLast :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                17842750076624389939#Word64
+                11421007715112991113#Word64
+                $trModule
+                $tcLast1
+                0#
+                GHC.Types.krep$*Arr*]
+32e066c235ed6f994c74168a9f60fe8d
+  $tcLast1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcLast2]
+62b0ce4293e8456fad668792c4dab1d7
+  $tcLast2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Last"#]
+cdae4041e37035f667c4bd7706dfee70
+  $trModule :: GHC.Types.Module
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla> GHC.Types.Module $trModule3 $trModule1]
+9ca0c35aeee1938ec3fc993653991c10
+  $trModule1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule2]
+e85c1ec68e1426967736c296e3b2293c
+  $trModule2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.Internal.Data.Monoid"#]
+a9d95b557b5befa2be1ce390767cb71f
+  $trModule3 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule4]
+fbfa3342d626a06ba5179c583a176080
+  $trModule4 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "ghc-internal"#]
+2897cd0c478148b2a2f9287e93f9d442
+  $w$creadPrec ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (First a -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> (# GHC.Internal.Base.String
+             -> GHC.Internal.Text.ParserCombinators.ReadP.P b #)
+  [TagSig: <TagTuple[TagDunno]>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <L><L><L>, Inline: [2]]
+e4b1e6e84b53934797c6a1b9808c3322
+  $w$creadPrec1 ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Last a -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> (# GHC.Internal.Base.String
+             -> GHC.Internal.Text.ParserCombinators.ReadP.P b #)
+  [TagSig: <TagTuple[TagDunno]>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <L><L><L>, Inline: [2]]
+3c2cbba0aea0348d606c69241c748e64
+  $w$csconcat ::
+    (GHC.Internal.Base.Applicative f, GHC.Internal.Base.Semigroup a) =>
+    Ap f a -> [Ap f a] -> Ap f a
+  StrWork([~, ~, ~, !])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <LP(A,A,A,SC(S,C(1,C(1,L))),A,A)><MP(1L,A,A)><L><1L>,
+   Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dApplicative['GHC.Types.Many] :: GHC.Internal.Base.Applicative f)
+                ($dSemigroup['GHC.Types.Many] :: GHC.Internal.Base.Semigroup a)
+                (ww['GHC.Types.Many] :: Ap f a)
+                (ww1['GHC.Types.Many] :: [Ap f a]) ->
+              let {
+                lvl8 :: a -> a -> a NotJoinPoint []
+                = GHC.Internal.Base.<> @a $dSemigroup
+              } in
+              letrec {
+                go1 :: Ap f a -> [Ap f a] -> Ap f a
+                  NotJoinPoint [Arity: 2, Strictness: <L><1L>]
+                = \ (b['GHC.Types.Many] :: Ap f a)
+                    (ds6['GHC.Types.Many] :: [Ap f a])[OneShot] ->
+                  case ds6 of wild1 {
+                    [] -> b
+                    : c cs
+                    -> (GHC.Internal.Base.liftA2
+                          @f
+                          $dApplicative
+                          @a
+                          @a
+                          @a
+                          lvl8
+                          b `cast` (N:Ap <*>_N <f>_R <a>_N)
+                          (go1 c cs) `cast` (N:Ap <*>_N <f>_R <a>_N))
+                         `cast`
+                       (Sym (N:Ap <*>_N <f>_R) <a>_N) }
+              } in
+              go1 ww ww1]
+eb95a7a90051bef423829acfa5126109
+  $w$cshowsPrec ::
+    forall k (f :: k -> *) (a :: k).
+    GHC.Internal.Show.Show (f a) =>
+    GHC.Prim.Int# -> Ap f a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><L><L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @k
+                @f :: k -> *
+                @a :: k
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show (f a))
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (ds6['GHC.Types.Many] :: Ap f a) ->
+              let {
+                f1 :: GHC.Internal.Base.String -> GHC.Internal.Base.String
+                  NotJoinPoint []
+                = GHC.Internal.Show.showsPrec
+                    @(f a)
+                    $dShow
+                    $fShowAp3
+                    ds6 `cast` (N:Ap <k>_N <f>_R <a>_N)
+              } in
+              case GHC.Prim.>=# ww 11# of lwild {
+                DEFAULT
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.CString.unpackAppendCString#
+                     $fShowAp2
+                     (f1 (GHC.CString.unpackAppendCString# $fShowAp1 x))
+                1#
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.Types.:
+                     @GHC.Types.Char
+                     GHC.Internal.Show.$fShowCallStack3
+                     (GHC.CString.unpackAppendCString#
+                        $fShowAp2
+                        (f1
+                           (GHC.CString.unpackAppendCString#
+                              $fShowAp1
+                              (GHC.Types.:
+                                 @GHC.Types.Char
+                                 GHC.Internal.Show.$fShowCallStack2
+                                 x)))) }]
+389fcd80792d1cd8b6834f7bac792c99
+  $w$cshowsPrec1 ::
+    GHC.Internal.Show.Show a =>
+    GHC.Prim.Int# -> First a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><L><ML>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (ds6['GHC.Types.Many] :: First a) ->
+              let {
+                f :: GHC.Internal.Base.String -> GHC.Internal.Base.String
+                  NotJoinPoint []
+                = GHC.Internal.Show.$fShowMaybe_$cshowsPrec
+                    @a
+                    $dShow
+                    $fShowAp3
+                    ds6 `cast` (N:First <a>_N)
+              } in
+              case GHC.Prim.>=# ww 11# of lwild {
+                DEFAULT
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.CString.unpackAppendCString#
+                     $fShowFirst1
+                     (f (GHC.CString.unpackAppendCString# $fShowAp1 x))
+                1#
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.Types.:
+                     @GHC.Types.Char
+                     GHC.Internal.Show.$fShowCallStack3
+                     (GHC.CString.unpackAppendCString#
+                        $fShowFirst1
+                        (f (GHC.CString.unpackAppendCString#
+                              $fShowAp1
+                              (GHC.Types.:
+                                 @GHC.Types.Char
+                                 GHC.Internal.Show.$fShowCallStack2
+                                 x)))) }]
+db6dd903317d2e28e921a509977a05a9
+  $w$cshowsPrec2 ::
+    GHC.Internal.Show.Show a =>
+    GHC.Prim.Int# -> Last a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><L><ML>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (ds6['GHC.Types.Many] :: Last a) ->
+              let {
+                f :: GHC.Internal.Base.String -> GHC.Internal.Base.String
+                  NotJoinPoint []
+                = GHC.Internal.Show.$fShowMaybe_$cshowsPrec
+                    @a
+                    $dShow
+                    $fShowAp3
+                    ds6 `cast` (N:Last <a>_N)
+              } in
+              case GHC.Prim.>=# ww 11# of lwild {
+                DEFAULT
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.CString.unpackAppendCString#
+                     $fShowLast1
+                     (f (GHC.CString.unpackAppendCString# $fShowAp1 x))
+                1#
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.Types.:
+                     @GHC.Types.Char
+                     GHC.Internal.Show.$fShowCallStack3
+                     (GHC.CString.unpackAppendCString#
+                        $fShowLast1
+                        (f (GHC.CString.unpackAppendCString#
+                              $fShowAp1
+                              (GHC.Types.:
+                                 @GHC.Types.Char
+                                 GHC.Internal.Show.$fShowCallStack2
+                                 x)))) }]
+abbc8da8c1cc8bf0a64bbbcf5ef1bfea
+  type role Ap representational nominal
+  type Ap :: forall {k}. (k -> *) -> k -> *
+  newtype Ap f a = Ap {getAp :: f a}
+aeed8ddf0a982b8c49ab3f79a13063df
+  type First :: * -> *
+  newtype First a = First {getFirst :: GHC.Internal.Maybe.Maybe a}
+5c0a3054ed2c6df91cda629b2220c342
+  type Last :: * -> *
+  newtype Last a = Last {getLast :: GHC.Internal.Maybe.Maybe a}
+29335433c5faddb411ec49bb89b82ec5
+  axiom Rep1_Ap ::
+    forall k (f :: k -> *).
+      GHC.Internal.Generics.Rep1 (Ap f)
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "Ap" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "Ap" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "getAp")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  (GHC.Internal.Generics.Rec1 f)))
+0828455fa536ca5c6b560cab3bc64e6f
+  axiom Rep1_First ::
+      GHC.Internal.Generics.Rep1 First
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "First" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "First" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "getFirst")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  (GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe)))
+88703662c533b8d30ef23140f76fa4d5
+  axiom Rep1_Last ::
+      GHC.Internal.Generics.Rep1 Last
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "Last" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "Last" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "getLast")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  (GHC.Internal.Generics.Rec1 GHC.Internal.Maybe.Maybe)))
+93ea2211878931eaa02d03e8a96bb82a
+  axiom Rep_Ap ::
+    forall k (f :: k -> *) (a :: k).
+      GHC.Internal.Generics.Rep (Ap f a)
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "Ap" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "Ap" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "getAp")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  (GHC.Internal.Generics.Rec0 (f a))))
+6bb7f1b8ec748c8f8292f22b425dd7de
+  axiom Rep_First ::
+      GHC.Internal.Generics.Rep (First a)
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "First" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "First" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "getFirst")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  (GHC.Internal.Generics.Rec0 (GHC.Internal.Maybe.Maybe a))))
+a6a8fdd0609077c6f0afbfc10d19b813
+  axiom Rep_Last ::
+      GHC.Internal.Generics.Rep (Last a)
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "Last" "GHC.Internal.Data.Monoid" "ghc-internal" 'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "Last" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "getLast")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  (GHC.Internal.Generics.Rec0 (GHC.Internal.Maybe.Maybe a))))
+8491b3279d0874b91578abe58a691a80
+  getAp :: forall {k} (f :: k -> *) (a :: k). Ap f a -> f a
+  RecSel Left Ap
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              getAp1
+                `cast`
+              (forall (k :: <*>_N) (f :: <k -> *>_N) (a :: <k>_N).
+               <Ap f a>_R %<'GHC.Types.Many>_N ->_R N:Ap <k>_N <f>_R <a>_N)]
+1eef9b135d71866e0654913ee8d32aac
+  getAp1 :: forall k (f :: k -> *) (a :: k). Ap f a -> Ap f a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @f :: k -> * @a :: k (ds6['GHC.Types.Many] :: Ap f a) -> ds6]
+467c043687048c4601d69e157f9d614f
+  getFirst :: First a -> GHC.Internal.Maybe.Maybe a
+  RecSel Left First
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              getFirst1
+                `cast`
+              (forall (a :: <*>_N).
+               <First a>_R %<'GHC.Types.Many>_N ->_R N:First <a>_N)]
+81671d83263c2bf3f21f26a51f35b503
+  getFirst1 :: First a -> First a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a (ds6['GHC.Types.Many] :: First a) -> ds6]
+bc256c84479ce628afbf9d86c6e136d8
+  getLast :: Last a -> GHC.Internal.Maybe.Maybe a
+  RecSel Left Last
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              getLast1
+                `cast`
+              (forall (a :: <*>_N).
+               <Last a>_R %<'GHC.Types.Many>_N ->_R N:Last <a>_N)]
+8e5971e605efba74a4ea076f09325f30
+  getLast1 :: Last a -> Last a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a (ds6['GHC.Types.Many] :: Last a) -> ds6]
+instance GHC.Internal.Base.Alternative [Ap] = $fAlternativeAp
+instance GHC.Internal.Base.Applicative [Ap] = $fApplicativeAp
+instance GHC.Internal.Base.Applicative [First] = $fApplicativeFirst
+instance GHC.Internal.Base.Applicative [Last] = $fApplicativeLast
+instance GHC.Internal.Enum.Bounded [Ap] = $fBoundedAp
+instance GHC.Internal.Enum.Enum [Ap] = $fEnumAp
+instance GHC.Classes.Eq [Ap] = $fEqAp
+instance GHC.Classes.Eq [First] = $fEqFirst
+instance GHC.Classes.Eq [Last] = $fEqLast
+instance GHC.Internal.Base.Functor [Ap] = $fFunctorAp
+instance GHC.Internal.Base.Functor [First] = $fFunctorFirst
+instance GHC.Internal.Base.Functor [Last] = $fFunctorLast
+instance GHC.Internal.Generics.Generic1 [GHC.Prim.TYPE, First]
+  = $fGeneric1TYPEFirst
+instance GHC.Internal.Generics.Generic1 [GHC.Prim.TYPE, Last]
+  = $fGeneric1TYPELast
+instance GHC.Internal.Generics.Generic1 [., Ap] = $fGeneric1kAp
+instance GHC.Internal.Generics.Generic [Ap] = $fGenericAp
+instance GHC.Internal.Generics.Generic [First] = $fGenericFirst
+instance GHC.Internal.Generics.Generic [Last] = $fGenericLast
+instance GHC.Internal.Base.Monad [Ap] = $fMonadAp
+instance GHC.Internal.Control.Monad.Fail.MonadFail [Ap]
+  = $fMonadFailAp
+instance GHC.Internal.Base.Monad [First] = $fMonadFirst
+instance GHC.Internal.Base.Monad [Last] = $fMonadLast
+instance GHC.Internal.Base.MonadPlus [Ap] = $fMonadPlusAp
+instance GHC.Internal.Base.Monoid [Ap] = $fMonoidAp
+instance GHC.Internal.Base.Monoid [First] = $fMonoidFirst
+instance GHC.Internal.Base.Monoid [Last] = $fMonoidLast
+instance GHC.Internal.Num.Num [Ap] = $fNumAp
+instance GHC.Classes.Ord [Ap] = $fOrdAp
+instance GHC.Classes.Ord [First] = $fOrdFirst
+instance GHC.Classes.Ord [Last] = $fOrdLast
+instance GHC.Internal.Read.Read [Ap] = $fReadAp
+instance GHC.Internal.Read.Read [First] = $fReadFirst
+instance GHC.Internal.Read.Read [Last] = $fReadLast
+instance GHC.Internal.Base.Semigroup [Ap] = $fSemigroupAp
+instance GHC.Internal.Base.Semigroup [First] = $fSemigroupFirst
+instance GHC.Internal.Base.Semigroup [Last] = $fSemigroupLast
+instance GHC.Internal.Show.Show [Ap] = $fShowAp
+instance GHC.Internal.Show.Show [First] = $fShowFirst
+instance GHC.Internal.Show.Show [Last] = $fShowLast
+family instance GHC.Internal.Generics.Rep [First] = Rep_First
+family instance GHC.Internal.Generics.Rep [Last] = Rep_Last
+family instance GHC.Internal.Generics.Rep [Ap] = Rep_Ap
+family instance GHC.Internal.Generics.Rep1 [GHC.Prim.TYPE], [First]
+  = Rep1_First
+family instance GHC.Internal.Generics.Rep1 [GHC.Prim.TYPE], [Last]
+  = Rep1_Last
+family instance GHC.Internal.Generics.Rep1 [.], [Ap] = Rep1_Ap
+Warnings:
+  Deprecated names:
+  Deprecated exports:
+trusted: trustworthy
+require own pkg trusted: True
+docs:
+  Just module header:
+         Just text:
+                -- |
+-- Module      :  GHC.Internal.Data.Monoid
+-- Copyright   :  (c) Andy Gill 2001,
+--                (c) Oregon Graduate Institute of Science and Technology, 2001
+-- License     :  BSD-style (see the file libraries/base/LICENSE)
+--
+-- Maintainer  :  libraries@haskell.org
+-- Stability   :  stable
+-- Portability :  portable
+--
+-- A type @a@ is a 'Monoid' if it provides an associative function ('<>')
+-- that lets you combine any two values of type @a@ into one, and a neutral
+-- element (`mempty`) such that
+--
+-- > a <> mempty == mempty <> a == a
+--
+-- A 'Monoid' is a 'Semigroup' with the added requirement of a neutral element.
+-- Thus any 'Monoid' is a 'Semigroup', but not the other way around.
+--
+-- ==== __Examples__
+--
+-- The 'Sum' monoid is defined by the numerical addition operator and `0` as neutral element:
+--
+-- >>> import Data.Int (Int)
+-- >>> mempty :: Sum Int
+-- Sum {getSum = 0}
+-- >>> Sum 1 <> Sum 2 <> Sum 3 <> Sum 4 :: Sum Int
+-- Sum {getSum = 10}
+--
+-- We can combine multiple values in a list into a single value using the `mconcat` function.
+-- Note that we have to specify the type here since 'Int' is a monoid under several different
+-- operations:
+--
+-- >>> mconcat [1,2,3,4] :: Sum Int
+-- Sum {getSum = 10}
+-- >>> mconcat [] :: Sum Int
+-- Sum {getSum = 0}
+--
+-- Another valid monoid instance of 'Int' is 'Product' It is defined by multiplication
+-- and `1` as neutral element:
+--
+-- >>> Product 1 <> Product 2 <> Product 3 <> Product 4 :: Product Int
+-- Product {getProduct = 24}
+-- >>> mconcat [1,2,3,4] :: Product Int
+-- Product {getProduct = 24}
+-- >>> mconcat [] :: Product Int
+-- Product {getProduct = 1}
+--
+--
+              identifiers:
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:19:21-26}
+                GHC.Internal.Base.Monoid
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:19:70-71}
+                GHC.Internal.Base.<>
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:21:14-19}
+                GHC.Internal.Base.mempty
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:25:7-12}
+                GHC.Internal.Base.Monoid
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:25:21-29}
+                GHC.Internal.Base.Semigroup
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:26:14-19}
+                GHC.Internal.Base.Monoid
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:26:28-36}
+                GHC.Internal.Base.Semigroup
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:30:9-11}
+                GHC.Internal.Data.Semigroup.Internal.Sum
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:30:9-11}
+                GHC.Internal.Data.Semigroup.Internal.Sum
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:38:76-82}
+                GHC.Internal.Base.mconcat
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:39:54-56}
+                GHC.Types.Int
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:47:38-40}
+                GHC.Types.Int
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:47:47-53}
+                GHC.Internal.Data.Semigroup.Internal.Product
+                {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:47:47-53}
+                GHC.Internal.Data.Semigroup.Internal.Product
+       export docs:
+         []
+       declaration docs:
+         [Ap -> [text:
+                   -- | This data type witnesses the lifting of a 'Monoid' into an
+-- 'Applicative' pointwise.
+--
+-- ==== __Examples__
+--
+-- >>> Ap (Just [1, 2, 3]) <> Ap Nothing
+-- Ap {getAp = Nothing}
+--
+-- >>> Ap [Sum 10, Sum 20] <> Ap [Sum 1, Sum 2]
+-- Ap {getAp = [Sum {getSum = 11},Sum {getSum = 12},Sum {getSum = 21},Sum {getSum = 22}]}
+--
+-- @since base-4.12.0.0
+                 identifiers:
+                   {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:210:49-54}
+                   GHC.Internal.Base.Monoid
+                   {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:211:5-15}
+                   GHC.Internal.Base.Applicative],
+          First -> [text:
+                      -- | Maybe monoid returning the leftmost non-'Nothing' value.
+--
+-- @'First' a@ is isomorphic to @'Alt' 'Maybe' a@, but precedes it
+-- historically.
+--
+-- Beware that @Data.Monoid.@'First' is different from
+-- @Data.Semigroup.@'Data.Semigroup.First'. The former returns the first non-'Nothing',
+-- so @Data.Monoid.First Nothing <> x = x@. The latter simply returns the first value,
+-- thus @Data.Semigroup.First Nothing <> x = Data.Semigroup.First Nothing@.
+--
+-- ==== __Examples__
+--
+-- >>> First (Just "hello") <> First Nothing <> First (Just "world")
+-- First {getFirst = Just "hello"}
+--
+-- >>> First Nothing <> mempty
+-- First {getFirst = Nothing}
+                    identifiers:
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:129:47-53}
+                      GHC.Internal.Maybe.Nothing
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:131:6-10}
+                      First
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:131:6-10}
+                      First
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:131:35-37}
+                      GHC.Internal.Data.Semigroup.Internal.Alt
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:131:35-37}
+                      GHC.Internal.Data.Semigroup.Internal.Alt
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:131:41-45}
+                      GHC.Internal.Maybe.Maybe
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:134:31-35}
+                      First
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:134:31-35}
+                      First
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:135:79-85}
+                      GHC.Internal.Maybe.Nothing],
+          Last -> [text:
+                     -- | Maybe monoid returning the rightmost non-'Nothing' value.
+--
+-- @'Last' a@ is isomorphic to @'Dual' ('First' a)@, and thus to
+-- @'Dual' ('Alt' 'Maybe' a)@
+--
+-- @Data.Semigroup.@'Data.Semigroup.Last'. The former returns the last non-'Nothing',
+-- so @x <> Data.Monoid.Last Nothing = x@. The latter simply returns the last value,
+-- thus @x <> Data.Semigroup.Last Nothing = Data.Semigroup.Last Nothing@.
+--
+-- ==== __Examples__
+--
+-- >>> Last (Just "hello") <> Last Nothing <> Last (Just "world")
+-- Last {getLast = Just "world"}
+--
+-- >>> Last Nothing <> mempty
+-- Last {getLast = Nothing}
+                   identifiers:
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:172:48-54}
+                     GHC.Internal.Maybe.Nothing
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:174:6-9}
+                     Last
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:174:6-9}
+                     Last
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:174:34-37}
+                     GHC.Internal.Data.Semigroup.Internal.Dual
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:174:34-37}
+                     GHC.Internal.Data.Semigroup.Internal.Dual
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:174:42-46}
+                     First
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:174:42-46}
+                     First
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:175:6-9}
+                     GHC.Internal.Data.Semigroup.Internal.Dual
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:175:6-9}
+                     GHC.Internal.Data.Semigroup.Internal.Dual
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:175:14-16}
+                     GHC.Internal.Data.Semigroup.Internal.Alt
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:175:14-16}
+                     GHC.Internal.Data.Semigroup.Internal.Alt
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:175:20-24}
+                     GHC.Internal.Maybe.Maybe
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:177:77-83}
+                     GHC.Internal.Maybe.Nothing],
+          $fAlternativeAp -> [text:
+                                -- ^ @since base-4.12.0.0
+                              identifiers:],
+          $fApplicativeAp -> [text:
+                                -- ^ @since base-4.12.0.0
+                              identifiers:],
+          $fFunctorAp -> [text:
+                            -- ^ @since base-4.12.0.0
+                          identifiers:],
+          $fApplicativeFirst -> [text:
+                                   -- ^ @since base-4.8.0.0
+                                 identifiers:],
+          $fFunctorFirst -> [text:
+                               -- ^ @since base-4.8.0.0
+                             identifiers:],
+          $fApplicativeLast -> [text:
+                                  -- ^ @since base-4.8.0.0
+                                identifiers:],
+          $fFunctorLast -> [text:
+                              -- ^ @since base-4.8.0.0
+                            identifiers:],
+          $fBoundedAp -> [text:
+                            -- | @since base-4.12.0.0
+                          identifiers:],
+          $fEnumAp -> [text:
+                         -- ^ @since base-4.12.0.0
+                       identifiers:],
+          $fEqAp -> [text:
+                       -- ^ @since base-4.12.0.0
+                     identifiers:],
+          $fEqFirst -> [text:
+                          -- ^ @since base-2.01
+                        identifiers:],
+          $fEqLast -> [text:
+                         -- ^ @since base-2.01
+                       identifiers:],
+          Rep1_First -> [text:
+                           -- ^ @since base-4.7.0.0
+                         identifiers:],
+          Rep1_Last -> [text:
+                          -- ^ @since base-4.7.0.0
+                        identifiers:],
+          Rep1_Ap -> [text:
+                        -- ^ @since base-4.12.0.0
+                      identifiers:],
+          Rep_Ap -> [text:
+                       -- ^ @since base-4.12.0.0
+                     identifiers:],
+          Rep_First -> [text:
+                          -- ^ @since base-4.7.0.0
+                        identifiers:],
+          Rep_Last -> [text:
+                         -- ^ @since base-4.7.0.0
+                       identifiers:],
+          $fMonadAp -> [text:
+                          -- ^ @since base-4.12.0.0
+                        identifiers:],
+          $fMonadFailAp -> [text:
+                              -- ^ @since base-4.12.0.0
+                            identifiers:],
+          $fMonadFirst -> [text:
+                             -- ^ @since base-4.8.0.0
+                           identifiers:],
+          $fMonadLast -> [text:
+                            -- ^ @since base-4.8.0.0
+                          identifiers:],
+          $fMonadPlusAp -> [text:
+                              -- ^ @since base-4.12.0.0
+                            identifiers:],
+          $fMonoidAp -> [text:
+                           -- | @since base-4.12.0.0
+                         identifiers:],
+          $fSemigroupAp -> [text:
+                              -- | @since base-4.12.0.0
+                            identifiers:],
+          $fMonoidFirst -> [text:
+                              -- | @since base-2.01
+                            identifiers:],
+          $fSemigroupFirst -> [text:
+                                 -- | @since base-4.9.0.0
+                               identifiers:],
+          $fMonoidLast -> [text:
+                             -- | @since base-2.01
+                           identifiers:],
+          $fSemigroupLast -> [text:
+                                -- | @since base-4.9.0.0
+                              identifiers:],
+          $fNumAp -> [text:
+                        -- | Note that even if the underlying 'Num' and 'Applicative' instances are
+-- lawful, for most 'Applicative's, this instance will not be lawful. If you use
+-- this instance with the list 'Applicative', the following customary laws will
+-- not hold:
+--
+-- Commutativity:
+--
+-- >>> Ap [10,20] + Ap [1,2]
+-- Ap {getAp = [11,12,21,22]}
+-- >>> Ap [1,2] + Ap [10,20]
+-- Ap {getAp = [11,21,12,22]}
+--
+-- Additive inverse:
+--
+-- >>> Ap [] + negate (Ap [])
+-- Ap {getAp = []}
+-- >>> fromInteger 0 :: Ap [] Int
+-- Ap {getAp = [0]}
+--
+-- Distributivity:
+--
+-- >>> Ap [1,2] * (3 + 4)
+-- Ap {getAp = [7,14]}
+-- >>> (Ap [1,2] * 3) + (Ap [1,2] * 4)
+-- Ap {getAp = [7,11,10,14]}
+--
+-- @since base-4.12.0.0
+                      identifiers:
+                        {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:251:40-42}
+                        GHC.Internal.Num.Num
+                        {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:251:50-60}
+                        GHC.Internal.Base.Applicative
+                        {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:252:22-32}
+                        GHC.Internal.Base.Applicative
+                        {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:253:33-43}
+                        GHC.Internal.Base.Applicative],
+          $fOrdAp -> [text:
+                        -- ^ @since base-4.12.0.0
+                      identifiers:],
+          $fOrdFirst -> [text:
+                           -- ^ @since base-2.01
+                         identifiers:],
+          $fOrdLast -> [text:
+                          -- ^ @since base-2.01
+                        identifiers:],
+          $fReadAp -> [text:
+                         -- ^ @since base-4.12.0.0
+                       identifiers:],
+          $fReadFirst -> [text:
+                            -- ^ @since base-2.01
+                          identifiers:],
+          $fReadLast -> [text:
+                           -- ^ @since base-2.01
+                         identifiers:],
+          $fShowAp -> [text:
+                         -- ^ @since base-4.12.0.0
+                       identifiers:],
+          $fShowFirst -> [text:
+                            -- ^ @since base-2.01
+                          identifiers:],
+          $fShowLast -> [text:
+                           -- ^ @since base-2.01
+                         identifiers:]]
+       arg docs:
+         []
+       documentation structure:
+         section heading, level 1:
+           text:
+             -- * 'Monoid' typeclass
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:61:15-20}
+             GHC.Internal.Base.Monoid
+         avails:
+           [GHC.Internal.Base.Monoid{GHC.Internal.Base.Monoid,
+                                     GHC.Internal.Base.mappend, GHC.Internal.Base.mconcat,
+                                     GHC.Internal.Base.mempty}]
+         avails:
+           [GHC.Internal.Base.Semigroup{GHC.Internal.Base.<>}]
+         avails:
+           [GHC.Internal.Data.Semigroup.Internal.Dual{GHC.Internal.Data.Semigroup.Internal.Dual,
+                                                      GHC.Internal.Data.Semigroup.Internal.Dual,
+                                                      GHC.Internal.Data.Semigroup.Internal.getDual}]
+         avails:
+           [GHC.Internal.Data.Semigroup.Internal.Endo{GHC.Internal.Data.Semigroup.Internal.Endo,
+                                                      GHC.Internal.Data.Semigroup.Internal.Endo,
+                                                      GHC.Internal.Data.Semigroup.Internal.appEndo}]
+         section heading, level 1:
+           text:
+             -- * 'Bool' wrappers
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:66:15-18}
+             GHC.Types.Bool
+         avails:
+           [GHC.Internal.Data.Semigroup.Internal.All{GHC.Internal.Data.Semigroup.Internal.All,
+                                                     GHC.Internal.Data.Semigroup.Internal.All,
+                                                     GHC.Internal.Data.Semigroup.Internal.getAll}]
+         avails:
+           [GHC.Internal.Data.Semigroup.Internal.Any{GHC.Internal.Data.Semigroup.Internal.Any,
+                                                     GHC.Internal.Data.Semigroup.Internal.Any,
+                                                     GHC.Internal.Data.Semigroup.Internal.getAny}]
+         section heading, level 1:
+           text:
+             -- * 'Num' wrappers
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:69:15-17}
+             GHC.Internal.Num.Num
+         avails:
+           [GHC.Internal.Data.Semigroup.Internal.Sum{GHC.Internal.Data.Semigroup.Internal.Sum,
+                                                     GHC.Internal.Data.Semigroup.Internal.Sum,
+                                                     GHC.Internal.Data.Semigroup.Internal.getSum}]
+         avails:
+           [GHC.Internal.Data.Semigroup.Internal.Product{GHC.Internal.Data.Semigroup.Internal.Product,
+                                                         GHC.Internal.Data.Semigroup.Internal.Product,
+                                                         GHC.Internal.Data.Semigroup.Internal.getProduct}]
+         section heading, level 1:
+           text:
+             -- * 'Maybe' wrappers
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:72:15-19}
+             GHC.Internal.Maybe.Maybe
+         reference to named chunk: MaybeExamples
+         avails:
+           [First{First, First, getFirst}]
+         avails:
+           [Last{Last, Last, getLast}]
+         section heading, level 1:
+           text:
+             -- * 'Alternative' wrapper
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:76:15-25}
+             GHC.Internal.Base.Alternative
+         avails:
+           [GHC.Internal.Data.Semigroup.Internal.Alt{GHC.Internal.Data.Semigroup.Internal.Alt,
+                                                     GHC.Internal.Data.Semigroup.Internal.Alt,
+                                                     GHC.Internal.Data.Semigroup.Internal.getAlt}]
+         section heading, level 1:
+           text:
+             -- * 'Applicative' wrapper
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:78:15-25}
+             GHC.Internal.Base.Applicative
+         avails:
+           [Ap{Ap, Ap, getAp}]
+       named chunks:
+         "MaybeExamples":
+           text:
+             -- $MaybeExamples
+-- To implement @find@ or @findLast@ on any 'Data.Foldable.Foldable':
+--
+-- @
+-- findLast :: Foldable t => (a -> Bool) -> t a -> Maybe a
+-- findLast pred = getLast . foldMap (\x -> if pred x
+--                                            then Last (Just x)
+--                                            else Last Nothing)
+-- @
+--
+-- Much of 'Data.Map.Lazy.Map's interface can be implemented with
+-- 'Data.Map.Lazy.alter'. Some of the rest can be implemented with a new
+-- 'Data.Map.Lazy.alterF' function and either 'First' or 'Last':
+--
+-- > alterF :: (Functor f, Ord k) =>
+-- >           (Maybe a -> f (Maybe a)) -> k -> Map k a -> f (Map k a)
+-- >
+-- > instance Monoid a => Functor ((,) a)  -- from GHC.Internal.Data.Functor
+--
+-- @
+-- insertLookupWithKey :: Ord k => (k -> v -> v -> v) -> k -> v
+--                     -> Map k v -> (Maybe v, Map k v)
+-- insertLookupWithKey combine key value =
+--   Arrow.first getFirst . 'Data.Map.Lazy.alterF' doChange key
+--   where
+--   doChange Nothing = (First Nothing, Just value)
+--   doChange (Just oldValue) =
+--     (First (Just oldValue),
+--      Just (combine key value oldValue))
+-- @
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:109:48-52}
+             First
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:109:48-52}
+             First
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:109:59-62}
+             Last
+             {libraries/ghc-internal/src/GHC/Internal/Data/Monoid.hs:109:59-62}
+             Last
+       haddock options:
+       language:
+         Just Haskell2010
+       language extensions:
+         MonomorphismRestriction
+         DeepSubsumption
+         RelaxedPolyRec
+         ForeignFunctionInterface
+         ScopedTypeVariables
+         DoAndIfThenElse
+         PolyKinds
+         DeriveGeneric
+         EmptyDataDecls
+         KindSignatures
+         GeneralizedNewtypeDeriving
+         PatternGuards
+         ExplicitForAll
+         DatatypeContexts
+         TraditionalRecordSyntax
+         StarIsType
+         CUSKs
+         FieldSelectors
+         ListTuplePuns
+extensible fields:
+

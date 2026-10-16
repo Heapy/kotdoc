@@ -1,0 +1,394 @@
+[
+  {
+    "source_index": 2,
+    "target": "inline",
+    "root": "inline",
+    "haskell_target": "Inline",
+    "haskell_root": "Inline"
+  },
+  {
+    "source_index": 3,
+    "target": "inlines",
+    "root": "inlines",
+    "haskell_target": "[Inline]",
+    "haskell_root": "[Inline]"
+  },
+  {
+    "source_index": 4,
+    "target": "inlines",
+    "root": "inline",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Inline"
+  },
+  {
+    "source_index": 5,
+    "target": "inline",
+    "root": "block",
+    "haskell_target": "Inline",
+    "haskell_root": "Block"
+  },
+  {
+    "source_index": 6,
+    "target": "inlines",
+    "root": "block",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Block"
+  },
+  {
+    "source_index": 7,
+    "target": "block",
+    "root": "block",
+    "haskell_target": "Block",
+    "haskell_root": "Block"
+  },
+  {
+    "source_index": 8,
+    "target": "blocks",
+    "root": "block",
+    "haskell_target": "[Block]",
+    "haskell_root": "Block"
+  },
+  {
+    "source_index": 9,
+    "target": "blocks",
+    "root": "blocks",
+    "haskell_target": "[Block]",
+    "haskell_root": "[Block]"
+  },
+  {
+    "source_index": 10,
+    "target": "block",
+    "root": "inline",
+    "haskell_target": "Block",
+    "haskell_root": "Inline"
+  },
+  {
+    "source_index": 11,
+    "target": "blocks",
+    "root": "inline",
+    "haskell_target": "[Block]",
+    "haskell_root": "Inline"
+  },
+  {
+    "source_index": 12,
+    "target": "block",
+    "root": "pandoc",
+    "haskell_target": "Block",
+    "haskell_root": "Pandoc"
+  },
+  {
+    "source_index": 13,
+    "target": "blocks",
+    "root": "pandoc",
+    "haskell_target": "[Block]",
+    "haskell_root": "Pandoc"
+  },
+  {
+    "source_index": 14,
+    "target": "inline",
+    "root": "pandoc",
+    "haskell_target": "Inline",
+    "haskell_root": "Pandoc"
+  },
+  {
+    "source_index": 15,
+    "target": "inlines",
+    "root": "pandoc",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Pandoc"
+  },
+  {
+    "source_index": 16,
+    "target": "meta",
+    "root": "pandoc",
+    "haskell_target": "Meta",
+    "haskell_root": "Pandoc"
+  },
+  {
+    "source_index": 17,
+    "target": "metaValue",
+    "root": "pandoc",
+    "haskell_target": "MetaValue",
+    "haskell_root": "Pandoc"
+  },
+  {
+    "source_index": 18,
+    "target": "pandoc",
+    "root": "pandoc",
+    "haskell_target": "Pandoc",
+    "haskell_root": "Pandoc"
+  },
+  {
+    "source_index": 19,
+    "target": "meta",
+    "root": "meta",
+    "haskell_target": "Meta",
+    "haskell_root": "Meta"
+  },
+  {
+    "source_index": 20,
+    "target": "inline",
+    "root": "meta",
+    "haskell_target": "Inline",
+    "haskell_root": "Meta"
+  },
+  {
+    "source_index": 21,
+    "target": "inlines",
+    "root": "meta",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Meta"
+  },
+  {
+    "source_index": 22,
+    "target": "block",
+    "root": "meta",
+    "haskell_target": "Block",
+    "haskell_root": "Meta"
+  },
+  {
+    "source_index": 23,
+    "target": "blocks",
+    "root": "meta",
+    "haskell_target": "[Block]",
+    "haskell_root": "Meta"
+  },
+  {
+    "source_index": 24,
+    "target": "metaValue",
+    "root": "meta",
+    "haskell_target": "MetaValue",
+    "haskell_root": "Meta"
+  },
+  {
+    "source_index": 25,
+    "target": "metaValue",
+    "root": "metaValue",
+    "haskell_target": "MetaValue",
+    "haskell_root": "MetaValue"
+  },
+  {
+    "source_index": 26,
+    "target": "inline",
+    "root": "metaValue",
+    "haskell_target": "Inline",
+    "haskell_root": "MetaValue"
+  },
+  {
+    "source_index": 27,
+    "target": "inlines",
+    "root": "metaValue",
+    "haskell_target": "[Inline]",
+    "haskell_root": "MetaValue"
+  },
+  {
+    "source_index": 28,
+    "target": "block",
+    "root": "metaValue",
+    "haskell_target": "Block",
+    "haskell_root": "MetaValue"
+  },
+  {
+    "source_index": 29,
+    "target": "blocks",
+    "root": "metaValue",
+    "haskell_target": "[Block]",
+    "haskell_root": "MetaValue"
+  },
+  {
+    "source_index": 30,
+    "target": "inline",
+    "root": "row",
+    "haskell_target": "Inline",
+    "haskell_root": "Row"
+  },
+  {
+    "source_index": 31,
+    "target": "inlines",
+    "root": "row",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Row"
+  },
+  {
+    "source_index": 32,
+    "target": "block",
+    "root": "row",
+    "haskell_target": "Block",
+    "haskell_root": "Row"
+  },
+  {
+    "source_index": 33,
+    "target": "blocks",
+    "root": "row",
+    "haskell_target": "[Block]",
+    "haskell_root": "Row"
+  },
+  {
+    "source_index": 34,
+    "target": "inline",
+    "root": "head",
+    "haskell_target": "Inline",
+    "haskell_root": "TableHead"
+  },
+  {
+    "source_index": 35,
+    "target": "inlines",
+    "root": "head",
+    "haskell_target": "[Inline]",
+    "haskell_root": "TableHead"
+  },
+  {
+    "source_index": 36,
+    "target": "block",
+    "root": "head",
+    "haskell_target": "Block",
+    "haskell_root": "TableHead"
+  },
+  {
+    "source_index": 37,
+    "target": "blocks",
+    "root": "head",
+    "haskell_target": "[Block]",
+    "haskell_root": "TableHead"
+  },
+  {
+    "source_index": 38,
+    "target": "inline",
+    "root": "body",
+    "haskell_target": "Inline",
+    "haskell_root": "TableBody"
+  },
+  {
+    "source_index": 39,
+    "target": "inlines",
+    "root": "body",
+    "haskell_target": "[Inline]",
+    "haskell_root": "TableBody"
+  },
+  {
+    "source_index": 40,
+    "target": "block",
+    "root": "body",
+    "haskell_target": "Block",
+    "haskell_root": "TableBody"
+  },
+  {
+    "source_index": 41,
+    "target": "blocks",
+    "root": "body",
+    "haskell_target": "[Block]",
+    "haskell_root": "TableBody"
+  },
+  {
+    "source_index": 42,
+    "target": "inline",
+    "root": "foot",
+    "haskell_target": "Inline",
+    "haskell_root": "TableFoot"
+  },
+  {
+    "source_index": 43,
+    "target": "inlines",
+    "root": "foot",
+    "haskell_target": "[Inline]",
+    "haskell_root": "TableFoot"
+  },
+  {
+    "source_index": 44,
+    "target": "block",
+    "root": "foot",
+    "haskell_target": "Block",
+    "haskell_root": "TableFoot"
+  },
+  {
+    "source_index": 45,
+    "target": "blocks",
+    "root": "foot",
+    "haskell_target": "[Block]",
+    "haskell_root": "TableFoot"
+  },
+  {
+    "source_index": 46,
+    "target": "inline",
+    "root": "caption",
+    "haskell_target": "Inline",
+    "haskell_root": "Caption"
+  },
+  {
+    "source_index": 47,
+    "target": "inlines",
+    "root": "caption",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Caption"
+  },
+  {
+    "source_index": 48,
+    "target": "block",
+    "root": "caption",
+    "haskell_target": "Block",
+    "haskell_root": "Caption"
+  },
+  {
+    "source_index": 49,
+    "target": "blocks",
+    "root": "caption",
+    "haskell_target": "[Block]",
+    "haskell_root": "Caption"
+  },
+  {
+    "source_index": 50,
+    "target": "inline",
+    "root": "cell",
+    "haskell_target": "Inline",
+    "haskell_root": "Cell"
+  },
+  {
+    "source_index": 51,
+    "target": "inlines",
+    "root": "cell",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Cell"
+  },
+  {
+    "source_index": 52,
+    "target": "block",
+    "root": "cell",
+    "haskell_target": "Block",
+    "haskell_root": "Cell"
+  },
+  {
+    "source_index": 53,
+    "target": "blocks",
+    "root": "cell",
+    "haskell_target": "[Block]",
+    "haskell_root": "Cell"
+  },
+  {
+    "source_index": 54,
+    "target": "inline",
+    "root": "citation",
+    "haskell_target": "Inline",
+    "haskell_root": "Citation"
+  },
+  {
+    "source_index": 55,
+    "target": "inlines",
+    "root": "citation",
+    "haskell_target": "[Inline]",
+    "haskell_root": "Citation"
+  },
+  {
+    "source_index": 56,
+    "target": "block",
+    "root": "citation",
+    "haskell_target": "Block",
+    "haskell_root": "Citation"
+  },
+  {
+    "source_index": 57,
+    "target": "blocks",
+    "root": "citation",
+    "haskell_target": "[Block]",
+    "haskell_root": "Citation"
+  }
+]

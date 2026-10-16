@@ -357,3 +357,54 @@ errors or skips. Both ordering source verifiers and diff checks pass. Independen
 review replayed all5,855 original responses byte-exact and parsed saved81,325
 actual XML cases with no failures/errors/skips; source/default/demand review passes. Walk's58 dictionaries/174 methods and140 module-owned
 export entries before member expansion remain open; this is not completion611.
+
+## Walk closure checkpoint pending independent acceptance
+
+The source census in `tools/haskell-types-walk-reference/source-dictionaries.json`
+retains all58 original instance clauses verbatim:56 concrete dictionaries plus
+Traversable and overlapping pair. `source-manifest.json` maps every one of their
+174 walk/walkM/query slots to actual original request IDs, and independently maps
+all24 helper exports. The source verifier reconstructs those matrices and the
+exact request stream. OriginalWalk.hs retains unchanged source/license/EOF bytes.
+
+The5717 original response lines include5715 represented Kotlin observations and
+two source-only StrictData constructor failures, explicitly distinguished in the
+manifest. The49 Walk-relevant examples include all20 Inline,14 Block and six
+MetaValue constructors plus supported container/citation/table/caption roots;
+non-Walk enum/scalar roots are not standalone Walk inputs. Rich ordered table/caption/citation/Figure
+positions, empty containers, Unicode Map keys, replacement-not-revisited,
+Identity/State/failure/list effects and complete trace/First/Last/Sum queries are
+covered. List branching uses ordered four-result prefixes with original explicit
+truncation, not a falsely complete exponential list. Separate native probes check
+lazy list prefixes, ignored root/callback thunks, First versus Last direction,
+Any/All/unit, skipped unrelated bad elements, failure before later elements and
+walk/state/query depth10000. The5715 observations pass isolated Kotlin replay
+under512MiB heap and256KiB stack.
+
+The new public Walkable interface allows caller-defined child dictionaries.
+Independent Probe dictionaries exercise11 polymorphic helper contexts, custom
+pure/query overrides and generic/pair composition; mixed built-in Meta/custom
+Block witnesses prevent requiring all children to use built-in dictionaries.
+ShortCaption is [Inline]; Caption resolves Maybe internally from that dictionary,
+as proved by the original helper even with an overlapping Maybe instance present.
+The old PandocVisitor, twelve source predicates and their expected data are
+unchanged. Production uses persistent continuation frames and lazy query folds;
+no Haskell program is a production dependency.
+
+This is a finite source matrix. Undefined/infinite spines, arbitrary StrictData
+bottoms and a general GHC runtime are not claimed. Known finite spines with bad
+undemanded elements have executable native/Kotlin proofs. Caller-provided effect
+adapters override ordinary Monad-recursive tailRecM for deep stack-safe execution.
+The actual installed GHC First/Last dictionary interface is retained and
+byte-replayed. The whole140 module-owned export matrix remains a subsequent gate;
+this checkpoint does not close task611. Independent source/native/XML review
+passes as recorded below.
+
+Final focused Gradle44054 passed in1m46s: actual XML11,725 cases, comprising5,715
+new closure observations,6,000 unchanged original Walk-property cases and10
+unchanged Visitor cases, with zero failures/errors/skips. XML/log snapshots are
+saved at /tmp/kotdoc-types-walk-final-results for independent review. Source
+verification passes31 hashes and reconstructs174 method slots/24 helpers;
+all5,717 original responses and the actual installed GHC Monoid interface replay
+byte-exact. No existing production or expected fixture was changed. Independent
+acceptance passes; the140-export audit remains pending.

@@ -1,0 +1,344 @@
+[
+  {
+    "target": "inline",
+    "root": "inline",
+    "walk_helper": "walkInlineM",
+    "query_helper": "queryInline"
+  },
+  {
+    "target": "inlines",
+    "root": "inline",
+    "walk_helper": "walkInlineM",
+    "query_helper": "queryInline"
+  },
+  {
+    "target": "block",
+    "root": "inline",
+    "walk_helper": "walkInlineM",
+    "query_helper": "queryInline"
+  },
+  {
+    "target": "blocks",
+    "root": "inline",
+    "walk_helper": "walkInlineM",
+    "query_helper": "queryInline"
+  },
+  {
+    "target": "inline",
+    "root": "block",
+    "walk_helper": "walkBlockM",
+    "query_helper": "queryBlock"
+  },
+  {
+    "target": "inlines",
+    "root": "block",
+    "walk_helper": "walkBlockM",
+    "query_helper": "queryBlock"
+  },
+  {
+    "target": "block",
+    "root": "block",
+    "walk_helper": "walkBlockM",
+    "query_helper": "queryBlock"
+  },
+  {
+    "target": "blocks",
+    "root": "block",
+    "walk_helper": "walkBlockM",
+    "query_helper": "queryBlock"
+  },
+  {
+    "target": "inline",
+    "root": "metaValue",
+    "walk_helper": "walkMetaValueM",
+    "query_helper": "queryMetaValue"
+  },
+  {
+    "target": "inlines",
+    "root": "metaValue",
+    "walk_helper": "walkMetaValueM",
+    "query_helper": "queryMetaValue"
+  },
+  {
+    "target": "block",
+    "root": "metaValue",
+    "walk_helper": "walkMetaValueM",
+    "query_helper": "queryMetaValue"
+  },
+  {
+    "target": "blocks",
+    "root": "metaValue",
+    "walk_helper": "walkMetaValueM",
+    "query_helper": "queryMetaValue"
+  },
+  {
+    "target": "inline",
+    "root": "citation",
+    "walk_helper": "walkCitationM",
+    "query_helper": "queryCitation"
+  },
+  {
+    "target": "inlines",
+    "root": "citation",
+    "walk_helper": "walkCitationM",
+    "query_helper": "queryCitation"
+  },
+  {
+    "target": "block",
+    "root": "citation",
+    "walk_helper": "walkCitationM",
+    "query_helper": "queryCitation"
+  },
+  {
+    "target": "blocks",
+    "root": "citation",
+    "walk_helper": "walkCitationM",
+    "query_helper": "queryCitation"
+  },
+  {
+    "target": "inline",
+    "root": "row",
+    "walk_helper": "walkRowM",
+    "query_helper": "queryRow"
+  },
+  {
+    "target": "inlines",
+    "root": "row",
+    "walk_helper": "walkRowM",
+    "query_helper": "queryRow"
+  },
+  {
+    "target": "block",
+    "root": "row",
+    "walk_helper": "walkRowM",
+    "query_helper": "queryRow"
+  },
+  {
+    "target": "blocks",
+    "root": "row",
+    "walk_helper": "walkRowM",
+    "query_helper": "queryRow"
+  },
+  {
+    "target": "inline",
+    "root": "head",
+    "walk_helper": "walkTableHeadM",
+    "query_helper": "queryTableHead"
+  },
+  {
+    "target": "inlines",
+    "root": "head",
+    "walk_helper": "walkTableHeadM",
+    "query_helper": "queryTableHead"
+  },
+  {
+    "target": "block",
+    "root": "head",
+    "walk_helper": "walkTableHeadM",
+    "query_helper": "queryTableHead"
+  },
+  {
+    "target": "blocks",
+    "root": "head",
+    "walk_helper": "walkTableHeadM",
+    "query_helper": "queryTableHead"
+  },
+  {
+    "target": "inline",
+    "root": "body",
+    "walk_helper": "walkTableBodyM",
+    "query_helper": "queryTableBody"
+  },
+  {
+    "target": "inlines",
+    "root": "body",
+    "walk_helper": "walkTableBodyM",
+    "query_helper": "queryTableBody"
+  },
+  {
+    "target": "block",
+    "root": "body",
+    "walk_helper": "walkTableBodyM",
+    "query_helper": "queryTableBody"
+  },
+  {
+    "target": "blocks",
+    "root": "body",
+    "walk_helper": "walkTableBodyM",
+    "query_helper": "queryTableBody"
+  },
+  {
+    "target": "inline",
+    "root": "foot",
+    "walk_helper": "walkTableFootM",
+    "query_helper": "queryTableFoot"
+  },
+  {
+    "target": "inlines",
+    "root": "foot",
+    "walk_helper": "walkTableFootM",
+    "query_helper": "queryTableFoot"
+  },
+  {
+    "target": "block",
+    "root": "foot",
+    "walk_helper": "walkTableFootM",
+    "query_helper": "queryTableFoot"
+  },
+  {
+    "target": "blocks",
+    "root": "foot",
+    "walk_helper": "walkTableFootM",
+    "query_helper": "queryTableFoot"
+  },
+  {
+    "target": "inline",
+    "root": "caption",
+    "walk_helper": "walkCaptionM",
+    "query_helper": "queryCaption"
+  },
+  {
+    "target": "inlines",
+    "root": "caption",
+    "walk_helper": "walkCaptionM",
+    "query_helper": "queryCaption"
+  },
+  {
+    "target": "block",
+    "root": "caption",
+    "walk_helper": "walkCaptionM",
+    "query_helper": "queryCaption"
+  },
+  {
+    "target": "blocks",
+    "root": "caption",
+    "walk_helper": "walkCaptionM",
+    "query_helper": "queryCaption"
+  },
+  {
+    "target": "inline",
+    "root": "cell",
+    "walk_helper": "walkCellM",
+    "query_helper": "queryCell"
+  },
+  {
+    "target": "inlines",
+    "root": "cell",
+    "walk_helper": "walkCellM",
+    "query_helper": "queryCell"
+  },
+  {
+    "target": "block",
+    "root": "cell",
+    "walk_helper": "walkCellM",
+    "query_helper": "queryCell"
+  },
+  {
+    "target": "blocks",
+    "root": "cell",
+    "walk_helper": "walkCellM",
+    "query_helper": "queryCell"
+  },
+  {
+    "target": "inline",
+    "root": "pandoc",
+    "walk_helper": "walkPandocM",
+    "query_helper": "queryPandoc"
+  },
+  {
+    "target": "inlines",
+    "root": "pandoc",
+    "walk_helper": "walkPandocM",
+    "query_helper": "queryPandoc"
+  },
+  {
+    "target": "block",
+    "root": "pandoc",
+    "walk_helper": "walkPandocM",
+    "query_helper": "queryPandoc"
+  },
+  {
+    "target": "blocks",
+    "root": "pandoc",
+    "walk_helper": "walkPandocM",
+    "query_helper": "queryPandoc"
+  },
+  {
+    "target": "metaValue",
+    "root": "metaValuePrime",
+    "walk_helper": "walkMetaValueM'",
+    "query_helper": "queryMetaValue'"
+  },
+  {
+    "target": "probe",
+    "root": "inline",
+    "walk_helper": "walkInlineM",
+    "query_helper": "queryInline"
+  },
+  {
+    "target": "probe",
+    "root": "block",
+    "walk_helper": "walkBlockM",
+    "query_helper": "queryBlock"
+  },
+  {
+    "target": "probe",
+    "root": "metaValue",
+    "walk_helper": "walkMetaValueM",
+    "query_helper": "queryMetaValue"
+  },
+  {
+    "target": "probe",
+    "root": "citation",
+    "walk_helper": "walkCitationM",
+    "query_helper": "queryCitation"
+  },
+  {
+    "target": "probe",
+    "root": "row",
+    "walk_helper": "walkRowM",
+    "query_helper": "queryRow"
+  },
+  {
+    "target": "probe",
+    "root": "head",
+    "walk_helper": "walkTableHeadM",
+    "query_helper": "queryTableHead"
+  },
+  {
+    "target": "probe",
+    "root": "body",
+    "walk_helper": "walkTableBodyM",
+    "query_helper": "queryTableBody"
+  },
+  {
+    "target": "probe",
+    "root": "foot",
+    "walk_helper": "walkTableFootM",
+    "query_helper": "queryTableFoot"
+  },
+  {
+    "target": "probe",
+    "root": "caption",
+    "walk_helper": "walkCaptionM",
+    "query_helper": "queryCaption"
+  },
+  {
+    "target": "probe",
+    "root": "cell",
+    "walk_helper": "walkCellM",
+    "query_helper": "queryCell"
+  },
+  {
+    "target": "probe",
+    "root": "pandoc",
+    "walk_helper": "walkPandocM",
+    "query_helper": "queryPandoc"
+  },
+  {
+    "target": "meta",
+    "root": "pandoc",
+    "walk_helper": "walkPandocM",
+    "query_helper": "queryPandoc"
+  }
+]

@@ -1,0 +1,292 @@
+[
+  {
+    "index": 0,
+    "source_header": "instance (Foldable t, Traversable t, Walkable a b) => Walkable a (t b)",
+    "source_clause": "instance (Foldable t, Traversable t, Walkable a b) => Walkable a (t b) where\n  walk f  = T.fmapDefault (walk f)\n  walkM f = T.mapM (walkM f)\n  query f = F.foldMap (query f)\n\n"
+  },
+  {
+    "index": 1,
+    "source_header": "instance OVERLAPS (Walkable a b, Walkable a c) => Walkable a (b,c)",
+    "source_clause": "instance OVERLAPS\n        (Walkable a b, Walkable a c) => Walkable a (b,c) where\n  walk f (x,y)  = (walk f x, walk f y)\n  walkM f (x,y) = do x' <- walkM f x\n                     y' <- walkM f y\n                     return (x',y')\n  query f (x,y) = mappend (query f x) (query f y)\n\n"
+  },
+  {
+    "index": 2,
+    "source_header": "instance Walkable Inline Inline",
+    "source_clause": "instance Walkable Inline Inline where\n  walkM f x = walkInlineM f x >>= f\n  query f x = f x <> queryInline f x\n\n"
+  },
+  {
+    "index": 3,
+    "source_header": "instance OVERLAPS Walkable [Inline] [Inline]",
+    "source_clause": "instance OVERLAPS\n         Walkable [Inline] [Inline] where\n  walkM f = T.traverse (walkInlineM f) >=> f\n  query f inlns = f inlns <> mconcat (map (queryInline f) inlns)\n\n"
+  },
+  {
+    "index": 4,
+    "source_header": "instance Walkable [Inline] Inline",
+    "source_clause": "instance Walkable [Inline] Inline where\n  walkM = walkInlineM\n  query = queryInline\n\n"
+  },
+  {
+    "index": 5,
+    "source_header": "instance Walkable Inline Block",
+    "source_clause": "instance Walkable Inline Block where\n  walkM = walkBlockM\n  query = queryBlock\n\n"
+  },
+  {
+    "index": 6,
+    "source_header": "instance Walkable [Inline] Block",
+    "source_clause": "instance Walkable [Inline] Block where\n  walkM = walkBlockM\n  query = queryBlock\n\n"
+  },
+  {
+    "index": 7,
+    "source_header": "instance Walkable Block Block",
+    "source_clause": "instance Walkable Block Block where\n  walkM f x = walkBlockM f x >>= f\n  query f x = f x <> queryBlock f x\n\n"
+  },
+  {
+    "index": 8,
+    "source_header": "instance Walkable [Block] Block",
+    "source_clause": "instance Walkable [Block] Block where\n  walkM = walkBlockM\n  query = queryBlock\n\n"
+  },
+  {
+    "index": 9,
+    "source_header": "instance OVERLAPS Walkable [Block] [Block]",
+    "source_clause": "instance OVERLAPS\n         Walkable [Block] [Block] where\n  walkM f = T.traverse (walkBlockM f) >=> f\n  query f blks = f blks <> mconcat (map (queryBlock f) blks)\n\n"
+  },
+  {
+    "index": 10,
+    "source_header": "instance Walkable Block Inline",
+    "source_clause": "instance Walkable Block Inline where\n  walkM = walkInlineM\n  query = queryInline\n\n"
+  },
+  {
+    "index": 11,
+    "source_header": "instance Walkable [Block] Inline",
+    "source_clause": "instance Walkable [Block] Inline where\n  walkM = walkInlineM\n  query = queryInline\n\n"
+  },
+  {
+    "index": 12,
+    "source_header": "instance Walkable Block Pandoc",
+    "source_clause": "instance Walkable Block Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n"
+  },
+  {
+    "index": 13,
+    "source_header": "instance Walkable [Block] Pandoc",
+    "source_clause": "instance Walkable [Block] Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n"
+  },
+  {
+    "index": 14,
+    "source_header": "instance Walkable Inline Pandoc",
+    "source_clause": "instance Walkable Inline Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n"
+  },
+  {
+    "index": 15,
+    "source_header": "instance Walkable [Inline] Pandoc",
+    "source_clause": "instance Walkable [Inline] Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n"
+  },
+  {
+    "index": 16,
+    "source_header": "instance Walkable Meta Pandoc",
+    "source_clause": "instance Walkable Meta Pandoc where\n  walkM f (Pandoc m bs) = Pandoc <$> f m <*> pure bs\n  query f (Pandoc m _) = f m\n\n"
+  },
+  {
+    "index": 17,
+    "source_header": "instance Walkable MetaValue Pandoc",
+    "source_clause": "instance Walkable MetaValue Pandoc where\n  walkM f (Pandoc m bs) = Pandoc <$> walkM f m <*> pure bs\n  query f (Pandoc m _) = query f m\n\n"
+  },
+  {
+    "index": 18,
+    "source_header": "instance Walkable Pandoc Pandoc",
+    "source_clause": "instance Walkable Pandoc Pandoc where\n  walkM f = f\n  query f = f\n\n"
+  },
+  {
+    "index": 19,
+    "source_header": "instance Walkable Meta Meta",
+    "source_clause": "instance Walkable Meta Meta where\n  walkM f = f\n  query f = f\n\n"
+  },
+  {
+    "index": 20,
+    "source_header": "instance Walkable Inline Meta",
+    "source_clause": "instance Walkable Inline Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n"
+  },
+  {
+    "index": 21,
+    "source_header": "instance Walkable [Inline] Meta",
+    "source_clause": "instance Walkable [Inline] Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n"
+  },
+  {
+    "index": 22,
+    "source_header": "instance Walkable Block Meta",
+    "source_clause": "instance Walkable Block Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n"
+  },
+  {
+    "index": 23,
+    "source_header": "instance Walkable [Block] Meta",
+    "source_clause": "instance Walkable [Block] Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n"
+  },
+  {
+    "index": 24,
+    "source_header": "instance Walkable MetaValue Meta",
+    "source_clause": "instance Walkable MetaValue Meta where\n  walkM f (Meta metamap) =\n    Meta . M.fromAscList <$> mapM (\\(k, v) -> (,) k <$> walkM f v) (M.toAscList metamap)\n  query f (Meta metamap) = M.foldMapWithKey (const $ query f) metamap\n\n"
+  },
+  {
+    "index": 25,
+    "source_header": "instance Walkable MetaValue MetaValue",
+    "source_clause": "instance Walkable MetaValue MetaValue where\n  walkM f x = walkMetaValueM' f x >>= f\n  query f x = f x <> queryMetaValue' f x\n\n"
+  },
+  {
+    "index": 26,
+    "source_header": "instance Walkable Inline MetaValue",
+    "source_clause": "instance Walkable Inline MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n"
+  },
+  {
+    "index": 27,
+    "source_header": "instance Walkable [Inline] MetaValue",
+    "source_clause": "instance Walkable [Inline] MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n"
+  },
+  {
+    "index": 28,
+    "source_header": "instance Walkable Block MetaValue",
+    "source_clause": "instance Walkable Block MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n"
+  },
+  {
+    "index": 29,
+    "source_header": "instance Walkable [Block] MetaValue",
+    "source_clause": "instance Walkable [Block] MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n"
+  },
+  {
+    "index": 30,
+    "source_header": "instance Walkable Inline Row",
+    "source_clause": "instance Walkable Inline Row where\n  walkM = walkRowM\n  query = queryRow\n\n"
+  },
+  {
+    "index": 31,
+    "source_header": "instance Walkable [Inline] Row",
+    "source_clause": "instance Walkable [Inline] Row where\n  walkM = walkRowM\n  query = queryRow\n\n"
+  },
+  {
+    "index": 32,
+    "source_header": "instance Walkable Block Row",
+    "source_clause": "instance Walkable Block Row where\n  walkM = walkRowM\n  query = queryRow\n\n"
+  },
+  {
+    "index": 33,
+    "source_header": "instance Walkable [Block] Row",
+    "source_clause": "instance Walkable [Block] Row where\n  walkM = walkRowM\n  query = queryRow\n\n"
+  },
+  {
+    "index": 34,
+    "source_header": "instance Walkable Inline TableHead",
+    "source_clause": "instance Walkable Inline TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n"
+  },
+  {
+    "index": 35,
+    "source_header": "instance Walkable [Inline] TableHead",
+    "source_clause": "instance Walkable [Inline] TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n"
+  },
+  {
+    "index": 36,
+    "source_header": "instance Walkable Block TableHead",
+    "source_clause": "instance Walkable Block TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n"
+  },
+  {
+    "index": 37,
+    "source_header": "instance Walkable [Block] TableHead",
+    "source_clause": "instance Walkable [Block] TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n"
+  },
+  {
+    "index": 38,
+    "source_header": "instance Walkable Inline TableBody",
+    "source_clause": "instance Walkable Inline TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n"
+  },
+  {
+    "index": 39,
+    "source_header": "instance Walkable [Inline] TableBody",
+    "source_clause": "instance Walkable [Inline] TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n"
+  },
+  {
+    "index": 40,
+    "source_header": "instance Walkable Block TableBody",
+    "source_clause": "instance Walkable Block TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n"
+  },
+  {
+    "index": 41,
+    "source_header": "instance Walkable [Block] TableBody",
+    "source_clause": "instance Walkable [Block] TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n"
+  },
+  {
+    "index": 42,
+    "source_header": "instance Walkable Inline TableFoot",
+    "source_clause": "instance Walkable Inline TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n"
+  },
+  {
+    "index": 43,
+    "source_header": "instance Walkable [Inline] TableFoot",
+    "source_clause": "instance Walkable [Inline] TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n"
+  },
+  {
+    "index": 44,
+    "source_header": "instance Walkable Block TableFoot",
+    "source_clause": "instance Walkable Block TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n"
+  },
+  {
+    "index": 45,
+    "source_header": "instance Walkable [Block] TableFoot",
+    "source_clause": "instance Walkable [Block] TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n"
+  },
+  {
+    "index": 46,
+    "source_header": "instance Walkable Inline Caption",
+    "source_clause": "instance Walkable Inline Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n"
+  },
+  {
+    "index": 47,
+    "source_header": "instance Walkable [Inline] Caption",
+    "source_clause": "instance Walkable [Inline] Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n"
+  },
+  {
+    "index": 48,
+    "source_header": "instance Walkable Block Caption",
+    "source_clause": "instance Walkable Block Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n"
+  },
+  {
+    "index": 49,
+    "source_header": "instance Walkable [Block] Caption",
+    "source_clause": "instance Walkable [Block] Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n"
+  },
+  {
+    "index": 50,
+    "source_header": "instance Walkable Inline Cell",
+    "source_clause": "instance Walkable Inline Cell where\n  walkM = walkCellM\n  query = queryCell\n\n"
+  },
+  {
+    "index": 51,
+    "source_header": "instance Walkable [Inline] Cell",
+    "source_clause": "instance Walkable [Inline] Cell where\n  walkM = walkCellM\n  query = queryCell\n\n"
+  },
+  {
+    "index": 52,
+    "source_header": "instance Walkable Block Cell",
+    "source_clause": "instance Walkable Block Cell where\n  walkM = walkCellM\n  query = queryCell\n\n"
+  },
+  {
+    "index": 53,
+    "source_header": "instance Walkable [Block] Cell",
+    "source_clause": "instance Walkable [Block] Cell where\n  walkM = walkCellM\n  query = queryCell\n\n"
+  },
+  {
+    "index": 54,
+    "source_header": "instance Walkable Inline Citation",
+    "source_clause": "instance Walkable Inline Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n"
+  },
+  {
+    "index": 55,
+    "source_header": "instance Walkable [Inline] Citation",
+    "source_clause": "instance Walkable [Inline] Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n"
+  },
+  {
+    "index": 56,
+    "source_header": "instance Walkable Block Citation",
+    "source_clause": "instance Walkable Block Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n"
+  },
+  {
+    "index": 57,
+    "source_header": "instance Walkable [Block] Citation",
+    "source_clause": "instance Walkable [Block] Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n"
+  }
+]

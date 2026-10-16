@@ -1,0 +1,192 @@
+[
+  {
+    "target": "inline",
+    "root": "maybeBlock",
+    "haskell_root": "Maybe Block"
+  },
+  {
+    "target": "inlines",
+    "root": "maybeBlock",
+    "haskell_root": "Maybe Block"
+  },
+  {
+    "target": "block",
+    "root": "maybeBlock",
+    "haskell_root": "Maybe Block"
+  },
+  {
+    "target": "blocks",
+    "root": "maybeBlock",
+    "haskell_root": "Maybe Block"
+  },
+  {
+    "target": "inline",
+    "root": "mapBlock",
+    "haskell_root": "M.Map T.Text Block"
+  },
+  {
+    "target": "inlines",
+    "root": "mapBlock",
+    "haskell_root": "M.Map T.Text Block"
+  },
+  {
+    "target": "block",
+    "root": "mapBlock",
+    "haskell_root": "M.Map T.Text Block"
+  },
+  {
+    "target": "blocks",
+    "root": "mapBlock",
+    "haskell_root": "M.Map T.Text Block"
+  },
+  {
+    "target": "inline",
+    "root": "seqBlock",
+    "haskell_root": "S.Seq Block"
+  },
+  {
+    "target": "inlines",
+    "root": "seqBlock",
+    "haskell_root": "S.Seq Block"
+  },
+  {
+    "target": "block",
+    "root": "seqBlock",
+    "haskell_root": "S.Seq Block"
+  },
+  {
+    "target": "blocks",
+    "root": "seqBlock",
+    "haskell_root": "S.Seq Block"
+  },
+  {
+    "target": "inline",
+    "root": "identityBlock",
+    "haskell_root": "Identity Block"
+  },
+  {
+    "target": "inlines",
+    "root": "identityBlock",
+    "haskell_root": "Identity Block"
+  },
+  {
+    "target": "block",
+    "root": "identityBlock",
+    "haskell_root": "Identity Block"
+  },
+  {
+    "target": "blocks",
+    "root": "identityBlock",
+    "haskell_root": "Identity Block"
+  },
+  {
+    "target": "inline",
+    "root": "nestedBlock",
+    "haskell_root": "Maybe (S.Seq Block)"
+  },
+  {
+    "target": "inlines",
+    "root": "nestedBlock",
+    "haskell_root": "Maybe (S.Seq Block)"
+  },
+  {
+    "target": "block",
+    "root": "nestedBlock",
+    "haskell_root": "Maybe (S.Seq Block)"
+  },
+  {
+    "target": "blocks",
+    "root": "nestedBlock",
+    "haskell_root": "Maybe (S.Seq Block)"
+  },
+  {
+    "target": "inline",
+    "root": "pairInlineBlock",
+    "haskell_root": "(Inline,Block)"
+  },
+  {
+    "target": "inlines",
+    "root": "pairInlineBlock",
+    "haskell_root": "(Inline,Block)"
+  },
+  {
+    "target": "block",
+    "root": "pairInlineBlock",
+    "haskell_root": "(Inline,Block)"
+  },
+  {
+    "target": "blocks",
+    "root": "pairInlineBlock",
+    "haskell_root": "(Inline,Block)"
+  },
+  {
+    "target": "meta",
+    "root": "pairMetaPandoc",
+    "haskell_root": "(Meta,Pandoc)"
+  },
+  {
+    "target": "metaValue",
+    "root": "pairMetaPandoc",
+    "haskell_root": "(Meta,Pandoc)"
+  },
+  {
+    "target": "pandoc",
+    "root": "pairPandoc",
+    "haskell_root": "(Pandoc,Pandoc)"
+  },
+  {
+    "target": "probe",
+    "root": "seqInlines",
+    "haskell_root": "S.Seq [Inline]"
+  },
+  {
+    "target": "probe",
+    "root": "pairInlinesBlocks",
+    "haskell_root": "([Inline],[Block])"
+  },
+  {
+    "target": "inline",
+    "root": "manyInlines",
+    "haskell_root": "Builder.Inlines"
+  },
+  {
+    "target": "inlines",
+    "root": "manyInlines",
+    "haskell_root": "Builder.Inlines"
+  },
+  {
+    "target": "block",
+    "root": "manyInlines",
+    "haskell_root": "Builder.Inlines"
+  },
+  {
+    "target": "blocks",
+    "root": "manyInlines",
+    "haskell_root": "Builder.Inlines"
+  },
+  {
+    "target": "inline",
+    "root": "manyBlocks",
+    "haskell_root": "Builder.Blocks"
+  },
+  {
+    "target": "inlines",
+    "root": "manyBlocks",
+    "haskell_root": "Builder.Blocks"
+  },
+  {
+    "target": "block",
+    "root": "manyBlocks",
+    "haskell_root": "Builder.Blocks"
+  },
+  {
+    "target": "blocks",
+    "root": "manyBlocks",
+    "haskell_root": "Builder.Blocks"
+  },
+  {
+    "target": "meta",
+    "root": "pairMetaBlockMixed",
+    "haskell_root": "(Meta,Block)"
+  }
+]

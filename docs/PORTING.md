@@ -14009,3 +14009,39 @@ stages remain open. This does not close local:613.
 Cached diff check retains63 cosmetic whitespace diagnostics:48 in original/
 observed C headers and15 in translated Kotlin formula lines. No arithmetic or
 original bytes were changed for formatting; other staged paths are clean.
+
+
+### Finite complete Walk dictionary/helper source matrix
+
+The new Kotlin Walkable interface ports56 concrete dictionaries plus generic
+Traversable and overlapping pair:174 walk/walkM/query slots and all24 exported
+helpers. Caller-supplied child dictionaries, pure/query overrides, generic pair/
+nested containers and Caption ShortCaption=[Inline] resolution retain source
+contracts. Effects preserve bottom-up transformation, replacement children not
+revisited, State/failure/list sequencing; lazy query folds preserve preorder,
+multiplicity and First/Last demand direction. Persistent continuation frames
+avoid JVM stack recursion for the built-in deep traversal path.
+
+Independent verification reconstructs all174/24 mappings and31source hashes,
+replays5,717 original response lines byte-exact and verifies the actual installed
+GHC Monoid interface. Two undefined whole-list StrictData constructor failures
+remain explicit source-only observations;5,715 are represented in Kotlin.
+Saved fresh Gradle44054 XML independently confirms11,725 actual tests without
+failures/errors/skips:5,715 new,6,000 old source-property and10 Visitor cases.
+The corpus uses49 Walk-relevant source examples, including all20 Inline,14
+Block and six MetaValue constructors; non-Walk enum/scalar roots are not
+standalone Walk inputs. This corrects the earlier too-broad79 wording without
+changing fixtures. Source tests include custom dictionaries, partial demand,
+ordered branching prefixes and depth10,000 probes.
+
+Fresh completed PublicEd7376 jar/installDist also packages the unchanged Walk
+interfaces with identical installed core JAR and exact pandoc-types/GHC/
+Transformers notices. PublicEd test counts are not Walk coverage. Caller effects
+need a stack-safe tailRecM override for deep execution; arbitrary strict-field
+bottoms, infinite/undefined spines, impure query callbacks and general GHC runtime
+equivalence are not claimed. Existing Visitor/production and old expectations
+are unchanged. The140 module-owned export entries remain a separate audit;
+local:611, full Pandoc/tests and later calibre work remain open.
+
+Cached diff check retains two whitespace/EOF diagnostics only in the verbatim
+GhcMonoid interface dump; source byte comparison passes and other paths are clean.
