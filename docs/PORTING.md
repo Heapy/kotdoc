@@ -12080,3 +12080,88 @@ broader stress and finer thunk/resource/streaming coverage, remaining hourglass
 APIs and TLS/resource-I/O integration remain work. Full Pandoc/all tests,
 calibre MOBI/all tests and additional formats absent from Pandoc/all tests
 remain the unchanged required end state.
+
+### Certificate field stream and original certificate property
+
+`X509Certificate.kt` ports the pinned public `Data.X509.Cert` record, Eq/Show,
+ASN1Object reader/writer and validity/version/extension helpers. All eight
+fields are independently cached/deferred. Validity preserves an ordered pair
+of raw DateTime values. The source represents the unsigned certificate header:
+**its ASN1Object writes the field stream without an outer Sequence**. No signed
+certificate or signature validation is substituted for that source contract.
+
+Encoding always emits explicit Context 0 version, even zero; decoding accepts
+its absence as zero and wraps an arbitrary Integer to the pinned signed Int64.
+Serial remains unbounded. Signature, issuer, subject, public key and raw
+extension codecs are composed from the existing Kotlin translations. Validity
+writes UTC before **2050-01-01 00:00:00** and Generalized at/after that exact
+DateTime ordering boundary, including nanoseconds. It always writes a zero
+timezone. Decoding requires exactly two ASN1Time constructors but ignores their
+time kinds and timezone fields. Optional Context 3 extensions preserve
+Nothing/Just-empty/nonempty, are not gated by version, and keep source permissive
+container End matching. Issuer/subject unique identifiers are **not skipped** by
+the original implementation: they and extensions following them remain in the
+returned suffix. That behavior is preserved rather than inferred from the
+source comment describing the RFC structure.
+
+The memoized X509 input now exposes independent sequence/List remainder views.
+Signature and raw-extension decoding share their existing algorithms through
+input-based adapters, and certificate parsing reuses the general-name DN parser
+and public-key decoder. A malformed DN/extension can yield Left without reading
+a later failing structural tail. Formatting the Left now consumes its shown
+values in order, rather than materializing the complete tail first. Two new
+source-derived cases exposed/fixed that old shared formatter error priority;
+all earlier ASN1/X509 fixture suites still pass.
+
+ASN1 Time gains independently cached kind/DateTime/timezone payloads so emitting
+its constructor or a writer prefix does not prematurely demand validity fields.
+All old JVM signatures/descriptors for its constructor, getters, components,
+copy/default, equals/hash and inherited display are retained, including the
+nullable inline-timezone mangling. A Java client compiled against the eec419a
+JAR runs unchanged against both old and new JARs and exercises those contracts.
+**Kotlin reflection now reports Time as a regular class instead of a data
+class**; reflection identity is not claimed. The new ownership/cache/Time/
+remainder test separately verifies deferred fields and bounded suffix demand.
+
+The development reference compiles unchanged `Data.X509.Cert`, its X509/ASN1/
+hourglass dependencies and the complete unchanged crypton 2.0.1 package.
+OriginalCertificateTests retains every original generator/property body before
+main, with only checked module/import adaptation; retaining a body is not
+counted as executing it. The original named **certificate** property passes
+**1,000 QuickCheck cases** at replay seed **1845978545**. The corpus separately
+retains **1,000 actual original generated Certificate inputs**, regenerates them
+on replay and executes the same generic ASN1 round-trip predicate in Kotlin.
+That original property works on ASN1 values. Arbitrary DN OIDs can pass it while
+failing DER encoding; byte-encoding observations are separate requests, so a
+DER failure does not hide whether the original property ran successfully.
+
+There are **24,068 independent observations**, **537 source hashes** and
+semantic SHA-256
+**3151539918fe533656b209e3f18ae411f6fcad9d9877c9580231f632323ceda3**.
+Generation and full independent replay pass on macOS/AArch64. Coverage includes
+record/field Eq/Show and prefix demand, signed/wrapped/default versions,
+2050/nanosecond/extreme-DateTime boundaries, every-position ASN1 mutations and
+truncations, all represented public-key families and signature forms, optional
+extensions, ignored time metadata, preserved unique-ID/outer suffixes and
+lazy error-message versus failing-tail priority. One cache/Time/remainder check
+brings **X509CertificateTest to 24,069 tests**. Independent other-platform oracle
+replay and broader stress remain unverified.
+
+The macOS/AArch64 JDK 21 regression run passes **337,687 tests** across all twelve
+ASN1/X509 suites, with exact XML testcase counts and no failures/errors/skips.
+Standalone and installed core JARs are byte-identical, contain **3,332 classes**
+and **90 full notices**. All **173 source/fixture verifiers** pass (122.6s).
+All **560 pre-existing non-class/non-module-metadata
+assets** from eec419a remain byte-exact and no eec419a class is missing. Windows
+CI now requires **402,898 tests** without skips and Linux CI includes the new
+source verifier/suite. Both f105a4f and e872dc5 Linux/Windows CI runs are confirmed
+successful; 115504a remains live at this checkpoint.
+
+CRL and its original property, Signed/SignedExact/raw signed-byte preservation,
+certificate/CRL signature and trust validation, stores, private-key timing/
+scrubbing/undefined-buffer boundaries, general cryptographic operations,
+independent other-platform oracle replay, broader stress and finer thunk/
+resource/streaming coverage, remaining hourglass APIs and TLS/resource-I/O
+integration remain work. Full Pandoc/all tests, calibre MOBI/all tests and
+additional formats absent from Pandoc/all tests remain the unchanged required
+end state.

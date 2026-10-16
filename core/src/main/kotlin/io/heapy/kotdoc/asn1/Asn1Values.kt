@@ -60,7 +60,17 @@ sealed class Asn1Value {
     }
     data class Enumerated(val value: BigInteger) : Asn1Value()
     data class StringValue(val value: Asn1CharacterString) : Asn1Value()
-    data class Time(val kind: Asn1TimeType, val value: HourglassDateTime, val timezone: HourglassTimezoneOffset?) : Asn1Value()
+    class Time private constructor(private val ty: Lazy<Asn1TimeType>,private val dt: Lazy<HourglassDateTime>,private val tz: Lazy<HourglassTimezoneOffset?>): Asn1Value() {
+        constructor(kind: Asn1TimeType,value: HourglassDateTime,timezone: HourglassTimezoneOffset?): this(lazyOf(kind),lazyOf(value),lazyOf(timezone))
+        val kind get()=ty.value;val value get()=dt.value;val timezone get()=tz.value
+        operator fun component1()=kind
+        operator fun component2()=value
+        operator fun component3()=timezone
+        fun copy(kind: Asn1TimeType=this.kind,value: HourglassDateTime=this.value,timezone: HourglassTimezoneOffset?=this.timezone)=Time(kind,value,timezone)
+        override fun equals(other: Any?)=other is Time && kind==other.kind && value==other.value && timezone==other.timezone
+        override fun hashCode()=31*(31*kind.hashCode()+value.hashCode())+(timezone?.hashCode() ?: 0)
+        companion object {fun deferred(kind: ()->Asn1TimeType,value: ()->HourglassDateTime,timezone: ()->HourglassTimezoneOffset?)=Time(lazy(kind),lazy(value),lazy(timezone))}
+    }
     class Other private constructor(val kind: Asn1Class, val tag: Asn1Tag, private val stored: Lazy<ByteArray>) : Asn1Value() {
         constructor(kind: Asn1Class,tag: Asn1Tag,bytes: ByteArray): this(kind,tag,lazyOf(bytes.copyOf()))
         val bytes: ByteArray get() = stored.value.copyOf()

@@ -102,26 +102,29 @@ object X509SignatureAlgorithmCodec: Asn1Object<X509SignatureAlgorithm> {
         }
         yieldAll(tail)
     }
-    override fun fromAsn1(values: List<Asn1Value>): Asn1ParseResult<Asn1Parsed<X509SignatureAlgorithm>> {
-        val owned=values.toList()
-        fun success(n: Int,oid: Asn1Value.Oid)=Asn1ParseResult.Success(Asn1Parsed.deferred({fromOid(oid.arcs)},owned.drop(n)))
-        if(owned.getOrNull(0)==Asn1Value.Start(seq) && owned.getOrNull(1) is Asn1Value.Oid) {
+    override fun fromAsn1(values: List<Asn1Value>): Asn1ParseResult<Asn1Parsed<X509SignatureAlgorithm>> = when(val r=fromInput(X509Input.from(values.toList().asSequence()))) {
+        is Asn1ParseResult.Failure -> r
+        is Asn1ParseResult.Success -> Asn1ParseResult.Success(Asn1Parsed.deferred({r.value.value.value},r.value.rest.view()))
+    }
+    internal fun fromInput(owned: X509Input): Asn1ParseResult<X509Read<X509SignatureAlgorithm>> {
+        fun success(n: Int,oid: Asn1Value.Oid)=x509Read({fromOid(oid.arcs)},owned.drop(n))
+        if(owned[0]==Asn1Value.Start(seq) && owned[1] is Asn1Value.Oid) {
             val oid=owned[1] as Asn1Value.Oid
-            if(owned.getOrNull(2)==Asn1Value.Null && owned.getOrNull(3)==Asn1Value.End(seq)) {
+            if(owned[2]==Asn1Value.Null && owned[3]==Asn1Value.End(seq)) {
                 return if(fromOid(oid.arcs) is X509SignatureAlgorithm.IntrinsicHash) Asn1ParseResult.Failure("fromASN1: X509.SignatureALG: EdDSA requires absent parameter") else success(4,oid)
             }
-            if(owned.getOrNull(2)==Asn1Value.End(seq)) return success(3,oid)
+            if(owned[2]==Asn1Value.End(seq)) return success(3,oid)
         }
         for(nulls in listOf(false,true)) {
             var at=0
-            fun exact(value: Asn1Value): Boolean = owned.getOrNull(at++)==value
-            fun start(): Boolean = owned.getOrNull(at++) is Asn1Value.Start
-            fun end(): Boolean = owned.getOrNull(at++) is Asn1Value.End
-            fun oid(): Asn1Value.Oid? = owned.getOrNull(at++) as? Asn1Value.Oid
+            fun exact(value: Asn1Value): Boolean = owned[at++]==value
+            fun start(): Boolean = owned[at++] is Asn1Value.Start
+            fun end(): Boolean = owned[at++] is Asn1Value.End
+            fun oid(): Asn1Value.Oid? = owned[at++] as? Asn1Value.Oid
             if(!exact(Asn1Value.Start(seq)) || !exact(Asn1Value.Oid(pss)) || !exact(Asn1Value.Start(seq)) || !start() || !exact(Asn1Value.Start(seq))) continue
             val hash=oid() ?: continue
             if((nulls && !exact(Asn1Value.Null)) || !exact(Asn1Value.End(seq)) || !end() || !start() || !exact(Asn1Value.Start(seq)) || !exact(Asn1Value.Oid(mgf)) || !exact(Asn1Value.Start(seq)) || oid()==null) continue
-            if((nulls && !exact(Asn1Value.Null)) || !exact(Asn1Value.End(seq)) || !exact(Asn1Value.End(seq)) || !end() || !start() || owned.getOrNull(at++) !is Asn1Value.IntVal || !end() || !exact(Asn1Value.End(seq)) || !exact(Asn1Value.End(seq))) continue
+            if((nulls && !exact(Asn1Value.Null)) || !exact(Asn1Value.End(seq)) || !exact(Asn1Value.End(seq)) || !end() || !start() || owned[at++] !is Asn1Value.IntVal || !end() || !exact(Asn1Value.End(seq)) || !exact(Asn1Value.End(seq))) continue
             return success(at,hash)
         }
         return Asn1ParseResult.Failure("fromASN1: X509.SignatureALG: unknown format")

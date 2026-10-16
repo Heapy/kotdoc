@@ -60,7 +60,7 @@ object X509PublicKeyCodec: Asn1Object<X509PublicKey> {
         is Asn1ParseResult.Failure -> r
         is Asn1ParseResult.Success -> Asn1ParseResult.Success(X509PublicKeyParsed(r.value.value,r.value.rest))
     }
-    private fun failure(prefix: String,input: X509Input): Asn1ParseResult<X509Read<X509PublicKey>> = x509FailureLazy {prefix+x509List(input.all().asSequence())}
+    private fun failure(prefix: String,input: X509Input): Asn1ParseResult<X509Read<X509PublicKey>> = x509FailureLazy {prefix+x509List(input.sequence())}
     private fun rsa(input: X509Input): Asn1ParseResult<X509Read<X509RsaPublicKey>> {
         if(input[0]==Asn1Value.Start(x509Seq)) {
             val n=input[1] as? Asn1Value.IntVal
@@ -87,6 +87,7 @@ object X509PublicKeyCodec: Asn1Object<X509PublicKey> {
         }
         return x509Failure("fromASN1: RSA.PublicKey: unexpected format")
     }
+    internal fun fromInput(input: X509Input)=decode(input)
     private fun decode(input: X509Input): Asn1ParseResult<X509Read<X509PublicKey>> {
         if(input[0]!=Asn1Value.Start(x509Seq) || input[1]!=Asn1Value.Start(x509Seq) || input[2] !is Asn1Value.Oid) return failure("fromASN1: X509.PubKey: unknown format:",input)
         val oid=(input[2] as Asn1Value.Oid).arcs;val xs=input.drop(3)

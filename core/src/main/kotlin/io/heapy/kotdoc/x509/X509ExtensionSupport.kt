@@ -9,6 +9,13 @@ import io.heapy.kotdoc.layout.CharacterStringChars
 internal class X509Input(private val get: (Int)->Asn1Value?) {
     operator fun get(index: Int)=get.invoke(index)
     fun drop(count: Int)=X509Input {get(it+count)}
+    fun sequence(): Sequence<Asn1Value> = kotlin.sequences.sequence {var i=0;while(true) yield(get(i++) ?: break)}
+    fun view(): List<Asn1Value> = object: AbstractList<Asn1Value>() {
+        override val size get()=all().size
+        override fun isEmpty()=this@X509Input[0]==null
+        override fun get(index: Int): Asn1Value {if(index<0) throw IndexOutOfBoundsException("index: $index");return this@X509Input[index] ?: throw IndexOutOfBoundsException("index: $index")}
+        override fun iterator()=this@X509Input.sequence().iterator()
+    }
     fun all(): List<Asn1Value> = buildList {var i=0;while(true) add(this@X509Input[i++] ?: break)}
     fun split(): Pair<X509Input,X509Input> {
         val cache=mutableListOf<Asn1Value>();var index=0;var depth=0L;var finished=false
@@ -48,12 +55,12 @@ internal fun <A> x509Container(input: X509Input,kind: Asn1ConstructionType,parse
     val (inside,rest)=input.drop(1).split()
     return when(val result=parse(inside)) {
         is Asn1ParseResult.Failure -> result
-        is Asn1ParseResult.Success -> if(result.value.rest[0]!=null) x509FailureLazy {"runParseASN1: remaining state ${x509List(result.value.rest.all().asSequence())}"} else Asn1ParseResult.Success(X509Read(result.value.value,rest))
+        is Asn1ParseResult.Success -> if(result.value.rest[0]!=null) x509FailureLazy {"runParseASN1: remaining state ${x509List(result.value.rest.sequence())}"} else Asn1ParseResult.Success(X509Read(result.value.value,rest))
     }
 }
 internal fun <A> x509Run(result: Asn1ParseResult<X509Read<A>>): Asn1ParseResult<A> = when(result) {
     is Asn1ParseResult.Failure -> result
-    is Asn1ParseResult.Success -> if(result.value.rest[0]!=null) x509FailureLazy {"runParseASN1: remaining state ${x509List(result.value.rest.all().asSequence())}"} else Asn1ParseResult.Success.deferred {result.value.value.value}
+    is Asn1ParseResult.Success -> if(result.value.rest[0]!=null) x509FailureLazy {"runParseASN1: remaining state ${x509List(result.value.rest.sequence())}"} else Asn1ParseResult.Success.deferred {result.value.value.value}
 }
 internal fun x509Binary(bytes: ByteArray,rules: Asn1EncodingRules=Asn1EncodingRules.BER): Asn1ParseResult<X509Input> = when(val r=Asn1BinaryEncoding().decode(bytes,rules)) {
     is Asn1Result.Failure -> x509FailureLazy {r.error.show()}

@@ -52,19 +52,22 @@ object X509ExtensionRawCodec: Asn1Object<X509ExtensionRaw> {
         if(value.critical) yield(Asn1Value.BooleanValue(true))
         yield(Asn1Value.OctetString.deferred {value.content});yield(Asn1Value.End(seq));yieldAll(tail)
     }
-    override fun fromAsn1(values: List<Asn1Value>): Asn1ParseResult<Asn1Parsed<X509ExtensionRaw>> {
-        val owned=values.toList()
+    override fun fromAsn1(values: List<Asn1Value>): Asn1ParseResult<Asn1Parsed<X509ExtensionRaw>> = when(val r=fromInput(X509Input.from(values.toList().asSequence()))) {
+        is Asn1ParseResult.Failure -> r
+        is Asn1ParseResult.Success -> Asn1ParseResult.Success(Asn1Parsed.deferred({r.value.value.value},r.value.rest.view()))
+    }
+    internal fun fromInput(owned: X509Input): Asn1ParseResult<X509Read<X509ExtensionRaw>> {
         var shown=owned
-        if(owned.getOrNull(0)==Asn1Value.Start(seq) && owned.getOrNull(1) is Asn1Value.Oid) {
+        if(owned[0]==Asn1Value.Start(seq) && owned[1] is Asn1Value.Oid) {
             shown=owned.drop(2)
-            val flag=shown.getOrNull(0) as? Asn1Value.BooleanValue
+            val flag=shown[0] as? Asn1Value.BooleanValue
             val at=if(flag==null) 0 else 1
-            val octets=shown.getOrNull(at) as? Asn1Value.OctetString
-            if(octets!=null && shown.getOrNull(at+1)==Asn1Value.End(seq)) {
-                return Asn1ParseResult.Success(Asn1Parsed.deferred({X509ExtensionRaw.deferred({(owned[1] as Asn1Value.Oid).arcs},{flag?.value ?: false},{octets.bytes})},owned.drop(2+at+2)))
+            val octets=shown[at] as? Asn1Value.OctetString
+            if(octets!=null && shown[at+1]==Asn1Value.End(seq)) {
+                return x509Read({X509ExtensionRaw.deferred({(owned[1] as Asn1Value.Oid).arcs},{flag?.value ?: false},{octets.bytes})},owned.drop(2+at+2))
             }
         }
-        return Asn1ParseResult.Failure.deferred {CharacterStringChars.fromString("fromASN1: X509.ExtensionRaw: unknown format:${shown.joinToString(",","[","]")}")}
+        return Asn1ParseResult.Failure.deferred {CharacterStringChars.fromString("fromASN1: X509.ExtensionRaw: unknown format:${x509List(shown.sequence())}")}
     }
 }
 object X509ExtensionsCodec: Asn1Object<X509Extensions> {
@@ -72,6 +75,13 @@ object X509ExtensionsCodec: Asn1Object<X509Extensions> {
         when(val maybe=result.value) {Asn1Maybe.None -> X509Extensions(null);is Asn1Maybe.Some -> X509Extensions.presentDeferred {maybe.value}}
     }
     override fun fromAsn1(values: List<Asn1Value>)=parser.runState(values)
+    internal fun fromInput(input: X509Input): Asn1ParseResult<X509Read<X509Extensions>> {
+        if(input[0]!=Asn1Value.Start(Asn1ConstructionType.Sequence)) return x509Read({X509Extensions(null)},input)
+        return when(val r=x509Container(input,Asn1ConstructionType.Sequence) {x509Many(it,X509ExtensionRawCodec::fromInput)}) {
+            is Asn1ParseResult.Failure -> r
+            is Asn1ParseResult.Success -> x509Read({X509Extensions.presentDeferred {r.value.value.value.map {it.value}}},r.value.rest)
+        }
+    }
     override fun toAsn1(value: X509Extensions): Asn1StreamBuilder = {tail -> toAsn1Stream(value,tail.toList().asSequence()).toList()}
     fun toAsn1Stream(value: X509Extensions,tail: Sequence<Asn1Value> = emptySequence()): Sequence<Asn1Value> = sequence {
         if(value.isPresent) {

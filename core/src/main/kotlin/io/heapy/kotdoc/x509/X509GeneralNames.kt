@@ -31,10 +31,10 @@ private fun dnAttribute(input: X509Input): Asn1ParseResult<X509Read<X509DnAttrib
     val oid=s[0] as? Asn1Value.Oid
     val cs=if(oid!=null) s[1] as? Asn1Value.StringValue else null
     if(oid!=null && cs!=null && s[2]==null) x509Read({X509DnAttribute.deferred({oid.arcs},cs.value)},s.drop(2))
-    else x509FailureLazy {"expecting [OID,String] got ${x509List(s.all().asSequence())}"}
+    else x509FailureLazy {"expecting [OID,String] got ${x509List(s.sequence())}"}
 }
 private fun dnSet(input: X509Input)=x509Container(input,Asn1ConstructionType.Set) {x509Many(it,::dnAttribute)}
-private fun dn(input: X509Input): Asn1ParseResult<X509Read<X509DistinguishedName>> {
+internal fun x509DnFromInput(input: X509Input): Asn1ParseResult<X509Read<X509DistinguishedName>> {
     val result=x509Container(input,x509Seq) {x509Many(it,::dnSet)}
     return when(result) {
         is Asn1ParseResult.Failure -> result
@@ -49,7 +49,7 @@ private fun composed(input: X509Input): Asn1ParseResult<X509Read<X509AltName>> {
     val split=if(next[0]==Asn1Value.Start(x509Context(0))) next.drop(1).split() else null
     val cs=split?.first?.get(0) as? Asn1Value.StringValue
     if(cs==null || split.first[1]!=null) {
-        return x509FailureLazy {"GeneralNames: expecting string for ${if(kind==X509TextNameKind.XMPP) "XMPP" else "DNSSRV"} Addr got: ${split?.let {"Just ${x509List(it.first.all().asSequence())}"} ?: "Nothing"}"}
+        return x509FailureLazy {"GeneralNames: expecting string for ${if(kind==X509TextNameKind.XMPP) "XMPP" else "DNSSRV"} Addr got: ${split?.let {"Just ${x509List(it.first.sequence())}"} ?: "Nothing"}"}
     }
     val chars=cs.value.decodeLazy() ?: return x509Failure("GeneralNames: invalid string for ${if(kind==X509TextNameKind.XMPP) "XMPP" else "DNSSrv"} Addr")
     return x509Read({X509AltName.Text.deferred(kind) {chars}},split.second)
@@ -62,7 +62,7 @@ internal fun x509Addr(input: X509Input): Asn1ParseResult<X509Read<X509AltName>> 
         7L -> return x509Read({X509AltName.IP.deferred {n.bytes}},input.drop(1))
         4L -> return when(val raw=x509Binary(n.bytes,Asn1EncodingRules.DER)) {
             is Asn1ParseResult.Failure -> raw
-            is Asn1ParseResult.Success -> when(val parsed=x509Run(dn(raw.value))) {is Asn1ParseResult.Failure -> parsed;is Asn1ParseResult.Success -> x509Read({X509AltName.DN(parsed.value)},input.drop(1))}
+            is Asn1ParseResult.Success -> when(val parsed=x509Run(x509DnFromInput(raw.value))) {is Asn1ParseResult.Failure -> parsed;is Asn1ParseResult.Success -> x509Read({X509AltName.DN(parsed.value)},input.drop(1))}
         }
     }
     return x509FailureLazy {"GeneralNames: not coping with unknown stream $n"}

@@ -236,3 +236,4 @@ licenses/crypton-BSD-3-Clause.txt -text whitespace=cr-at-eol
 tools/haskell-x509-public-key-reference/OriginalPublicKeyTests.hs -text whitespace=-blank-at-eof
 tools/haskell-x509-typed-reference/OriginalTypedExtensionTests.hs -text whitespace=-blank-at-eof
 tools/haskell-x509-private-key-reference/OriginalPrivateKeyTests.hs -text whitespace=-blank-at-eof
+tools/haskell-x509-certificate-reference/OriginalCertificateTests.hs -text whitespace=-blank-at-eof
