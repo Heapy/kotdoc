@@ -1,0 +1,16 @@
+{
+  "package": "crypton-x509-store",
+  "version": "1.9.0",
+  "url": "https://hackage-content.haskell.org/package/crypton-x509-store-1.9.0.tar.gz",
+  "sha256": "de9193403c11d1fb090083382646be6f6cf68ed984f475d1a0e142f77efb8766",
+  "files": {
+    "ChangeLog.md": "15b7d9770b21c88ce944d482624dda983a49587c49bdc5bd2ff507036b5c0d4b",
+    "Data/X509/CertificateStore.hs": "d4c24c5ceaaffd3edc408b5d2c631130f83fd5bb4da10c0c12956acad815180b",
+    "Data/X509/File.hs": "c0f4ae67eea69afdda098a28d762e26134249a3de11eabfe8c35ae43f9be205b",
+    "Data/X509/Memory.hs": "874c17a3be69d7b7c092fd933a1e0a78506487db98219375a983cad76d4de146",
+    "LICENSE": "43d820ad7c467c6c9cd6eedb385cfe89d1545a48eca4d40bfe3b7bcd80c298cb",
+    "Setup.hs": "e865ae48f11bb84cda2c1b2c0ed0a08ecba1b07d4a37c0d3f79f6ee1cda9f202",
+    "Tests/Tests.hs": "9e5e706b6630928abf8a635a70830aeb5fcb2d13f2b56ef1198781949c57734c",
+    "crypton-x509-store.cabal": "9746160b993c24c175e560e27051dfe4616c6413014712776f1297e2ca8bba8a"
+  }
+}

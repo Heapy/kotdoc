@@ -1,0 +1,19 @@
+{
+  "package": "crypton-x509-validation",
+  "version": "1.9.1",
+  "url": "https://hackage-content.haskell.org/package/crypton-x509-validation-1.9.1.tar.gz",
+  "sha256": "8fcb83401114c7f694d84c543e8f7f96cea60c543a30a770903741d336eece3d",
+  "files": {
+    "ChangeLog.md": "f5f2d2b0692f12aa52dc803aebb7a0749546b9d445530d15633a07ff0acef9a9",
+    "Data/X509/Validation/Cache.hs": "945ec2e89069315e285c97a9790078cf5a68d14c3508862282a2d092fecd6443",
+    "Data/X509/Validation/Fingerprint.hs": "c99ccff89535305569922a297f9fd3396b6520106d847ecb29ce7e953152aa07",
+    "Data/X509/Validation/Signature.hs": "7fb2f1322c73feccff62cb32553ad10837a49020d7c93a3b84380d9116398c97",
+    "Data/X509/Validation/Types.hs": "9a9f23f7baf85b12e3a6a312a039af070ff8204be823d9f5dbd9626099e34b66",
+    "Data/X509/Validation.hs": "ca1d21086ff41d0f4ef58cf36a302b76dd215e390e51b1bed157c64f8ebe3422",
+    "LICENSE": "43d820ad7c467c6c9cd6eedb385cfe89d1545a48eca4d40bfe3b7bcd80c298cb",
+    "Setup.hs": "e865ae48f11bb84cda2c1b2c0ed0a08ecba1b07d4a37c0d3f79f6ee1cda9f202",
+    "Tests/Certificate.hs": "03b5704c9e94bc1f5585a5c4971ed41d13477078bd42eb7bd14c851cdfffba9b",
+    "Tests/Tests.hs": "5664399087ea1adda84eb8fea635916967e5115ffdb5a69db27cd48d83cecbf5",
+    "crypton-x509-validation.cabal": "37c80ec43e82a31ef6e082207a9086fddf91b651700ed155e5300a8d240afbc0"
+  }
+}

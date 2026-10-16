@@ -10935,3 +10935,89 @@ remaining native ABIs, TLS parameters/certificate stores/validation/engine and
 remaining resource-I/O integration still require translation and verification.
 The full Pandoc port/all tests, calibre MOBI/all tests, and additional formats
 absent from Pandoc/all their tests remain the unchanged objective.
+
+### PEM and the raw ASN.1 substrate for X.509
+
+The preceding goal turn made concrete progress with 68b970f. Its full CI run
+**38862524725** has now completed successfully on both Linux and Windows,
+including **26,894 actual Windows tests** with native CP932/initial CodePage
+execution. The next TLS dependency audit found that the system-store adapter
+was retained but its certificate parsing dependencies and lower binary layers
+were missing. Semantic search remains unavailable in this sandbox; the audit
+followed the pinned dependency freeze and concrete upstream modules.
+
+Retained complete source archives, tests, original notices and per-file SHA-256
+manifests for **crypton-x509 1.9.2**, **crypton-x509-store 1.9.0**,
+**crypton-x509-validation 1.9.1**, **crypton-pem 0.3.0**,
+**crypton-asn1-types 0.4.1**, **crypton-asn1-encoding 0.10.0**,
+**crypton-asn1-parse 0.10.0** and **base64 1.0**. Archive identifiers/hashes are
+pinned explicitly in the importer. The original Get module's additional
+Lennart Kolmodin/Galois 2009 notice is preserved in binary distribution notices,
+as well as the original Vincent Hanquez package license.
+
+Kotlin implements PEM sections, structural equality/Show, strict and chunked
+reading/writing, exact delimiters and one-CR line handling, line-local Base64,
+Char8 truncation of names/header keys, 48-byte output splitting and the original
+header writer/parser mismatch. It uses a port of base64 1.0's standard padded
+ByteString encode/decode and validity paths, including size checks, canonical
+padding bits and exact error priority/offsets. It does not substitute a lenient
+Base64 decoder. Lazy Sequence input stops at the original parser's error and
+does not force a failing later chunk.
+
+The raw ASN.1 layer implements classes, lengths, headers, events and errors;
+Int/Integer conversion helpers; Get result continuations and choice buffering;
+header reading/writing; incremental ParseState; strict/lazy event parsing; and
+raw event writing. Machine Int is modeled with the pinned hosts' 64-bit Long,
+while parser positions/construction ends preserve Word64 wrapping. Incomplete
+headers/primitives retain their continuations across feeds. Empty raw-parser
+feeds do not flush Get, whereas explicitly feeding an empty Get continuation
+signals insufficient input. The source's choice position behavior is preserved:
+backtracking restores buffered bytes but keeps the failed branch's position.
+The raw writer also preserves the original empty ConstructionEnd serialization,
+including indefinite constructions; it does not silently insert an EOC.
+
+`tools/haskell-certificate-binary-reference` compiles **22 unchanged original
+modules directly from vendor**, with only the actual base64 version CPP branch
+selected for PEM. The observer contains projections/input programs, not a second
+implementation of parsing or encoding. The original complete PEM test/Main.hs
+is compiled unchanged as a second executable: all **four unit cases** and its
+marshalling property pass **1,000 generated cases** with seed 9122.
+
+The independent fixture has **12,331 observations**, **136 source hashes**, and
+semantic SHA-256 **f656219acc37d78aa89ff8ad16877da1254f7c3c49dfecde1d5b5eca678c4833**.
+It includes the verbatim PEM unit inputs, **1,000 PEM marshalling-domain
+observations**, **1,000 original ASN.1 Header properties**, **1,000 original
+ASN.1 Event properties**, strict/lazy chunk boundaries, malformed frames,
+Base64 table bytes/error conflicts, nested EOC/length boundaries, integer
+wrap/truncation, Get choice/EOF behavior, exact raw/PEM Show, and exceptions in
+unneeded lazy tails. A separately compiled Linux/x86_64 GHC 9.12.2 observer agrees
+with every macOS/aarch64 observation. Kotlin compares complete outputs and every
+incremental event/done/result trace, not only successful round trips.
+
+macOS/aarch64 JDK 21 passes **157,825 selected HTTP/environment/encoding/binary
+cases** in a 72s Gradle build. All **30 XML suites** are parsed with matching
+declared/actual counts: **157,826 cases**, zero failures/errors, and only the
+actual Windows Registry skip. Linux/x86_64 independently passes the same
+**157,825 cases** (76.363s JUnit), with no failed/aborted tests or containers.
+All **160 source/fixture verifiers** pass (38.8s), with the final binary-source
+manifest separately rechecked after adding explicit archive pins. CI requires
+**12,331 binary cases** and **39,225 total Windows cases**, without skips;
+Windows execution of this checkpoint awaits its pushed CI run.
+
+The core and installed JARs match. All **2,887 preexisting classes** remain
+byte-identical; **53 new PEM/ASN.1 classes** bring the core to **2,940**.
+Only Kotlin module metadata changes among old JAR entries. All **343 HTTP
+classes**, **22 TLS error classes**, **250 Pandoc assets**, **six native ABI
+assets**, the CodePage table asset and **60,137-byte PSL** remain exact.
+All **86 full notices** are packaged, including the nine new source/license
+notices. CLI and dependency JAR bytes remain unchanged.
+
+This is a real binary prerequisite, not a completed certificate store or TLS
+implementation. High-level ASN.1 values/strings/bit arrays/OIDs, typed BER/DER
+primitive conversion and its remaining DER/Real properties, hourglass-compatible
+dates, ParseASN1 combinators, X.509 signed objects/certificates/keys/extensions,
+store lookup/merging/platform loading, validation/signatures/fingerprints/cache,
+TLS parameters/handshake/ciphers/sessions and resource-I/O integration remain.
+Base64 URL/typed/lenient/text APIs and their tests are retained but not claimed
+as implemented. The full Pandoc port/all tests, calibre MOBI/all tests and
+additional formats absent from Pandoc/all their tests remain the unchanged goal.

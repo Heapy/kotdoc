@@ -1,0 +1,27 @@
+{
+  "package": "crypton-x509",
+  "version": "1.9.2",
+  "url": "https://hackage-content.haskell.org/package/crypton-x509-1.9.2.tar.gz",
+  "sha256": "7da68d3b512dbb42261f37f16337741677f40409d33fe6b3b508e49f861c1a4f",
+  "files": {
+    "ChangeLog.md": "2db55b0caba95f2df56b501c1973efdd3a399e321c69b7c2f13e41393192657e",
+    "Data/X509/AlgorithmIdentifier.hs": "19957ed22dcebceec4420e9f911f18d567c6a01c3297160ba62e9dd9c6f0c794",
+    "Data/X509/CRL.hs": "5fb0114f0f68b05e4a074559436866e5021b09dd353a09b885b572b475efbdc4",
+    "Data/X509/Cert.hs": "8c9a7cfce821f3137274bd236f33abd72db48cfa5acb8d4923f88e12b53e2863",
+    "Data/X509/CertificateChain.hs": "8a8385be49d9a3cfa81cd4afa29d703f990db4533f74feb78cce4025ff1dce3b",
+    "Data/X509/DistinguishedName.hs": "86b5db9f9245af052662667254b98653d61082bb0380ed8f4853a4525f94a8fc",
+    "Data/X509/EC.hs": "da579c67ab34596b0e845906ab8a869577572feb916ecb39b605ff6e827ac5ff",
+    "Data/X509/Ext.hs": "c8572098830469f9145c693a610fd14c735a4bb9d345c2cac5e9e8d2517a8c10",
+    "Data/X509/ExtensionRaw.hs": "ea089e3812347e3e70472ba6ab1e7e2f8d3a601eae361f9526e66d00e4351121",
+    "Data/X509/Internal.hs": "73a6ceb9dd744186ca7ec37e68bcac9428b0b4fb132986209b26d2adddd3d882",
+    "Data/X509/OID.hs": "94ae4526ce8b818c2d867d043e2200860877e9db4273df66908c6df78af98a86",
+    "Data/X509/PrivateKey.hs": "c9a1f84aa22cfdbcca2bd46693f12ed731c1aa7071639c07043ee18bb3691dfb",
+    "Data/X509/PublicKey.hs": "65cea47adec95e322d35c4a3ea12780d75cba4560c02173cdcb8878f693f5550",
+    "Data/X509/Signed.hs": "6d2062c88172dcb6a19e644658e130aa9002c9c1986ef0a8165fabe88c501704",
+    "Data/X509.hs": "f7c4deb02cb01470e32aa1348816aa50a2081b83b00591a34d49f7a9bdb80697",
+    "LICENSE": "43d820ad7c467c6c9cd6eedb385cfe89d1545a48eca4d40bfe3b7bcd80c298cb",
+    "Setup.hs": "e865ae48f11bb84cda2c1b2c0ed0a08ecba1b07d4a37c0d3f79f6ee1cda9f202",
+    "Tests/Tests.hs": "988ec580ea86433797ad6c28645636f90e7e9668d948a09b0936f605529cdf13",
+    "crypton-x509.cabal": "46ab52660e020a53d9c60b36db71eeb63230b5be2123efaec2e37ffa3a56c067"
+  }
+}
