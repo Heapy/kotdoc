@@ -12784,3 +12784,81 @@ generator, primality, serialization and other cryptographic operations/tests,
 native TLS integration and previously recorded fidelity/platform/stress gaps
 also remain. Full Pandoc/all tests, calibre MOBI/all tests and every additional
 format absent from Pandoc/all tests remain the required end state.
+
+
+## Fixed-width binary-field ECC engine (2026-10-16)
+
+Translated the portable software backend and complete scalar-multiplication
+algorithm of pinned crypton 2.0.1 `cbits/crypton_f2m.c`. It retains the original
+four interleaved bit groups for 32-bit carry-less products, the 64-bit
+composition, multiword product, bit-spreading square, destructive sparse-term
+reduction, XOR field operations, Fermat inversion and masked coordinate swaps.
+The x-only Montgomery ladder performs one differential addition and doubling
+per scalar bit, then retains all three source recovery paths: infinity,
+negation of the input and one-inversion affine coordinate recovery.
+
+The polynomial parser retains its eight-lower-term limit, degree/width guards,
+original limb layout, coordinate overflow/zero-x rejection and return statuses.
+A valid point with x=0 is deliberately unsupported by this layer, including
+all eighteen named binary curves' order-two points; the public affine fallback
+is still pending. The public polynomial temporary is freed without wiping as
+upstream, while the 14*n-word secret workspace is cleared before release.
+Controlled failures of each calloc and free order/contents are independently
+observed. Borrowed unaligned byte spans, output aliases and buffer guards
+retain the native results. Bounded reducible/noncanonical polynomial captures
+observe the C contract without inventing a field validity guarantee or replacing
+its reducer at exact 64-bit degree boundaries and unusually close lower terms.
+
+The mechanically checked observer keeps the entire native source and all
+arithmetic bodies, adding only external renaming and read-only counters,
+cswap-address recording and a snapshot immediately after the scalar loop.
+Primitive observations cover every single-bit operand pair at 32 and 64 bits,
+dense/alternating and lane boundaries, all 65,536 sixteen-bit spread inputs,
+full-word spread inputs, one through thirty-three limbs, generic and host
+hardware-dispatched products, destructive scratch, field aliases, reduction
+and fixed Fermat inversion. Kotlin uses the source's portable backend. PMULL
+and PCLMULQDQ instructions are not exposed as JVM intrinsics here; execution
+on other CPUs and hardware acceleration/performance parity remain unverified.
+
+All eighteen named binary curves have base/non-base, order and wide-scalar
+observations. The four original binary-tests names and all eleven scalar
+expressions are mechanically extracted without editing test bodies. There are
+**1,652 independent affine doubleAndAdd coordinate expectations**, computed by
+the original Haskell test independently of the native ladder. All 256 byte
+scalars on each of four curves have identical captured ladder-operation counts
+and ordered cswap-address schedules. Final recovery intentionally short-circuits
+infinity/negation and is not claimed to take identical total work. These finite
+schedule checks are not a JVM/JIT/GC/hardware timing proof. Real memory pressure,
+huge array sizes, other native ABIs and runtime timing remain unverified.
+
+The development reference also runs the entire original ECCSpec body unchanged:
+**124 examples pass**, seed 1729, max-success 200 with the original per-property
+20-case limit. This is oracle validation; public ECC/P-256/subgroup tests are
+not counted as already ported to Kotlin. Only the module declaration and
+appended mechanically extracted binary-input helpers differ from upstream.
+
+The independent corpus has **75,544 observations**, **451 source hashes** and
+semantic SHA-256
+**d2d53a7e5d6ed8f24d436b78031042bee271a820fdfc6e9f5a8bc6d8ebeb7a7f**.
+Generation, complete native C/independent affine Haskell replay, the new Kotlin
+suite and all **183 source/fixture verifiers** pass. The final JDK 21 regression passes
+**720,993 tests across twenty-six crypto/ASN1/X509/hourglass suites**, with exact
+XML/case counts and no failures/errors/skips. Windows CI now requires
+**747,887 tests**. The preceding aa427142 Windows gate passes its 672,343 cases;
+its full Linux job remains live at this observation. Both jobs for b2050201
+now pass.
+
+The installed CLI native/JSON/native round-trip passes. Standalone and installed
+core JARs are byte-identical, with **3,440 classes** and **90 byte-exact notices**.
+All **559 nonmetadata baseline resource assets** remain byte-exact, and none of
+the **3,131 retained baseline classes** is missing. New binary backend bytecode
+has no BigInteger reference; no upstream executable or native crypto library
+is a production dependency for these operations.
+
+The Haskell prime/binary wrappers, permanent lazy named-base cache, binary
+Integer/affine fallbacks, specialized P-256, public point/scalar operations and
+their remaining original tests are pending. Signature/trust/chain verification,
+remaining number/generator/primality/serialization and cryptographic tests,
+native TLS integration and the previously recorded fidelity/platform/stress
+gaps also remain. Full Pandoc/all tests, calibre MOBI/all tests and every
+additional format absent from Pandoc/all tests remain the required end state.
