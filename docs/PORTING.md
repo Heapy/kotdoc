@@ -13151,3 +13151,44 @@ original-generator replays of the nine table properties, JSON roundtrip and
 Figure property, and remaining Read/ordering/inventory audit remain pending.
 This checkpoint does not complete local:611, all pandoc-types semantics, full
 Pandoc/tests or the subsequent calibre MOBI/additional-format stages.
+
+
+## P-256 redundant Montgomery field headers (2026-10-16)
+
+Ported both complete pinned crypton 2.0.1 `p256_gf.h` headers: nine alternating
+29/28-bit limbs for include32 and five alternating 51/52-bit limbs for include64,
+with R=2^257. Kotlin preserves carry/degree reduction, sum/difference, square/mul,
+assignment, scalar3/4/8, variable-time zero normalization and both Montgomery
+conversions. All constants and **840 precomputed table limbs** are transcribed
+from pinned sources. The 64-bit profile uses unsigned128 low/high pairs; neither
+profile replaces field arithmetic with BigInteger or native cryptography.
+
+A mechanical extractor verifies constants, product expressions, reducer control
+flow and instrumented header copies. Independent native observations compare
+ordinary outputs, mutations and guards against unchanged C on each profile.
+Read-only traces retain products, normalized scratch arrays, each elimination
+half, carry reduction, zero-normalization passes and cleared conversion buffers.
+The corpus has **8,440 observations**, **17 source hashes**, semantic SHA-256
+**8b0410e671ed68f1bee317a405199b37c7aa27ff2f644ac1b82803252b250da4**.
+Exact whole-object aliases and nonzero aligned offsets are checked. Ordinary
+field-range operations additionally have independent Python modular-congruence
+checks; arbitrary raw degree arrays and labelled wider sums claim raw parity.
+
+Independent source review, exact extraction and full original/observed native
+replay pass. The final JDK 21 build disables build cache and filesystem watching
+and uses in-process compilation: all ten requested tasks execute. Fresh XML
+contains **8,457 field tests** plus **79,946 word tests**, **88,403 actual tests**
+total with no failures/errors/skips. `core:jar` and `installDist` pass; standalone
+and installed core JARs are byte-identical, contain all five field classes with
+no BigInteger references, and retain the byte-exact original P-256 notice.
+
+Native expectations preserve source range counterexamples: 46 include32 scalar8
+observations exceed the stated expanded output bound, and 150 labelled include64
+no-word-overflow sums exceed ordinary field limb bounds. They are recorded in
+manifest.rangeExcess, never corrected to fit comments. Both profiles run on the
+current 64-bit host; actual 32-bit OS ABI, invalid pointers/buffers, arbitrary
+partial overlaps/type-punning, self-overlapping memcpy, timing and secure-erasure
+parity remain outside the evidence. This checkpoint does not port the point
+engine/public P256 API or complete local:613; public ECC/ECDH/subgroup tests,
+other crypto/trust/TLS work, full Pandoc/all tests and subsequent calibre stages
+remain required.
