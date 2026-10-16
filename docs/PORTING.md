@@ -12862,3 +12862,83 @@ remaining number/generator/primality/serialization and cryptographic tests,
 native TLS integration and the previously recorded fidelity/platform/stress
 gaps also remain. Full Pandoc/all tests, calibre MOBI/all tests and every
 additional format absent from Pandoc/all tests remain the required end state.
+
+
+## Basic numbers and BE/LE integer serialization (2026-10-16)
+
+Added all seven `Crypto.Number.Basic` operations and all public/raw operations
+from `Crypto.Number.Serialize`, `.LE`, `.Internal` and `.Internal.LE` for the
+pinned crypton 2.0.1/GHC 9.12.2/integer-gmp configuration. This provides the
+shared numeric widths and pointer serialization needed by the pending ECC
+wrappers. Zero has zero bits/bytes in this backend; signed sizes use the
+magnitude and nonpositive logarithms are zero. The source's sqrti algorithm is
+translated with its actual selected pair of bounds, which is not replaced by
+a generic floor/ceiling square-root pair. Power-of-two/odd decomposition retains
+signed results, and areEven preserves element/spine short-circuiting.
+
+Extended GCD preserves the exact observed GMP coefficient selection, including
+signs, equal magnitudes and half-period ties, rather than accepting any Bezout
+identity. Its result constructor and three components have separate demand
+boundaries. The old integer-gmp wrapper computes the second coefficient by a
+division by b: at b=0, x and gcd are available but demanding y throws the
+original divide-by-zero error. Deferred arguments preserve entry/error order.
+The retained GHC/bignum sources document the native normalization and zero/sign
+handling; the actual legacy wrapper call site and pinned GHC/GMP oracle supply
+independent observations. Retained GMP source delegates ties to mpz_gcdext,
+so no unsupported source-level claim about GMP's internal tie algorithm is made.
+
+Both endian serializers retain minimal output, the special one-byte public
+unpadded zero, fixed-width padding, Maybe constructor versus payload and the
+unsafe wrapper's exact failure text. Their internal API records return counts,
+partial/no writes, nonpositive sizes, prefix import, unaligned offsets and
+complete prefilled guard buffers. The strict size binding demands the integer
+even if the requested output size is invalid. Zero export writes no magnitude
+bytes after padding, matching pinned GHC; the ordinary raw i2osp zero case
+instead writes one byte and returns one.
+
+The public unpadded i2osp contract specifies a nonnegative integer. For negative
+input its native callback writes no bytes into the allocated result; the corpus
+therefore captures its deterministic allocation length without inventing byte
+contents from uninitialized storage. Kotlin arrays start zeroed. Equality of
+unspecified negative-result bytes, allocator/native memory behavior and memory
+disclosure parity is not claimed. Controlled negative raw-pointer requests do
+preserve every prefilled byte. Invalid pointers, enormous sizes, actual resource
+pressure, other GHC/integer backends and runtime timing remain unverified.
+
+The complete original NumberSpec is retained with only its module/export
+changed. All **21 original examples** in this slice pass in the native Hspec
+run: five basic-number properties, six marshalling properties and ten known
+answers. Every property runs **200 cases**, seed 1729. Kotlin ports their
+expressions, reuses actual QAInteger/Int1_2901/Positive samples and all five
+original 128-byte/decimal vectors, and additionally checks exact generated
+widths, factors and output bytes. Generator/primality and other NumberSpec
+examples are not counted as part of this slice.
+
+The independent corpus contains **57,574 observations**, **454 source hashes**
+and semantic SHA-256
+**f5fe66194ba741559c7048eedf6936de81f59b47b49e52d0c8679660ac57d3bc**.
+Dense signed values, exact GMP-selected coefficients through 4096 bits,
+perfect-square neighbours, endian/padding/overflow cases, strict error order,
+lazy components and list tails are captured. Generation, complete independent
+GHC replay, all new Kotlin cases and all **184 source/fixture verifiers** pass.
+The final JDK 21 regression passes
+**778,567 tests across twenty-seven crypto/ASN1/X509/hourglass suites**, with
+exact XML/case counts and no failures/errors/skips. Windows CI now requires
+**805,461 tests**. The preceding a21d6c2a Windows gate passes its 747,887 cases;
+its Linux job remains live at this observation. The aa427142 Windows gate also
+passes, while its Linux job remains live.
+
+The installed CLI native/JSON/native round-trip passes. Installed and standalone
+core JARs are identical, contain **3,445 classes** and **90 byte-exact notices**,
+retain all **559 nonmetadata baseline resource assets** byte for byte and lose
+none of the **3,131 retained baseline classes**. Production does not invoke
+Haskell or GMP for these operations. Basic-number operations are variable-time;
+this module is not a replacement for the separately ported secure limb core.
+
+ECC prime/binary wrappers, the permanent lazy named-base cache, binary
+Integer/affine fallback, specialized P-256, public point/scalar operations and
+remaining original ECC tests are pending. Number generation/primality,
+signature/trust/chain verification, remaining cryptographic operations/tests,
+native TLS integration and previously recorded fidelity/platform/stress gaps
+remain. Full Pandoc/all tests, calibre MOBI/all tests and every additional
+format absent from Pandoc/all tests remain the required end state.
