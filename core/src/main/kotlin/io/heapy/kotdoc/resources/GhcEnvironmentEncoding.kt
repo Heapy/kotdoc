@@ -25,7 +25,7 @@ internal class GhcEnvironmentEncoding(
     private val failureMode: GhcCodingFailureMode = if (ignoreFailures) GhcCodingFailureMode.Ignore else GhcCodingFailureMode.Roundtrip,
     private val uncheckedLatin1: Boolean = false,
     allowNativeSuffix: Boolean = false,
-) {
+) : GhcCStringCodec {
     private val normalized = buildString { name.codePoints().forEach { if (it != 45) appendCodePoint(RegexCharacters.toUpper(it)) } }
     private val builtin = when {
         normalized in listOf("UTF8", "UTF16", "UTF16LE", "UTF16BE", "UTF32", "UTF32LE", "UTF32BE") -> normalized
@@ -87,7 +87,7 @@ internal class GhcEnvironmentEncoding(
     }
 
     /** Raw 32-bit GHC Char slots: iconv can produce values beyond Unicode. */
-    fun decode(bytes: ByteArray): IntArray = if (builtin == null) iconv(bytes) else buildList<Int> {
+    override fun decode(bytes: ByteArray): IntArray = if (builtin == null) iconv(bytes) else buildList<Int> {
         fun appendCodePoint(value: Int) { add(value) }
         fun b(i: Int) = bytes[i].toInt() and 255
         var at = 0
@@ -191,9 +191,11 @@ internal class GhcEnvironmentEncoding(
      * an already emitted BOM or iconv shift state. The returned bytes exclude
      * the final C terminator, but the caller's reservation affects retries. */
     fun encodeIgnoringErrors(points: IntArray, nullTerminate: Boolean = true): ByteArray =
-        encodeCString(points, nullTerminate, GhcCodingFailureMode.Ignore)
+        encodeWithMode(points, nullTerminate, GhcCodingFailureMode.Ignore)
 
-    fun encodeCString(original: IntArray, nullTerminate: Boolean = true, mode: GhcCodingFailureMode = failureMode): ByteArray {
+    override fun encodeCString(points: IntArray, nullTerminate: Boolean): ByteArray = encodeWithMode(points, nullTerminate, failureMode)
+
+    private fun encodeWithMode(original: IntArray, nullTerminate: Boolean, mode: GhcCodingFailureMode): ByteArray {
         // recoverEncode TRANSLIT mutates the original C Char buffer. Keep those
         // mutations across retries, but never modify the caller's Kotlin array.
         val points = original.copyOf()
@@ -308,6 +310,7 @@ internal class GhcEnvironmentEncoding(
     }
 
     companion object {
+        internal fun isBuiltin(name: String, normalized: String): Boolean = normalized in listOf("UTF8", "UTF16", "UTF16LE", "UTF16BE", "UTF32", "UTF32LE", "UTF32BE") || name in asciiNames || name in latin1Names
         private val asciiNames = listOf("ANSI_X3.4-1968", "iso-ir-6", "ANSI_X3.4-1986", "ISO_646.irv:1991", "US-ASCII", "us", "IBM367", "cp367", "csASCII", "ASCII", "ISO646-US")
         private val latin1Names = listOf("ISO_8859-1:1987", "iso-ir-100", "ISO_8859-1", "ISO-8859-1", "latin1", "l1", "IBM819", "CP819", "csISOLatin1")
         private val library by lazy { NativeLibrary.getInstance(if (Platform.isMac()) "iconv" else Platform.C_LIBRARY_NAME) }

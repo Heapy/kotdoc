@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/ghc/ghc",
+  "revision": "383be28ffdddf65b57b7b111bfc89808b4229ebc",
+  "files": {
+    "libraries/ghc-internal/codepages/MakeTable.hs": "e3ba0a9cbae2f6a281ebab5e428f11ebc2991e5165dd1937bad4f59c160977ea",
+    "libraries/ghc-internal/codepages/Makefile": "3f180b348ed4e27c5a824d1d1a6af5c1cb23184d8b7c08830fb9203ca2bcadb8",
+    "libraries/ghc-internal/src/GHC/Internal/IO/Encoding/CodePage.hs": "cfc8ae90337da172b4b3e622cd258198ded6d6c1d5cc751aa0d1b965864bcd3a",
+    "libraries/ghc-internal/src/GHC/Internal/IO/Encoding/CodePage/API.hs": "3e60a0d3ba1bf422209bf8cb8ba7c1ded53debb9b18db4f1f6aac5ef125adfe9",
+    "libraries/ghc-internal/src/GHC/Internal/IO/Encoding/CodePage/Table.hs": "13154b952eb84b35d81c521826a3fd3e5ce8a6a173fdf54f13017c5dd85d9f8b",
+    "libraries/ghc-internal/src/GHC/Internal/IO/Buffer.hs": "bf5088b7cd8de1eccbbd39f40d7dbd9c6a9bd960cbe703c1af7ed473a4c1de1e"
+  }
+}

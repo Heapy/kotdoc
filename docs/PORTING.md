@@ -10850,3 +10850,88 @@ the actual TLS engine and integration with the remaining resource-I/O seams are
 still incomplete. The full Pandoc port/all tests, calibre MOBI/all tests and
 additional formats absent from Pandoc/all their tests remain the unchanged
 objective.
+
+### Windows CodePage tables, API buffers and initial encodings
+
+The preceding goal turn made concrete progress with 38b52be's shared encoding
+settings. Its full Linux CI run **38859450799** passed; the Windows job exposed
+one test-protocol encoding failure after 22,030 cases. The child JVM's stdout
+encoding could replace the Russian JSON string even though Kernel32 wide
+lookup itself was correct. The protocol now writes UTF-8 bytes explicitly.
+Its isolated regression test forces US-ASCII stdout and verifies a Russian
+string before the native binding observation. This fixes the observer without
+changing wide environment behavior. The preceding 4d06372 run **38857107790**
+has now completed successfully on both Linux and Windows.
+
+Pinned GHC **383be28ffdddf65b57b7b111bfc89808b4229ebc** CodePage.hs, API.hs,
+Table.hs, IO.Buffer and the table generator/Makefile are retained in
+`vendor/ghc-codepage-9.12.2`. Kotlin now implements console-page selection with
+ACP fallback, the shared lazy currentCodePage snapshot, all 29 compact single-
+byte tables, special UTF page dispatch, Windows CP-number Read grammar and
+case-sensitive builtin aliases. Initial locale/filesystem/foreign encodings
+use their original Error/Roundtrip/Ignore modes and the same page snapshot;
+the former explicit Windows initializer failure is removed. POSIX still uses
+its native iconv path. No Java Charset is substituted for CodePage behavior.
+
+The API path implements CPINFO's 18-byte Storable layout (with 20-byte safe
+native backing), per-encoder/decoder GetCPInfo validation, stateless Win32
+calls, default-character rejection, shrinking prefix search, binary search,
+UTF16/Char buffer conversion and original progress/reset ordering. Recovery
+and CString retry/reservation loops retain input mutations across retries
+without modifying caller-owned arrays. Native Kernel32 calls capture their
+Win32 error before further effects. CodePage descriptors remain lazy: an
+invalid page's name is available, but opening even an empty CString fails.
+
+The **11,414-byte** production asset is derived from the original compact
+arrays, preserving their indices, duplicate/undefined mappings and signed
+Int16-to-Char slots. **301,357** decoder/encoder entries are independently
+observed through the original Haskell table functions, including raw Char
+values outside Unicode. They are not expectations produced by the Kotlin
+loader or a reversed decoder map.
+
+`tools/haskell-codepage-reference` compiles unchanged CodePage/API algorithms,
+the complete original generated Table, the Windows mkTextEncoding' branch and
+scoped instances of the original locale CAF. Only module/import/effect seams
+are adapted; host CWchar is explicitly Word16. Original GHC UTF16 codecs,
+CString loops and failure recovery remain the oracle. Controlled Win32 effects
+provide DBCS/BMP/astral/malformed output, errors, default flags and writes before
+failure. Tests compare complete effect traces, buffer sizes/cursors, fatal
+branches and outputs. Low-level source bSearch can read past the logical input
+end: both observers use an identical initialized 64-element backing canary to
+make these observations physically in-bounds and deterministic, preserving
+logical metadata. This does not assert defined behavior for native accesses
+outside their backing allocation.
+
+The fixture contains **4,861 observations**, **22 source hashes**, and semantic
+SHA-256 **3edac3b355f38e01c7d1f6c10dd7c9dea7a315c49b16b4252dccac71d56c4a29**.
+An independent Linux/x86_64 GHC 9.12.2 build agrees with every macOS/aarch64
+observation. Additional Windows-only tests execute actual Kernel32 CP932
+Japanese conversion, truncated sequences, recovery, lazy invalid GetCPInfo
+and initial page selection. CI explicitly requires **4,864 CodePage cases**
+and **26,894 total Windows cases**, with no skips. Actual Windows execution
+of this checkpoint is pending its pushed CI run; POSIX effect tests alone do
+not establish Windows runtime validation.
+
+macOS/aarch64 JDK 21 passes **145,494 selected HTTP/environment/encoding tests**
+in a 73s Gradle build. Its **145,495 cases** contain only the real Windows
+Registry skip; all **29 XML suites** have matching declared/actual counts and
+zero failures/errors. Linux/x86_64 independently passes the same **145,494
+cases** (76.080s JUnit), with no failed/aborted tests or containers. All **159
+source/fixture checks** pass (38.8s); the final CodePage source manifest is
+separately rechecked after documentation updates.
+
+Core/installed JAR identity, all **343 unchanged HTTP classes**, **22 TLS error
+classes**, **77 complete notices**, **250 Pandoc assets**, **six native ABI
+assets**, the **60,137-byte PSL** and the new table asset are verified. Of
+**2,857 preexisting classes**, **2,849** are byte-identical. Changed entries
+are limited to the encoding interfaces/implementation and Kotlin module
+metadata. GhcCodingFailureMode has identical javap bytecode/descriptors with
+shifted debug source locations. Every other preceding JAR entry and all
+CLI/dependency JAR bytes remain unchanged.
+
+This checkpoint does not complete GHC's runtime or document conversion. General
+streaming BufferCodec/Handle APIs, complete machine-width and RTS semantics,
+remaining native ABIs, TLS parameters/certificate stores/validation/engine and
+remaining resource-I/O integration still require translation and verification.
+The full Pandoc port/all tests, calibre MOBI/all tests, and additional formats
+absent from Pandoc/all their tests remain the unchanged objective.

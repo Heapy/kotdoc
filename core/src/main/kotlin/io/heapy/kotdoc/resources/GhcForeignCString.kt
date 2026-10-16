@@ -16,8 +16,8 @@ internal object GhcLocaleEncodingName {
 }
 /** Foreign encoding uses IgnoreCodingFailure, independently of filesystem
  * RoundtripFailure. Character slots remain distinct from UTF-16 code units. */
-class GhcForeignCString private constructor(private val name: () -> String, private val encoding: () -> GhcEnvironmentEncoding) {
-    private constructor(name: String, codec: GhcEnvironmentEncoding) : this({ name }, { codec })
+class GhcForeignCString private constructor(private val name: () -> String, private val encoding: () -> GhcCStringCodec) {
+    private constructor(name: String, codec: GhcCStringCodec) : this({ name }, { codec })
     constructor(encodingName: String) : this(encodingName, GhcEnvironmentEncoding(encodingName, ignoreFailures = true))
     constructor(encoding: GhcTextEncoding) : this({ encoding.textEncodingName }, { encoding.codec })
     val encodingName: String get() = name()

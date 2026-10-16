@@ -40,7 +40,7 @@ internal class GhcEncodingState(
  * later writes. POSIX native initializers use the shared locale-name snapshot. */
 object GhcEncodings {
     private fun initial(mode: GhcCodingFailureMode): GhcTextEncoding {
-        if (Platform.isWindows()) throw NotImplementedError("GHC Windows CodePage initial encoding backend is not ported")
+        if (Platform.isWindows()) return GhcCodePages.locale.encoding(mode)
         return GhcTextEncoding.mkTextEncodingWithMode(GhcLocaleEncodingName.initial, mode)
     }
     private val state = GhcEncodingState(

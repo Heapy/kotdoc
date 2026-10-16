@@ -7,6 +7,7 @@ import io.heapy.kotdoc.errors.GhcIoError
 import io.heapy.kotdoc.errors.IoErrorType
 import io.heapy.kotdoc.parsing.RegexCharacters
 import java.io.IOException
+import com.sun.jna.Platform
 import io.heapy.kotdoc.layout.CharacterStringChars as Chars
 
 enum class GhcCodingFailureMode(val suffix: String) {
@@ -16,11 +17,11 @@ enum class GhcCodingFailureMode(val suffix: String) {
 /** Configurable GHC C-string codecs. Each call opens fresh encoder/decoder
  * state; the suffix configures recovery and is not part of textEncodingName. */
 class GhcTextEncoding private constructor(private val definition: Lazy<Definition>) {
-    private class Definition(val name: String, val mode: GhcCodingFailureMode, val codec: GhcEnvironmentEncoding)
-    private constructor(name: String, mode: GhcCodingFailureMode, codec: GhcEnvironmentEncoding) : this(lazyOf(Definition(name, mode, codec)))
+    private class Definition(val name: String, val mode: GhcCodingFailureMode, val codec: GhcCStringCodec)
+    private constructor(name: String, mode: GhcCodingFailureMode, codec: GhcCStringCodec) : this(lazyOf(Definition(name, mode, codec)))
     val textEncodingName: String get() = definition.value.name
     val failureMode: GhcCodingFailureMode get() = definition.value.mode
-    internal val codec: GhcEnvironmentEncoding get() = definition.value.codec
+    internal val codec: GhcCStringCodec get() = definition.value.codec
     fun decode(bytes: ByteArray): IntArray = codec.decode(bytes)
     /** Excludes the C terminator; its reservation still affects GHC retries. */
     fun encode(points: IntArray, nullTerminate: Boolean = true): ByteArray = codec.encodeCString(points, nullTerminate)
@@ -40,17 +41,28 @@ class GhcTextEncoding private constructor(private val definition: Lazy<Definitio
         internal fun deferred(initializer: () -> GhcTextEncoding): GhcTextEncoding =
             GhcTextEncoding(ghcEncodingLazy { initializer().definition.value })
 
-        fun mkTextEncoding(name: String): GhcTextEncoding {
+        internal fun fromCodec(name: String, mode: GhcCodingFailureMode, codec: GhcCStringCodec) = GhcTextEncoding(name, mode, codec)
+
+        fun mkTextEncoding(name: String): GhcTextEncoding = parseTextEncoding(name, if (Platform.isWindows()) GhcNativeCodePageApi else null)
+
+        internal fun mkWindowsTextEncoding(name: String, api: GhcCodePageApi): GhcTextEncoding = parseTextEncoding(name, api)
+
+        private fun parseTextEncoding(name: String, windowsApi: GhcCodePageApi?): GhcTextEncoding {
             val encoding = name.substringBefore('/')
             val suffix = name.substring(encoding.length)
             val mode = GhcCodingFailureMode.entries.firstOrNull { it.suffix == suffix }
                 ?: throw GhcIOException(GhcIoError(IoErrorType.NoSuchThing, Chars.fromString("mkTextEncoding"),
                     Chars.fromString("unknown encoding:$name")))
-            return mkTextEncodingWithMode(encoding, mode)
+            return mkTextEncodingWithMode(encoding, mode, windowsApi)
         }
 
-        internal fun mkTextEncodingWithMode(encoding: String, mode: GhcCodingFailureMode): GhcTextEncoding {
+        internal fun mkTextEncodingWithMode(encoding: String, mode: GhcCodingFailureMode, windowsApi: GhcCodePageApi? = if (Platform.isWindows()) GhcNativeCodePageApi else null): GhcTextEncoding {
             val normalized = buildString { encoding.codePoints().forEach { if (it != 45) appendCodePoint(RegexCharacters.toUpper(it)) } }
+            if (windowsApi != null && !GhcEnvironmentEncoding.isBuiltin(encoding, normalized)) {
+                val cp = GhcCodePages.parseNumber(normalized)
+                    ?: throw GhcIOException(GhcIoError(IoErrorType.NoSuchThing, Chars.fromString("mkTextEncoding"), Chars.fromString("unknown encoding:$encoding${mode.suffix}")))
+                return GhcCodePages.encoding(cp, mode, windowsApi)
+            }
             val canonical = when (normalized) {
                 "UTF8" -> "UTF-8"
                 "UTF16" -> "UTF-16"

@@ -64,8 +64,8 @@ class GhcTextEncodingTest {
         for (direct in listOf(true, false)) for (mode in GhcCodingFailureMode.entries) {
             val ascii = if (direct) GhcEnvironmentEncoding("ASCII", failureMode = mode) else GhcTextEncoding.mkTextEncoding("ASCII${mode.suffix}").codec
             val latin = if (direct) GhcEnvironmentEncoding("latin1", failureMode = mode) else GhcTextEncoding.mkTextEncoding("latin1${mode.suffix}").codec
-            fun decode(enc: GhcEnvironmentEncoding, points: IntArray) = enc.decode(points.map(Int::toByte).toByteArray())
-            fun encode(enc: GhcEnvironmentEncoding, points: IntArray) = enc.encodeCString(points, false).map { it.toInt() and 255 }.toIntArray()
+            fun decode(enc: GhcCStringCodec, points: IntArray) = enc.decode(points.map(Int::toByte).toByteArray())
+            fun encode(enc: GhcCStringCodec, points: IntArray) = enc.encodeCString(points, false).map { it.toInt() and 255 }.toIntArray()
             val asciiInvalid = when (mode) {
                 GhcCodingFailureMode.Error -> null
                 GhcCodingFailureMode.Ignore -> intArrayOf(126,127,127,126)

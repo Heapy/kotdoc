@@ -1,0 +1,11 @@
+cabal-version: 3.0
+name: kotdoc-codepage-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable codepage-reference
+  main-is: CodePageReference.hs
+  other-modules: OriginalCodePage, OriginalCodePageAPI, OriginalCodePageTable, OriginalWindowsEncoding, OriginalLocaleCodePage, CodePageEffects
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, ghc-internal, ghc-prim, aeson ==2.2.3.0, bytestring ==0.12.2.0

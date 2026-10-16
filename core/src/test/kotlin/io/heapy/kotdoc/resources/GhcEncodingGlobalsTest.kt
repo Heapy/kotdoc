@@ -185,11 +185,14 @@ internal object EncodingGlobalsObserve {
 object GhcEncodingGlobalsChild {
     @JvmStatic fun main(args: Array<String>) { System.`in`.bufferedReader().lineSequence().forEach { line ->
         val request = Json.parseToJsonElement(line).jsonObject
-        println(when (request["api"]?.jsonPrimitive?.content) {
+        val result = when (request["api"]?.jsonPrimitive?.content) {
             "wide" -> EncodingGlobalsObserve.windowsWide()
+            "protocol" -> JsonPrimitive("Русский")
             "resolverBindings" -> EncodingGlobalsObserve.resolverBindings()
             else -> EncodingGlobalsObserve.native(request)
-        })
+        }
+        System.out.write((result.toString() + "\n").toByteArray(Charsets.UTF_8))
+        System.out.flush()
     } }
 }
 
@@ -204,7 +207,7 @@ class GhcEncodingGlobalsTest {
                 .map { Path.of(it.protectionDomain.codeSource.location.toURI()).toString() }.toMutableList()
             System.getProperty("kotdoc.root")?.let { locations.add(Path.of(it, "core/src/main/resources").toString()) }
             val java = Path.of(System.getProperty("java.home"), "bin", "java").toString()
-            val p = ProcessBuilder(java, "-cp", locations.distinct().joinToString(File.pathSeparator), GhcEncodingGlobalsChild::class.java.name)
+            val p = ProcessBuilder(java, "-Dstdout.encoding=US-ASCII", "-cp", locations.distinct().joinToString(File.pathSeparator), GhcEncodingGlobalsChild::class.java.name)
                 .redirectInput(input.toFile()).redirectOutput(output.toFile()).redirectErrorStream(true).start()
             try {
                 assertTrue(p.waitFor(45, TimeUnit.SECONDS), "isolated encoding observer timed out")
@@ -240,7 +243,7 @@ class GhcEncodingGlobalsTest {
             assertEquals(listOf(expected), child(listOf(buildJsonObject { put("api", "wide") })))
         } else DynamicTest.dynamicTest("default resolver and canonical-name memory binding follow shared encoding changes") {
             val expected = Json.parseToJsonElement("""{"resolver":[[[195,191],[]],[[255],[255]],[[63,63],[65533]],[[63,63],[255]]],"memory":[[],[255]],"frees":4}""")
-            assertEquals(listOf(expected), child(listOf(buildJsonObject { put("api", "resolverBindings") })))
+            assertEquals(listOf(JsonPrimitive("Русский"), expected), child(listOf(buildJsonObject { put("api", "protocol") }, buildJsonObject { put("api", "resolverBindings") })))
         }
     )
 
