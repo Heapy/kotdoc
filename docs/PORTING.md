@@ -13598,3 +13598,34 @@ broken-parameter domains, GHC reflection/bottom, general timing/physical erasure
 and other native host profiles remain unproved. Owned SharedSecret bytes and
 best-effort cleanup do not establish hardware scrubbing. Local:613 and later
 calibre stages are not completed by this checkpoint.
+
+
+### Calibre source registrations and directional format inventory
+
+Pinned calibre 9.16.0 source inventory reconciles eighteen setup groups with
+76 primary factory append routes, retaining original imports, OS/group
+conditions, kwargs and exact factory/call spans. Four package-loader routes
+retain immediate modules including __init__ and excluding main, without
+executing imports/loadTestsFromModule. The complete 1,633 tracked Python/
+RapydScript code-file catalog matches pinned Git blobs. Its 811 test_-named
+function/method declarations and 143 named factories are source units, not
+runtime/inherited/generated tests. RapydScript's 134 files and Qt/webengine
+runner remain a separate dialect and unresolved runtime registration scope.
+
+Forty-two builtin conversion classes (22 input/20 output) yield 49 UI input
+tokens; Plumber's additional OEBZIP route yields fifty supported source input
+tokens and twenty output tokens. The seventy directional rows preserve twelve
+exact Pandoc registry names, six filename-inference targets, a separate PDF
+engine output route and fifty-one unmatched-direction rows. Names/inference
+do not establish semantic equivalence; archive inputs, HTML-in-ZIP output, OEB
+directories and optional KEPUB viewing normalization remain distinct routes.
+
+Independent source audit, ten new focused regressions and canonical snapshot
+verification pass; the implementation worker's full twenty-six negative cases
+pass. A redundant reviewer negative run was stopped after worker completion;
+it is not claimed as another full run. No calibre imports, setup/plugin
+initialization, assertions or conversions executed. All new records remain
+unmapped; runtime availability/counts, factory/import/inheritance/generated
+closure, fixture expectations and Kotlin mappings stay open. Full Pandoc
+acceptance still precedes MOBI6/KF8/old-Kindle and additional calibre format
+implementation. This inventory does not complete local:622 or the full port.

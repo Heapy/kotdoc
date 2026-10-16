@@ -150,14 +150,14 @@ Before local:622 can complete:
 
 - Map each Command/Old assertion to independently reviewed executable Kotlin CLI
   behavior, preserving options, stderr/status and normalizers.
-- Expand remaining reader/writer/common helper/list/comprehension templates into
-  runtime leaves, and audit Lua dynamic/platform and CPP/feature-dependent variants.
+- Attribute captured reader/writer/common runtime leaves to precise source
+  expectations, and audit other Lua/platform/CPP/feature-dependent variants.
 - Resolve dependency flags, embedded doctests, tests outside exact test directories
   and non-Cabal runners; current discovery does not claim every dependency test.
 - Reconcile calibre's runtime registry with static candidates, exclusions,
   platforms, dynamic factories, embedded tests and standalone/RapydScript runners.
-- Derive directional additional-format input/output matrices from calibre and
-  Pandoc registries, retaining aliases/containers; MOBI/AZW3 are not the full scope.
+- Resolve semantic equivalence/runtime availability for the source directional
+  format matrix below, retaining aliases/containers; MOBI/AZW3 are not the full scope.
 - Finish reviewed existing-slice mappings and full generator/shrinker/Read/ordering
   acceptance; preserve all original fixtures, notices and explicit deviations.
 
@@ -332,5 +332,83 @@ establishes no omitted **retained Cabal declared roots**, not no omitted global
 dependency tests. Exact missing releases, source/import registration closure,
 embedded prompt grouping, standalone targets, generated factories, all effective
 OS/toolchain profiles, runtime leaves, independent expectation attribution and
-Kotlin mappings remain open. Calibre factory/embedded and directional-format
-reconciliation remains the next separate checkpoint. Full local:622 is incomplete.
+Kotlin mappings remain open. The calibre source checkpoint below starts the
+separate factory/embedded and directional-format reconciliation; runtime closure
+remains pending. Full local:622 is incomplete.
+
+## Calibre source registries and directional formats
+
+This checkpoint reads pinned calibre **9.16.0** at
+`61c4027d2bfe737e0177e09952ee4942042a5892` using Python AST/source only.
+It imports no calibre modules, runs no setup/plugin initialization, and executes
+no assertions or conversions. All new records remain **unmapped**. This is
+inventory work; calibre implementation remains sequenced after full Pandoc.
+
+The complete primary declarations reconcile **18 setup groups** with **76 factory
+append routes** in `calibre.utils.run_tests.find_tests`. Every original append
+must be recognized exactly once; imports, group predicates, OS conditions and
+kwargs such as `only_build=True`/`return_tests=True` are preserved. Each route
+retains its exact original factory definition and call sites. Embedded MOBI
+writer resources, PalmDOC, TXT and archive input tests are included even though
+their modules are not test-named files. The Windows-only route and `TestImports`
+class are explicit. Availability and runtime leaf/assertion counts stay unknown.
+
+Four `find_tests_in_package` routes expand their retained immediate modules:
+server12, database14, polish7 and tinycss8, including `__init__.py`, excluding
+`main.py`. The original loader accepts `.pyc` too and deduplicates basenames;
+the source profile contains `.py` files. This is a module-registration expansion,
+not runtime `loadTestsFromModule` execution or a claim about inherited/dynamic
+cases. Other factory call expressions remain source evidence, with closure gaps.
+
+The code catalog checks **1,633 original tracked Python/RapydScript files** against
+pinned Git blobs. It retains **811 `test_`-named source function/method declarations**,
+their decorators and original assertion expressions/source hashes, plus **143
+named factory declarations** throughout the source tree. These are source units,
+not executed tests; loop/subTest, inheritance, generated methods and helper/fixture
+expectations are not multiplied into runtime counts. RapydScript's **134 sources**
+are a separate dialect, never fed to Python AST. `TestRS`, its original Qt/webengine
+runner body, `src/pyj/test.pyj` and decorator registration helper are linked, while
+compiled decorator/import/runtime expansion remains pending.
+
+The builtin conversion registry has **42 registered classes:22 input/20 output**.
+Every imported conversion class must occur exactly once in builtin registration;
+class ancestry and literal `file_types`/`file_type` declarations determine direction.
+Calibre UI declares **49 input tokens** including its ZIP/RAR extras and **20 output
+tokens**. Plumber's additional OEBZIP archive route raises supported source input
+tokens to **50**. ZIP/RAR/OEBZIP archive registrations are reconciled against
+`ARCHIVE_FMTS`; existing output directories select OEB. These containers, plugin
+aliases and optional `kepub` viewing normalization remain distinct source routes.
+
+The **70-row directional matrix** compares those tokens with the exact pinned
+Pandoc **52-reader/76-writer** registries and filename inference rules. It records
+12 exact directional names, six extension-inference targets, one separate PDF
+engine output route and 51 rows without a corresponding pinned direction route.
+Neither name nor extension matching establishes semantic conversion equivalence.
+In particular `.txt` infers Markdown; `.djvu`/`.zip` inference deliberately does
+not supply readers; PDF input differs from PDF engine output; calibre ZIP output
+is HTML-in-ZIP, and OEB is a directory route. Pandoc's named registry aliases retain
+individual records and their shared implementations rather than being deduplicated.
+
+Remaining no-matching-direction tokens are:
+
+| Direction | Calibre tokens |
+|---|---|
+| Input | azw, azw3, azw4, cb7, cbc, cbr, cbz, chm, djv, djvu, docm, downloaded_recipe, fbz, htmlz, kepub, lit, lrf, mobi, oebzip, opf, pdb, pdf, pml, pmlz, pobi, prc, rar, rb, recipe, shtm, shtml, snb, tcr, txtz, updb, xhtm, zip |
+| Output | azw3, htmlz, kepub, lit, lrf, mobi, oeb, pdb, pmlz, rb, snb, tcr, txtz, zip |
+
+These rows preserve requirements; they do not assert that every token is a separate
+serialization or that related containers are equivalent. Runtime plugin availability
+can change with disabled/custom/system plugins, initialization failures, platform,
+Qt/native dependencies and resources. No runtime profile was initialized here.
+
+```sh
+python3 tools/calibre-test-inventory.py
+python3 tools/check-test-inventory-calibre.py
+python3 tools/build-test-inventory.py
+```
+
+Global local:622 remains incomplete: runtime factory/inheritance/generated leaf
+closure, independently attributed fixture/helper expectations, other embedded and
+RapydScript runners, all dependency/platform profiles and executable Kotlin mappings
+still require acceptance. Neither retained source nor source assertions complete
+the upstream port or start calibre implementation.
