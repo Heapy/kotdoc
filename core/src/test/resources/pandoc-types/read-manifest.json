@@ -23,7 +23,7 @@
     "licenses/pandoc-types-BSD-3-Clause.txt": "9f0bd78c71eacf3a7824bf5ac7215a1b3d6a2714dc740f261064934c2c721596",
     "licenses/GHC-base-BSD-3-Clause.txt": "768c070bd0b7d820d169ee8153d5487acfc262cbbc10dfce18d05c0bb2d2800d",
     "licenses/text-BSD-2-Clause.txt": "cf522e3d53b8d1768695fe5b66438baf4514fcd64b7a95739960f2f5b50c6ee8",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt": "bd74abcaacf699cd1de08856f2d8ffa9facfc2769c4e6ab15965202314358df1",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt": "8f2ee9fc0e40beeec5bbd175ca8b50657320ee26f6e1de5c2750b8f8dc0a6483",
     "core/src/test/kotlin/io/heapy/kotdoc/ast/PandocReadTest.kt": "974981129d7f266ca788d6028ef05d028d9178a05518f57ff6aa69e7c3021a32",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt": "2a87312003b0352a00da023947ec191c0f4e61bc3584e24484dec68d0ccdbb12",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "9d46a4df889f535e88eec8c020f27f7b29c4c8c5fe7258b4c04c374628155fc5",

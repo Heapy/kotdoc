@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "tools/import-native-read-integration-fixtures.py": "8a6c3197147b8f2d47bcb6fd420b440e9285bd0547643c6855ec20965685290d",
+    "upstream/pandoc/src/Text/Pandoc/Readers/Native.hs": "43c20f40f6bc8cefca28a1fac883518a82aee9d9d3ea75ee2683c90f46247280",
+    "upstream/pandoc/src/Text/Pandoc/Shared.hs": "d9ac006d8fd005068fec34c98b961e6a4e4823aab6637442f08774c1bf5e016a",
+    "upstream/pandoc/src/Text/Pandoc/Sources.hs": "ce2bebef685c2200cf4bb3793ddd7d05062091402b1cbfeb3dc6909703e1f1f8",
+    "upstream/pandoc/pandoc.cabal": "eb3fae7031e48e8d24808b44b515e764e6d6eaa68e13144e428245fef8568886",
+    "upstream/pandoc-types/src/Text/Pandoc/Definition.hs": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+    "vendor/ghc-9.12.2/GHC/Internal/Read.hs": "e0833138d2c19e83c5f18148366ba61a1a7c141c6a590b7c94a540be85e7221f",
+    "core/src/main/kotlin/io/heapy/kotdoc/formats/NativeReader.kt": "b57669cdfcc258a7796ea5c779a89c622b6e0db2f2b5bdb158820b70788f8053",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt": "8f2ee9fc0e40beeec5bbd175ca8b50657320ee26f6e1de5c2750b8f8dc0a6483",
+    "core/src/test/kotlin/io/heapy/kotdoc/formats/NativeReadIntegrationTest.kt": "3a35a179af7e99f72205b9bf787b69fd77f8b620c09f2e6f2072f6bde59955b5"
+  },
+  "payloadSha256": "cfa9d5cd57a40516153161792c83190c0311c495d9e7d359c9e997ba8d4f2208",
+  "cases": 268,
+  "oracleVersion": "pandoc 3.12.1\nFeatures: +server +lua\nScripting engine: Lua 5.4\nUser data directory: /Users/yoda/.local/share/pandoc\nCopyright (C) 2006-2025 John MacFarlane. Web:  https://pandoc.org\nThis is free software; see the source for copying conditions. There is no\nwarranty, not even for merchantability or fitness for a particular purpose.\n",
+  "command": [
+    "pandoc",
+    "-f",
+    "native",
+    "-t",
+    "json"
+  ]
+}

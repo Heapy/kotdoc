@@ -12,7 +12,7 @@ Source authority: pinned upstream/pandoc-types/{src/Text/Pandoc/{Arbitrary,Defin
 | Ten explicit shrink families | `Arbitrary.hs:36-111,114-142,178-211,309-346` | `fde33c3346204ff8f2eee836ef445fd302a0bdc4`: 134 named lists, all1,114,112 Char, six demand probes; focused XML33,284; supplements665c5da | Covered named finite gateB, all constructors and represented known-spine demand; no general GHC evaluation runtime claimed |
 | Nine inherited empty shrink families | `Arbitrary.hs:288-307,348-407`; QuickCheck `Arbitrary.shrink` default | `cdf2b84906e91b1baad740738564855677966acb`: 270 original inputs, nine explicit Kotlin APIs; compound Citation/Alignment hooks retained | Covered original default no-op semantics on the represented inputs; standalone generator domain remains gateA |
 | All original registered tests | `test/test-pandoc-types.hs:tests` | Existing 56 paired JSON literals and two table literals; exact Walk evidence above | All 81 source registrations have concrete Kotlin mappings and executed finite evidence in remaining-property-manifest.json; whole semantic API and other gates remain open |
-| Derived Read | Definition.hs23 data/newtypes; Builder.hs Many; native GHC dictionaries | Current review checkpoint:16,954 native requests,25 concrete dictionaries/79 constructors+5 aliases, all four methods | Finite typed matrix implemented and tested; independent review pending. NativeReader integration remains separate |
+| Derived Read | Definition.hs23 data/newtypes; Builder.hs Many; native GHC dictionaries | Accepted06317ca31379e7fb09a1c4579d4167e50f55d62a:16,954 native requests,25 concrete dictionaries/79 constructors+5 aliases, four Read class methods plus Prelude.read | Finite typed matrix independently accepted. NativeReader integration is the next checkpoint below |
 | Eq/Ord | Definition.hs derived/manual dictionaries; Builder.hs Many | Existing `AstComparison`, 75,470 independent observations, source dictionary dumps | Audit open; retain existing implementation unless a concrete gap/defect is demonstrated |
 | Whole public semantic API | exports/instances of Definition/Walk/Builder/Generic | Existing typed AST/builders/visitor/table helpers | Open: enumerate every export/instance and assign native evidence; missing APIs block611 closure |
 
@@ -262,3 +262,54 @@ were finalized before final expanded Gradle session22091. It passed in1m58s:
 actual51,844 Read/types/Native regression cases plus nine separately selected FB2
 goldens, all zero failures/errors/skips. All seven source verifiers and diff checks
 pass. Renewed independent review remains pending; local:611 is still open.
+
+
+## NativeReader integration checkpoint
+
+Typed Read is accepted in06317ca31379e7fb09a1c4579d4167e50f55d62a: independent
+16,954 native byte-exact replay, unchanged prior14,308 requests/responses and
+128MiB high-ambiguity stress passed. The final Gradle51,853 count included nine
+separately selected FB2 golden assertions, not additional types source rows.
+
+The Native reader now follows exact Text.Pandoc.Readers.Native fallback order:
+Pandoc, [Block], Block, [Inline], Inline. Shared.safeStrRead accepts the first
+reads result only when its remainder is entirely isSpace; it does not require
+uniqueness. Thus empty [] chooses blocks, while ambiguous Text character-list
+syntax remains accepted. The accepted parser receives only an internal first-
+result adapter (ambiguity cap1); its public Read/ReadS behavior and retained
+expected payloads are unchanged. The Read manifest refresh changes only this
+production source pin, not any original response or payload hash.
+
+A new207-case original Pandoc3.12.1 CLI oracle retains raw stdout/stderr/status
+for all five roots, uppercase octal/hex escapes, Text character lists, nullary
+and empty-list fallback, EOF/Unicode whitespace/comment rejection, exact failure
+message, nested duplicate parses and31..1024-field first-result demand. Deep
+32/128/256 inputs exercise all five entry shapes. Existing Native fixtures and
+expectations remain untouched. Isolated execution passed all207 new cases plus
+1,424 existing Native assertions and16,954 accepted Read assertions:18,585 with
+zero failures. Final Gradle92971 passed in2m12s: actual52,060 cases, zero
+failures/errors/skips (previous51,844 plus207 integration cases and nine FB2
+goldens). All nine source verifiers and diff checks pass; independent review
+remains required. Remaining225 Eq/Ord,174 Walk and140 module-owned export
+rows still require closure; this integration does not complete611.
+
+
+Native review found the ToSources Text boundary step missing: Sources.hs77–78
+filters every raw CR before Read, including CR embedded in constructor names,
+quoted strings or numeric escape digits. NativeReader now performs that filter
+once before fallback; public typed Read still preserves its own raw CR semantics.
+The61 new original CLI cases distinguish raw CR from escaped backslash-r and
+exercise constructor/record/list/numeric/string boundaries under all five roots.
+The earlier207 native responses remain byte-for-byte unchanged; total268 cases
+have198 accepted inputs. Isolated execution passed18,646 assertions (268 new,
+1,424 existing Native and16,954 Read). Final Gradle60984 passed in1m57s:
+actual52,121 cases, zero failures/errors/skips, including268 integration cases and
+nine separately selected FB2 goldens. All nine source verifiers and diff checks
+pass. The authorized FB2 freeze/capture tool verified its eight relevant sources
+before/after and retained fresh6+3 XML assertions with exact command/log/JDK;
+no inventory mapping logic was changed. Renewed independent review is required.
+
+This Kotlin entry accepts String corresponding to upstream ToSources Text.
+Upstream ToSources Sources identity and [(FilePath,Text)] per-chunk newline/source
+position handling are separate unrepresented multi-source APIs; this checkpoint
+must not be described as implementing those overloads or completing all Pandoc.

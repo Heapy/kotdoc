@@ -13751,3 +13751,28 @@ real32-bit ABI proof. JVM timing/constant-time execution, physical erasure and
 address-layout parity remain unproved. Public Haskell/modern X25519 adapters,
 X448/Edwards, remaining cryptography/trust/TLS, full Pandoc/tests and subsequent
 calibre stages remain open. This does not close local:613.
+
+
+### Native reader integration with typed Read and Text normalization
+
+NativeReader now uses the accepted typed Read dictionaries in the original
+Pandoc, [Block], Block, [Inline], Inline fallback order. Internal first-result
+adapters cap ambiguity demand at one, matching Shared.safeStrRead rather than
+Prelude.read uniqueness; the public typed Read API and its duplicate results
+remain unchanged. The ToSources Text boundary filters every raw CR before
+parsing, including constructor names, quoted strings and numeric escape digits;
+escaped backslash-r remains content. Whitespace remainder checking and the final
+"couldn't read native" error retain source behavior.
+
+Independent original Pandoc 3.12.1 CLI replay matches all 268 captured responses
+byte-for-byte, including the unchanged earlier 207 cases and 61 CR cases; 198
+inputs succeed. Saved fresh Gradle60984 XML independently counts 52,121 actual
+tests with zero failures/errors/skips: 268 integration cases, 16,954 typed Read,
+preceding types/Native checks and nine separately captured FB2 executions.
+Native and typed Read source/payload checks and scoped diff checks pass.
+
+This String entry corresponds to upstream ToSources Text; the Sources identity
+instance and labeled multi-source chunk/newline API are not claimed. General
+lazy ReadS/runtime equivalence remains outside the finite adapter contract.
+225 Eq/Ord, 174 Walk and full public export/effect audit remain open, as do
+local:611, full Pandoc/tests and subsequent calibre stages.

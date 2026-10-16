@@ -38,6 +38,13 @@ class ReadDictionary<A> internal constructor(private val shape: ReadShape) {
     /** GHC list parser ignores enclosing precedence and resets each element to zero. */
     fun readListPrec(precedence: Long, input: CharacterString) = ReadDictionary<List<A>>(ReadShape.Items(shape)).readsPrec(precedence,input)
     fun readListPrec(precedence: Long, input: String) = readListPrec(precedence,CharacterStringChars.fromString(input))
+    /** Pandoc safeStrRead demands the first result, without testing uniqueness. */
+    internal fun readFirst(input:String):Pair<A,CharacterString>? = try {
+        val parser=ReadCursor(CharacterStringChars.fromString(input).points(),ambiguityLimit=1)
+        @Suppress("UNCHECKED_CAST") val value=parser.parse(shape,0) as A
+        value to parser.remaining()
+    } catch(_:NoTypedRead) { null }
+    internal fun readListFirst(input:String) = ReadDictionary<List<A>>(ReadShape.Items(shape)).readFirst(input)
     fun read(input: CharacterString): A {
         // Prelude.read only demands enough alternatives to distinguish zero/one/many.
         val parser=ReadCursor(input.points(),ambiguityLimit=2)
@@ -198,7 +205,7 @@ private class ReadCursor(private val points:IntArray,private val ambiguityLimit:
                     repeat(groups) { expect(")") }
                     if(s.element==ReadShape.Prim.CHAR && !quoted) {
                         val product=multiplicity.toLong()*(groups.toLong()+1)
-                        if(ambiguityLimit==2) multiplicity=minOf(product,2).toInt()
+                        if(ambiguityLimit<=2) multiplicity=minOf(product,ambiguityLimit.toLong()).toInt()
                         else {
                             require(product<=Int.MAX_VALUE) { "Read result exceeds JVM List capacity" }
                             multiplicity=product.toInt()
