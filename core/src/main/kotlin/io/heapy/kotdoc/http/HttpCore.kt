@@ -46,6 +46,8 @@ object HttpCore {
         exception is HttpContentException && exception.failure == HttpFailureContent.ConnectionClosed -> emptyList()
         exception is HttpRequestException && exception.failure == HttpFailureContent.ConnectionClosed -> emptyList()
         exception is HttpResourceVanishedException -> emptyList()
+        exception is io.heapy.kotdoc.errors.GhcIOException &&
+            exception.error.type == io.heapy.kotdoc.errors.IoErrorType.ResourceVanished -> emptyList()
         else -> throw exception
     }
 }

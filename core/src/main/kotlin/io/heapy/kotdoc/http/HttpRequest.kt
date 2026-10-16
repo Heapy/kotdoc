@@ -101,7 +101,7 @@ sealed interface HttpRequestBody {
 data class HttpStreamFileStatus(val fileSize: Long, val readSoFar: Long, val thisChunkSize: Int)
 
 /** Request policy hooks remain effects; requestBuilder calls only the body hook.
- * Response checking/redirect/cookie/manager behavior is owned by the transport. */
+ * Response checking/redirect/cookie/manager behavior is owned by HttpExecution. */
 data class HttpRequest(
     val method: HttpBytes = HttpBytes.pack("GET"),
     val secure: Boolean = false,
@@ -127,6 +127,10 @@ data class HttpRequest(
     val shouldStripHeaderOnRedirect: (HttpHeaderName) -> Boolean = { false },
     val shouldStripHeaderOnRedirectIfOnDifferentHostOnly: Boolean = false,
     val hostAddress: UInt? = null,
+    val requestManagerOverride: HttpManager? = null,
+    val checkResponse: (HttpRequest, HttpResponse<HttpBodyReader>) -> Unit = { req, res ->
+        if (req.checkStatus) HttpRequests.throwErrorStatusCodes(req, res)
+    },
 ) {
     fun show(): String = buildString {
         fun field(name: String, value: Any) { append("  ").append(name.padEnd(21)).append("= ").append(value).append('\n') }
@@ -226,8 +230,15 @@ object HttpRequests {
     fun applyBearerAuth(token: HttpBytes, request: HttpRequest) = header("Authorization", HttpBytes.pack("Bearer ") + token, request)
     fun addProxy(host: HttpBytes, port: Long, request: HttpRequest) = request.copy(proxy = HttpProxy(host, port))
     fun addProxySecureWithoutConnect(request: HttpRequest) = request.copy(proxySecureMode = ProxySecureMode.ProxySecureWithoutConnect)
-    fun setRequestIgnoreStatus(request: HttpRequest) = request.copy(checkStatus = false)
-    fun setRequestCheckStatus(request: HttpRequest) = request.copy(checkStatus = true)
+    fun setRequestIgnoreStatus(request: HttpRequest) = request.copy(checkStatus = false, checkResponse = { _, _ -> })
+    fun setRequestCheckStatus(request: HttpRequest) = request.copy(checkStatus = true, checkResponse = ::throwErrorStatusCodes)
+    fun throwErrorStatusCodes(request: HttpRequest, response: HttpResponse<HttpBodyReader>) {
+        if (response.status.code in 200..299) return
+        val body = HttpBodies.readSome(response.body, 1024).fold(HttpBytes.empty, HttpBytes::plus)
+        throw HttpRequestException(request, HttpFailureContent.StatusCodeException(
+            HttpResponse(response.status, response.version, response.headers, Unit, response.close,
+                response.originalRequest, response.early, response.cookieJar), body))
+    }
     fun needsGunzip(request: HttpRequest, headers: List<HttpHeader>) = !request.rawBody &&
         headers.any { it.named("content-encoding") && it.value == HttpBytes.pack("gzip") } &&
         request.decompress(headers.firstOrNull { it.named("content-type") }?.value ?: HttpBytes.empty)

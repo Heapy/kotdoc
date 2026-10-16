@@ -10147,3 +10147,112 @@ local-server/httpbin suites remain pending. The full original Pandoc readers/
 writers/App/Lua and all tests, followed by calibre MOBI/all tests and other
 formats absent from Pandoc/all their tests, remain required without narrowing
 that objective.
+
+### HTTP request execution, manager overrides and response history
+
+This checkpoint translates http-client **0.7.19 Core** request execution and
+Client.hs **responseOpenHistory/withResponseHistory** into Kotlin. HttpExecution
+uses the existing manager, keyed pool, wire builder, response/body readers,
+CookieJar, redirect policy and native POSIX raw connector. Haskell or another
+external converter is not a production dependency.
+
+The execution layer includes httpRaw/httpRaw', ordinary streaming responseOpen,
+withResponse, strict httpLbs, httpNoBody, responseOpenHistory/withResponseHistory
+and interactive withConnection. Request manager overrides select the manager
+before its modifyRequest hook. Ordinary responseOpen retains the original
+initial modification and per-hop modification, initial-manager exception/
+response hooks and final-request status hook. History retains its distinct
+path: no ordinary header validation/status/modifyResponse wrapper, per-hop
+manager selection and the source's separate final-request reference. The
+replaceable requestAction effect is a volatile function on each execution
+instance, including the shared system instance.
+
+Raw requests apply prepared proxy policy, evict expired cookies before selection,
+insert the Cookie header and update response jars at the original two clock
+boundaries. Set-Cookie headers remain in the response: the original discards
+the header-stripped second result from updateCookieJar. Redirects carry jars,
+strip/restore selected headers using the existing original policy, and retain
+302/303 method/body replacement. Ordinary redirectCount=0 disables following;
+history still follows its first redirect and can then raise TooManyRedirects.
+Chronological public history retains the first whole chunks reaching 1024 bytes;
+the existing loop then performs its second body flush before close. Exception
+history remains reverse chronological. The original request provenance of body
+exceptions is retained separately for ordinary and history APIs.
+
+Request/checkResponse and requestManagerOverride fields now carry the original
+effects. Status helpers replace a custom checker and preserve the earlier
+checkStatus compatibility flag. Non-2xx checks consume the original whole-chunk
+prefix and throw StatusCodeException with a unit-body response and strict bytes.
+ConnectionTimeout, InvalidRequestHeader and StatusCodeException include original
+Show/precedence; HistoriedResponse record Show is independently observed too.
+Structured GhcIOException/ResourceVanished now follows handleClosedRead's original
+condition instead of requiring the earlier special marker subclass.
+
+Connection timeout selection uses request, manager and original 30-second defaults.
+The connection acquisition budget subtracts exact picosecond elapsed time, uses
+Haskell's ties-to-even round and signed 64-bit Int conversion, and passes the
+remaining budget to the response header parser. Failed sends/header acquisition
+release DontReuse; only a reused connection and a retryable direct exception
+restart the action. Body failures do not retry. The system boundary uses JVM
+interruption and explicitly discards a connector result arriving after timeout
+or cancellation, including connectors that ignore interruption. This proves
+resource ownership at this boundary, not the complete GHC asynchronous runtime.
+
+The original withConnection expression binds finally to keepAlive more tightly
+than <*. A failing user action therefore relies on Managed's finalizer; the
+port retains that observed behavior. withResponse/withResponseHistory bracket
+both normal and throwing callbacks and close their final response.
+
+The development observer compiles **the complete original Core function bodies**
+and the original history declarations with GHC **9.12.2**, the retained freeze
+and preceding visibility-only http-client package. Changes are restricted to
+module/import visibility, controlled getCurrentTime/acquisition/header timer
+effects and unused datatype deriving dictionaries. The importer reconstructs
+and checks every copied body. Original Manager/KeyedPool/Request/Response/Cookies
+and makeConnection still execute. Expected retry, clock arithmetic, status,
+redirect/history, cookie and release algorithms are never copied into a second
+observer implementation or generated from Kotlin.
+
+There are **1,771 independent original-code observation groups**, with **815
+source hashes**, covering nine APIs, actual pool reuse, two-manager override and
+hook ordering, limits, two body flushes, same/different-host header stripping,
+cookies and retained Set-Cookie, pre/post-body exception boundaries, bracket
+ownership, wire bytes, header validation, timeout selection and picosecond rounding.
+The final semantic corpus SHA256 is
+`9059bf3b64797aa6af43ac1677dab5a321325c18bf56ae0d0b27327e3d54a300`.
+They include ClientSpec-derived header/redirect scenarios; they are not labeled
+as the complete original local-server suite.
+
+Six integration units exercise the actual native POSIX manager transport:
+keep-alive history with cookies/header stripping, stale pooled connection retry,
+ordinary/history redirectCount=0 differences, closing an unconsumed response on
+callback failure, header timeout/discard, and timed-out/interrupted late connector
+ownership. The last unit tests both timeout and cancellation against a connector
+that deliberately ignores interruption.
+
+All selected HTTP/environment checks pass: **118,882 successful tests** on
+macOS/aarch64 JDK 21 (84s Gradle build) and the same **118,882 tests** on
+Linux/x86_64 JDK 21 (77.981s). Of **118,883 cases**, only the actual Windows
+registry unit is skipped on POSIX. There are no failures/errors, assumption
+aborts or aborted containers. All **20 local XML suites** are fully parsed;
+declared counts agree with actual testcase/failure/error/skip elements. The
+processed resource is byte-identical to the final corpus, including original
+history record Show/precedence observations. All **151 source/fixture checks**
+pass (38.1s).
+
+Installed/core JARs agree on all **252 HTTP classes**, **70 complete notices**,
+**250 Pandoc assets**, all **six native ABI assets** and the unchanged
+**60,137-byte PSL**. Every preceding **2,471 non-HTTP class** and every CLI/
+dependency JAR is byte-identical. Existing changes are confined to HTTP request/
+exception/core APIs, their constructor callers and source/debug metadata; the
+Kotlin module map includes the added helpers. The preceding d7ae6de Windows CI
+job has succeeded; its full Linux workflow is still running and is not claimed
+as a completed CI result here.
+
+The full objective remains unfinished. Required work still includes all original
+local-server/httpbin HTTP tests, TLS, Windows/Winsock and other native ABIs,
+full GHC mask/throwTo/signals/timers/capability/weak-reference behavior and the
+previously recorded network APIs. Pandoc resource loading still needs integration
+with the complete HTTP/TLS implementation. The full original Pandoc readers,
+writers, App/Lua and all tests, then calibre MOBI/all tests and other formats
+missing from Pandoc/all their tests, remain required without narrowing scope.

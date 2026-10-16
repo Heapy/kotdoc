@@ -21,6 +21,7 @@ sealed interface HttpFailureContent {
     data object OverlongHeaders : HttpFailureContent
     data object TooManyHeaderFields : HttpFailureContent
     data object ResponseTimeout : HttpFailureContent
+    data object ConnectionTimeout : HttpFailureContent
     data object ConnectionClosed : HttpFailureContent
     data object NoResponseDataReceived : HttpFailureContent
     data object InvalidChunkHeaders : HttpFailureContent
@@ -33,6 +34,8 @@ sealed interface HttpFailureContent {
         val responses: List<HttpResponse<List<HttpBytes>>> = java.util.Collections.unmodifiableList(responses.toList())
     }
     data class InvalidStatusLine(val bytes: HttpBytes) : HttpFailureContent
+    data class InvalidRequestHeader(val reason: HttpBytes) : HttpFailureContent
+    data class StatusCodeException(val response: HttpResponse<Unit>, val body: HttpBytes) : HttpFailureContent
     data class InvalidProxyEnvironmentVariable(val name: String, val value: String) : HttpFailureContent
     data class InvalidProxySettings(val description: String) : HttpFailureContent
     data class ResponseBodyTooShort(val expected: ULong, val actual: ULong) : HttpFailureContent
@@ -42,6 +45,7 @@ sealed interface HttpFailureContent {
         OverlongHeaders -> "OverlongHeaders"
         TooManyHeaderFields -> "TooManyHeaderFields"
         ResponseTimeout -> "ResponseTimeout"
+        ConnectionTimeout -> "ConnectionTimeout"
         ConnectionClosed -> "ConnectionClosed"
         NoResponseDataReceived -> "NoResponseDataReceived"
         InvalidChunkHeaders -> "InvalidChunkHeaders"
@@ -54,6 +58,8 @@ sealed interface HttpFailureContent {
             HttpResponses.showResponse(it, HttpBodies::showLazy)
         }
         is InvalidStatusLine -> "InvalidStatusLine ${bytes.show()}"
+        is InvalidRequestHeader -> "InvalidRequestHeader ${reason.show()}"
+        is StatusCodeException -> "StatusCodeException ${HttpResponses.showResponse(response, { "()" }, 11)} ${body.show()}"
         is InvalidProxyEnvironmentVariable -> "InvalidProxyEnvironmentVariable ${HaskellString.quoteCodePoints(name.codePoints().toArray())} ${HaskellString.quoteCodePoints(value.codePoints().toArray())}"
         is InvalidProxySettings -> "InvalidProxySettings ${HaskellString.quoteCodePoints(description.codePoints().toArray())}"
         is ResponseBodyTooShort -> "ResponseBodyTooShort $expected $actual"
@@ -61,7 +67,8 @@ sealed interface HttpFailureContent {
     }
     fun showsPrec(precedence: Int): String {
         val fields = this is TooManyRedirects || this is InvalidStatusLine || this is InvalidProxyEnvironmentVariable || this is InvalidProxySettings || this is ResponseBodyTooShort || this is Zlib ||
-            this is InvalidDestinationHost || this is ConnectionFailure || this is InternalException || this is ProxyConnectException
+            this is InvalidDestinationHost || this is ConnectionFailure || this is InternalException || this is ProxyConnectException ||
+            this is InvalidRequestHeader || this is StatusCodeException
         return if (fields && precedence > 10) "(${show()})" else show()
     }
 }

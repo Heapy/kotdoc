@@ -9,6 +9,14 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP request execution through the real manager/pool/native POSIX transport:
+  request manager overrides and hooks, cookies, connection/header timeout budgets,
+  stale-connection retries, status checks, ordinary/history redirects, streaming
+  and bracketed response APIs. Independent observations execute original Core
+  and history code; native integration covers reuse, cookies, errors and timeout
+  ownership. TLS, Windows raw transport, full GHC asynchronous semantics and all
+  original local-server/httpbin tests remain pending.
+
 - GHC event-manager registration, callback lifetimes/ordering, rearming and
   error rollback, with actual EPoll on Linux/glibc and KQueue on Darwin. Socket
   waits now use native event queues and closeFdWith ownership; periodic poll
@@ -47,7 +55,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   actual Kotlin keyed pool. Original retry/error policies and no-op closeManager
   behavior are retained. Independent observations use the original http-client
   Manager and KeyedPool with explicit transport effects. The default socket
-  factory on Windows, TLS transport and full request/history integration remain
+  factory on Windows, TLS transport and all original integration tests remain
   pending. POSIX helpers construct managers with the native default raw factory.
 
 - Live GHC-style OS environment snapshots on macOS, Linux/glibc and Windows,
@@ -65,39 +73,40 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   protocol lists, literal/local bypasses, eager registry effects and error/close
   ordering, with a native Advapi32 adapter verified by 6,645 Windows CI tests,
   including actual temporary-HKCU registry calls.
-  Full request-manager integration remains pending.
+  Request execution now applies the prepared manager proxy policy.
 
 - HTTP keyed resource pool: idle-only per-key/global limits, LIFO reuse,
   exactly-once release, weak cleanup and the original 30-second idle reaper.
   Independent original-code observations include controlled concurrency,
   cancellation and real GC; JVM cleanup also covers a callback reference cycle.
-  Full request-manager/socket/history integration remains pending.
+  Request execution and history now acquire from this pool; all original
+  integration tests remain pending.
 
 - HTTP redirect loops for both original callback APIs, including modified final
   requests, whole-chunk body flushing, close/error ordering, limits and reverse
   response history in TooManyRedirects. Original exception/Response Show is
   retained for byte bodies; final live responses remain caller-owned.
-  Manager-based responseOpenHistory, socket integration and original local-server
-  tests remain pending.
+  Manager-based responseOpenHistory and POSIX socket integration are implemented;
+  the complete original local-server suite remains pending.
 
 - HTTP redirection request policy from http-client 0.7.19: relative/escaped
   Location resolution, 302/303 method/body replacement, cookie enablement,
   header stripping and original-host restoration with CI first-value merging.
   Independent observations include multi-hop chains and every header/URI byte.
-  Manager-based history and actual manager/network integration remain pending,
-  including the original local-server integration tests.
+  Manager-based history and POSIX transport integration are implemented;
+  all original local-server integration tests remain required.
 
 - HTTP CookieJar generation/storage, domain/path/security selection, expiry,
   header insertion/removal and the original cookie ordering/duplicate rules.
   Request and response models retain cookie jars. All 15 original CookieSpec
   units and independent iproute/appar observations run in Kotlin. Automatic
-  manager/network cookie handling remains pending.
+  manager/network cookie handling is implemented in the execution layer.
 
 - Web.Cookie 0.5.1 header parsing/rendering, SetCookie fields, Eq/Show,
   SameSite/Partitioned and original cookie-date parsing/formatting. All nine
   original test families run independently; Kotlin translates the six literal
   units and three properties with 3,000 original generated inputs. HTTP cookie
-  manager integration remains pending.
+  manager integration is implemented in the execution layer.
 
 - The pinned http-client Public Suffix List: original 2015 tree, wildcard and
   exception lookup, effective TLD plus one, and binary tree serialization.
