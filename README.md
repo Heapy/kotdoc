@@ -13,9 +13,9 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   public/private-key ASN.1 codecs, including RSA/DSA, named/explicit EC and fixed
   curve/EdDSA byte-key records. Private-key display hides secrets; debugShow is
   explicit. Original-code observations and original generator/property replays
-  cover these slices. The unsigned certificate field-stream codec and original
-  certificate property are also ported. Signed certificate/CRL handling,
-  cryptographic timing/memory parity, general operations, stores, validation
+  cover these slices. Unsigned certificate/CRL field-stream codecs, revoked
+  entries and the original certificate/CRL properties are also ported. Signed
+  certificate/CRL handling, cryptographic timing/memory parity, general operations, stores, validation
   and native TLS integration remain pending.
 
 - HTTP TLS adapter orchestration from http-client-tls 0.4.0: independent

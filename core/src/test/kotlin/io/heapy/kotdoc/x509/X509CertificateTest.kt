@@ -160,7 +160,7 @@ class X509CertificateTest {
             "equal"->JsonPrimitive(cert()==certificate(v.getValue("other")))
             "field"->field(v,cert())
             "encode"->{val prefix=X509CertificateCodec.toAsn1Stream(cert(),values(v)).take(v.int("count").coerceAtLeast(0))
-                when(v.text("part")) {"spine"->JsonPrimitive(prefix.count());"kinds"->JsonArray(prefix.map {JsonPrimitive(kind(it))}.toList());"shown"->JsonPrimitive(prefix.joinToString(",","[","]"));"bytes"->byteJSON(Asn1BinaryEncoding().encodeDerSequence(prefix));else->valuesJSON(prefix.toList())}
+                when(v.text("part")) {"spine"->JsonPrimitive(prefix.count());"kinds"->JsonArray(prefix.map {JsonPrimitive(kind(it))}.toList());"shown"->JsonPrimitive(prefix.joinToString(",","[","]"));"bytes"->byteJSON(X509PosixTimeReference.binary().encodeDerSequence(prefix));else->valuesJSON(prefix.toList())}
             }
             "from"->parsed(X509CertificateCodec.fromSequence(values(v)))
             "roundtrip"->parsed(X509CertificateCodec.fromSequence(X509CertificateCodec.toAsn1Stream(cert())))

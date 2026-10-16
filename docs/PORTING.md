@@ -12165,3 +12165,91 @@ resource/streaming coverage, remaining hourglass APIs and TLS/resource-I/O
 integration remain work. Full Pandoc/all tests, calibre MOBI/all tests and
 additional formats absent from Pandoc/all tests remain the unchanged required
 end state.
+
+## X509 CRL records, field streams and original suite (2026-10-16)
+
+Ported unchanged `Data.X509.CRL` from crypton-x509 1.9.2: CRL and
+RevokedCertificate records, source-order Eq/Show, ASN1 readers/writers and the
+original named **crl** round-trip property. Production is Kotlin, using the
+existing X509/ASN1/hourglass implementations; Haskell remains a development
+oracle. This implements unsigned CRL fields, not a signed CRL or trust policy.
+
+The CRL writer preserves the upstream bare field stream without an outer
+Sequence. Version is an unbounded Integer, all dates use GeneralizedTime with
+zero offset, next-update is optional, empty revoked lists omit their container,
+and extensions use Context 0. An explicit empty revoked Sequence decodes to an
+empty list and re-encodes without that container. Revoked records retain their
+own Sequence and optional extension Sequence. Readers ignore input time
+kind/zone, preserve suffixes, and retain the upstream permissive End handling
+and exact structural/payload error order. Independent cached fields, Maybe
+constructor/payload demand, list spine/element demand, immutable input-list
+ownership and bounded remainder views are covered separately.
+
+The reference compiles unchanged local X509/ASN1/hourglass modules and the full
+crypton 2.0.1 package. OriginalCrlTests retains exact original generator/property
+bodies before main with checked module/import adaptation. Its original CRL
+property passes **1,000 cases** at replay seed **1945978545**. The corpus also
+retains **1,000 actual original CRL generator inputs**, regenerates them during
+independent replay, and executes the original round-trip predicate in Kotlin.
+That predicate operates on ASN1 values; DER observations remain separate because
+arbitrary generated DN OIDs may be invalid DER.
+
+A separate `x509-original-tests` executable now compiles the **unchanged vendored
+Tests/Tests.hs**, including its original main, directly. All **nine named
+upstream properties pass 1,000 cases each** with `--quickcheck-tests 1000
+--quickcheck-replay 1945978545` (9,000 cases total): pubkey, privkey, signature
+alg, key-usage, extended-key-usage, extensions, certificate, crl and EC private
+key redaction. This proves the upstream baseline runs together; Kotlin parity
+is checked by the independent observation/property corpora, not inferred from
+that upstream run. Other upstream packages' complete suites are not implied.
+
+The CRL corpus contains **19,664 independent observations**, **537 source
+hashes**, and semantic SHA-256
+**01711b50db8830d0af3033c525045b9b18bafe55a5a11927dbb7313553690e5a**.
+Generation and full independent replay pass on macOS/AArch64. Coverage includes
+all writer prefixes, record/field Eq/Show, optional containers, extreme integer
+and DateTime values, every-position mutations/truncations, generalized writer
+dates, ignored input time metadata, malformed entries, parser remainders and
+ordered deferred errors. A separate ownership/cache/spine check brings
+**X509CrlTest to 19,665 tests**. Other-platform oracle replay remains pending.
+
+All **357,353 tests across fourteen ASN1/X509 suites** pass on macOS/AArch64
+JDK 21 with exact XML testcase counts and no failures/errors/skips. The standalone
+and installed core JARs are byte-identical, contain **3,344 classes** and **90
+full notices** (89 upstream notices plus kotdoc's license). All **560 baseline
+non-class/non-module-metadata assets** remain byte-exact and no eec419a class is
+missing. The Windows gate now requires **422,564 tests** with the CRL/native-time suites;
+Linux includes its source verifier. The earlier 115504a CI run is now confirmed
+successful on both platforms. All **175 source/fixture verifiers** pass
+(125.2s), including the POSIX environment fixture. The cb91954 Linux job remains live; its Windows job reports 135
+certificate DER observation failures with GhcIOException. These exposed a
+reference-environment mismatch, described below; the corrected Windows run
+must still pass before cross-platform verification can be claimed.
+
+Certificate/CRL DER fixtures had implicitly used the macOS POSIX calendar on all
+hosts. The pinned original actually normalizes dates through native conversion:
+2050-02-29 25:-1:61 becomes 2050-03-02 01:00:01. Its concrete DateTime rewrite
+rules cannot be assumed to remove that observed native conversion. Windows
+FILETIME rejects pre-1601 dates that POSIX accepts; production must preserve
+that distinction. The regression fix supplies a captured **POSIX reference
+environment** to fixture replay, without changing production time conversion,
+catching away native failures, changing expected DER, or dropping any cases.
+An additional X509NativeTimeTest checks actual native normalization, the actual
+Windows early-date failure, and POSIX reference replay independently.
+
+The POSIX environment fixture captures **28,471 date inputs** found in the
+certificate/CRL requests and **28,469 distinct elapsed-to-native conversions**
+from unchanged upstream code. It has **547 source hashes**, including both
+input corpora, and model SHA-256
+**4ebafa35e15b09b90d828cc9754ed6a0dc3e9aad42b455df22a683a0bb1811de**.
+Both DateTime-to-elapsed and native results regenerate exactly on independent
+replay. The complete table is environment data, not an additional claim of
+28,469 executed JUnit tests. Controlled POSIX replay on Windows is not an
+upstream Windows-oracle run; that independent oracle replay remains pending.
+
+Signed/SignedExact and original signed-byte preservation, certificate/CRL
+signature and trust validation, stores, private-key timing/scrubbing/undefined
+buffer boundaries, general cryptographic operations, independent other-platform
+oracle replay and broader stress, remaining hourglass APIs and TLS/resource-I/O
+integration remain work. The full Pandoc/all tests, calibre MOBI/all tests and
+additional formats absent from Pandoc/all tests remain the required end state.
