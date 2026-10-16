@@ -13564,3 +13564,37 @@ expectation closure, runnable dependency leaves and Kotlin assertion mappings
 remain open. Calibre runtime/format-direction inventory follows separately;
 calibre implementation still follows full Pandoc acceptance. Local:622 and
 the full Pandoc/calibre goal are not completed.
+
+
+### Simple named curves and modern prime ECC adapters
+
+Kotlin ports Simple.Types/Prim for all 33 named curves and the modern P256,
+P384 and P521 adapters. Simple retains field-modulus/polynomial scalar bounds,
+coordinate-before-subgroup validation and negative multiplication by negating
+the positive result. Valid Simple P256 points use accepted Internal engines,
+not the distinct legacy P256 dispatch. Existing generic fallback formulas are
+reused without changing accepted engines. Modern policies preserve one-shot
+P256 scalar generation and strict zero-KeyPair failure, variable-length P384/
+P521 point payload splitting, scalar byte-width versus signed integer bounds,
+and P256 ECDH acceptance of a valid all-zero-x secret. KeyPair is a plain eager
+class without added structural equality or secret-printing data-class methods.
+
+Independent native replay passes 4,458 observations/37 source pins, SHA256
+f49e5c9daacd02273ceaede7eaafb5ca86b0304f156e3b5819a74018fd86b37d.
+The unchanged full modern native suite passes 52 examples/six families/660
+checks, while Kotlin's explicitly partial prime partition retains 27 vectors,
+two P256 KATs and six property bodies for three curves at twenty samples each.
+It does not represent the separate mixed-curve Hspec trial stream. Hidden
+Simple source copies and prime-only module extraction are mechanically checked;
+parameter tables match the accepted 33-curve legacy source exactly. Fresh
+independent combined XML passes 126,640 actual tests with zero failures/errors/
+skips, including 4,497 new Simple/prime checks. JAR/installDist, byte-identical
+installed core JAR and exact crypton/RAM/P256 notices pass; compiled KeyPair has
+no generated equality/toString/components.
+
+X25519/X448/Edwards instances and their vectors/weak-point suites remain open,
+as do other cryptography/trust/TLS and full Pandoc/tests. Negative-polynomial/
+broken-parameter domains, GHC reflection/bottom, general timing/physical erasure
+and other native host profiles remain unproved. Owned SharedSecret bytes and
+best-effort cleanup do not establish hardware scrubbing. Local:613 and later
+calibre stages are not completed by this checkpoint.
