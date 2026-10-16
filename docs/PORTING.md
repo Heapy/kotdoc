@@ -11986,3 +11986,97 @@ replay, broader stress and finer thunk/resource/streaming coverage, remaining
 hourglass APIs and TLS/resource-I/O integration remain work. Full Pandoc/all
 tests, calibre MOBI/all tests and additional formats absent from Pandoc/all tests
 remain the unchanged required end state.
+
+### X509 private-key codecs and both original private-key properties
+
+`X509PrivateKeys.kt` and `X509PrivateKeyCodec.kt` add all seven private-key
+variants from pinned `Data.X509.PrivateKey`: RSA, DSA, named/explicit-prime EC,
+X25519/X448 and Ed25519/Ed448. They retain Eq, privkeyToAlg, ordinary redacted
+Show and separately invoked debugShow, including the exact RSA/DSA record
+fields, EC metadata and hexadecimal byte-secret debug rendering. Ordinary Show
+and algorithm lookup do not demand hidden secret fields. Arrays are owned and
+copied on output; numeric/byte payloads are cached independently. Byte equality
+scans all equal-length bytes; a Cleaner overwrites the owned backing array when
+its owner is collected. This does not establish equivalence to native
+ScrubbedBytes pinning, zeroization or all copies made by a moving JVM GC/JIT.
+
+The ASN1 writer emits traditional RSA and DSA, SEC1 named/prime EC and nested
+OctetString PKCS8 for fixed byte keys. RSA size is not serialized. DSA writes
+p/q/g and the calculated public value before the secret x; q is ignored by that
+calculation. EC scalar/a/b/seed use the original defined nonnegative minimal
+unsigned byte representation, including one zero byte for zero. Encoded nodes,
+values, DER bytes and caller-tail prefixes remain independently demandable.
+
+The reader retains ordered RSA/DSA/EC/new-curve alternatives: **Left tries the
+next parser**, while a thrown primitive exception propagates. Consequently an
+earlier detailed error can be replaced by the final newcurve error, as in the
+source. Traditional RSA keeps signed n and computes at least one size byte,
+including for zero/negative n, unlike the public-key reader's unsigned repair
+and zero size. RSA/DSA PKCS8 accept their original precise wrappers, ignore
+nested remainders and return the outer remainder. The DSA traditional public
+IntVal is matched but its payload is ignored.
+
+EC retains local-before-inherited curve parameters, skipped Nulls, explicit
+prime fields and ignored optional public-key containers. Tag matching ignores
+container class and matching End kind as upstream does. Outer EC PKCS8 returns
+the suffix **after the OctetString, including its outer End Sequence**, instead
+of normalizing that source remainder quirk. Fixed-byte PKCS8 accepts versions
+0 and 1, skips optional attribute container/public primitive by tag regardless
+of class and does not demand their payloads. It preserves size-versus-structure
+secret-key errors and nested BER/inner-shape errors. Parsed key/remainder views
+retain separate prefix demands in both sequence and ASN1Object List APIs.
+
+The DSA writer currently uses JDK BigInteger modular arithmetic specialized to
+the observed pinned GMP results, including signed moduli/exponents, zero
+modulus and failed inverse returning zero. Its **timing does not reproduce
+crypton's fixed-width constant-time C backend**; that backend port/verification
+remains work. The source `i2osp` negative-input branch allocates bytes and returns
+without initializing them. The Kotlin helper explicitly reports this as an
+unsupported undefined-buffer path; no fabricated exact expectations or claim of
+negative EC integer-byte parity is made. General cryptographic operations and
+constant-time/memory guarantees remain outside this completed functional slice.
+
+The observer compiles unchanged X509/ASN1/hourglass modules and local crypton
+2.0.1, with exact checked extraction of the original private-key/supporting
+generators, generic property_unmarshall_marshall_id and ECSecret/redaction
+property. The original named **privkey** and **ec privkey is redacted** tests
+both pass **1,000 QuickCheck cases**, at replay seeds **1645978545** and
+**1745978545**. The corpus separately retains **1,000 actual original inputs
+for each property** and regenerates all 2,000 on independent replay. Kotlin
+executes both original predicates and matches original serialization/results.
+The separate original certificate and CRL tests still remain pending.
+
+There are **35,577 independent observations**, **537 source hashes** and
+semantic SHA-256
+**97c1f6ee1813ded36ba507c4db597d87ac2955d7e124e3eb4581c30a00aa0a34**.
+Generation and full oracle replay pass on macOS/AArch64. Cases cover all byte
+values in four secret families, all named curves, signed RSA/DSA records,
+Show/debug demand, modular-power boundaries, nonnegative i2osp boundaries,
+writer prefixes/failing tails, every-position mutations/truncations of all
+traditional and PKCS8 forms, local/inherited EC parameters, skipped public
+payloads, fixed-secret versions/lengths and optional-field class/End rules.
+Nested wrapper bytes are produced by the unchanged original DER writer. The
+fixture builder rejects failed DER-helper output before constructing an octet
+payload, so JSON-adapter type errors are not substituted for key-codec tests.
+An ownership/cache/redaction/lazy-remainder check brings **X509PrivateKeyTest
+to 35,578 tests**. Independent other-platform oracle replay, unbounded recursion,
+resource stress and full timing/memory equivalence remain unverified.
+
+The macOS/AArch64 JDK 21 run passes **313,618 tests** across all eleven ASN1/X509
+suites; actual XML testcase counts match, with no failures/errors/skips. Both
+standalone and installed core JARs are byte-identical, with **3,320 classes**
+and **90 full notices**. All **172 source/fixture verifiers** pass (161.9s). Windows CI now requires **378,829 tests** without
+skips, including the new private-key suite. Linux CI includes the source
+verifier and suite. The preceding e872dc5 Windows job has passed; its Linux job
+was confirmed still executing the complete Gradle test/install step. A missing
+Gradle classpath snapshot caused an initial build failure; a subsequent fresh
+build regenerated it and the final regression run succeeded without deleting
+the shared cache or changing dependency/toolchain versions.
+
+Private-key timing/scrubbing and undefined-buffer boundaries above, broader
+cryptographic operations, certificates/CRLs/signed objects, stores/validation,
+remaining original X509 tests, independent other-platform oracle replay,
+broader stress and finer thunk/resource/streaming coverage, remaining hourglass
+APIs and TLS/resource-I/O integration remain work. Full Pandoc/all tests,
+calibre MOBI/all tests and additional formats absent from Pandoc/all tests
+remain the unchanged required end state.

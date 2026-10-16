@@ -235,3 +235,4 @@ vendor/crypton-2.0.1/** -text whitespace=-trailing-space,-blank-at-eof,-space-be
 licenses/crypton-BSD-3-Clause.txt -text whitespace=cr-at-eol
 tools/haskell-x509-public-key-reference/OriginalPublicKeyTests.hs -text whitespace=-blank-at-eof
 tools/haskell-x509-typed-reference/OriginalTypedExtensionTests.hs -text whitespace=-blank-at-eof
+tools/haskell-x509-private-key-reference/OriginalPrivateKeyTests.hs -text whitespace=-blank-at-eof

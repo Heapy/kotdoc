@@ -71,6 +71,7 @@ jobs:
       - run: python3 tools/import-x509-extension-raw-fixtures.py --check-source
       - run: python3 tools/import-x509-typed-fixtures.py --check-source
       - run: python3 tools/import-x509-public-key-fixtures.py --check-source
+      - run: python3 tools/import-x509-private-key-fixtures.py --check-source
       - run: python3 tools/import-parser-state-fixtures.py --check-source
       - run: python3 tools/import-html-state-fixtures.py --check-source
       - run: python3 tools/import-uri-fixtures.py --check-source
@@ -217,7 +218,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - run: .\gradlew.bat :core:test --tests "io.heapy.kotdoc.http.Http*Proxy*Test" --tests "io.heapy.kotdoc.http.HttpWindowsRegistry*Test" --tests "io.heapy.kotdoc.resources.GhcEnvironmentTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupNativeTest" --tests "io.heapy.kotdoc.resources.GhcTextEncodingTest" --tests "io.heapy.kotdoc.resources.GhcEncodingGlobalsTest" --tests "io.heapy.kotdoc.resources.GhcCodePageTest" --tests "io.heapy.kotdoc.asn1.CertificateBinaryTest" --tests "io.heapy.kotdoc.asn1.Asn1TypesTest" --tests "io.heapy.kotdoc.asn1.Asn1ValuesTest" --tests "io.heapy.kotdoc.asn1.Asn1TypedTest" --tests "io.heapy.kotdoc.asn1.Asn1PrettyTest" --tests "io.heapy.kotdoc.x509.X509AlgorithmTest" --tests "io.heapy.kotdoc.x509.X509DistinguishedNameTest" --tests "io.heapy.kotdoc.x509.X509ExtensionRawTest" --tests "io.heapy.kotdoc.x509.X509TypedExtensionTest" --tests "io.heapy.kotdoc.x509.X509PublicKeyTest" --tests "io.heapy.kotdoc.time.*" --no-daemon "-Pkotlin.compiler.execution.strategy=in-process"
+      - run: .\gradlew.bat :core:test --tests "io.heapy.kotdoc.http.Http*Proxy*Test" --tests "io.heapy.kotdoc.http.HttpWindowsRegistry*Test" --tests "io.heapy.kotdoc.resources.GhcEnvironmentTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupNativeTest" --tests "io.heapy.kotdoc.resources.GhcTextEncodingTest" --tests "io.heapy.kotdoc.resources.GhcEncodingGlobalsTest" --tests "io.heapy.kotdoc.resources.GhcCodePageTest" --tests "io.heapy.kotdoc.asn1.CertificateBinaryTest" --tests "io.heapy.kotdoc.asn1.Asn1TypesTest" --tests "io.heapy.kotdoc.asn1.Asn1ValuesTest" --tests "io.heapy.kotdoc.asn1.Asn1TypedTest" --tests "io.heapy.kotdoc.asn1.Asn1PrettyTest" --tests "io.heapy.kotdoc.x509.X509AlgorithmTest" --tests "io.heapy.kotdoc.x509.X509DistinguishedNameTest" --tests "io.heapy.kotdoc.x509.X509ExtensionRawTest" --tests "io.heapy.kotdoc.x509.X509TypedExtensionTest" --tests "io.heapy.kotdoc.x509.X509PublicKeyTest" --tests "io.heapy.kotdoc.x509.X509PrivateKeyTest" --tests "io.heapy.kotdoc.time.*" --no-daemon "-Pkotlin.compiler.execution.strategy=in-process"
       - name: Verify Windows proxy results including actual registry execution
         shell: python
         run: |
@@ -229,7 +230,7 @@ jobs:
                       "GhcEnvironmentLookupNativeTest": 1, "GhcTextEncodingTest": 968,
                       "GhcEncodingGlobalsTest": 2498, "GhcCodePageTest": 4864, "CertificateBinaryTest": 12331,
                       "Asn1TypesTest": 12251, "Asn1ValuesTest": 9756,
-                      "HourglassLibraryTest": 10676, "HourglassNativeTest": 2, "HourglassFormatTest": 27639, "Asn1TypedTest": 38652, "Asn1PrettyTest": 20161, "X509AlgorithmTest": 44472, "X509DistinguishedNameTest": 28426, "X509ExtensionRawTest": 27420, "X509TypedExtensionTest": 44137, "X509PublicKeyTest": 40434}
+                      "HourglassLibraryTest": 10676, "HourglassNativeTest": 2, "HourglassFormatTest": 27639, "Asn1TypedTest": 38652, "Asn1PrettyTest": 20161, "X509AlgorithmTest": 44472, "X509DistinguishedNameTest": 28426, "X509ExtensionRawTest": 27420, "X509TypedExtensionTest": 44137, "X509PublicKeyTest": 40434, "X509PrivateKeyTest": 35578}
           actual = {}
           for path in Path("core/build/test-results/test").glob("TEST-*.xml"):
               suite = E.parse(path).getroot()
@@ -240,4 +241,4 @@ jobs:
               assert not suite.findall(".//failure") + suite.findall(".//error") + suite.findall(".//skipped"), path
               actual[name] = len(cases)
           assert actual == expected, actual
-          print("Verified 343,251 Windows proxy/environment/encoding/ASN1/hourglass tests, including real Advapi32/HKCU, Kernel32 environment lookup/growth, CP932 conversion, lazy invalid code pages, initial encodings, PEM/raw-ASN1, ASN1 values, ParseASN1, controlled POSIX/Windows hourglass boundaries actual Kernel32 clocks/conversion/error mapping, hourglass format/parse callbacks/lazy results, typed BER/DER/Time/Real all five original generator/property replays, Pretty, encoded-event demand and X509 algorithm identifiers/original signature property, distinguished names/original DN generator/property deferred parser errors, raw extensions and original Extensions property, typed extensions and both original key-usage properties, public keys and original pubkey property; no skipped tests")
+          print("Verified 378,829 Windows proxy/environment/encoding/ASN1/hourglass tests, including real Advapi32/HKCU, Kernel32 environment lookup/growth, CP932 conversion, lazy invalid code pages, initial encodings, PEM/raw-ASN1, ASN1 values, ParseASN1, controlled POSIX/Windows hourglass boundaries actual Kernel32 clocks/conversion/error mapping, hourglass format/parse callbacks/lazy results, typed BER/DER/Time/Real all five original generator/property replays, Pretty, encoded-event demand and X509 algorithm identifiers/original signature property, distinguished names/original DN generator/property deferred parser errors, raw extensions and original Extensions property, typed extensions and both original key-usage properties, public keys/original pubkey property, private keys/original privkey and EC redaction properties; no skipped tests")
