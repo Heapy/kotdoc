@@ -92,6 +92,16 @@ class HttpManager internal constructor(
 )
 
 object HttpManagers {
+    fun <S, A> rawConnectionModifySocket(backend: HttpSocketBackend<S, A>, tweak: (S) -> Unit,
+        runtime: HttpSocketRaceRuntime = HttpSocketRaceSystemRuntime,
+    ): () -> HttpConnector = { HttpConnector { address, host, port ->
+        HttpSocketConnections.openSocketConnection(backend, tweak, address, host, port, runtime)
+    } }
+    fun <S, A> rawConnectionModifySocketSize(backend: HttpSocketBackend<S, A>, tweak: (S) -> Unit,
+        runtime: HttpSocketRaceRuntime = HttpSocketRaceSystemRuntime,
+    ): () -> HttpSizedConnector = { HttpSizedConnector { size, address, host, port ->
+        HttpSocketConnections.openSocketConnectionSize(backend, tweak, size, address, host, port, runtime)
+    } }
     fun defaultRetryableException(e: Throwable): Boolean = e is IOException || e is HttpContentException &&
         (e.failure == HttpFailureContent.NoResponseDataReceived || e.failure == HttpFailureContent.IncompleteHeaders)
 

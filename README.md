@@ -9,6 +9,13 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP socket connection orchestration: original address racing with staggered
+  attempts, last-input IO failure selection, cancellation/join ownership,
+  socket setup/error cleanup, configurable receive size and manager raw-factory
+  adapters. Independent observations execute unchanged http-client code and
+  original async with controlled OS effects. Native Network.Socket ABI calls,
+  default raw transport and TLS remain pending; an explicit backend is required.
+
 - HTTP manager construction, connection-key selection, prepared proxy policies,
   CONNECT wire generation/parser callbacks and connection acquisition from the
   actual Kotlin keyed pool. Original retry/error policies and no-op closeManager

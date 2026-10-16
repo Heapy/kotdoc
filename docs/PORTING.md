@@ -9701,3 +9701,102 @@ cookies and original local-server/httpbin integration tests remain pending.
 The original complete Pandoc readers/writers/App/Lua and all tests, then calibre
 MOBI/all its tests and other formats absent from Pandoc/all their tests remain
 required. This checkpoint does not change that full objective.
+
+### HTTP socket orchestration and original address-race ownership
+
+This checkpoint translates http-client **0.7.19 Connection** socket control
+functions: withSocket, openSocket, socketConnection, openSocketConnection/Size
+and firstSuccessful. Manager's rawConnectionModifySocket and Size factories
+now connect to this layer with an explicit Network.Socket backend. Native
+syscall bindings are still required; no Java HTTP client or missing-transport
+stub is substituted for the original network implementation.
+
+Address resolution retains the stripped host and signed decimal service port
+and requires defaultHints with Stream. An explicit HostAddress bypasses lookup
+and creates an AF_INET/Stream/protocol-6 address. openSocket acquires the socket,
+sets NoDelay to 1, runs the user tweak and connects, in that order. Failure
+after acquisition invokes close; acquisition failure does not. withSocket
+closes its selected socket if the final action throws and otherwise transfers
+ownership. socketConnection uses the previously ported makeConnection with
+receive/sendAll/close effects, including its once-only close and closed guards.
+The original default receive size is 8192; Size passes the signed Int unchanged
+to the backend, whose actual native allocation/recv validation is still pending.
+
+The original approximate happy-eyeballs race starts every candidate through
+forConcurrently, with delay **n * 250,000 microseconds** for index n > 0. The
+first success fills a separate result MVar. If every attempt fails with an
+IOException, the error from the last address in input order is returned,
+regardless of completion order. A non-IO child failure cancels siblings but
+does not fill that separate MVar: the unlinked withAsync parent keeps waiting
+until externally cancelled (or the GHC runtime intervenes). Kotlin preserves
+that control path instead of silently treating it as another IO failure.
+
+The required async **2.2.6** concurrently' behavior is translated using a
+nested two-child tree and a capacity-one completion channel, not a flat
+executor. Cancellation sends to right then left, drains exactly the outstanding
+completion writes, and joins children before leaving the scope. Completion
+writes and cleanup joins survive interruption. JVM virtual threads do not
+inherit caller thread-local state. This is the subset of async required by
+Connection; the entire async library and GHC GC/deadlock-detection/runtime
+semantics are not claimed implemented.
+
+Native comparison caught and corrected an initial port assumption: network
+**3.2.9.0 PortNumber derives Enum from Word16**, whose toEnum checks the range
+rather than truncating. That conversion sits inside a lazy list element, while
+network's Cabal **Strict/StrictData** settings make its AddrInfo/SockAddr fields
+strict. Out-of-range explicit ports therefore fail when the child first uses
+the address, before opening a socket, rather than throwing in the resolver
+parent. The Kotlin implementation retains that forcing boundary. Both signed
+Int64 extremes, negative ports and 65536 are observed independently. The
+resolver path still passes the original signed service text to its backend.
+
+The development observer compiles the **entire original Connection module**
+with unchanged implementation bytes, replacing only its module/export/import
+boundary. Both original Manager raw-factory declarations/bodies are retained
+verbatim in a separate module. Original async is used directly by GHC 9.12.2;
+the observer does not rewrite the race, forConcurrently, withAsync or bracket.
+Network's original AddrInfo/SockAddr/PortNumber types and Show/Enum/strictness
+are retained. Controlled socket effects record materialized arguments, and
+gates choose attempt completion/cancellation order without assuming scheduler
+speed. Every address retains its full ordered effect trace; unrelated traces
+are grouped instead of inventing a total order between concurrent callbacks.
+The entire pinned network and async source releases/tests and complete BSD
+notices are retained with archive SHA256 and per-file hashes.
+
+There are **342 independent original-code observation groups** with **894
+source hashes**. They cover lookup/explicit address selection and lazy checked
+ports, IPv4/IPv6 candidate metadata, all socket setup/final-action failure
+phases, cleanup overriding a connect error, receive/send/unread/close behavior,
+default/custom chunk sizes and both Manager raw factories, all-IO failure
+completion permutations, first success at every candidate, waiting after a
+non-IO child failure, and external cancellation while callbacks or staggered
+delays are blocked. Three separate full native captures give the same semantic
+corpus SHA256:
+`ed1d23d1ad42c0c5765c141e7c9ddd7dc47c27a894597e5b24afcfabd8e84e3f`.
+These are additional observations, not relabeled original upstream unit tests.
+Four JVM checks additionally prove last-error object identity, null success and
+absence of inherited thread state, waiting for cancelled sibling cleanup, and
+the actual quarter-second system delay. All **346 new tests** pass.
+
+All selected HTTP/environment checks pass: **103,452 successful tests** on
+macOS/aarch64 JDK 21 (40s Gradle build), and the same **103,452 tests** on
+Linux/x86_64 JDK 21 (14.207s). All **15 local XML suites** are parsed completely;
+actual testcase/failure/error/skip counts equal their declarations. The one
+actual Windows-registry-only test is intentionally skipped on each POSIX host.
+There are no failed, erroneous or aborted tests/containers. All **144 source/
+fixture checks** pass (37.8s). Installed/core JARs agree: **179 HTTP classes**,
+**70 complete notices**, **250 Pandoc assets** and the unchanged 60,137-byte PSL
+snapshot match source/build bytes. All **2,465 preceding non-HTTP classes** and
+all CLI/dependency JARs remain byte-identical. Existing changed HTTP entries are
+confined to Manager's new factories and corresponding source/debug metadata;
+HttpConnectionKey bytecode was inspected and only its inline line table shifts.
+
+The preceding Manager commit 4aadfc8 has a verified successful actual Windows
+job in run `38829085149`; its separate full Linux CI job remains in progress.
+The native Network.Socket ABI backend, address resolution/error mapping,
+nonblocking sockets and polling/cancellation, syscall IO error representation,
+Windows initialization, default raw factory, TLS, request override/mutation,
+responseOpenHistory, automatic cookies and original local-server/httpbin
+integration tests remain pending. The full original Pandoc port and all tests,
+then calibre MOBI/all tests and other formats missing from Pandoc/all their
+tests remain required without narrowing the objective.

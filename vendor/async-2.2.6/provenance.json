@@ -1,0 +1,20 @@
+{
+  "package": "async",
+  "version": "2.2.6",
+  "url": "https://hackage.haskell.org/package/async-2.2.6/async-2.2.6.tar.gz",
+  "sha256": "148571bc188003101241da6c49131d07324e63a88ed283a84def2e9694599619",
+  "files": {
+    "Setup.hs": "5066653559d4d6134b022d66a634a17fdcf8db35d28b447e581fec284afa4689",
+    "LICENSE": "27a80f1809158dc95425c19854cf49aa04fa321d430787c768a39de6f55c264e",
+    "changelog.md": "3d30ab5f3fd37e429b558a044f944ae88076a0d4b20c1c13425e5809777ecaa6",
+    "async.cabal": "45d5587d8a348a7e2b3f04de963fe633db49b49cde10ca1e6f834bef3baecee9",
+    "bench/concasync.hs": "33befec34c89f463559ae33d087d7769aa2f8b7c23c0377f09da2ecf82a95525",
+    "bench/conccancel.hs": "e32db58a7d14c268bf415c90186cda94e23502f81718d16e8e8d8dccf144017b",
+    "bench/race.hs": "4f839cf0541685c8ed3a313165f3998fafa4588f3df21092a37c8ea279c80ce2",
+    "test/test-async.hs": "f47add9a679eb4e7f10794479a330b8dd6581b86abe6288376248a658f401591",
+    "Control/Concurrent/Async.hs": "13b6349943719c571885766946c1eff6440367870a60c4427ed736ccb863332a",
+    "Control/Concurrent/Stream.hs": "9b0c5afd4eb92ca462c100ec05bc33a54d2eaf4b8043c12d533b9d40f8415db2",
+    "Control/Concurrent/Async/Warden.hs": "7f517d71517f35e61eb0d26144b6a7f3917eb7bf621ad8b1985b9a9afbc1902a",
+    "Control/Concurrent/Async/Internal.hs": "1b77ca348227a7a47d242af6e594a03f4d2e710ae3ec8187ddf91ef5cdbd4827"
+  }
+}
