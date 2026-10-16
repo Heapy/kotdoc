@@ -14,16 +14,21 @@ sealed class X509CertificateStore private constructor() {
     }
     private class Single(val tree: Lazy<Node?>): X509CertificateStore()
     private class Composite(val stores: X509Values<X509CertificateStore>): X509CertificateStore()
+    private class Deferred(val store: Lazy<X509CertificateStore>): X509CertificateStore()
+    private fun resolved(): X509CertificateStore {var current=this;while(current is Deferred) current=current.store.value;return current}
     fun isEmpty(): Boolean = when(this) {
+        is Deferred -> store.value.isEmpty()
         is Single -> tree.value==null
         is Composite -> !stores.cells().iterator().hasNext()
     }
     operator fun plus(other: X509CertificateStore): X509CertificateStore {
+        val left=resolved();val right=other.resolved()
         fun children(s: X509CertificateStore)=if(s is Composite) s.stores.cells() else sequenceOf(lazyOf(s))
-        return compositeDeferred {children(this)+children(other)}
+        return compositeDeferred {children(left)+children(right)}
     }
     fun findCertificate(dn: X509DistinguishedName): X509SignedCertificate? = findCertificateCell(lazyOf(dn))?.value
     fun findCertificateCell(dn: Lazy<X509DistinguishedName>): Lazy<X509SignedCertificate>? = when(this) {
+        is Deferred -> store.value.findCertificateCell(dn)
         is Single -> {
             // Map.lookup is strict in the DN even when its map is empty/bottom.
             dn.value.elements;var n=tree.value;var found: Lazy<X509SignedCertificate>?=null
@@ -39,6 +44,7 @@ sealed class X509CertificateStore private constructor() {
         }
     }
     fun certificateCells(): Sequence<Lazy<X509SignedCertificate>> = when(this) {
+        is Deferred -> sequence {yieldAll(store.value.certificateCells())}
         is Single -> sequence {
             suspend fun SequenceScope<Lazy<X509SignedCertificate>>.walk(n: Node?) {
                 if(n!=null) {walk(n.left);yield(n.cert);walk(n.right)}
@@ -49,6 +55,7 @@ sealed class X509CertificateStore private constructor() {
     }
     fun certificates()=certificateCells().map {it.value}
     companion object {
+        fun deferred(store: ()->X509CertificateStore): X509CertificateStore = Deferred(lazy(store))
         fun empty(): X509CertificateStore = Single(lazyOf(null))
         fun make(certificates: List<X509SignedCertificate>): X509CertificateStore {
             val owned=certificates.toList()
@@ -86,7 +93,8 @@ sealed class X509CertificateStore private constructor() {
             return n
         }
         fun readCertificates(path: Path): Sequence<X509SignedCertificate> = try {
-            X509Memory.readSignedCertificates(Files.readAllBytes(path))
+            val bytes=Files.readAllBytes(path)
+            sequence {yieldAll(X509Memory.readSignedCertificates(bytes))}
         } catch(_: IOException) {emptySequence()}
         internal fun doesFileExist(path: Path): Boolean = try {
             // directory's doesFileExist includes devices/FIFOs, not only regular files.
@@ -96,7 +104,9 @@ sealed class X509CertificateStore private constructor() {
             val points=name.codePoints().toArray()
             return !name.startsWith(".") && !(points.size==10 && points[8]==46 && points[9] in 48..57 && points.take(8).all {it in 48..57 || it in 65..70 || it in 97..102})
         }
-        fun read(path: Path): X509CertificateStore? {
+        fun read(path: Path): X509CertificateStore? = readDeferred(path).value
+        /** Perform filesystem effects now, leaving wrapStore and certificate decoding lazy. */
+        fun readDeferred(path: Path): Lazy<X509CertificateStore?> {
             val dir=Files.isDirectory(path);val file=doesFileExist(path)
             val certs=when {
                 dir -> {
@@ -110,7 +120,7 @@ sealed class X509CertificateStore private constructor() {
                 else -> emptySequence()
             }
             val saved=X509Values {certs.map(::lazyOf)}
-            return if(!saved.cells().iterator().hasNext()) null else makeDeferred {saved.cells()}
+            return lazy {if(!saved.cells().iterator().hasNext()) null else makeDeferred {saved.cells()}}
         }
     }
 }

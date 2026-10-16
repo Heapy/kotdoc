@@ -1,0 +1,31 @@
+cabal-version: 3.0
+name: kotdoc-x509-system-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+common observer
+  hs-source-dirs: . ../haskell-x509-store-reference ../haskell-x509-crl-reference ../../vendor/time-hourglass-0.3.0/src
+  hs-source-dirs: ../../vendor/crypton-asn1-types-0.4.1/src ../../vendor/crypton-asn1-encoding-0.10.0/src
+  hs-source-dirs: ../../vendor/crypton-x509-1.9.2
+  hs-source-dirs: ../../vendor/crypton-asn1-parse-0.10.0/src
+  hs-source-dirs: ../../vendor/crypton-x509-store-1.9.0 ../../vendor/crypton-pem-0.3.0/src ../../vendor/base64-1.0/src
+  cpp-options: -DMIN_VERSION_base64(a,b,c)=1
+  other-modules: OriginalStoreFixtures, Data.X509.Memory, Data.X509.File, Data.X509.CertificateStore, Data.PEM, Data.PEM.Types, Data.PEM.Parser, Data.PEM.Writer, Data.Base64.Types, Data.Base64.Types.Internal, Data.ByteString.Base64, Data.ByteString.Base64.Internal, Data.ByteString.Base64.Internal.Head, Data.ByteString.Base64.Internal.Tail, Data.ByteString.Base64.Internal.Utils, Data.ByteString.Base64.Internal.W16.Loop, Data.ByteString.Base64.Internal.W64.Loop, Data.ByteString.Base64.Internal.Tables, Data.X509, Data.X509.EC, Data.X509.CertificateChain, Data.X509.Signed, OriginalCrlTests, Data.X509.Cert, Data.X509.CRL, Data.X509.PrivateKey, Data.X509.PublicKey, Data.X509.OID, Data.X509.AlgorithmIdentifier, Data.X509.ExtensionRaw, Data.X509.Ext, Data.X509.DistinguishedName, Data.X509.Internal, Data.ASN1.Parse, Data.ASN1.Types, Data.ASN1.Types.Lowlevel, Data.ASN1.Types.String, Data.ASN1.BitArray, Data.ASN1.Stream, Data.ASN1.OID, Data.ASN1.Error, Data.ASN1.Encoding, Data.ASN1.BinaryEncoding, Data.ASN1.BinaryEncoding.Parse, Data.ASN1.BinaryEncoding.Raw, Data.ASN1.BinaryEncoding.Writer, Data.ASN1.Get, Data.ASN1.Internal, Data.ASN1.Prim, Data.ASN1.Serialize, Data.Hourglass, Time.Calendar, Time.Diff, Time.Epoch, Time.Format, Time.Internal, Time.LocalTime, Time.System, Time.Time, Time.Timezone, Time.Types, Time.Utils
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring ==0.12.2.0, deepseq, time, vector, text, ghc-bignum ==1.3, QuickCheck, transformers, crypton ==2.0.1, ram, process, containers, directory, filepath, unix, tasty, tasty-hunit
+executable x509-system-reference
+  import: observer
+  main-is: X509SystemReference.hs
+  hs-source-dirs: controlled ../../vendor/time-hourglass-0.3.0/src/unix
+  other-modules: SystemEffects, StoreEffects, System.Environment, System.Process, System.Win32.Types, System.X509, System.X509.Common, System.X509.Unix, System.X509.MacOS, System.X509.Win32
+  c-sources: ../../vendor/time-hourglass-0.3.0/cbits/unix.c
+
+executable native-system-reference
+  import: observer
+  main-is: NativeSystemReference.hs
+  hs-source-dirs: ../../vendor/crypton-x509-system-1.9.0 ../../vendor/time-hourglass-0.3.0/src/unix
+  other-modules: System.X509, System.X509.Common, System.X509.Unix, System.X509.MacOS
+  if os(osx)
+    cpp-options: -DMACOSX
+  c-sources: ../../vendor/time-hourglass-0.3.0/cbits/unix.c

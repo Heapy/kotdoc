@@ -243,3 +243,7 @@ tools/haskell-x509-utilities-reference/OriginalEcPointVectors.hs -text whitespac
 # Keep pinned Map source and the original PEM fixture bodies byte-exact.
 vendor/containers-0.7/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-x509-store-reference/OriginalStoreFixtures.hs -text whitespace=-blank-at-eof
+
+# Preserve controlled copies of the pinned System.X509 modules exactly.
+tools/haskell-x509-system-reference/controlled/System/X509/** -text whitespace=-blank-at-eof
+tools/haskell-x509-system-reference/controlled/System/X509.hs -text whitespace=-blank-at-eof

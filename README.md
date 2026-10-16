@@ -22,8 +22,9 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   DN hashes follow the original SHA1/MD5 byte transformations. PEM memory/file
   readers and subject-indexed/composite certificate stores preserve upstream
   ordering and duplicate policies. Cryptographic timing/memory parity, general
-  operations, native system CA loading, signature/trust validation
-  and native TLS integration remain pending.
+  operations, signature/trust validation and native TLS integration remain
+  pending. System CA loading follows Unix path/environment rules, the macOS
+  security command and Windows Crypt32 ROOT enumeration.
 
 - HTTP TLS adapter orchestration from http-client-tls 0.4.0: independent
   HTTP/HTTPS SOCKS settings, CONNECT-to-secure handoff, exception policies,

@@ -12477,3 +12477,93 @@ cryptographic operations/tests, finer thunk/streaming/resource fidelity and
 native TLS integration remain pending. The full Pandoc/all tests, calibre
 MOBI/all tests and additional formats absent from Pandoc/all tests remain the
 required end state; this dependency slice does not complete that objective.
+
+## System CA stores: Unix, macOS and Windows (2026-10-16)
+
+The complete System.X509 loader APIs from pinned crypton-x509-system 1.9.0
+are now implemented in Kotlin: Common override selection, Unix paths, macOS
+keychain extraction and Windows ROOT enumeration. The package's existing
+archive/file pins in http-tls-sources.json and its byte-exact BSD notice are
+verified; the package defines no original test suite. No original system tests
+are claimed. This supplies CA storage access, not signature/trust validation or
+the remaining TLS integration.
+
+Both SSL_CERT_FILE and SSL_CERT_DIR are looked up before selecting the first
+present value. An empty present value is still an override; the DIR value is a
+single literal path, not a path-list parser. Overrides that yield no certificates
+produce mempty without falling back. Native environment lookup reuses the live
+GHC-compatible implementation, including its previously tested Windows empty
+variable behavior. Unix catches only IOException from SYSTEM_CERTIFICATE_PATH
+getEnv; otherwise it reads all five original default paths in order. Store I/O
+completes before the lazy Maybe/store results are demanded. CertificateStore now
+offers deferred read/root views for this boundary; the existing store corpus
+continues to pass. An empty native FilePath is handled as an empty source path,
+not Java's current-directory Path("") alias.
+
+macOS starts the original `security find-certificate -pa` command with the two
+original system keychains, inherited stdin/stderr and piped stdout. PEM parsing
+is incremental; only exact CERTIFICATE labels are decoded. The first resulting
+list spine cell is demanded before waitForProcess. Later certificate field
+errors may remain deferred until after waiting. Process exit codes are ignored
+as upstream; returned decode failures are skipped and thrown errors retain their
+original boundaries. Production uses the OS security utility, not a Haskell,
+Pandoc, calibre or OpenSSL conversion process.
+
+Windows calls CertOpenSystemStoreW with null provider and ROOT, enumerates with
+the preceding context pointer, and closes with flags zero after normal traversal.
+The decoder peeks the encoding DWORD, aligned pointer and length DWORD and copies
+the bytes before the next enumeration frees the preceding context. Only encoding
+type exactly 1 is accepted; combined flags such as 65537 remain unsupported as
+in the source. Null opening raises "no store", null enumeration ends the list,
+and the close result is ignored. An explicit frame stack preserves the original
+nested ASN1Error catch scopes without JVM recursion, including errors injected
+in a descendant enumeration. Other exception types propagate and no new finally
+close is inserted. Lazy certificate fields are demanded after normal close when
+the subject map is evaluated.
+
+The controlled reference preserves all original policy/decoder bodies, verified
+by mechanical source comparisons. Only store I/O and the three Windows FFI
+declarations are redirected; environment/process modules supply traceable native
+effects, and the Windows type shim supplies actual host-aligned contexts. The
+original pointer peeks, memcpy, ASN1 decoder, catch placement and store queries
+still execute. It is a POSIX controlled reference, not an independent Windows ABI
+capture. The new corpus has **29,238 independent observations**, **659 source
+hashes** and semantic SHA-256
+**feccf3240a2602575279d92aa4f59c96d429f6afed3cc201a77380f5b7e81a9e**.
+Generation and complete independent replay pass. Coverage includes override and
+empty/missing precedence, both environment effects, all default paths, deferred
+Maybe/store/certificate failures, exact process arguments/labels/wait ordering,
+ignored exits, Windows encoding tags, typed errors at each native effect, 1,024
+contexts and every original certificate DER truncation/byte mutation before and
+after a valid certificate. Fixtures use upstream public test certificates;
+machine CA bytes are not published as fixtures.
+
+X509SystemTest runs **29,239 tests**, adding a real JNA-memory layout/copy/close
+check. Its dynamic corpus is read as source lines and parsed per test, retaining
+every case while avoiding the initial all-JSON-tree heap exhaustion under the
+existing 2 GiB worker budget. **Two X509SystemNativeTest cases** run isolated JVMs
+with real OS CA loading and a real native environment override at a Unicode path.
+They remove overrides only in child environments and do not change parent state
+or OS certificate stores. On macOS/AArch64, the original native executable and
+Kotlin both read **162 certificates**, with concatenated, subject-ordered signed
+bytes SHA-256
+**47a5a6318693e6a52b03fd446aaa41890827b676ba67967d736f29d64ae1f567**.
+The Windows CI gate includes actual Crypt32 ROOT loading and the Unicode override;
+Linux CI executes its actual Unix store loader. Independent native Linux/Windows
+oracle comparisons remain pending.
+
+The JDK 21 regression passes **549,127 tests across twenty-two
+ASN1/X509/hourglass suites**, with exact XML counts and no failures/errors/skips.
+All **179 source/fixture verifiers** pass. The installed CLI native/JSON/native
+round-trip passes. Standalone and installed core JARs are identical, with
+**3,415 classes** and **90 byte-exact notices**; all **560 baseline assets** remain
+byte-exact and no retained baseline class is lost. Windows now requires
+**576,021 tests**. The preceding 85a64989 Windows gate passes all 546,780 tests;
+its Linux test job was still live at the last observation.
+
+Signature/trust and chain validation, remaining cryptographic operations/tests,
+native TLS integration, finer thunk/file-encoding/streaming/resource fidelity,
+independent platform oracle captures, huge context buffers beyond JVM byte-array
+capacity and broader stress remain work. Full Pandoc/all tests, calibre MOBI/all
+tests and all additional formats absent from Pandoc/all tests remain the required
+end state; CA loading does not complete that objective.
