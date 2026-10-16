@@ -101,7 +101,7 @@ class Asn1Parser<A> private constructor(private val parse: (List<Asn1Value>) -> 
         fun <A> onNextContainerMaybe(kind: Asn1ConstructionType, parser: Asn1Parser<A>): Asn1Parser<Asn1Maybe<A>> = getNextContainerMaybe(kind).flatMap { maybe ->
             when (maybe) {
                 Asn1Maybe.None -> pure(Asn1Maybe.None)
-                is Asn1Maybe.Some -> when (val result = parser.run(maybe.value)) { is Asn1ParseResult.Failure -> failDeferred { result.message }; is Asn1ParseResult.Success -> pureLazy { Asn1Maybe.Some(result.value) } }
+                is Asn1Maybe.Some -> when (val result = parser.run(maybe.value)) { is Asn1ParseResult.Failure -> failDeferred { result.message }; is Asn1ParseResult.Success -> pureLazy { Asn1Maybe.Some.deferred { result.value } } }
             }
         }
         fun <A> getObject(codec: Asn1Object<A>): Asn1Parser<A> = Asn1Parser { codec.fromAsn1(it) }

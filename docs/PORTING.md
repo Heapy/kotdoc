@@ -11731,3 +11731,87 @@ finer thunk/resource/streaming coverage, remaining hourglass APIs, and TLS/
 resource-I/O integration remain work. Full Pandoc/all tests, calibre MOBI/all
 tests and additional formats absent from Pandoc/all tests remain the unchanged
 required end state.
+
+### Raw X509 extensions and original Extensions test
+
+`X509ExtensionRaw.kt` ports the pinned `Data.X509.ExtensionRaw` record/container,
+derived Eq/Show, both ASN1Object instances, tryExtRawASN1 and the deprecated
+exception-raising extRawASN1 behavior. OID, critical and content fields are
+owned and independently deferred. The writer omits False and emits Boolean
+True for critical extensions; the reader accepts omitted, explicit False and
+explicit True. Its scalar End must be Sequence, and its format error displays
+only the suffix after an already matched Sequence/OID prefix. Returned input
+remainders and deferred error messages retain the original behavior.
+
+Extensions preserves **Nothing versus Just []**, order and duplicates. Nothing
+writes no container; Just [] writes an empty Sequence. The optional-container
+parser leaves non-Sequence input unconsumed, retains getConstructedEnd's outer
+End permissiveness, and rejects malformed scalar records inside the container.
+Its Maybe constructor and list payload are separately demandable. The general
+onNextContainerMaybe success branch now preserves a deferred Some payload
+instead of forcing the nested parser's value while wrapping it.
+
+Nested content is decoded with **BER**. A raw framing error yields Left with
+the source OID/error prefix; a successful raw parse yields Right with a lazy
+list that may fail later on primitive decoding. Critical is ignored by this
+operation; OID is demanded only when formatting a raw error. The deprecated
+helper throws on raw Left and preserves zero/prefix demand of its lazy output.
+OctetString gains owned cached deferred bytes, allowing constructor/prefix
+observations before content is demanded without changing its ordinary public
+constructor/getter/equality/hash/display contracts.
+
+The development-only reference compiles **four unchanged X509 modules**,
+**17 unchanged ASN1 modules** and **12 unchanged hourglass modules**. The full
+original Ext module is used by the original Extensions generator to encode
+key-usage data; it is not replaced by a test stub. OriginalExtensionsTests is
+an exact checked extraction of the original Extensions/ExtKeyUsageFlag/
+ExtKeyUsage generators and generic round-trip property body, with only module
+header/imports adapted. It invokes the same `Extensions -> Bool` property as
+the original named **extensions** test. It passes **1,000 QuickCheck cases** on
+macOS/AArch64 and Linux/x86_64 (replay seed **1245978545**). The corpus also
+records **1,000 actual original generated inputs**, runs the original property
+on them, and independently regenerates/matches all inputs on Linux. This does
+not claim that Kotlin's typed extension codecs or their separate original
+properties have already been ported.
+
+The corpus contains **27,419 independent observations**, **97 source hashes**,
+and semantic SHA-256
+**3f31c920a2da3b0acb5b6da6031278f25d8102c7b7369a76925e0efc4162784c**.
+Both original GHC builds verify every observation. Cases include all byte
+values, raw Eq/Show and field order, absent/empty/present containers, omitted
+False/explicit True, DER output, every scalar/container position mutation and
+truncation, malformed streams, suffix errors, preserved remainder, outer versus
+scalar End rules, Maybe/list/field/constructor/prefix demand, failing tails,
+BER framing Left versus typed exceptions, and the deprecated helper. BER values
+are observed through the original ASN1 Show; previous typed-ASN1 fixtures retain
+separate IEEE bit-profile observations. The observer also captures failures
+that arise while forcing an exception's own lazy message (e.g. an undefined
+OID), without rewriting upstream error construction. One ownership/cache/Maybe
+payload check brings X509ExtensionRawTest to **27,420 tests**.
+
+macOS/AArch64 JDK 21 passes **377,280 selected HTTP/environment/encoding/ASN1/
+X509/hourglass tests** in a 125s build. All **40 XML suites** match their actual
+counts: **377,281 tests**, zero failures/errors and only the actual Windows
+Registry skip. Linux/x86_64 JDK 21 independently passes the same **377,280**
+tests in **80.550s**, with no failed/aborted tests or containers and the same
+one Registry skip. All **169 source/fixture verifiers** pass (85.8s). Windows CI now
+requires **258,680 cases** with no skips. The preceding 055d995 Windows job
+passed **231,260 tests**; its full Linux CI remains live.
+
+Core/installed JAR identity and **89 complete notices** are verified. Against
+055d995, **3,155 classes are byte-identical**, 12 other class changes have
+identical `javap -p -c` output, and only OctetString and Parser.Companion change
+executable behavior. No old class is removed; **10 classes** are added for
+**3,179 total classes**. Every old public JVM signature/descriptor on the two
+changed API classes is retained. A Java OctetString client compiled against
+055d995 runs unchanged, including defensive input/output ownership, equality,
+hash and display. All **343 HTTP classes**, **22 TLS error classes**, **250
+Pandoc assets**, **six native ABI assets**, CodePage, Windows error mapping,
+**60,137-byte PSL**, and CLI/dependency JAR bytes remain exact.
+
+Typed extension codecs/accessors and their remaining original tests, key
+objects/cryptographic operations, certificates/CRLs/signed objects, stores and
+validation, broader stress and finer thunk/resource/streaming coverage,
+remaining hourglass APIs, and TLS/resource-I/O integration remain work. Full
+Pandoc/all tests, calibre MOBI/all tests and additional formats absent from
+Pandoc/all tests remain the unchanged required end state.

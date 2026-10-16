@@ -30,11 +30,12 @@ sealed class Asn1Value {
         companion object { fun deferred(value: () -> BigInteger) = IntVal(lazy(value)) }
     }
     data class BitString(val value: Asn1BitArray) : Asn1Value()
-    class OctetString(bytes: ByteArray) : Asn1Value() {
-        private val stored = bytes.copyOf()
-        val bytes: ByteArray get() = stored.copyOf()
-        override fun equals(other: Any?) = other is OctetString && stored.contentEquals(other.stored)
-        override fun hashCode() = stored.contentHashCode()
+    class OctetString private constructor(private val stored: Lazy<ByteArray>) : Asn1Value() {
+        constructor(bytes: ByteArray): this(lazyOf(bytes.copyOf()))
+        val bytes: ByteArray get() = stored.value.copyOf()
+        override fun equals(other: Any?) = other is OctetString && stored.value.contentEquals(other.stored.value)
+        override fun hashCode() = stored.value.contentHashCode()
+        companion object { fun deferred(bytes: () -> ByteArray) = OctetString(lazy {bytes().copyOf()}) }
     }
     data object Null : Asn1Value()
     class Oid private constructor(private val stored: Lazy<Asn1Oid>) : Asn1Value() {

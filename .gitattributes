@@ -228,3 +228,4 @@ licenses/base16-BSD-3-Clause.txt -text whitespace=cr-at-eol
 vendor/ghc-asn1-pretty-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-x509-algorithm-reference/OriginalSignatureTests.hs -text whitespace=-blank-at-eof
 tools/haskell-x509-dn-reference/OriginalDnTests.hs -text whitespace=-blank-at-eof
+tools/haskell-x509-extension-raw-reference/OriginalExtensionsTests.hs -text whitespace=-blank-at-eof
