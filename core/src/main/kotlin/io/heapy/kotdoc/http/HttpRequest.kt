@@ -126,6 +126,7 @@ data class HttpRequest(
     val cookieJar: HttpCookieJar? = HttpCookieJar.empty,
     val shouldStripHeaderOnRedirect: (HttpHeaderName) -> Boolean = { false },
     val shouldStripHeaderOnRedirectIfOnDifferentHostOnly: Boolean = false,
+    val hostAddress: UInt? = null,
 ) {
     fun show(): String = buildString {
         fun field(name: String, value: Any) { append("  ").append(name.padEnd(21)).append("= ").append(value).append('\n') }

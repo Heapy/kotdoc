@@ -9609,3 +9609,95 @@ automatic cookies and responseOpenHistory, with all original local-server tests.
 All remaining Pandoc readers/writers/App/Lua and original suites, then calibre
 MOBI and its tests and additional formats absent from Pandoc/all their tests
 remain in the original objective.
+
+### HTTP Manager construction, keying, CONNECT and actual pool integration
+
+The next checkpoint ports the complete construction/control logic of
+http-client **0.7.19 Network.HTTP.Client.Manager** with explicit transport
+factories. It includes ManagerSettings defaults other than the not-yet-ported
+native raw socket factory, Manager construction and prepared HTTP/HTTPS proxy
+policies, raw/secure/CONNECT key selection, derived key Eq/Ord/Show,
+getConn's empty ultimate-host guard, pool acquisition, dropProxyAuthSecure,
+all direct proxy overrides, default retry/wrap rules and connection failure
+wrapping. The existing live environment/registry helper is connected to the
+Manager proxy override constructors. Request now retains the original optional
+Word32 hostAddress; Request Show intentionally omits that field, as upstream does.
+
+Factory initialization order is raw, TLS, CONNECT; proxy preparation occurs
+before those factories and socket initialization occurs first. All factories
+are initialized even if a request only uses one. Acquisition uses the actual
+ported KeyedPool with the source idle limits, not an independent manager cache.
+The default TLS factories retain TlsNotSupported. closeManager is the original
+no-op, and withManager deliberately does not bracket cleanup, including when
+its callback throws. This behavior is retained even though its historical API
+comments could suggest otherwise.
+
+CONNECT keeps the exact bytes, signed ports, optional first case-insensitive
+Proxy-Authorization and Latin1 host unpacking. The connector owns the supplied
+status-parser callback: it can invoke it zero or multiple times. That parser
+uses the configured header limits, accepts status code 200 independently of
+its reason phrase, processes interim responses through the original header
+logic, and throws ProxyConnectException for other status codes. The constructor
+does not add invented connection cleanup. Only IOException is wrapped as
+ConnectionFailure; default request wrapping similarly wraps only IOException
+as InternalException. Throwable identity and deferred Show dictionaries are
+retained. Native GHC IO errors use the existing exact IO error representation;
+foreign JVM exceptions keep their own display rather than being mislabeled as
+arbitrary Haskell exception values. HTTP exception wrappers now also retain
+original derived Show precedence when carried by SomeException-like values.
+
+A development-only observer builds the complete original pinned http-client
+package, including its real Manager and Data.KeyedPool. The copied source and
+all tests are verified byte-for-byte against vendor; the only changes expose
+private symbols in export lists and move Data.KeyedPool into exposed-modules.
+No implementation algorithm is edited. GHC **9.12.2**, including the patch
+version, is enforced at compile time; the full dependency freeze is retained.
+Strong stable roots preserve observation lifetime through JSON materialization.
+Real GC/reaper/cancellation behavior remains covered by the separate existing
+KeyedPool corpus; these manager observations use explicit transport effects.
+
+The original executable supplies **2,641 independent observation groups**:
+960 request-key/auth cases, 810 derived key comparisons, 240 direct factory
+cases, 160 CONNECT wire cases, 120 construction/error-order cases, 36 connect
+errors, 50 status/chunk/EOF cases, 70 header-limit cases, 50 actual pool limit/
+partition/LIFO cases, plus defaults, retry/wrap predicates, proxy overrides,
+parser callback multiplicity, unsupported TLS, once-only release and failure
+paths. Hosts/auth include every byte, addresses cross signed/unsigned boundaries,
+and ports include both signed Int64 extremes. Expected values come exclusively
+from the original executable. They are observations, not 2,641 claimed original
+upstream unit tests. The fixture manifest binds **805 source hashes** and has
+semantic corpus SHA256
+`8025cf0a5d0244e5985d340aff96ef224c2dd3c40678b751dee72e8e56ed82d2`.
+
+Five additional Kotlin integration checks verify callback identity/deferred
+execution, first socket-initialization effects, original exception identity and
+lazy error display, a fully consumed response returning its actual connection
+to the pool, a partially consumed response closing it once, and withManager's
+success/error lifetime behavior. The adapter retains the Managed owner and its
+keepAlive hook through response cleanup. All **2,646 manager tests** pass.
+
+The complete selected HTTP/environment run passes **103,106 tests** on
+macOS/aarch64 JDK 21 (22s Gradle build), and the same **103,106 tests** pass on
+Linux/x86_64 JDK 21 (11.792s). All 14 local XML suites are fully parsed: declared
+and actual testcase/failure/error/skip counts agree. Exactly one actual Windows
+registry test is skipped on each POSIX host; no test fails, errors or aborts.
+All **143 source/fixture verifiers** pass (38.4s). The preceding exact code
+commit ce98df6 now has a verified successful **full CI** run `38825978868`,
+including both the full Linux job and the actual Windows 10,473-test job.
+
+Installed/core JARs agree, all **167 HTTP classes**, **68 complete notices**,
+**250 Pandoc assets** and the original 60,137-byte suffix list are packaged
+exactly. Every one of the preceding **2,465 non-HTTP classes** is byte-identical;
+all CLI/dependency JARs are unchanged. Reviewed existing entry changes are
+confined to HTTP classes (request field/constructor call sites, exception Show
+interfaces, and corresponding source line/metadata changes).
+
+This does **not** claim a complete native network stack. Constructing a Kotlin
+manager still requires an explicit raw connection factory and socket-initializer
+effect. The original defaultManagerSettings raw socket backend,
+rawConnectionModifySocket/Size, actual socket address lookup/racing/cancellation,
+TLS transport, request manager override/mutation, responseOpenHistory, automatic
+cookies and original local-server/httpbin integration tests remain pending.
+The original complete Pandoc readers/writers/App/Lua and all tests, then calibre
+MOBI/all its tests and other formats absent from Pandoc/all their tests remain
+required. This checkpoint does not change that full objective.

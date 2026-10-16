@@ -9,6 +9,14 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP manager construction, connection-key selection, prepared proxy policies,
+  CONNECT wire generation/parser callbacks and connection acquisition from the
+  actual Kotlin keyed pool. Original retry/error policies and no-op closeManager
+  behavior are retained. Independent observations use the original http-client
+  Manager and KeyedPool with explicit transport effects. The default socket
+  factory, TLS transport and full request/history integration remain pending;
+  constructing a manager currently requires an explicit raw transport factory.
+
 - Live GHC-style OS environment snapshots on macOS, Linux/glibc and Windows,
   retaining entry order, duplicates, empty/nameless entries and malformed-byte
   surrogate escapes. Original Unicode/ASCII/Latin1 filesystem decoding and
@@ -24,7 +32,7 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   protocol lists, literal/local bypasses, eager registry effects and error/close
   ordering, with a native Advapi32 adapter verified by 6,645 Windows CI tests,
   including actual temporary-HKCU registry calls.
-  HTTP manager integration remains pending.
+  Full request-manager integration remains pending.
 
 - HTTP keyed resource pool: idle-only per-key/global limits, LIFO reuse,
   exactly-once release, weak cleanup and the original 30-second idle reaper.

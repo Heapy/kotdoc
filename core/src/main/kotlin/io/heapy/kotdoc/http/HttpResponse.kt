@@ -24,6 +24,11 @@ sealed interface HttpFailureContent {
     data object ConnectionClosed : HttpFailureContent
     data object NoResponseDataReceived : HttpFailureContent
     data object InvalidChunkHeaders : HttpFailureContent
+    data object TlsNotSupported : HttpFailureContent
+    data class InvalidDestinationHost(val host: HttpBytes) : HttpFailureContent
+    data class ConnectionFailure(val cause: HttpExceptionValue) : HttpFailureContent
+    data class InternalException(val cause: HttpExceptionValue) : HttpFailureContent
+    data class ProxyConnectException(val host: HttpBytes, val port: Long, val status: HttpStatus) : HttpFailureContent
     class TooManyRedirects(responses: List<HttpResponse<List<HttpBytes>>>) : HttpFailureContent {
         val responses: List<HttpResponse<List<HttpBytes>>> = java.util.Collections.unmodifiableList(responses.toList())
     }
@@ -40,6 +45,11 @@ sealed interface HttpFailureContent {
         ConnectionClosed -> "ConnectionClosed"
         NoResponseDataReceived -> "NoResponseDataReceived"
         InvalidChunkHeaders -> "InvalidChunkHeaders"
+        TlsNotSupported -> "TlsNotSupported"
+        is InvalidDestinationHost -> "InvalidDestinationHost ${host.show()}"
+        is ConnectionFailure -> "ConnectionFailure ${cause.showsPrec(11)}"
+        is InternalException -> "InternalException ${cause.showsPrec(11)}"
+        is ProxyConnectException -> "ProxyConnectException ${host.show()} ${if (port < 0) "($port)" else port} (${status.show()})"
         is TooManyRedirects -> "TooManyRedirects " + responses.joinToString(",", "[", "]") {
             HttpResponses.showResponse(it, HttpBodies::showLazy)
         }
@@ -50,15 +60,18 @@ sealed interface HttpFailureContent {
         is Zlib -> "HttpZlibException (ZlibException ${if (code < 0) "($code)" else code})"
     }
     fun showsPrec(precedence: Int): String {
-        val fields = this is TooManyRedirects || this is InvalidStatusLine || this is InvalidProxyEnvironmentVariable || this is InvalidProxySettings || this is ResponseBodyTooShort || this is Zlib
+        val fields = this is TooManyRedirects || this is InvalidStatusLine || this is InvalidProxyEnvironmentVariable || this is InvalidProxySettings || this is ResponseBodyTooShort || this is Zlib ||
+            this is InvalidDestinationHost || this is ConnectionFailure || this is InternalException || this is ProxyConnectException
         return if (fields && precedence > 10) "(${show()})" else show()
     }
 }
-class HttpContentException(val failure: HttpFailureContent) : RuntimeException() {
+class HttpContentException(val failure: HttpFailureContent) : RuntimeException(), HttpExceptionShow {
     override val message: String? get() = "HttpExceptionContentWrapper {unHttpExceptionContentWrapper = ${failure.show()}}"
+    override fun showsPrec(precedence: Int) = if (precedence > 10) "($message)" else message!!
 }
-class HttpRequestException(val request: HttpRequest, val failure: HttpFailureContent) : RuntimeException() {
+class HttpRequestException(val request: HttpRequest, val failure: HttpFailureContent) : RuntimeException(), HttpExceptionShow {
     override val message: String? get() = "HttpExceptionRequest ${request.show()} ${failure.showsPrec(11)}"
+    override fun showsPrec(precedence: Int) = if (precedence > 10) "($message)" else message!!
 }
 /** Exact ResourceVanished condition; transport-specific IO error mapping is separate. */
 class HttpResourceVanishedException(message: String) : java.io.IOException(message)

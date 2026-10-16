@@ -38,6 +38,7 @@ jobs:
       - run: python3 tools/import-http-redirect-fixtures.py --check-source
       - run: python3 tools/import-http-loop-fixtures.py --check-source
       - run: python3 tools/import-keyed-pool-fixtures.py --check-source
+      - run: python3 tools/import-http-manager-fixtures.py --check-source
       - run: python3 tools/import-http-proxy-fixtures.py --check-source
       - run: python3 tools/import-http-windows-proxy-fixtures.py --check-source
       - run: python3 tools/import-environment-fixtures.py --platform macos-aarch64 --check-source
