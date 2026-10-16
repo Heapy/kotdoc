@@ -1,0 +1,234 @@
+{
+  "cbits/decaf/ed448goldilocks/decaf.c": {
+    "sha256": "f47474b5e2238032e5926a82112e0d39ce016099a22c543dd3095673e930c955",
+    "lines": 1621,
+    "apiMacroIdentifiers": [
+      "_id",
+      "alignof_precomputed_s",
+      "base_double_scalarmul_non_secret",
+      "deisogenize",
+      "direct_scalarmul",
+      "point_add",
+      "point_base",
+      "point_cond_sel",
+      "point_copy",
+      "point_debugging_pscale",
+      "point_debugging_torque",
+      "point_decode",
+      "point_decode_like_eddsa_and_mul_by_ratio",
+      "point_destroy",
+      "point_double",
+      "point_double_scalarmul",
+      "point_dual_scalarmul",
+      "point_encode",
+      "point_eq",
+      "point_identity",
+      "point_mul_by_ratio_and_encode_like_eddsa",
+      "point_mul_by_ratio_and_encode_like_x448",
+      "point_negate",
+      "point_scalarmul",
+      "point_sub",
+      "point_t",
+      "point_valid",
+      "precompute",
+      "precompute_wnafs",
+      "precomputed_base",
+      "precomputed_base_as_fe",
+      "precomputed_destroy",
+      "precomputed_s",
+      "precomputed_scalarmul",
+      "precomputed_wnaf_as_fe",
+      "scalar_add",
+      "scalar_decode_long",
+      "scalar_halve",
+      "scalar_t",
+      "sizeof_precomputed_s",
+      "sizeof_precomputed_wnafs",
+      "wnaf_base"
+    ]
+  },
+  "cbits/decaf/ed448goldilocks/decaf_all.c": {
+    "sha256": "2ca43e2d30b56cc84c42e5bb375c974c6ff6a67e321b83a3e4e815201301da2b",
+    "lines": 3,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/ed448goldilocks/decaf_tables.c": {
+    "sha256": "f9b24470f64cc6151f7254510253d635b3bb86c4315eff7d9349259f055212b2",
+    "lines": 354,
+    "apiMacroIdentifiers": [
+      "_id",
+      "point_base",
+      "point_t",
+      "precomputed_base_as_fe",
+      "precomputed_wnaf_as_fe"
+    ]
+  },
+  "cbits/decaf/ed448goldilocks/eddsa.c": {
+    "sha256": "1cb9c4c93144d47749a3c12f2ced34b1e6b8bdf64e2e15225d1e9ae0c1f07fb5",
+    "lines": 420,
+    "apiMacroIdentifiers": [
+      "_id",
+      "base_double_scalarmul_non_secret",
+      "point_decode_like_eddsa_and_mul_by_ratio",
+      "point_destroy",
+      "point_mul_by_ratio_and_encode_like_eddsa",
+      "point_t",
+      "precomputed_base",
+      "precomputed_scalarmul",
+      "scalar_add",
+      "scalar_decode",
+      "scalar_decode_long",
+      "scalar_destroy",
+      "scalar_encode",
+      "scalar_halve",
+      "scalar_mul",
+      "scalar_sub",
+      "scalar_t",
+      "scalar_zero"
+    ]
+  },
+  "cbits/decaf/ed448goldilocks/scalar.c": {
+    "sha256": "ce649a26916b09b5267c8a6a88e599884e1cc2818baac02f642002b76ed28a16",
+    "lines": 341,
+    "apiMacroIdentifiers": [
+      "_id",
+      "scalar_add",
+      "scalar_cond_sel",
+      "scalar_copy",
+      "scalar_decode",
+      "scalar_decode_long",
+      "scalar_destroy",
+      "scalar_encode",
+      "scalar_eq",
+      "scalar_halve",
+      "scalar_invert",
+      "scalar_mul",
+      "scalar_one",
+      "scalar_set_unsigned",
+      "scalar_sub",
+      "scalar_t",
+      "scalar_zero"
+    ]
+  },
+  "cbits/decaf/include/arch_32/arch_intrinsics.h": {
+    "sha256": "896b1f7df257de0e4bb8146ebeb12b2da08743c6ef7a447104b164e80295f35d",
+    "lines": 27,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/arch_ref64/arch_intrinsics.h": {
+    "sha256": "14103fa931bf83742a73d436a20777929d1788912f8c9c00dcf1e7937bba32e9",
+    "lines": 22,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/constant_time.h": {
+    "sha256": "d2cdbc40c4327d8a096dd6cf9739a608b77f59c7df90c557c279524554ee2003",
+    "lines": 362,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/decaf/common.h": {
+    "sha256": "509342f335c906a7a7bee136d4e1196d0012008dc403800f4aa72c7ebf39a5c8",
+    "lines": 157,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/decaf/ed448.h": {
+    "sha256": "75e9e1111203e0e47383deccd99472dadf399987bd492e281cc07a0b58f97454",
+    "lines": 367,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/decaf/point_255.h": {
+    "sha256": "1875a8ef74f1e79d47f74fe1f71cbc8539fa080d7901213d5429325a07ddacfb",
+    "lines": 1,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/decaf/point_448.h": {
+    "sha256": "648f425f0f5bd62c69ff03dbd4f126d307415923a7726e21041a7569ec0c867d",
+    "lines": 789,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/decaf/sha512.h": {
+    "sha256": "1875a8ef74f1e79d47f74fe1f71cbc8539fa080d7901213d5429325a07ddacfb",
+    "lines": 1,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/decaf/shake.h": {
+    "sha256": "8f74ef2bccb2badb79e5158f43155e1bdc0f4a6dfd8de0306972c2151daea3d6",
+    "lines": 96,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/decaf.h": {
+    "sha256": "b19354175a00d557b99de2b357de5fcb6798b5dbc06bc005ebac9d5026937f3d",
+    "lines": 32,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/field.h": {
+    "sha256": "1cf1fae487a6c1bf9bc9cb967d4db919e760005529e4bb50bc9ab79571282cb6",
+    "lines": 112,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/portable_endian.h": {
+    "sha256": "8ca47d124ecac7fe1951f35c93cb83043754c41e78a265a0cdc5d11835aa815b",
+    "lines": 6,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/include/word.h": {
+    "sha256": "4d365820ac535cb127b8352cc717d6d6c530e1cfb4667fbb2675c06733cb5de8",
+    "lines": 302,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/p448/arch_32/f_impl.c": {
+    "sha256": "0a858797795babbaae39120c55b8609202b735fcd80438ed7170202e64280409",
+    "lines": 101,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/p448/arch_32/f_impl.h": {
+    "sha256": "f7852a511360934391897a1e12d7de0e3de645ca2c55d674c05915e4bc922736",
+    "lines": 40,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/p448/arch_ref64/f_impl.c": {
+    "sha256": "74b99199863b2365f0be6f92793fd31cad16de3152a3c2229244484309e155e7",
+    "lines": 302,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/p448/arch_ref64/f_impl.h": {
+    "sha256": "07981cf0afcf9148fd3fabe457a6172d12f81c859fc745ab265dfd2f04ffb87d",
+    "lines": 38,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/p448/f_arithmetic.c": {
+    "sha256": "8b1951ca29b8388eb3906017935491778a0e07cd92d2da2767bcf1f7d1b7ad23",
+    "lines": 46,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/p448/f_field.h": {
+    "sha256": "4e572314e7d3b6f71abda536cf60105abdc57947f1f31129480e3bca0be0e7d0",
+    "lines": 107,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/p448/f_generic.c": {
+    "sha256": "2f47d08ab34b5beed7f4ca86e64deafff31bfc71d15229d606de354b6de8a211",
+    "lines": 133,
+    "apiMacroIdentifiers": []
+  },
+  "cbits/decaf/utils.c": {
+    "sha256": "20950f09e709d6374e42f1266aeae0342f73fd5e31422b5f078273791dc41fa9",
+    "lines": 43,
+    "apiMacroIdentifiers": []
+  },
+  "Crypto/PubKey/Curve448.hs": {
+    "sha256": "ecdbfb412fe0b4befb2236489c2c3505f1cbb7fc4abb14aab678c0ed1d78a1b7",
+    "lines": 138
+  },
+  "Crypto/PubKey/Ed448.hs": {
+    "sha256": "5516248f57010476b7d0bcdc0a6f5520bef6dc8fe2fc9207e8101eda25522652",
+    "lines": 199
+  },
+  "tests/Curve448Spec.hs": {
+    "sha256": "8f10cabf1b9a17d54a2da995f9a975595c67e798e90c10f3513cce434bf14a8c",
+    "lines": 48
+  },
+  "tests/Ed448Spec.hs": {
+    "sha256": "e817942decdc591216d2202f3d21aa9ecd800e61da56b8ea46a654450e8bea07",
+    "lines": 117
+  }
+}

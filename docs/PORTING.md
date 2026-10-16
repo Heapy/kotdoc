@@ -14117,3 +14117,47 @@ remain open; source matrix retains branch evidence and dependency boundaries.
 Staged diff checking reports one EOF blank-line diagnostic in the verbatim
 original5107.md command fixture. Its upstream-byte hash passes; the original
 fixture is intentionally preserved and all other checkpoint paths are clean.
+
+### Complete portable Decaf p448 field checkpoint
+
+The first Decaf checkpoint ports all25 field functions, add_nr macro alias and
+ZERO/ONE/MODULUS for16×28-bit and8×56-bit representations. Source review
+checks profile-specific raw add/sub/bias/reduction, unsigned truncation and
+uint64-to-uint128 multiplication operand order, serializers, masks, aliases
+and the complete27-stage ISR chain (446 squares,13 multiplies,one copy).
+Accepted P256/X25519/Edwards engines and public APIs are unchanged.
+
+Independent extraction/source verification authenticates original source-map
+bytes and observer-only ISR snapshots. Own native replay passes16,622 original/
+observed rows with27 pins, including80 traces/2,160 states. Guarded raw buffers
+and failure outputs are retained, not replaced by mathematical expectations;
+169 canonical-input mathematical checks are secondary original-result checks.
+All24 frozen file hashes match. Saved fresh50730 XML independently confirms
+16,650 actual tests with zero failures/errors/skips. Completed jar/installDist
+contains the specialized Kotlin field class without BigInteger and the exact
+packaged Decaf notice; installed/core JAR bytes match. No extra Gradle rerun
+was needed after these frozen source/test/package checks.
+
+The forced32 portable profile runs on a64-bit host with generic conditional
+word branches and observed32-bit big_register_t; it is not a real32-bit OS ABI
+or SIMD proof. Destination overlaps forbidden by C restrict are excluded;
+ISR output==input is covered. Positive square counts and32-bit multiplier
+bounds are enforced. Signed mulw INT_MIN and subx_nr INT_MAX are excluded
+original C UB inputs; negative signed carries follow observed Clang arithmetic
+shift, not universal ISO-C behavior. Wider raw tuples establish source raw
+parity only, not mathematical guarantees beyond source range contracts.
+
+Original headers state MIT and reference LICENSE.txt absent from the pinned
+archive. Copyright headers remain verbatim; decaf-MIT.txt explicitly identifies
+the separately supplied standard MIT text/URL and does not claim an absent
+upstream license file was copied byte-exact.
+
+RemainingSourceInventory records the full remaining Decaf source, not completed
+coverage: scalar, points/precomputed tables, X448 public/modern wrappers,
+Ed448 signatures/SHAKE, number/primality/signatures/trust/chain and other
+local:613 operations remain open. This field slice does not close local:613,
+full Pandoc/tests or later calibre delivery.
+
+Cached diff checking reports original trailing whitespace/EOF blank lines only
+in the byte-authenticated original/ C source copies. Those files are preserved
+verbatim; all translated code, wrappers, tools, notice and ledger paths are clean.
