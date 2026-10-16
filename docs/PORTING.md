@@ -14248,3 +14248,45 @@ tests/later calibre remain open.
 Cached diff checking retains93 whitespace/EOF diagnostics only in exact original
 C/header copies and the mechanically derived bounded/normalized observers.
 Their source transformations/bytes verify; all other staged paths are clean.
+
+### Complete Muse reader and narrow application registration checkpoint
+
+The complete1,012-line pinned Muse reader is translated in Kotlin with original
+ordered grammar, immutable ReaderParsec state/environment, final-state Future
+metadata/notes, deletion before note recursion and report-before-demand logging.
+Lists/tags/tables/grid chunk reparsing, Long source positions/indentation and
+continuation execution preserve the source contracts within represented finite
+inputs. Private persistent concatenation avoids quadratic retained list tails.
+The existing local Unicode16 identifier helper is reused without modifying Doku.
+
+Independent full source review and original replay pass3,006 observations:
+all250 literal reader assertions+2,464 derived+277 expanded+11 deep+four exact
+trace cases. A separate full1,114,112-point predicate assertion verifies GHC
+isLetter against the reused Kotlin predicate and native isAlpha equivalence;
+this is one JUnit case, not a million extra tests. Own bounded replay passes
+all3,006 and the predicate at512MiB/256KiB. Source/payload/tool/helper/original-byte
+checks and all38 frozen path hashes pass; original expectations come only from
+the complete copied upstream reader/tests and retained native responses.
+
+Saved fresh99381 Gradle XML independently confirms4,870 actual tests, zero
+failures/errors/skips:3,007 Muse+1,480 accepted Doku reader+383 Doku writer.
+Completed installDist and copied installed JAR hashes are authenticated. Final
+installed22581 proof passes323 complete application observations (35 input,
+22 warning/error/trace,16 options and250 original reader cases) plus two complete
+5107 Muse-to-Doku commands and input registration. Own selected five boundary
+controls and the original Tabs distinction pass:249 App ASTs match library
+expectations, while the Tabs case has a separate original App-normalized result.
+The UTF8-only fallback catch, conditional binary signature rejection, raw Latin1,
+BOM/CR/tab order and multiline warning versus typed-error formatting remain
+source-backed. Main changes only narrow Muse input/extension/inference/default
+HTML routing; accepted Doku implementation/payloads and HtmlCliOptions are unchanged.
+
+This supplies the previously pending5107#1/#2 command evidence; historical Doku
+checkpoint manifests remain immutable. Muse writer164 original leaves/two Old
+goldens and4172 commands, RST writer997lines/22 tests and8182, other formats and
+full integration/Lua/filter/options closure remain open. Shared Unicode17/16
+CoreIdentifiers drift stays local:612; general App-M metadata stays local:621.
+No full Muse writer, local:618, Pandoc/tests or later calibre completion is claimed.
+
+Cached diff checking retains one EOF blank-line diagnostic in the verbatim
+original5107.md fixture; its upstream-byte pin passes. Other staged paths are clean.
