@@ -20,7 +20,15 @@ enum class Asn1TimeType { TimeUTC, TimeGeneralized }
 
 sealed class Asn1Value {
     data class BooleanValue(val value: Boolean) : Asn1Value()
-    data class IntVal(val value: BigInteger) : Asn1Value()
+    class IntVal private constructor(private val stored: Lazy<BigInteger>) : Asn1Value() {
+        constructor(value: BigInteger): this(lazyOf(value))
+        val value get() = stored.value
+        operator fun component1() = value
+        fun copy(value: BigInteger = this.value) = IntVal(value)
+        override fun equals(other: Any?) = other is IntVal && value == other.value
+        override fun hashCode() = value.hashCode()
+        companion object { fun deferred(value: () -> BigInteger) = IntVal(lazy(value)) }
+    }
     data class BitString(val value: Asn1BitArray) : Asn1Value()
     class OctetString(bytes: ByteArray) : Asn1Value() {
         private val stored = bytes.copyOf()
@@ -29,11 +37,12 @@ sealed class Asn1Value {
         override fun hashCode() = stored.contentHashCode()
     }
     data object Null : Asn1Value()
-    class Oid(arcs: Asn1Oid) : Asn1Value() {
-        private val stored = arcs.toList()
-        val arcs: Asn1Oid get() = stored.toList()
-        override fun equals(other: Any?) = other is Oid && stored == other.stored
-        override fun hashCode() = stored.hashCode()
+    class Oid private constructor(private val stored: Lazy<Asn1Oid>) : Asn1Value() {
+        constructor(arcs: Asn1Oid): this(lazyOf(arcs.toList()))
+        val arcs: Asn1Oid get() = stored.value.toList()
+        override fun equals(other: Any?) = other is Oid && stored.value == other.stored.value
+        override fun hashCode() = stored.value.hashCode()
+        companion object { fun deferred(arcs: () -> Asn1Oid) = Oid(lazy { arcs().toList() }) }
     }
     class Real(val value: Double) : Asn1Value() {
         // Haskell Double Eq: NaN differs from itself; signed zeros are equal.

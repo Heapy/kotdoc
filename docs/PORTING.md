@@ -11560,3 +11560,88 @@ remaining hourglass Read/numeric/Enum/Integral/Compat APIs and property coverage
 X509 objects/stores/validation/signatures, TLS and resource-I/O integration
 remain work. Full Pandoc/all tests, calibre MOBI/all tests and other formats
 absent from Pandoc/all tests remain the unchanged required end state.
+
+### X509 algorithm identifiers and original signature test
+
+`X509AlgorithmIdentifier.kt` ports the pinned
+`Data.X509.AlgorithmIdentifier` module: all **seven HashALG values**, all **nine
+named PubKeyALG values plus Unknown**, all **three SignatureALG constructors**,
+the derived Eq/Show behavior, public-key OIDable instance, and SignatureALG's
+ASN1Object instance. The original **21-entry** signature OID table is preserved,
+including the four PSS hash OIDs, SHA1/224/256 DSA and EC mappings, and EdDSA.
+Unknown identifiers preserve arbitrary Integer arcs. Unsupported signature/key/
+hash combinations fail with the source message instead of inventing an OID.
+
+Both original PSS input patterns are retained: absent inner NULLs or NULLs in
+both hash AlgorithmIdentifiers. Outer wrapper kinds/tags and their End kinds
+are independent wildcards; the second hash OID and integer salt payload are
+ignored. The MGF1 OID and sequence markers remain required. The first hash OID
+is resolved by the original signature table, including unknown/intrinsic cases;
+this is parsing behavior, not additional cryptographic validation. Ed25519 and
+Ed448 reject an explicit NULL parameter but accept an absent one. The parser
+preserves the unconsumed input, including lazy payloads in ignored fields.
+
+Output preserves PSS's nested wrappers, MGF1 identifier and supported hash salt
+lengths (28/32/48/64). Intrinsic algorithms omit NULL, while other/unknown
+algorithms include it. `toAsn1Stream` supports bounded output and a lazy tail;
+ordinary `Asn1Object` builder composition remains available. ASN1 Oid and IntVal
+now offer cached deferred payloads: output constructors/list length can be
+observed before an unsupported OID or salt value is demanded. Existing
+constructors/getters, IntVal component1/copy/copy$default, equality, hash and
+display remain callable. IntVal is now manually implemented, so its former
+Kotlin-reflection isData flag is not preserved; ordinary JVM method descriptors
+are preserved, as was previously recorded for Event.Header.
+
+The development-only reference directly compiles the **unchanged X509 module**,
+**16 unchanged ASN1 modules** and **12 unchanged hourglass modules**. Its test
+adapter contains the exact original HashALG/PubKeyALG/SignatureALG Arbitrary
+instances and generic `property_unmarshall_marshall_id` body from the retained
+crypton-x509 Tests.hs; the importer verifies that extraction. No codec,
+generator, test body or expectation algorithm is rewritten in the observer.
+The original named **signature alg** property passes **1,000 QuickCheck cases**
+on both macOS/AArch64 and Linux/x86_64 (replay seed **1095978545**). The corpus
+also records **1,000 actual original generator inputs** and invokes that
+original property for their expected output. Linux independently reproduces
+all 1,000 inputs and their outputs. This is the signature test, not the
+upstream public/private key, extension, certificate, CRL or redaction tests;
+those remain required work.
+
+There are **44,471 independent observations**, **89 source hashes**, and
+semantic SHA-256
+**59e769ac76bf6ab0202b57c5e5fd711b68076fa08a79b7b18c20ba55574da549**.
+Both original GHC builds verify all observations. Coverage includes every
+algorithm constructor and Eq pairing, all table mappings, unsupported
+combinations and unknown OIDs, output prefix/list-constructor/individual-field
+demand, failing difference-list tails, DER byte prefixes, simple absent/NULL/
+invalid parameters, every PSS token position mutated and every truncation,
+arbitrary wrapper combinations and unmatched ends, ignored versus demanded
+failing fields, remaining input, and malformed token streams. An ownership/
+cache check brings X509AlgorithmTest to **44,472 tests**.
+
+macOS/AArch64 JDK 21 passes **321,434 selected HTTP/environment/encoding/ASN1/
+X509/hourglass tests** in a 153s build. All **38 XML suites** match their actual
+counts: **321,435 tests**, zero failures/errors and only the actual Windows
+Registry skip. Linux/x86_64 JDK 21 independently passes the same **321,434**
+tests in **80.865s**, with no failed/aborted tests or containers and the same
+one Registry skip. All **167 source/fixture verifiers** pass (114.6s).
+Windows CI now requires **202,834 tests** with no skips. The preceding
+97cf362 CI completed successfully on both Linux and Windows; 6d8c63e's Windows
+job passed **158,362 tests**, while its full Linux CI remains live.
+
+Core/installed JAR identity is verified, with **89 complete notices** and
+**3,153 classes**. Against 6d8c63e, **3,117 classes are byte-identical**, 12
+additional class changes have identical `javap -p -c` output, IntVal/Oid change
+storage behavior and the Kotlin module metadata gains the new package. No old
+class is removed; 22 classes are added. A Java client compiled against 6d8c63e
+runs unchanged against the new JAR, including IntVal copy$default and Oid input/
+returned-list ownership. All **343 HTTP classes**, **22 TLS error classes**,
+**250 Pandoc assets**, **six native ABI assets**, CodePage, Windows error
+mapping, **60,137-byte PSL**, and CLI/dependency JAR bytes remain exact.
+
+This checkpoint supplies algorithm identifiers, not key material or signature
+verification. Distinguished names, public/private key objects, extensions,
+certificates/CRLs/signed objects, stores and validation, remaining original
+X509 tests, finer thunk/resource/streaming coverage, hourglass remaining APIs,
+and TLS/resource-I/O integration remain work. Full Pandoc/all tests, calibre
+MOBI/all tests and additional formats absent from Pandoc/all tests remain the
+unchanged required end state.
