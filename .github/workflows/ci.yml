@@ -62,6 +62,7 @@ jobs:
       - run: python3 tools/import-certificate-binary-fixtures.py --check-source
       - run: python3 tools/import-asn1-types-fixtures.py --check-source
       - run: python3 tools/import-asn1-values-fixtures.py --check-source
+      - run: python3 tools/import-hourglass-fixtures.py --check-source
       - run: python3 tools/import-parser-state-fixtures.py --check-source
       - run: python3 tools/import-html-state-fixtures.py --check-source
       - run: python3 tools/import-uri-fixtures.py --check-source
@@ -208,7 +209,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - run: .\gradlew.bat :core:test --tests "io.heapy.kotdoc.http.Http*Proxy*Test" --tests "io.heapy.kotdoc.http.HttpWindowsRegistry*Test" --tests "io.heapy.kotdoc.resources.GhcEnvironmentTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupNativeTest" --tests "io.heapy.kotdoc.resources.GhcTextEncodingTest" --tests "io.heapy.kotdoc.resources.GhcEncodingGlobalsTest" --tests "io.heapy.kotdoc.resources.GhcCodePageTest" --tests "io.heapy.kotdoc.asn1.CertificateBinaryTest" --tests "io.heapy.kotdoc.asn1.Asn1TypesTest" --tests "io.heapy.kotdoc.asn1.Asn1ValuesTest" --no-daemon "-Pkotlin.compiler.execution.strategy=in-process"
+      - run: .\gradlew.bat :core:test --tests "io.heapy.kotdoc.http.Http*Proxy*Test" --tests "io.heapy.kotdoc.http.HttpWindowsRegistry*Test" --tests "io.heapy.kotdoc.resources.GhcEnvironmentTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupNativeTest" --tests "io.heapy.kotdoc.resources.GhcTextEncodingTest" --tests "io.heapy.kotdoc.resources.GhcEncodingGlobalsTest" --tests "io.heapy.kotdoc.resources.GhcCodePageTest" --tests "io.heapy.kotdoc.asn1.CertificateBinaryTest" --tests "io.heapy.kotdoc.asn1.Asn1TypesTest" --tests "io.heapy.kotdoc.asn1.Asn1ValuesTest" --tests "io.heapy.kotdoc.time.*" --no-daemon "-Pkotlin.compiler.execution.strategy=in-process"
       - name: Verify Windows proxy results including actual registry execution
         shell: python
         run: |
@@ -219,7 +220,8 @@ jobs:
                       "GhcEnvironmentTest": 3828, "GhcEnvironmentLookupTest": 8090,
                       "GhcEnvironmentLookupNativeTest": 1, "GhcTextEncodingTest": 968,
                       "GhcEncodingGlobalsTest": 2498, "GhcCodePageTest": 4864, "CertificateBinaryTest": 12331,
-                      "Asn1TypesTest": 12251, "Asn1ValuesTest": 9756}
+                      "Asn1TypesTest": 12251, "Asn1ValuesTest": 9756,
+                      "HourglassLibraryTest": 10676, "HourglassNativeTest": 2}
           actual = {}
           for path in Path("core/build/test-results/test").glob("TEST-*.xml"):
               suite = E.parse(path).getroot()
@@ -230,4 +232,4 @@ jobs:
               assert not suite.findall(".//failure") + suite.findall(".//error") + suite.findall(".//skipped"), path
               actual[name] = len(cases)
           assert actual == expected, actual
-          print("Verified 61,232 Windows proxy/environment/encoding/ASN1 tests, including real Advapi32/HKCU, Kernel32 environment lookup/growth, CP932 conversion, lazy invalid code pages, initial encodings, PEM/raw-ASN1, ASN1 values and ParseASN1; no skipped tests")
+          print("Verified 71,910 Windows proxy/environment/encoding/ASN1/hourglass tests, including real Advapi32/HKCU, Kernel32 environment lookup/growth, CP932 conversion, lazy invalid code pages, initial encodings, PEM/raw-ASN1, ASN1 values, ParseASN1, controlled POSIX/Windows hourglass boundaries and actual Kernel32 clocks/conversion/error mapping; no skipped tests")

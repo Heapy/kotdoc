@@ -11172,3 +11172,95 @@ original DER/Real/IntegralReal properties, Pretty, the rest of hourglass,
 X.509 objects/stores/validation/signatures, TLS and resource-I/O integration
 remain unfinished. The full Pandoc port/all tests, calibre MOBI/all tests and
 additional formats absent from Pandoc/all their tests remain the objective.
+
+
+### Hourglass calendar, arithmetic, epochs and native time boundaries
+
+The preceding published checkpoint **3da909a** made concrete progress on ASN1
+values/ParseASN1. Its full CI run **38870266497** is now independently verified
+**successful** on Linux and Windows, including all **61,232 Windows cases**
+with no skips. The public repository remains **Heapy/kotdoc**. The current
+checkpoint continues the full objective; it does not replace the remaining
+Pandoc/MOBI/other-format scope with these prerequisite modules.
+
+Translated `Time.Calendar`, finite `Time.Diff`, timezone naming and padding,
+Unix/Windows/MJD epoch dictionaries, Elapsed/ElapsedP and ElapsedSince/P
+arithmetic, period/duration monoids, TimeInterval conversions, Time/Timeable
+conversion, Time/LocalTime operations, and all six `Time.System` functions.
+Int64/machine-Int operations retain wrapping and negative floor division;
+precise addition normalizes, subtraction makes the original single borrow,
+component multiplication does not normalize, and negate/abs/signum retain the
+nanosecond component. Rational conversion uses exact arbitrary integers.
+Unchecked dates normalize through the original month loop; no Gregorian date
+validation is added. LocalTime Eq and UTC-based Ord remain distinct.
+
+Production native backends translate the original POSIX and Windows modules
+using JNA, with independently injectable pointer APIs. POSIX retains CInt year
+addition before widening, localtime_r at **epoch zero**, gmtoff floor division,
+gmtime/localtime failure text, and the original clock backend (Mach calendar
+clock on macOS; clock_gettime on Linux). Windows retains unsigned FILETIME
+wrapping, 100ns resolution, SYSTEMTIME Word16 fields, ignored milliseconds,
+Int32 bias addition/negation, Standard/Daylight/unknown modes and actual GHC
+Windows IOException mapping. Existing Win32 and hourglass full notices apply.
+Native layouts are verified for the current 64-bit macOS/Linux/Windows targets;
+this is not a claim of support for every possible architecture.
+
+Separate APIs preserve generic and specialized conversion paths. The original
+GHC 9.12.2 `-O2` build applies the unconstrained `timeGetTimeOfDay/Date` const
+RULE to polymorphic calls, yielding zero without a native conversion; direct
+DateTime calls use their specific field rewrite. Both paths are observed.
+Generic date/time conversion can normalize unchecked input even when the
+specialized DateTime identity/field access does not. Future polymorphic
+formatting code must use the generic path rather than silently selecting a
+specialized identity.
+
+The new development observer compiles **12 unchanged hourglass modules**, plus
+its small request bridge. Its POSIX executable links original C/native calls;
+two controlled-boundary executables compile the original POSIX and Windows
+modules without rewriting their date/time algorithms. Fake FFI/Win32 IO
+supplies raw fields, failures and argument/call-order traces. The native error
+model uses a fixed exception; actual Win32 error translation is separately
+exercised by Kotlin native tests and the existing GHC Windows-error corpus.
+A new manifest also verifies the complete, already retained **Win32 2.14.2.1**
+archive (**124 files**, no changes to their bytes), SHA-256
+**69d15a9fb4ef718353aaf8700a64c5885743d4f34a94f7da273fa12584df0315**.
+
+The corpus contains **10,676 independent observations**, **165 source hashes**,
+and semantic SHA-256
+**12ce7cf8fe36b7cbaf762f0b778a2c0ed60d84306aabea39c72d7f187a505217**.
+It comprises **4,553 pure**, **3,184 controlled POSIX**, **2,894 controlled
+Windows**, and **45 actual native-calendar** observations in the common
+1601..9999 range. It extracts all **seven original arithmetic literals** with
+original expected results and checks the **four original Real regression
+examples** against their explicit fractions. It covers every month, negative
+and overflowing years/units, all eleven built-in source/target Time types,
+three epoch offsets, timezone zero/minBound/overflow, native invalid months,
+raw nanoseconds, clock fields, errors and System call ordering. Separately
+compiled Linux/x86_64 GHC executables agree on all **10,676 observations**.
+Two additional Kotlin native tests exercise live clocks, System wrappers and
+real native failure mapping; no host clock/timezone snapshot is frozen.
+
+macOS/aarch64 JDK 21 passes **190,510 selected HTTP/environment/encoding/ASN1/
+hourglass tests** in a 67s build. All **34 XML suites** have matching declared
+and actual counts: **190,511 cases**, zero failures/errors and only the actual
+Windows Registry skip. All **163 source/fixture verifiers** pass (41.5s).
+Linux/x86_64 JDK 21 independently passes the same **190,510 tests** (79.667s
+JUnit), with no failed/aborted tests or containers and the one Registry skip.
+CI requires **71,910 Windows cases** with no skips, including both hourglass
+classes and actual Kernel32 execution; execution awaits this checkpoint's push.
+
+Core and installed JAR bytes match. All **3,006 preexisting classes** remain
+byte-identical; **67 new classes** bring the total to **3,073**. Only Kotlin
+module metadata changes among preceding entries. All **343 HTTP classes**,
+**22 TLS error classes**, **87 full notices**, **250 Pandoc assets**, **six
+native ABI assets**, the CodePage table and **60,137-byte PSL** remain exact,
+as do all CLI/dependency JAR bytes.
+
+The complete hourglass suite is still **not** ported: its missing upstream
+`test-time-db` contributes no claimed known cases; formatting/parsing and custom
+callback properties, Read instances, remaining derived unit numeric/Enum/
+Integral operations, Time.Compat and fuller property-generator coverage remain.
+Typed BER/DER, ASN1 time parse/print, remaining DER/Real/IntegralReal tests,
+Pretty, X509/store/validation/signatures, TLS and resource integration also
+remain. Full Pandoc/all tests, calibre MOBI/all tests and additional formats
+absent from Pandoc/all tests remain the original required end state.

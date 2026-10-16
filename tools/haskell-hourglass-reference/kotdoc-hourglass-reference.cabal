@@ -1,0 +1,29 @@
+cabal-version: 3.0
+name: kotdoc-hourglass-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+common observer
+  hs-source-dirs: . ../../vendor/time-hourglass-0.3.0/src
+  other-modules: Data.Hourglass, Time.Calendar, Time.Diff, Time.Epoch, Time.Format, Time.Internal, Time.LocalTime, Time.System, Time.Time, Time.Timezone, Time.Types, Time.Utils
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring ==0.12.2.0, deepseq
+executable hourglass-reference
+  import: observer
+  main-is: HourglassReference.hs
+  hs-source-dirs: ../../vendor/time-hourglass-0.3.0/src/unix
+  c-sources: ../../vendor/time-hourglass-0.3.0/cbits/unix.c
+executable hourglass-posix-model
+  import: observer
+  main-is: HourglassReference.hs
+  hs-source-dirs: posix-model ../../vendor/time-hourglass-0.3.0/src/unix
+  other-modules: Model
+  cpp-options: -DMODEL=1
+  c-sources: posix-model/clock.c
+executable hourglass-windows-model
+  import: observer
+  main-is: HourglassReference.hs
+  hs-source-dirs: windows-model ../../vendor/time-hourglass-0.3.0/src/win
+  other-modules: Model, System.Win32.Time
+  cpp-options: -DMODEL=1
