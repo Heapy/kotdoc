@@ -12631,6 +12631,38 @@ The existing native TLS, encoding/resource, platform oracle and stress gaps
 remain open. Full Pandoc/all tests, calibre MOBI/all tests and all additional
 formats absent from Pandoc/all tests remain the required end state.
 
+## Source test inventory foundation (2026-10-16)
+
+`docs/test-inventory.json` and its accompanying explanation preserve a
+reproducible registry snapshot: **8,646 source/assets**, **1,125 registry
+candidates**, and the complete **81 registered pandoc-types source tests**.
+The latter comprise 56 paired JSON examples, two table literals and 23
+properties, or **137 assertion/property registrations**. Trials and independent
+oracle observations are counted separately. The 58 literal examples have
+identified executable Kotlin mappings; 19 properties have partial mappings
+and four list walk/query properties remain unmapped. Original generator and
+shrinker semantics, Read and the separately reviewed Eq/Ord mapping remain
+required.
+
+The snapshot retains pinned revisions, source SHA-256 values, Kotlin test and
+production paths/hashes, expectation provenance and reproduction commands.
+Pandoc Haskell imports, Cabal suites and calibre Python factories/definitions
+are conservative discovery candidates, not proof of reachable test execution.
+Separate Lua-engine roots and embedded MOBI/PalmDOC test sources are retained.
+Computed golden matrices, command AST blocks, conditional/runtime registration,
+dependency embedded/non-Cabal tests and complete executable leaf mappings still
+require expansion. This checkpoint does not complete the test inventory or
+establish full Pandoc or calibre coverage.
+
+Independent review confirmed the source registration counts and existing
+literal mappings. `python3 tools/build-test-inventory.py`, all five negative
+snapshot-drift checks in `tools/check-test-inventory-verifier.py`, and
+`tools/import-pandoc-json-fixtures.py --check` pass. The importer verifies all
+56 verbatim JSON fixtures. No fresh Kotlin suite execution is claimed by this
+inventory-only checkpoint. Hash drift detection does not certify behavioral
+correctness of future mappings. Full Pandoc/all tests, then calibre MOBI/all
+tests and all additional absent formats/all tests remain required.
+
 
 ## Modular arithmetic and fixed-width Montgomery core (2026-10-16)
 
