@@ -11815,3 +11815,90 @@ validation, broader stress and finer thunk/resource/streaming coverage,
 remaining hourglass APIs, and TLS/resource-I/O integration remain work. Full
 Pandoc/all tests, calibre MOBI/all tests and additional formats absent from
 Pandoc/all tests remain the unchanged required end state.
+
+### Typed X509 extensions, accessors and original key-usage properties
+
+`X509ExtensionModels.kt`, `X509ExtensionCodecs.kt`,
+`X509ExtensionSupport.kt` and `X509GeneralNames.kt` port the pinned
+`Data.X509.Ext` models, all nine extension instances, recognized OIDs and
+extensionEncode/Decode/Get/GetE. Models retain source Eq/Show and the declared
+Ord/Enum behavior, including descending, empty and zero-step enumeration
+prefixes. Owned input/output arrays and lists prevent caller mutation.
+
+BasicConstraints retains its exact accepted shapes and negative-path rejection;
+KeyUsage retains fixed nine-bit encoding, duplicate/order behavior and deferred
+out-of-enum flags; ExtendedKeyUsage retains known and unknown OIDs and its
+exception for non-OID content. Subject/Authority key identifiers keep their
+different wrappers. GeneralNames supports exactly the original name variants,
+byte-truncating Char8 names, nested DER distinguished names and composed
+XMPP/DNSSRV character strings. Unsupported names/encodings and malformed
+containers retain source errors, including deferred error-message payloads.
+
+The source's DNSSRV encoder emits the **XMPP OID ending in 5**, whereas its
+DNSSRV decoder recognizes the OID ending in 7; the port preserves the resulting
+round-trip change. NameConstraints preserves the source's extra encoder
+Sequence wrapper, its asymmetric decoder, implicit subtree groups, optional
+DER-encoded signed/unbounded distances, permissive Context End tags, last-group
+replacement and ignored trailing input. It does not normalize these behaviors
+into a different implementation. The source explicitly leaves CRL Distribution
+Points encode/decode **unimplemented**; its models/metadata and the same errors
+are retained. Netscape Comment bypasses ASN1 for bytes and throws for the ASN1
+methods, as upstream does.
+
+Raw decoding checks the OID before demanding content, ignores critical, and
+retains the separate Maybe/Either/payload layers. GetE returns the first
+matching OID even when decoding fails; Get skips Left results and returns the
+first success. The new memoized sequence parser preserves constructor, list
+spine, element and prefix demands without materializing an unused tail. IP
+payloads, Other bytes, BitString values and CharacterString bytes are cached and
+owned independently. Existing BitString constructor/getter/component1/copy/
+copy$default/equality/hash/display JVM contracts are retained. Its Kotlin
+reflection metadata now reports a regular class rather than a data class;
+this is an explicit API metadata change, not a claim of reflection identity.
+The former synthetic CharacterString private-field accessor is replaced by the
+compiler's private-getter accessor; ordinary public constructors/getters remain.
+
+The development observer compiles the unchanged pinned X509/ASN1/hourglass
+modules. Its adapter is an exact checked extraction of the original
+ExtKeyUsageFlag/ExtKeyUsage/ExtKeyUsagePurpose/ExtExtendedKeyUsage generators and
+the generic property_extension_id body. Both original named key-usage
+properties pass **1,000 QuickCheck cases each**, with replay seeds
+**1345978545** and **1445978545**. The fixture corpus retains and independently
+regenerates those **2,000 actual original generated inputs**. Kotlin evaluates
+the same extDecode(extEncode(value)) property, in addition to recording original
+DER bytes and encoded ASN1 values. All **512 key-usage subsets** are also tested.
+
+There are **44,136 original observations**, **97 source hashes**, and semantic
+SHA-256
+**6772a04721fc9a83796986f7d3414e3c9f56a6ebd46e92e26d520b158b2bb2d7**.
+Generation and full independent oracle replay pass on macOS/AArch64. Coverage
+includes all byte values, pairwise models, every enum range, encoder prefixes,
+every-position constructor mutations/truncations, malformed BER/DER, nested DN,
+composed-name encodings, malformed bit storage, out-of-enum set bits, raw-field
+and accessor error priority, and constructor/spine/payload demands. The JSON
+adapter preserves Aeson's list-spine-before-element forcing order, separately
+from the production sequence API. Extreme Word64 lengths are observed only
+where bounded demands avoid unbounded zero-bit scans; this is not resource or
+termination stress evidence. Independent Linux oracle replay remains work.
+One ownership/cache check brings **X509TypedExtensionTest to 44,137 tests**.
+
+The macOS/AArch64 JDK 21 regression run passes **237,606 tests** across all nine
+ASN1/X509 suites, with actual XML testcase counts checked and zero failures,
+errors or skips. This includes the eight preceding suites as well as the new
+suite. The installed core JAR is byte-identical to the standalone core JAR;
+all **89 notices** are included. Against eec419a, no old class is removed,
+**3,161 classes** are byte-identical and **82 classes** are added for **3,261**
+total classes. All **560 existing non-class/non-module-metadata assets** remain
+exact. A Java client compiled against eec419a executes unchanged against both
+JARs, checking the changed classes' constructors/getters, BitString destructuring
+and copy/default methods, equality/hash/display and defensive ownership.
+Windows CI now requires **302,817 tests** with no skips, including the new typed
+suite; Linux CI also runs the new source verifier and suite. The preceding
+eec419a and 055d995 Linux/Windows CI runs are confirmed successful.
+
+Keys/cryptographic operations, certificates/CRLs/signed objects, stores and
+validation, remaining original X509 tests, independent other-platform typed
+oracle replay, broader stress and finer thunk/resource/streaming coverage,
+remaining hourglass APIs and TLS/resource-I/O integration remain work. Full
+Pandoc/all tests, calibre MOBI/all tests and additional formats absent from
+Pandoc/all tests remain the unchanged required end state.

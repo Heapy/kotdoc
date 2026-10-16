@@ -9,8 +9,9 @@ import java.io.ByteArrayOutputStream
 
 enum class Asn1StringEncoding { IA5, UTF8, General, Graphic, Numeric, Printable, VideoTex, Visible, T61, UTF32, Character, BMP }
 
-class Asn1CharacterString(val encoding: Asn1StringEncoding, rawData: ByteArray) : Comparable<Asn1CharacterString> {
-    private val storedData = rawData.copyOf()
+class Asn1CharacterString private constructor(val encoding: Asn1StringEncoding, private val delayedData: Lazy<ByteArray>) : Comparable<Asn1CharacterString> {
+    constructor(encoding: Asn1StringEncoding,rawData: ByteArray): this(encoding,lazyOf(rawData.copyOf()))
+    private val storedData get()=delayedData.value
     val rawData: ByteArray get() = storedData.copyOf()
 
     /** Both the list spine and each Char are lazy in the original Haskell String. */
@@ -87,6 +88,7 @@ class Asn1CharacterString(val encoding: Asn1StringEncoding, rawData: ByteArray) 
     override fun toString() = "ASN1CharacterString {characterEncoding = $encoding, getCharacterStringRawData = ${HaskellString.quoteCodePoints(storedData.map { it.toInt() and 255 }.toIntArray())}}"
 
     companion object {
+        fun deferred(encoding: Asn1StringEncoding,rawData: () -> ByteArray)=Asn1CharacterString(encoding,lazy {rawData().copyOf()})
         fun fromString(text: String) = fromString(CharacterStringChars.fromString(text))
         fun fromString(text: CharacterString) = encode(Asn1StringEncoding.UTF8, text)
         fun encode(encoding: Asn1StringEncoding, text: CharacterString): Asn1CharacterString {

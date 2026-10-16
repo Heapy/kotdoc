@@ -29,7 +29,15 @@ sealed class Asn1Value {
         override fun hashCode() = value.hashCode()
         companion object { fun deferred(value: () -> BigInteger) = IntVal(lazy(value)) }
     }
-    data class BitString(val value: Asn1BitArray) : Asn1Value()
+    class BitString private constructor(private val stored: Lazy<Asn1BitArray>) : Asn1Value() {
+        constructor(value: Asn1BitArray): this(lazyOf(value))
+        val value get()=stored.value
+        operator fun component1()=value
+        fun copy(value: Asn1BitArray=this.value)=BitString(value)
+        override fun equals(other: Any?)=other is BitString && value==other.value
+        override fun hashCode()=value.hashCode()
+        companion object {fun deferred(value: () -> Asn1BitArray)=BitString(lazy(value))}
+    }
     class OctetString private constructor(private val stored: Lazy<ByteArray>) : Asn1Value() {
         constructor(bytes: ByteArray): this(lazyOf(bytes.copyOf()))
         val bytes: ByteArray get() = stored.value.copyOf()
@@ -53,11 +61,12 @@ sealed class Asn1Value {
     data class Enumerated(val value: BigInteger) : Asn1Value()
     data class StringValue(val value: Asn1CharacterString) : Asn1Value()
     data class Time(val kind: Asn1TimeType, val value: HourglassDateTime, val timezone: HourglassTimezoneOffset?) : Asn1Value()
-    class Other(val kind: Asn1Class, val tag: Asn1Tag, bytes: ByteArray) : Asn1Value() {
-        private val stored = bytes.copyOf()
-        val bytes: ByteArray get() = stored.copyOf()
-        override fun equals(other: Any?) = other is Other && kind == other.kind && tag == other.tag && stored.contentEquals(other.stored)
-        override fun hashCode() = 31 * (31 * kind.hashCode() + tag.hashCode()) + stored.contentHashCode()
+    class Other private constructor(val kind: Asn1Class, val tag: Asn1Tag, private val stored: Lazy<ByteArray>) : Asn1Value() {
+        constructor(kind: Asn1Class,tag: Asn1Tag,bytes: ByteArray): this(kind,tag,lazyOf(bytes.copyOf()))
+        val bytes: ByteArray get() = stored.value.copyOf()
+        override fun equals(other: Any?) = other is Other && kind == other.kind && tag == other.tag && stored.value.contentEquals(other.stored.value)
+        override fun hashCode() = 31 * (31 * kind.hashCode() + tag.hashCode()) + stored.value.contentHashCode()
+        companion object { fun deferred(kind: Asn1Class,tag: Asn1Tag,bytes: () -> ByteArray) = Other(kind,tag,lazy {bytes().copyOf()}) }
     }
     data class Start(val kind: Asn1ConstructionType) : Asn1Value()
     data class End(val kind: Asn1ConstructionType) : Asn1Value()
