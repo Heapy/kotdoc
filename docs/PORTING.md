@@ -12323,3 +12323,82 @@ independent other-platform oracle replay, broader stress and finer thunk/
 resource/streaming coverage, remaining hourglass APIs and TLS/resource-I/O
 integration remain work. The full Pandoc/all tests, calibre MOBI/all tests and
 additional formats absent from Pandoc/all tests remain the required end state.
+
+
+## X509 EC utilities, certificate chains and DN hashes (2026-10-16)
+
+Ported unchanged crypton-x509 1.9.2 Data.X509.EC, CertificateChain and the
+remaining Data.X509 facade operations: signed certificate/CRL aliases and
+accessors/decoders, hashDN and hashDN_old. Existing classes/codecs remain shared.
+Production uses Kotlin and JDK primitives; no upstream process is required.
+
+EC support includes all **33 named curve definitions** (15 prime, 18 binary),
+Curve/Common/Point records and source Eq/Show, curve size, on-curve validation,
+uncompressed point deserialization, named/explicit prime public/private curve
+construction and matching names/OIDs. Named constants are translated directly
+from pinned Crypto.PubKey.ECC.Types and independently checked through the
+original getCurveByName results. Prime range/equation and binary-polynomial
+reduction/multiplication follow the required isPointValid semantics, including
+infinity, negative/zero modulus errors and ordered field demand. Explicit name
+matching compares a, b, order and prime only; it ignores generator, cofactor,
+seed and public/private point/scalar. Curve construction validates the explicit
+generator but does not validate a domain or subgroup. This is **not** a port of
+all ECC arithmetic, scalar multiplication, DH or subgroup validation.
+
+The observer retains exact bodies from crypton tests/PubKey/ECCSpec.hs: the
+original Arbitrary Curve instance, twelve point-validation vectors, and the
+outOfSubgroup table/helper. Extraction is checked byte-for-byte after the
+explicit module/import adaptation. The **12 original point-vector results**
+and **20 original "the point is on the curve" assertions** pass against the
+original implementation and Kotlin. The twenty points deliberately remain
+valid according to the on-curve predicate; subgroup rejection is a separate
+operation that is still pending. **1,000 actual original Curve generator inputs**
+use seed 2145978545 plus index and size index modulo 100 and regenerate exactly.
+Other original ECCSpec assertions and the full crypton suite are not claimed.
+
+CertificateChain and CertificateChainRaw retain source Eq/Show, lazy separate
+list spine/head/tail access, immutable List/byte-array ownership, and whole
+signed bytes. Encoding maps signed objects without demanding unused heads;
+decoding checks every raw certificate and stops at the first returned Left,
+preserving its signed 64-bit index and lazy message. Exceptions remain exceptions.
+The pinned derived newtype Eq observes the right list spine before the left and
+left element before right; independent failing-spine/head cases enforce that
+order. Aeson list observations first collect the selected spine before rendering
+its elements; the Kotlin observer preserves that boundary separately from the
+production sequence API. Chain decoding does not check signatures or trust.
+
+hashDN retains ASCII-only byte lowercasing, forces the ASN1 string tag to UTF8,
+DER-encodes DistinguishedNameInner and hashes with SHA1. hashDN_old preserves
+original string encodings, DER-encodes the full DN wrapper and hashes with MD5.
+Both return digest bytes [3,2,1,0]. **158 independent hash observations** include
+all twelve string encodings, the full byte range, non-ASCII text, ordering,
+duplicates and invalid OIDs. They do not imply broader OpenSSL policy equivalence.
+Facade cases also decode concrete signed certificates/CRLs retained from the
+preceding independent Signed observer; that input corpus and sources are hashed.
+
+The combined corpus has **66,416 independent observations**, **550 source
+hashes** and semantic SHA-256
+**12b53f482954bdee3d4e14551af55a47c75291eb36b2be263221a076a498c308**.
+Generation and full independent replay pass on macOS/AArch64, including the
+1,000 regenerated curve inputs and 32 original assertions. Coverage also spans
+all serialized point format octets, every generator-byte mutation/truncation,
+custom field moduli, all curve OIDs/unknowns, explicit deferred fields, chain
+first-failure indices, signed-byte truncations and Eq/Show/error order. An
+additional ownership/spine/ignored-secret check brings **X509UtilitiesTest to
+66,417 tests**. Independent other-platform oracle replay remains pending.
+
+The macOS/AArch64 JDK 21 regression passes **445,345 tests across sixteen
+ASN1/X509 suites**, with exact XML testcase counts and no failures/errors/skips.
+All **177 source/fixture verifiers** pass (155.8s). Standalone and installed core
+JARs are byte-identical and contain **3,380 classes** and **90 byte-exact notices**.
+All **560 baseline non-class/non-module-metadata assets** remain byte-exact and
+no eec419a class is missing. Windows CI now requires **510,556 tests**. The
+preceding 0f8de08 Windows job passes all **444,139 tests**; its Linux job remains
+live at this checkpoint.
+
+Signature/trust validation, stores, full ECC/scalar/DH and remaining cryptographic
+operations/tests, private-key timing/scrubbing/undefined-buffer boundaries,
+independent other-platform oracle replay, broader stress and finer thunk/
+resource/streaming coverage, remaining hourglass APIs and TLS/resource-I/O
+integration remain work. The full Pandoc/all tests, calibre MOBI/all tests and
+additional formats absent from Pandoc/all tests remain the required end state.

@@ -238,3 +238,4 @@ tools/haskell-x509-typed-reference/OriginalTypedExtensionTests.hs -text whitespa
 tools/haskell-x509-private-key-reference/OriginalPrivateKeyTests.hs -text whitespace=-blank-at-eof
 tools/haskell-x509-certificate-reference/OriginalCertificateTests.hs -text whitespace=-blank-at-eof
 tools/haskell-x509-crl-reference/OriginalCrlTests.hs -text whitespace=-blank-at-eof
+tools/haskell-x509-utilities-reference/OriginalEcPointVectors.hs -text whitespace=-blank-at-eof

@@ -16,7 +16,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   cover these slices. Unsigned certificate/CRL field-stream codecs, revoked
   entries and the original certificate/CRL properties are also ported. Signed and
   SignedExact preserve whole input and reconstruct signed-object bytes with the
-  upstream BER behavior; signing callbacks support arbitrary functors. Cryptographic
+  upstream BER behavior; signing callbacks support arbitrary functors. Certificate
+  chains retain input bytes and indexed decode failures. EC utilities cover 33
+  named curves, prime/binary point validation and explicit prime-curve matching;
+  DN hashes follow the original SHA1/MD5 byte transformations. Cryptographic
   timing/memory parity, general operations, stores, signature/trust validation
   and native TLS integration remain pending.
 
