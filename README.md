@@ -14,8 +14,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   curve/EdDSA byte-key records. Private-key display hides secrets; debugShow is
   explicit. Original-code observations and original generator/property replays
   cover these slices. Unsigned certificate/CRL field-stream codecs, revoked
-  entries and the original certificate/CRL properties are also ported. Signed
-  certificate/CRL handling, cryptographic timing/memory parity, general operations, stores, validation
+  entries and the original certificate/CRL properties are also ported. Signed and
+  SignedExact preserve whole input and reconstruct signed-object bytes with the
+  upstream BER behavior; signing callbacks support arbitrary functors. Cryptographic
+  timing/memory parity, general operations, stores, signature/trust validation
   and native TLS integration remain pending.
 
 - HTTP TLS adapter orchestration from http-client-tls 0.4.0: independent

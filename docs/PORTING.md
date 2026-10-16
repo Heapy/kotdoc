@@ -12253,3 +12253,73 @@ buffer boundaries, general cryptographic operations, independent other-platform
 oracle replay and broader stress, remaining hourglass APIs and TLS/resource-I/O
 integration remain work. The full Pandoc/all tests, calibre MOBI/all tests and
 additional formats absent from Pandoc/all tests remain the required end state.
+
+## X509 Signed / SignedExact and concrete signed records (2026-10-16)
+
+Ported the unchanged crypton-x509 1.9.2 `Data.X509.Signed` implementation:
+Signed and SignedExact records, field-order Eq/Show, signedToExact,
+objectToSigned, objectToSignedExact, arbitrary-functor objectToSignedExactF and
+decodeSignedObject. Kotlin uses an open higher-kinded witness/functor interface;
+list, Maybe and writer-pair effects are compared with the original fmap behavior.
+Explicit deferred entry points retain independent object/signature/algorithm/
+result demand and avoid serializing unused object data. Byte arrays are owned,
+copy on access, and cached independently. Signing callbacks supply signatures;
+this module does not perform cryptographic signature or trust validation.
+
+The decoder preserves the whole input byte string, accepts upstream BER
+container/length behavior, reconstructs signed-object bytes through the same raw
+event writer, and retains error messages and suffix demand. In particular, the
+raw writer emits no EOC bytes for indefinite constructions; this upstream
+behavior is preserved, not silently repaired. Invalid signature shapes can
+return `signed object error: remaining stream in object: []` even when the
+object has no remaining state. Object parser Left strings are shown with quotes.
+Constructed splitting has one-cell lookahead: an invalid first trailing primitive
+can throw while a later invalid primitive after a valid trailing value remains
+undemanded. The independent corpus caught these details and Show error ordering.
+
+The observer compiles unchanged local Signed/X509/ASN1/hourglass code and the
+full unchanged crypton 2.0.1 package with GHC 9.12.2 and frozen dependencies.
+Signed.hs has no named property in the original Tests.hs; no original Signed
+property is claimed. Instead, **21,574 independent observations** exercise all
+these APIs, including **1,000 actual original generated Certificate inputs** and
+**1,000 actual original generated CRL inputs** at seed 2045978545 plus index and
+size index modulo 100. Generator inputs regenerate exactly on replay. A probe
+ASN1Object exposes object remainders/error paths, and deterministic concrete
+certificates/CRLs guarantee valid DER coverage in addition to arbitrary DN OIDs.
+Certificate cases cover all represented public-key families and time thresholds;
+CRL cases cover next-update, revoked entries and extension presence. All-byte
+truncations and position mutations, nonminimal/indefinite BER, raw/whole-byte Eq,
+failing fields/signers and empty/single/multiple effect results are retained.
+
+The corpus has **542 source hashes** and semantic SHA-256
+**53b9129c3e04b6b745dbb725d810fb1880623d5548d50304ae478fb5f9eb9ec9**.
+Full independent replay passes on macOS/AArch64. A separate ownership/cache/
+signer-demand check brings **X509SignedTest to 21,575 tests**. Compiler locations
+are removed from non-exhaustive-case diagnostics by the observer; other fatal
+first lines and returned errors remain independently recorded. This does not
+prove arbitrary consumer codecs/effects, every thunk/resource boundary or other
+platform oracle behavior; finer coverage remains work.
+
+The captured POSIX environment now also includes Signed fixture date inputs:
+**56,698 inputs**, **56,696 distinct native conversions**, **554 source hashes**
+and model SHA-256
+**7742855af3405a8e63a09b4127e8fc9bb33b718692bfbc2d36ee489d37ad7e7c**.
+Original DateTime-to-elapsed and native conversion observations regenerate
+exactly. Production native date conversion and Windows range failures are
+unchanged. This model is environment data, not an additional JUnit test count.
+
+The macOS/AArch64 JDK 21 regression passes **378,928 tests across fifteen
+ASN1/X509 suites** with exact XML testcase counts and no failures/errors/skips.
+Standalone and installed core JARs are byte-identical, contain **3,355 classes**
+and **90 notices**, retain all **560 baseline non-class/non-module-metadata
+assets** byte-exact, and omit no eec419a class. The Windows gate now requires
+**444,139 tests**. f5a9783's Windows job passes all **422,564 tests**, confirming
+the preceding POSIX-fixture environment correction; its Linux job remains live
+at this checkpoint. All **176 source/fixture verifiers** pass (158.5s).
+
+Certificate/CRL signature and trust validation, stores, private-key timing/
+scrubbing/undefined-buffer boundaries, general cryptographic operations,
+independent other-platform oracle replay, broader stress and finer thunk/
+resource/streaming coverage, remaining hourglass APIs and TLS/resource-I/O
+integration remain work. The full Pandoc/all tests, calibre MOBI/all tests and
+additional formats absent from Pandoc/all tests remain the required end state.

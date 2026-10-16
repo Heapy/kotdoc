@@ -23,7 +23,7 @@ def collect(v):
         for x in v.values():
             collect(x)
 
-for name in ['x509-certificate', 'x509-crl']:
+for name in ['x509-certificate', 'x509-crl', 'x509-signed']:
     path = root/f'core/src/test/resources/{name}/data.jsonl.gz'
     sources.add(str(path.relative_to(root)))
     with gzip.open(path, 'rt') as f:
