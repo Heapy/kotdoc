@@ -1,0 +1,18 @@
+cabal-version: 3.0
+name: kotdoc-types-generator-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable quickcheck-reference
+  main-is: QuickCheckReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring,
+                 QuickCheck ==2.16.0.0, splitmix ==0.1.3.2, random ==1.3.1
+
+executable types-no-shrink-reference
+  main-is: NoShrinkReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring,
+                 pandoc-types ==1.23.1.2, QuickCheck ==2.16.0.0

@@ -1,0 +1,29 @@
+{
+  "noShrinkCases": 270,
+  "noShrinkSha256": "d737a04f38ce7cda30cd3bafc695008d855e7f7e6f4f6e241a991b9c17b8c005",
+  "cases": 420,
+  "sha256": "3c01bd82b82a6bdb6ede74d60293754566ff69ab422a91254d11e493d0cc3cbd",
+  "sources": {
+    "tools/import-types-generator-fixtures.py": "23bc93e3d5141517a870f6f62d9b80fe7a3bb2bb78e9e562df58da2285869a7b",
+    "licenses/QuickCheck-BSD-3-Clause.txt": "17035f93180f20bc9c9eb2fd5e0c8836c699b6dedae654b3f2a7a76e737bf2b9",
+    "licenses/splitmix-BSD-3-Clause.txt": "5f3facf95bb7d0de63aac65ff31e1c071cf37cfa28a56cadf236eac1bd9c9fa3",
+    "licenses/random-LICENSE.txt": "e06262d9e31494d84bb3a2f3ef5805502deb7568cea6e677a81a28b69153f557",
+    "vendor/quickcheck-2.16.0.0/Gen.hs": "f25a2aabd07d39e063bc813df93474f269cf491646275f76641c063a2f530694",
+    "vendor/quickcheck-2.16.0.0/Arbitrary.hs": "3e6080d44aa480fc75287071aa774939f8e74f1b533d2653cbe216bacdc99044",
+    "vendor/quickcheck-2.16.0.0/Random.hs": "d42a32aa9e74f70516f0088d0331ddcbfce193784b09a402057c07f781934f44",
+    "vendor/random-1.3.1/Internal.hs": "db411f5de80541ba1f886bba2685ad69fd91c73253d89f1ffac0f83436d70aec",
+    "vendor/random-1.3.1/Random.hs": "fe2afa9838b71f1304c0cad926e951e89eee8913a8fc18b24fb1fe419faca2ab",
+    "vendor/splitmix-0.1.3.2/SplitMix.hs": "0e2b4181c8520dc186a074a1a8bed8cf40d249571367abaaf870554e511cf437",
+    "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs": "792f2fadfa8e1b7eb0334a8dedaca4f87651a0bd44fbb3a496a0a2e0728213ae",
+    "upstream/pandoc-types/src/Text/Pandoc/Definition.hs": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+    "upstream/pandoc-types/src/Text/Pandoc/Builder.hs": "94ae6bb8d22865e2aef201a68839e9cf87bc0deddc2e4b14c2b20afb063238ad",
+    "core/src/test/resources/pandoc-types/properties-manifest.json": "c39faa5956c7d7925801e1b993f78ac55afd922a0a39fada4adc8a1922db6d49",
+    "core/src/test/resources/pandoc-types/properties.jsonl.gz": "a371cb547d2c43c84fdbfe8df3d3c1a97c272e74e6727aa870c1b1a75568dab4",
+    "tools/haskell-types-generator-reference/QuickCheckReference.hs": "2ddeb7bb496fb705a8f4d7e29c7d6cdecee04b817e372265653dd1cafc1e804a",
+    "tools/haskell-types-generator-reference/NoShrinkReference.hs": "f4c06beb23575b3a08c94c80b14aac868f2235e4a49f5a641fff5a643435d17e",
+    "tools/haskell-types-generator-reference/README.md": "ff960e1442f99891b89cd5db4e014ebb8d715c610503580272caf1ec230b53a8",
+    "tools/haskell-types-generator-reference/kotdoc-types-generator-reference.cabal": "3b48ba3e90e31085e3388a5c4c9ca57601bb9b5e8395e45141f4fa1867991399",
+    "tools/haskell-types-generator-reference/cabal.project": "56ffa5300bebfae315a54c64c5efa7e05cede12efa5e62334e6ec13f593fe379",
+    "tools/haskell-types-generator-reference/cabal.project.freeze": "04c73a4df34f4a1226d47ad52e3202be68d71f7d47ae4c1279fbbdbeee16f901"
+  }
+}

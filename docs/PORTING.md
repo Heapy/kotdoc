@@ -13192,3 +13192,39 @@ parity remain outside the evidence. This checkpoint does not port the point
 engine/public P256 API or complete local:613; public ECC/ECDH/subgroup tests,
 other crypto/trust/TLS work, full Pandoc/all tests and subsequent calibre stages
 remain required.
+
+
+## Exact seeded generator and implicit shrink checkpoint (2026-10-16)
+
+Added the actual pinned QuickCheck 2.16.0.0 QCGen/Gen split tree, splitmix
+0.1.3.2 initialization/mixing and random 1.3.1 bounded-choice path as Kotlin
+test support. Literal pandoc-types generator expressions retain applicative
+and monadic splitting, size/depth policies and rejection resizing. Independent
+observations cover **420 seed/size operation rows**, including native Int64
+seed extrema, choose versus chooseInt, fmap/bind/ap, vectors/lists, suchThat
+and arbitrary Int/inBounds. Full typed trees for the existing **500 original
+Pandoc generated inputs** now match the same QCGen seeds and requested sizes,
+rather than an unrelated Kotlin random stream.
+
+Nine original instances inherit QuickCheck's empty shrink; explicit Kotlin
+APIs and compound Citation/Alignment hooks now preserve that behavior. A
+separate unchanged-source oracle supplies **270 generated observations** for
+those nine instances. All original sources and notices are retained. Independent
+review traced seed operations, combinator evaluation and generator expressions;
+separate original binaries reproduce all 420 and 270 decompressed rows byte for
+byte. Both source/payload verifiers pass.
+
+The fresh JDK 21 no-build-cache/in-process run passes **7,375 actual tests**:
+6,000 trials of the twelve existing Walk properties, 185 ordered shrink checks,
+420 QuickCheck operation checks, 500 seeded Pandoc comparisons and 270 implicit
+empty-shrink checks. There are no failures/errors/skips. This extends test
+support and evidence; no production converter changed. Trials and observation
+rows are not additional registered upstream source properties.
+
+Exact replay of this finite seed corpus does not prove every seed or complete
+generator fidelity. Independent standalone replay of all nineteen default
+generator instances, explicit helper depth/size/Unicode boundaries, complete
+shrinker lazy/deep/partial acceptance, original-generator replays for nine table
+properties, Figure and JSON roundtrip, and Read/ordering/inventory audits remain
+required. The earlier injected-Random helper is separate exploratory support.
+Local:611, full Pandoc/all tests and subsequent calibre stages remain open.

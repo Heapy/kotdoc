@@ -7,7 +7,19 @@ import io.heapy.kotdoc.parsing.ParserCharacters
 import io.heapy.kotdoc.parsing.RegexCharacters
 
 /** Ordered candidates, duplicates and source no-op shrinkers are preserved. */
+@Suppress("UNUSED_PARAMETER")
 internal object OriginalTypesShrink {
+    // These source instances deliberately inherit Arbitrary's empty shrink.
+    fun pandoc(x: Pandoc): Sequence<Pandoc> = emptySequence()
+    fun meta(x: Map<String, MetaValue>): Sequence<Map<String, MetaValue>> = emptySequence()
+    fun citation(x: Citation): Sequence<Citation> = emptySequence()
+    fun mode(x: CitationMode): Sequence<CitationMode> = emptySequence()
+    fun math(x: MathType): Sequence<MathType> = emptySequence()
+    fun quote(x: QuoteType): Sequence<QuoteType> = emptySequence()
+    fun alignment(x: Alignment): Sequence<Alignment> = emptySequence()
+    fun style(x: ListNumberStyle): Sequence<ListNumberStyle> = emptySequence()
+    fun delim(x: ListNumberDelim): Sequence<ListNumberDelim> = emptySequence()
+
     fun <A> list(xs: List<A>, shrink: (A) -> Sequence<A>): Sequence<List<A>> = sequence {
         suspend fun SequenceScope<List<A>>.removes(k: Int, offset: Int) {
             val n = xs.size - offset
@@ -71,7 +83,7 @@ internal object OriginalTypesShrink {
         is Inline.Subscript -> inlines(x.content).map { x.copy(content=it) }
         is Inline.SmallCaps -> inlines(x.content).map { x.copy(content=it) }
         is Inline.Quoted -> inlines(x.content).map { x.copy(content=it) }
-        is Inline.Cite -> inlines(x.content).map { x.copy(content=it) } + list(x.citations) { emptySequence<Citation>() }.map { x.copy(citations=it) }
+        is Inline.Cite -> inlines(x.content).map { x.copy(content=it) } + list(x.citations, ::citation).map { x.copy(citations=it) }
         is Inline.Code -> text(x.text).map { x.copy(text=it) } + attr(x.attr).map { x.copy(attr=it) }
         is Inline.Math -> text(x.text).map { x.copy(text=it) }
         is Inline.RawInline -> text(x.text).map { x.copy(text=it) }
@@ -109,6 +121,6 @@ internal object OriginalTypesShrink {
     fun head(x: TableHead) = attr(x.attr).map { x.copy(attr=it) } + list(x.rows, ::row).map { x.copy(rows=it) }
     fun body(x: TableBody) = attr(x.attr).map { x.copy(attr=it) } + list(x.head, ::row).map { x.copy(head=it) } + list(x.body, ::row).map { x.copy(body=it) }
     fun foot(x: TableFoot) = attr(x.attr).map { x.copy(attr=it) } + list(x.rows, ::row).map { x.copy(rows=it) }
-    fun cell(x: Cell) = blocks(x.blocks).map { x.copy(blocks=it) } + attr(x.attr).map { x.copy(attr=it) } // Alignment default shrink is empty.
+    fun cell(x: Cell) = blocks(x.blocks).map { x.copy(blocks=it) } + attr(x.attr).map { x.copy(attr=it) } + alignment(x.alignment).map { x.copy(alignment=it) }
     fun caption(x: Caption) = (x.short?.let { sequenceOf<Caption>(x.copy(short=null)) + list(it, ::inline).map { ys -> x.copy(short=ys) } } ?: emptySequence()) + blocks(x.long).map { x.copy(long=it) }
 }
