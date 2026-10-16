@@ -1,6 +1,7 @@
 // CLI writer options/variables from Text.Pandoc.App, GPL-2.0-or-later.
 package io.heapy.kotdoc.cli
 
+import io.heapy.kotdoc.errors.PandocError
 import io.heapy.kotdoc.highlighting.Highlighting
 import io.heapy.kotdoc.layout.DocLayout
 import io.heapy.kotdoc.options.*
@@ -107,7 +108,7 @@ internal class HtmlCliOptions {
         append(key, text)
     }
 
-    fun standaloneFor(format: String) = standalone || (format == "dokuwiki" && templateFile != null)
+    fun standaloneFor(format: String) = standalone || (format in listOf("dokuwiki", "muse") && templateFile != null)
 
     fun finish(base: WriterOptions, format: String, input: String?, output: String?, resources: ResourceContext): WriterOptions {
         appendList("sourcefile", input ?: "-")
@@ -129,9 +130,9 @@ internal class HtmlCliOptions {
             templateFile?.let { path ->
                 when (val r = templates.compileWithPartials(path, templates.getTemplate(path))) {
                     is CompiledTemplate.Success -> r.template
-                    is CompiledTemplate.Failure -> error(r.error)
+                    is CompiledTemplate.Failure -> if (format == "muse") throw PandocError.PandocTemplateError(r.error) else error(r.error)
                 }
-            } ?: if (format in HtmlCliWriter.formats || format == "dokuwiki") templates.compileDefaultTemplate(format) else Template.Empty
+            } ?: if (format in HtmlCliWriter.formats || format in listOf("dokuwiki", "muse")) templates.compileDefaultTemplate(format) else Template.Empty
         }
         return base.copy(template = template, variables = variables)
     }

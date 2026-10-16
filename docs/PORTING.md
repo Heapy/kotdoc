@@ -14378,3 +14378,30 @@ nonsecret identity and profile-specific masks are preserved. Forced32 profiles
 are host execution, not real32-bit ABI proof or universal caller-range proof.
 Public/modern X448, Ed448/SHAKE/signatures and the remaining crypto/Pandoc/
 calibre scope of local:613 remain OPEN.
+
+
+### Muse writer and narrow CLI checkpoint
+
+The complete pinned732-line Muse writer is translated, with all164 original
+unit inputs and both Old goldens retained independently. Own source/oracle
+review and bounded512MiB/256KiB replay passed3378 observations plus the full
+Unicode classifier assertion. Gradle20716 passed8249 actual tests:3379 writer,
+3007 Muse reader,1480 Doku reader and383 Doku writer; installDist passed.
+The local caption helper covers all14 Block branches, preserves simple-table
+demand and avoids forcing grid captions. Original double-render side effects,
+state/layout, numeric overflow and ordered diagnostics remain explicit.
+
+Initial copied-CLI session results were unrecoverable and are not counted as
+passes. Authorized durable recapture now records both child exit codes0, empty
+stderr and exact commands/PIDs/log hashes:204 writer App observations,six Doku
+controls,two complete4172 commands;323 accepted reader App observations and
+two complete5107 commands. All45 frozen source hashes remain unchanged.
+Historical reader Main source verification intentionally reports the old pin
+mismatch; integration.json links the accepted reader Git blob,current narrow
+Main diff,XML and jars. The original reader manifest was not rewritten.
+
+Common DocumentShared recursion/eager caption behavior remains outside this
+local helper; generic template errors outside Muse and general App metadata
+remain CLI gaps. The --output= alias is resolved for this narrow registration.
+RST writer22 original tests/8182 commands and the rest of local:618,612,621
+remain OPEN; this checkpoint does not complete Pandoc or later calibre.

@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
-        println((listOf("dokuwiki", "fb2", "json", "native") + HtmlCliWriter.formats).sorted().joinToString("\n"))
+        println((listOf("dokuwiki", "fb2", "json", "muse", "native") + HtmlCliWriter.formats).sorted().joinToString("\n"))
         return
     }
     try {
@@ -91,6 +91,7 @@ fun main(args: Array<String>) {
                 "--default-image-extension" -> defaultImageExtension = args.getOrNull(i++) ?: error("Missing default image extension")
                 else -> {
                     if (arg.startsWith("--from=")) { from = arg.substringAfter('='); explicitReader = true; continue }
+                    if (arg.startsWith("--output=")) { output = arg.substringAfter('='); continue }
                     if (arg.startsWith("--to=")) { to = arg.substringAfter('='); explicitWriter = true; continue }
                     if (arg.startsWith("--math-method=")) { mathMethod = MathMethod.fromArgument(arg.substringAfter('=')); continue }
                     if (listOf("--webtex=", "--mathjax=", "--katex=").any(arg::startsWith)) {
@@ -109,18 +110,18 @@ fun main(args: Array<String>) {
         }
         if (!explicitReader && input != null) {
             val inferred = FlavoredFormat.fromFilePaths(listOf(input))
-            val dokuOutput = FlavoredFormat.parse(to).name == "dokuwiki" || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name == "dokuwiki" } == true
+            val dokuOutput = FlavoredFormat.parse(to).name in listOf("dokuwiki", "muse") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("dokuwiki", "muse") } == true
             if (inferred != null && (inferred.name in listOf("dokuwiki", "muse") || dokuOutput)) from = inferred.name
         }
         val inputFormat = FlavoredFormat.parse(from)
         if (!explicitWriter) {
             val inferred = output?.let { FlavoredFormat.fromFilePaths(listOf(it)) }
             if (inputFormat.name in listOf("dokuwiki", "muse")) to = inferred?.name ?: "html"
-            else if (inferred?.name == "dokuwiki") to = "dokuwiki"
+            else if (inferred?.name in listOf("dokuwiki", "muse")) to = checkNotNull(inferred).name
         }
         val outputFormat = FlavoredFormat.parse(to)
         require(inputFormat.name in listOf("dokuwiki", "fb2", "json", "latex", "muse", "native")) { "Supported input formats: dokuwiki, fb2, json, latex, muse, native (requested $from)" }
-        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "native") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
+        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "muse", "native") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
         val inputExtensions = ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
         val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
         from = inputFormat.name
@@ -155,6 +156,7 @@ fun main(args: Array<String>) {
             extensions=outputExtensions), to, input, output, resources)
         val rendered = when (to) {
             "dokuwiki" -> DokuWikiCli.write(writerOptions, document)
+            "muse" -> MuseCliWriter.write(writerOptions, document)
             "json" -> PandocJson.encode(document)
             "native" -> NativeWriter.write(document, writerOptions)
             in HtmlCliWriter.formats -> HtmlCliWriter.write(to, writerOptions, document)
