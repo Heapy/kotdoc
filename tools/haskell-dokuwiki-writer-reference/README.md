@@ -33,9 +33,10 @@ Old.hs goldens are copied verbatim, and the importer requires the independently
 computed original writer outputs to match their bytes exactly.
 
 Command 3824 and both 5107 cases retain their original source files and original
-AST-level writer observations. Command tests add an application newline to the
-writer result; the library assertions deliberately retain the original writer
-output unchanged. These do **not** certify the Kotlin full CLI commands:
+AST-level writer observations. Original Tests.Command extracts Markdown code
+blocks with lines/unlines; raw fence regex extraction retains an extra blank
+line. App.ensureNl adds a newline only when needed for nonstandalone output;
+the 3824 writer body already ends in one. Library expectations remain unchanged. These do **not** certify the Kotlin full CLI commands:
 DokuWiki CLI registration and the Muse reader remain pending. The 115 original
 DokuWiki reader tests and the complete local:618 task remain pending. There is
 no upstream `Tests.Writers.DokuWiki` unit module.

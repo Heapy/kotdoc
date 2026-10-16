@@ -14073,3 +14073,47 @@ erasure, locked memory, temporary-copy lifetime, FFI scheduling or real32-bit
 OS parity claim. Public/modern Edwards is accepted within these source contracts;
 X448/Decaf448, remaining crypton dependencies and the full local:613/Pandoc
 and later calibre scope remain open.
+
+### DokuWiki reader and narrow CLI registration checkpoint
+
+The complete573-line pinned reader is translated in Kotlin, with all115
+original reader leaves and1,340 additional independent observations plus
+deep/trace/Unicode cases:1,479 observations and one exhaustive classifier
+check form1,480 fresh JUnit cases. Saved74539 XML confirms1,480 reader and383
+accepted writer cases with zero failures/errors/skips. Independent review
+replayed source observations, all1,114,112 identifier predicate inputs and
+source/helper/provenance checks; bounded standalone replay passed512MiB/256KiB.
+
+Narrow CLI registration adds explicit Doku input/output, listings, connected
+filename inference, options and standalone/templates. Installed proof preserves
+10 complete original commands,83 CLI-applicable original reader ASTs and five
+verbatim Old writer goldens. The32 remaining library math cases request two
+extension combinations that the original CLI rejects with exit23; both errors
+are independently retained. Sixteen application observations cover supported
+options/inference and exact exit/stdout/stderr. RST8182 and Muse5107#1/#2 complete
+commands remain pending dependencies. This is not full application parity.
+
+Review fixed two real App boundary gaps: default UTF8 failures now detect
+ZIP/PDF/CFBF/DjVu signatures only after decoding fails, otherwise warn and decode
+original raw bytes as Latin1, then remove CR and convert tabs. Thirty-five
+original boundary records preserve BOM/signature/malformed/file behavior.
+Canonical warning output now indents each embedded LF by two spaces, preserving
+CR/tab and keeping binary errors/trace formatting separate. Twenty-two original
+filename/error/trace controls plus the former35 and16 cases pass installed proof.
+Independent replay authenticated all22 new original responses; the three prior
+multiline-warning failures and binary-error control now match byte-exact. The
+49 frozen file hashes match and all prior21+35 fixture payloads are unchanged.
+Completed85360 installDist packages the warning fix; earlier55224 packaged UTF8
+correction. No production upstream subprocess dependency is introduced.
+
+The local Doku identifier helper pins GHC Unicode16 predicates. Shared
+CoreIdentifiers still uses ICU78.1 Unicode17: U+1E6C0 yields source `section`
+versus the shared Kotlin character identifier; all4,803 Unicode17 additions
+remain a shared local:612 gap. General App `-M` metadata is unsupported by the
+current CLI and remains local:621 scope. Neither local correction closes
+shared identifiers or full CLI. local:618, full Pandoc/tests and later calibre
+remain open; source matrix retains branch evidence and dependency boundaries.
+
+Staged diff checking reports one EOF blank-line diagnostic in the verbatim
+original5107.md command fixture. Its upstream-byte hash passes; the original
+fixture is intentionally preserved and all other checkpoint paths are clean.

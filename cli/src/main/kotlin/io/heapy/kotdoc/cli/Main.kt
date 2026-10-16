@@ -30,15 +30,15 @@ import kotlin.system.exitProcess
 /** Entry point for ported formats. Full Pandoc CLI parity is tracked in docs/PORTING.md. */
 fun main(args: Array<String>) {
     if (args.toList() == listOf("--help")) {
-        println("Usage: kotdoc [--from fb2|json|latex|native] [--to FORMAT] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
+        println("Usage: kotdoc [--from dokuwiki|fb2|json|latex|native] [--to FORMAT] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
         return
     }
     if (args.toList() == listOf("--list-input-formats")) {
-        println("fb2\njson\nlatex\nnative")
+        println("dokuwiki\nfb2\njson\nlatex\nnative")
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
-        println((listOf("fb2", "json", "native") + HtmlCliWriter.formats).sorted().joinToString("\n"))
+        println((listOf("dokuwiki", "fb2", "json", "native") + HtmlCliWriter.formats).sorted().joinToString("\n"))
         return
     }
     try {
@@ -46,6 +46,9 @@ fun main(args: Array<String>) {
         var output: String? = null
         var from = "json"
         var to = "json"
+        var explicitReader = false
+        var explicitWriter = false
+        var trace = false
         var columns = 72
         var tabStop = 4L
         var preserveTabs = false
@@ -74,8 +77,8 @@ fun main(args: Array<String>) {
         while (i < args.size) {
             htmlOptions.consume(args, i)?.let { next -> i = next; continue }
             when (val arg = args[i++]) {
-                "--from", "-f", "--read", "-r" -> from = args.getOrNull(i++) ?: error("Missing input format")
-                "--to", "-t", "--write", "-w" -> to = args.getOrNull(i++) ?: error("Missing output format")
+                "--from", "-f", "--read", "-r" -> { from = args.getOrNull(i++) ?: error("Missing input format"); explicitReader = true }
+                "--to", "-t", "--write", "-w" -> { to = args.getOrNull(i++) ?: error("Missing output format"); explicitWriter = true }
                 "--output", "-o" -> output = args.getOrNull(i++) ?: error("Missing output filename")
                 "--columns" -> columns = (args.getOrNull(i++) ?: error("Missing column count")).toInt()
                 "--math-method" -> mathMethod = MathMethod.fromArgument(args.getOrNull(i++) ?: error("Missing math method"))
@@ -84,10 +87,11 @@ fun main(args: Array<String>) {
                 "--resource-path" -> addResourcePaths(args.getOrNull(i++) ?: error("Missing resource search path"))
                 "--tab-stop" -> tabStop = (args.getOrNull(i++) ?: error("Missing tab stop")).toLong()
                 "--preserve-tabs" -> preserveTabs = true
+                "--trace" -> trace = true
                 "--default-image-extension" -> defaultImageExtension = args.getOrNull(i++) ?: error("Missing default image extension")
                 else -> {
-                    if (arg.startsWith("--from=")) { from = arg.substringAfter('='); continue }
-                    if (arg.startsWith("--to=")) { to = arg.substringAfter('='); continue }
+                    if (arg.startsWith("--from=")) { from = arg.substringAfter('='); explicitReader = true; continue }
+                    if (arg.startsWith("--to=")) { to = arg.substringAfter('='); explicitWriter = true; continue }
                     if (arg.startsWith("--math-method=")) { mathMethod = MathMethod.fromArgument(arg.substringAfter('=')); continue }
                     if (listOf("--webtex=", "--mathjax=", "--katex=").any(arg::startsWith)) {
                         mathMethod = legacyMath(arg.substringBefore('='), arg.substringAfter('=')); continue
@@ -103,10 +107,20 @@ fun main(args: Array<String>) {
                 }
             }
         }
+        if (!explicitReader && input != null) {
+            val inferred = FlavoredFormat.fromFilePaths(listOf(input))
+            val dokuOutput = FlavoredFormat.parse(to).name == "dokuwiki" || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name == "dokuwiki" } == true
+            if (inferred != null && (inferred.name == "dokuwiki" || dokuOutput)) from = inferred.name
+        }
         val inputFormat = FlavoredFormat.parse(from)
+        if (!explicitWriter) {
+            val inferred = output?.let { FlavoredFormat.fromFilePaths(listOf(it)) }
+            if (inputFormat.name == "dokuwiki") to = inferred?.name ?: "html"
+            else if (inferred?.name == "dokuwiki") to = "dokuwiki"
+        }
         val outputFormat = FlavoredFormat.parse(to)
-        require(inputFormat.name in listOf("fb2", "json", "latex", "native")) { "Supported input formats: fb2, json, latex, native (requested $from)" }
-        require(outputFormat.name in listOf("fb2", "json", "native") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
+        require(inputFormat.name in listOf("dokuwiki", "fb2", "json", "latex", "native")) { "Supported input formats: dokuwiki, fb2, json, latex, native (requested $from)" }
+        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "native") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
         val inputExtensions = ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
         val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
         from = inputFormat.name
@@ -116,6 +130,9 @@ fun main(args: Array<String>) {
         val text = if (from == "latex") "" else inputBytes.toString(Charsets.UTF_8)
         val media = MediaBag()
         var document = when (from) {
+            "dokuwiki" -> DokuWikiCli.read(inputBytes, if (input == null || input == "-") "" else input,
+                ReaderOptions(extensions = if (htmlOptions.options.tableOfContents) inputExtensions + io.heapy.kotdoc.options.Extensions.of(io.heapy.kotdoc.options.ExtensionName.AutoIdentifiers) else inputExtensions,
+                    standalone = htmlOptions.standaloneFor(to), columns = columns.toLong(), tabStop = htmlOptions.options.tabStop, defaultImageExtension = defaultImageExtension), preserveTabs, trace)
             "json" -> PandocJson.decode(text)
             "native" -> NativeReader.read(text)
             "latex" -> LaTeXCliReader.read(inputBytes,if (input == null || input == "-") "" else input,
@@ -134,6 +151,7 @@ fun main(args: Array<String>) {
         val writerOptions = htmlOptions.finish(htmlOptions.options.copy(columns=columns.toLong(), mathMethod=mathMethod,
             extensions=outputExtensions), to, input, output, resources)
         val rendered = when (to) {
+            "dokuwiki" -> DokuWikiCli.write(writerOptions, document)
             "json" -> PandocJson.encode(document)
             "native" -> NativeWriter.write(document, writerOptions)
             in HtmlCliWriter.formats -> HtmlCliWriter.write(to, writerOptions, document)

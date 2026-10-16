@@ -1,0 +1,371 @@
+[
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\nfile.dokuwiki"
+    ],
+    "files": {
+      "bad\nfile.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZAogIGZpbGUuZG9rdXdpa2kgaXMgbm90IFVURi04IGVuY29kZWQ6IGZhbGxpbmcgYmFjayB0byBsYXRpbjEuClt0cmFjZV0gUGFyc2VkIFtQYXJhIFtTdHIgIlwyNTUiXV0gYXQgbGluZSAzCg=="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\nfile.dokuwiki"
+    ],
+    "files": {
+      "bad\nfile.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkCmZpbGUuZG9rdXdpa2knLgpJZiB5b3UgaW50ZW5kZWQgdG8gY29udmVydCBmcm9tIGJpbmFyeSBmb3JtYXQsIHZlcmlmeSB0aGF0IGl0J3Mgc3VwcG9ydGVkIGFuZCB1c2UKZXhwbGljaXQgLWYgRk9STUFULgo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\n\nfile.dokuwiki"
+    ],
+    "files": {
+      "bad\n\nfile.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZAogIAogIGZpbGUuZG9rdXdpa2kgaXMgbm90IFVURi04IGVuY29kZWQ6IGZhbGxpbmcgYmFjayB0byBsYXRpbjEuClt0cmFjZV0gUGFyc2VkIFtQYXJhIFtTdHIgIlwyNTUiXV0gYXQgbGluZSAzCg=="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\n\nfile.dokuwiki"
+    ],
+    "files": {
+      "bad\n\nfile.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkCgpmaWxlLmRva3V3aWtpJy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\r\nfile.dokuwiki"
+    ],
+    "files": {
+      "bad\r\nfile.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZA0KICBmaWxlLmRva3V3aWtpIGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMwo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\r\nfile.dokuwiki"
+    ],
+    "files": {
+      "bad\r\nfile.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkDQpmaWxlLmRva3V3aWtpJy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\rfile.dokuwiki"
+    ],
+    "files": {
+      "bad\rfile.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZA1maWxlLmRva3V3aWtpIGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMwo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\rfile.dokuwiki"
+    ],
+    "files": {
+      "bad\rfile.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkDWZpbGUuZG9rdXdpa2knLgpJZiB5b3UgaW50ZW5kZWQgdG8gY29udmVydCBmcm9tIGJpbmFyeSBmb3JtYXQsIHZlcmlmeSB0aGF0IGl0J3Mgc3VwcG9ydGVkIGFuZCB1c2UKZXhwbGljaXQgLWYgRk9STUFULgo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\tfile.dokuwiki"
+    ],
+    "files": {
+      "bad\tfile.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZAlmaWxlLmRva3V3aWtpIGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMwo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "bad\tfile.dokuwiki"
+    ],
+    "files": {
+      "bad\tfile.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkCWZpbGUuZG9rdXdpa2knLgpJZiB5b3UgaW50ZW5kZWQgdG8gY29udmVydCBmcm9tIGJpbmFyeSBmb3JtYXQsIHZlcmlmeSB0aGF0IGl0J3Mgc3VwcG9ydGVkIGFuZCB1c2UKZXhwbGljaXQgLWYgRk9STUFULgo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "\u0416\ud83d\ude00.dokuwiki"
+    ],
+    "files": {
+      "\u0416\ud83d\ude00.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddINCW8J+YgC5kb2t1d2lraSBpcyBub3QgVVRGLTggZW5jb2RlZDogZmFsbGluZyBiYWNrIHRvIGxhdGluMS4KW3RyYWNlXSBQYXJzZWQgW1BhcmEgW1N0ciAiXDI1NSJdXSBhdCBsaW5lIDMK"
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "\u0416\ud83d\ude00.dokuwiki"
+    ],
+    "files": {
+      "\u0416\ud83d\ude00.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAn0Jbwn5iALmRva3V3aWtpJy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "\nleading.dokuwiki"
+    ],
+    "files": {
+      "\nleading.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIAogIGxlYWRpbmcuZG9rdXdpa2kgaXMgbm90IFVURi04IGVuY29kZWQ6IGZhbGxpbmcgYmFjayB0byBsYXRpbjEuClt0cmFjZV0gUGFyc2VkIFtQYXJhIFtTdHIgIlwyNTUiXV0gYXQgbGluZSAzCg=="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "\nleading.dokuwiki"
+    ],
+    "files": {
+      "\nleading.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnCmxlYWRpbmcuZG9rdXdpa2knLgpJZiB5b3UgaW50ZW5kZWQgdG8gY29udmVydCBmcm9tIGJpbmFyeSBmb3JtYXQsIHZlcmlmeSB0aGF0IGl0J3Mgc3VwcG9ydGVkIGFuZCB1c2UKZXhwbGljaXQgLWYgRk9STUFULgo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "trailing.dokuwiki\n"
+    ],
+    "files": {
+      "trailing.dokuwiki\n": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIHRyYWlsaW5nLmRva3V3aWtpCiAgIGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMwo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "trailing.dokuwiki\n"
+    ],
+    "files": {
+      "trailing.dokuwiki\n": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAndHJhaWxpbmcuZG9rdXdpa2kKJy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "one\ntwo\nthree.dokuwiki"
+    ],
+    "files": {
+      "one\ntwo\nthree.dokuwiki": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIG9uZQogIHR3bwogIHRocmVlLmRva3V3aWtpIGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMwo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "one\ntwo\nthree.dokuwiki"
+    ],
+    "files": {
+      "one\ntwo\nthree.dokuwiki": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnb25lCnR3bwp0aHJlZS5kb2t1d2lraScuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "chunk"
+    ],
+    "files": {
+      "chunk": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGNodW5rIGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMyBvZiBjaHVuawo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "chunk"
+    ],
+    "files": {
+      "chunk": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnY2h1bmsnLgpJZiB5b3UgaW50ZW5kZWQgdG8gY29udmVydCBmcm9tIGJpbmFyeSBmb3JtYXQsIHZlcmlmeSB0aGF0IGl0J3Mgc3VwcG9ydGVkIGFuZCB1c2UKZXhwbGljaXQgLWYgRk9STUFULgo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "/woKYgo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiYiJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMwpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJiIl1dIGF0IGxpbmUgNQo="
+  },
+  {
+    "args": [
+      "--trace",
+      "-f",
+      "dokuwiki",
+      "-t",
+      "json",
+      "-"
+    ],
+    "files": {},
+    "input": "/woKYgo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiYiJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJcMjU1Il1dIGF0IGxpbmUgMwpbdHJhY2VdIFBhcnNlZCBbUGFyYSBbU3RyICJiIl1dIGF0IGxpbmUgNQo="
+  }
+]

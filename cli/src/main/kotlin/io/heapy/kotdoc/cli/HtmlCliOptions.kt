@@ -107,6 +107,8 @@ internal class HtmlCliOptions {
         append(key, text)
     }
 
+    fun standaloneFor(format: String) = standalone || (format == "dokuwiki" && templateFile != null)
+
     fun finish(base: WriterOptions, format: String, input: String?, output: String?, resources: ResourceContext): WriterOptions {
         appendList("sourcefile", input ?: "-")
         if (variables["outputfile"] == null) append("outputfile", output ?: "-")
@@ -123,13 +125,13 @@ internal class HtmlCliOptions {
             append("dzslides-core", if (core.isEmpty()) "" else core.joinToString("\n", postfix = "\n"))
         }
         val templates = PandocTemplates(resources, report = ::reportResource)
-        val template = if (!standalone) null else {
+        val template = if (!standaloneFor(format)) null else {
             templateFile?.let { path ->
                 when (val r = templates.compileWithPartials(path, templates.getTemplate(path))) {
                     is CompiledTemplate.Success -> r.template
                     is CompiledTemplate.Failure -> error(r.error)
                 }
-            } ?: if (format in HtmlCliWriter.formats) templates.compileDefaultTemplate(format) else Template.Empty
+            } ?: if (format in HtmlCliWriter.formats || format == "dokuwiki") templates.compileDefaultTemplate(format) else Template.Empty
         }
         return base.copy(template = template, variables = variables)
     }
