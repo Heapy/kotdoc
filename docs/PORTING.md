@@ -13228,3 +13228,36 @@ shrinker lazy/deep/partial acceptance, original-generator replays for nine table
 properties, Figure and JSON roundtrip, and Read/ordering/inventory audits remain
 required. The earlier injected-Random helper is separate exploratory support.
 Local:611, full Pandoc/all tests and subsequent calibre stages remain open.
+
+
+## Command, computed Old and Lua registration inventory (2026-10-16)
+
+Enumerated **1,870 Command source goldens from 1,116 Markdown files**,
+**174 computed Old registrations** and **48 Lua registrations** (34 Haskell
+assertions and 14 script suites). All remain **unmapped** to complete Kotlin
+application/runtime assertions. Independent pinned Pandoc Markdown AST capture
+and replay select top-level CodeBlocks; bounded source extraction preserves
+tabs, indentation, fence lengths and HTML-comment exclusions without executing
+contained shell commands. Combined command goldens remain authoritative where
+stdout can collide with conventional stderr/status prefixes.
+
+The fail-closed Old registration parser expands original helper matrices and
+retains duplicate MediaWiki registrations, exact argv, input/expected hashes
+and normalizers. Independent review corrected explicit processing order:
+expected text is normalized after strict UTF8 reading; actual stdout is decoded,
+normalized, then stripped of CR. Command continuation-only blocks retain the
+original unwords/take/drop behavior. The eight extraction regressions pass.
+Independent AST replay of all 1,116 files, canonical snapshot verification and
+eleven negative drift scenarios pass. Existing literal JSON expectations remain
+unchanged. Local:610 observations and local:611 property trials are separately
+counted from upstream source leaves. Historical recorded test results remain
+distinct from current artifact hashes reviewed at commit
+`cdf2b84906e91b1baad740738564855677966acb`; the later 7,375-check generator result
+above is not retroactively attributed to the earlier 6,185-check evidence record.
+
+Nested Lua script leaves, remaining reader/writer/common/CPP trees, executable
+Command/Old/Lua mappings, embedded/non-Cabal dependency suites, calibre runtime
+registry reconciliation and directional additional-format matrices remain
+required. New field/generator checkpoints still need separate machine evidence
+records. This source inventory checkpoint does not complete local:622 or the
+full Pandoc/calibre objective.

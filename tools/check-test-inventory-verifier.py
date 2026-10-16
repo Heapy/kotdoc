@@ -26,8 +26,14 @@ with tempfile.TemporaryDirectory(prefix='kotdoc-test-inventory-') as folder:
         'lost-source': lambda x: x['sources'].pop(),
         'source-hash-drift': lambda x: x['sources'][0].update(sha256='0' * 64),
         'lost-registration': lambda x: x['registry'].pop(),
+        'lost-command-leaf': lambda x: x['pandoc_command'].pop(),
+        'changed-command-stdout': lambda x: x['pandoc_command'][0].update(expected_stdout='invented'),
+        'lost-old-leaf': lambda x: x['pandoc_old'].pop(),
+        'changed-old-expected-hash': lambda x: x['pandoc_old'][0]['expectation_origin'].update(sha256='0' * 64),
+        'lost-lua-registration': lambda x: x['pandoc_lua']['registrations'].pop(),
+        'miscounted-oracle-evidence': lambda x: x['checkpoint_evidence'][0].update(observations=1),
         'lost-pandoc-types-test': lambda x: x['pandoc_types'].pop(),
-        'false-mapping': lambda x: next(r for r in x['pandoc_types'] if r['status'] == 'unmapped').update(status='mapped'),
+        'false-mapping': lambda x: next(r for r in x['pandoc_types'] if r['status'] == 'partial').update(status='mapped'),
     }
     for name, mutate in mutations.items():
         candidate = json.loads(json.dumps(original))

@@ -3,6 +3,9 @@
 import argparse
 import ast
 import hashlib
+import gzip
+import importlib.util
+import sys
 import json
 import re
 import subprocess
@@ -12,6 +15,10 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'docs/test-inventory.json'
 PT = 'upstream/pandoc-types/test/test-pandoc-types.hs'
 AST = 'core/src/test/kotlin/io/heapy/kotdoc/ast/'
+sys.dont_write_bytecode = True
+spec = importlib.util.spec_from_file_location('test_inventory_extraction', ROOT / 'tools/extract-test-inventory.py')
+extraction = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(extraction)
 
 
 def digest(path):
@@ -72,9 +79,22 @@ def pt_inventory():
         elif name.startswith('p_figureRepresentation'):
             m = mapping('BuilderTest', 'upstream figure representation property')
             gap = 'Translated predicate uses 500 Kotlin samples; original arbitrary inline generator/shrinker not ported.'
+        related_mapping = None
+        if name.startswith(('p_walk ', 'p_walkList ', 'p_query ', 'p_queryList ')):
+            related_mapping = m
+            path = AST + 'OriginalTypesPropertiesTest.kt'
+            assert '@TestFactory fun originalWalkPredicates()' in (ROOT / path).read_text()
+            callback = name.split(' ', 1)[1]
+            prefix = 'p_walk' if name.startswith('p_walk') else 'p_query'
+            m = dict(path=path, sha256=digest(path), method='originalWalkPredicates',
+                     dynamic_case_pattern=prefix + ' ' + callback + ' seed=<original-seed> size=<original-size>',
+                     trial_count=500, evidence_ref='local:611/original-walk-and-shrink',
+                     production=dict(path='core/src/main/kotlin/io/heapy/kotdoc/ast/PandocVisitor.kt', sha256=digest('core/src/main/kotlin/io/heapy/kotdoc/ast/PandocVisitor.kt'), entrypoints=['walk']),
+                     command='./gradlew :core:test --tests io.heapy.kotdoc.ast.OriginalTypesPropertiesTest')
+            gap = 'All twelve original predicates replay on 500 unchanged-source generated documents with independent Data.Generics expectations and original foldr/tails adapters. Full generator/shrinker decision/distribution, QCGen parity and broader partial/deep acceptance remain pending. These are 500 trials per source property, not 500 source tests.'
         records.append(dict(id='pandoc-types/property/' + name, name=name, expression=expr.strip(),
                             source=PT, source_sha256=digest(PT), kind='source-property',
-                            status='partial' if m else 'unmapped', kotlin=m,
+                            status='partial' if m else 'unmapped', kotlin=m, related_earlier_mapping=related_mapping,
                             expectation_origin=PT + ' (predicate); src/Text/Pandoc/Arbitrary.hs (generators)', gap=gap))
     for name, symbol in examples:
         records.append(dict(id='pandoc-types/json/' + symbol, name=name, expression=symbol,
@@ -90,6 +110,45 @@ def pt_inventory():
                             kotlin=mapping('TablesTest', method), expectation_origin=PT + ':' + symbol + ' (independent literal expected table)', gap=''))
     assert len(records) == 81
     return sorted(records, key=lambda r: r['id'])
+
+
+def checkpoint_evidence():
+    """Recorded independent evidence is provenance, never additional source tests."""
+    pt_path = 'core/src/test/resources/pandoc-types/properties-manifest.json'
+    pt = json.loads((ROOT / pt_path).read_text())
+    crypto_path = 'core/src/test/resources/crypto-p256-words/data.jsonl.gz'
+    with gzip.open(ROOT / crypto_path, 'rt') as stream:
+        crypto = json.loads(next(stream))
+    for manifest in (pt, crypto):
+        for path, expected in manifest['sources'].items():
+            if digest(path) != expected:
+                raise ValueError('Checkpoint source hash drift: ' + path)
+    def assets(paths):
+        return [dict(path=p, sha256=digest(p)) for p in paths]
+    return [dict(id='local:610/p256-word-observations', kind='oracle-observation-corpus',
+                 recorded_commit='ad16fb3980bf56b6d405da745f1f07910a2599f2',
+                 observations=crypto['cases'], semantic_sha256=crypto['caseHash'],
+                 artifacts=assets([crypto_path, 'tools/p256-words-reference/README.md',
+                                   'core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoP256Words.kt',
+                                   'core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoP256WordsTest.kt']),
+                 source_test_coverage='Not counted as a complete original P256Spec port or new upstream source leaves.',
+                 recorded_kotlin_checks=79946, fresh_execution_in_this_checkpoint=False,
+                 artifact_snapshot_role='Current checkout hashes; historical recorded_commit/counts do not assert these files are byte-identical to that commit or freshly validated.',
+                 gap='The historical word checkpoint does not discharge field headers/point engine/public P256 or remaining original tests; this is its evidence boundary, not a claim about current global implementation status.'),
+            dict(id='local:611/original-walk-and-shrink', kind='property-trials-and-shrink-observations',
+                 recorded_commit='665c5daf970f0981b2851fc4d50fc35ad0dd004a', source_properties=pt['predicates'],
+                 generated_inputs=pt['cases'], assertion_trials=pt['predicates'] * pt['cases'],
+                 ordered_shrink_observations=pt['shrinkCases'], recorded_kotlin_checks=6185,
+                 semantic_sha256=pt['observationsSha256'], shrink_sha256=pt['shrinkSha256'],
+                 artifacts=assets([pt_path, 'core/src/test/resources/pandoc-types/properties.jsonl.gz',
+                                   'core/src/test/resources/pandoc-types/shrink.jsonl.gz',
+                                   AST + 'OriginalTypesPropertiesTest.kt', AST + 'OriginalTypesShrinkTest.kt',
+                                   AST + 'OriginalTypesShrink.kt', AST + 'OriginalTypesArbitrary.kt',
+                                   'tools/haskell-types-properties-reference/README.md']),
+                 expectation_origin='Unchanged pinned Text.Pandoc.Arbitrary inputs; independent Data.Generics.everywhere/everything; original ordered shrink outputs.',
+                 fresh_execution_in_this_checkpoint=False,
+                 artifact_snapshot_role='Current checkout hashes; historical recorded_commit/counts do not assert these files are byte-identical to that commit or freshly validated.',
+                 gap='Full generator/shrinker acceptance, nine no-op shrink APIs, broader Unicode/deep/partial shrink coverage, other properties and Read/ordering remain pending.')]
 
 
 def build():
@@ -164,15 +223,18 @@ def build():
         ('upstream/calibre/src/calibre/utils/run_tests.py', 'Conditional runtime suites, including embedded find_tests'),
         ('upstream/calibre/src/calibre/customize/ui.py', 'Input/output format enumeration, aliases and enabled plugins'),
         ('upstream/calibre/src/calibre/customize/builtins.py', 'Built-in conversion plugin registry')]]
-    return dict(schema_version=1, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot plus complete pandoc-types main source-test enumeration; NOT complete global leaf inventory or port coverage.',
+    return dict(schema_version=2, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations; NOT complete global leaf inventory or port coverage.',
                 counting_units=dict(source_test='Registered predicate/example; paired examples retain two assertion names.', trial='Generated property input, not another source test.', observation='Oracle capture, not another source test.', registry='Suite/factory/import candidate, not a source test count.'),
                 pins=pins, roots=roots, sources=[dict(path=p, sha256=digest(p)) for p in sorted(paths)],
                 registry=sorted(entries, key=lambda r: r['id']), pandoc_types=pt_inventory(),
+                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json')],
+                pandoc_command=extraction.command_inventory(), pandoc_old=extraction.old_inventory(), pandoc_lua=extraction.lua_inventory(),
+                checkpoint_evidence=checkpoint_evidence(),
                 separate_requirements=[dict(id=x, status='unmapped', gap=g) for x, g in [
                     ('pandoc-types/generators-shrinkers', 'Audit every Arbitrary instance/generator/shrinker independently; Kotlin seeded samples do not port QuickCheck semantics.'),
                     ('pandoc-types/Read', 'Derived Read and lexical/partial contracts require separate acceptance beyond JSON examples.'),
                     ('pandoc-types/Eq-Ord', 'Existing comparison corpora require a separately reviewed mapping; observations are not registered test counts.'),
-                    ('pandoc/all-leaves', 'Expand computed Old matrices, exact command AST blocks, Lua and CPP-dependent suite trees; map every assertion.'),
+                    ('pandoc/all-leaves', 'Command and computed Old source leaves are enumerated but unmapped; enumerate nested Lua script leaves, remaining reader/writer/common trees and CPP conditions, and map every assertion.'),
                     ('dependencies/all-leaves', 'Cabal declarations/test trees are source discovery only; embedded doctests and non-cabal runners require audit.'),
                     ('calibre/formats-and-tests', 'Reconcile runtime suite IDs, embedded tests, standalone/doctest/RapydScript runners and directional additional-format matrix; map Kotlin evidence.')]])
 
@@ -188,7 +250,7 @@ def main():
         args.snapshot.write_text(data)
     elif not args.snapshot.exists() or args.snapshot.read_text() != data:
         raise SystemExit('Inventory differs: source paths/hashes, registrations, pins or mappings changed. Review and refresh with --write.')
-    print(f"Verified {len(result['sources'])} source/assets, {len(result['registry'])} registry candidates, 81 pandoc-types source tests (56 paired examples; 137 assertions/property registrations). Global leaf inventory remains incomplete.")
+    print(f"Verified {len(result['sources'])} source/assets, {len(result['registry'])} registry candidates, 81 pandoc-types source tests (56 paired examples; 137 assertions/property registrations). {len(result['pandoc_command'])} Command goldens, {len(result['pandoc_old'])} Old registrations, {len(result['pandoc_lua']['registrations'])} Lua registrations. Global leaf inventory remains incomplete.")
 
 
 if __name__ == '__main__':
