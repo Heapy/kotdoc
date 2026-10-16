@@ -1,0 +1,16 @@
+cabal-version: 3.0
+name: kotdoc-text-encoding-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable text-encoding-reference
+  main-is: TextEncodingReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, ghc-internal, aeson ==2.2.3.0, bytestring ==0.12.2.0
+executable original-encoding005
+  main-is: encoding005.hs
+  hs-source-dirs: ../../vendor/ghc-text-encoding-9.12.2/libraries/base/tests/IO
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22

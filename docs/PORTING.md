@@ -10659,3 +10659,85 @@ getter ordering without claiming global setters. TLS parameters, certificate
 stores/validation and the actual TLS engine remain unfinished. The full Pandoc
 port/all tests, calibre MOBI/all tests and additional formats absent from Pandoc/
 all their tests remain the unchanged objective.
+
+### GHC TextEncoding recovery and complete encoding005 checkpoint
+
+The next prerequisite for shared encoding globals is the full recovery-mode
+selection used by those refs, rather than a façade restricted to the previous
+foreign IGNORE/filesystem ROUNDTRIP defaults. `GhcTextEncoding` now translates
+mkTextEncoding's exact suffix grammar, builtin dispatch/canonical names, all four
+CodingFailureMode values, C-string encoding/decoding and charIsRepresentable.
+The builtin codecs and existing Darwin/Linux iconv path now implement strict
+InvalidArgument IOError records, IGNORE, TRANSLIT and ROUNDTRIP. Error records
+retain the original location, description, absent errno/filename and GHC Char
+Show. The exact original `UTF16-LE` textEncodingName spelling is preserved.
+
+Recovery consumes one offending byte on decode; TRANSLIT inserts U+FFFD.
+Encode TRANSLIT rewrites the input Char slot to '?' and retries it through the
+actual encoder, retaining that mutation across output-buffer growth. The
+caller's Kotlin array is not mutated. ROUNDTRIP encode only unescapes failed
+U+DC80..U+DCFF slots, preserving original rejection of other surrogates and
+unrepresentable characters. Source buffer-space checks precede recovery;
+BOM and native iconv shift state survive retries. `char8` is the separate
+unchecked Latin1 encoder and reduces every Char modulo 256 without failure.
+Representability uses encode/C-NUL-truncate/decode equality and catches only
+IOExceptions, including the source's nonrepresentable NUL behavior.
+
+The unmodified GHC **encoding005.hs**, expected stdout and complete IO/all.T
+registration are retained at the already pinned GHC commit
+`383be28ffdddf65b57b7b111bfc89808b4229ebc`. All **60 actual assertions** in that
+program are translated, including direct Latin1 constructors, mkTextEncoding
+paths, every byte, unchecked char8 and ASCII roundtripping. The original test
+compiles and reproduces its complete expected stdout on both Darwin and Linux
+before each platform's fixture generation.
+
+A separate observer calls the actual GHC 9.12.2 mkTextEncoding, codecs,
+Foreign.C.String.Encoding functions and recovery implementations; it does not
+rewrite expected algorithms. Both compiler version and pinned source bytes are
+checked. Each platform corpus contains **1,196 groups**, backed by **27 source
+hashes**. Cases cover every UTF-8 byte pair in all four modes; every lead byte
+against 16 recovery/width boundaries for other builtin codecs; all single bytes;
+malformed/truncated/BOM input; all surrogate slots and representative full-range
+Char boundaries; C-string growth with/without terminator reservation; names,
+aliases, exact suffix rejection; unchecked char8; representability; native
+CP1251/CP1252/Shift-JIS/ISO-2022-JP/UCS-2LE/UCS-4BE and deterministic failures.
+The Darwin semantic SHA256 is
+`a28f56104b777829efcc15ee31cd90a7a93207293aae7531e8aa9c3bff0fa65d`;
+Linux is
+`3f5d5c72a382f4a17fcd295b870267827cd8a60ab0aa1dd171ac608300ce15ef`.
+The **89 differing groups** are confined to native iconv cases; every portable
+builtin observation agrees. Both compressed corpora and upstream notices are
+retained; CI checks their provenance. Windows CI selects the **968 portable
+new cases/assertions**, requires no skipped tests, and increases the explicit
+proxy/environment/encoding total to **19,532**.
+
+On macOS/aarch64 JDK 21, **137,323 selected HTTP/environment/encoding tests**
+pass (72s Gradle build); **137,324 cases** include only the actual Windows
+Registry skip. All **27 XML suites** are parsed with declared and actual
+case/failure/error/skip counts in agreement. The new TextEncoding class contains
+**1,256 passing cases**, including all 60 upstream encoding005 assertions.
+Linux/x86_64 JDK 21 independently passes the same **137,323 tests**
+(75.312s JUnit), with no failed/aborted tests or containers.
+All **157 source/fixture verifiers** pass (38.4s). Installed/core JARs match;
+all **343 HTTP classes**, **22 TLS error classes**, **77 complete notices**,
+**250 Pandoc assets**, **six native ABI assets** and the **60,137-byte PSL** are
+verified. **2,841 preexisting classes** are byte-identical, including every HTTP
+class. The five changed old classes are the codec/companion and its three
+resource callers updated for the expanded constructor. All other preceding JAR
+entries and CLI/dependency JAR bytes remain unchanged.
+
+The preceding 0e7d3aa full CI run **38853460201** completed successfully on both
+Linux and actual Windows. In 58d0871 run **38855745348**, the Windows job passed
+all 18,564 cases including real Kernel32 lookup, growth and error formatting;
+the full Linux job is still running at this checkpoint.
+
+This does not complete GHC.IO.Encoding: the three shared mutable global refs
+and initial CAF forcing/failure semantics still need integration with
+getEnvironment/getEnv/resolver/errno consumers. Windows code-page codecs,
+complete streaming BufferCodec APIs, file-handle encoding and async/RTS semantics
+remain unported. The new C-string API supports builtin codecs on Windows; it
+does not substitute POSIX iconv for its missing code-page backend. The prior
+live system getters still use initial locale codecs. TLS parameters,
+certificate stores/validation and the actual TLS engine remain unfinished.
+The full Pandoc port/all tests, calibre MOBI/all tests and additional formats
+absent from Pandoc/all their tests remain the unchanged objective.

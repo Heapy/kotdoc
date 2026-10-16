@@ -55,6 +55,8 @@ jobs:
       - run: python3 tools/import-environment-fixtures.py --platform macos-aarch64 --check-source
       - run: python3 tools/import-environment-fixtures.py --platform linux-x86_64 --check-source
       - run: python3 tools/import-environment-lookup-fixtures.py --check-source
+      - run: python3 tools/import-text-encoding-fixtures.py --platform macos-aarch64 --check-source
+      - run: python3 tools/import-text-encoding-fixtures.py --platform linux-x86_64 --check-source
       - run: python3 tools/import-parser-state-fixtures.py --check-source
       - run: python3 tools/import-html-state-fixtures.py --check-source
       - run: python3 tools/import-uri-fixtures.py --check-source
@@ -201,7 +203,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - run: .\gradlew.bat :core:test --tests "io.heapy.kotdoc.http.Http*Proxy*Test" --tests "io.heapy.kotdoc.http.HttpWindowsRegistry*Test" --tests "io.heapy.kotdoc.resources.GhcEnvironmentTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupNativeTest" --no-daemon "-Pkotlin.compiler.execution.strategy=in-process"
+      - run: .\gradlew.bat :core:test --tests "io.heapy.kotdoc.http.Http*Proxy*Test" --tests "io.heapy.kotdoc.http.HttpWindowsRegistry*Test" --tests "io.heapy.kotdoc.resources.GhcEnvironmentTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupTest" --tests "io.heapy.kotdoc.resources.GhcEnvironmentLookupNativeTest" --tests "io.heapy.kotdoc.resources.GhcTextEncodingTest" --no-daemon "-Pkotlin.compiler.execution.strategy=in-process"
       - name: Verify Windows proxy results including actual registry execution
         shell: python
         run: |
@@ -210,7 +212,7 @@ jobs:
           expected = {"HttpProxyEnvironmentTest": 4462, "HttpWindowsProxyTest": 2180,
                       "HttpWindowsRegistryBindingTest": 2, "HttpWindowsRegistryNativeTest": 1,
                       "GhcEnvironmentTest": 3828, "GhcEnvironmentLookupTest": 8090,
-                      "GhcEnvironmentLookupNativeTest": 1}
+                      "GhcEnvironmentLookupNativeTest": 1, "GhcTextEncodingTest": 968}
           actual = {}
           for path in Path("core/build/test-results/test").glob("TEST-*.xml"):
               suite = E.parse(path).getroot()
@@ -221,4 +223,4 @@ jobs:
               assert not suite.findall(".//failure") + suite.findall(".//error") + suite.findall(".//skipped"), path
               actual[name] = len(cases)
           assert actual == expected, actual
-          print("Verified 18,564 Windows proxy/environment tests, including real Advapi32/HKCU, Kernel32 environment lookup/growth and error formatting; no skipped tests")
+          print("Verified 19,532 Windows proxy/environment/encoding tests, including real Advapi32/HKCU, Kernel32 environment lookup/growth and error formatting; no skipped tests")

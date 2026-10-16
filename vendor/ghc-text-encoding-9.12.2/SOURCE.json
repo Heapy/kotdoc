@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/ghc/ghc",
+  "revision": "383be28ffdddf65b57b7b111bfc89808b4229ebc",
+  "files": {
+    "libraries/base/tests/IO/encoding005.hs": "4d940ba55bc6c55f4f0eb2c98c7451640ef76898a23d90edd0c7b9cea312af38",
+    "libraries/base/tests/IO/encoding005.stdout": "40a7ab6273a042fd2a6de8db24844831640d2491544d47350732af3f79cd8578",
+    "libraries/base/tests/IO/all.T": "8ee9fbed49bc842aae06da84aa1ee5db5e375da67523c17b8a1cca39c7d7bd5b"
+  }
+}

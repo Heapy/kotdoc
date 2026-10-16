@@ -9,6 +9,7 @@ import com.sun.jna.Platform
 import com.sun.jna.Pointer
 import com.sun.jna.ptr.PointerByReference
 import io.heapy.kotdoc.parsing.RegexCharacters
+import io.heapy.kotdoc.formats.HaskellString
 import java.io.IOException
 import io.heapy.kotdoc.errors.GhcPosixErrno
 import io.heapy.kotdoc.errors.GhcIOException
@@ -18,7 +19,12 @@ import io.heapy.kotdoc.layout.CharacterStringChars as Chars
 
 /** A filesystem decoder with GHC's RoundtripFailure recovery, not replacement.
  * Stateful iconv descriptors are created afresh for each C string. */
-internal class GhcEnvironmentEncoding(private val name: String, private val ignoreFailures: Boolean = false) {
+internal class GhcEnvironmentEncoding(
+    private val name: String,
+    ignoreFailures: Boolean = false,
+    private val failureMode: GhcCodingFailureMode = if (ignoreFailures) GhcCodingFailureMode.Ignore else GhcCodingFailureMode.Roundtrip,
+    private val uncheckedLatin1: Boolean = false,
+) {
     private val normalized = buildString { name.codePoints().forEach { if (it != 45) appendCodePoint(RegexCharacters.toUpper(it)) } }
     private val builtin = when {
         normalized in listOf("UTF8", "UTF16", "UTF16LE", "UTF16BE", "UTF32", "UTF32LE", "UTF32BE") -> normalized
@@ -29,6 +35,9 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
     init {
         if (name.contains("//")) unknownEncoding()
         if (builtin == null) {
+            // The Windows code-page backend is a separate upstream module.
+            // POSIX iconv must never be loaded on Windows.
+            if (Platform.isWindows()) unknownEncoding()
             val supported = try {
             // Original mkIconvEncoding validates an encode/C-string/decode
             // roundtrip for 'a', not just whether iconv_open accepts the name.
@@ -68,7 +77,13 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
         }
     }
 
-    private fun unknownEncoding(): Nothing = throw GhcIOException(GhcIoError(IoErrorType.NoSuchThing, Chars.fromString("mkTextEncoding"), Chars.fromString("unknown encoding:$name//${if (ignoreFailures) "IGNORE" else "ROUNDTRIP"}")))
+    private fun unknownEncoding(): Nothing = throw GhcIOException(GhcIoError(IoErrorType.NoSuchThing, Chars.fromString("mkTextEncoding"), Chars.fromString("unknown encoding:$name${failureMode.suffix}")))
+
+    internal fun canonicalName(fallback: String): String = when (builtin) {
+        "ASCII" -> "ASCII"
+        "LATIN1" -> "ISO-8859-1"
+        else -> fallback
+    }
 
     /** Raw 32-bit GHC Char slots: iconv can produce values beyond Unicode. */
     fun decode(bytes: ByteArray): IntArray = if (builtin == null) iconv(bytes) else buildList<Int> {
@@ -123,7 +138,7 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
                     if (cp in 0..0x10ffff && cp !in 0xd800..0xdfff) { point = cp.toInt(); consumed = 4 }
                 }
             }
-            if (point < 0) { if (!ignoreFailures) appendCodePoint(if (lead < 128) lead else 0xdc00 + lead); consumed = 1 }
+            if (point < 0) { recoverDecode(lead)?.let(::appendCodePoint); consumed = 1 }
             else appendCodePoint(point)
             at += consumed
         }
@@ -160,7 +175,7 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
                                 if (result == -1L && error !in listOf(7, 22, if (Platform.isMac()) 92 else 84)) throw GhcPosixErrno.exception("iconvRecoder", error)
                                 if (remaining > 0 && (result != -1L || error != 7 && written < capacity)) {
                                     val b = bytes[at].toInt() and 255
-                                    if (!ignoreFailures) appendCodePoint(if (b < 128) b else 0xdc00 + b); at++
+                                    recoverDecode(b)?.let(::appendCodePoint); at++
                                 }
                             } }
                         }
@@ -174,7 +189,13 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
      * growth restarts the input while retaining the encoder state, including
      * an already emitted BOM or iconv shift state. The returned bytes exclude
      * the final C terminator, but the caller's reservation affects retries. */
-    fun encodeIgnoringErrors(points: IntArray, nullTerminate: Boolean = true): ByteArray {
+    fun encodeIgnoringErrors(points: IntArray, nullTerminate: Boolean = true): ByteArray =
+        encodeCString(points, nullTerminate, GhcCodingFailureMode.Ignore)
+
+    fun encodeCString(original: IntArray, nullTerminate: Boolean = true, mode: GhcCodingFailureMode = failureMode): ByteArray {
+        // recoverEncode TRANSLIT mutates the original C Char buffer. Keep those
+        // mutations across retries, but never modify the caller's Kotlin array.
+        val points = original.copyOf()
         val descriptor = if (builtin == null) openIconv("UTF-32LE", name) else null
         var doneBom = false
         try {
@@ -200,7 +221,15 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
                         while (!retry && at < points.size) {
                             if (capacity - used < unit) { retry = true; break }
                             val cp = points[at]
-                            if (cp in 0xd800..0xdfff || builtin == "ASCII" && cp !in 0..127 || builtin == "LATIN1" && cp !in 0..255) { at++; continue }
+                            if (!uncheckedLatin1 && (cp in 0xd800..0xdfff || builtin == "ASCII" && cp !in 0..127 || builtin == "LATIN1" && cp !in 0..255)) {
+                                when (mode) {
+                                    GhcCodingFailureMode.Ignore -> at++
+                                    GhcCodingFailureMode.Transliterate -> if (cp == 63) at++ else points[at] = 63
+                                    GhcCodingFailureMode.Roundtrip -> if (cp in 0xdc80..0xdcff) { put(cp); at++ } else encodingError(cp)
+                                    GhcCodingFailureMode.Error -> encodingError(cp)
+                                }
+                                continue
+                            }
                             val size = when {
                                 builtin == "UTF8" -> if (cp < 128) 1 else if (cp < 2048) 2 else if (cp < 65536) 3 else 4
                                 unit == 2 -> if (cp < 65536) 2 else 4
@@ -235,7 +264,17 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
                                     if (r == -1L && error !in listOf(7, 22, if (Platform.isMac()) 92 else 84)) throw GhcPosixErrno.exception("iconvRecoder", error)
                                     if (at < points.size) {
                                         if (r == -1L && (error == 7 || error == (if (Platform.isMac()) 92 else 84) && free == 0L)) retry = true
-                                        else at++ // recoverEncode IgnoreCodingFailure consumes one Char.
+                                        else when (mode) {
+                                            GhcCodingFailureMode.Ignore -> at++
+                                            GhcCodingFailureMode.Transliterate -> if (points[at] == 63) at++ else {
+                                                points[at] = 63
+                                                input.setInt(at.toLong() * 4, 63) // host is little endian on supported ABIs.
+                                            }
+                                            GhcCodingFailureMode.Roundtrip -> if (points[at] in 0xdc80..0xdcff) {
+                                                output.setByte(used++, points[at].toByte()); at++
+                                            } else encodingError(points[at])
+                                            GhcCodingFailureMode.Error -> encodingError(points[at])
+                                        }
                                     }
                                 } }
                             }
@@ -247,6 +286,24 @@ internal class GhcEnvironmentEncoding(private val name: String, private val igno
                 capacity = Math.multiplyExact(capacity, 2)
             }
         } finally { if (descriptor != null) closeIconv(descriptor) }
+    }
+
+    private fun recoverDecode(byte: Int): Int? = when (failureMode) {
+        GhcCodingFailureMode.Ignore -> null
+        GhcCodingFailureMode.Transliterate -> 0xfffd
+        GhcCodingFailureMode.Roundtrip -> if (byte < 128) byte else 0xdc00 + byte
+        GhcCodingFailureMode.Error -> throw GhcIOException(GhcIoError(IoErrorType.InvalidArgument,
+            Chars.fromString("recoverDecode"), Chars.fromString("cannot decode byte sequence starting from $byte")))
+    }
+
+    private fun encodingError(point: Int): Nothing {
+        val shown = when (point) {
+            39 -> "'\\''"
+            34 -> "'\"'"
+            else -> "'" + HaskellString.quoteCodePoints(intArrayOf(point)).let { it.substring(1, it.length - 1) } + "'"
+        }
+        throw GhcIOException(GhcIoError(IoErrorType.InvalidArgument, Chars.fromString("recoverEncode"),
+            Chars.fromString("cannot encode character $shown")))
     }
 
     companion object {
