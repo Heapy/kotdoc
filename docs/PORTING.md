@@ -13506,3 +13506,34 @@ remain green. This establishes the represented finite deterministic callback
 contract, not general asynchronous/cyclic GHC thunk or lazy Gen semantics.
 Typed Read, Eq/Ord and complete public API/effect coverage remain open; local:611,
 full Pandoc/tests and later calibre stages are not completed.
+
+
+### Legacy public ECC Types / Prim / DH checkpoint
+
+Kotlin now ports all fifteen original Prim exports, P256 dispatch, generic
+Jacobian/affine fallback, composition/decomposition and subgroup policy, plus
+the four DH functions. It reuses accepted prime/binary/Internal/P256 engines
+and the existing X509 value/parameter tables. Mechanical comparison verifies
+all 33 source curve tuples and SEC OIDs. DH preserves coordinate, subgroup,
+then infinity error order; field-byte-width shared x; generatePrivate [0,n)
+versus scalarGenerate [1,n), including masking/rejection/RNG effects.
+
+Independent unchanged-source replay passes 6,772 observations and 61 source pins
+(SHA256 4c70f518fb6bcd8ff12f79c4f9b5c5b2a3a2fb3afa982080e39b6520652c26eb).
+The complete original ECCSpec passes 124 examples, including seven property
+families at twenty trials each; separate finite generated corpus samples are
+not claimed to be that native Hspec trial stream. All twenty subgroup rows
+(eighteen binary plus p112r2/p128r2), six private values and valid 7G controls
+are retained. Source/extractor checks pass. Fresh independent combined XML has
+122,143 actual tests, zero failures/errors/skips: 6,867 legacy plus 115,276
+public P256/word/field/point checks. JAR/installDist passes; installed core JAR
+is byte-identical and crypton/RAM/P256 notices are exact.
+
+Negative-polynomial F2m inverse-domain inputs are explicitly excluded, including
+a source pointDouble(-1,0) diagnostic that exceeded three seconds; this bounded
+observation does not prove nontermination or all-Integer parity. Broken custom
+parameters, GHC Data/Read reflection, bottom/laziness, physical scrubbing, JVM
+timing/GC and actual 32-bit/big-endian hosts remain unproved. Generic source
+Integer fallback remains Kotlin BigInteger; accepted fixed engines are not
+replaced. Modern Simple/Crypto.ECC/other curves, remaining crypto/trust/TLS,
+full Pandoc/tests and later calibre stages remain open. Local:613 is not closed.
