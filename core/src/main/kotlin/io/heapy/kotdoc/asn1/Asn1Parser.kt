@@ -11,8 +11,16 @@ sealed interface Asn1ParseResult<out A> {
         val value: A get() = stored.value
         companion object { fun <A> deferred(value: () -> A) = Success(lazy(value)) }
     }
-    data class Failure(val message: CharacterString) : Asn1ParseResult<Nothing> {
-        constructor(message: String) : this(CharacterStringChars.fromString(message))
+    class Failure private constructor(private val stored: Lazy<CharacterString>) : Asn1ParseResult<Nothing> {
+        constructor(message: CharacterString): this(lazyOf(message))
+        constructor(message: String): this(CharacterStringChars.fromString(message))
+        val message get() = stored.value
+        operator fun component1() = message
+        fun copy(message: CharacterString = this.message) = Failure(message)
+        override fun equals(other: Any?) = other is Failure && message == other.message
+        override fun hashCode() = message.hashCode()
+        override fun toString() = "Failure(message=$message)"
+        companion object { fun deferred(message: () -> CharacterString) = Failure(lazy(message)) }
     }
 }
 class Asn1Parsed<out A> private constructor(internal val deferredValue: Lazy<A>, val remaining: List<Asn1Value>) {
@@ -35,7 +43,7 @@ class Asn1Parser<A> private constructor(private val parse: (List<Asn1Value>) -> 
     fun runState(values: List<Asn1Value>) = parse(values.toList())
     fun run(values: List<Asn1Value>): Asn1ParseResult<A> = when (val result = runState(values)) {
         is Asn1ParseResult.Failure -> result
-        is Asn1ParseResult.Success -> if (result.value.remaining.isEmpty()) Asn1ParseResult.Success.deferred { result.value.value } else Asn1ParseResult.Failure("runParseASN1: remaining state ${asn1ShowList(result.value.remaining)}")
+        is Asn1ParseResult.Success -> if (result.value.remaining.isEmpty()) Asn1ParseResult.Success.deferred { result.value.value } else Asn1ParseResult.Failure.deferred { CharacterStringChars.fromString("runParseASN1: remaining state ${asn1ShowList(result.value.remaining)}") }
     }
     fun <B> map(transform: (A) -> B): Asn1Parser<B> = mapLazy { transform(it.value) }
     fun <B> mapLazy(transform: (Lazy<A>) -> B): Asn1Parser<B> = Asn1Parser { values ->
@@ -61,6 +69,8 @@ class Asn1Parser<A> private constructor(private val parse: (List<Asn1Value>) -> 
         fun <A> pureLazy(value: () -> A): Asn1Parser<A> = Asn1Parser { Asn1ParseResult.Success(Asn1Parsed.deferred(value, it)) }
         fun <A> fail(message: String): Asn1Parser<A> = fail(CharacterStringChars.fromString(message))
         fun <A> fail(message: CharacterString): Asn1Parser<A> = Asn1Parser { Asn1ParseResult.Failure(message) }
+        fun <A> failDeferred(message: () -> CharacterString): Asn1Parser<A> = Asn1Parser { Asn1ParseResult.Failure.deferred(message) }
+        fun <A> failLazy(message: () -> String): Asn1Parser<A> = failDeferred { CharacterStringChars.fromString(message()) }
         fun <A> empty(): Asn1Parser<A> = fail("empty Alternative")
         fun <A, B> apply(function: Asn1Parser<(Lazy<A>) -> B>, argument: Asn1Parser<A>): Asn1Parser<B> = function.flatMapLazy { f -> argument.mapLazy { a -> f.value(a) } }
         val hasNext: Asn1Parser<Boolean> = Asn1Parser { Asn1ParseResult.Success(Asn1Parsed(it.isNotEmpty(), it)) }
@@ -86,12 +96,12 @@ class Asn1Parser<A> private constructor(private val parse: (List<Asn1Value>) -> 
             }
         }
         fun <A> onNextContainer(kind: Asn1ConstructionType, parser: Asn1Parser<A>): Asn1Parser<A> = getNextContainer(kind).flatMap { inside ->
-            when (val result = parser.run(inside)) { is Asn1ParseResult.Failure -> fail(result.message); is Asn1ParseResult.Success -> pureLazy { result.value } }
+            when (val result = parser.run(inside)) { is Asn1ParseResult.Failure -> failDeferred { result.message }; is Asn1ParseResult.Success -> pureLazy { result.value } }
         }
         fun <A> onNextContainerMaybe(kind: Asn1ConstructionType, parser: Asn1Parser<A>): Asn1Parser<Asn1Maybe<A>> = getNextContainerMaybe(kind).flatMap { maybe ->
             when (maybe) {
                 Asn1Maybe.None -> pure(Asn1Maybe.None)
-                is Asn1Maybe.Some -> when (val result = parser.run(maybe.value)) { is Asn1ParseResult.Failure -> fail(result.message); is Asn1ParseResult.Success -> pureLazy { Asn1Maybe.Some(result.value) } }
+                is Asn1Maybe.Some -> when (val result = parser.run(maybe.value)) { is Asn1ParseResult.Failure -> failDeferred { result.message }; is Asn1ParseResult.Success -> pureLazy { Asn1Maybe.Some(result.value) } }
             }
         }
         fun <A> getObject(codec: Asn1Object<A>): Asn1Parser<A> = Asn1Parser { codec.fromAsn1(it) }

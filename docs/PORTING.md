@@ -11645,3 +11645,89 @@ X509 tests, finer thunk/resource/streaming coverage, hourglass remaining APIs,
 and TLS/resource-I/O integration remain work. Full Pandoc/all tests, calibre
 MOBI/all tests and additional formats absent from Pandoc/all tests remain the
 unchanged required end state.
+
+### X509 distinguished names, inner codec and deferred parser errors
+
+`X509DistinguishedName.kt` ports the pinned
+`Data.X509.DistinguishedName` module's DN and Inner values, five DnElement
+constructors and their OIDable mappings, first-match getDnElement lookup,
+derived DN Eq/Ord/Show and Inner Eq/Show, append/empty Monoid behavior, and
+both ASN1Object instances. Attributes retain input order and duplicate OIDs.
+Ordering compares OID Integer lists, then character encoding and unsigned raw
+bytes; lookup does not decode/normalize the string. As in the source, a
+multi-attribute SET is flattened and writing emits one SET per attribute.
+
+The parser composes the already ported original ParseASN1 combinators. It
+retains getConstructedEnd's permissive End handling, including accepted missing
+closing markers and unmatched closing kinds. The original Inner FIXME is
+preserved: without an outer Sequence, getMany consumes all input and a trailing
+non-SET is an error rather than preserved remainder. The ordinary DN codec
+preserves the input following its outer container. The original private
+Internal.asn1Container helper is available with finite-list and streaming
+forms; this does not claim the entire Internal ExceptT alias layer is ported.
+
+Parser errors now retain an independently deferred message. Returning a Left
+constructor, including through nested onNextContainer/onNextContainerMaybe,
+does not prematurely format a malformed value in its error text. The remaining
+state error from run also defers its text. Existing Failure constructors,
+getter, component1, copy/copy$default, equality, hash and ordinary display
+remain callable. Failure is now manually implemented for lazy storage; its
+former Kotlin-reflection isData flag is not preserved, as previously recorded
+for Header and IntVal. Nested string-prefix/infinite-list and other finer thunk
+observations remain separate work.
+
+The development-only reference directly compiles **two unchanged X509
+modules**, **17 unchanged ASN1 modules** (including Parse) and **12 unchanged
+hourglass modules**. OriginalDnTests is an exact checked extraction of the
+original arbitraryBS/string/DN generators and the generic
+property_unmarshall_marshall_id body from crypton-x509 Tests.hs, with only its
+module header/imports adapted. Upstream has no separately named DN test; this
+checkpoint instantiates that original generic property for DN, whose generator
+is used by upstream certificate/CRL generation. It does not claim those
+certificate/CRL tests are complete. The original generator/property passes
+**1,000 QuickCheck cases** on both macOS/AArch64 and Linux/x86_64 with replay
+seed **1145978545**. The corpus also invokes that original property on **1,000
+actual original generated inputs**, independently regenerated exactly on
+Linux. Arbitrary OIDs include empty/invalid DER encodings: the original DN
+property is about typed ASN1 and does not require DER validity. Those property
+results are preserved separately from binary encoding observations.
+
+There are **28,425 independent observations**, **97 source hashes**, and
+semantic SHA-256
+**7122cbbb48148793362d7a9cf1434e07f53c15fb8cbc8493899935ce56d7c268**.
+Both GHC builds verify all observations. Coverage includes all 12 character
+encodings and every byte, DER output, all DnElement mappings, derived comparisons
+and display, append/empty, first duplicate lookup, deferred later OIDs, flat
+multi-valued SETs, ordinary versus Inner tail consumption, every truncation,
+every token-position mutation across ASN1 constructors, malformed streams,
+missing/mismatched ends, Left tag versus message/payload demand, bounded output,
+failing input tails and the container helper. Ownership/cache/error checks
+bring X509DistinguishedNameTest to **28,426 tests**.
+
+macOS/AArch64 JDK 21 passes **349,860 selected HTTP/environment/encoding/ASN1/
+X509/hourglass tests** in a 123s build. All **39 XML suites** match actual case
+counts: **349,861 tests**, zero failures/errors and only the actual Windows
+Registry skip. Linux/x86_64 JDK 21 independently passes the same **349,860**
+tests in **80.730s**, with no failed/aborted tests or containers and the same
+one Registry skip. All **168 source/fixture verifiers** pass (63.4s). Windows
+CI now requires **231,260 cases**, including the new DN class, without skips.
+The preceding 60991c5 Windows job passed its **202,834** cases; that checkpoint's
+full Linux CI remains live rather than being restarted.
+
+Core/installed JAR identity and **89 complete notices** are verified. Against
+60991c5, **3,143 classes are byte-identical**; seven other changed classes have
+identical `javap -p -c` output. Only Failure, Parser and its companion change
+executable behavior, and Kotlin module metadata gains the new file. No old
+class is removed; **16 classes** are added for a total of **3,169**. A Java
+client compiled against 60991c5 runs unchanged against the new JAR, covering
+both Failure constructors, getter/component1/copy/copy$default/equality/hash/
+display. All **343 HTTP classes**, **22 TLS error classes**, **250 Pandoc
+assets**, **six native ABI assets**, CodePage, Windows error mapping,
+**60,137-byte PSL**, and CLI/dependency JAR bytes remain exact.
+
+Key objects and cryptographic operations, extensions, certificates/CRLs/signed
+objects, stores/validation, remaining original X509 tests, broader stress and
+finer thunk/resource/streaming coverage, remaining hourglass APIs, and TLS/
+resource-I/O integration remain work. Full Pandoc/all tests, calibre MOBI/all
+tests and additional formats absent from Pandoc/all tests remain the unchanged
+required end state.
