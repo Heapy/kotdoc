@@ -203,3 +203,14 @@ IPv4/IPv6 Read paths and used String parser combinators, including consumed-
 failure alternatives, rather than substituting another IP parser. Generic
 Data.IP/Appar APIs and their remaining suites stay pending. CookieJar sorting
 reuses the unchanged Kotlin translation of `ghc-pretty-sort-9.12.2/OldList.hs`.
+
+`crypton-2.0.1/` retains all 438 original files plus SOURCE.json for the complete
+unchanged Hackage release used by the X509 public-key observer. Archive SHA-256:
+`9e2fcd5c9326d85076cb48cee7fdd9add98384d9d9b79af0ccba0ae9d99c5914`.
+The importer checks every retained file and the complete license against
+`licenses/crypton-BSD-3-Clause.txt`, also packaged in the core JAR. The reference
+build compiles this unchanged local package, including the real curve/EdDSA
+public-key generation used by original test generators. Kotlin currently ports
+the public key records, used byte-key smart constructors and RSA size/unsigned
+integer conversions needed by Data.X509.PublicKey. This is not a claim that
+crypton's remaining cryptographic operations or test suite have been ported.

@@ -11902,3 +11902,87 @@ oracle replay, broader stress and finer thunk/resource/streaming coverage,
 remaining hourglass APIs and TLS/resource-I/O integration remain work. Full
 Pandoc/all tests, calibre MOBI/all tests and additional formats absent from
 Pandoc/all tests remain the unchanged required end state.
+
+### X509 public keys, curve OID tables and original pubkey property
+
+`X509PublicKeys.kt` and `X509PublicKeyCodec.kt` port the pinned
+`Data.X509.PublicKey` models, Eq/Show, pubkeyToAlg and ASN1Object instance.
+RSA/DSA public records retain the crypton 2.0.1 field order, including DSA's
+p/g/q record order versus p/q/g wire order. All nine PubKey constructors are
+represented, including DH, named/explicit-prime EC, all four fixed byte-key
+families and unknown OID/payload records. SerializedPoint and all byte fields
+own their input/output arrays; deferred numeric/point/payload fields are cached.
+All 33 original curve names and OID pairs retain order. Generic OID table
+lookups preserve first-match duplicates, independent fields and a separately
+observable Maybe payload, including unused search targets for an empty table.
+
+The writer retains the original RSA NULL parameter, absent curve/Ed parameters,
+named-EC curve OID, nested RSA/DSA DER and byte-key BIT STRING wrappers, with
+independently demanded output nodes/fields and caller tails. DH and explicit
+EC Prime encoding retain the source's **unimplemented** errors. Unknown keys
+can be encoded but are rejected by the source reader; the port preserves that
+asymmetry. No key validity or point checks are invented where the source only
+checks byte length. X25519/Ed25519 require 32 bytes, X448 56 and Ed448 57,
+independent of the declared BitArray length.
+
+RSA parsing retains optional NULL, BER nested decoding, the alternate nested
+RSA production, its exact version/OID errors and discarded nested remainder.
+Ordinary RSA inner remainder is prepended to the outer remainder. The source's
+negative-modulus repair reinterprets the minimum signed two's-complement bytes
+as unsigned; public_size is recomputed, including **zero bytes for modulus 0**
+on the pinned integer-gmp backend. DSA accepts exactly one nested IntVal.
+Named EC accepts all original curve OIDs without validating the point bytes.
+Explicit-prime EC retains the literal version/field OID shape, unsigned a/b/seed
+conversion, signed integer parameters and ignored bit lengths. Unknown curves,
+unknown key algorithms, structural errors, raw BER Left and deferred primitive
+exceptions preserve the original message and demand order.
+
+The parsed key and remainder have independent cached views. Both the sequence
+API and the existing ASN1Object List API retain a lazy nested BER remainder:
+reading the key, an empty prefix or a known prefix does not decode later invalid
+primitives. `Asn1BinaryEncoding.encodeDerSequenceChunks`/`encodeDerSequence`
+encode one top-level element before traversing its suffix. A constructed root
+still needs its contained structure to compute DER length; a later failing tail
+cannot replace an earlier root's payload/OID error. Existing finite List APIs
+are retained. This extends the binary encoder rather than changing recorded
+original error expectations to accommodate eager list materialization.
+
+The development observer compiles unchanged X509/ASN1/hourglass modules and
+the complete unchanged **crypton 2.0.1** package. Its original pubkey generator
+uses actual crypton toPublic for X25519/X448/Ed25519/Ed448, with the exact
+original secret-key/ByteString generators. OriginalPublicKeyTests is checked
+against the original source extraction, including the unchanged generic
+property_unmarshall_marshall_id body. The original named **pubkey** property
+passes **1,000 QuickCheck cases** at replay seed **1545978545**. The corpus
+retains **1,000 actual original generated inputs**, independently regenerated
+on replay; Kotlin evaluates that same ASN1 round-trip property and matches
+original encoded values and DER bytes.
+
+There are **40,433 independent observations**, **537 source hashes** and
+semantic SHA-256
+**76659c4fa894bf2c7c88fce0e52d2f670bd43aa5526f122fa73c4c7b41da318b**.
+Both generation and full replay pass on macOS/AArch64. Cases cover every byte
+value in all four fixed key families, all curves, RSA signed/size boundaries,
+DSA parameters, pairwise key Eq/Show, explicit EC, unsupported writers,
+constructor/field/tail prefixes, every-position mutations/truncations, nested
+BER/error/remainder ordering, raw payload thunks, fixed-key lengths versus bit
+lengths and generic OID lookup demand. An ownership/cache/lazy-remainder check
+brings **X509PublicKeyTest to 40,434 tests**. This is not independent Linux
+oracle, unbounded recursion, resource stress or cryptographic-operation evidence.
+
+The macOS/AArch64 JDK 21 run passes **278,040 tests** across all ten ASN1/X509
+suites, with actual XML testcase counts checked and zero failures/errors/skips.
+All **171 source/fixture verifiers** pass (143.8s). The standalone and installed
+core JARs are byte-identical and contain **90 full notices**. All **560 pre-existing non-class/non-module-metadata assets** from
+the eec419a baseline remain byte-exact; the new crypton notice is added.
+The core now contains **3,296 classes**. Windows CI requires **343,251 tests**
+without skips, including the public-key suite; Linux CI runs the new verifier
+and suite. The preceding f105a4f Windows job has passed; its full Linux job was
+confirmed still executing the complete Gradle test/install step.
+
+Private keys and their original tests, cryptographic operations, certificates/
+CRLs/signed objects, stores and validation, independent other-platform oracle
+replay, broader stress and finer thunk/resource/streaming coverage, remaining
+hourglass APIs and TLS/resource-I/O integration remain work. Full Pandoc/all
+tests, calibre MOBI/all tests and additional formats absent from Pandoc/all tests
+remain the unchanged required end state.

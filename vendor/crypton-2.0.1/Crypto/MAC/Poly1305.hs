@@ -1,0 +1,141 @@
+{-# LANGUAGE ForeignFunctionInterface #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+-- |
+-- Module      : Crypto.MAC.Poly1305
+-- License     : BSD-style
+-- Maintainer  : Vincent Hanquez <vincent@snarc.org>
+-- Stability   : experimental
+-- Portability : unknown
+--
+-- Poly1305 implementation
+module Crypto.MAC.Poly1305 (
+    Ctx,
+    State,
+    Key,
+    key,
+    Auth (..),
+    authTag,
+
+    -- * Incremental MAC Functions
+    initialize, -- :: State
+    update, -- :: State -> ByteString -> State
+    updates, -- :: State -> [ByteString] -> State
+    finalize, -- :: State -> Auth
+
+    -- * One-pass MAC function
+    auth,
+) where
+
+import Crypto.Error
+import Crypto.Internal.ByteArray (
+    ByteArrayAccess,
+    Bytes,
+    ScrubbedBytes,
+ )
+import qualified Crypto.Internal.ByteArray as B
+import Crypto.Internal.DeepSeq
+import Data.Word
+import Foreign.C.Types
+import Foreign.Ptr
+
+-- | Poly1305 State
+--
+-- This type is an instance of 'ByteArrayAccess' for debugging purpose. Internal
+-- layout is architecture dependent, may contain uninitialized data fragments,
+-- and change in future versions.  The bytearray should not be used as input to
+-- cryptographic algorithms.
+newtype State = State ScrubbedBytes
+    deriving (ByteArrayAccess)
+
+-- | A Poly1305 key: thirty-two bytes, and the length is checked here rather
+-- than at every use.  'initialize' and 'auth' take one of these and cannot
+-- fail, so a caller that holds a key does not carry an error case for a
+-- length it already knows is right.
+newtype Key = Key ScrubbedBytes
+    deriving (ByteArrayAccess, Eq, NFData)
+
+-- | Take thirty-two bytes for a key.  A different length is reported as
+-- 'CryptoError_MacKeyInvalid'; nothing else about a key can be wrong.
+key :: ByteArrayAccess ba => ba -> CryptoFailable Key
+key k
+    | B.length k /= 32 = CryptoFailed CryptoError_MacKeyInvalid
+    | otherwise = CryptoPassed $ Key $ B.convert k
+
+-- | Poly1305 State. use State instead of Ctx
+type Ctx = State
+
+{-# DEPRECATED Ctx "use Poly1305 State instead" #-}
+
+-- | Poly1305 Auth
+newtype Auth = Auth Bytes
+    deriving (ByteArrayAccess, NFData)
+
+authTag :: ByteArrayAccess b => b -> CryptoFailable Auth
+authTag b
+    | B.length b /= 16 = CryptoFailed $ CryptoError_AuthenticationTagSizeInvalid
+    | otherwise = CryptoPassed $ Auth $ B.convert b
+
+instance Eq Auth where
+    (Auth a1) == (Auth a2) = B.constEq a1 a2
+
+-- | @sizeof(poly1305_ctx)@: the accumulator and the key, either as the
+-- limbs the C implementation works in or as the state the assembly keeps,
+-- and the buffer for a partial block.  See @cbits/crypton_poly1305.h@.
+sizeCtx :: Int
+sizeCtx = 232
+
+foreign import ccall unsafe "crypton_poly1305.h crypton_poly1305_init"
+    c_poly1305_init :: Ptr State -> Ptr Word8 -> IO ()
+
+foreign import ccall "crypton_poly1305.h crypton_poly1305_update"
+    c_poly1305_update :: Ptr State -> Ptr Word8 -> CUInt -> IO ()
+
+foreign import ccall unsafe "crypton_poly1305.h crypton_poly1305_finalize"
+    c_poly1305_finalize :: Ptr Word8 -> Ptr State -> IO ()
+
+-- | initialize a Poly1305 context
+initialize :: Key -> State
+initialize k = State $ B.allocAndFreeze sizeCtx $ \ctxPtr ->
+    B.withByteArray k $ \keyPtr ->
+        c_poly1305_init (castPtr ctxPtr) keyPtr
+{-# NOINLINE initialize #-}
+
+-- | update a context with a bytestring
+update :: ByteArrayAccess ba => State -> ba -> State
+update (State prevCtx) d = State $ B.copyAndFreeze prevCtx $ \ctxPtr ->
+    B.withByteArray d $ \dataPtr ->
+        c_poly1305_update (castPtr ctxPtr) dataPtr (fromIntegral $ B.length d)
+{-# NOINLINE update #-}
+
+-- | updates a context with multiples bytestring
+updates :: ByteArrayAccess ba => State -> [ba] -> State
+updates (State prevCtx) d = State $ B.copyAndFreeze prevCtx (loop d)
+  where
+    loop [] _ = return ()
+    loop (x : xs) ctxPtr = do
+        B.withByteArray x $ \dataPtr -> c_poly1305_update ctxPtr dataPtr (fromIntegral $ B.length x)
+        loop xs ctxPtr
+{-# NOINLINE updates #-}
+
+-- | finalize the context into a digest bytestring
+finalize :: State -> Auth
+finalize (State prevCtx) = Auth $ B.allocAndFreeze 16 $ \dst -> do
+    _ <-
+        B.copy prevCtx (\ctxPtr -> c_poly1305_finalize dst (castPtr ctxPtr))
+            :: IO ScrubbedBytes
+    return ()
+{-# NOINLINE finalize #-}
+
+-- | One-pass authorization creation
+auth :: ByteArrayAccess ba => Key -> ba -> Auth
+auth k d = Auth $ B.allocAndFreeze 16 $ \dst -> do
+    _ <- B.alloc sizeCtx (onCtx dst) :: IO ScrubbedBytes
+    return ()
+  where
+    onCtx dst ctxPtr =
+        B.withByteArray k $ \keyPtr -> do
+            c_poly1305_init (castPtr ctxPtr) keyPtr
+            B.withByteArray d $ \dataPtr ->
+                c_poly1305_update (castPtr ctxPtr) dataPtr (fromIntegral $ B.length d)
+            c_poly1305_finalize dst (castPtr ctxPtr)

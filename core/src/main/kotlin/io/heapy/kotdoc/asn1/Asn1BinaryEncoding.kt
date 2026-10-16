@@ -56,6 +56,22 @@ class Asn1BinaryEncoding(private val prim: Asn1Primitives = Asn1Primitives()) {
         }
     }
     fun encodeDer(values: List<Asn1Value>) = java.io.ByteArrayOutputStream().also { out -> encodeDerChunks(values).forEach(out::write) }.toByteArray()
+    /** Demand one top-level element at a time; an unused suffix is never traversed. */
+    fun encodeDerSequenceChunks(values: Sequence<Asn1Value>): Sequence<ByteArray> = sequence {
+        val iterator=values.iterator()
+        while(iterator.hasNext()) {
+            val first=iterator.next();val root=mutableListOf(first)
+            if(first is Asn1Value.Start) {
+                var depth=1L
+                while(depth>0 && iterator.hasNext()) {
+                    val next=iterator.next();root.add(next)
+                    if(next is Asn1Value.Start) depth++ else if(next is Asn1Value.End) depth--
+                }
+            }
+            yieldAll(encodeDerChunks(root))
+        }
+    }
+    fun encodeDerSequence(values: Sequence<Asn1Value>)=java.io.ByteArrayOutputStream().also {out -> encodeDerSequenceChunks(values).forEach(out::write)}.toByteArray()
     private fun checkDer(header: Asn1Header): Asn1Error? = when (val len = header.length) {
         Asn1Length.Indefinite -> Asn1Error.PolicyFailed("DER","indefinite length not allowed")
         is Asn1Length.Short -> null
