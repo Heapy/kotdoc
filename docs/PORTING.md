@@ -12402,3 +12402,78 @@ independent other-platform oracle replay, broader stress and finer thunk/
 resource/streaming coverage, remaining hourglass APIs and TLS/resource-I/O
 integration remain work. The full Pandoc/all tests, calibre MOBI/all tests and
 additional formats absent from Pandoc/all tests remain the required end state.
+
+## X509 PEM memory/file readers and certificate stores (2026-10-16)
+
+The Data.X509.Memory, File and CertificateStore APIs from pinned
+crypton-x509-store 1.9.0 now have native Kotlin implementations in X509Memory,
+X509File and X509CertificateStore. Production uses the existing Kotlin PEM,
+BER/DER, signed-object and key codecs; it does not invoke Haskell, OpenSSL or
+an upstream converter. This covers store APIs, not certificate trust validation
+or native operating-system CA discovery.
+
+Memory key loading preserves all eight original key families and both their
+outer and inner PEM encodings. PRIVATE KEY tries RSA, modern curves, EC and DSA
+in source order; candidates are lazy, invalid returned results are skipped, and
+later PEM blocks prepend their keys. Named labels restrict the attempted parser
+as in the source. The Memory RSA wrapper deliberately accepts a remainder without
+requiring the outer End, independently of the stricter PrivateKey codec. The
+shared EC/DSA/native RSA parsers retain their preceding behavior. Signed-object
+readers ignore PEM labels. A whole PEM parse failure returns an empty memory
+result, while File raises PEMError with the original display text/Show spelling;
+file I/O errors propagate there. Store.readCertificates instead swallows only
+I/O errors and skips returned signed-object decode failures. Thrown ASN1 errors
+remain exceptions, including errors discovered when a result is demanded.
+
+Single stores use source-ordered distinguished-name keys and last insertion
+wins for equal subjects. Weight-balanced insertion retains containers 0.7's
+delta=3/ratio=2 and strict key lookup, including DN demand before an undefined
+map. The relevant original Map source, archive pin and notice are retained.
+Composite stores preserve first-match priority, child order and duplicates
+between maps. Their emptiness is structural: appending two empty maps is not
+empty. Map enumeration sorts subjects; composites concatenate their maps.
+Inputs and returned encoded bytes retain immutable ownership and result spines
+are memoized. Prefix enumeration and lookup preserve the independently observed
+head/spine/field error order without reading unrelated certificate fields.
+
+Directory reads preserve native enumeration order, skip dot-prefixed names and
+exactly eight ASCII hex digits followed by a dot and one ASCII digit, and read
+only existing non-directory entries, including devices/FIFOs rather than
+restricting the source predicate to regular files. The counterintuitive hashed-file exclusion is upstream
+behavior. Memory/file tests include non-ASCII digit suffixes, unrelated labels,
+invalid blocks, directories and missing paths. File PEM parsing consumes chunks
+on demand rather than draining an invalid prefix's suffix. Kotlin closes its
+stream on parse failure; the upstream lazy handle's eventual finalization is
+not reproduced. Exact handle lifetime, interrupted/mid-read I/O, filesystem
+races, symbolic-link/error variations and independent platform oracle captures
+still need broader coverage; native directory ordering is not replaced by a
+portable sort.
+
+The unchanged original Tests/Tests.hs executable passes all **32 Tasty tests**.
+All 32 assertions are also replayed in Kotlin, with independently retained
+original PEM fixtures. The new corpus has **36,223 original-code observations**,
+**630 source hashes** and semantic SHA-256
+**2a7ca86fe594ce1c6ac4db267baf8342623466cd78bf80b2c529f1cf1814e86e**.
+Generation and a complete independent oracle replay pass on macOS/AArch64.
+Coverage includes every original DER truncation and byte mutation, all labels
+crossed with all key/certificate families, multi-block ordering and malformed
+PEMs, map/composite policies, balanced maps up to 128 insertions, deferred DN
+components and certificate payloads, and real memory/file/directory boundaries.
+An ownership/memoization/file-type check brings X509CertificateStoreTest to
+**36,224**, including a real POSIX device assertion on macOS/Linux.
+
+The JDK 21 regression passes **519,886 tests across twenty ASN1/X509/hourglass
+suites**, with exact XML testcase counts and no failures/errors/skips. All
+**178 CI source/fixture verifiers** pass, including a final recheck of the
+expanded store corpus. Standalone and installed core JARs are byte-identical,
+with **3,395 classes** and **90 byte-exact notices**. All **560 baseline assets**
+from the retained ASN1 Pretty checkpoint remain byte-exact and no baseline
+class is missing. The Windows gate now requires **546,780 tests**, including
+the store suite. The preceding 0fb4a20 Windows job succeeded; its Linux test job
+was still running at this checkpoint.
+
+System.X509 platform CA loaders, signature/trust and chain validation, remaining
+cryptographic operations/tests, finer thunk/streaming/resource fidelity and
+native TLS integration remain pending. The full Pandoc/all tests, calibre
+MOBI/all tests and additional formats absent from Pandoc/all tests remain the
+required end state; this dependency slice does not complete that objective.

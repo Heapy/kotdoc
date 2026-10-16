@@ -77,7 +77,7 @@ object X509PrivateKeyCodec: Asn1Object<X509PrivateKey> {
         return newCurve(s)
     }
     private fun version(s: X509Input,n: Long)=s[0]==Asn1Value.Start(x509Seq) && (s[1] as? Asn1Value.IntVal)?.value==BigInteger.valueOf(n)
-    private fun rsa(s: X509Input): Asn1ParseResult<X509Read<X509PrivateKey>> {
+    internal fun rsa(s: X509Input): Asn1ParseResult<X509Read<X509PrivateKey>> {
         if(version(s,0)) {
             val ints=mutableListOf<Asn1Value.IntVal>();var at=2
             while(ints.size<8) {val n=s[at++] as? Asn1Value.IntVal ?: break;ints.add(n)}
@@ -95,7 +95,7 @@ object X509PrivateKeyCodec: Asn1Object<X509PrivateKey> {
         }
         return x509Failure("rsaFromASN1: unexpected format")
     }
-    private fun dsa(s: X509Input): Asn1ParseResult<X509Read<X509PrivateKey>> {
+    internal fun dsa(s: X509Input): Asn1ParseResult<X509Read<X509PrivateKey>> {
         if(version(s,0)) {
             val ints=mutableListOf<Asn1Value.IntVal>();var at=2
             while(ints.size<5) {val n=s[at++] as? Asn1Value.IntVal ?: break;ints.add(n)}
@@ -116,7 +116,7 @@ object X509PrivateKeyCodec: Asn1Object<X509PrivateKey> {
         }
         return x509Failure("DSA.PrivateKey.fromASN1: unexpected format")
     }
-    private fun ec(s: X509Input,acc: X509Input): Asn1ParseResult<X509Read<X509PrivateKey>> {
+    internal fun ec(s: X509Input,acc: X509Input): Asn1ParseResult<X509Read<X509PrivateKey>> {
         if(version(s,1)) {
             val bytes=s[2] as? Asn1Value.OctetString
             if(bytes!=null) {

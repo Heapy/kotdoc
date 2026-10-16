@@ -19,8 +19,10 @@ Pandoc or calibre process is used by the implemented Kotlin code.
   upstream BER behavior; signing callbacks support arbitrary functors. Certificate
   chains retain input bytes and indexed decode failures. EC utilities cover 33
   named curves, prime/binary point validation and explicit prime-curve matching;
-  DN hashes follow the original SHA1/MD5 byte transformations. Cryptographic
-  timing/memory parity, general operations, stores, signature/trust validation
+  DN hashes follow the original SHA1/MD5 byte transformations. PEM memory/file
+  readers and subject-indexed/composite certificate stores preserve upstream
+  ordering and duplicate policies. Cryptographic timing/memory parity, general
+  operations, native system CA loading, signature/trust validation
   and native TLS integration remain pending.
 
 - HTTP TLS adapter orchestration from http-client-tls 0.4.0: independent

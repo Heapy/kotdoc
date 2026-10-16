@@ -1,0 +1,11 @@
+{
+  "package": "containers",
+  "version": "0.7",
+  "url": "https://hackage-content.haskell.org/package/containers-0.7.tar.gz",
+  "sha256": "cf6902d4d27158f0b8643673a230a75c98169d388295f9b641686c83ce15e324",
+  "retained": "Map insertion/lookup demand and weight balance; oracle uses GHC containers 0.7",
+  "files": {
+    "LICENSE": "7904b49880da042ab0e3125ef4da8ba2322b7b5e13de13bc6a322e5e2670bc5c",
+    "src/Data/Map/Internal.hs": "541dd92c62307a6543edbc0269af44d95973b4de647149a75c5660697e5c2e56"
+  }
+}
