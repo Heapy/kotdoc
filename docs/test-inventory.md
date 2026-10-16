@@ -12,6 +12,7 @@ Pandoc conversion tests or calibre programs:
 
 ```sh
 python3 tools/build-test-inventory.py
+python3 tools/check-test-inventory-pandoc-types.py
 python3 tools/check-test-inventory-dependencies.py
 python3 tools/check-test-inventory-runtime.py
 python3 tools/check-test-inventory-census.py
@@ -41,26 +42,45 @@ independent literal tables in `TablesTest`. Every mapping records its Kotlin
 method/dynamic IDs and production path/hash. The independent JSON importer checks
 its 56 fixtures against the pinned original; Kotlin creates no expected bytes.
 
-All 23 properties remain **partial**. The twelve Walk properties now reference
-`OriginalTypesPropertiesTest.originalWalkPredicates` and the separate local:611
-provenance record: 500 unchanged-source generated documents, 12 predicates,
-6,000 trials with independent `Data.Generics` expectations and original foldr/tails
-adapters. The dynamic factory uses `p_walk`/`p_query` even for the source
-`p_walkList`/`p_queryList`; the source IDs retain original names. Original
-text-2.1.2 callback casing is used. Earlier related fixture-based checks remain
-recorded separately. The checkpoint also has 184 ordered shrink observations
-and 6,185 recorded Kotlin checks. Full generator/shrinker acceptance and QCGen
-parity are not established, and other properties still use Kotlin samples.
+All **81 source registrations now have explicit finite executable mappings**.
+The 23 property links use original generators and independent original expectations,
+including complete normalization/Figure outputs and Aeson bytes/decoder trees.
+Historical result provenance is immutable commit
+`66722c107b7663ded9c8f510a41e05c3e131a970` (**32,056 actual JUnit tests** with
+zero failures/errors/skips), not current typed Read work or a fresh run by inventory.
+The exact mapped Kotlin, production and fixture files must still match their
+accepted artifact hashes in the checkout; mismatches fail verification.
 
-Local:610 is a separate **observation corpus**, not new source-test coverage:
-79,934 original C P-256 word observations and 79,946 recorded Kotlin checks.
-Its provenance does not claim all public P256Spec tests. The counts are historical results, **not fresh executions by inventory tools**.
-The 6,185-check artifact hashes now come from immutable Git blobs at
-`665c5daf970f0981b2851fc4d50fc35ad0dd004a`; concurrent shrinker edits are excluded.
-The word corpus retains explicitly labelled current-checkout artifact hashes.
-Each historical gap describes that checkpoint's boundary, not current global status.
-Separate 7,375 and 17,613-check records preserve later evidence independently.
-Read/ordering and full generator/shrinker acceptance remain separate requirements.
+The concrete mapped behavior identities total **20,419**: twelve Walk predicates
+on 500 inputs (6,000), nine table predicates on 1,500 inputs each (13,500),
+305 Figure cases, 500 JSON roundtrips, 112 paired literal assertions and two table
+literals. These identities are reconstructed from the accepted real factory bodies
+and fixture iteration, retaining actual factory dynamic ordinals. In particular,
+list Walk predicates display `p_walk`/`p_query`, and Figure witness strings retain
+JSON quotes. This is more specific than a name/prefix match.
+
+The **137 assertion/property registrations** remain source units, not 20,419
+source tests. Eleven separate native QuickCheck reports (1,000 successful trials
+each) add eleven report checks, not Kotlin conversion trials. Historical total
+32,056 includes other generator/shrinker/helpers and JSON/table guards; it must
+not be presented as the count of these 81 source registrations. Historical raw
+per-case JUnit XML is not committed; the immutable ledger documents its totals.
+
+The verifier checks all 81 manifest/source IDs, all accepted source/payload hashes,
+original eleven property excerpts and six exposed forall bodies, original Walk
+predicate/callback bodies, real assertion contracts and production entrypoints.
+JSON expectations retain original literal bytes and independently translated
+expected typed values. The mapping evidence is source/fixture/code/result provenance,
+not an inferred association by similar names. No expected values are generated.
+
+Later finite support evidence remains separate: shrink commit
+`fde33c3346204ff8f2eee836ef445fd302a0bdc4` records **33,284 tests** and vector commit
+`a5c8fb8f8366b825db351057153b2f3160cfcdef` records **33,466 tests**. Their source
+and payload hashes come from their own immutable commits. These observations do
+not add source registrations or discharge typed Read/public API/universal demand
+requirements. Earlier 6,185/7,375/17,613 checkpoints and the local:610 observation
+corpus retain their distinct historical boundaries. Full local:611/622/Pandoc and
+subsequent calibre stages remain open.
 
 `mapped` means an identified source assertion has an explicit executable link,
 not that its production module is complete. `partial` records missing evidence;
@@ -412,3 +432,24 @@ closure, independently attributed fixture/helper expectations, other embedded an
 RapydScript runners, all dependency/platform profiles and executable Kotlin mappings
 still require acceptance. Neither retained source nor source assertions complete
 the upstream port or start calibre implementation.
+
+## First finite executable-mapping closure
+
+`tools/pandoc-types-test-inventory.py` is the source of the 81 historical mappings
+and `pandoc_types_mapping_evidence`. All mapped execution/expectation links are
+explicit; historical blobs keep typed Read WIP out of the accepted evidence.
+Reproduction commands select actual JUnit factory classes/methods, while concrete
+display-name/ordinal identities identify the retained fixture assertions. Commands
+are reproduction selectors, not claims that an exact historical shell invocation
+was archived. Inventory performs no Gradle or native oracle execution.
+
+```sh
+python3 tools/pandoc-types-test-inventory.py
+python3 tools/check-test-inventory-pandoc-types.py
+```
+
+Remaining semantic gates include unbounded generator/shrinker/runtime acceptance,
+Read/ordering and complete public API/effects. Other upstream runtime leaves still
+need executable evidence. The nine FB2 reader/writer mappings and their ten other
+FB2-related source obligations are a separate next checkpoint; none is implicitly
+closed by this 81-registration bridge. Full local:622 remains incomplete.

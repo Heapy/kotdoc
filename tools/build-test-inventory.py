@@ -31,6 +31,9 @@ dependency_spec.loader.exec_module(dependency)
 calibre_spec = importlib.util.spec_from_file_location('calibre_test_inventory', ROOT / 'tools/calibre-test-inventory.py')
 calibre = importlib.util.module_from_spec(calibre_spec)
 calibre_spec.loader.exec_module(calibre)
+types_mapping_spec = importlib.util.spec_from_file_location('pandoc_types_test_inventory', ROOT / 'tools/pandoc-types-test-inventory.py')
+types_mapping = importlib.util.module_from_spec(types_mapping_spec)
+types_mapping_spec.loader.exec_module(types_mapping)
 
 
 def digest(path):
@@ -41,87 +44,9 @@ def tracked(folder):
     return subprocess.check_output(['git', '-C', str(ROOT / folder), 'ls-files', '-z']).decode().split('\0')[:-1]
 
 
-def mapping(file, method, dynamic=None):
-    path = AST + file + '.kt'
-    text = (ROOT / path).read_text()
-    assert 'fun `' + method + '`' in text, (path, method)
-    production = {'UpstreamJsonTest': ('PandocJson.kt', ['encode/toJson (typed dispatch)', 'decode/fromJson (typed dispatch)']),
-                  'TablesTest': ('Tables.kt', ['simpleTable'] if method == 'upstream table sanitisation' else ['normalize'] if method == 'upstream table normalization example' else ['normalizeHead/normalizeBody/normalizeFoot']),
-                  'PandocJsonTest': ('PandocJson.kt', ['encode', 'decode']),
-                  'BuilderTest': ('Builder.kt', ['simpleFigureWith']),
-                  'PandocVisitorTest': ('PandocVisitor.kt', ['walk'])}[file]
-    production_path = 'core/src/main/kotlin/io/heapy/kotdoc/ast/' + production[0]
-    return dict(path=path, sha256=digest(path), method=method, dynamic_case=dynamic,
-                production=dict(path=production_path, sha256=digest(production_path), entrypoints=production[1]),
-                command='./gradlew :core:test --tests io.heapy.kotdoc.ast.' + file)
-
 
 def pt_inventory():
-    text = (ROOT / PT).read_text()
-    registration = text[text.index('tests :: [Test]'):]
-    properties = re.findall(r'testProperty "([^"]+)"\s+([^\n]+)', registration)
-    examples = re.findall(r'testEncodeDecode "([^"]+)" (t_\w+)', registration)
-    assert len(properties) == 23 and len(examples) == 56
-    records = []
-    for name, expr in properties:
-        m = None
-        gap = 'Original QuickCheck generator/shrinker and full predicate replay not yet mapped.'
-        walks = {
-            'p_walk inlineTrans': 'upstream inline transformation agrees with independent generic traversal',
-            'p_walk blockTrans': 'upstream block transformation agrees with independent generic traversal',
-            'p_walk metaValueTrans': 'upstream metadata value transformation agrees with generic traversal',
-            'p_walk metaTrans': 'metadata walk transforms top-level map only',
-            'p_query inlineQuery': 'inline query matches generic query including metadata captions cells and citation affixes',
-            'p_query blockQuery': 'block query matches generic header query',
-            'p_query metaValueQuery': 'metadata query matches generic strings and map size',
-            'p_query metaQuery': 'metadata query matches generic strings and map size',
-        }
-        if name in walks:
-            m = mapping('PandocVisitorTest', walks[name])
-            gap = 'Related translated transformation/query checked with independent generic JSON traversal over fixtures; original QuickCheck generator/shrinker and generic Haskell predicate replay missing. Unicode uses JVM Locale.ROOT here.'
-        elif name == 'round-trip':
-            m = mapping('PandocJsonTest', 'upstream roundtrip property with reproducible recursive documents')
-            gap = 'Same roundtrip predicate with 500 Kotlin-generated documents; original generator/shrinker not ported.'
-        elif name.startswith('p_tableNorm'):
-            which = next(x for x in ('Head', 'Body', 'Foot') if x in name).lower()
-            suffix = ('normalization is idempotent' if 'Idempotent' in name else
-                      'normalization preserves cell subset' if 'IsSubset' in name else 'first row' + ('s' if which == 'body' else '') + ' ha' + ('ve' if which == 'body' else 's') + ' correct width')
-            m = mapping('TablesTest', 'upstream ' + which + ' ' + suffix)
-            gap = 'Translated predicate uses Kotlin seeded samples; complete upstream generator/shrinker and shrinking semantics remain pending.'
-        elif name.startswith('p_figureRepresentation'):
-            m = mapping('BuilderTest', 'upstream figure representation property')
-            gap = 'Translated predicate uses 500 Kotlin samples; original arbitrary inline generator/shrinker not ported.'
-        related_mapping = None
-        if name.startswith(('p_walk ', 'p_walkList ', 'p_query ', 'p_queryList ')):
-            related_mapping = m
-            path = AST + 'OriginalTypesPropertiesTest.kt'
-            assert '@TestFactory fun originalWalkPredicates()' in (ROOT / path).read_text()
-            callback = name.split(' ', 1)[1]
-            prefix = 'p_walk' if name.startswith('p_walk') else 'p_query'
-            m = dict(path=path, sha256=digest(path), method='originalWalkPredicates',
-                     dynamic_case_pattern=prefix + ' ' + callback + ' seed=<original-seed> size=<original-size>',
-                     trial_count=500, evidence_ref='local:611/original-walk-and-shrink',
-                     production=dict(path='core/src/main/kotlin/io/heapy/kotdoc/ast/PandocVisitor.kt', sha256=digest('core/src/main/kotlin/io/heapy/kotdoc/ast/PandocVisitor.kt'), entrypoints=['walk']),
-                     command='./gradlew :core:test --tests io.heapy.kotdoc.ast.OriginalTypesPropertiesTest')
-            gap = 'All twelve original predicates replay on 500 unchanged-source generated documents with independent Data.Generics expectations and original foldr/tails adapters. Full generator/shrinker decision/distribution, QCGen parity and broader partial/deep acceptance remain pending. These are 500 trials per source property, not 500 source tests.'
-        records.append(dict(id='pandoc-types/property/' + name, name=name, expression=expr.strip(),
-                            source=PT, source_sha256=digest(PT), kind='source-property',
-                            status='partial' if m else 'unmapped', kotlin=m, related_earlier_mapping=related_mapping,
-                            expectation_origin=PT + ' (predicate); src/Text/Pandoc/Arbitrary.hs (generators)', gap=gap))
-    for name, symbol in examples:
-        records.append(dict(id='pandoc-types/json/' + symbol, name=name, expression=symbol,
-                            source=PT, source_sha256=digest(PT), kind='paired-literal-example',
-                            assertions=['Encoding', 'Decoding'], status='mapped',
-                            kotlin=mapping('UpstreamJsonTest', 'upstream exact JSON encoding and typed decoding', [symbol + ' encoding', symbol + ' decoding']),
-                            expectation_origin=PT + ':' + symbol + '; original literal JSON imported by tools/import-pandoc-json-fixtures.py; independently translated typed values in UpstreamJsonTest.kt', gap=''))
-    for symbol, name, method in [('t_tableSan', 'table sanitisation', 'upstream table sanitisation'),
-                                 ('t_tableNormExample', 'table normalization example', 'upstream table normalization example')]:
-        assert re.search(r'^' + symbol + r' = testCase "' + name + '"', text, re.M)
-        records.append(dict(id='pandoc-types/literal/' + symbol, name=name, expression=symbol,
-                            source=PT, source_sha256=digest(PT), kind='literal-assertion', status='mapped',
-                            kotlin=mapping('TablesTest', method), expectation_origin=PT + ':' + symbol + ' (independent literal expected table)', gap=''))
-    assert len(records) == 81
-    return sorted(records, key=lambda r: r['id'])
+    return types_mapping.inventory()['registrations']
 
 
 def checkpoint_evidence():
@@ -285,11 +210,12 @@ def build():
         ('upstream/calibre/src/calibre/utils/run_tests.py', 'Conditional runtime suites, including embedded find_tests'),
         ('upstream/calibre/src/calibre/customize/ui.py', 'Input/output format enumeration, aliases and enabled plugins'),
         ('upstream/calibre/src/calibre/customize/builtins.py', 'Built-in conversion plugin registry')]]
-    return dict(schema_version=6, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations, a Haskell module/site census and original native runtime Tasty census; NOT all conditional profiles, complete expectation attribution or port coverage.',
+    return dict(schema_version=7, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations, a Haskell module/site census and original native runtime Tasty census; NOT all conditional profiles, complete expectation attribution or port coverage.',
                 counting_units=dict(source_test='Registered predicate/example; paired examples retain two assertion names.', trial='Generated property input, not another source test.', observation='Oracle capture, not another source test.', registry='Suite/factory/import candidate, not a source test count.'),
                 pins=pins, roots=roots, sources=[dict(path=p, sha256=digest(p)) for p in sorted(paths)],
                 registry=sorted(entries, key=lambda r: r['id']), pandoc_types=pt_inventory(),
-                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json'), runtime.source_file('tools/runtime-test-inventory.py'), runtime.source_file('tools/prepare-test-inventory-runtime.py'), runtime.source_file('tools/test-inventory-runtime-reference/RuntimeInventory.hs'), runtime.source_file('docs/test-inventory-runtime.json'), dependency.source('tools/dependency-test-inventory.py'), dependency.source('tools/test-inventory-dependency-reference/CabalInventory.hs'), dependency.source('docs/test-inventory-dependency-cabal.json'), calibre.source('tools/calibre-test-inventory.py')],
+                pandoc_types_mapping_evidence={k:v for k,v in types_mapping.inventory().items() if k!='registrations'},
+                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json'), runtime.source_file('tools/runtime-test-inventory.py'), runtime.source_file('tools/prepare-test-inventory-runtime.py'), runtime.source_file('tools/test-inventory-runtime-reference/RuntimeInventory.hs'), runtime.source_file('docs/test-inventory-runtime.json'), dependency.source('tools/dependency-test-inventory.py'), dependency.source('tools/test-inventory-dependency-reference/CabalInventory.hs'), dependency.source('docs/test-inventory-dependency-cabal.json'), calibre.source('tools/calibre-test-inventory.py'),dict(path='tools/pandoc-types-test-inventory.py',sha256=digest('tools/pandoc-types-test-inventory.py'))],
                 pandoc_command=extraction.command_inventory(), pandoc_old=extraction.old_inventory(), pandoc_lua=extraction.lua_inventory(),
                 checkpoint_evidence=checkpoint_evidence(), pandoc_haskell_census=census.haskell_inventory(),
                 dependency_roots=dependency.inventory(), calibre_source_registry=calibre.inventory(),

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Exercise inventory drift rejection using temporary snapshots, without editing sources."""
+import argparse
 import json
 import subprocess
 import sys
@@ -8,6 +9,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VERIFIER = ROOT / 'tools/build-test-inventory.py'
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--scenario',action='append',default=[],help='Run selected negative scenarios plus canonical check; omitted means all scenarios.')
+args=parser.parse_args()
 original = json.loads((ROOT / 'docs/test-inventory.json').read_text())
 
 
@@ -48,9 +52,14 @@ with tempfile.TemporaryDirectory(prefix='kotdoc-test-inventory-') as folder:
         'lost-lua-registration': lambda x: x['pandoc_lua']['registrations'].pop(),
         'miscounted-oracle-evidence': lambda x: next(r for r in x['checkpoint_evidence'] if r['kind']=='oracle-observation-corpus').update(observations=1),
         'lost-pandoc-types-test': lambda x: x['pandoc_types'].pop(),
-        'false-mapping': lambda x: next(r for r in x['pandoc_types'] if r['status'] == 'partial').update(status='mapped'),
+        'incomplete-mapped-assertion': lambda x: x['pandoc_types'][0].update(kotlin=None),
+        'lost-types-identity': lambda x: x['pandoc_types'][0]['kotlin']['identities'].pop(),
+        'changed-historical-result': lambda x: x['pandoc_types_mapping_evidence']['result'].update(recorded_junit_tests=1),
     }
+    unknown=set(args.scenario)-set(mutations)
+    if unknown:parser.error('Unknown scenarios: '+', '.join(sorted(unknown)))
     for name, mutate in mutations.items():
+        if args.scenario and name not in args.scenario:continue
         candidate = json.loads(json.dumps(original))
         mutate(candidate)
         target.write_text(json.dumps(candidate, indent=2, ensure_ascii=False) + '\n')

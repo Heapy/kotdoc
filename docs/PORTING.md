@@ -13657,3 +13657,32 @@ explicitly excluded from finite replay; no identity answer is invented. Real
 32-bit ABI, timing, physical erasure and other host profiles remain unproved.
 The ladder, inversion and public X25519 API, X448/Edwards, other crypto/trust/TLS,
 full Pandoc/tests and later calibre stages remain open; local:613 is not closed.
+
+
+### Executable bridge for all original pandoc-types registrations
+
+The inventory now joins every original source registration ID to accepted
+Kotlin factory/assertion, exact fixture and production artifacts: 81 source
+registrations, comprising 23 properties, 56 paired JSON examples and two
+literals, yield 137 assertion/property registrations. Independently rebuilt
+factory names and dynamic ordinals identify 20,419 finite behavior cases;
+trials and eleven native 1,000-trial report checks are separate units. Original
+predicate/forall/callback exposures, generator instances, source literal bytes,
+typed expected values and complete oracle output links remain explicit.
+
+The evidence reads immutable 66722c107b7663ded9c8f510a41e05c3e131a970 artifacts
+and its documented 32,056-test result, plus separate accepted 33,284 shrink and
+33,466 vector support checkpoints. Current mapped Kotlin/production/fixtures
+must match those accepted hashes. Raw historical per-case XML is not committed;
+identities are reconstructed from exact accepted factory/fixture iteration,
+not asserted to be archived XML replay or fresh execution. Review corrected
+two literal labels to source-extracted table sanitisation and table normalization
+example, keeping IDs and expression symbols unchanged. Ten focused checks and
+canonical plus four targeted drift rejections pass; older unrelated scenarios
+were not redundantly rerun.
+
+All 81 finite source-execution links are mapped in this precise sense. Universal
+generator/shrinker/runtime semantics, typed Read work in progress, Eq/Ord,
+complete Walk/Builder/Generic/public API/effects and global Pandoc/calibre
+coverage remain separate open requirements. Local:611 and local:622 are not
+closed by this mapping bridge. FB2 mapping is a separate next finite checkpoint.
