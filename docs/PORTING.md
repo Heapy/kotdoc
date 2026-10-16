@@ -13800,3 +13800,32 @@ Eight Old CLI goldens, one figures-fb2 command and one ImageSize fixture remain
 separate unmapped obligations. Global FB2 options/resources/effects and all
 other Pandoc/dependency/calibre mapping remain open; this does not close FB2,
 local:622, full Pandoc/tests or later calibre stages.
+
+
+### Public Curve25519 and modern X25519 adapter
+
+Kotlin now ports all six Crypto.PubKey.Curve25519 functions and three owned
+byte wrappers using the accepted specialized Donna engine. Constructors retain
+all32 input bytes; RNG requests exactly32 bytes once and clamps an owned copy.
+Secret/DH default Show stays scrubbed, public Show and explicit SecretKey
+DebugShow match RAM/source formatting. Raw DH permits zero; the modern X25519
+ECDH policy rejects zero while ecdhRaw preserves it. The source four-capability
+ECC hierarchy now represents X25519 as base+DH without arithmetic/basepoint
+stubs, and existing prime behavior remains unchanged.
+
+Independent original replay passes11,433 observations/59 source pins, corpus
+SHA25648ae4fcdeaa650d9eaf186f9b421a15d9ea6bdb9dacb65972f2130fcd1de1c84,
+plus all four original raw examples and the explicit13-example modern X25519
+partition (four decode/seven weak/two property families). Fresh independent
+combined Gradle passes35,966 actual tests with zero failures/errors/skips:
+22,928 public,4,497 prime,1,795 raw Donna and6,746 Donna field. JAR/installDist
+pass; installed core JAR is identical, crypton/RAM notices match exactly, and
+eleven public-wrapper classes have no BigInteger/process/foreign references or
+native methods. Source/extraction and scoped diff checks pass.
+
+Both Donna profiles replay public results; the modern adapter selects64 bits.
+Malformed RNG provider lengths are an explicit Kotlin boundary guard outside
+the original pointer-access precondition. Finite ownership/NFData checks do not
+prove GHC bottom/laziness, physical erasure, pinned addresses, real32-bit ABI or
+JVM constant timing. X448/Edwards and remaining cryptography/trust/TLS, full
+Pandoc/tests and subsequent calibre stages remain open; local:613 stays open.

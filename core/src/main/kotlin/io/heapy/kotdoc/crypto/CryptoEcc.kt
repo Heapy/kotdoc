@@ -7,9 +7,9 @@ import io.heapy.kotdoc.crypto.CryptoEccSimpleTypes.Point
 import io.heapy.kotdoc.x509.X509EcPoint
 import java.math.BigInteger
 
-/** Prime adapters only; X25519/X448/Edwards are separate remaining checkpoints. */
+/** Source capability classes; X448/Edwards are separate remaining checkpoints. */
 object CryptoEcc {
-    enum class Error { CryptoError_PointSizeInvalid,CryptoError_PointFormatInvalid,CryptoError_PublicKeySizeInvalid,CryptoError_SecretKeySizeInvalid,CryptoError_PointCoordinatesInvalid,CryptoError_PointSubgroupInvalid,CryptoError_ScalarMultiplicationInvalid,CryptoError_EcScalarOutOfBounds }
+    enum class Error { CryptoError_PointSizeInvalid,CryptoError_PointFormatInvalid,CryptoError_PublicKeySizeInvalid,CryptoError_SecretKeySizeInvalid,CryptoError_PointCoordinatesInvalid,CryptoError_PointSubgroupInvalid,CryptoError_ScalarMultiplicationInvalid,CryptoError_EcScalarOutOfBounds,CryptoError_SharedSecretSizeInvalid }
     sealed interface Failable<out T> {
         data class Passed<T>(val value: T): Failable<T>
         data class Failed(val error: Error): Failable<Nothing>
@@ -28,7 +28,6 @@ object CryptoEcc {
     }
     interface EllipticCurve<P,S> {
         val sizeBits: Int
-        val orderBits: Int
         fun generateScalar(random: (Int)->ByteArray): S
         fun generateKeyPair(random: (Int)->ByteArray): KeyPair<P,S> { val s=generateScalar(random);return KeyPair(scalarToPoint(s),s) }
         fun encodePoint(p: P): ByteArray
@@ -36,19 +35,27 @@ object CryptoEcc {
         fun encodeScalar(s: S): ByteArray
         fun decodeScalar(bytes: ByteArray): Failable<S>
         fun scalarToPoint(s: S): P
+    }
+    interface EllipticCurveArith<P,S>: EllipticCurve<P,S> {
         fun pointAdd(a: P,b: P): P
         fun pointNegate(p: P): P
         fun pointSmul(s: S,p: P): P
+    }
+    interface EllipticCurveBasepointArith<P,S>: EllipticCurveArith<P,S> {
+        val orderBits: Int
         fun pointBaseSmul(s: S): P=scalarToPoint(s)
         fun pointsSmulVarTime(a: S,b: S,p: P): P=pointAdd(pointBaseSmul(a),pointSmul(b,p))
         fun scalarToInteger(s: S): BigInteger
         fun scalarFromInteger(n: BigInteger): Failable<S>
         fun scalarAdd(a: S,b: S): S
         fun scalarMul(a: S,b: S): S
+    }
+    interface EllipticCurveDH<P,S>: EllipticCurve<P,S> {
         fun ecdh(s: S,p: P): Failable<SharedSecret>
         fun ecdhRaw(s: S,p: P): SharedSecret=ecdh(s,p).getOrThrow()
     }
-    object P256: EllipticCurve<CryptoP256.Point,CryptoP256.Scalar> {
+    interface PrimeCurve<P,S>: EllipticCurveBasepointArith<P,S>, EllipticCurveDH<P,S>
+    object P256: PrimeCurve<CryptoP256.Point,CryptoP256.Scalar> {
         private val raw=CryptoP256()
         override val sizeBits=256
         override val orderBits=256
@@ -74,7 +81,7 @@ object CryptoEcc {
         override fun ecdhRaw(s: CryptoP256.Scalar,p: CryptoP256.Point)=SharedSecret(raw.pointDh(s,p))
         override fun ecdh(s: CryptoP256.Scalar,p: CryptoP256.Point): Failable<SharedSecret> = if(raw.pointIsAtInfinity(p) || raw.scalarIsZero(s) || raw.scalarCmp(s,raw.scalarN)==0) Failable.Failed(Error.CryptoError_ScalarMultiplicationInvalid) else Failable.Passed(ecdhRaw(s,p))
     }
-    open class SimplePrime<C: Tag> internal constructor(val curve: Curve<C>): EllipticCurve<Point<C>,Scalar<C>> {
+    open class SimplePrime<C: Tag> internal constructor(val curve: Curve<C>): PrimeCurve<Point<C>,Scalar<C>> {
         override val sizeBits get()=curve.sizeBits
         override val orderBits get()=CryptoNumberBasic.numBits(curve.parameters.order)
         private val orderBytes get()=(orderBits+7)/8
@@ -111,4 +118,20 @@ object CryptoEcc {
     }
     object P384: SimplePrime<CryptoEccSimpleTypes.SEC_p384r1>(CryptoEccSimpleTypes.curve(CryptoEccSimpleTypes.SEC_p384r1))
     object P521: SimplePrime<CryptoEccSimpleTypes.SEC_p521r1>(CryptoEccSimpleTypes.curve(CryptoEccSimpleTypes.SEC_p521r1))
+    object X25519: EllipticCurveDH<CryptoCurve25519.PublicKey,CryptoCurve25519.SecretKey> {
+        private val raw=CryptoCurve25519()
+        override val sizeBits=255
+        override fun generateScalar(random: (Int)->ByteArray)=raw.generateSecretKey(random)
+        override fun encodePoint(p: CryptoCurve25519.PublicKey)=p.toByteArray()
+        override fun decodePoint(bytes: ByteArray)=raw.publicKey(bytes)
+        override fun encodeScalar(s: CryptoCurve25519.SecretKey)=s.toByteArray()
+        override fun decodeScalar(bytes: ByteArray)=raw.secretKey(bytes)
+        override fun scalarToPoint(s: CryptoCurve25519.SecretKey)=raw.toPublic(s)
+        override fun ecdhRaw(s: CryptoCurve25519.SecretKey,p: CryptoCurve25519.PublicKey)=SharedSecret(raw.dh(p,s).toByteArray())
+        override fun ecdh(s: CryptoCurve25519.SecretKey,p: CryptoCurve25519.PublicKey): Failable<SharedSecret> {
+            val secret=ecdhRaw(s,p);var nonzero=0;for(v in secret.toByteArray())nonzero=nonzero or(v.toInt() and 255)
+            return if(nonzero==0)Failable.Failed(Error.CryptoError_ScalarMultiplicationInvalid)else Failable.Passed(secret)
+        }
+    }
+
 }

@@ -1,0 +1,32 @@
+
+KATs
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+
+Finished in 0.0005 seconds
+4 examples, 0 failures
+
+
+decodePoint
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+ECDH weak points
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+  4 [✔]
+  5 [✔]
+  6 [✔]
+property
+  decodePoint.encodePoint==id [✔]
+    +++ OK, passed 100 tests.
+  ECDH commutes [✔]
+    +++ OK, passed 20 tests.
+
+Finished in 0.0143 seconds
+13 examples, 0 failures

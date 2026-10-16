@@ -55,7 +55,7 @@ class CryptoEccModernPrimeTest {
  }
  private fun <P,S> pv(c: CryptoEcc.EllipticCurve<P,S>,p: P): JsonElement=try {buildJsonObject {put("binary",bs(c.encodePoint(p)))}} catch(e: IllegalStateException) {buildJsonObject {put("encodingException",e.message?:"")}}
  private fun <P,S> pvLazy(c: CryptoEcc.EllipticCurve<P,S>,action: ()->P): JsonElement=try {pv(c,action())} catch(e: IllegalStateException) {buildJsonObject {put("encodingException",e.message?:"")}}
- private fun <P,S> property(c: CryptoEcc.EllipticCurve<P,S>,r: JsonObject): Boolean {
+ private fun <P,S> property(c: CryptoEcc.PrimeCurve<P,S>,r: JsonObject): Boolean {
   val s=c.scalarFromInteger(r.integer("a")).getOrThrow();val t=c.scalarFromInteger(r.integer("b")).getOrThrow();val u=c.scalarFromInteger(r.integer("s")).getOrThrow();val base=c.pointBaseSmul(u)
   return when(r.text("family")) {
    "decodePoint.encodePoint==id"->c.decodePoint(c.encodePoint(base))==CryptoEcc.Failable.Passed(base)
@@ -67,7 +67,7 @@ class CryptoEccModernPrimeTest {
    else->error("property family")
   }
  }
- private fun <P,S> modern(c: CryptoEcc.EllipticCurve<P,S>,r: JsonObject,point: (String)->P): JsonElement {
+ private fun <P,S> modern(c: CryptoEcc.PrimeCurve<P,S>,r: JsonObject,point: (String)->P): JsonElement {
   fun s(k: String)=c.scalarFromInteger(r.integer(k)).getOrThrow()
   return when(r.text("op")) {
    "sizes"->buildJsonObject {put("bits",c.sizeBits);put("orderBits",c.orderBits)}
