@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-dokuwiki-writer-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-2.0-or-later
+executable dokuwiki-writer-reference
+  main-is: DokuWikiWriterReference.hs
+  hs-source-dirs: ., ../haskell-pandoc-uri-reference
+  other-modules: SourceDokuWiki, SourceUriPosix
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, pandoc ==3.12.1, pandoc-types ==1.23.1.2,
+                 aeson ==2.2.3.0, text ==2.1.2, bytestring ==0.12.2.0,
+                 containers ==0.7, data-default, doctemplates ==0.11.1, doclayout ==0.6, mtl, transformers, http-types, base64-bytestring, safe, network-uri, attoparsec

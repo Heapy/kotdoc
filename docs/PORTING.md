@@ -13858,3 +13858,34 @@ stages remain open.
 Cached diff check reports 46 whitespace/EOF diagnostics only in the verbatim
 GhcDerivedEqOrd compiler dump; original dump bytes are intentionally preserved.
 Production/test/tool/doc edits have no whitespace diagnostics.
+
+
+### DokuWiki writer library checkpoint
+
+Kotlin ports the complete496-line pinned Pandoc DokuWiki writer, including
+block/inline branches, list/quote/table environments, metadata/templates,
+wrapping, image dimensions, language aliases, URI handling and ordered reports.
+The development oracle compiles the original full module and original helpers;
+production conversion has no Haskell/CLI dependency. All five original Old
+goldens are retained verbatim. Command3824 and5107 writer observations preserve
+original AST-level output;5107 still depends on the original Muse reader.
+
+Independent review replays all383 observations: unchanged372 (266 original
+Native documents plus options/branch/golden cases) and11 new bounded deep
+cases. The original372 payload hash remains
+4f91d5116e093fed549b943c516da420940949381fff4f8a3f333aafbc523c98.
+Source/tool/helper/request/payload/binary provenance and original golden bytes
+verify read-only. Saved fresh Gradle77229 XML has383 actual tests and zero
+failures/errors/skips. Independent standalone execution also passes all383
+under512MiB heap/256KiB stack. A review-found Emph4096 StackOverflow was fixed
+with heap continuations, shared output rope and iterative flattening; bounded
+probes include Emph8192, Div/quote/note4096, lists/definitions/tables1024.
+This is finite evidence, not an arbitrary-depth/resource-budget guarantee.
+
+CLI registration, complete command behavior (including Muse input), the115
+original DokuWiki reader tests and remaining textual formats remain open. This
+starts local:618 implementation without closing that task, full Pandoc/tests
+or later calibre stages.
+
+Cached diff check retains two whitespace/EOF diagnostics in verbatim original
+5107.md and writer.dokuwiki fixtures; production/test/tool/doc edits are clean.
