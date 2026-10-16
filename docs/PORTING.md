@@ -13776,3 +13776,27 @@ instance and labeled multi-source chunk/newline API are not claimed. General
 lazy ReadS/runtime equivalence remains outside the finite adapter contract.
 225 Eq/Ord, 174 Walk and full public export/effect audit remain open, as do
 local:611, full Pandoc/tests and subsequent calibre stages.
+
+
+### Finite FB2 original unit-leaf execution bridge
+
+The inventory now maps exactly six original Readers/FB2 golden leaves and
+three Writers/FB2 unit leaves to concrete Kotlin factory ordinals, inputs,
+assertions and original expectations. Reader checks compare the complete Native
+golden; writer checks preserve the independently decoded original literal/XML
+template and explicit para-to-paragraph label alias. The writer Kotlin check is
+stronger about the terminal newline than the original lines comparator.
+
+Fresh post-CR Gradle60984 execution supplies exactly nine selected FB2 cases
+with zero failures/errors/skips; captured XML and all eight relevant test,
+production and Gradle source hashes agree before/after. Native source state is
+accepted in a4479abd39f15c094994637bae5c3105b88fe941; the capture truthfully retains
+its earlier basis commit and worktree-execution provenance. Independent review
+checks original helpers/registrations, the eleven focused regressions, canonical
+snapshot and targeted coverage-drift rejection. Other selected Read/Native
+counts are not FB2 coverage.
+
+Eight Old CLI goldens, one figures-fb2 command and one ImageSize fixture remain
+separate unmapped obligations. Global FB2 options/resources/effects and all
+other Pandoc/dependency/calibre mapping remain open; this does not close FB2,
+local:622, full Pandoc/tests or later calibre stages.

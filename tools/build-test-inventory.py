@@ -34,6 +34,9 @@ calibre_spec.loader.exec_module(calibre)
 types_mapping_spec = importlib.util.spec_from_file_location('pandoc_types_test_inventory', ROOT / 'tools/pandoc-types-test-inventory.py')
 types_mapping = importlib.util.module_from_spec(types_mapping_spec)
 types_mapping_spec.loader.exec_module(types_mapping)
+fb2_spec = importlib.util.spec_from_file_location('fb2_test_inventory', ROOT / 'tools/fb2-test-inventory.py')
+fb2 = importlib.util.module_from_spec(fb2_spec)
+fb2_spec.loader.exec_module(fb2)
 
 
 def digest(path):
@@ -210,16 +213,18 @@ def build():
         ('upstream/calibre/src/calibre/utils/run_tests.py', 'Conditional runtime suites, including embedded find_tests'),
         ('upstream/calibre/src/calibre/customize/ui.py', 'Input/output format enumeration, aliases and enabled plugins'),
         ('upstream/calibre/src/calibre/customize/builtins.py', 'Built-in conversion plugin registry')]]
-    return dict(schema_version=7, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations, a Haskell module/site census and original native runtime Tasty census; NOT all conditional profiles, complete expectation attribution or port coverage.',
+    fb2_bridge = fb2.inventory()
+    return dict(schema_version=8, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations, a Haskell module/site census and original native runtime Tasty census; NOT all conditional profiles, complete expectation attribution or port coverage.',
                 counting_units=dict(source_test='Registered predicate/example; paired examples retain two assertion names.', trial='Generated property input, not another source test.', observation='Oracle capture, not another source test.', registry='Suite/factory/import candidate, not a source test count.'),
                 pins=pins, roots=roots, sources=[dict(path=p, sha256=digest(p)) for p in sorted(paths)],
                 registry=sorted(entries, key=lambda r: r['id']), pandoc_types=pt_inventory(),
                 pandoc_types_mapping_evidence={k:v for k,v in types_mapping.inventory().items() if k!='registrations'},
-                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json'), runtime.source_file('tools/runtime-test-inventory.py'), runtime.source_file('tools/prepare-test-inventory-runtime.py'), runtime.source_file('tools/test-inventory-runtime-reference/RuntimeInventory.hs'), runtime.source_file('docs/test-inventory-runtime.json'), dependency.source('tools/dependency-test-inventory.py'), dependency.source('tools/test-inventory-dependency-reference/CabalInventory.hs'), dependency.source('docs/test-inventory-dependency-cabal.json'), calibre.source('tools/calibre-test-inventory.py'),dict(path='tools/pandoc-types-test-inventory.py',sha256=digest('tools/pandoc-types-test-inventory.py'))],
+                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json'), runtime.source_file('tools/runtime-test-inventory.py'), runtime.source_file('tools/prepare-test-inventory-runtime.py'), runtime.source_file('tools/test-inventory-runtime-reference/RuntimeInventory.hs'), runtime.source_file('docs/test-inventory-runtime.json'), dependency.source('tools/dependency-test-inventory.py'), dependency.source('tools/test-inventory-dependency-reference/CabalInventory.hs'), dependency.source('docs/test-inventory-dependency-cabal.json'), calibre.source('tools/calibre-test-inventory.py'),dict(path='tools/pandoc-types-test-inventory.py',sha256=digest('tools/pandoc-types-test-inventory.py')),fb2.source('tools/fb2-test-inventory.py'),fb2.source('docs/test-inventory-fb2-execution.json')],
                 pandoc_command=extraction.command_inventory(), pandoc_old=extraction.old_inventory(), pandoc_lua=extraction.lua_inventory(),
                 checkpoint_evidence=checkpoint_evidence(), pandoc_haskell_census=census.haskell_inventory(),
                 dependency_roots=dependency.inventory(), calibre_source_registry=calibre.inventory(),
-                pandoc_runtime=runtime.runtime_inventory(extraction.command_inventory(),extraction.old_inventory()),
+                pandoc_fb2_unit_bridge=fb2_bridge,
+                pandoc_runtime=fb2.apply_runtime_bridge(runtime.runtime_inventory(extraction.command_inventory(),extraction.old_inventory()),fb2_bridge),
                 pandoc_lua_nested=census.lua_leaves(extraction.lua_inventory()),
                 separate_requirements=[dict(id=x, status='unmapped', gap=g) for x, g in [
                     ('pandoc-types/generators-shrinkers', 'Audit every Arbitrary instance/generator/shrinker independently; Kotlin seeded samples do not port QuickCheck semantics.'),

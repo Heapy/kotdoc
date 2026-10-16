@@ -278,7 +278,8 @@ labels without guessing components by splitting display names. Command and Old
 leaves reconcile exactly to their source records, including duplicate occurrence
 multiplicities. Other leaves retain their original module root and source hashes;
 precise generated-leaf-to-expression/expectation attribution remains open.
-All 4,465 records remain **unmapped**. Runtime registration is not Kotlin coverage.
+The source census remains separate from executable mappings. The FB2 bridge below
+maps exactly nine unit leaves; the other 4,456 runtime leaves remain **unmapped**. Runtime registration is not Kotlin coverage.
 The verifier rejects profile, source, registration and multiplicity drift;
 negative tests also cover duplicate/dotted/newline identities and malformed captures.
 Clean replay canonicalizes order because original directory enumeration can vary;
@@ -450,6 +451,70 @@ python3 tools/check-test-inventory-pandoc-types.py
 
 Remaining semantic gates include unbounded generator/shrinker/runtime acceptance,
 Read/ordering and complete public API/effects. Other upstream runtime leaves still
-need executable evidence. The nine FB2 reader/writer mappings and their ten other
-FB2-related source obligations are a separate next checkpoint; none is implicitly
-closed by this 81-registration bridge. Full local:622 remains incomplete.
+need executable evidence. The FB2 bridge below is a separate checkpoint; none of its obligations is
+implicitly closed by this 81-registration bridge. Full local:622 remains incomplete.
+
+## Nine FB2 unit-leaf executable mappings
+
+The FB2 bridge joins exactly **six reader and three writer** original native
+runtime IDs to selected Kotlin assertions. Reader source labels Emphasis, Titles,
+Epigraph, Poem, Meta and Notes map to the lowercase dynamic names in
+`FB2ReaderTest.all original FB2 reader golden tests`. Writer paths
+`block elements/para`, `inlines/Emphasis` and `bullet list` map to
+`FB2WriterTest.original FB2 writer examples`: `paragraph`, `emphasis`, `bullet list`.
+The `para`→`paragraph` and `Emphasis`→`emphasis` aliases are explicit, never inferred
+as coverage by matching names.
+
+Each reader mapping preserves its original `.fb2` and `.native` bytes/hashes,
+`fb2Test` helper, strict UTF8/drop-BOM/filter-CR input semantics, `readFB2 def`
+and `writeNative def{writerTemplate=Just mempty}` formatter. Original
+`goldenVsString` compares exact bytes. Kotlin asserts both the independently read
+Native AST and the **complete Native serialization**, with CR filtering. All six
+original Native goldens contain no CR/BOM, so Kotlin's expected bytes are unchanged.
+This is finite golden evidence, not broad Native/FB2 option or formatter parity.
+
+Each writer mapping preserves the exact original input constructors, formatter
+prefix/suffix and expected inner XML. Original `Tests.Helpers.test` compares
+`lines(toString actual)` and `lines(toString expected)`; String ToString is identity,
+and Blocks ToPandoc is `doc`. Kotlin checks the whole independently translated XML
+plus a final LF, a stronger terminal-newline constraint than the original helper.
+Source/Kotlin constructor sequences are explicitly checked for the three finite
+inputs. Neither normalized text comparisons nor other corpus/oracle tests replace
+these original unit assertions.
+
+Execution provenance lives in `test-inventory-fb2-execution.json`: exactly six
+reader and three writer XML cases, class/display identities, original XML hashes,
+complete shared command, selected reproduction selectors and eight relevant source
+hashes checked before/after execution. XML copies remove only hostname metadata;
+case/result data is retained. Unrelated Read/native counts are not FB2 coverage.
+The prior post-Native integration shared run (92971, BUILD SUCCESSFUL in 2m12s)
+executed these nine cases with zero failures/errors/skips; only those nine are
+counted here. All eight before/after source hashes match. A `refresh_pending`
+record cannot promote mappings, and current source/hash mismatches fail
+verification. The fresh worktree result is not misattributed to its basis commit
+or unrelated Read WIP; result commit remains unset until integration.
+
+Reproducible capture uses an explicit coordinated Gradle window:
+
+```sh
+python3 tools/fb2-test-inventory.py --freeze-execution-sources /tmp/fb2-before.json
+# Execute the two recorded factory selectors in the coordinated Gradle run.
+python3 tools/fb2-test-inventory.py --capture-execution /tmp/fb2-before.json --command-file /tmp/fb2-command.txt --log /tmp/fb2-gradle.log --jdk 21.0.12-librca
+python3 tools/check-test-inventory-fb2.py
+```
+
+**Ten other known FB2-related obligations remain unmapped**: eight Old CLI/goldens
+(basic, titles, images, images-embedded, math, meta, tables, testsuite), Command
+`figures-fb2.md/#1`, and ImageSize `fb2/test-small.png`. Each retains its own
+source/runtime ID and expectation origin. Their CLI options/resources/normalizers,
+stdout/stderr/status or image-size predicate are not discharged by the nine unit
+mappings. This is not all FB2, full Pandoc, global622 or subsequent calibre completion.
+
+FB2 execution refresh is currently **pending**: subsequent Native review requires
+a ToSources raw-CR correction. Retained run92971 XML/hashes describe only its
+executed NativeReader artifact. The prior generated snapshot is a non-final
+checkpoint and intentionally fails current execution validation while pending.
+After final source freeze, recapture eight before/after hashes and the same nine
+selected assertions, then regenerate and verify once. Proof logic/eleven focused
+checks and canonical/four targeted negative checks passed before marking pending;
+no future corrected artifact is attributed to that run.
