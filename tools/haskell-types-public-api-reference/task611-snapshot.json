@@ -1,0 +1,22 @@
+{
+  "task": {
+    "ref": "local:611",
+    "project": "4079779d-7715-4f0e-b255-45a14648c022",
+    "title": "Завершить pandoc-types semantics и все оставшиеся свойства",
+    "body": "Закрыть оставшиеся full walkers/list properties, исходные generators/shrinkers, structural ordering/Read и прочие непокрытые semantics из docs/PORTING.md Remaining scope и подробных AST-разделов. Сохранить полный исходный контракт, Unicode, Int64, lazy/partial/deep input behavior в явно заданной области. Приёмка: каждый upstream pandoc-types test сопоставлен исполняемому Kotlin-доказательству; независимые ожидания, отсутствие незадокументированных отклонений. Уже завершённые JSON/Native/AST срезы не переписывать без причины.\n\n---\nCreated by: Codex\nGit branch: main\nGit HEAD: f2c506ae0b7484d97e6d621def12385478c824ce",
+    "url": null,
+    "position": 13.0,
+    "state": "todo",
+    "blocked": false,
+    "dependsOn": [],
+    "createdAt": 1792170719284,
+    "updatedAt": 1792170719284,
+    "rev": 3122
+  },
+  "projectName": "kotdoc",
+  "projectPath": "/Users/yoda/dev/pet/kotdoc",
+  "dependsOn": [],
+  "dependents": [
+    "local:623"
+  ]
+}

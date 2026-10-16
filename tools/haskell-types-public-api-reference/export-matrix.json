@@ -1,0 +1,3258 @@
+{
+  "schema": 1,
+  "scope": "140 module-owned exports before member expansion; re-exported Definition entries excluded from Builder",
+  "modules": [
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "sha256": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+      "owned_export_count": 37,
+      "reexports": []
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "sha256": "d4fa82796d51bbe960a73b736a95c61b0310a1d540fc7390a550f680df179c32",
+      "owned_export_count": 25,
+      "reexports": []
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "sha256": "94ae6bb8d22865e2aef201a68839e9cf87bc0deddc2e4b14c2b20afb063238ad",
+      "owned_export_count": 74,
+      "reexports": [
+        "module Text.Pandoc.Definition",
+        "(<>)"
+      ]
+    },
+    {
+      "module": "Generic",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Generic.hs",
+      "sha256": "ab5c794b067deead9a55727f04951c65865b29efbdb4bf181d71b1aa1b542762",
+      "owned_export_count": 4,
+      "reexports": []
+    }
+  ],
+  "exports": [
+    {
+      "id": "Definition/Pandoc",
+      "source_export": "Pandoc(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 104,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 5,
+          "symbol": "Pandoc"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/Meta",
+      "source_export": "Meta(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 115,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt",
+          "line": 65,
+          "symbol": "Meta"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/MetaValue",
+      "source_export": "MetaValue(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 126,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 7,
+          "symbol": "MetaValue"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/nullMeta",
+      "source_export": "nullMeta",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 134,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 5,
+          "symbol": "Pandoc"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "api_mapping_unverified",
+      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+    },
+    {
+      "id": "Definition/isNullMeta",
+      "source_export": "isNullMeta",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 137,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 5,
+          "symbol": "Pandoc"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "api_mapping_unverified",
+      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+    },
+    {
+      "id": "Definition/lookupMeta",
+      "source_export": "lookupMeta",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 143,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 5,
+          "symbol": "Pandoc"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "api_mapping_unverified",
+      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+    },
+    {
+      "id": "Definition/docTitle",
+      "source_export": "docTitle",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 147,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 13,
+          "symbol": "docTitle"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Direct source body matches the intended helper/pattern; complete independent case/demand/Unicode proof and member surface audit still required."
+    },
+    {
+      "id": "Definition/docAuthors",
+      "source_export": "docAuthors",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 158,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 16,
+          "symbol": "docAuthors"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Direct source body matches the intended helper/pattern; complete independent case/demand/Unicode proof and member surface audit still required."
+    },
+    {
+      "id": "Definition/docDate",
+      "source_export": "docDate",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 170,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 14,
+          "symbol": "docDate"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Direct source body matches the intended helper/pattern; complete independent case/demand/Unicode proof and member surface audit still required."
+    },
+    {
+      "id": "Definition/Block",
+      "source_export": "Block(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 273,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 57,
+          "symbol": "Block"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/SimpleFigure",
+      "source_export": "pattern SimpleFigure",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 335,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 39,
+          "symbol": "SimpleFigure"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Direct source body matches the intended helper/pattern; complete independent case/demand/Unicode proof and member surface audit still required."
+    },
+    {
+      "id": "Definition/Inline",
+      "source_export": "Inline(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 347,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 83,
+          "symbol": "Inline"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/ListAttributes",
+      "source_export": "ListAttributes",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 181,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt",
+          "line": 91,
+          "symbol": "ListAttributes"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/ListNumberStyle",
+      "source_export": "ListNumberStyle(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 184,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 23,
+          "symbol": "ListNumberStyle"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/ListNumberDelim",
+      "source_export": "ListNumberDelim(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 193,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 24,
+          "symbol": "ListNumberDelim"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/Format",
+      "source_export": "Format(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 205,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Format.kt",
+          "line": 6,
+          "symbol": "Format"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/Attr",
+      "source_export": "Attr",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 199,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt",
+          "line": 89,
+          "symbol": "Attr"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/nullAttr",
+      "source_export": "nullAttr",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 201,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 17,
+          "symbol": "Attr"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "api_mapping_unverified",
+      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+    },
+    {
+      "id": "Definition/Caption",
+      "source_export": "Caption(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 257,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 50,
+          "symbol": "Caption"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/ShortCaption",
+      "source_export": "ShortCaption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 254,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt",
+          "line": 93,
+          "symbol": "ShortCaption"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/RowHeadColumns",
+      "source_export": "RowHeadColumns(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 219,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 54,
+          "symbol": "TableBody"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "missing_instance_surface",
+      "remaining_gap": "Stored as Long. Read/Show/EqOrd concrete behavior has accepted evidence, but distinct source Num/Enum/newtype/Data/Generic APIs and all method bounds/errors remain missing/unverified."
+    },
+    {
+      "id": "Definition/Alignment",
+      "source_export": "Alignment(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 223,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 30,
+          "symbol": "Alignment"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/ColWidth",
+      "source_export": "ColWidth(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 229,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 45,
+          "symbol": "ColWidth"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/ColSpec",
+      "source_export": "ColSpec",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 233,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt",
+          "line": 92,
+          "symbol": "ColSpec"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/Row",
+      "source_export": "Row(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 236,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 51,
+          "symbol": "Row"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/TableHead",
+      "source_export": "TableHead(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 240,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 53,
+          "symbol": "TableHead"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/TableBody",
+      "source_export": "TableBody(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 246,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 54,
+          "symbol": "TableBody"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/TableFoot",
+      "source_export": "TableFoot(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 250,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 55,
+          "symbol": "TableFoot"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/Cell",
+      "source_export": "Cell(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 261,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 52,
+          "symbol": "Cell"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/RowSpan",
+      "source_export": "RowSpan(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 265,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 52,
+          "symbol": "Cell"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "missing_instance_surface",
+      "remaining_gap": "Stored as Long. Read/Show/EqOrd concrete behavior has accepted evidence, but distinct source Num/Enum/newtype/Data/Generic APIs and all method bounds/errors remain missing/unverified."
+    },
+    {
+      "id": "Definition/ColSpan",
+      "source_export": "ColSpan(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 269,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 52,
+          "symbol": "Cell"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "missing_instance_surface",
+      "remaining_gap": "Stored as Long. Read/Show/EqOrd concrete behavior has accepted evidence, but distinct source Num/Enum/newtype/Data/Generic APIs and all method bounds/errors remain missing/unverified."
+    },
+    {
+      "id": "Definition/QuoteType",
+      "source_export": "QuoteType(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 310,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 31,
+          "symbol": "QuoteType"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/Target",
+      "source_export": "Target",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 313,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt",
+          "line": 90,
+          "symbol": "Target"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/MathType",
+      "source_export": "MathType(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 344,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 32,
+          "symbol": "MathType"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/Citation",
+      "source_export": "Citation(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 370,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 36,
+          "symbol": "Citation"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/CitationMode",
+      "source_export": "CitationMode(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 382,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
+          "line": 33,
+          "symbol": "CitationMode"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:56 paired JSON literals and roundtrip property",
+        "tools/haskell-types-read-reference/TypesReadReference.hs",
+        "tools/haskell-types-order-closure-reference/TypesOrderClosureReference.hs"
+      ],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "25 concrete Read dictionaries plus5 aliases;16954 original requests"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Concrete representation and selected JSON/Read/Show/EqOrd evidence exist; expand all constructor/record/typeclass members. Data/Typeable/GHC.Generic/NFData surface is not certified by those slices."
+    },
+    {
+      "id": "Definition/pandocTypesVersion",
+      "source_export": "pandocTypesVersion",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "source_line": 474,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocJson.kt",
+          "line": 12,
+          "symbol": "apiVersion"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "representation_partial",
+      "remaining_gap": "API-version branch exists; source returns Data.Version.Version, not only a numeric list. Public value/record/dependency behavior not yet mapped."
+    },
+    {
+      "id": "Walk/Walkable",
+      "source_export": "Walkable(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 124,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 24,
+          "symbol": "Walkable"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryBlock",
+      "source_export": "queryBlock",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 497,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 402,
+          "symbol": "queryBlock"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryCaption",
+      "source_export": "queryCaption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 648,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 444,
+          "symbol": "queryCaption"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryRow",
+      "source_export": "queryRow",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 591,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 414,
+          "symbol": "queryRow"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryTableHead",
+      "source_export": "queryTableHead",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 602,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 418,
+          "symbol": "queryTableHead"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryTableBody",
+      "source_export": "queryTableBody",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 614,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 422,
+          "symbol": "queryTableBody"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryTableFoot",
+      "source_export": "queryTableFoot",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 625,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 426,
+          "symbol": "queryTableFoot"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryCell",
+      "source_export": "queryCell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 637,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 430,
+          "symbol": "queryCell"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryCitation",
+      "source_export": "queryCitation",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 580,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 410,
+          "symbol": "queryCitation"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryInline",
+      "source_export": "queryInline",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 438,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 398,
+          "symbol": "queryInline"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryMetaValue",
+      "source_export": "queryMetaValue",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 548,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 406,
+          "symbol": "queryMetaValue"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryMetaValue'",
+      "source_export": "queryMetaValue'",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 560,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 452,
+          "symbol": "queryMetaValuePrime"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/queryPandoc",
+      "source_export": "queryPandoc",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 662,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 448,
+          "symbol": "queryPandoc"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkBlockM",
+      "source_export": "walkBlockM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 468,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 400,
+          "symbol": "walkBlockM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkCaptionM",
+      "source_export": "walkCaptionM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 643,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 442,
+          "symbol": "walkCaptionM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkRowM",
+      "source_export": "walkRowM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 586,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 412,
+          "symbol": "walkRowM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkTableHeadM",
+      "source_export": "walkTableHeadM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 597,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 416,
+          "symbol": "walkTableHeadM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkTableBodyM",
+      "source_export": "walkTableBodyM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 609,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 420,
+          "symbol": "walkTableBodyM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkTableFootM",
+      "source_export": "walkTableFootM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 620,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 424,
+          "symbol": "walkTableFootM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkCellM",
+      "source_export": "walkCellM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 632,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 428,
+          "symbol": "walkCellM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkCitationM",
+      "source_export": "walkCitationM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 571,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 408,
+          "symbol": "walkCitationM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkInlineM",
+      "source_export": "walkInlineM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 412,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 396,
+          "symbol": "walkInlineM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkMetaValueM",
+      "source_export": "walkMetaValueM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 527,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 404,
+          "symbol": "walkMetaValueM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkMetaValueM'",
+      "source_export": "walkMetaValueM'",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 538,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 450,
+          "symbol": "walkMetaValueMPrime"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Walk/walkPandocM",
+      "source_export": "walkPandocM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "source_line": 653,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt",
+          "line": 446,
+          "symbol": "walkPandocM"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:12 Walk predicates",
+        "tools/haskell-types-walk-reference/TypesWalkReference.hs:actual original module"
+      ],
+      "finite_proof": [
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "manifest": "tools/haskell-types-walk-reference/source-manifest.json",
+          "scope": "58 source dictionaries/174 methods and24 helpers;5715 represented observations plus2 source-only StrictData failures"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted174-slot matrix plus independently accepted pure-demand/DefinitionList correction:47 original Walk observations and5 adapter checks,11777 actual regression cases. Explicit thunk/lazy-pair adapters represent concrete partial fields; no general GHC heap/infinite-spine claim. tools/haskell-types-walk-pure-reference retains52 native rows including5 source-only Generic contrasts."
+    },
+    {
+      "id": "Builder/Many",
+      "source_export": "Many(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 199,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 5,
+          "symbol": "Inlines"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 35,
+          "symbol": "Blocks"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "missing_generic_type_surface",
+      "remaining_gap": "Only two specialized wrappers; source Many a is generic, with unMany and Data/Ord/Eq/Typeable/Foldable/Traversable/Functor/Show/Read/Generic dictionaries. Concrete two-wrapper evidence does not cover arbitrary element types."
+    },
+    {
+      "id": "Builder/Inlines",
+      "source_export": "Inlines",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 217,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 5,
+          "symbol": "Inlines"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "Concrete Many Read"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "Concrete Many EqOrd"
+        },
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "scope": "Many traversable finite contexts"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Audit full Many alias algebra, Functor/Foldable/Traversable/IsString and generic dependency contracts separately."
+    },
+    {
+      "id": "Builder/Blocks",
+      "source_export": "Blocks",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 218,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 35,
+          "symbol": "Blocks"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [
+        {
+          "commit": "06317ca31379e7fb09a1c4579d4167e50f55d62a",
+          "scope": "Concrete Many Read"
+        },
+        {
+          "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
+          "scope": "Concrete Many EqOrd"
+        },
+        {
+          "commit": "9f9c6cb2962cfb4d28503bfb5588507df0478aad",
+          "scope": "Many traversable finite contexts"
+        }
+      ],
+      "status": "representation_and_selected_instances",
+      "remaining_gap": "Audit full Many alias algebra, Functor/Foldable/Traversable/IsString and generic dependency contracts separately."
+    },
+    {
+      "id": "Builder/singleton",
+      "source_export": "singleton",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 207,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 5,
+          "symbol": "Inlines"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 35,
+          "symbol": "Blocks"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "generic_api_missing",
+      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+    },
+    {
+      "id": "Builder/toList",
+      "source_export": "toList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 204,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 5,
+          "symbol": "Inlines"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 35,
+          "symbol": "Blocks"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "generic_api_missing",
+      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+    },
+    {
+      "id": "Builder/fromList",
+      "source_export": "fromList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 210,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 5,
+          "symbol": "Inlines"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 35,
+          "symbol": "Blocks"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "generic_api_missing",
+      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+    },
+    {
+      "id": "Builder/isNull",
+      "source_export": "isNull",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 214,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 5,
+          "symbol": "Inlines"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 35,
+          "symbol": "Blocks"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "generic_api_missing",
+      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+    },
+    {
+      "id": "Builder/doc",
+      "source_export": "doc",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 271,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 49,
+          "symbol": "doc"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/ToMetaValue",
+      "source_export": "ToMetaValue(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 274,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 31,
+          "symbol": "toMetaValue"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 7,
+          "symbol": "setMeta"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "instance_surface_partial",
+      "remaining_gap": "Expand each source instance/method: HasMeta Meta missing; ToMetaValue Text versus Haskell String/Map String collision and recursive conversions need independent typed cases and laziness/source error proof."
+    },
+    {
+      "id": "Builder/HasMeta",
+      "source_export": "HasMeta(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 304,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 31,
+          "symbol": "toMetaValue"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 7,
+          "symbol": "setMeta"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "instance_surface_partial",
+      "remaining_gap": "Expand each source instance/method: HasMeta Meta missing; ToMetaValue Text versus Haskell String/Map String collision and recursive conversions need independent typed cases and laziness/source error proof."
+    },
+    {
+      "id": "Builder/setTitle",
+      "source_export": "setTitle",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 318,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 9,
+          "symbol": "setTitle"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source function exists; complete direct original examples, Unicode/deep/partial boundary proof not yet assigned."
+    },
+    {
+      "id": "Builder/setAuthors",
+      "source_export": "setAuthors",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 321,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 10,
+          "symbol": "setAuthors"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source function exists; complete direct original examples, Unicode/deep/partial boundary proof not yet assigned."
+    },
+    {
+      "id": "Builder/setDate",
+      "source_export": "setDate",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 324,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
+          "line": 11,
+          "symbol": "setDate"
+        }
+      ],
+      "original_tests": [],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source function exists; complete direct original examples, Unicode/deep/partial boundary proof not yet assigned."
+    },
+    {
+      "id": "Builder/text",
+      "source_export": "text",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 331,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 52,
+          "symbol": "text"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/str",
+      "source_export": "str",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 349,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 50,
+          "symbol": "str"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/emph",
+      "source_export": "emph",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 352,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 68,
+          "symbol": "emph"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/underline",
+      "source_export": "underline",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 355,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 69,
+          "symbol": "underline"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/strong",
+      "source_export": "strong",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 358,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 70,
+          "symbol": "strong"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/strikeout",
+      "source_export": "strikeout",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 361,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 71,
+          "symbol": "strikeout"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/superscript",
+      "source_export": "superscript",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 364,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 72,
+          "symbol": "superscript"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/subscript",
+      "source_export": "subscript",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 367,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 73,
+          "symbol": "subscript"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/smallcaps",
+      "source_export": "smallcaps",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 370,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 74,
+          "symbol": "smallcaps"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/singleQuoted",
+      "source_export": "singleQuoted",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 373,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 75,
+          "symbol": "singleQuoted"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/doubleQuoted",
+      "source_export": "doubleQuoted",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 376,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 76,
+          "symbol": "doubleQuoted"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/cite",
+      "source_export": "cite",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 382,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 77,
+          "symbol": "cite"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/codeWith",
+      "source_export": "codeWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 386,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 78,
+          "symbol": "codeWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/code",
+      "source_export": "code",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 390,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 79,
+          "symbol": "code"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/space",
+      "source_export": "space",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 393,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 80,
+          "symbol": "space"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/softbreak",
+      "source_export": "softbreak",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 396,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 81,
+          "symbol": "softbreak"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/linebreak",
+      "source_export": "linebreak",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 399,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 82,
+          "symbol": "linebreak"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/math",
+      "source_export": "math",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 403,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 83,
+          "symbol": "math"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/displayMath",
+      "source_export": "displayMath",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 407,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 84,
+          "symbol": "displayMath"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/rawInline",
+      "source_export": "rawInline",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 410,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 85,
+          "symbol": "rawInline"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/link",
+      "source_export": "link",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 413,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 87,
+          "symbol": "link"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/linkWith",
+      "source_export": "linkWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 419,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 86,
+          "symbol": "linkWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/image",
+      "source_export": "image",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 426,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 89,
+          "symbol": "image"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/imageWith",
+      "source_export": "imageWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 432,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 88,
+          "symbol": "imageWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/note",
+      "source_export": "note",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 439,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 90,
+          "symbol": "note"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/spanWith",
+      "source_export": "spanWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 442,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 91,
+          "symbol": "spanWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/trimInlines",
+      "source_export": "trimInlines",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 254,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 92,
+          "symbol": "trimInlines"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/para",
+      "source_export": "para",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 447,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 94,
+          "symbol": "para"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/plain",
+      "source_export": "plain",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 450,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 95,
+          "symbol": "plain"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/lineBlock",
+      "source_export": "lineBlock",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 455,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 96,
+          "symbol": "lineBlock"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/codeBlockWith",
+      "source_export": "codeBlockWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 459,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 97,
+          "symbol": "codeBlockWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/codeBlock",
+      "source_export": "codeBlock",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 463,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 98,
+          "symbol": "codeBlock"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/rawBlock",
+      "source_export": "rawBlock",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 466,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 99,
+          "symbol": "rawBlock"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/blockQuote",
+      "source_export": "blockQuote",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 469,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 100,
+          "symbol": "blockQuote"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/bulletList",
+      "source_export": "bulletList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 480,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 103,
+          "symbol": "bulletList"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/orderedListWith",
+      "source_export": "orderedListWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 473,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 101,
+          "symbol": "orderedListWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/orderedList",
+      "source_export": "orderedList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 477,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 102,
+          "symbol": "orderedList"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/definitionList",
+      "source_export": "definitionList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 483,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 104,
+          "symbol": "definitionList"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/header",
+      "source_export": "header",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 486,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 106,
+          "symbol": "header"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/headerWith",
+      "source_export": "headerWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 491,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 105,
+          "symbol": "headerWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/horizontalRule",
+      "source_export": "horizontalRule",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 494,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 107,
+          "symbol": "horizontalRule"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/cell",
+      "source_export": "cell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 505,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 109,
+          "symbol": "cell"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/simpleCell",
+      "source_export": "simpleCell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 513,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 110,
+          "symbol": "simpleCell"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/emptyCell",
+      "source_export": "emptyCell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 517,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 111,
+          "symbol": "emptyCell"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/cellWith",
+      "source_export": "cellWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 497,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 108,
+          "symbol": "cellWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/table",
+      "source_export": "table",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 523,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 115,
+          "symbol": "table"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/simpleTable",
+      "source_export": "simpleTable",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 547,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 116,
+          "symbol": "simpleTable"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/tableWith",
+      "source_export": "tableWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 531,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 113,
+          "symbol": "tableWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/figure",
+      "source_export": "figure",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 562,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 120,
+          "symbol": "figure"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/figureWith",
+      "source_export": "figureWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 565,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 119,
+          "symbol": "figureWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/caption",
+      "source_export": "caption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 568,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 117,
+          "symbol": "caption"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/simpleCaption",
+      "source_export": "simpleCaption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 571,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 118,
+          "symbol": "simpleCaption"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/emptyCaption",
+      "source_export": "emptyCaption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 574,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 112,
+          "symbol": "emptyCaption"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/simpleFigureWith",
+      "source_export": "simpleFigureWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 580,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 121,
+          "symbol": "simpleFigureWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/simpleFigure",
+      "source_export": "simpleFigure",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 585,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 123,
+          "symbol": "simpleFigure"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/divWith",
+      "source_export": "divWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 588,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "line": 124,
+          "symbol": "divWith"
+        }
+      ],
+      "original_tests": [
+        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      ],
+      "finite_proof": [],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+    },
+    {
+      "id": "Builder/normalizeTableHead",
+      "source_export": "normalizeTableHead",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 596,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
+          "line": 9,
+          "symbol": "normalizeHead"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:table properties/literals"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+    },
+    {
+      "id": "Builder/normalizeTableBody",
+      "source_export": "normalizeTableBody",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 604,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
+          "line": 15,
+          "symbol": "normalizeBody"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:table properties/literals"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+    },
+    {
+      "id": "Builder/normalizeTableFoot",
+      "source_export": "normalizeTableFoot",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 614,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
+          "line": 12,
+          "symbol": "normalizeFoot"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:table properties/literals"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+    },
+    {
+      "id": "Builder/placeRowSection",
+      "source_export": "placeRowSection",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 703,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
+          "line": 56,
+          "symbol": "placeRowSection"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:table properties/literals"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+    },
+    {
+      "id": "Builder/clipRows",
+      "source_export": "clipRows",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "source_line": 748,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
+          "line": 46,
+          "symbol": "clipRows"
+        }
+      ],
+      "original_tests": [
+        "test/test-pandoc-types.hs:table properties/literals"
+      ],
+      "finite_proof": [
+        {
+          "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
+          "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        }
+      ],
+      "status": "implementation_present_proof_partial",
+      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+    },
+    {
+      "id": "Generic/bottomUp",
+      "source_export": "bottomUp",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Generic.hs",
+      "source_line": 126,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
+          "line": 52,
+          "symbol": "bottomUp"
+        }
+      ],
+      "original_tests": [
+        "Generic.hs:Haddock topDown/bottomUp normal example",
+        "tools/haskell-types-generic-reference:807 original requests; all77Definition constructors, aliases, primitive/container targets, customData/monad demand and deep cases"
+      ],
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
+          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+        }
+      ],
+      "status": "implemented_awaiting_independent_review",
+      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+    },
+    {
+      "id": "Generic/topDown",
+      "source_export": "topDown",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Generic.hs",
+      "source_line": 131,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
+          "line": 54,
+          "symbol": "topDown"
+        }
+      ],
+      "original_tests": [
+        "Generic.hs:Haddock topDown/bottomUp normal example",
+        "tools/haskell-types-generic-reference:807 original requests; all77Definition constructors, aliases, primitive/container targets, customData/monad demand and deep cases"
+      ],
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
+          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+        }
+      ],
+      "status": "implemented_awaiting_independent_review",
+      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+    },
+    {
+      "id": "Generic/bottomUpM",
+      "source_export": "bottomUpM",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Generic.hs",
+      "source_line": 135,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
+          "line": 49,
+          "symbol": "bottomUpM"
+        }
+      ],
+      "original_tests": [
+        "Generic.hs:Haddock topDown/bottomUp normal example",
+        "tools/haskell-types-generic-reference:807 original requests; all77Definition constructors, aliases, primitive/container targets, customData/monad demand and deep cases"
+      ],
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
+          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+        }
+      ],
+      "status": "implemented_awaiting_independent_review",
+      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+    },
+    {
+      "id": "Generic/queryWith",
+      "source_export": "queryWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Generic.hs",
+      "source_line": 140,
+      "kotlin": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
+          "line": 79,
+          "symbol": "queryWith"
+        }
+      ],
+      "original_tests": [
+        "Generic.hs:Haddock topDown/bottomUp normal example",
+        "tools/haskell-types-generic-reference:807 original requests; all77Definition constructors, aliases, primitive/container targets, customData/monad demand and deep cases"
+      ],
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
+          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+        }
+      ],
+      "status": "implemented_awaiting_independent_review",
+      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+    }
+  ],
+  "status_counts": {
+    "representation_and_selected_instances": 27,
+    "api_mapping_unverified": 4,
+    "implementation_present_proof_partial": 69,
+    "missing_instance_surface": 3,
+    "representation_partial": 1,
+    "accepted_finite_source_matrix": 25,
+    "missing_generic_type_surface": 1,
+    "generic_api_missing": 4,
+    "instance_surface_partial": 2,
+    "implemented_awaiting_independent_review": 4
+  },
+  "package_supplement": [
+    {
+      "module": "JSON",
+      "export": "ToJSONFilter(..)",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/JSON.hs",
+      "status": "missing_implementation",
+      "gap": "One additional package-owned export/class, six source ToJSONFilter instances: pure, list expansion, monadic, monadic expansion, all args, Maybe Format. No Kotlin equivalent found; full611 closure must resolve it."
+    },
+    {
+      "module": "Arbitrary",
+      "exports": [],
+      "status": "accepted_finite_instance_matrix",
+      "proof": "19 orphan Arbitrary instances plus exact generators/shrinkers in accepted611 checkpoints; exported helpers are none, since module header explicitly exports()."
+    }
+  ]
+}

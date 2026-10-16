@@ -1,0 +1,1120 @@
+{
+  "explicit_instance_clauses": [
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 107,
+      "source_clause": "instance Semigroup Pandoc where\n  (Pandoc m1 bs1) <> (Pandoc m2 bs2) =\n    Pandoc (m1 <> m2) (bs1 <> bs2)\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 110,
+      "source_clause": "instance Monoid Pandoc where\n  mempty = Pandoc mempty mempty\n  mappend = (<>)\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 118,
+      "source_clause": "instance Semigroup Meta where\n  (Meta m1) <> (Meta m2) = Meta (M.union m2 m1)\n  -- note: M.union is left-biased, so if there are fields in both m2\n  -- and m1, m2 wins.\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 122,
+      "source_clause": "instance Monoid Meta where\n  mempty = Meta M.empty\n  mappend = (<>)\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 208,
+      "source_clause": "instance IsString Format where\n  fromString f = Format $ T.toCaseFold $ T.pack f\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 211,
+      "source_clause": "instance Eq Format where\n  Format x == Format y = T.toCaseFold x == T.toCaseFold y\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 214,
+      "source_clause": "instance Ord Format where\n  compare (Format x) (Format y) = compare (T.toCaseFold x) (T.toCaseFold y)\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 379,
+      "source_clause": "instance Ord Citation where\n    compare = comparing citationHash\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 413,
+      "source_clause": "instance FromJSON Meta where\n  parseJSON = fmap Meta . parseJSON\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 415,
+      "source_clause": "instance ToJSON Meta where\n  toJSON (Meta m) = toJSON m\n  toEncoding (Meta m) = toEncoding m\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 419,
+      "source_clause": "instance FromJSON Pandoc where\n  parseJSON (Object v) = do\n    mbJVersion <- v .:? \"pandoc-api-version\" :: Aeson.Parser (Maybe [Int])\n    case mbJVersion of\n      Just jVersion  | x : y : _ <- jVersion\n                     , x' : y' : _ <- versionBranch pandocTypesVersion\n                     , x == x'\n                     , y == y' -> Pandoc <$> v .: \"meta\" <*> v .: \"blocks\"\n                     | otherwise ->\n                         fail $ mconcat [ \"Incompatible API versions: \"\n                                        , \"encoded with \"\n                                        , show jVersion\n                                        , \" but attempted to decode with \"\n                                        , show $ versionBranch pandocTypesVersion\n                                        , \".\"\n                                        ]\n      _ -> fail \"JSON missing pandoc-api-version.\"\n  parseJSON _ = mempty\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 437,
+      "source_clause": "instance ToJSON Pandoc where\n  toJSON (Pandoc meta blks) =\n    object [ \"pandoc-api-version\" .= versionBranch pandocTypesVersion\n           , \"meta\"               .= meta\n           , \"blocks\"             .= blks\n           ]\n  toEncoding (Pandoc meta blks) =\n    pairs $ mconcat [ \"pandoc-api-version\" .= versionBranch pandocTypesVersion\n                    , \"meta\"               .= meta\n                    , \"blocks\"             .= blks\n                    ]\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 450,
+      "source_clause": "instance NFData MetaValue\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 451,
+      "source_clause": "instance NFData Meta\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 452,
+      "source_clause": "instance NFData Citation\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 453,
+      "source_clause": "instance NFData Alignment\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 454,
+      "source_clause": "instance NFData RowSpan\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 455,
+      "source_clause": "instance NFData ColSpan\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 456,
+      "source_clause": "instance NFData Cell\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 457,
+      "source_clause": "instance NFData Row\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 458,
+      "source_clause": "instance NFData TableHead\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 459,
+      "source_clause": "instance NFData TableBody\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 460,
+      "source_clause": "instance NFData TableFoot\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 461,
+      "source_clause": "instance NFData Caption\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 462,
+      "source_clause": "instance NFData Inline\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 463,
+      "source_clause": "instance NFData MathType\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 464,
+      "source_clause": "instance NFData Format\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 465,
+      "source_clause": "instance NFData CitationMode\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 466,
+      "source_clause": "instance NFData QuoteType\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 467,
+      "source_clause": "instance NFData ListNumberDelim\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 468,
+      "source_clause": "instance NFData ListNumberStyle\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 469,
+      "source_clause": "instance NFData ColWidth\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 470,
+      "source_clause": "instance NFData RowHeadColumns\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 471,
+      "source_clause": "instance NFData Block\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Definition",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+      "line": 472,
+      "source_clause": "instance NFData Pandoc\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 223,
+      "source_clause": "instance Semigroup Inlines where\n  (Many xs) <> (Many ys) =\n    case (viewr xs, viewl ys) of\n      (EmptyR, _) -> Many ys\n      (_, EmptyL) -> Many xs\n      (xs' :> x, y :< ys') -> Many (meld <> ys')\n        where meld = case (x, y) of\n                          (Space, Space)     -> xs' |> Space\n                          (Space, SoftBreak) -> xs' |> SoftBreak\n                          (SoftBreak, Space) -> xs' |> SoftBreak\n                          (Str t1, Str t2)   -> xs' |> Str (t1 <> t2)\n                          (Emph i1, Emph i2) -> xs' |> Emph (i1 <> i2)\n                          (Underline i1, Underline i2) -> xs' |> Underline (i1 <> i2)\n                          (Strong i1, Strong i2) -> xs' |> Strong (i1 <> i2)\n                          (Subscript i1, Subscript i2) -> xs' |> Subscript (i1 <> i2)\n                          (Superscript i1, Superscript i2) -> xs' |> Superscript (i1 <> i2)\n                          (Strikeout i1, Strikeout i2) -> xs' |> Strikeout (i1 <> i2)\n                          (Space, LineBreak) -> xs' |> LineBreak\n                          (LineBreak, Space) -> xs' |> LineBreak\n                          (SoftBreak, LineBreak) -> xs' |> LineBreak\n                          (LineBreak, SoftBreak) -> xs' |> LineBreak\n                          (SoftBreak, SoftBreak) -> xs' |> SoftBreak\n                          _                  -> xs' |> x |> y\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 246,
+      "source_clause": "instance Monoid Inlines where\n  mempty = Many mempty\n  mappend = (<>)\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 250,
+      "source_clause": "instance IsString Inlines where\n   fromString = text . T.pack\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 277,
+      "source_clause": "instance ToMetaValue MetaValue where\n  toMetaValue = id\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 280,
+      "source_clause": "instance ToMetaValue Blocks where\n  toMetaValue = MetaBlocks . toList\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 283,
+      "source_clause": "instance ToMetaValue Inlines where\n  toMetaValue = MetaInlines . toList\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 286,
+      "source_clause": "instance ToMetaValue Bool where\n  toMetaValue = MetaBool\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 289,
+      "source_clause": "instance ToMetaValue Text where\n  toMetaValue = MetaString\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 292,
+      "source_clause": "instance {-# OVERLAPPING #-} ToMetaValue String where\n  toMetaValue = MetaString . T.pack\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 295,
+      "source_clause": "instance ToMetaValue a => ToMetaValue [a] where\n  toMetaValue = MetaList . map toMetaValue\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 298,
+      "source_clause": "instance ToMetaValue a => ToMetaValue (M.Map Text a) where\n  toMetaValue = MetaMap . M.map toMetaValue\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 301,
+      "source_clause": "instance ToMetaValue a => ToMetaValue (M.Map String a) where\n  toMetaValue = MetaMap . M.map toMetaValue . M.mapKeys T.pack\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 308,
+      "source_clause": "instance HasMeta Meta where\n  setMeta key val (Meta ms) = Meta $ M.insert key (toMetaValue val) ms\n  deleteMeta key (Meta ms) = Meta $ M.delete key ms\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Builder",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs",
+      "line": 312,
+      "source_clause": "instance HasMeta Pandoc where\n  setMeta key val (Pandoc (Meta ms) bs) =\n    Pandoc (Meta $ M.insert key (toMetaValue val) ms) bs\n  deleteMeta key (Pandoc (Meta ms) bs) =\n    Pandoc (Meta $ M.delete key ms) bs\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 136,
+      "source_clause": "instance (Foldable t, Traversable t, Walkable a b) => Walkable a (t b) where\n  walk f  = T.fmapDefault (walk f)\n  walkM f = T.mapM (walkM f)\n  query f = F.foldMap (query f)\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 142,
+      "source_clause": "instance OVERLAPS\n        (Walkable a b, Walkable a c) => Walkable a (b,c) where\n  walk f (x,y)  = (walk f x, walk f y)\n  walkM f (x,y) = do x' <- walkM f x\n                     y' <- walkM f y\n                     return (x',y')\n  query f (x,y) = mappend (query f x) (query f y)\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 150,
+      "source_clause": "instance Walkable Inline Inline where\n  walkM f x = walkInlineM f x >>= f\n  query f x = f x <> queryInline f x\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 154,
+      "source_clause": "instance OVERLAPS\n         Walkable [Inline] [Inline] where\n  walkM f = T.traverse (walkInlineM f) >=> f\n  query f inlns = f inlns <> mconcat (map (queryInline f) inlns)\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 159,
+      "source_clause": "instance Walkable [Inline] Inline where\n  walkM = walkInlineM\n  query = queryInline\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 163,
+      "source_clause": "instance Walkable Inline Block where\n  walkM = walkBlockM\n  query = queryBlock\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 167,
+      "source_clause": "instance Walkable [Inline] Block where\n  walkM = walkBlockM\n  query = queryBlock\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 171,
+      "source_clause": "instance Walkable Block Block where\n  walkM f x = walkBlockM f x >>= f\n  query f x = f x <> queryBlock f x\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 175,
+      "source_clause": "instance Walkable [Block] Block where\n  walkM = walkBlockM\n  query = queryBlock\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 179,
+      "source_clause": "instance OVERLAPS\n         Walkable [Block] [Block] where\n  walkM f = T.traverse (walkBlockM f) >=> f\n  query f blks = f blks <> mconcat (map (queryBlock f) blks)\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 184,
+      "source_clause": "instance Walkable Block Inline where\n  walkM = walkInlineM\n  query = queryInline\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 188,
+      "source_clause": "instance Walkable [Block] Inline where\n  walkM = walkInlineM\n  query = queryInline\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 195,
+      "source_clause": "instance Walkable Block Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 199,
+      "source_clause": "instance Walkable [Block] Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 203,
+      "source_clause": "instance Walkable Inline Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 207,
+      "source_clause": "instance Walkable [Inline] Pandoc where\n  walkM = walkPandocM\n  query = queryPandoc\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 211,
+      "source_clause": "instance Walkable Meta Pandoc where\n  walkM f (Pandoc m bs) = Pandoc <$> f m <*> pure bs\n  query f (Pandoc m _) = f m\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 215,
+      "source_clause": "instance Walkable MetaValue Pandoc where\n  walkM f (Pandoc m bs) = Pandoc <$> walkM f m <*> pure bs\n  query f (Pandoc m _) = query f m\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 219,
+      "source_clause": "instance Walkable Pandoc Pandoc where\n  walkM f = f\n  query f = f\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 226,
+      "source_clause": "instance Walkable Meta Meta where\n  walkM f = f\n  query f = f\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 230,
+      "source_clause": "instance Walkable Inline Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 234,
+      "source_clause": "instance Walkable [Inline] Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 238,
+      "source_clause": "instance Walkable Block Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 242,
+      "source_clause": "instance Walkable [Block] Meta where\n  walkM f (Meta metamap) = Meta <$> walkM f metamap\n  query f (Meta metamap) = query f metamap\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 246,
+      "source_clause": "instance Walkable MetaValue Meta where\n  walkM f (Meta metamap) =\n    Meta . M.fromAscList <$> mapM (\\(k, v) -> (,) k <$> walkM f v) (M.toAscList metamap)\n  query f (Meta metamap) = M.foldMapWithKey (const $ query f) metamap\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 254,
+      "source_clause": "instance Walkable MetaValue MetaValue where\n  walkM f x = walkMetaValueM' f x >>= f\n  query f x = f x <> queryMetaValue' f x\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 258,
+      "source_clause": "instance Walkable Inline MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 262,
+      "source_clause": "instance Walkable [Inline] MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 266,
+      "source_clause": "instance Walkable Block MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 270,
+      "source_clause": "instance Walkable [Block] MetaValue where\n  walkM = walkMetaValueM\n  query = queryMetaValue\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 277,
+      "source_clause": "instance Walkable Inline Row where\n  walkM = walkRowM\n  query = queryRow\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 281,
+      "source_clause": "instance Walkable [Inline] Row where\n  walkM = walkRowM\n  query = queryRow\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 285,
+      "source_clause": "instance Walkable Block Row where\n  walkM = walkRowM\n  query = queryRow\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 289,
+      "source_clause": "instance Walkable [Block] Row where\n  walkM = walkRowM\n  query = queryRow\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 296,
+      "source_clause": "instance Walkable Inline TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 300,
+      "source_clause": "instance Walkable [Inline] TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 304,
+      "source_clause": "instance Walkable Block TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 308,
+      "source_clause": "instance Walkable [Block] TableHead where\n  walkM = walkTableHeadM\n  query = queryTableHead\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 315,
+      "source_clause": "instance Walkable Inline TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 319,
+      "source_clause": "instance Walkable [Inline] TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 323,
+      "source_clause": "instance Walkable Block TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 327,
+      "source_clause": "instance Walkable [Block] TableBody where\n  walkM = walkTableBodyM\n  query = queryTableBody\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 334,
+      "source_clause": "instance Walkable Inline TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 338,
+      "source_clause": "instance Walkable [Inline] TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 342,
+      "source_clause": "instance Walkable Block TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 346,
+      "source_clause": "instance Walkable [Block] TableFoot where\n  walkM = walkTableFootM\n  query = queryTableFoot\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 353,
+      "source_clause": "instance Walkable Inline Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 357,
+      "source_clause": "instance Walkable [Inline] Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 361,
+      "source_clause": "instance Walkable Block Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 365,
+      "source_clause": "instance Walkable [Block] Caption where\n  walkM = walkCaptionM\n  query = queryCaption\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 372,
+      "source_clause": "instance Walkable Inline Cell where\n  walkM = walkCellM\n  query = queryCell\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 376,
+      "source_clause": "instance Walkable [Inline] Cell where\n  walkM = walkCellM\n  query = queryCell\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 380,
+      "source_clause": "instance Walkable Block Cell where\n  walkM = walkCellM\n  query = queryCell\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 384,
+      "source_clause": "instance Walkable [Block] Cell where\n  walkM = walkCellM\n  query = queryCell\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 391,
+      "source_clause": "instance Walkable Inline Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 395,
+      "source_clause": "instance Walkable [Inline] Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 399,
+      "source_clause": "instance Walkable Block Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Walk",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Walk.hs",
+      "line": 403,
+      "source_clause": "instance Walkable [Block] Citation where\n  walkM = walkCitationM\n  query = queryCitation\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 36,
+      "source_clause": "instance Arbitrary Inlines where\n  arbitrary = (fromList :: [Inline] -> Inlines) <$> arbitrary\n  shrink = fmap fromList . ((++) <$> shrink <*> flattenShrinkInlines) . toList\n    where flattenShrinkInlines (x:xs) =\n            let x' = flattenInline x\n            in [x' ++ xs | not (null x')] ++ [x:xs' | xs' <- flattenShrinkInlines xs]\n          flattenShrinkInlines [] = []\n          flattenInline :: Inline -> [Inline]\n          flattenInline (Str _) = []\n          flattenInline (Emph ils) = ils\n          flattenInline (Underline ils) = ils\n          flattenInline (Strong ils) = ils\n          flattenInline (Strikeout ils) = ils\n          flattenInline (Superscript ils) = ils\n          flattenInline (Subscript ils) = ils\n          flattenInline (SmallCaps ils) = ils\n          flattenInline (Quoted _ ils) = ils\n          flattenInline (Cite _ ils) = ils\n          flattenInline Code{} = []\n          flattenInline Space = []\n          flattenInline SoftBreak = []\n          flattenInline LineBreak = []\n          flattenInline Math{} = []\n          flattenInline RawInline{} = []\n          flattenInline (Link _ ils _) = ils\n          flattenInline (Image _ ils _) = ils\n          flattenInline Note{} = []\n          flattenInline (Span _ ils) = ils\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 65,
+      "source_clause": "instance Arbitrary Blocks where\n  arbitrary = (fromList :: [Block] -> Blocks) <$> arbitrary\n  shrink = fmap fromList . ((++) <$> shrink <*> flattenShrinkBlocks) . toList\n    where flattenShrinkBlocks (x:xs) =\n            let x' = flattenBlock x\n            in [x' ++ xs | not (null x')] ++ [x:xs' | xs' <- flattenShrinkBlocks xs]\n          flattenShrinkBlocks [] = []\n          flattenBlock :: Block -> [Block]\n          flattenBlock Plain{} = []\n          flattenBlock Para{} = []\n          flattenBlock (LineBlock lns) = [Para x | x <- lns]\n          flattenBlock CodeBlock{} = []\n          flattenBlock RawBlock{} = []\n          flattenBlock (BlockQuote blks) = blks\n          flattenBlock (OrderedList _ blksList) = concat blksList\n          flattenBlock (BulletList blksList) = concat blksList\n          flattenBlock (DefinitionList defs) = concat [Para ils:concat blks | (ils, blks) <- defs]\n          flattenBlock (Header _ _ ils) = [Para ils]\n          flattenBlock HorizontalRule = []\n          flattenBlock (Table _ capt _ hd bd ft) = flattenCaption capt <>\n                                                   flattenTableHead hd <>\n                                                   concatMap flattenTableBody bd <>\n                                                   flattenTableFoot ft\n          flattenBlock (Figure _ capt blks) = flattenCaption capt <> blks\n          flattenBlock (Div _ blks) = blks\n\n          flattenCaption (Caption Nothing body)    = body\n          flattenCaption (Caption (Just ils) body) = Para ils : body\n\n          flattenTableHead (TableHead _ body) = flattenRows body\n          flattenTableBody (TableBody _ _ hd bd) = flattenRows hd <> flattenRows bd\n          flattenTableFoot (TableFoot _ body) = flattenRows body\n\n          flattenRows = concatMap flattenRow\n          flattenRow (Row _ body) = concatMap flattenCell body\n          flattenCell (Cell _ _ _ _ blks) = blks\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 114,
+      "source_clause": "instance Arbitrary Inline where\n  arbitrary = resize 3 $ arbInline 2\n  shrink (Str s) = Str <$> shrinkText s\n  shrink (Emph ils) = Emph <$> shrinkInlineList ils\n  shrink (Underline ils) = Underline <$> shrinkInlineList ils\n  shrink (Strong ils) = Strong <$> shrinkInlineList ils\n  shrink (Strikeout ils) = Strikeout <$> shrinkInlineList ils\n  shrink (Superscript ils) = Superscript <$> shrinkInlineList ils\n  shrink (Subscript ils) = Subscript <$> shrinkInlineList ils\n  shrink (SmallCaps ils) = SmallCaps <$> shrinkInlineList ils\n  shrink (Quoted qtype ils) = Quoted qtype <$> shrinkInlineList ils\n  shrink (Cite cits ils) = (Cite cits <$> shrinkInlineList ils)\n                        ++ (flip Cite ils <$> shrink cits)\n  shrink (Code attr s) = (Code attr <$> shrinkText s)\n                      ++ (flip Code s <$> shrinkAttr attr)\n  shrink Space = []\n  shrink SoftBreak = []\n  shrink LineBreak = []\n  shrink (Math mtype s) = Math mtype <$> shrinkText s\n  shrink (RawInline fmt s) = RawInline fmt <$> shrinkText s\n  shrink (Link attr ils target) = [Link attr ils' target | ils' <- shrinkInlineList ils]\n                               ++ [Link attr ils target' | target' <- shrinkText2 target]\n                               ++ [Link attr' ils target | attr' <- shrinkAttr attr]\n  shrink (Image attr ils target) = [Image attr ils' target | ils' <- shrinkInlineList ils]\n                                ++ [Image attr ils target' | target' <- shrinkText2 target]\n                                ++ [Image attr' ils target | attr' <- shrinkAttr attr]\n  shrink (Note blks) = Note <$> shrinkBlockList blks\n  shrink (Span attr s) = (Span attr <$> shrink s)\n                      ++ (flip Span s <$> shrinkAttr attr)\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 178,
+      "source_clause": "instance Arbitrary Block where\n  arbitrary = resize 3 $ arbBlock 2\n  shrink (Plain ils) = Plain <$> shrinkInlineList ils\n  shrink (Para ils) = Para <$> shrinkInlineList ils\n  shrink (LineBlock lns) = LineBlock <$> shrinkInlinesList lns\n  shrink (CodeBlock attr s) = (CodeBlock attr <$> shrinkText s)\n                           ++ (flip CodeBlock s <$> shrinkAttr attr)\n  shrink (RawBlock fmt s) = RawBlock fmt <$> shrinkText s\n  shrink (BlockQuote blks) = BlockQuote <$> shrinkBlockList blks\n  shrink (OrderedList listAttrs blksList) = OrderedList listAttrs <$> shrinkBlocksList blksList\n  shrink (BulletList blksList) = BulletList <$> shrinkBlocksList blksList\n  shrink (DefinitionList defs) = DefinitionList <$> shrinkDefinitionList defs\n    where shrinkDefinition (ils, blksList) = [(ils', blksList) | ils' <- shrinkInlineList ils]\n                                          ++ [(ils, blksList') | blksList' <- shrinkBlocksList blksList]\n          shrinkDefinitionList (x:xs) = [xs]\n                                     ++ [x':xs | x' <- shrinkDefinition x]\n                                     ++ [x:xs' | xs' <- shrinkDefinitionList xs]\n          shrinkDefinitionList [] = []\n  shrink (Header n attr ils) = (Header n attr <$> shrinkInlineList ils)\n                            ++ (flip (Header n) ils <$> shrinkAttr attr)\n  shrink HorizontalRule = []\n  shrink (Table attr capt specs thead tbody tfoot) =\n    -- TODO: shrink number of columns\n    [Table attr' capt specs thead tbody tfoot | attr' <- shrinkAttr attr] ++\n    [Table attr capt specs thead' tbody tfoot | thead' <- shrink thead] ++\n    [Table attr capt specs thead tbody' tfoot | tbody' <- shrink tbody] ++\n    [Table attr capt specs thead tbody tfoot' | tfoot' <- shrink tfoot] ++\n    [Table attr capt' specs thead tbody tfoot | capt' <- shrink capt]\n  shrink (Figure attr capt blks) =\n    [Figure attr capt blks' | blks' <- shrinkBlockList blks] ++\n    [Figure attr capt' blks | capt' <- shrink capt] ++\n    [Figure attr' capt blks | attr' <- shrinkAttr attr]\n  shrink (Div attr blks) = (Div attr <$> shrinkBlockList blks)\n                        ++ (flip Div blks <$> shrinkAttr attr)\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 288,
+      "source_clause": "instance Arbitrary Pandoc where\n        arbitrary = resize 8 (Pandoc <$> arbitrary <*> arbitrary)\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 291,
+      "source_clause": "instance Arbitrary CitationMode where\n        arbitrary\n          = do x <- choose (0 :: Int, 2)\n               case x of\n                   0 -> return AuthorInText\n                   1 -> return SuppressAuthor\n                   2 -> return NormalCitation\n                   _ -> error \"FATAL ERROR: Arbitrary instance, logic bug\"\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 300,
+      "source_clause": "instance Arbitrary Citation where\n        arbitrary\n          = Citation <$> fmap T.pack (listOf $ elements $ ['a'..'z'] ++ ['0'..'9'] ++ ['_'])\n                     <*> arbInlines 1\n                     <*> arbInlines 1\n                     <*> arbitrary\n                     <*> arbitrary\n                     <*> arbitrary\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 309,
+      "source_clause": "instance Arbitrary Row where\n  arbitrary = resize 3 $ arbRow 2\n  shrink (Row attr body)\n    = [Row attr' body | attr' <- shrinkAttr attr] ++\n      [Row attr body' | body' <- shrink body]\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 315,
+      "source_clause": "instance Arbitrary TableHead where\n  arbitrary = resize 3 $ arbTableHead 2\n  shrink (TableHead attr body)\n    = [TableHead attr' body | attr' <- shrinkAttr attr] ++\n      [TableHead attr body' | body' <- shrink body]\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 321,
+      "source_clause": "instance Arbitrary TableBody where\n  arbitrary = resize 3 $ arbTableBody 2\n  -- TODO: shrink rhc?\n  shrink (TableBody attr rhc hd bd)\n    = [TableBody attr' rhc hd bd | attr' <- shrinkAttr attr] ++\n      [TableBody attr rhc hd' bd | hd' <- shrink hd] ++\n      [TableBody attr rhc hd bd' | bd' <- shrink bd]\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 329,
+      "source_clause": "instance Arbitrary TableFoot where\n  arbitrary = resize 3 $ arbTableFoot 2\n  shrink (TableFoot attr body)\n    = [TableFoot attr' body | attr' <- shrinkAttr attr] ++\n      [TableFoot attr body' | body' <- shrink body]\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 335,
+      "source_clause": "instance Arbitrary Cell where\n  arbitrary = resize 3 $ arbCell 2\n  shrink (Cell attr malign h w body)\n    = [Cell attr malign h w body' | body' <- shrinkBlockList body] ++\n      [Cell attr' malign h w body | attr' <- shrinkAttr attr] ++\n      [Cell attr malign' h w body | malign' <- shrink malign]\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 342,
+      "source_clause": "instance Arbitrary Caption where\n  arbitrary = Caption <$> arbitrary <*> arbitrary\n  shrink (Caption mshort body)\n    = [Caption mshort' body | mshort' <- shrink mshort] ++\n      [Caption mshort body' | body' <- shrinkBlockList body]\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 348,
+      "source_clause": "instance Arbitrary MathType where\n        arbitrary\n          = do x <- choose (0 :: Int, 1)\n               case x of\n                   0 -> return DisplayMath\n                   1 -> return InlineMath\n                   _ -> error \"FATAL ERROR: Arbitrary instance, logic bug\"\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 356,
+      "source_clause": "instance Arbitrary QuoteType where\n        arbitrary\n          = do x <- choose (0 :: Int, 1)\n               case x of\n                   0 -> return SingleQuote\n                   1 -> return DoubleQuote\n                   _ -> error \"FATAL ERROR: Arbitrary instance, logic bug\"\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 364,
+      "source_clause": "instance Arbitrary Meta where\n        arbitrary\n          = do (x1 :: Inlines) <- arbitrary\n               (x2 :: [Inlines]) <- filter (not . null) <$> arbitrary\n               (x3 :: Inlines) <- arbitrary\n               return $ setMeta \"title\" x1\n                      $ setMeta \"author\" x2\n                      $ setMeta \"date\" x3\n                        nullMeta\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 374,
+      "source_clause": "instance Arbitrary Alignment where\n        arbitrary\n          = do x <- choose (0 :: Int, 3)\n               case x of\n                   0 -> return AlignLeft\n                   1 -> return AlignRight\n                   2 -> return AlignCenter\n                   3 -> return AlignDefault\n                   _ -> error \"FATAL ERROR: Arbitrary instance, logic bug\"\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 384,
+      "source_clause": "instance Arbitrary ListNumberStyle where\n        arbitrary\n          = do x <- choose (0 :: Int, 6)\n               case x of\n                   0 -> return DefaultStyle\n                   1 -> return Example\n                   2 -> return Decimal\n                   3 -> return LowerRoman\n                   4 -> return UpperRoman\n                   5 -> return LowerAlpha\n                   6 -> return UpperAlpha\n                   _ -> error \"FATAL ERROR: Arbitrary instance, logic bug\"\n\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "Arbitrary",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs",
+      "line": 397,
+      "source_clause": "instance Arbitrary ListNumberDelim where\n        arbitrary\n          = do x <- choose (0 :: Int, 3)\n               case x of\n                   0 -> return DefaultDelim\n                   1 -> return Period\n                   2 -> return OneParen\n                   3 -> return TwoParens\n                   _ -> error \"FATAL ERROR: Arbitrary instance, logic bug\"\n",
+      "status": "accepted_finite_matrix"
+    },
+    {
+      "module": "JSON",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/JSON.hs",
+      "line": 106,
+      "source_clause": "instance (Walkable a Pandoc, MonadIO m) => ToJSONFilter m (a -> a) where\n  toJSONFilter f = liftIO $ BL.getContents >>=\n    BL.putStr . encode . (walk f :: Pandoc -> Pandoc) . either error id .\n    eitherDecode'\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "JSON",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/JSON.hs",
+      "line": 111,
+      "source_clause": "instance (Walkable [a] Pandoc, MonadIO m) => ToJSONFilter m (a -> [a]) where\n  toJSONFilter f = liftIO $ BL.getContents >>=\n    BL.putStr . encode . (walk (concatMap f) :: Pandoc -> Pandoc) .\n    either error id .\n    eitherDecode'\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "JSON",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/JSON.hs",
+      "line": 117,
+      "source_clause": "instance (Walkable a Pandoc, MonadIO m) => ToJSONFilter m (a -> m a) where\n  toJSONFilter f = do\n     c <- liftIO BL.getContents\n     r <- walkM f (either error id (eitherDecode' c) :: Pandoc)\n     liftIO (BL.putStr (encode (r :: Pandoc)))\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "JSON",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/JSON.hs",
+      "line": 123,
+      "source_clause": "instance (Walkable [a] Pandoc, MonadIO m) => ToJSONFilter m (a -> m [a]) where\n  toJSONFilter f = do\n     c <- liftIO BL.getContents\n     r <- (walkM (fmap concat . mapM f)) (either error id (eitherDecode' c) :: Pandoc)\n     liftIO (BL.putStr (encode (r :: Pandoc)))\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "JSON",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/JSON.hs",
+      "line": 129,
+      "source_clause": "instance (ToJSONFilter m a, MonadIO m) => ToJSONFilter m ([String] -> a) where\n  toJSONFilter f = liftIO getArgs >>= toJSONFilter . f\n\n",
+      "status": "instance_members_audit_pending"
+    },
+    {
+      "module": "JSON",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/JSON.hs",
+      "line": 132,
+      "source_clause": "instance (ToJSONFilter m a, MonadIO m) => ToJSONFilter m (Maybe Format -> a) where\n  toJSONFilter f = liftIO getArgs >>= toJSONFilter . f . fmap (Format . T.pack) . listToMaybe\n",
+      "status": "instance_members_audit_pending"
+    }
+  ],
+  "deriving_clauses": [
+    {
+      "module": "Definition",
+      "line": 105,
+      "type_context": "Pandoc",
+      "source": "deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 116,
+      "type_context": "Meta",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 132,
+      "type_context": "MetaValue",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 190,
+      "type_context": "ListNumberStyle",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 196,
+      "type_context": "ListNumberDelim",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 206,
+      "type_context": "Format",
+      "source": "deriving (Read, Show, Typeable, Data, Generic, ToJSON, FromJSON)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 220,
+      "type_context": "RowHeadColumns",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic, Num, Enum, ToJSON, FromJSON)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 226,
+      "type_context": "Alignment",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 230,
+      "type_context": "ColWidth",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 237,
+      "type_context": "Row",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 241,
+      "type_context": "TableHead",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 247,
+      "type_context": "TableBody",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 251,
+      "type_context": "TableFoot",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 258,
+      "type_context": "Caption",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 262,
+      "type_context": "Cell",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 266,
+      "type_context": "RowSpan",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic, Num, Enum, ToJSON, FromJSON)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 270,
+      "type_context": "ColSpan",
+      "source": "deriving (Eq, Ord, Show, Read, Typeable, Data, Generic, Num, Enum, ToJSON, FromJSON)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 307,
+      "type_context": "Block",
+      "source": "deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 310,
+      "type_context": "QuoteType",
+      "source": "deriving (Show, Eq, Ord, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 344,
+      "type_context": "MathType",
+      "source": "deriving (Show, Eq, Ord, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 368,
+      "type_context": "Inline",
+      "source": "deriving (Show, Eq, Ord, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 377,
+      "type_context": "Citation",
+      "source": "deriving (Show, Eq, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Definition",
+      "line": 383,
+      "type_context": "CitationMode",
+      "source": "deriving (Show, Eq, Ord, Read, Typeable, Data, Generic)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Builder",
+      "line": 200,
+      "type_context": "Many",
+      "source": "deriving (Data, Ord, Eq, Typeable, Foldable, Traversable, Functor, Show, Read)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Builder",
+      "line": 202,
+      "type_context": "Many",
+      "source": "deriving instance Generic (Many a)",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Builder",
+      "line": 220,
+      "type_context": "Many",
+      "source": "deriving instance Semigroup Blocks",
+      "status": "expand_and_map_members"
+    },
+    {
+      "module": "Builder",
+      "line": 221,
+      "type_context": "Many",
+      "source": "deriving instance Monoid Blocks",
+      "status": "expand_and_map_members"
+    }
+  ],
+  "template_json_note": "Definition derives ToJSON/FromJSON for17 named types via Template Haskell; expand separately with manual/derived instances. Do not infer these from explicit-instance regex."
+}

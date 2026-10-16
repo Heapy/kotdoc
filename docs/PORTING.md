@@ -14343,3 +14343,19 @@ JVM timing/erasure/foreign-memory limits continue to apply.
 Cached diff checking retains304 original whitespace/EOF diagnostics only in
 byte-authenticated original C/header copies and the mechanical point observer.
 Source transformation verification passes; all other staged paths are clean.
+
+
+### Generic traversal checkpoint: independent review and attribution correction
+
+The four original Generic schemes (bottomUp, topDown, bottomUpM, queryWith)
+and their finite Data/Typeable bridge are ported with 23 AST Data schemas,
+77 constructors, aliases and Many specializations. Independent native replay
+matched all807 original response bytes and actual GHC interface evidence;
+Gradle91143 passed12585 actual cases (808 Generic plus11777 Walk regressions).
+The attribution review found and corrected missing Glasgow/CWI2001--2003
+credit. Full upstream syb LICENSE and the original17-line Schemes notice are
+retained and packaged byte-exact. Narrow Gradle51615 passed the affected
+integrity case and jar/installDist;68 source pins and69 frozen paths match.
+This is finite protocol/demand evidence, not arbitrary GHC heap equivalence.
+The140 module-owned exports,350 instance members and JSON supplement audit
+remain open; local:611 and the full Pandoc/calibre goal are not complete.

@@ -1,0 +1,1083 @@
+{
+  "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs",
+  "sha256": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+  "types": [
+    {
+      "name": "Pandoc",
+      "newtype": false,
+      "line": 104,
+      "constructors": [
+        {
+          "name": "Pandoc",
+          "fields": [
+            {
+              "name": "Meta"
+            },
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Meta",
+      "newtype": true,
+      "line": 115,
+      "constructors": [
+        {
+          "name": "Meta",
+          "fields": [
+            {
+              "apply": "M.Map",
+              "args": [
+                {
+                  "name": "Text"
+                },
+                {
+                  "name": "MetaValue"
+                }
+              ]
+            }
+          ],
+          "labels": [
+            "unMeta"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MetaValue",
+      "newtype": false,
+      "line": 126,
+      "constructors": [
+        {
+          "name": "MetaMap",
+          "fields": [
+            {
+              "apply": "M.Map",
+              "args": [
+                {
+                  "name": "Text"
+                },
+                {
+                  "name": "MetaValue"
+                }
+              ]
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "MetaList",
+          "fields": [
+            {
+              "list": {
+                "name": "MetaValue"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "MetaBool",
+          "fields": [
+            {
+              "name": "Bool"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "MetaString",
+          "fields": [
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "MetaInlines",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "MetaBlocks",
+          "fields": [
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "ListNumberStyle",
+      "newtype": false,
+      "line": 184,
+      "constructors": [
+        {
+          "name": "DefaultStyle",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "Example",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "Decimal",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "LowerRoman",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "UpperRoman",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "LowerAlpha",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "UpperAlpha",
+          "fields": [],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "ListNumberDelim",
+      "newtype": false,
+      "line": 193,
+      "constructors": [
+        {
+          "name": "DefaultDelim",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "Period",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "OneParen",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "TwoParens",
+          "fields": [],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "newtype": true,
+      "line": 205,
+      "constructors": [
+        {
+          "name": "Format",
+          "fields": [
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "RowHeadColumns",
+      "newtype": true,
+      "line": 219,
+      "constructors": [
+        {
+          "name": "RowHeadColumns",
+          "fields": [
+            {
+              "name": "Int"
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Alignment",
+      "newtype": false,
+      "line": 223,
+      "constructors": [
+        {
+          "name": "AlignLeft",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "AlignRight",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "AlignCenter",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "AlignDefault",
+          "fields": [],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "ColWidth",
+      "newtype": false,
+      "line": 229,
+      "constructors": [
+        {
+          "name": "ColWidth",
+          "fields": [
+            {
+              "name": "Double"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "ColWidthDefault",
+          "fields": [],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Row",
+      "newtype": false,
+      "line": 236,
+      "constructors": [
+        {
+          "name": "Row",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Cell"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "TableHead",
+      "newtype": false,
+      "line": 240,
+      "constructors": [
+        {
+          "name": "TableHead",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Row"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "TableBody",
+      "newtype": false,
+      "line": 246,
+      "constructors": [
+        {
+          "name": "TableBody",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "name": "RowHeadColumns"
+            },
+            {
+              "list": {
+                "name": "Row"
+              }
+            },
+            {
+              "list": {
+                "name": "Row"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "TableFoot",
+      "newtype": false,
+      "line": 250,
+      "constructors": [
+        {
+          "name": "TableFoot",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Row"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Caption",
+      "newtype": false,
+      "line": 257,
+      "constructors": [
+        {
+          "name": "Caption",
+          "fields": [
+            {
+              "apply": "Maybe",
+              "args": [
+                {
+                  "name": "ShortCaption"
+                }
+              ]
+            },
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Cell",
+      "newtype": false,
+      "line": 261,
+      "constructors": [
+        {
+          "name": "Cell",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "name": "Alignment"
+            },
+            {
+              "name": "RowSpan"
+            },
+            {
+              "name": "ColSpan"
+            },
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "RowSpan",
+      "newtype": true,
+      "line": 265,
+      "constructors": [
+        {
+          "name": "RowSpan",
+          "fields": [
+            {
+              "name": "Int"
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "ColSpan",
+      "newtype": true,
+      "line": 269,
+      "constructors": [
+        {
+          "name": "ColSpan",
+          "fields": [
+            {
+              "name": "Int"
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Block",
+      "newtype": false,
+      "line": 273,
+      "constructors": [
+        {
+          "name": "Plain",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Para",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "LineBlock",
+          "fields": [
+            {
+              "list": {
+                "list": {
+                  "name": "Inline"
+                }
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "CodeBlock",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "RawBlock",
+          "fields": [
+            {
+              "name": "Format"
+            },
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "BlockQuote",
+          "fields": [
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "OrderedList",
+          "fields": [
+            {
+              "name": "ListAttributes"
+            },
+            {
+              "list": {
+                "list": {
+                  "name": "Block"
+                }
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "BulletList",
+          "fields": [
+            {
+              "list": {
+                "list": {
+                  "name": "Block"
+                }
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "DefinitionList",
+          "fields": [
+            {
+              "list": {
+                "tuple": [
+                  {
+                    "list": {
+                      "name": "Inline"
+                    }
+                  },
+                  {
+                    "list": {
+                      "list": {
+                        "name": "Block"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Header",
+          "fields": [
+            {
+              "name": "Int"
+            },
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "HorizontalRule",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "Table",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "name": "Caption"
+            },
+            {
+              "list": {
+                "name": "ColSpec"
+              }
+            },
+            {
+              "name": "TableHead"
+            },
+            {
+              "list": {
+                "name": "TableBody"
+              }
+            },
+            {
+              "name": "TableFoot"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Figure",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "name": "Caption"
+            },
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Div",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "QuoteType",
+      "newtype": false,
+      "line": 310,
+      "constructors": [
+        {
+          "name": "SingleQuote",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "DoubleQuote",
+          "fields": [],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "MathType",
+      "newtype": false,
+      "line": 344,
+      "constructors": [
+        {
+          "name": "DisplayMath",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "InlineMath",
+          "fields": [],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Inline",
+      "newtype": false,
+      "line": 347,
+      "constructors": [
+        {
+          "name": "Str",
+          "fields": [
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Emph",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Underline",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Strong",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Strikeout",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Superscript",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Subscript",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "SmallCaps",
+          "fields": [
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Quoted",
+          "fields": [
+            {
+              "name": "QuoteType"
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Cite",
+          "fields": [
+            {
+              "list": {
+                "name": "Citation"
+              }
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Code",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Space",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "SoftBreak",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "LineBreak",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "Math",
+          "fields": [
+            {
+              "name": "MathType"
+            },
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "RawInline",
+          "fields": [
+            {
+              "name": "Format"
+            },
+            {
+              "name": "Text"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Link",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            },
+            {
+              "name": "Target"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Image",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            },
+            {
+              "name": "Target"
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Note",
+          "fields": [
+            {
+              "list": {
+                "name": "Block"
+              }
+            }
+          ],
+          "labels": []
+        },
+        {
+          "name": "Span",
+          "fields": [
+            {
+              "name": "Attr"
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            }
+          ],
+          "labels": []
+        }
+      ]
+    },
+    {
+      "name": "Citation",
+      "newtype": false,
+      "line": 370,
+      "constructors": [
+        {
+          "name": "Citation",
+          "fields": [
+            {
+              "name": "Text"
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            },
+            {
+              "list": {
+                "name": "Inline"
+              }
+            },
+            {
+              "name": "CitationMode"
+            },
+            {
+              "name": "Int"
+            },
+            {
+              "name": "Int"
+            }
+          ],
+          "labels": [
+            "citationId",
+            "citationPrefix",
+            "citationSuffix",
+            "citationMode",
+            "citationNoteNum",
+            "citationHash"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CitationMode",
+      "newtype": false,
+      "line": 382,
+      "constructors": [
+        {
+          "name": "AuthorInText",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "SuppressAuthor",
+          "fields": [],
+          "labels": []
+        },
+        {
+          "name": "NormalCitation",
+          "fields": [],
+          "labels": []
+        }
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "name": "ListAttributes",
+      "type": {
+        "tuple": [
+          {
+            "name": "Int"
+          },
+          {
+            "name": "ListNumberStyle"
+          },
+          {
+            "name": "ListNumberDelim"
+          }
+        ]
+      },
+      "line": 181
+    },
+    {
+      "name": "Attr",
+      "type": {
+        "tuple": [
+          {
+            "name": "Text"
+          },
+          {
+            "list": {
+              "name": "Text"
+            }
+          },
+          {
+            "list": {
+              "tuple": [
+                {
+                  "name": "Text"
+                },
+                {
+                  "name": "Text"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "line": 199
+    },
+    {
+      "name": "ColSpec",
+      "type": {
+        "tuple": [
+          {
+            "name": "Alignment"
+          },
+          {
+            "name": "ColWidth"
+          }
+        ]
+      },
+      "line": 233
+    },
+    {
+      "name": "ShortCaption",
+      "type": {
+        "list": {
+          "name": "Inline"
+        }
+      },
+      "line": 254
+    },
+    {
+      "name": "Target",
+      "type": {
+        "tuple": [
+          {
+            "name": "Text"
+          },
+          {
+            "name": "Text"
+          }
+        ]
+      },
+      "line": 313
+    }
+  ]
+}

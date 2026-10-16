@@ -1,0 +1,26 @@
+{
+  "constructor-requests.jsonl": {
+    "rows": 84,
+    "sha256": "8f485865c52cb57727617cfb9f05ef48d6fec66f12f229fde604cca20c1b9717"
+  },
+  "constructor-responses.jsonl": {
+    "rows": 84,
+    "sha256": "29dc31ac392508ce42f4138cf64504b1646f6a07c40f2864beec07ccd08b5e2f"
+  },
+  "target-requests.jsonl": {
+    "rows": 504,
+    "sha256": "3626c87635a1bf0dc18da659c9f885ab459dc0214aa8537ae52574d1b194731d"
+  },
+  "target-responses.jsonl": {
+    "rows": 504,
+    "sha256": "d235a942d71f847d886148f607491a76d8251b4824acf61af8c6cc691ea89296"
+  },
+  "core-requests.jsonl": {
+    "rows": 26,
+    "sha256": "21aab0d0edd2850ce27f6e0caa04f551878df858cba26ab1689463c21acfaba7"
+  },
+  "core-responses.jsonl": {
+    "rows": 26,
+    "sha256": "6b6aab16083f736b538d1e9b79639f41f7195db9e3d14f03a5e8a0275a98505f"
+  }
+}

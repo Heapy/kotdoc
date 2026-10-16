@@ -453,7 +453,7 @@ remaining per-export source proofs stay explicit gates. This correction does not
 close Generic or task611.
 
 
-### DefinitionList independent-review follow-up, awaiting repeat acceptance
+### DefinitionList independent-review follow-up, accepted9f9c6cb
 
 The11,763 author run above was not accepted: independent original probes found
 an eager DefinitionList outer map and eager accesses to both inner Pair fields.
@@ -478,6 +478,73 @@ skips:5,715 closure +6,000 original properties +10 Visitor +47 original demand
 observations +five adapter checks. Isolated47+five+5,715 replay passes at512MiB/
 256KiB. Saved XML/log/frozen paths are in /tmp/kotdoc-types-walk-definition-final-results.
 Source verifiers pass31 existing and23 correction hashes, preserve all174 slots/
-24 helpers and replay52 original correction responses byte-exact. Repeat
-independent acceptance is required. Generic4/all140 exports/350-instance members/
-JSON supplement remain deferred until this correctness checkpoint is accepted.
+24 helpers and replay52 original correction responses byte-exact. Independent
+review reran both reported reproducers against the final isolated jar and accepted
+the correction in9f9c6cb2962cfb4d28503bfb5588507df0478aad. Generic4/all140 exports/
+350-instance members/JSON supplement remain separate open gates.
+
+
+### Generic4 checkpoint: awaiting independent acceptance
+
+The four source functions now have explicit Kotlin Data/Monad dictionaries and
+source thunk adapters. Source extraction records23 Definition Data types,77
+constructors/five aliases; all77 constructors occur in the independent native
+corpus. Dependency instances expose list head/tail, tuple fields, Map's ascending
+entry list, Text's String field, Seq's viewl head/tail and generic Many. Existing
+AST adapters are separate from canonical lazy GenericNode/list/tuple values;
+strict Kotlin scalar records are not silently substituted for partial fields.
+
+The807 original requests comprise26 core cases,92 constructor/alias/Many inputs,
+644 target variations,33 custom/partial/monad/default-foldl/DefinitionList cases
+and12 deep cases. They produce7,360 result/effect/query comparisons through
+canonical and existing AST adapters,4,463 Data/Typeable/field-order nodes and72
+deep observations through list20000/Inline10000. Native TyCon module/name/package
+and recursively every type argument are checked, including List/Tuple2/Tuple3 and
+GHC.Internal.Maybe. Surrogate Char versus Text.pack, Unicode key collisions,
+NaN/Infinity/negative zero and source aliases are covered independently. All six
+initial core/constructor/target streams remain byte-identical guarded prefixes.
+
+The source demand cases exposed a draft monadic bug: Identity must retain lazy
+descendant results, not always use the strict State/List effect machine. The
+public GenericMonad protocol supplies action/result thunks; Identity, Reader and
+Maybe execute original partial-field/failure cases. Source everything foldl
+still demands the immediate gmapQ spine before the monoidal result; Walk query
+shortcuts are not reused. The generic DefinitionList adapters execute both prior
+Walk-style independent-field reproducers plus definitions-only selection.
+
+Author Gradle84220 passed12,585 actual XML cases/zero failures/errors/skips and
+jar/installDist. Required recursive Typeable argument validation was then added
+(test-only); final Gradle91143 passed the same12,585 cases in1m51s, with packaging
+green:808 Generic +5,715 Walk closure +52 pure demand +6,000 original properties
++10 Visitor cases. XML/logs/source hashes are saved in /tmp/kotdoc-generic-final-results.
+Original807 responses and actual installed GHC Data/Typeable interfaces replay
+byte-exact;66 source/artifact hashes pass. The isolated808-case JUnit run passed
+at512MiB heap/256KiB stack before the final recursive-argument test strengthening.
+Final Gradle executes that strengthening against the same independent native data.
+
+These are finite explicit representation/adaptor bounds, not a general GHC heap,
+arbitrary callback stack or infinite-spine equivalence. Generic traversal's minimal
+Data protocol does not certify every Data/Typeable/GHC.Generic/NFData class member.
+Independent acceptance is still required. Full140 exports/350 expanded instance
+members/JSON supplement remain open; generic Many/Functor/Foldable/Traversable,
+Num/Enum, metadata and remaining per-export proof gates remain in the durable audit.
+
+
+### Generic independent-review attribution correction
+
+Independent review accepted the807 native/interface/schema/protocol/AST/effect
+checks and saved12,585-case regression, but blocked missing exact syb attribution.
+The correction preserves `(c) The University of Glasgow, CWI 2001--2003` in the
+translated Schemes source. Full OriginalSybLICENSE is copied byte-for-byte to
+licenses/syb-0.7.4-LICENSE.txt; the original17-line Schemes header is retained
+verbatim as licenses/syb-0.7.4-NOTICE.txt. No behavior or fixture changed.
+
+Gradle51615 passed the affected source-integrity case (one actual case/zero
+failures/errors/skips), jar and installDist in1m40s. Verifier passes68 hashes and
+both original-copy relationships. Both notices match their exact source bytes in
+META-INF/LICENSES, including the CWI credit; installed core JAR is byte-identical.
+Core JAR SHA256:81090515b4bd1229c8e2d3d763e90b9bb9df12f525267664b69efe050715ef47.
+Saved license-fix XML/log/package proof are under /tmp/kotdoc-generic-final-results/license-fix.
+The earlier12,585 semantic regression is retained; this attribution-only change
+requires no expectation or semantic-suite rewrite. Repeat review/integration is
+pending and full611 remains open.

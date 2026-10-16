@@ -1,0 +1,35 @@
+{"request":{"probe":"walk-constant-bad-child"},"response":"Space"}
+{"request":{"probe":"bottom-up-constant-bad-child"},"response":"Space"}
+{"request":{"probe":"top-down-constant-bad-child"},"response":"Space"}
+{"request":{"probe":"walk-constant-bottom-root"},"response":"Space"}
+{"request":{"probe":"bottom-up-constant-bottom-root"},"response":"Space"}
+{"request":{"probe":"top-down-constant-bottom-root"},"response":"Space"}
+{"request":{"probe":"generic-first-bottom-inline"},"response":{"exception":"root"}}
+{"request":{"probe":"walk-first-bottom-inline"},"response":"Just \"hit\""}
+{"request":{"probe":"walk-constructor-bad-child"},"response":"Space"}
+{"request":{"probe":"walk-as-pattern-drop-children"},"response":"Emph []"}
+{"request":{"probe":"walk-id-bad-child"},"response":{"exception":"child"}}
+{"request":{"probe":"walk-forcing-head"},"response":{"exception":"child"}}
+{"request":{"probe":"walk-list-constant-bad-child"},"response":"Emph []"}
+{"request":{"probe":"walk-list-prefix-bad-tail-element"},"response":"Emph [Str \"a\"]"}
+{"request":{"probe":"walk-list-constant-bottom-spine"},"response":"[]"}
+{"request":{"probe":"walk-list-constant-partial-spine"},"response":"[]"}
+{"request":{"probe":"walk-block-constant-bad-child"},"response":"HorizontalRule"}
+{"request":{"probe":"walk-block-constructor-bad-child"},"response":"HorizontalRule"}
+{"request":{"probe":"walk-inline-in-block-constant"},"response":"Para [Space]"}
+{"request":{"probe":"walk-block-in-inline-constant"},"response":"Note [HorizontalRule]"}
+{"request":{"probe":"walk-meta-value-constant"},"response":"MetaString \"done\""}
+{"request":{"probe":"walk-meta-inline-constant"},"response":"MetaInlines [Space]"}
+{"request":{"probe":"walk-traversable-constant"},"response":"[Space]"}
+{"request":{"probe":"walk-many-constant"},"response":"Many {unMany = fromList [Space]}"}
+{"request":{"probe":"walk-pair-first"},"response":"Space"}
+{"request":{"probe":"walk-map-keys"},"response":"[\"a\",\"b\"]"}
+{"request":{"probe":"walk-map-first-value"},"response":"Str \"a\""}
+{"request":{"probe":"walk-map-all-values"},"response":{"exception":"callback"}}
+{"request":{"probe":"walk-pair-first-bottom-right"},"response":"Space"}
+{"request":{"probe":"walk-custom-constant"},"response":"DemandBox Space"}
+{"request":{"probe":"walk-custom-list-constant"},"response":"[DemandBox Space]"}
+{"request":{"probe":"walk-meta-constant-bottom-root"},"response":"Meta {unMeta = fromList []}"}
+{"request":{"probe":"walk-pandoc-constant-bottom-root"},"response":"Pandoc (Meta {unMeta = fromList []}) []"}
+{"request":{"probe":"walk-blocks-constant-bottom-root"},"response":"[]"}
+{"request":{"probe":"walkM-pair-left-failure"},"response":"Left \"stop\""}

@@ -1,0 +1,3635 @@
+Magic: Wanted 33214052,
+       got    33214052
+Version: Wanted 9122,
+         got    9122
+Way: Wanted ,
+     got    
+interface GHC.Internal.Data.Typeable.Internal 9122
+  interface hash: d2ac67c9682ffc5e3f13286a94dfd667
+  ABI hash: eed666f456b4f5634fe2ed14422ceabf
+  export-list hash: f439b75d7120f7614b791d0ea30e68e6
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: b52cb7ec5bdbcff4bba2ebc733404a52
+  opt_hash: d4bd5770180ee3e5d15327f4d84fe9db
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  src_hash: 43f721c8cfaf566a38188577fea4564d
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  App
+  Con
+  Con'
+  Fun
+  TypeRep
+  decTypeRep
+  eqTypeRep
+  mkTrApp
+  mkTrAppChecked
+  mkTrCon
+  mkTrFun
+  mkTrType
+  mkTyCon
+  mkTyCon#
+  moduleName
+  modulePackage
+  rnfModule
+  rnfSomeTypeRep
+  rnfTyCon
+  rnfTypeRep
+  someTypeRep
+  someTypeRepFingerprint
+  someTypeRepTyCon
+  splitApps
+  trLiftedRep
+  tyConFingerprint
+  tyConKindArgs
+  tyConKindRep
+  tyConModule
+  tyConName
+  tyConPackage
+  typeCharTypeRep
+  typeNatTypeRep
+  typeOf
+  typeRep
+  typeRepFingerprint
+  typeRepKind
+  typeRepTyCon
+  typeSymbolTypeRep
+  withTypeable
+  SomeTypeRep{SomeTypeRep}
+  TypeRep
+  Typeable{typeRep#}
+  GHC.Internal.Fingerprint.Type.Fingerprint{GHC.Internal.Fingerprint.Type.Fingerprint}
+  GHC.Types.KindRep{KindRepTypeLit GHC.Types.KindRepApp GHC.Types.KindRepFun GHC.Types.KindRepTYPE GHC.Types.KindRepTyConApp GHC.Types.KindRepTypeLitD GHC.Types.KindRepTypeLitS GHC.Types.KindRepVar}
+  GHC.Types.Module
+  GHC.Types.TyCon
+  GHC.Types.TypeLitSort{GHC.Types.TypeLitChar GHC.Types.TypeLitNat GHC.Types.TypeLitSymbol}
+defaults:
+direct module dependencies: ghc-internal-9.1202.0:GHC.Internal.Arr
+                            ghc-internal-9.1202.0:GHC.Internal.Base
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Either
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Type.Equality
+                            ghc-internal-9.1202.0:GHC.Internal.Fingerprint [boot]
+                            ghc-internal-9.1202.0:GHC.Internal.Fingerprint.Type
+                            ghc-internal-9.1202.0:GHC.Internal.List
+                            ghc-internal-9.1202.0:GHC.Internal.Num
+                            ghc-internal-9.1202.0:GHC.Internal.Show
+                            ghc-internal-9.1202.0:GHC.Internal.TypeLits
+                            ghc-internal-9.1202.0:GHC.Internal.TypeNats
+                            ghc-internal-9.1202.0:GHC.Internal.Unicode
+                            ghc-internal-9.1202.0:GHC.Internal.Unsafe.Coerce
+                            ghc-internal-9.1202.0:GHC.Internal.Word
+boot module dependencies: (ghc-internal-9.1202.0,
+                           GHC.Internal.ByteOrder {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Data.Version {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Enum)
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception.Type {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Fingerprint {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.IO {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Num)
+                          (ghc-internal-9.1202.0, GHC.Internal.Real)
+direct package dependencies:
+plugin package dependencies:
+orphans: GHC.Internal.Base GHC.Internal.Float GHC.Prim.Ext
+family instance modules: GHC.Internal.Data.Type.Ord
+import  -/  ghc-internal:GHC.Internal.Arr a05a3769dd908ccb21b78a1780cd6d65
+  exports: ff6b1a2404d17c35460b40ccf3623577
+  ! 2c38c73ad1a2bee823610a817a020263
+  Array a1303cca81e90ba8cce042ccdd875f06
+  listArray fc1d8b0c0abb8f34436533f86072ccbb
+import  -/  ghc-internal:GHC.Internal.Base 29ec812ead60248b1e26cd94a9165d97
+  exports: 713796e2e0f3bbf03b9e83554d1a1d39
+  $ 664c58473f0bfda3b1e4170cfa02eeda
+  ++ 5f8b0a87f9a385b206f0f10388a8623d
+  . 18d93cd4c466696aa88d05c72ba7a6ba
+  Void 5f028963f332094e1890ad0e7023427f
+  foldr 763ab7133386c6fdf6d7cee21d346e00
+  id 9a1db68e97baa159475d6711c3e11314
+  map eb3122aff44a9e4f7a81b470011f3241
+  ord ade4e35835487b684717f98c69982427
+  otherwise c896f2b20cdef1fcdf5030a536a26aee
+import  -/  ghc-internal:GHC.Internal.Data.Either 5906f59712d8f8b0a4bd19d28787305e
+  exports: 056568b8fc3ef710467510ebea46bfa9
+  Either fc264ff799a0eb660bff595aebcde12b
+  Left ee4493c4a8df8587d3d11b4e0c45dfef
+  Right 36cb58198c50a72c15914a0fc9d6cc81
+import  -/  ghc-internal:GHC.Internal.Data.Type.Equality 62862655a336e38e9d813b8932913667
+  exports: 29df52e8691ef74ab3f94d54987283d0
+  :~: 93abb21907a28b17d6cfa9d6dd6acbc7
+  :~~: 77bb85d9304c5e004ac690fb512a61f6
+  HRefl 4877f2e466722506f04a1b640f2ce470
+  Refl 3debe63cfcd65bddf0d0aab9695ea0be
+  TestEquality ac2462e4cc856993696d6020a5735152
+import  -/  ghc-internal:GHC.Internal.Err cbd00f3e0847a9009e9c9439db0180ad
+  error 583bd9d8cd50474455b3c66c7bbad13d
+  errorWithoutStackTrace 662cdcb982f601beac78d012f98aaf66
+import  -/  ghc-internal:GHC.Internal.Fingerprint 34b5da19f8b686d1ba4321f9f139c140
+  exports: 910599608b002bc048230b50cabc7cd0
+  fingerprintFingerprints b75b48d29e57749d6ca54c6ceb6ced7e
+  fingerprintString a940f2e37df987575fe88e985e088984
+import  -/  ghc-internal:GHC.Internal.Fingerprint.Type df9b8fe7fefe9996dc4fc4b390a3e366
+  exports: cd6013b92a40b578390e0e5b8ab2e5cf
+  Fingerprint 31243b2983018c87e41a2b2f9b1ee914
+  Fingerprint ecb40da167bb58fff3660f1fee6a1fca
+import  -/  ghc-internal:GHC.Internal.List a5078bd7d87c446ced3216d37242823b
+  exports: df5010bea1b1e3736955185731a83325
+  elem 36b96d9352f4892c644bd4bd9e387eae
+  foldl' 682c828f6bdcc60bbab47fec8c4e254f
+  length ce08e9c1548f032bf2fe7e6cd89a30a3
+  replicate 7a332276595958483bbc41f0cd66297c
+  splitAt fc0a4ab063462b7ef329c3a673158894
+import  -/  ghc-internal:GHC.Internal.Num 67698e6e339010ee3a443f0e69b912f7
+  exports: 93d6faa025f33d5fc883321a7a610005
+  * e2279b161eff43bcb0b84289b7cef7ea
+  + 27a5c98b791cb3aef596a5285634118f
+  - 6a79a34e2d0b8cd81c1bb714b6a9e0e9
+import  -/  ghc-internal:GHC.Internal.Show 74471ccfb5e62f876955e74ed45644dc
+  exports: 05a50c874a3ac9ed2cfe1a1eec41fe1a
+  Show d4611d93916cbbc06f6faaac357ad8f5
+  ShowS d2e5ac7cd2b926e9b5c31760ca731e81
+  show 1c4ecc21dfc0ba76fa630e5cff8713e9
+  showChar 43a3d580982ff6cd9d4367174245c480
+  showParen e9ad760fc8186a1d311f9a20120820aa
+  showString 90eff2fce97a079a53ba612f392caf56
+  shows ff223120824285fb3c172be35f0da705
+  showsPrec 9e3604205c45b939cf99e511bbb0cb9e
+import  -/  ghc-internal:GHC.Internal.TypeError 080cbbc758f1374d349f83634730ea9d
+  :$$: d2ddf52fa409ec32fdece9ff7dcb410d
+  :<>: 5b34ba459dee354919a4d9f584a1514f
+  ShowType 56bad114bfd058147c8b571af7133df9
+  Text 890365a47673bef1f6578b927a22f2a2
+  TypeError 285650a044e29043b17a1a0d1da2fbcd
+import  -/  ghc-internal:GHC.Internal.TypeLits d7feb507f6ccf286f4bf92c66a65deb8
+  exports: 185bb8d407cbc4d3d063afacba3da0a5
+  KnownChar 94b1d61d0e180955446f2ac9fc0fd5ae
+  KnownSymbol 431cb23e6f2873c1abb58d3c186b38f3
+  charVal' 557db0b451eda4de03ba0aa210f13fed
+  symbolVal' b21596a1c497480da2627de3da6dea5b
+import  -/  ghc-internal:GHC.Internal.TypeNats 0196567eec6b37edfa278540940428b6
+  exports: a3f5b916e0952dcd30c9e09b7a25d7d2
+  KnownNat 8a0b2467655acb98ed57fcda7c15301c
+  Nat f6d8ebea98803bc4426b9607376a100a
+  natVal' c7dde8c4dcc60ffdab557353089ce993
+import  -/  ghc-internal:GHC.Internal.Unicode 62043db7a3096e832fcd152f11e39b00
+  exports: 2ec564b5c69beb51b8116d7bbfe985e7
+  isDigit cfec30e699044699218ae04222732984
+import  -/  ghc-internal:GHC.Internal.Unsafe.Coerce 0cb67dbad50faec037f7a3be175636ce
+  exports: 25b4d53173a9cb8ca20cba3972fce488
+  unsafeCoerce 82d1b2b5ee3ebcd21937c5a2c6c79589
+import  -/  ghc-internal:GHC.Internal.Word 658ae347224e2f5c9f0259c9872c3eca
+  exports: 56c4d344e88b76095b789c453fa71c83
+  W64# 64bb30469cf4b48ee9ecfedafb65a0f1
+import  -/  GHC.CString f379f4f2224065c4a3d0729c3a4ede18
+import  -/  GHC.Classes 94513e804d2e9dfa3393f6f9ff56cf25
+import  -/  GHC.Magic ea51de57eae59047ea47eff03b953192
+import  -/  GHC.Magic.Dict 03ad10dfcfbbd2e44c8deed41b159bff
+import  -/  GHC.Types 7413e2b6d5ee6e022b89c3eebbd39565
+addDependentFile "rts/include/MachDeps.h" e28d7a407f393205ecee2856bc413c66
+addDependentFile "/private/var/lib/gitlab-runner/builds/t1_GbeWmC/0/ghc/ghc/_build/stage1/rts/build/include/ghcautoconf.h" b14788eeb0221295520fa3b73919cece
+addDependentFile "rts/include/ghcversion.h" adcf0f1adbca4ae2cfa005686af892ad
+addDependentFile "_build/stage1/libraries/ghc-internal/build/autogen/cabal_macros.h" f0f78a23d9c51f8d5d3d13e0aebbb5e4
+7eeeecdf9d5baf1fa0e519ba72d0b39d
+  $bApp ::
+    forall k2 (t :: k2) k1 (a :: k1 -> k2) (b :: k1).
+    (t GHC.Types.~ a b) =>
+    TypeRep a -> TypeRep b -> TypeRep t
+  [LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1!P(1L)><1L><SL>,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @k2
+                @t :: k2
+                @k1
+                @a :: k1 -> k2
+                @b :: k1
+                ($d~['GHC.Types.Many] :: t GHC.Types.~ a b)
+                (eta['GHC.Types.Many] :: TypeRep a)
+                (eta1['GHC.Types.Many] :: TypeRep b) ->
+              case GHC.Types.eq_sel @k2 @t @(a b) $d~ of co { DEFAULT ->
+              (mkTrAppChecked @k1 @k2 @a @b eta eta1)
+                `cast`
+              (TypeRep <k2>_N (Sym co))_R }]
+5346a0fab6f03eb260e0701d1443c9b9
+  $bFun ::
+    forall k (fun :: k) (r1 :: GHC.Types.RuntimeRep)
+           (r2 :: GHC.Types.RuntimeRep) (arg :: GHC.Prim.TYPE r1)
+           (res :: GHC.Prim.TYPE r2).
+    (k GHC.Types.~ *, fun GHC.Types.~~ (arg -> res)) =>
+    TypeRep arg -> TypeRep res -> TypeRep fun
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <1!P(1L)><1!P(1L)><SL><SL>,
+   Unfolding: Core: StableSystem <4,TrueFalse>
+              \ @k
+                @fun :: k
+                @r1 :: GHC.Types.RuntimeRep
+                @r2 :: GHC.Types.RuntimeRep
+                @arg :: GHC.Prim.TYPE r1
+                @res :: GHC.Prim.TYPE r2
+                ($d~['GHC.Types.Many] :: k GHC.Types.~ *)
+                ($d~~['GHC.Types.Many] :: fun GHC.Types.~~ (arg -> res))
+                (eta['GHC.Types.Many] :: TypeRep arg)
+                (eta1['GHC.Types.Many] :: TypeRep res) ->
+              case GHC.Types.eq_sel @(*) @k @(*) $d~ of co { DEFAULT ->
+              case GHC.Types.heq_sel
+                     @(*)
+                     @(*)
+                     @(fun |> co)
+                     @(arg -> res)
+                     $d~~
+                       `cast`
+                     ((GHC.Types.~~)
+                        co
+                        <*>_N
+                        (GRefl nominal fun co)
+                        <arg -> res>_N)_R of co1 { DEFAULT ->
+              (mkTrFun @'GHC.Types.Many @r1 @r2 @arg @res $bFun1 eta eta1)
+                `cast`
+              (TypeRep
+                 (Sym co)
+                 (Sym co1
+                  ; Sym (GRefl nominal fun co)))_R } }]
+aa015f4c17f56b4e5276f0ac7471c393
+  $bFun1 :: TypeRep 'GHC.Types.Many
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon
+                @GHC.Types.Multiplicity
+                @'GHC.Types.Many
+                GHC.Types.$tc'Many
+                (GHC.Types.[] @SomeTypeRep)]
+49ff2fb4080076e65f4812a7c93a104e
+  $bKindRepTypeLit ::
+    GHC.Types.TypeLitSort
+    -> GHC.Internal.Base.String -> GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <L><L>, CPR: 7,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ (sort['GHC.Types.Many] :: GHC.Types.TypeLitSort)
+                (t['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+              GHC.Types.KindRepTypeLitD sort t]
+b80f7f42b30945de45c8ad54d1cb34e7
+  $bTypeRep :: forall {k} (a :: k). Typeable a => TypeRep a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <L>, Unfolding: Core: <vanilla> typeRep#]
+e929e4bcb863878d2c37f197621240e9
+  $fEqSomeTypeRep :: GHC.Classes.Eq SomeTypeRep
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFCon[GHC.Classes.C:Eq],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @SomeTypeRep $fEqSomeTypeRep_$c== $fEqSomeTypeRep_$c/=]
+be7cadc6ac0871ee0c49666ff2d64f61
+  $fEqSomeTypeRep_$c/= ::
+    SomeTypeRep -> SomeTypeRep -> GHC.Types.Bool
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>, Inline: (sat-args=2),
+   Unfolding: Core: StableUser <2,FalseFalse>
+              \ (x['GHC.Types.Many] :: SomeTypeRep)
+                (y['GHC.Types.Many] :: SomeTypeRep) ->
+              case $fEqSomeTypeRep_$c== x y of wild {
+                GHC.Types.False -> GHC.Types.True
+                GHC.Types.True -> GHC.Types.False }]
+28ad2c12c8974bcdd372971d8729416d
+  $fEqSomeTypeRep_$c== ::
+    SomeTypeRep -> SomeTypeRep -> GHC.Types.Bool
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: SomeTypeRep)
+                (ds5['GHC.Types.Many] :: SomeTypeRep) ->
+              case ds4 of wild { SomeTypeRep k a a1 ->
+              case ds5 of wild1 { SomeTypeRep k1 a2 b ->
+              let {
+                $j :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Bool
+                  JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                = \ (bx['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                    (bx1['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                  let {
+                    $j1 :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Bool
+                      JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                    = \ (bx2['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                        (bx3['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                      case GHC.Prim.eqWord64# bx bx2 of lwild {
+                        DEFAULT -> GHC.Types.False
+                        1#
+                        -> GHC.Prim.tagToEnum#
+                             @GHC.Types.Bool
+                             (GHC.Prim.eqWord64# bx1 bx3) }
+                  } in
+                  case b of wild2 {
+                    TrType co co1
+                    -> case fpTYPELiftedRep of wild3 { GHC.Internal.Fingerprint.Type.Fingerprint bx2 bx3 ->
+                       $j1 bx2 bx3 }
+                    TrTyCon bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3
+                    TrApp k2 a3 b1 co bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3
+                    TrFun m r1 r2 a3 b1 co co1 bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3 }
+              } in
+              case a1 of wild2 {
+                TrType co co1
+                -> case fpTYPELiftedRep of wild3 { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+                   let {
+                     $j1 :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Bool
+                       JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                     = \ (bx2['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                         (bx3['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                       case GHC.Prim.eqWord64# bx bx2 of lwild {
+                         DEFAULT -> GHC.Types.False
+                         1#
+                         -> GHC.Prim.tagToEnum#
+                              @GHC.Types.Bool
+                              (GHC.Prim.eqWord64# bx1 bx3) }
+                   } in
+                   case b of wild4 {
+                     TrType co2 co3 -> $j1 bx bx1
+                     TrTyCon bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3
+                     TrApp k2 a3 b1 co2 bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3
+                     TrFun m r1 r2 a3 b1 co2 co3 bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3 } }
+                TrTyCon bx bx1 ds6 ds7 ds8 -> $j bx bx1
+                TrApp k2 a3 b1 co bx bx1 ds6 ds7 ds8 -> $j bx bx1
+                TrFun m r1 r2 a3 b1 co co1 bx bx1 ds6 ds7 ds8 -> $j bx bx1 } } }]
+aca693eabff61d429f29fd179cca7888
+  $fEqTypeRep :: forall k (a :: k). GHC.Classes.Eq (TypeRep a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Classes.C:Eq], Inline: CONLIKE,
+   Unfolding: DFun: @k @a :: k.
+                @(TypeRep a) ($fEqTypeRep_$c<= @k @a) ($fEqTypeRep_$c> @k @a)]
+622b088bb0220e9a8d9575627010d307
+  $fEqTypeRep_$c<= ::
+    forall k (a :: k). TypeRep a -> TypeRep a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <A><A>, CPR: 2,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @k
+                @a :: k
+                (x['GHC.Types.Many] :: TypeRep a)
+                (y['GHC.Types.Many] :: TypeRep a) ->
+              GHC.Types.True]
+abc55178db9d2a649e54b58f9bc229cb
+  $fEqTypeRep_$c> ::
+    forall k (a :: k). TypeRep a -> TypeRep a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <A><A>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @k
+                @a :: k
+                (x['GHC.Types.Many] :: TypeRep a)
+                (y['GHC.Types.Many] :: TypeRep a) ->
+              GHC.Types.False]
+a4ca4e567378937f8aa3eb4b378a8b37
+  $fOrdSomeTypeRep :: GHC.Classes.Ord SomeTypeRep
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFCon[GHC.Classes.C:Ord],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @SomeTypeRep
+                $fEqSomeTypeRep
+                $fOrdSomeTypeRep_$ccompare
+                $fOrdSomeTypeRep_$c<
+                $fOrdSomeTypeRep_$c<=
+                $fOrdSomeTypeRep_$c>
+                $fOrdSomeTypeRep_$c>=
+                $fOrdSomeTypeRep_$cmax
+                $fOrdSomeTypeRep_$cmin]
+4319306164a4d0abbcf593af95af3dc2
+  $fOrdSomeTypeRep_$c< ::
+    SomeTypeRep -> SomeTypeRep -> GHC.Types.Bool
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ (x['GHC.Types.Many] :: SomeTypeRep)
+                (y['GHC.Types.Many] :: SomeTypeRep) ->
+              case $fOrdSomeTypeRep_$ccompare y x of wild {
+                DEFAULT -> GHC.Types.False GHC.Types.GT -> GHC.Types.True }]
+809c75fd19e9a9158bd1684167cbb217
+  $fOrdSomeTypeRep_$c<= ::
+    SomeTypeRep -> SomeTypeRep -> GHC.Types.Bool
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ (x['GHC.Types.Many] :: SomeTypeRep)
+                (y['GHC.Types.Many] :: SomeTypeRep) ->
+              case $fOrdSomeTypeRep_$ccompare x y of wild {
+                DEFAULT -> GHC.Types.True GHC.Types.GT -> GHC.Types.False }]
+70615e343484cbfd89c79e0fdf10b202
+  $fOrdSomeTypeRep_$c> ::
+    SomeTypeRep -> SomeTypeRep -> GHC.Types.Bool
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ (x['GHC.Types.Many] :: SomeTypeRep)
+                (y['GHC.Types.Many] :: SomeTypeRep) ->
+              case $fOrdSomeTypeRep_$ccompare x y of wild {
+                DEFAULT -> GHC.Types.False GHC.Types.GT -> GHC.Types.True }]
+bcc83c50a6e7bb9a3f3a7ff62e4ffa9f
+  $fOrdSomeTypeRep_$c>= ::
+    SomeTypeRep -> SomeTypeRep -> GHC.Types.Bool
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ (x['GHC.Types.Many] :: SomeTypeRep)
+                (y['GHC.Types.Many] :: SomeTypeRep) ->
+              $fOrdSomeTypeRep_$c<= y x]
+11a9d6f091205db0418c8d0757d0af59
+  $fOrdSomeTypeRep_$ccompare ::
+    SomeTypeRep -> SomeTypeRep -> GHC.Types.Ordering
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: SomeTypeRep)
+                (ds5['GHC.Types.Many] :: SomeTypeRep) ->
+              case ds4 of wild { SomeTypeRep k a a1 ->
+              case ds5 of wild1 { SomeTypeRep k1 a2 b ->
+              let {
+                $j :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Ordering
+                  JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                = \ (bx['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                    (bx1['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                  let {
+                    $j1 :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Ordering
+                      JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                    = \ (bx2['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                        (bx3['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                      case GHC.Prim.eqWord64# bx bx2 of lwild {
+                        DEFAULT
+                        -> case GHC.Prim.leWord64# bx bx2 of lwild1 {
+                             DEFAULT -> GHC.Types.GT 1# -> GHC.Types.LT }
+                        1#
+                        -> case GHC.Prim.eqWord64# bx1 bx3 of lwild1 {
+                             DEFAULT
+                             -> case GHC.Prim.leWord64# bx1 bx3 of lwild2 {
+                                  DEFAULT -> GHC.Types.GT 1# -> GHC.Types.LT }
+                             1# -> GHC.Types.EQ } }
+                  } in
+                  case b of wild2 {
+                    TrType co co1
+                    -> case fpTYPELiftedRep of wild3 { GHC.Internal.Fingerprint.Type.Fingerprint bx2 bx3 ->
+                       $j1 bx2 bx3 }
+                    TrTyCon bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3
+                    TrApp k2 a3 b1 co bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3
+                    TrFun m r1 r2 a3 b1 co co1 bx2 bx3 ds6 ds7 ds8 -> $j1 bx2 bx3 }
+              } in
+              case a1 of wild2 {
+                TrType co co1
+                -> case fpTYPELiftedRep of wild3 { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+                   $j bx bx1 }
+                TrTyCon bx bx1 ds6 ds7 ds8 -> $j bx bx1
+                TrApp k2 a3 b1 co bx bx1 ds6 ds7 ds8 -> $j bx bx1
+                TrFun m r1 r2 a3 b1 co co1 bx bx1 ds6 ds7 ds8 -> $j bx bx1 } } }]
+82ccac6fe83f7676b60eaa6ccfbd60b3
+  $fOrdSomeTypeRep_$cmax :: SomeTypeRep -> SomeTypeRep -> SomeTypeRep
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ (x['GHC.Types.Many] :: SomeTypeRep)
+                (y['GHC.Types.Many] :: SomeTypeRep) ->
+              case $fOrdSomeTypeRep_$ccompare x y of wild {
+                DEFAULT -> y GHC.Types.GT -> x }]
+7d377d3d4c627ced45ab87979c4e7962
+  $fOrdSomeTypeRep_$cmin :: SomeTypeRep -> SomeTypeRep -> SomeTypeRep
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ (x['GHC.Types.Many] :: SomeTypeRep)
+                (y['GHC.Types.Many] :: SomeTypeRep) ->
+              case $fOrdSomeTypeRep_$ccompare x y of wild {
+                DEFAULT -> x GHC.Types.GT -> y }]
+6a4b06c9f3b5ff8673d36971e750f41f
+  $fOrdTypeRep :: forall k (a :: k). GHC.Classes.Ord (TypeRep a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Classes.C:Ord], Inline: CONLIKE,
+   Unfolding: DFun: @k @a :: k.
+                @(TypeRep a)
+                ($fEqTypeRep @k @a)
+                ($fOrdTypeRep_$ccompare @k @a)
+                ($fEqTypeRep_$c> @k @a)
+                ($fEqTypeRep_$c<= @k @a)
+                ($fEqTypeRep_$c> @k @a)
+                ($fEqTypeRep_$c<= @k @a)
+                ($fOrdTypeRep_$cmax @k @a)
+                ($fOrdTypeRep_$cmin @k @a)]
+78ac64d2b571dcf987e7d447cbebb23f
+  $fOrdTypeRep_$ccompare ::
+    forall k (a :: k). TypeRep a -> TypeRep a -> GHC.Types.Ordering
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <A><A>, CPR: 2, Inline:,
+   Unfolding: Core: StableUser <2,TrueTrue>
+              \ @k
+                @a :: k
+                (ds4['GHC.Types.Many] :: TypeRep a)
+                (ds5['GHC.Types.Many] :: TypeRep a) ->
+              GHC.Types.EQ]
+8bbe18695ce35199c2f13632d88e9bf6
+  $fOrdTypeRep_$cmax ::
+    forall k (a :: k). TypeRep a -> TypeRep a -> TypeRep a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @k
+                @a :: k
+                (x['GHC.Types.Many] :: TypeRep a)
+                (y['GHC.Types.Many] :: TypeRep a) ->
+              y]
+ca05e3a8ca8d42ec0a585dd17b97bc84
+  $fOrdTypeRep_$cmin ::
+    forall k (a :: k). TypeRep a -> TypeRep a -> TypeRep a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><A>,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @k
+                @a :: k
+                (x['GHC.Types.Many] :: TypeRep a)
+                (y['GHC.Types.Many] :: TypeRep a) ->
+              x]
+80ceb893694a1f72c719aa00bdb3ae24
+  $fShowSomeTypeRep :: GHC.Internal.Show.Show SomeTypeRep
+  DFunId
+  [TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Show.C:Show], Inline: CONLIKE,
+   Unfolding: DFun:.
+                @SomeTypeRep
+                $fShowSomeTypeRep_$cshowsPrec
+                $fShowSomeTypeRep_$cshow
+                $fShowSomeTypeRep_$cshowList]
+642166daaa01e5a70a5bc1338f9bb9d4
+  $fShowSomeTypeRep1 :: SomeTypeRep -> GHC.Internal.Show.ShowS
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: SomeTypeRep)
+                (eta['GHC.Types.Many] :: GHC.Internal.Base.String)[OneShot] ->
+              case ds4 of wild { SomeTypeRep k a ty ->
+              showTypeable @k @a $fShowSomeTypeRep2 ty eta }]
+0abf8ff691a74753a9c21224d935cbe5
+  $fShowSomeTypeRep2 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# 0#]
+dbc403afa9be86945e2b8f63042c5517
+  $fShowSomeTypeRep_$cshow :: SomeTypeRep -> GHC.Internal.Base.String
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (x['GHC.Types.Many] :: SomeTypeRep) ->
+              case x of wild { SomeTypeRep k a ty ->
+              showTypeable
+                @k
+                @a
+                $fShowSomeTypeRep2
+                ty
+                (GHC.Types.[] @GHC.Types.Char) }]
+1d662221f272d89112d8d47014962e78
+  $fShowSomeTypeRep_$cshowList ::
+    [SomeTypeRep] -> GHC.Internal.Show.ShowS
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><L>,
+   Unfolding: Core: <vanilla>
+              \ (ls['GHC.Types.Many] :: [SomeTypeRep])
+                (s['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+              GHC.Internal.Show.showList__ @SomeTypeRep $fShowSomeTypeRep1 ls s]
+9ed9649eda68fadf23ad4a6e8ce0e62e
+  $fShowSomeTypeRep_$cshowsPrec ::
+    GHC.Types.Int -> SomeTypeRep -> GHC.Internal.Show.ShowS
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <ML><1L>,
+   Unfolding: Core: <vanilla>
+              \ (p['GHC.Types.Many] :: GHC.Types.Int)
+                (ds4['GHC.Types.Many] :: SomeTypeRep) ->
+              case ds4 of wild { SomeTypeRep k a ty -> showTypeable @k @a p ty }]
+bee8404e36d283c38da6c61e979de720
+  $fShowTypeRep ::
+    forall k (a :: k). GHC.Internal.Show.Show (TypeRep a)
+  DFunId
+  [TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Show.C:Show], Inline: CONLIKE,
+   Unfolding: DFun: @k @a :: k.
+                @(TypeRep a)
+                (showTypeable @k @a)
+                ($fShowTypeRep_$cshow @k @a)
+                ($fShowTypeRep_$cshowList @k @a)]
+fcc568ef7a4dc3905016da0ec40403a1
+  $fShowTypeRep1 ::
+    forall k (a :: k). TypeRep a -> GHC.Internal.Show.ShowS
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k -> showTypeable @k @a $fShowSomeTypeRep2]
+8af2fb0a2eede0a1e6c808d7ed7ab7a3
+  $fShowTypeRep_$cshow ::
+    forall k (a :: k). TypeRep a -> GHC.Internal.Base.String
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (x['GHC.Types.Many] :: TypeRep a) ->
+              showTypeable
+                @k
+                @a
+                $fShowSomeTypeRep2
+                x
+                (GHC.Types.[] @GHC.Types.Char)]
+84f5721673282ad31ca024b9badcadef
+  $fShowTypeRep_$cshowList ::
+    forall k (a :: k). [TypeRep a] -> GHC.Internal.Show.ShowS
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><L>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @a :: k
+                (ls['GHC.Types.Many] :: [TypeRep a])
+                (s['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+              GHC.Internal.Show.showList__
+                @(TypeRep a)
+                ($fShowTypeRep1 @k @a)
+                ls
+                s]
+117386aa3277c2499eb9c69fef4d2151
+  $fTestEqualitykTypeRep ::
+    GHC.Internal.Data.Type.Equality.TestEquality TypeRep
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>, Inline: (sat-args=0),
+   Unfolding: Core: StableUser <0,FalseTrue>
+              $fTestEqualitykTypeRep_$ctestEquality
+                `cast`
+              (forall (k :: <*>_N).
+               Sym (GHC.Internal.Data.Type.Equality.N:TestEquality
+                        <k>_N <TypeRep>_N))]
+77df49373957470f42807e6f6cdfdce3
+  $fTestEqualitykTypeRep_$ctestEquality ::
+    forall k (a :: k) (b :: k).
+    TypeRep a
+    -> TypeRep b
+    -> GHC.Internal.Maybe.Maybe
+         (a GHC.Internal.Data.Type.Equality.:~: b)
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>, Inline:,
+   Unfolding: Core: StableUser
+              \ @k
+                @a :: k
+                @b :: k
+                (a1['GHC.Types.Many] :: TypeRep a)
+                (b1['GHC.Types.Many] :: TypeRep b) ->
+              case sameTypeRep @k @k @a @b a1 b1 of wild {
+                GHC.Types.False
+                -> GHC.Internal.Maybe.Nothing
+                     @(a GHC.Internal.Data.Type.Equality.:~: b)
+                GHC.Types.True
+                -> case GHC.Internal.Unsafe.Coerce.unsafeCoerce
+                          @(GHC.Types.ZonkAny 1
+                            GHC.Internal.Data.Type.Equality.:~~: GHC.Types.ZonkAny 1)
+                          @(a GHC.Internal.Data.Type.Equality.:~~: b)
+                          (GHC.Internal.Data.Type.Equality.$WHRefl
+                             @(GHC.Types.ZonkAny 0)
+                             @(GHC.Types.ZonkAny
+                                 1)) of wild1 { GHC.Internal.Data.Type.Equality.HRefl co co1 ->
+                   GHC.Internal.Maybe.Just
+                     @(a GHC.Internal.Data.Type.Equality.:~: b)
+                     (GHC.Internal.Data.Type.Equality.$WRefl @k @a)
+                       `cast`
+                     ((GHC.Internal.Data.Type.Equality.:~:)
+                        <k>_N <a>_N (Sym co1))_R } }]
+2a74a08e7d8839a1711e47e149189870
+  $mApp ::
+    forall {rep :: GHC.Types.RuntimeRep} {r :: GHC.Prim.TYPE rep} {k2}
+           {t :: k2}.
+    TypeRep t
+    -> (forall {k1} {a :: k1 -> k2} {b :: k1}.
+        (t GHC.Types.~ a b) =>
+        TypeRep a -> TypeRep b -> r)
+    -> ((# #) -> r)
+    -> r
+  [LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1L><MC(1,C(1,C(1,L)))><MC(1,L)>,
+   Unfolding: Core: <vanilla>
+              \ @rep :: GHC.Types.RuntimeRep
+                @r :: GHC.Prim.TYPE rep
+                @k2
+                @t :: k2
+                (scrut['GHC.Types.Many] :: TypeRep t)
+                (cont['GHC.Types.Many] :: forall {k1} {a :: k1 -> k2} {b :: k1}.
+                                          (t GHC.Types.~ a b) =>
+                                          TypeRep a -> TypeRep b -> r)
+                (fail['GHC.Types.Many] :: (# #) -> r) ->
+              case splitApp @k2 @t scrut of wild {
+                IsApp k' f1 x co f2 x1
+                -> cont
+                     @k'
+                     @f1
+                     @x
+                     ($mApp1 @k' @x @k2 @f1)
+                       `cast`
+                     ((GHC.Types.~) <k2>_N (Sym co) <f1 x>_N)_R
+                     f2
+                     x1
+                IsCon ipv ipv1 ipv2 -> fail GHC.Types.(##) }]
+c3a82ce7496b36c3e4172990a4c5fc94
+  $mApp1 ::
+    forall k' (x :: k') k2 (f :: k' -> k2). f x GHC.Types.~ f x
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Eq#],
+   Unfolding: Core: <vanilla>
+              \ @k' @x :: k' @k2 @f1 :: k' -> k2 ->
+              GHC.Types.Eq# @k2 @(f1 x) @(f1 x) @~<f1 x>_N]
+122d1ba2547fa2d77dbd98a73ca11f13
+  $mApp10 :: SomeTypeRep
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              SomeTypeRep @GHC.Types.Multiplicity @'GHC.Types.Many $bFun1]
+703bcc9b1b345c2ddec6fc29795d51cf
+  $mApp2 :: TypeRep (*)
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrApp
+                @GHC.Types.RuntimeRep
+                @(*)
+                @GHC.Prim.TYPE
+                @GHC.Types.LiftedRep
+                $mApp3
+                trLiftedRep]
+7a7a3fbfdc6d8a90d7e8d63de91406d3
+  $mApp3 :: TypeRep GHC.Prim.TYPE
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon
+                @(GHC.Types.RuntimeRep -> *)
+                @GHC.Prim.TYPE
+                GHC.Types.$tcTYPE
+                (GHC.Types.[] @SomeTypeRep)]
+bbc30bf232450c4b70a8015abf54772f
+  $mApp4 :: TypeRep r
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+f4eaac178c1da56353f51f57f4de4691
+  $mApp5 :: TypeRep (->)
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon @(* -> * -> *) @(->) GHC.Types.$tcFUN $mApp6]
+0b9639dd7a935823420d166ab99d9998
+  $mApp6 :: [SomeTypeRep]
+  [LambdaFormInfo: LFCon[:],
+   Unfolding: Core: <vanilla> GHC.Types.: @SomeTypeRep $mApp10 $mApp7]
+16155e9719942e1ee5092910d198a67b
+  $mApp7 :: [SomeTypeRep]
+  [LambdaFormInfo: LFCon[:],
+   Unfolding: Core: <vanilla> GHC.Types.: @SomeTypeRep $mApp9 $mApp8]
+e09ed433ce31bb3c4da3a029fc904a3a
+  $mApp8 :: [SomeTypeRep]
+  [LambdaFormInfo: LFCon[:],
+   Unfolding: Core: <vanilla>
+              GHC.Types.: @SomeTypeRep $mApp9 (GHC.Types.[] @SomeTypeRep)]
+2337240ea24f8cd630ca7cd78f42309f
+  $mApp9 :: SomeTypeRep
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              SomeTypeRep @GHC.Types.RuntimeRep @GHC.Types.LiftedRep trLiftedRep]
+da827a99faa5e4d08ab04c0b9ffb162d
+  $mCon ::
+    forall {rep :: GHC.Types.RuntimeRep} {r :: GHC.Prim.TYPE rep} {k}
+           {a :: k}.
+    TypeRep a
+    -> (NotApplication a => GHC.Types.TyCon -> r) -> ((# #) -> r) -> r
+  [LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1L><MC(1,C(1,L))><MC(1,L)>,
+   Unfolding: Core: <vanilla>
+              \ @rep :: GHC.Types.RuntimeRep
+                @r :: GHC.Prim.TYPE rep
+                @k
+                @a :: k
+                (scrut['GHC.Types.Many] :: TypeRep a)
+                (cont['GHC.Types.Many] :: NotApplication a => GHC.Types.TyCon -> r)
+                (fail['GHC.Types.Many] :: (# #) -> r) ->
+              case splitApp @k @a scrut of wild {
+                IsApp ipv ipv1 ipv2 ipv3 ipv4 ipv5 -> fail GHC.Types.(##)
+                IsCon irred con ds4 -> cont irred con }]
+603fc18c24f8d1c0e2984395bde40051
+  $mCon' ::
+    forall {rep :: GHC.Types.RuntimeRep} {r :: GHC.Prim.TYPE rep} {k}
+           {a :: k}.
+    TypeRep a
+    -> (NotApplication a => GHC.Types.TyCon -> [SomeTypeRep] -> r)
+    -> ((# #) -> r)
+    -> r
+  [LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1L><MC(1,C(1,C(1,L)))><MC(1,L)>,
+   Unfolding: Core: <vanilla>
+              \ @rep :: GHC.Types.RuntimeRep
+                @r :: GHC.Prim.TYPE rep
+                @k
+                @a :: k
+                (scrut['GHC.Types.Many] :: TypeRep a)
+                (cont['GHC.Types.Many] :: NotApplication a =>
+                                          GHC.Types.TyCon -> [SomeTypeRep] -> r)
+                (fail['GHC.Types.Many] :: (# #) -> r) ->
+              case splitApp @k @a scrut of wild {
+                IsApp ipv ipv1 ipv2 ipv3 ipv4 ipv5 -> fail GHC.Types.(##)
+                IsCon irred con ks -> cont irred con ks }]
+16f555e6b59f63b4459d91b30f21b855
+  $mFun ::
+    forall {rep :: GHC.Types.RuntimeRep} {r :: GHC.Prim.TYPE rep} {k}
+           {fun :: k}.
+    TypeRep fun
+    -> (forall {r1 :: GHC.Types.RuntimeRep}
+               {r2 :: GHC.Types.RuntimeRep} {arg :: GHC.Prim.TYPE r1}
+               {res :: GHC.Prim.TYPE r2}.
+        (k GHC.Types.~ *, fun GHC.Types.~~ (arg -> res)) =>
+        TypeRep arg -> TypeRep res -> r)
+    -> ((# #) -> r)
+    -> r
+  [LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1L><MC(1,C(1,C(1,C(1,L))))><MC(1,L)>,
+   Unfolding: Core: <vanilla>
+              \ @rep :: GHC.Types.RuntimeRep
+                @r :: GHC.Prim.TYPE rep
+                @k
+                @fun :: k
+                (scrut['GHC.Types.Many] :: TypeRep fun)
+                (cont['GHC.Types.Many] :: forall {r1 :: GHC.Types.RuntimeRep}
+                                                 {r2 :: GHC.Types.RuntimeRep}
+                                                 {arg :: GHC.Prim.TYPE r1}
+                                                 {res :: GHC.Prim.TYPE r2}.
+                                          (k GHC.Types.~ *, fun GHC.Types.~~ (arg -> res)) =>
+                                          TypeRep arg -> TypeRep res -> r)
+                (fail['GHC.Types.Many] :: (# #) -> r) ->
+              let {
+                fail1 :: (# #) -> r JoinPoint(1) [Arity: 1, Strictness: <A>]
+                = \ (ds4['GHC.Types.Many] :: (# #))[OneShot] -> fail GHC.Types.(##)
+              } in
+              case scrut of wild {
+                DEFAULT -> fail1 GHC.Types.(##)
+                TrFun m r1 r2 a b co co1 bx bx1 ds4 ds5 ds6
+                -> case $bFun1 of wild1 { TrTyCon bx2 bx3 ds7 ds8 ds9 ->
+                   let {
+                     $j :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> r
+                       JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                     = \ (bx4['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                         (bx5['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                       case GHC.Prim.eqWord64# bx2 bx4 of lwild {
+                         DEFAULT -> fail1 GHC.Types.(##)
+                         1#
+                         -> case GHC.Prim.eqWord64# bx3 bx5 of lwild1 {
+                              DEFAULT -> fail1 GHC.Types.(##)
+                              1#
+                              -> case GHC.Internal.Unsafe.Coerce.unsafeEqualityProof
+                                        @(*)
+                                        @(GHC.Types.ZonkAny 1
+                                          GHC.Internal.Data.Type.Equality.:~~: GHC.Types.ZonkAny 1)
+                                        @('GHC.Types.Many
+                                          GHC.Internal.Data.Type.Equality.:~~: m) of wild2 { GHC.Internal.Unsafe.Coerce.UnsafeRefl co2 ->
+                                 cont
+                                   @r1
+                                   @r2
+                                   @a
+                                   @b
+                                   $mFun2 `cast` ((GHC.Types.~) <*>_N (Sym co) <*>_N)_R
+                                   ($mFun1 @r2 @b @r1 @a)
+                                     `cast`
+                                   ((GHC.Types.~~)
+                                      (Sym co)
+                                      <*>_N
+                                      (<a>_N
+                                       %(SelCo:Tc(2,N) (Sub co2)
+                                         ; SelCo:Tc(3,N) (Sub (Sym co2))) ->_N <b>_N
+                                       ; Sym co1)
+                                      <a -> b>_N)_R
+                                   ds5
+                                   ds6 } } }
+                   } in
+                   case ds4 of wild2 {
+                     TrTyCon bx4 bx5 ds10 ds11 ds12 -> $j bx4 bx5
+                     TrApp k1 a1 b1 co2 bx4 bx5 ds10 ds11 ds12 -> $j bx4 bx5 } } }]
+b8d8a6eea51af1d07ce34ef242fa183c
+  $mFun1 ::
+    forall (r2 :: GHC.Types.RuntimeRep) (b :: GHC.Prim.TYPE r2)
+           (r1 :: GHC.Types.RuntimeRep) (a :: GHC.Prim.TYPE r1).
+    (a -> b) GHC.Types.~~ (a -> b)
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.HEq#],
+   Unfolding: Core: <vanilla>
+              \ @r2 :: GHC.Types.RuntimeRep
+                @b :: GHC.Prim.TYPE r2
+                @r1 :: GHC.Types.RuntimeRep
+                @a :: GHC.Prim.TYPE r1 ->
+              GHC.Types.HEq# @(*) @(*) @(a -> b) @(a -> b) @~<a -> b>_N]
+fb453e9a47d61fcbbd421d1e1ee4a6cc
+  $mFun2 :: * GHC.Types.~ *
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Eq#],
+   Unfolding: Core: <vanilla> GHC.Types.Eq# @(*) @(*) @(*) @~<*>_N]
+3c29b710fe71e3c0892b341b3e691bf8
+  $mKindRepTypeLit ::
+    forall {rep :: GHC.Types.RuntimeRep} {r :: GHC.Prim.TYPE rep}.
+    GHC.Types.KindRep
+    -> (GHC.Types.TypeLitSort -> GHC.Internal.Base.String -> r)
+    -> ((# #) -> r)
+    -> r
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1L><MC(1,C(1,L))><MC(1,L)>,
+   Unfolding: Core: <vanilla>
+              \ @rep :: GHC.Types.RuntimeRep
+                @r :: GHC.Prim.TYPE rep
+                (scrut['GHC.Types.Many] :: GHC.Types.KindRep)
+                (cont['GHC.Types.Many] :: GHC.Types.TypeLitSort
+                                          -> GHC.Internal.Base.String -> r)
+                (fail['GHC.Types.Many] :: (# #) -> r) ->
+              case scrut of wild {
+                DEFAULT -> fail GHC.Types.(##)
+                GHC.Types.KindRepTypeLitS sort t
+                -> cont sort (GHC.CString.unpackCStringUtf8# t)
+                GHC.Types.KindRepTypeLitD sort t -> cont sort t }]
+b375c944463055cbeb153aa3214cfe7e
+  $mTypeRep ::
+    forall {rep :: GHC.Types.RuntimeRep} {r :: GHC.Prim.TYPE rep} {k}
+           {a :: k}.
+    TypeRep a -> (Typeable a => r) -> ((# #) -> r) -> r
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <L><1C(1,L)><A>,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @rep :: GHC.Types.RuntimeRep
+                @r :: GHC.Prim.TYPE rep
+                @k
+                @a :: k
+                (scrut['GHC.Types.Many] :: TypeRep a)
+                (cont['GHC.Types.Many] :: Typeable a => r)
+                (fail['GHC.Types.Many] :: (# #) -> r) ->
+              case GHC.Magic.nospec
+                     @(forall {rr :: GHC.Types.RuntimeRep} (r1 :: GHC.Prim.TYPE rr).
+                       GHC.Magic.Dict.WithDict (Typeable a) (TypeRep a) =>
+                       TypeRep a -> (Typeable a => r1) -> r1)
+                     (GHC.Magic.Dict.withDict @(Typeable a) @(TypeRep a))
+                     ($mTypeRep1 @k @a)
+                       `cast`
+                     (Sym (GHC.Magic.Dict.N:WithDict <Typeable a>_N <TypeRep a>_N))
+                     @GHC.Types.LiftedRep
+                     @(TypeableInstance a)
+                     scrut
+                     (TypeableInstance @k @a) of wild { TypeableInstance $dTypeable34 ->
+              cont $dTypeable34 }]
+d763acc0a390343df53a198e808c982f
+  $mTypeRep1 ::
+    forall {k} {a :: k} {rr :: GHC.Types.RuntimeRep}
+           (r :: GHC.Prim.TYPE rr).
+    TypeRep a -> (Typeable a => r) -> r
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <L><1C(1,L)>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @a :: k
+                @q :: GHC.Types.RuntimeRep
+                @a1 :: GHC.Prim.TYPE q
+                (withDict_s['GHC.Types.Many] :: TypeRep a)
+                (withDict_k['GHC.Types.Many] :: Typeable a => a1) ->
+              withDict_k withDict_s `cast` (Sym (N:Typeable <k>_N <a>_N))]
+7766497f113f4c0605d37ad8b56d6cca
+  $tc'C:Typeable :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                8444288033369233924#Word64
+                12204490102141179857#Word64
+                $trModule
+                $tc'C:Typeable2
+                2#
+                $tc'C:Typeable1]
+c0eb78b7089a768f3e615ded70853852
+  $tc'C:Typeable1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+212bbc35bb038b67c4e2689a8b757fbd
+  $tc'C:Typeable2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'C:Typeable3]
+971fa293a883b3a592e7b4e2fa7eea1a
+  $tc'C:Typeable3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'C:Typeable"#]
+e6df17292755066e717b0379d5f910d7
+  $tc'IsApp :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                7328732750567668680#Word64
+                3076137736742526207#Word64
+                $trModule
+                $tc'IsApp2
+                4#
+                $tc'IsApp1]
+113291a56f8af1858a9abb4c24688c0b
+  $tc'IsApp1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+49799eda5cf372e3da18dedca423d15c
+  $tc'IsApp2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'IsApp3]
+fb64a76731bf3abb2df2944ba6cd2052
+  $tc'IsApp3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'IsApp"#]
+a4d5ed5795d42e6237be5b50ebc06a28
+  $tc'IsCon :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                8213451915459753024#Word64
+                12810403634301053121#Word64
+                $trModule
+                $tc'IsCon2
+                2#
+                $tc'IsCon1]
+8ad7eaff4ef45d796aca81a4550b07de
+  $tc'IsCon1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+1c6a4fabc77b93b46734db478d782cd2
+  $tc'IsCon2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'IsCon3]
+c1bbdaa3ca1699ecced4a2cb562a5603
+  $tc'IsCon3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'IsCon"#]
+f20611e1acda0442450da7ab065cf935
+  $tc'IsTYPE :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                4989007655112848038#Word64
+                9459056016351867505#Word64
+                $trModule
+                $tc'IsTYPE2
+                1#
+                $tc'IsTYPE1]
+d23a905861013e3313b3539c65f97e6b
+  $tc'IsTYPE1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+dd1f8382a154be0cd37642e40f8af04b
+  $tc'IsTYPE2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'IsTYPE3]
+3031f8ca8185aeb73e7a09aee309c3b7
+  $tc'IsTYPE3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'IsTYPE"#]
+4481368c46d2cb2aa7c8c7f1a9e04306
+  $tc'SomeKindedTypeRep :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                14484739077307578908#Word64
+                14198614404043219424#Word64
+                $trModule
+                $tc'SomeKindedTypeRep2
+                2#
+                $tc'SomeKindedTypeRep1]
+9b4a10c883ed11939b70fb7eb71a6229
+  $tc'SomeKindedTypeRep1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+b7c8a62d12918e2878102143f5457356
+  $tc'SomeKindedTypeRep2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TrNameS $tc'SomeKindedTypeRep3]
+19fc11970a4cdc44c207f206c5969d46
+  $tc'SomeKindedTypeRep3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'SomeKindedTypeRep"#]
+7195daa4d9eed228ec673f8db7e81dd6
+  $tc'SomeTypeRep :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                6834268430546233644#Word64
+                10397994981191904218#Word64
+                $trModule
+                $tc'SomeTypeRep2
+                2#
+                $tc'SomeTypeRep1]
+5ce01fda22fdaed6cb5a0fe952216900
+  $tc'SomeTypeRep1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+0a6825b84a90976013844c1a741e8a9c
+  $tc'SomeTypeRep2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'SomeTypeRep3]
+7b32800b4f156eda92e55ddf99e6dd94
+  $tc'SomeTypeRep3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'SomeTypeRep"#]
+58433ac1ac9604cc4ace0b418527bcad
+  $tc'TrApp :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                1710650015179274668#Word64
+                15573214883933723438#Word64
+                $trModule
+                $tc'TrApp2
+                4#
+                $tc'TrApp1]
+c5852360080e39d0d517e44c8f961323
+  $tc'TrApp1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+094f5570491a0f13abf12baf2ed3a57a
+  $tc'TrApp2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'TrApp3]
+6f9f6cccb4782e240a1e91e67bafa07d
+  $tc'TrApp3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'TrApp"#]
+fe7ca9231271a7d39b0b32a6f8f04860
+  $tc'TrFun :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                6718696930331158877#Word64
+                11347524044452360233#Word64
+                $trModule
+                $tc'TrFun2
+                5#
+                $tc'TrFun1]
+08072c411c758152d5b89c2a736406cd
+  $tc'TrFun1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+1c8ea8fb59b0c20b4208e0f58d20dec5
+  $tc'TrFun2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'TrFun3]
+b516a8aba7b2b9214d7882ec5bdad076
+  $tc'TrFun3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'TrFun"#]
+09e0066cf9483f4e3141d5859282d765
+  $tc'TrTyCon :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                11964911166856914783#Word64
+                9599878120506323239#Word64
+                $trModule
+                $tc'TrTyCon2
+                2#
+                $tc'TrTyCon1]
+4e6954dca8d2d469c3cb4d8abe38170d
+  $tc'TrTyCon1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+36f1e9e6d6155223b18fb217d4418283
+  $tc'TrTyCon2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'TrTyCon3]
+d08df27927deda5868c79569e05673a3
+  $tc'TrTyCon3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'TrTyCon"#]
+14a9769702b98d2547641c964612c5d3
+  $tc'TrType :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                3287174884627922419#Word64
+                5659277980930102126#Word64
+                $trModule
+                $tc'TrType2
+                0#
+                $tc'TrType1]
+e684efbe04fb48a56259e68383df303b
+  $tc'TrType1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepTyConApp], Inline: [~]]
+0c483a66f91e474fe9ad9641a19f212e
+  $tc'TrType2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'TrType3]
+5fe86287505ebaed18b30ce0d2d3d77c
+  $tc'TrType3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'TrType"#]
+996ad2ee8ddfac461bfb81f5196930b8
+  $tc'TypeableInstance :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                8655645832363870333#Word64
+                10017332289983513312#Word64
+                $trModule
+                $tc'TypeableInstance2
+                2#
+                $tc'TypeableInstance1]
+0ad4f4ff8818d66abf0b553a4d1104b6
+  $tc'TypeableInstance1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepTyConApp], Inline: [~]]
+6a6099ee63341cdb18f5adcfaa66e674
+  $tc'TypeableInstance2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'TypeableInstance3]
+7462714ff4d2ff2f44d6bc6d8d4f9ea3
+  $tc'TypeableInstance3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'TypeableInstance"#]
+8c90483a26bdac6ee546c88bce13da58
+  $tcAppOrCon :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                6007071410036389633#Word64
+                17044781702955783504#Word64
+                $trModule
+                $tcAppOrCon2
+                1#
+                $tcAppOrCon1]
+ae09b99f2910c195ae78b504bc4cea43
+  $tcAppOrCon1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+472a7240873985cd7ca70739bc9cfd79
+  $tcAppOrCon2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcAppOrCon3]
+bb9d9e16eca86f7c0f38762e8bc5e299
+  $tcAppOrCon3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "AppOrCon"#]
+fa48832858cecb1bb1f738dcb5ee7e8f
+  $tcIsTYPE :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                2190287770481614495#Word64
+                8271030516087827482#Word64
+                $trModule
+                $tcIsTYPE1
+                0#
+                GHC.Types.krep$*Arr*]
+65b801ae81dc6f91858190b7f768d4dc
+  $tcIsTYPE1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcIsTYPE2]
+746a27e44ffb81984b8f83405d178f0f
+  $tcIsTYPE2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "IsTYPE"#]
+470574d4a723c827bcf4e83f0d01b596
+  $tcSomeKindedTypeRep :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                15387599470617756446#Word64
+                6193916287180080353#Word64
+                $trModule
+                $tcSomeKindedTypeRep1
+                0#
+                GHC.Types.krep$*Arr*]
+64e8ba4517bff33cc8f3a21df032ec1c
+  $tcSomeKindedTypeRep1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcSomeKindedTypeRep2]
+1c88ec2720409ab3bf7a408c16b25de7
+  $tcSomeKindedTypeRep2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "SomeKindedTypeRep"#]
+448ffd161d96fa455b177db1ec586d2b
+  $tcSomeTypeRep :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                1408619128860481665#Word64
+                13490394199125326508#Word64
+                $trModule
+                $tcSomeTypeRep1
+                0#
+                GHC.Types.krep$*]
+00a2023023574a1ac9a5c36a9d368f2e
+  $tcSomeTypeRep1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcSomeTypeRep2]
+e3ab7b9e3cfa4e951f964502488c29e0
+  $tcSomeTypeRep2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "SomeTypeRep"#]
+e69cdce911634885b2bafa0dcc0d09b6
+  $tcTypeRep :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                3145986101923845249#Word64
+                8132267554907934016#Word64
+                $trModule
+                $tcTypeRep1
+                1#
+                $tcAppOrCon1]
+406407cba6bf02427b3dad274af4cdf2
+  $tcTypeRep1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcTypeRep2]
+528339df4e3f7f0a51212f73dca67c81
+  $tcTypeRep2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "TypeRep"#]
+c420c0dbae4198c4456a6a8adeb1f0cd
+  $tcTypeable :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                4350098496544470969#Word64
+                3228369116604618472#Word64
+                $trModule
+                $tcTypeable2
+                1#
+                $tcTypeable1]
+f5af169a162d1f36f17b710183203933
+  $tcTypeable1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+5eac6a9dd7ad3eb89a1c8fdef19d5275
+  $tcTypeable2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcTypeable3]
+7e6a6809d56402326c4f535b5e79076d
+  $tcTypeable3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Typeable"#]
+ae4b56c827f0bd737db415030fe88cfc
+  $tcTypeableInstance :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                7077155945084791131#Word64
+                13784677592506568526#Word64
+                $trModule
+                $tcTypeableInstance1
+                1#
+                $tcAppOrCon1]
+b927a8bbfc825a38cb764c2ed3113e89
+  $tcTypeableInstance1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcTypeableInstance2]
+9e3eb19219980a074ba75b016ec175d0
+  $tcTypeableInstance2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "TypeableInstance"#]
+c0ac484ea51299978e5fed2fcde6bee5
+  $trModule :: GHC.Types.Module
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla> GHC.Types.Module $trModule3 $trModule1]
+ba8a13d90f33d5b197e1ec2996dca932
+  $trModule1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule2]
+951a952e3575aa6556253362153e86a6
+  $trModule2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.Internal.Data.Typeable.Internal"#]
+add2d658160a38328f317de8970b2f0e
+  $trModule3 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule4]
+cd32e0287c60c49d710cce4db9701884
+  $trModule4 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "ghc-internal"#]
+ff730b76e24d0cb16afe497948e742db
+  $wmkTyCon ::
+    GHC.Internal.Base.String
+    -> GHC.Internal.Base.String
+    -> GHC.Internal.Base.String
+    -> GHC.Prim.Int#
+    -> GHC.Types.KindRep
+    -> GHC.Types.TyCon
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 5, Arity: 5,
+   Strictness: <L><L><L><L><L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ (pkg['GHC.Types.Many] :: GHC.Internal.Base.String)
+                (modl4['GHC.Types.Many] :: GHC.Internal.Base.String)
+                (name4['GHC.Types.Many] :: GHC.Internal.Base.String)
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (kind_rep['GHC.Types.Many] :: GHC.Types.KindRep) ->
+              case GHC.Magic.noinline
+                     @([GHC.Internal.Fingerprint.Type.Fingerprint]
+                       -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                     GHC.Internal.Fingerprint.fingerprintFingerprints
+                     (GHC.Types.:
+                        @GHC.Internal.Fingerprint.Type.Fingerprint
+                        (GHC.Magic.noinline
+                           @(GHC.Internal.Base.String
+                             -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                           GHC.Internal.Fingerprint.fingerprintString
+                           pkg)
+                        (GHC.Types.:
+                           @GHC.Internal.Fingerprint.Type.Fingerprint
+                           (GHC.Magic.noinline
+                              @(GHC.Internal.Base.String
+                                -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                              GHC.Internal.Fingerprint.fingerprintString
+                              modl4)
+                           (GHC.Types.:
+                              @GHC.Internal.Fingerprint.Type.Fingerprint
+                              (GHC.Magic.noinline
+                                 @(GHC.Internal.Base.String
+                                   -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                                 GHC.Internal.Fingerprint.fingerprintString
+                                 name4)
+                              (GHC.Types.[]
+                                 @GHC.Internal.Fingerprint.Type.Fingerprint)))) of wild { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+              GHC.Types.TyCon
+                bx
+                bx1
+                (GHC.Types.Module
+                   (GHC.Types.TrNameD pkg)
+                   (GHC.Types.TrNameD modl4))
+                (GHC.Types.TrNameD name4)
+                ww
+                kind_rep }]
+456f9dbf47b6f2e013f85549648bd5fa
+  $wrnfKindRep :: GHC.Types.KindRep -> (# #)
+  StrWork([!])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [2]]
+59c8a05ea351568f2b883abe5ce6621f
+  $wrnfTyCon :: GHC.Types.TyCon -> (# #)
+  StrWork([!])
+  [HasNoCafRefs, TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case ds4 of wild { GHC.Types.TyCon ds5 ds6 m n ds7 k ->
+              case m of wild1 { GHC.Types.Module p m1 ->
+              let {
+                $j :: (# #) JoinPoint(0) []
+                = let {
+                    $j1 :: (# #) JoinPoint(0) []
+                    = let {
+                        $j2 :: (# #) JoinPoint(0) [] = $wrnfKindRep k
+                      } in
+                      case n of wild2 {
+                        GHC.Types.TrNameS ds8 -> $j2
+                        GHC.Types.TrNameD n1
+                        -> case rnfModule_$s$wrnfList n1 of wild3 { (##) -> $j2 } }
+                  } in
+                  case m1 of wild2 {
+                    GHC.Types.TrNameS ds8 -> $j1
+                    GHC.Types.TrNameD n1
+                    -> case rnfModule_$s$wrnfList n1 of wild3 { (##) -> $j1 } }
+              } in
+              case p of wild2 {
+                GHC.Types.TrNameS ds8 -> $j
+                GHC.Types.TrNameD n1
+                -> case rnfModule_$s$wrnfList n1 of wild3 { (##) -> $j } } } }]
+243fd75aa34219238b48a26e38b282ec
+  pattern App
+    :: forall k2 (t :: k2).
+       () =>
+       forall k1 (a :: k1 -> k2) (b :: k1).
+       (t GHC.Types.~ a b) =>
+       TypeRep a -> TypeRep b -> TypeRep t
+34cb0e9cf2de2c12b82ab1ea0eae2f67
+  type role AppOrCon nominal
+  type AppOrCon :: forall k. k -> *
+  data AppOrCon a where
+    IsApp :: forall k k' (f :: k' -> k) (x :: k').
+             TypeRep f -> TypeRep x -> AppOrCon (f x)
+    IsCon :: forall {k} (a :: k).
+             NotApplication a =>
+             GHC.Types.TyCon -> [SomeTypeRep] -> AppOrCon a
+0a77eaebdcc5f51948edf2df19f203a8
+  pattern Con
+    :: forall k (a :: k).
+       () =>
+       NotApplication a =>
+       GHC.Types.TyCon -> TypeRep a
+9579fa3538ff52f5391383cc0cf64d45
+  pattern Con'
+    :: forall k (a :: k).
+       () =>
+       NotApplication a =>
+       GHC.Types.TyCon -> [SomeTypeRep] -> TypeRep a
+a3d4b0ee63c1f99c53bbb44b7c42528a
+  axiom D:R:NotApplication ::
+    forall k t (f :: k -> t) (a :: k).
+      NotApplication (f a) = (TypeError ...)
+    forall k (_1 :: k). NotApplication _1 = () :: Constraint
+7f3394c1944b8c8bbd856f7e1be63546
+  pattern Fun
+    :: forall k (fun :: k).
+       () =>
+       forall (r1 :: GHC.Types.RuntimeRep) (r2 :: GHC.Types.RuntimeRep)
+              (arg :: GHC.Prim.TYPE r1) (res :: GHC.Prim.TYPE r2).
+       (k GHC.Types.~ *, fun GHC.Types.~~ (arg -> res)) =>
+       TypeRep arg -> TypeRep res -> TypeRep fun
+57d1f60650e6c01027a5b0bb258385f3
+  type role IsTYPE nominal
+  type IsTYPE :: * -> *
+  data IsTYPE a where
+    IsTYPE :: TypeRep r -> IsTYPE (GHC.Prim.TYPE r)
+1efb05308f6e2a15fbe3ca20de7088fd
+  pattern KindRepTypeLit
+    :: GHC.Types.TypeLitSort
+       -> GHC.Internal.Base.String -> GHC.Types.KindRep
+f57a4079684004775287e0639fcab579
+  type NotApplication :: forall k. k -> GHC.Types.Constraint
+  type family NotApplication x where
+    forall k t (f :: k -> t) (a :: k).
+      NotApplication (f a) = (TypeError ...)
+    forall k (_1 :: k). NotApplication _1 = () :: Constraint
+    axiom D:R:NotApplication
+a0b7e02b85259685ba29ac09411e9dbf
+  type role SomeKindedTypeRep nominal
+  type SomeKindedTypeRep :: * -> *
+  data SomeKindedTypeRep k where
+    SomeKindedTypeRep :: forall k (a :: k).
+                         TypeRep a -> SomeKindedTypeRep k
+8d744063b5ea0ee2a627cab7a562909a
+  type SomeTypeRep :: *
+  data SomeTypeRep where
+    SomeTypeRep :: forall k (a :: k). !(TypeRep a) -> SomeTypeRep
+a01bbd522265d784663d921b3d9bed15
+  pattern TypeRep
+    :: forall {k} (a :: k). () => Typeable a => TypeRep a
+acb42986cca2cb256aabbcf87142850a
+  type role TypeRep nominal
+  type TypeRep :: forall k. k -> *
+  data TypeRep a where
+    TrType :: TypeRep (*)
+    TrTyCon :: forall k (a :: k).
+               {trTyConFingerprint :: {-# UNPACK #-}GHC.Internal.Fingerprint.Type.Fingerprint,
+                trTyCon :: !GHC.Types.TyCon,
+                trKindVars :: [SomeTypeRep],
+                trTyConKind :: !(TypeRep k)}
+               -> TypeRep a
+    TrApp :: forall k1 k (a1 :: k1 -> k) (b :: k1).
+             {trAppFingerprint :: {-# UNPACK #-}GHC.Internal.Fingerprint.Type.Fingerprint,
+              trAppFun :: !(TypeRep a1),
+              trAppArg :: !(TypeRep b),
+              trAppKind :: !(TypeRep k)}
+             -> TypeRep (a1 b)
+    TrFun :: forall (m :: GHC.Types.Multiplicity)
+                    (r1 :: GHC.Types.RuntimeRep) (r2 :: GHC.Types.RuntimeRep)
+                    (a1 :: GHC.Prim.TYPE r1) (b :: GHC.Prim.TYPE r2).
+             {trFunFingerprint :: {-# UNPACK #-}GHC.Internal.Fingerprint.Type.Fingerprint,
+              trFunMul :: !(TypeRep m),
+              trFunArg :: !(TypeRep a1),
+              trFunRes :: !(TypeRep b)}
+             -> TypeRep (a1 %m -> b)
+9accb4e558b1ffc4e82f6577f33dadbc
+  type Typeable :: forall k. k -> GHC.Types.Constraint
+  class Typeable a where
+    typeRep# :: TypeRep a
+    {-# MINIMAL typeRep# #-}
+0905318dd80dcce0687065786d7ed00a
+  type role TypeableInstance nominal
+  type TypeableInstance :: forall k. k -> *
+  data TypeableInstance a where
+    TypeableInstance :: forall {k} (a :: k).
+                        Typeable a =>
+                        TypeableInstance a
+9e62ad462be6b441a745da2643379ce3
+  decTypeRep ::
+    forall k1 k2 (a :: k1) (b :: k2).
+    TypeRep a
+    -> TypeRep b
+    -> GHC.Internal.Data.Either.Either
+         ((a GHC.Internal.Data.Type.Equality.:~~: b)
+          -> GHC.Internal.Base.Void)
+         (a GHC.Internal.Data.Type.Equality.:~~: b)
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <SL><SL>,
+   Inline:,
+   Unfolding: Core: StableUser
+              \ @k1
+                @k2
+                @a :: k1
+                @b :: k2
+                (a1['GHC.Types.Many] :: TypeRep a)
+                (b1['GHC.Types.Many] :: TypeRep b) ->
+              case sameTypeRep @k1 @k2 @a @b a1 b1 of wild {
+                GHC.Types.False
+                -> GHC.Internal.Data.Either.Left
+                     @((a GHC.Internal.Data.Type.Equality.:~~: b)
+                       -> GHC.Internal.Base.Void)
+                     @(a GHC.Internal.Data.Type.Equality.:~~: b)
+                     (\ (ds4['GHC.Types.Many] :: a
+                                                 GHC.Internal.Data.Type.Equality.:~~: b) ->
+                      case ds4 of wild1 { GHC.Internal.Data.Type.Equality.HRefl co co1 ->
+                      GHC.Internal.Err.errorWithoutStackTrace
+                        @GHC.Types.LiftedRep
+                        @GHC.Internal.Base.Void
+                        (GHC.Internal.Base.augment
+                           @GHC.Types.Char
+                           (\ @b2
+                              (c['GHC.Types.Many] :: GHC.Types.Char -> b2 -> b2)[OneShot]
+                              (n['GHC.Types.Many] :: b2)[OneShot] ->
+                            GHC.CString.unpackFoldrCString#
+                              @b2
+                              "decTypeRep: Impossible equality proof "#
+                              c
+                              n)
+                           (GHC.Internal.Base.augment
+                              @GHC.Types.Char
+                              (\ @b2
+                                 (c['GHC.Types.Many] :: GHC.Types.Char -> b2 -> b2)[OneShot]
+                                 (n['GHC.Types.Many] :: b2)[OneShot] ->
+                               GHC.Internal.Base.foldr
+                                 @GHC.Types.Char
+                                 @b2
+                                 c
+                                 n
+                                 (showTypeable
+                                    @k1
+                                    @a
+                                    (GHC.Types.I# 0#)
+                                    a1
+                                    (GHC.Types.[] @GHC.Types.Char)))
+                              (GHC.Internal.Base.augment
+                                 @GHC.Types.Char
+                                 (\ @b2
+                                    (c['GHC.Types.Many] :: GHC.Types.Char -> b2 -> b2)[OneShot]
+                                    (n['GHC.Types.Many] :: b2)[OneShot] ->
+                                  GHC.CString.unpackFoldrCString# @b2 " :~: "# c n)
+                                 (showTypeable
+                                    @k1
+                                    @a
+                                    (GHC.Types.I# 0#)
+                                    b1 `cast` (TypeRep co co1)_R
+                                    (GHC.Types.[] @GHC.Types.Char))))) })
+                GHC.Types.True
+                -> GHC.Internal.Data.Either.Right
+                     @((a GHC.Internal.Data.Type.Equality.:~~: b)
+                       -> GHC.Internal.Base.Void)
+                     @(a GHC.Internal.Data.Type.Equality.:~~: b)
+                     (GHC.Internal.Unsafe.Coerce.unsafeCoerce
+                        @(GHC.Types.ZonkAny 1
+                          GHC.Internal.Data.Type.Equality.:~~: GHC.Types.ZonkAny 1)
+                        @(a GHC.Internal.Data.Type.Equality.:~~: b)
+                        (GHC.Internal.Data.Type.Equality.$WHRefl
+                           @(GHC.Types.ZonkAny 0)
+                           @(GHC.Types.ZonkAny 1))) }]
+ed6440d43887806ccf29803bbd66034d
+  eqTypeRep ::
+    forall k1 k2 (a :: k1) (b :: k2).
+    TypeRep a
+    -> TypeRep b
+    -> GHC.Internal.Maybe.Maybe
+         (a GHC.Internal.Data.Type.Equality.:~~: b)
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><1L>,
+   Inline:,
+   Unfolding: Core: StableUser
+              \ @k1
+                @k2
+                @a :: k1
+                @b :: k2
+                (a1['GHC.Types.Many] :: TypeRep a)
+                (b1['GHC.Types.Many] :: TypeRep b) ->
+              case sameTypeRep @k1 @k2 @a @b a1 b1 of wild {
+                GHC.Types.False
+                -> GHC.Internal.Maybe.Nothing
+                     @(a GHC.Internal.Data.Type.Equality.:~~: b)
+                GHC.Types.True
+                -> GHC.Internal.Maybe.Just
+                     @(a GHC.Internal.Data.Type.Equality.:~~: b)
+                     (GHC.Internal.Unsafe.Coerce.unsafeCoerce
+                        @(GHC.Types.ZonkAny 1
+                          GHC.Internal.Data.Type.Equality.:~~: GHC.Types.ZonkAny 1)
+                        @(a GHC.Internal.Data.Type.Equality.:~~: b)
+                        (GHC.Internal.Data.Type.Equality.$WHRefl
+                           @(GHC.Types.ZonkAny 0)
+                           @(GHC.Types.ZonkAny 1))) }]
+b7c56576ac8745c65fedb134c5fd3fb6
+  fpTYPELiftedRep :: GHC.Internal.Fingerprint.Type.Fingerprint
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Inline:]
+8bd09589a791b657eb1caf73a898f12c
+  funTyCon :: GHC.Types.TyCon
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              typeRepTyCon @(* -> * -> *) @(->) $mApp5]
+b2f60e56747135da0d8c121933c2daa8
+  mkTrApp ::
+    forall k1 k2 (a :: k1 -> k2) (b :: k1).
+    TypeRep a -> TypeRep b -> TypeRep (a b)
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <SL><SL>]
+d9001ff0e3b344843fe9dcc6f781fda2
+  mkTrAppChecked ::
+    forall k1 k2 (a :: k1 -> k2) (b :: k1).
+    TypeRep a -> TypeRep b -> TypeRep (a b)
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><SL>]
+a00ce6ac7135bf3f601c0ace72fd6a42
+  mkTrCon ::
+    forall k (a :: k). GHC.Types.TyCon -> [SomeTypeRep] -> TypeRep a
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><L>]
+2495bf36aa22697f568ec1087352f7d2
+  mkTrFun ::
+    forall (m :: GHC.Types.Multiplicity) (r1 :: GHC.Types.RuntimeRep)
+           (r2 :: GHC.Types.RuntimeRep) (a :: GHC.Prim.TYPE r1)
+           (b :: GHC.Prim.TYPE r2).
+    TypeRep m -> TypeRep a -> TypeRep b -> TypeRep (a %m -> b)
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SL><SL><SL>,
+   Unfolding: Core: <vanilla>
+              \ @m :: GHC.Types.Multiplicity
+                @r1 :: GHC.Types.RuntimeRep
+                @r2 :: GHC.Types.RuntimeRep
+                @a :: GHC.Prim.TYPE r1
+                @b :: GHC.Prim.TYPE r2
+                (mul['GHC.Types.Many] :: TypeRep m)
+                (arg['GHC.Types.Many] :: TypeRep a)
+                (res['GHC.Types.Many] :: TypeRep b) ->
+              case GHC.Magic.noinline
+                     @([GHC.Internal.Fingerprint.Type.Fingerprint]
+                       -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                     GHC.Internal.Fingerprint.fingerprintFingerprints
+                     (GHC.Types.:
+                        @GHC.Internal.Fingerprint.Type.Fingerprint
+                        (typeRepFingerprint @GHC.Types.Multiplicity @m mul)
+                        (GHC.Types.:
+                           @GHC.Internal.Fingerprint.Type.Fingerprint
+                           (typeRepFingerprint @(GHC.Prim.TYPE r1) @a arg)
+                           (GHC.Types.:
+                              @GHC.Internal.Fingerprint.Type.Fingerprint
+                              (typeRepFingerprint @(GHC.Prim.TYPE r2) @b res)
+                              (GHC.Types.[]
+                                 @GHC.Internal.Fingerprint.Type.Fingerprint)))) of conrep { GHC.Internal.Fingerprint.Type.Fingerprint unbx unbx1 ->
+              case mul of conrep1 { DEFAULT ->
+              case arg of conrep2 { DEFAULT ->
+              case res of conrep3 { DEFAULT ->
+              TrFun
+                @(*)
+                @(a %m -> b)
+                @m
+                @r1
+                @r2
+                @a
+                @b
+                @~<*>_N
+                @~<a %m -> b>_N
+                unbx
+                unbx1
+                conrep1
+                conrep2
+                conrep3 } } } }]
+6c4aaf31798ed8059192676ad596334d
+  mkTrType :: TypeRep (*)
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla> $WTrType]
+1603c56b8bfb3a8562832acf0edea8dc
+  mkTyCon ::
+    GHC.Internal.Base.String
+    -> GHC.Internal.Base.String
+    -> GHC.Internal.Base.String
+    -> GHC.Types.Int
+    -> GHC.Types.KindRep
+    -> GHC.Types.TyCon
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 5, Arity: 5,
+   Strictness: <L><L><L><1!P(L)><L>, Inline: [2],
+   Unfolding: Core: StableSystem <5,TrueFalse>
+              \ (pkg['GHC.Types.Many] :: GHC.Internal.Base.String)
+                (modl4['GHC.Types.Many] :: GHC.Internal.Base.String)
+                (name4['GHC.Types.Many] :: GHC.Internal.Base.String)
+                (ds4['GHC.Types.Many] :: GHC.Types.Int)
+                (kind_rep['GHC.Types.Many] :: GHC.Types.KindRep) ->
+              case ds4 of wild { GHC.Types.I# ww ->
+              $wmkTyCon pkg modl4 name4 ww kind_rep }]
+35caabab39aa383ed1a08df3b6aca15b
+  mkTyCon# ::
+    GHC.Prim.Addr#
+    -> GHC.Prim.Addr#
+    -> GHC.Prim.Addr#
+    -> GHC.Prim.Int#
+    -> GHC.Types.KindRep
+    -> GHC.Types.TyCon
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 5, Arity: 5,
+   Strictness: <L><L><L><L><L>,
+   Unfolding: Core: <vanilla>
+              \ (pkg['GHC.Types.Many] :: GHC.Prim.Addr#)
+                (modl4['GHC.Types.Many] :: GHC.Prim.Addr#)
+                (name4['GHC.Types.Many] :: GHC.Prim.Addr#)
+                (n_kinds['GHC.Types.Many] :: GHC.Prim.Int#)
+                (kind_rep['GHC.Types.Many] :: GHC.Types.KindRep) ->
+              case GHC.Magic.noinline
+                     @([GHC.Internal.Fingerprint.Type.Fingerprint]
+                       -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                     GHC.Internal.Fingerprint.fingerprintFingerprints
+                     (GHC.Types.:
+                        @GHC.Internal.Fingerprint.Type.Fingerprint
+                        (GHC.Magic.noinline
+                           @(GHC.Internal.Base.String
+                             -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                           GHC.Internal.Fingerprint.fingerprintString
+                           (GHC.CString.unpackCStringUtf8# pkg))
+                        (GHC.Types.:
+                           @GHC.Internal.Fingerprint.Type.Fingerprint
+                           (GHC.Magic.noinline
+                              @(GHC.Internal.Base.String
+                                -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                              GHC.Internal.Fingerprint.fingerprintString
+                              (GHC.CString.unpackCStringUtf8# modl4))
+                           (GHC.Types.:
+                              @GHC.Internal.Fingerprint.Type.Fingerprint
+                              (GHC.Magic.noinline
+                                 @(GHC.Internal.Base.String
+                                   -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                                 GHC.Internal.Fingerprint.fingerprintString
+                                 (GHC.CString.unpackCStringUtf8# name4))
+                              (GHC.Types.[]
+                                 @GHC.Internal.Fingerprint.Type.Fingerprint)))) of wild { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+              GHC.Types.TyCon
+                bx
+                bx1
+                (GHC.Types.Module
+                   (GHC.Types.TrNameS pkg)
+                   (GHC.Types.TrNameS modl4))
+                (GHC.Types.TrNameS name4)
+                n_kinds
+                kind_rep }]
+b6523562830babc20f9dd89b3b44e0eb
+  moduleName :: GHC.Types.Module -> GHC.Internal.Base.String
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(A,1L)>,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.Module) ->
+              case ds4 of wild { GHC.Types.Module ds5 m -> trNameString m }]
+94098e52f297fef6c92aff962b51197b
+  modulePackage :: GHC.Types.Module -> GHC.Internal.Base.String
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(1L,A)>,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.Module) ->
+              case ds4 of wild { GHC.Types.Module p ds5 -> trNameString p }]
+8b67c5b9d5dedff68d2ff22bc4b9ac21
+  rnfModule :: GHC.Types.Module -> ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(1L,1L)>, CPR: 1, Inline: [2],
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.Module) ->
+              case ds4 of wild { GHC.Types.Module ww ww1 ->
+              let {
+                $j :: () JoinPoint(0) []
+                = case ww1 of wild1 {
+                    GHC.Types.TrNameS ds5 -> GHC.Tuple.()
+                    GHC.Types.TrNameD n
+                    -> case rnfModule_$s$wrnfList n of wild2 { (##) -> GHC.Tuple.() } }
+              } in
+              case ww of wild1 {
+                GHC.Types.TrNameS ds5 -> $j
+                GHC.Types.TrNameD n
+                -> case rnfModule_$s$wrnfList n of wild2 { (##) -> $j } } }]
+3df052d13b87969978b8f33ae20434b1
+  rnfModule_$s$wrnfList :: [GHC.Types.Char] -> (# #)
+  StrWork([!])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>]
+065dbb2dd19cc7bcb24b6e707de96ec3
+  rnfSomeTypeRep :: SomeTypeRep -> ()
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1L>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueTrue>
+              \ (ds4['GHC.Types.Many] :: SomeTypeRep) ->
+              case ds4 of wild { SomeTypeRep k a r -> GHC.Tuple.() }]
+63bad12d520da5f8e79af7ac69868a64
+  rnfTyCon :: GHC.Types.TyCon -> ()
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1L>, CPR: 1, Inline: [2],
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case $wrnfTyCon ds4 of wild { (##) -> GHC.Tuple.() }]
+875e360a9261fd80dd1de63fd8ff55f3
+  rnfTypeRep :: forall {k} (a :: k). TypeRep a -> ()
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1A>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueTrue>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of ds5 { DEFAULT -> GHC.Tuple.() }]
+b14ee2f3a297fedfd4170d2c2579bc39
+  sameTypeRep ::
+    forall k1 k2 (a :: k1) (b :: k2).
+    TypeRep a -> TypeRep b -> GHC.Types.Bool
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><1L>,
+   Unfolding: Core: <vanilla>
+              \ @k1
+                @k2
+                @a :: k1
+                @b :: k2
+                (a1['GHC.Types.Many] :: TypeRep a)
+                (b1['GHC.Types.Many] :: TypeRep b) ->
+              let {
+                $j :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Bool
+                  JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                = \ (bx['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                    (bx1['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                  let {
+                    $j1 :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Bool
+                      JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                    = \ (bx2['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                        (bx3['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                      case GHC.Prim.eqWord64# bx bx2 of lwild {
+                        DEFAULT -> GHC.Types.False
+                        1#
+                        -> GHC.Prim.tagToEnum#
+                             @GHC.Types.Bool
+                             (GHC.Prim.eqWord64# bx1 bx3) }
+                  } in
+                  case b1 of wild {
+                    TrType co co1
+                    -> case fpTYPELiftedRep of wild1 { GHC.Internal.Fingerprint.Type.Fingerprint bx2 bx3 ->
+                       $j1 bx2 bx3 }
+                    TrTyCon bx2 bx3 ds4 ds5 ds6 -> $j1 bx2 bx3
+                    TrApp k4 a2 b2 co bx2 bx3 ds4 ds5 ds6 -> $j1 bx2 bx3
+                    TrFun m r1 r2 a2 b2 co co1 bx2 bx3 ds4 ds5 ds6 -> $j1 bx2 bx3 }
+              } in
+              case a1 of wild {
+                TrType co co1
+                -> case fpTYPELiftedRep of wild1 { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+                   let {
+                     $j1 :: GHC.Prim.Word64# -> GHC.Prim.Word64# -> GHC.Types.Bool
+                       JoinPoint(2) [Arity: 2, Strictness: <L><L>]
+                     = \ (bx2['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot]
+                         (bx3['GHC.Types.Many] :: GHC.Prim.Word64#)[OneShot] ->
+                       case GHC.Prim.eqWord64# bx bx2 of lwild {
+                         DEFAULT -> GHC.Types.False
+                         1#
+                         -> GHC.Prim.tagToEnum#
+                              @GHC.Types.Bool
+                              (GHC.Prim.eqWord64# bx1 bx3) }
+                   } in
+                   case b1 of wild2 {
+                     TrType co2 co3 -> $j1 bx bx1
+                     TrTyCon bx2 bx3 ds4 ds5 ds6 -> $j1 bx2 bx3
+                     TrApp k4 a2 b2 co2 bx2 bx3 ds4 ds5 ds6 -> $j1 bx2 bx3
+                     TrFun m r1 r2 a2 b2 co2 co3 bx2 bx3 ds4 ds5 ds6 -> $j1 bx2 bx3 } }
+                TrTyCon bx bx1 ds4 ds5 ds6 -> $j bx bx1
+                TrApp k4 a2 b2 co bx bx1 ds4 ds5 ds6 -> $j bx bx1
+                TrFun m r1 r2 a2 b2 co co1 bx bx1 ds4 ds5 ds6 -> $j bx bx1 }]
+cbae1f3eb4918289d2dad62a5778688f
+  showTypeable ::
+    forall k (a :: k).
+    GHC.Types.Int -> TypeRep a -> GHC.Internal.Show.ShowS
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <ML><1L>]
+8527ef3b97ec521a1eaef12d00b06f7f
+  someTypeRep ::
+    forall {k} (proxy :: k -> *) (a :: k).
+    Typeable a =>
+    proxy a -> SomeTypeRep
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <1L><A>,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @k
+                @proxy :: k -> *
+                @a :: k
+                ($dTypeable34['GHC.Types.Many] :: Typeable a)
+                (ds4['GHC.Types.Many] :: proxy a) ->
+              $WSomeTypeRep @k @a $dTypeable34 `cast` (N:Typeable <k>_N <a>_N)]
+9fb02a4d70b8c41f69917b55044dac47
+  someTypeRepFingerprint ::
+    SomeTypeRep -> GHC.Internal.Fingerprint.Type.Fingerprint
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: SomeTypeRep) ->
+              case ds4 of wild { SomeTypeRep k a t ->
+              case t of wild1 {
+                TrType co co1 -> fpTYPELiftedRep
+                TrTyCon bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1
+                TrApp k1 a1 b co bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1
+                TrFun m r1 r2 a1 b co co1 bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 } }]
+61cf919946c33bd8eba3d7f008801acf
+  someTypeRepTyCon :: SomeTypeRep -> GHC.Types.TyCon
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: SomeTypeRep) ->
+              case ds4 of wild { SomeTypeRep k a t -> typeRepTyCon @k @a t }]
+7284518c0f7709589ff2dd11d3fbac2f
+  splitApp :: forall k (a :: k). TypeRep a -> AppOrCon a
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of wild {
+                TrType co co1
+                -> ($WIsApp
+                      @k
+                      @GHC.Types.RuntimeRep
+                      @(GHC.Prim.TYPE |> <GHC.Types.RuntimeRep>_N
+                                         %<'GHC.Types.Many>_N ->_N Sym co)
+                      @GHC.Types.LiftedRep
+                      $mApp3
+                        `cast`
+                      (TypeRep
+                         (<GHC.Types.RuntimeRep>_N %<'GHC.Types.Many>_N ->_N Sym co)
+                         (GRefl nominal GHC.Prim.TYPE
+                              (<GHC.Types.RuntimeRep>_N %<'GHC.Types.Many>_N ->_N Sym co)))_R
+                      trLiftedRep)
+                     `cast`
+                   (AppOrCon
+                      <k>_N
+                      (Sym (GRefl nominal (*) (Sym (Kind co1)))
+                       ; Sym co1))_R
+                TrTyCon bx bx1 ds5 ds6 ds7
+                -> case GHC.Internal.Unsafe.Coerce.unsafeEqualityProof
+                          @(*)
+                          @(GHC.Types.ZonkAny 13
+                            GHC.Internal.Data.Type.Equality.:~: GHC.Types.ZonkAny 13)
+                          @(NotApplication a
+                            GHC.Internal.Data.Type.Equality.:~: (() :: Constraint)) of wild1 { GHC.Internal.Unsafe.Coerce.UnsafeRefl co ->
+                   IsCon
+                     @k
+                     @a
+                     GHC.Classes.CUnit
+                       `cast`
+                     (Sub (SelCo:Tc(2,N) (Sub co))
+                      ; Sub (SelCo:Tc(1,N) (Sub (Sym co))))
+                     ds5
+                     ds6 }
+                TrApp k1 a1 b co bx bx1 ds5 ds6 ds7
+                -> (IsApp @k @(a1 b) @k1 @a1 @b @~<a1 b>_N ds5 ds6)
+                     `cast`
+                   (AppOrCon <k>_N (Sym co))_R
+                TrFun m r1 r2 a1 b co co1 bx bx1 ds5 ds6 ds7
+                -> (IsApp
+                      @k
+                      @(a1 %m -> b |> Sym co)
+                      @(GHC.Prim.TYPE r2)
+                      @(GHC.Prim.FUN m a1 |> <GHC.Prim.TYPE r2>_N
+                                             %<'GHC.Types.Many>_N ->_N Sym co)
+                      @b
+                      @~<(a1 %m -> b |> Sym co)>_N
+                      (mkTrApp
+                         @(GHC.Prim.TYPE r1)
+                         @(GHC.Prim.TYPE r2 -> k)
+                         @(GHC.Prim.FUN m |> <GHC.Prim.TYPE r1>_N
+                                             %<'GHC.Types.Many>_N ->_N <GHC.Prim.TYPE r2>_N
+                                             %<'GHC.Types.Many>_N ->_N Sym co)
+                         @a1
+                         (mkTrCon
+                            @(GHC.Prim.TYPE r1 -> GHC.Prim.TYPE r2 -> *)
+                            @(GHC.Prim.FUN m)
+                            funTyCon
+                            (GHC.Types.:
+                               @SomeTypeRep
+                               (SomeTypeRep @GHC.Types.Multiplicity @m ds5)
+                               (GHC.Types.:
+                                  @SomeTypeRep
+                                  (case ds6 of wild1 {
+                                     TrType co2 co3
+                                     -> $WSomeTypeRep
+                                          @GHC.Types.RuntimeRep
+                                          @r1
+                                          trLiftedRep
+                                            `cast`
+                                          (TypeRep
+                                             <GHC.Types.RuntimeRep>_N (SelCo:Tc(0,N) (Sym co2)))_R
+                                     TrTyCon bx2 bx3 ds8 ds9 ds10
+                                     -> case ds10 of wild2 {
+                                          TrType co2 co3
+                                          -> $WSomeTypeRep
+                                               @GHC.Types.RuntimeRep
+                                               @r1
+                                               trLiftedRep
+                                                 `cast`
+                                               (TypeRep
+                                                  <GHC.Types.RuntimeRep>_N
+                                                  (SelCo:Tc(0,N) (Sym co3)))_R
+                                          TrTyCon ipv ipv1 ipv2 ipv3 ipv4
+                                          -> case $mApp4 ret_ty SomeTypeRep of {}
+                                          TrApp k1 a2 b1 co2 bx4 bx5 ds11 ds12 ds13
+                                          -> SomeTypeRep
+                                               @GHC.Types.RuntimeRep
+                                               @r1
+                                               ds12
+                                                 `cast`
+                                               (TypeRep
+                                                  (SelCo:Fun(arg) (Kind (Left (Sym co2))))
+                                                  (Right (Sym co2)))_R }
+                                     TrApp k1 a2 b1 co2 bx2 bx3 ds8 ds9 ds10
+                                     -> case ds10 of wild2 {
+                                          TrType co3 co4
+                                          -> $WSomeTypeRep
+                                               @GHC.Types.RuntimeRep
+                                               @r1
+                                               trLiftedRep
+                                                 `cast`
+                                               (TypeRep
+                                                  <GHC.Types.RuntimeRep>_N
+                                                  (SelCo:Tc(0,N) (Sym co4)))_R
+                                          TrTyCon ipv ipv1 ipv2 ipv3 ipv4
+                                          -> case $mApp4 ret_ty SomeTypeRep of {}
+                                          TrApp k2 a3 b2 co3 bx4 bx5 ds11 ds12 ds13
+                                          -> SomeTypeRep
+                                               @GHC.Types.RuntimeRep
+                                               @r1
+                                               ds12
+                                                 `cast`
+                                               (TypeRep
+                                                  (SelCo:Fun(arg) (Kind (Left (Sym co3))))
+                                                  (Right (Sym co3)))_R }
+                                     TrFun m1 r4 r5 a2 b1 co2 co3 bx2 bx3 ds8 ds9 ds10
+                                     -> case $mApp2 `cast` (TypeRep <*>_N (Sym co2))_R of wild2 {
+                                          TrType co4 co5
+                                          -> $WSomeTypeRep
+                                               @GHC.Types.RuntimeRep
+                                               @r1
+                                               trLiftedRep
+                                                 `cast`
+                                               (TypeRep
+                                                  <GHC.Types.RuntimeRep>_N
+                                                  (SelCo:Tc(0,N) (Sym co5)))_R
+                                          TrTyCon ipv ipv1 ipv2 ipv3 ipv4
+                                          -> case $mApp4 ret_ty SomeTypeRep of {}
+                                          TrApp k1 a3 b2 co4 bx4 bx5 ds11 ds12 ds13
+                                          -> SomeTypeRep
+                                               @GHC.Types.RuntimeRep
+                                               @r1
+                                               ds12
+                                                 `cast`
+                                               (TypeRep
+                                                  (SelCo:Fun(arg) (Kind (Left (Sym co4))))
+                                                  (Right (Sym co4)))_R } })
+                                  (GHC.Types.:
+                                     @SomeTypeRep
+                                     (case ds7 of wild1 {
+                                        TrType co2 co3
+                                        -> $WSomeTypeRep
+                                             @GHC.Types.RuntimeRep
+                                             @r2
+                                             trLiftedRep
+                                               `cast`
+                                             (TypeRep
+                                                <GHC.Types.RuntimeRep>_N
+                                                (SelCo:Tc(0,N) (Sym co2)))_R
+                                        TrTyCon bx2 bx3 ds8 ds9 ds10
+                                        -> case ds10 of wild2 {
+                                             TrType co2 co3
+                                             -> $WSomeTypeRep
+                                                  @GHC.Types.RuntimeRep
+                                                  @r2
+                                                  trLiftedRep
+                                                    `cast`
+                                                  (TypeRep
+                                                     <GHC.Types.RuntimeRep>_N
+                                                     (SelCo:Tc(0,N) (Sym co3)))_R
+                                             TrTyCon ipv ipv1 ipv2 ipv3 ipv4
+                                             -> case $mApp4 ret_ty SomeTypeRep of {}
+                                             TrApp k1 a2 b1 co2 bx4 bx5 ds11 ds12 ds13
+                                             -> SomeTypeRep
+                                                  @GHC.Types.RuntimeRep
+                                                  @r2
+                                                  ds12
+                                                    `cast`
+                                                  (TypeRep
+                                                     (SelCo:Fun(arg) (Kind (Left (Sym co2))))
+                                                     (Right (Sym co2)))_R }
+                                        TrApp k1 a2 b1 co2 bx2 bx3 ds8 ds9 ds10
+                                        -> case ds10 of wild2 {
+                                             TrType co3 co4
+                                             -> $WSomeTypeRep
+                                                  @GHC.Types.RuntimeRep
+                                                  @r2
+                                                  trLiftedRep
+                                                    `cast`
+                                                  (TypeRep
+                                                     <GHC.Types.RuntimeRep>_N
+                                                     (SelCo:Tc(0,N) (Sym co4)))_R
+                                             TrTyCon ipv ipv1 ipv2 ipv3 ipv4
+                                             -> case $mApp4 ret_ty SomeTypeRep of {}
+                                             TrApp k2 a3 b2 co3 bx4 bx5 ds11 ds12 ds13
+                                             -> SomeTypeRep
+                                                  @GHC.Types.RuntimeRep
+                                                  @r2
+                                                  ds12
+                                                    `cast`
+                                                  (TypeRep
+                                                     (SelCo:Fun(arg) (Kind (Left (Sym co3))))
+                                                     (Right (Sym co3)))_R }
+                                        TrFun m1 r4 r5 a2 b1 co2 co3 bx2 bx3 ds8 ds9 ds10
+                                        -> case $mApp2 `cast` (TypeRep <*>_N (Sym co2))_R of wild2 {
+                                             TrType co4 co5
+                                             -> $WSomeTypeRep
+                                                  @GHC.Types.RuntimeRep
+                                                  @r2
+                                                  trLiftedRep
+                                                    `cast`
+                                                  (TypeRep
+                                                     <GHC.Types.RuntimeRep>_N
+                                                     (SelCo:Tc(0,N) (Sym co5)))_R
+                                             TrTyCon ipv ipv1 ipv2 ipv3 ipv4
+                                             -> case $mApp4 ret_ty SomeTypeRep of {}
+                                             TrApp k1 a3 b2 co4 bx4 bx5 ds11 ds12 ds13
+                                             -> SomeTypeRep
+                                                  @GHC.Types.RuntimeRep
+                                                  @r2
+                                                  ds12
+                                                    `cast`
+                                                  (TypeRep
+                                                     (SelCo:Fun(arg) (Kind (Left (Sym co4))))
+                                                     (Right (Sym co4)))_R } })
+                                     (GHC.Types.[] @SomeTypeRep)))))
+                           `cast`
+                         (TypeRep
+                            (<GHC.Prim.TYPE r1>_N
+                             %<'GHC.Types.Many>_N ->_N <GHC.Prim.TYPE r2>_N
+                             %<'GHC.Types.Many>_N ->_N Sym co)
+                            (GRefl nominal (GHC.Prim.FUN m)
+                                 (<GHC.Prim.TYPE r1>_N
+                                  %<'GHC.Types.Many>_N ->_N <GHC.Prim.TYPE r2>_N
+                                  %<'GHC.Types.Many>_N ->_N Sym co)))_R
+                         ds6)
+                      ds7)
+                     `cast`
+                   (AppOrCon
+                      <k>_N
+                      (Sym (GRefl nominal (a1 %m -> b) (Sym (Kind co1)))
+                       ; Sym co1))_R }]
+ce5e1fdbe3826b9ae0122c315b88902a
+  splitApps ::
+    forall {k} (a :: k). TypeRep a -> (GHC.Types.TyCon, [SomeTypeRep])
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k -> splitApps_go @k @a (GHC.Types.[] @SomeTypeRep)]
+a0dafdcb0acb3d598e347d8fcd699e23
+  splitApps_go ::
+    forall {k} (a :: k).
+    [SomeTypeRep] -> TypeRep a -> (GHC.Types.TyCon, [SomeTypeRep])
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <L><1L>]
+92c72db07f85bd84871c1ecd81206403
+  tcChar :: GHC.Types.TyCon
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              typeRepTyCon @(*) @GHC.Types.Char typeCharTypeRep2]
+d386daf81f7ca55bf01b868f60095b60
+  tcNat :: GHC.Types.TyCon
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              typeRepTyCon @(*) @GHC.Internal.TypeNats.Nat typeNatTypeRep2]
+7bef868c4afbfe5fb42d0ee751f19429
+  tcSymbol :: GHC.Types.TyCon
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              typeRepTyCon @(*) @GHC.Types.Symbol typeSymbolTypeRep2]
+ee313e598b8f30e3200ad629a768bad0
+  trAppArg ::
+    forall k1 k2 (a :: k1 -> k2) (b :: k1). TypeRep (a b) -> TypeRep b
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k1
+                @k2
+                @a :: k1 -> k2
+                @b :: k1
+                (ds4['GHC.Types.Many] :: TypeRep (a b)) ->
+              case ds4 of wild {
+                DEFAULT -> trAppArg1 @k1 @b
+                TrApp k4 a1 b1 co bx bx1 ds5 ds6 ds7
+                -> ds6
+                     `cast`
+                   (TypeRep
+                      (SelCo:Fun(arg) (Kind (Left (Sym co)))) (Right (Sym co)))_R }]
+fd0a783bf58c0df43a3e5693ad7cc582
+  trAppArg1 :: forall k1 (b :: k1). TypeRep b
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+c8c8f2e5a2d10eb1bdb536ad797b8ecb
+  trAppFingerprint ::
+    forall k1 k2 (a :: k1 -> k2) (b :: k1).
+    TypeRep (a b) -> GHC.Internal.Fingerprint.Type.Fingerprint
+  RecSel Left TypeRep
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, CPR: 1,
+   Unfolding: Core: <vanilla>
+              \ @k1
+                @k2
+                @a :: k1 -> k2
+                @b :: k1
+                (ds4['GHC.Types.Many] :: TypeRep (a b)) ->
+              case ds4 of wild {
+                DEFAULT -> trAppFingerprint1
+                TrApp k4 a1 b1 co bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 }]
+38787b67cf0130470366b03f948f3058
+  trAppFingerprint1 :: GHC.Internal.Fingerprint.Type.Fingerprint
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+e7df4e28209ad37ec6807b6f5bbbdb36
+  trAppFun ::
+    forall k1 k2 (a :: k1 -> k2) (b :: k1). TypeRep (a b) -> TypeRep a
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k1
+                @k2
+                @a :: k1 -> k2
+                @b :: k1
+                (ds4['GHC.Types.Many] :: TypeRep (a b)) ->
+              case ds4 of wild {
+                DEFAULT -> trAppFun1 @k2 @k1 @a
+                TrApp k4 a1 b1 co bx bx1 ds5 ds6 ds7
+                -> ds5
+                     `cast`
+                   (TypeRep
+                      (SelCo:Fun(arg) (Kind (Left (Sym co)))
+                       %<'GHC.Types.Many>_N ->_N <k2>_N)
+                      (Left (Sym co)))_R }]
+fa494be70d24fe457394a96e6a4c8e49
+  trAppFun1 :: forall k2 k1 (a :: k1 -> k2). TypeRep a
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+f2bc96e3ead5596cc877d370fe04fc21
+  trAppKind ::
+    forall k1 k2 (a :: k1 -> k2) (b :: k1). TypeRep (a b) -> TypeRep k2
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k1
+                @k2
+                @a :: k1 -> k2
+                @b :: k1
+                (ds4['GHC.Types.Many] :: TypeRep (a b)) ->
+              case ds4 of wild {
+                DEFAULT -> trAppKind1 @k2
+                TrApp k4 a1 b1 co bx bx1 ds5 ds6 ds7 -> ds7 }]
+4a319cae1d11243a170962a025b99788
+  trAppKind1 :: TypeRep k2
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+913cbcde7407c68ab9df0f5e7188a829
+  trFunArg ::
+    forall (m :: GHC.Types.Multiplicity) (r1 :: GHC.Types.RuntimeRep)
+           (r2 :: GHC.Types.RuntimeRep) (a :: GHC.Prim.TYPE r1)
+           (b :: GHC.Prim.TYPE r2).
+    TypeRep (a %m -> b) -> TypeRep a
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: GHC.Types.Multiplicity
+                @r1 :: GHC.Types.RuntimeRep
+                @r2 :: GHC.Types.RuntimeRep
+                @a :: GHC.Prim.TYPE r1
+                @b :: GHC.Prim.TYPE r2
+                (ds4['GHC.Types.Many] :: TypeRep (a %m -> b)) ->
+              case ds4 of wild {
+                DEFAULT -> trFunArg1 @r1 @a
+                TrFun m1 r4 r5 a1 b1 co co1 bx bx1 ds5 ds6 ds7
+                -> ds6
+                     `cast`
+                   (TypeRep
+                      (GHC.Prim.TYPE (SelCo:Tc(0,N) (Kind (SelCo:Fun(arg) (Sym co1)))))_N
+                      (SelCo:Fun(arg) (Sym co1)))_R }]
+09007f4bc035ff00d6bc9f1c8bb6308d
+  trFunArg1 ::
+    forall (r1 :: GHC.Types.RuntimeRep) (a :: GHC.Prim.TYPE r1).
+    TypeRep a
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+f287fb76331e05c59717aa9540871009
+  trFunFingerprint ::
+    forall (m :: GHC.Types.Multiplicity) (r1 :: GHC.Types.RuntimeRep)
+           (r2 :: GHC.Types.RuntimeRep) (a :: GHC.Prim.TYPE r1)
+           (b :: GHC.Prim.TYPE r2).
+    TypeRep (a %m -> b) -> GHC.Internal.Fingerprint.Type.Fingerprint
+  RecSel Left TypeRep
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, CPR: 1,
+   Unfolding: Core: <vanilla>
+              \ @m :: GHC.Types.Multiplicity
+                @r1 :: GHC.Types.RuntimeRep
+                @r2 :: GHC.Types.RuntimeRep
+                @a :: GHC.Prim.TYPE r1
+                @b :: GHC.Prim.TYPE r2
+                (ds4['GHC.Types.Many] :: TypeRep (a %m -> b)) ->
+              case ds4 of wild {
+                DEFAULT -> trFunFingerprint1
+                TrFun m1 r4 r5 a1 b1 co co1 bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 }]
+a95ab036b36d1ed0b18986d182a19590
+  trFunFingerprint1 :: GHC.Internal.Fingerprint.Type.Fingerprint
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+12ae480913ae5e858584c94f9209040c
+  trFunMul ::
+    forall (m :: GHC.Types.Multiplicity) (r1 :: GHC.Types.RuntimeRep)
+           (r2 :: GHC.Types.RuntimeRep) (a :: GHC.Prim.TYPE r1)
+           (b :: GHC.Prim.TYPE r2).
+    TypeRep (a %m -> b) -> TypeRep m
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: GHC.Types.Multiplicity
+                @r1 :: GHC.Types.RuntimeRep
+                @r2 :: GHC.Types.RuntimeRep
+                @a :: GHC.Prim.TYPE r1
+                @b :: GHC.Prim.TYPE r2
+                (ds4['GHC.Types.Many] :: TypeRep (a %m -> b)) ->
+              case ds4 of wild {
+                DEFAULT -> trFunMul1 @m
+                TrFun m1 r4 r5 a1 b1 co co1 bx bx1 ds5 ds6 ds7
+                -> ds5
+                     `cast`
+                   (TypeRep
+                      <GHC.Types.Multiplicity>_N (SelCo:Fun(mult) (Sym co1)))_R }]
+61ce8e0e1ae51214ddc4ebaee09af3cd
+  trFunMul1 :: TypeRep m
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+e2725562eae3d5a58e59648954eb278d
+  trFunRes ::
+    forall (m :: GHC.Types.Multiplicity) (r1 :: GHC.Types.RuntimeRep)
+           (r2 :: GHC.Types.RuntimeRep) (a :: GHC.Prim.TYPE r1)
+           (b :: GHC.Prim.TYPE r2).
+    TypeRep (a %m -> b) -> TypeRep b
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: GHC.Types.Multiplicity
+                @r1 :: GHC.Types.RuntimeRep
+                @r2 :: GHC.Types.RuntimeRep
+                @a :: GHC.Prim.TYPE r1
+                @b :: GHC.Prim.TYPE r2
+                (ds4['GHC.Types.Many] :: TypeRep (a %m -> b)) ->
+              case ds4 of wild {
+                DEFAULT -> trFunRes1 @r2 @b
+                TrFun m1 r4 r5 a1 b1 co co1 bx bx1 ds5 ds6 ds7
+                -> ds7
+                     `cast`
+                   (TypeRep
+                      (GHC.Prim.TYPE (SelCo:Tc(0,N) (Kind (SelCo:Fun(res) (Sym co1)))))_N
+                      (SelCo:Fun(res) (Sym co1)))_R }]
+1d2e0fb4ea45871a3c4ace996984a9b2
+  trFunRes1 ::
+    forall (r2 :: GHC.Types.RuntimeRep) (b :: GHC.Prim.TYPE r2).
+    TypeRep b
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+d7219c9eb5761f263f3d3f8f696beaa1
+  trKindVars :: forall k (a :: k). TypeRep a -> [SomeTypeRep]
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of wild {
+                DEFAULT -> trKindVars1 TrTyCon bx bx1 ds5 ds6 ds7 -> ds6 }]
+4c5366c817ce1ffe0a95d3b28c52350d
+  trKindVars1 :: [SomeTypeRep]
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+dc897a7a0d5b88ecdfec376811dd424c
+  trLiftedRep :: TypeRep GHC.Types.LiftedRep
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrApp
+                @GHC.Types.Levity
+                @GHC.Types.RuntimeRep
+                @'GHC.Types.BoxedRep
+                @'GHC.Types.Lifted
+                trLiftedRep2
+                trLiftedRep1]
+bc8973ab1404ed61c7b908ecf206551b
+  trLiftedRep1 :: TypeRep 'GHC.Types.Lifted
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon
+                @GHC.Types.Levity
+                @'GHC.Types.Lifted
+                GHC.Types.$tc'Lifted
+                (GHC.Types.[] @SomeTypeRep)]
+013da4bc33de79ddc353e95831695f19
+  trLiftedRep2 :: TypeRep 'GHC.Types.BoxedRep
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon
+                @(GHC.Types.Levity -> GHC.Types.RuntimeRep)
+                @'GHC.Types.BoxedRep
+                GHC.Types.$tc'BoxedRep
+                (GHC.Types.[] @SomeTypeRep)]
+0900608465340e10da3b522f52c60fb5
+  trNameString :: GHC.Types.TrName -> GHC.Internal.Base.String
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TrName) ->
+              case ds4 of wild {
+                GHC.Types.TrNameS s -> GHC.CString.unpackCStringUtf8# s
+                GHC.Types.TrNameD s -> s }]
+b8a1e0a8e7ae6b12d9837e3aef465384
+  trTyCon :: forall k (a :: k). TypeRep a -> GHC.Types.TyCon
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of wild {
+                DEFAULT -> trTyCon1 TrTyCon bx bx1 ds5 ds6 ds7 -> ds5 }]
+f11c07095eeedeeafb84f566c1048b40
+  trTyCon1 :: GHC.Types.TyCon
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+0a8d25cc1343dd7d29dd589c97b30e39
+  trTyConFingerprint ::
+    forall k (a :: k).
+    TypeRep a -> GHC.Internal.Fingerprint.Type.Fingerprint
+  RecSel Left TypeRep
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, CPR: 1,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of wild {
+                DEFAULT -> trTyConFingerprint1
+                TrTyCon bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 }]
+23e667881be3dbe773939b2e1185ed67
+  trTyConFingerprint1 :: GHC.Internal.Fingerprint.Type.Fingerprint
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+c558f8ef901b7abfad9740b5db9e421b
+  trTyConKind :: forall k (a :: k). TypeRep a -> TypeRep k
+  RecSel Left TypeRep
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of wild {
+                DEFAULT -> trTyConKind1 @k TrTyCon bx bx1 ds5 ds6 ds7 -> ds7 }]
+722f34092caf0e19a795e0b1833a26e5
+  trTyConKind1 :: TypeRep k
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Strictness: b, CPR: b]
+a1978c71b1e7e0b52753802913b0aa6e
+  tyConFingerprint ::
+    GHC.Types.TyCon -> GHC.Internal.Fingerprint.Type.Fingerprint
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1L>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueTrue>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case ds4 of wild { GHC.Types.TyCon hi lo ds5 ds6 ds7 ds8 ->
+              GHC.Internal.Fingerprint.Type.Fingerprint hi lo }]
+1bbc1ddca23c0351d140186db300840f
+  tyConKindArgs :: GHC.Types.TyCon -> GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1L>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueTrue>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case ds4 of wild { GHC.Types.TyCon ds5 ds6 ds7 ds8 n ds9 ->
+              GHC.Types.I# n }]
+a56a63e045bac6e6ac68d73d9fb610e1
+  tyConKindRep :: GHC.Types.TyCon -> GHC.Types.KindRep
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case ds4 of wild { GHC.Types.TyCon ds5 ds6 ds7 ds8 ds9 k -> k }]
+2c5f78c14a76ebd158d627f0fdafa34a
+  tyConModule :: GHC.Types.TyCon -> GHC.Internal.Base.String
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case ds4 of wild { GHC.Types.TyCon ds5 ds6 m ds7 ds8 ds9 ->
+              moduleName m }]
+9f7bd4008394834f2c92e70bed205c80
+  tyConName :: GHC.Types.TyCon -> GHC.Internal.Base.String
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case ds4 of wild { GHC.Types.TyCon ds5 ds6 ds7 n ds8 ds9 ->
+              trNameString n }]
+c690e8e4424a22c5726bfdba4741ef79
+  tyConPackage :: GHC.Types.TyCon -> GHC.Internal.Base.String
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (ds4['GHC.Types.Many] :: GHC.Types.TyCon) ->
+              case ds4 of wild { GHC.Types.TyCon ds5 ds6 m ds7 ds8 ds9 ->
+              modulePackage m }]
+5b6446ca1a23049bd84c41ea6113f2cc
+  typeCharTypeRep :: GHC.Internal.TypeLits.KnownChar a => TypeRep a
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <MP(SL)>,
+   Unfolding: Core: <vanilla>
+              \ @a :: GHC.Types.Char
+                ($dKnownChar['GHC.Types.Many] :: GHC.Internal.TypeLits.KnownChar
+                                                   a) ->
+              let {
+                nm :: GHC.Internal.Base.String NotJoinPoint []
+                = case $dKnownChar
+                         `cast`
+                       (GHC.Internal.TypeLits.N:KnownChar <a>_N
+                        ; GHC.Internal.TypeLits.N:SChar
+                              <a>_N) of wild { GHC.Types.C# ds4 ->
+                  case ds4 of ds5 {
+                    DEFAULT
+                    -> GHC.Types.:
+                         @GHC.Types.Char
+                         GHC.Internal.Show.$fShowChar4
+                         (GHC.Internal.Show.showLitChar wild GHC.Internal.Show.$fShowChar3)
+                    '\''# -> GHC.Internal.Show.$fShowChar1 } }
+              } in
+              case GHC.Magic.noinline
+                     @([GHC.Internal.Fingerprint.Type.Fingerprint]
+                       -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                     GHC.Internal.Fingerprint.fingerprintFingerprints
+                     (GHC.Types.:
+                        @GHC.Internal.Fingerprint.Type.Fingerprint
+                        typeCharTypeRep9
+                        (GHC.Types.:
+                           @GHC.Internal.Fingerprint.Type.Fingerprint
+                           typeCharTypeRep8
+                           (GHC.Types.:
+                              @GHC.Internal.Fingerprint.Type.Fingerprint
+                              (GHC.Magic.noinline
+                                 @(GHC.Internal.Base.String
+                                   -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                                 GHC.Internal.Fingerprint.fingerprintString
+                                 nm)
+                              (GHC.Types.[]
+                                 @GHC.Internal.Fingerprint.Type.Fingerprint)))) of wild { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+              mkTrCon
+                @GHC.Types.Char
+                @a
+                (GHC.Types.TyCon
+                   bx
+                   bx1
+                   typeCharTypeRep3
+                   (GHC.Types.TrNameD nm)
+                   0#
+                   typeCharTypeRep1)
+                (GHC.Types.[] @SomeTypeRep) }]
+8b9f350ebe500bfa115900fffc3ff0b6
+  typeCharTypeRep1 :: GHC.Types.KindRep
+  [TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepTyConApp],
+   Unfolding: Core: <vanilla>
+              GHC.Types.KindRepTyConApp tcChar (GHC.Types.[] @GHC.Types.KindRep)]
+c74f348336b5a7687342dea957d799df
+  typeCharTypeRep2 :: TypeRep GHC.Types.Char
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon
+                @(*)
+                @GHC.Types.Char
+                GHC.Types.$tcChar
+                (GHC.Types.[] @SomeTypeRep)]
+1e2404a5f61812fba72532d307110b02
+  typeCharTypeRep3 :: GHC.Types.Module
+  [TagSig: <TagProper>, LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla>
+              GHC.Types.Module typeCharTypeRep6 typeCharTypeRep4]
+430e2208d880173659cc988a1da68479
+  typeCharTypeRep4 :: GHC.Types.TrName
+  [TagSig: <TagProper>, LambdaFormInfo: LFCon[GHC.Types.TrNameD],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameD typeCharTypeRep_modl]
+040bc3c47cc6a39ba64998a9d5f79843
+  typeCharTypeRep5 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.TypeLits"#]
+6aa44c154a4b3099d5ead5243f12dfcc
+  typeCharTypeRep6 :: GHC.Types.TrName
+  [TagSig: <TagProper>, LambdaFormInfo: LFCon[GHC.Types.TrNameD],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameD typeCharTypeRep_pkg]
+528dd634ce8699909be5decabf2bc64b
+  typeCharTypeRep7 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "base"#]
+a3ec59ccc0199880bc0c67edde478ac1
+  typeCharTypeRep8 :: GHC.Internal.Fingerprint.Type.Fingerprint
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              GHC.Magic.noinline
+                @(GHC.Internal.Base.String
+                  -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                GHC.Internal.Fingerprint.fingerprintString
+                typeCharTypeRep_modl]
+69eb3c7a9cef5326e1b60d9b19973309
+  typeCharTypeRep9 :: GHC.Internal.Fingerprint.Type.Fingerprint
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              GHC.Magic.noinline
+                @(GHC.Internal.Base.String
+                  -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                GHC.Internal.Fingerprint.fingerprintString
+                typeCharTypeRep_pkg]
+68a549083595609692c9060e5a816576
+  typeCharTypeRep_modl :: GHC.Internal.Base.String
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              GHC.CString.unpackCString# typeCharTypeRep5]
+c2ef4290edf9bcf9a7eab6657855bceb
+  typeCharTypeRep_pkg :: GHC.Internal.Base.String
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              GHC.CString.unpackCString# typeCharTypeRep7]
+a591696fe31716c14aead11e4005e03e
+  typeNatTypeRep :: GHC.Internal.TypeNats.KnownNat a => TypeRep a
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <ML>,
+   Unfolding: Core: <vanilla>
+              \ @a :: GHC.Internal.TypeNats.Nat
+                ($dKnownNat['GHC.Types.Many] :: GHC.Internal.TypeNats.KnownNat
+                                                  a) ->
+              let {
+                nm :: GHC.Internal.Base.String NotJoinPoint []
+                = case $dKnownNat
+                         `cast`
+                       (GHC.Internal.TypeNats.N:KnownNat <a>_N
+                        ; GHC.Internal.TypeNats.N:SNat <a>_N) of wild {
+                    GHC.Num.Natural.NS w
+                    -> GHC.Internal.Show.showWord w (GHC.Types.[] @GHC.Types.Char)
+                    GHC.Num.Natural.NB ipv
+                    -> GHC.Internal.Show.$w$cshowsPrec2
+                         0#
+                         (GHC.Num.Integer.IP ipv)
+                         (GHC.Types.[] @GHC.Types.Char) }
+              } in
+              case GHC.Magic.noinline
+                     @([GHC.Internal.Fingerprint.Type.Fingerprint]
+                       -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                     GHC.Internal.Fingerprint.fingerprintFingerprints
+                     (GHC.Types.:
+                        @GHC.Internal.Fingerprint.Type.Fingerprint
+                        typeCharTypeRep9
+                        (GHC.Types.:
+                           @GHC.Internal.Fingerprint.Type.Fingerprint
+                           typeCharTypeRep8
+                           (GHC.Types.:
+                              @GHC.Internal.Fingerprint.Type.Fingerprint
+                              (GHC.Magic.noinline
+                                 @(GHC.Internal.Base.String
+                                   -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                                 GHC.Internal.Fingerprint.fingerprintString
+                                 nm)
+                              (GHC.Types.[]
+                                 @GHC.Internal.Fingerprint.Type.Fingerprint)))) of wild { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+              mkTrCon
+                @GHC.Internal.TypeNats.Nat
+                @a
+                (GHC.Types.TyCon
+                   bx
+                   bx1
+                   typeCharTypeRep3
+                   (GHC.Types.TrNameD nm)
+                   0#
+                   typeNatTypeRep1)
+                (GHC.Types.[] @SomeTypeRep) }]
+ab62659ea1edc82797492503f5a49b61
+  typeNatTypeRep1 :: GHC.Types.KindRep
+  [TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepTyConApp],
+   Unfolding: Core: <vanilla>
+              GHC.Types.KindRepTyConApp tcNat (GHC.Types.[] @GHC.Types.KindRep)]
+7fa01ff413bb2559aba638bfaf708a5a
+  typeNatTypeRep2 :: TypeRep GHC.Internal.TypeNats.Nat
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon
+                @(*)
+                @GHC.Internal.TypeNats.Nat
+                GHC.Num.Natural.$tcNatural
+                (GHC.Types.[] @SomeTypeRep)]
+0dd5291c95a2f1a1d58e55fe8a68dfd0
+  typeOf :: Typeable a => a -> TypeRep a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><A>,
+   Unfolding: Core: <vanilla>
+              typeOf1
+                `cast`
+              (forall (a :: <*>_N).
+               <Typeable a>_R
+               %<'GHC.Types.Many>_N ->_R <a>_R
+               %<'GHC.Types.Many>_N ->_R N:Typeable <*>_N <a>_N)]
+473cf5b8081d2251ccf2da4c0890dff1
+  typeOf1 :: Typeable a => a -=> Typeable a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><A>,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @a
+                ($dTypeable34['GHC.Types.Many] :: Typeable a)
+                (ds4['GHC.Types.Many] :: a) ->
+              $dTypeable34]
+33866d1e006c74fed544a2086f6994ca
+  typeRep :: forall {k} (a :: k). Typeable a => TypeRep a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <L>, Inline: (sat-args=0),
+   Unfolding: Core: StableUser <0,FalseTrue> typeRep#]
+a3705b1660139c4553edaae7394c3a1c
+  typeRepFingerprint ::
+    forall {k} (a :: k).
+    TypeRep a -> GHC.Internal.Fingerprint.Type.Fingerprint
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of wild {
+                TrType co co1 -> fpTYPELiftedRep
+                TrTyCon bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1
+                TrApp k1 a1 b co bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1
+                TrFun m r1 r2 a1 b co co1 bx bx1 ds5 ds6 ds7
+                -> GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 }]
+e23fa33528baf6506338f56f761d12fb
+  typeRepKind :: forall k (a :: k). TypeRep a -> TypeRep k
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1, Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @k @a :: k (ds4['GHC.Types.Many] :: TypeRep a) ->
+              case ds4 of wild {
+                TrType co co1 -> $WTrType `cast` (TypeRep <*>_N (Sym co))_R
+                TrTyCon bx bx1 ds5 ds6 ds7 -> ds7
+                TrApp k1 a1 b co bx bx1 ds5 ds6 ds7 -> ds7
+                TrFun m r1 r2 a1 b co co1 bx bx1 ds5 ds6 ds7
+                -> $mApp2 `cast` (TypeRep <*>_N (Sym co))_R }]
+4c1ef608da49ca2f7e81466294093402
+  typeRepTyCon :: forall {k} (a :: k). TypeRep a -> GHC.Types.TyCon
+  [TagSig: <TagDunno>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>]
+e09e28f5197b7adbeb98829b670adee1
+  typeSymbolTypeRep ::
+    GHC.Internal.TypeLits.KnownSymbol a => TypeRep a
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <ML>,
+   Unfolding: Core: <vanilla>
+              \ @a :: GHC.Types.Symbol
+                ($dKnownSymbol['GHC.Types.Many] :: GHC.Internal.TypeLits.KnownSymbol
+                                                     a) ->
+              let {
+                nm :: GHC.Internal.Base.String NotJoinPoint []
+                = GHC.Internal.Show.showLitString
+                    $dKnownSymbol
+                      `cast`
+                    (GHC.Internal.TypeLits.N:KnownSymbol <a>_N
+                     ; GHC.Internal.TypeLits.N:SSymbol <a>_N)
+                    GHC.Internal.Show.$fShowList1
+              } in
+              let {
+                nm1 :: GHC.Internal.Base.String NotJoinPoint []
+                = GHC.Types.:
+                    @GHC.Types.Char
+                    GHC.Internal.Show.$fShowCallStack12
+                    nm
+              } in
+              case GHC.Magic.noinline
+                     @([GHC.Internal.Fingerprint.Type.Fingerprint]
+                       -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                     GHC.Internal.Fingerprint.fingerprintFingerprints
+                     (GHC.Types.:
+                        @GHC.Internal.Fingerprint.Type.Fingerprint
+                        typeCharTypeRep9
+                        (GHC.Types.:
+                           @GHC.Internal.Fingerprint.Type.Fingerprint
+                           typeCharTypeRep8
+                           (GHC.Types.:
+                              @GHC.Internal.Fingerprint.Type.Fingerprint
+                              (GHC.Magic.noinline
+                                 @(GHC.Internal.Base.String
+                                   -> GHC.Internal.Fingerprint.Type.Fingerprint)
+                                 GHC.Internal.Fingerprint.fingerprintString
+                                 nm1)
+                              (GHC.Types.[]
+                                 @GHC.Internal.Fingerprint.Type.Fingerprint)))) of wild { GHC.Internal.Fingerprint.Type.Fingerprint bx bx1 ->
+              mkTrCon
+                @GHC.Types.Symbol
+                @a
+                (GHC.Types.TyCon
+                   bx
+                   bx1
+                   typeCharTypeRep3
+                   (GHC.Types.TrNameD nm1)
+                   0#
+                   typeSymbolTypeRep1)
+                (GHC.Types.[] @SomeTypeRep) }]
+e9ebce9dbad0fbc38875ab5d52aae2ed
+  typeSymbolTypeRep1 :: GHC.Types.KindRep
+  [TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepTyConApp],
+   Unfolding: Core: <vanilla>
+              GHC.Types.KindRepTyConApp
+                tcSymbol
+                (GHC.Types.[] @GHC.Types.KindRep)]
+850c65955c903977e83ed495c4bcbaed
+  typeSymbolTypeRep2 :: TypeRep GHC.Types.Symbol
+  [TagSig: <TagDunno>,
+   LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              mkTrCon
+                @(*)
+                @GHC.Types.Symbol
+                GHC.Types.$tcSymbol
+                (GHC.Types.[] @SomeTypeRep)]
+916167e1d7c4dcb3b5e329ee31481363
+  withTypeable ::
+    forall k (a :: k) (rep :: GHC.Types.RuntimeRep)
+           (r :: GHC.Prim.TYPE rep).
+    TypeRep a -> (Typeable a => r) -> r
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <L><L>,
+   Unfolding: Core: <vanilla>
+              \ @k
+                @a :: k
+                @rep :: GHC.Types.RuntimeRep
+                @r :: GHC.Prim.TYPE rep
+                (rep1['GHC.Types.Many] :: TypeRep a)
+                (k1['GHC.Types.Many] :: Typeable a => r) ->
+              GHC.Magic.nospec
+                @(forall {rr :: GHC.Types.RuntimeRep} (r1 :: GHC.Prim.TYPE rr).
+                  GHC.Magic.Dict.WithDict (Typeable a) (TypeRep a) =>
+                  TypeRep a -> (Typeable a => r1) -> r1)
+                (GHC.Magic.Dict.withDict @(Typeable a) @(TypeRep a))
+                ($mTypeRep1 @k @a)
+                  `cast`
+                (Sym (GHC.Magic.Dict.N:WithDict <Typeable a>_N <TypeRep a>_N))
+                @rep
+                @r
+                rep1
+                k1]
+instance GHC.Classes.Eq [SomeTypeRep] = $fEqSomeTypeRep
+instance GHC.Classes.Eq [TypeRep] = $fEqTypeRep
+instance GHC.Classes.Ord [SomeTypeRep] = $fOrdSomeTypeRep
+instance GHC.Classes.Ord [TypeRep] = $fOrdTypeRep
+instance GHC.Internal.Show.Show [SomeTypeRep] = $fShowSomeTypeRep
+instance GHC.Internal.Show.Show [TypeRep] = $fShowTypeRep
+instance GHC.Internal.Data.Type.Equality.TestEquality [., TypeRep]
+  = $fTestEqualitykTypeRep
+Warnings:
+  Deprecated names:
+  Deprecated exports:
+trusted: trustworthy
+require own pkg trusted: True
+COMPLETE: [TypeRep]
+COMPLETE: [App, Con]
+COMPLETE: [App, Con']
+COMPLETE: [GHC.Types.KindRepTyConApp, GHC.Types.KindRepVar,
+           GHC.Types.KindRepApp, GHC.Types.KindRepFun, GHC.Types.KindRepTYPE,
+           KindRepTypeLit]
+docs:
+  Just module header:
+         Just text:
+                -- |
+-- Module      :  GHC.Internal.Data.Typeable.Internal
+-- Copyright   :  (c) The University of Glasgow, CWI 2001--2011
+-- License     :  BSD-style (see the file libraries/base/LICENSE)
+--
+-- The representations of the types TyCon and TypeRep, and the
+-- function mkTyCon which is used by derived instances of Typeable to
+-- construct a TyCon.
+--
+              identifiers:
+       export docs:
+         []
+       declaration docs:
+         [mkTrCon -> [text:
+                        -- | Construct a representation for a type constructor
+-- applied at a monomorphic kind.
+--
+-- Note that this is unsafe as it allows you to construct
+-- ill-kinded types.
+                      identifiers:],
+          mkTrApp -> [text:
+                        -- | Construct a representation for a type application that is
+-- NOT a saturated arrow type. This is not checked!
+                      identifiers:],
+          typeNatTypeRep -> [text:
+                               -- | Used to make `'Typeable' instance for things of kind Nat
+                             identifiers:
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1144:21-28}
+                               Typeable],
+          typeSymbolTypeRep -> [text:
+                                  -- | Used to make `'Typeable' instance for things of kind Symbol
+                                identifiers:
+                                  {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1148:21-28}
+                                  Typeable],
+          typeCharTypeRep -> [text:
+                                -- | Used to make `'Typeable' instance for things of kind Char
+                              identifiers:
+                                {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1152:21-28}
+                                Typeable],
+          mkTrFun -> [text:
+                        -- | For compiler use.
+                      identifiers:],
+          Typeable -> [text:
+                         -- | The class 'Typeable' allows a concrete representation of a type to
+-- be calculated.
+                       identifiers:
+                         {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:845:17-24}
+                         Typeable],
+          TypeRep -> [text:
+                        -- | TypeRep is a concrete representation of a (monomorphic) type.
+-- 'TypeRep' supports reasonably efficient equality.
+-- See Note [Grand plan for Typeable] in GHC.Tc.Instance.Typeable
+                      identifiers:
+                        {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:190:5-11}
+                        TypeRep
+                        {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:190:5-11}
+                        TypeRep],
+          SomeTypeRep -> [text:
+                            -- | A non-indexed type representation.
+                          identifiers:],
+          App -> [text:
+                    -- | A type application.
+--
+-- For instance,
+--
+-- @
+-- typeRep \@(Maybe Int) === App (typeRep \@Maybe) (typeRep \@Int)
+-- @
+--
+-- Note that this will also match a function type,
+--
+-- @
+-- typeRep \@(Int# -> Char)
+--   ===
+-- App (App arrow (typeRep \@Int#)) (typeRep \@Char)
+-- @
+--
+-- where @arrow :: TypeRep ((->) :: TYPE IntRep -> Type -> Type)@.
+--
+                  identifiers:],
+          Con -> [text:
+                    -- | Pattern match on a type constructor
+                  identifiers:],
+          Con' -> [text:
+                     -- | Pattern match on a type constructor including its instantiated kind
+-- variables.
+--
+-- For instance,
+--
+-- @
+-- App (Con' proxyTyCon ks) intRep = typeRep @(Proxy \@Int)
+-- @
+--
+-- will bring into scope,
+--
+-- @
+-- proxyTyCon :: TyCon
+-- ks         == [someTypeRep @Type] :: [SomeTypeRep]
+-- intRep     == typeRep @Int
+-- @
+--
+                   identifiers:],
+          Fun -> [text:
+                    -- | The function type constructor.
+--
+-- For instance,
+--
+-- @
+-- typeRep \@(Int -> Char) === Fun (typeRep \@Int) (typeRep \@Char)
+-- @
+--
+                  identifiers:],
+          TypeRep -> [text:
+                        -- | A explicitly bidirectional pattern synonym to construct a
+-- concrete representation of a type.
+--
+-- As an __expression__: Constructs a singleton @TypeRep a@ given a
+-- implicit 'Typeable a' constraint:
+--
+-- @
+-- TypeRep @a :: Typeable a => TypeRep a
+-- @
+--
+-- As a __pattern__: Matches on an explicit @TypeRep a@ witness bringing
+-- an implicit @Typeable a@ constraint into scope.
+--
+-- @
+-- f :: TypeRep a -> ..
+-- f TypeRep = {- Typeable a in scope -}
+-- @
+--
+-- @since base-4.17.0.0
+                      identifiers:],
+          decTypeRep -> [text:
+                           -- | Type equality decision
+--
+-- @since base-4.19.0.0
+                         identifiers:],
+          eqTypeRep -> [text:
+                          -- | Type equality
+--
+-- @since base-4.10
+                        identifiers:],
+          mkTrAppChecked -> [text:
+                               -- | Construct a representation for a type application that
+-- may be a saturated arrow type. This is renamed to mkTrApp in
+-- Type.Reflection.Unsafe
+                             identifiers:],
+          mkTyCon -> [text:
+                        -- | Exquisitely unsafe.
+                      identifiers:],
+          mkTyCon# -> [text:
+                         -- | Exquisitely unsafe.
+                       identifiers:],
+          rnfModule -> [text:
+                          -- | Helper to fully evaluate 'TyCon' for use as @NFData(rnf)@ implementation
+--
+-- @since base-4.8.0.0
+                        identifiers:
+                          {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:149:32-36}
+                          GHC.Types.TyCon
+                          {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:149:32-36}
+                          GHC.Types.TyCon],
+          rnfSomeTypeRep -> [text:
+                               -- | Helper to fully evaluate 'SomeTypeRep' for use as @NFData(rnf)@
+-- implementation
+--
+-- @since base-4.10.0.0
+                             identifiers:
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1062:32-42}
+                               SomeTypeRep
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1062:32-42}
+                               SomeTypeRep],
+          rnfTypeRep -> [text:
+                           -- | Helper to fully evaluate 'TypeRep' for use as @NFData(rnf)@ implementation
+--
+-- @since base-4.8.0.0
+                         identifiers:
+                           {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1052:32-38}
+                           TypeRep
+                           {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1052:32-38}
+                           TypeRep],
+          someTypeRep -> [text:
+                            -- | Takes a value of type @a@ and returns a concrete representation
+-- of that type.
+--
+-- @since base-4.7.0.0
+                          identifiers:],
+          someTypeRepTyCon -> [text:
+                                 -- | Observe the type constructor of a quantified type representation.
+                               identifiers:],
+          typeRepFingerprint -> [text:
+                                   -- | Observe the 'Fingerprint' of a type representation
+--
+-- @since base-4.8.0.0
+                                 identifiers:
+                                   {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:392:19-29}
+                                   GHC.Internal.Fingerprint.Type.Fingerprint
+                                   {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:392:19-29}
+                                   GHC.Internal.Fingerprint.Type.Fingerprint],
+          typeRepKind -> [text:
+                            -- | Observe the kind of a type.
+                          identifiers:],
+          typeRepTyCon -> [text:
+                             -- | Observe the type constructor of a type representation
+                           identifiers:],
+          withTypeable -> [text:
+                             -- | Use a 'TypeRep' as 'Typeable' evidence.
+--
+-- The 'TypeRep' pattern synonym brings a 'Typeable' constraint into
+-- scope and can be used in place of 'withTypeable'.
+--
+-- @
+-- f :: TypeRep a -> ..
+-- f rep = withTypeable {- Typeable a in scope -}
+--
+-- f :: TypeRep a -> ..
+-- f TypeRep = {- Typeable a in scope -}
+-- @
+                           identifiers:
+                             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:540:13-19}
+                             TypeRep
+                             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:540:13-19}
+                             TypeRep
+                             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:540:26-33}
+                             Typeable
+                             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:542:9-15}
+                             TypeRep
+                             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:542:9-15}
+                             TypeRep
+                             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:542:44-51}
+                             Typeable
+                             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:543:39-50}
+                             withTypeable],
+          TrApp -> [text:
+                      -- | Invariant: Saturated arrow types (e.g. things of the form @a -> b@)
+-- are represented with @'TrFun' a b@, not @TrApp (TrApp funTyCon a) b@.
+                    identifiers:
+                      {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:209:31-35}
+                      TrFun],
+          TrFun -> [text:
+                      -- | @TrFun fpr m a b@ represents a function type @a % m -> b@. We use this for
+-- the sake of efficiency as functions are quite ubiquitous.
+-- A TrFun can represent `t1 -> t2` or `t1 -= t2`; but not  (a => b) or (a ==> b).
+-- See Note [No Typeable for polytypes or qualified types] in GHC.Tc.Instance.Class
+-- and Note [Function type constructors and FunTy] in GHC.Builtin.Types.Prim
+-- We do not represent the function TyCon (i.e. (->) vs (-=>)) explicitly;
+-- instead, the TyCon is implicit in the kinds of the arguments.
+                    identifiers:],
+          $fEqTypeRep -> [text:
+                            -- | @since base-2.01
+                          identifiers:],
+          $fOrdTypeRep -> [text:
+                             -- | @since base-4.4.0.0
+                           identifiers:],
+          $fShowSomeTypeRep -> [text:
+                                  -- | @since base-4.10.0.0
+                                identifiers:],
+          TypeableInstance -> [text:
+                                 -- | A 'TypeableInstance' wraps up a 'Typeable' instance for explicit
+-- handling. For internal use: for defining 'TypeRep' pattern.
+                               identifiers:
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:241:9-24}
+                                 TypeableInstance
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:241:9-24}
+                                 TypeableInstance
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:241:39-46}
+                                 Typeable
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:242:46-52}
+                                 TypeRep
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:242:46-52}
+                                 TypeRep],
+          isTYPE -> [text:
+                       -- | Is a type of the form @TYPE rep@?
+                     identifiers:],
+          readTwoDigits -> [text:
+                              -- | See Note [Small Ints parsing] in GHC.Builtin.Types
+                            identifiers:],
+          typeLitTypeRep -> [text:
+                               -- | An internal function, to make representations for type literals.
+                             identifiers:],
+          typeableInstance -> [text:
+                                 -- | Get a reified 'Typeable' instance from an explicit 'TypeRep'.
+--
+-- For internal use: for defining 'TypeRep' pattern.
+                               identifiers:
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:247:21-28}
+                                 Typeable
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:247:58-64}
+                                 TypeRep
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:247:58-64}
+                                 TypeRep
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:249:36-42}
+                                 TypeRep
+                                 {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:249:36-42}
+                                 TypeRep]]
+       arg docs:
+         [mkTyCon -> 0:
+                       text:
+                         -- ^ package name
+                       identifiers:
+                     1:
+                       text:
+                         -- ^ module name
+                       identifiers:
+                     2:
+                       text:
+                         -- ^ the name of the type constructor
+                       identifiers:
+                     3:
+                       text:
+                         -- ^ number of kind variables
+                       identifiers:
+                     4:
+                       text:
+                         -- ^ kind representation
+                       identifiers:
+                     5:
+                       text:
+                         -- ^ A unique 'TyCon' object
+-- Used when the strings are dynamically allocated,
+-- eg from binary deserialisation
+                       identifiers:
+                         {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1116:40-44}
+                         GHC.Types.TyCon
+                         {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1116:40-44}
+                         GHC.Types.TyCon,
+          mkTyCon# -> 0:
+                        text:
+                          -- ^ package name
+                        identifiers:
+                      1:
+                        text:
+                          -- ^ module name
+                        identifiers:
+                      2:
+                        text:
+                          -- ^ the name of the type constructor
+                        identifiers:
+                      3:
+                        text:
+                          -- ^ number of kind variables
+                        identifiers:
+                      4:
+                        text:
+                          -- ^ kind representation
+                        identifiers:
+                      5:
+                        text:
+                          -- ^ A unique 'TyCon' object
+                        identifiers:
+                          {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1095:40-44}
+                          GHC.Types.TyCon
+                          {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1095:40-44}
+                          GHC.Types.TyCon,
+          mkTyConFingerprint -> 0:
+                                  text:
+                                    -- ^ package name
+                                  identifiers:
+                                1:
+                                  text:
+                                    -- ^ module name
+                                  identifiers:
+                                2:
+                                  text:
+                                    -- ^ tycon name
+                                  identifiers:]
+       documentation structure:
+         section heading, level 1:
+           text:
+             -- * Typeable and kind polymorphism
+           identifiers:
+         section heading, level 1:
+           text:
+             -- * Miscellaneous
+           identifiers:
+         avails:
+           [GHC.Internal.Fingerprint.Type.Fingerprint{GHC.Internal.Fingerprint.Type.Fingerprint,
+                                                      GHC.Internal.Fingerprint.Type.Fingerprint}]
+         section heading, level 1:
+           text:
+             -- * Typeable class
+           identifiers:
+         avails:
+           [Typeable{Typeable, typeRep#}]
+         avails:
+           [withTypeable]
+         section heading, level 1:
+           text:
+             -- * Module
+           identifiers:
+         avails:
+           [GHC.Types.Module{GHC.Types.Module}]
+         avails:
+           [moduleName]
+         avails:
+           [modulePackage]
+         avails:
+           [rnfModule]
+         section heading, level 1:
+           text:
+             -- * TyCon
+           identifiers:
+         avails:
+           [GHC.Types.TyCon{GHC.Types.TyCon}]
+         avails:
+           [tyConPackage]
+         avails:
+           [tyConModule]
+         avails:
+           [tyConName]
+         avails:
+           [tyConKindArgs]
+         avails:
+           [tyConKindRep]
+         avails:
+           [tyConFingerprint]
+         avails:
+           [GHC.Types.KindRep{GHC.Types.KindRep, KindRepTypeLit,
+                              GHC.Types.KindRepTyConApp, GHC.Types.KindRepVar,
+                              GHC.Types.KindRepApp, GHC.Types.KindRepFun, GHC.Types.KindRepTYPE,
+                              GHC.Types.KindRepTypeLitS, GHC.Types.KindRepTypeLitD}]
+         avails:
+           [GHC.Types.TypeLitSort{GHC.Types.TypeLitSort,
+                                  GHC.Types.TypeLitChar, GHC.Types.TypeLitNat,
+                                  GHC.Types.TypeLitSymbol}]
+         avails:
+           [rnfTyCon]
+         section heading, level 1:
+           text:
+             -- * TypeRep
+           identifiers:
+         avails:
+           [TypeRep{TypeRep}]
+         avails:
+           [TypeRep]
+         avails:
+           [App]
+         avails:
+           [Con]
+         avails:
+           [Con']
+         avails:
+           [Fun]
+         avails:
+           [typeRep]
+         avails:
+           [typeOf]
+         avails:
+           [typeRepTyCon]
+         avails:
+           [typeRepFingerprint]
+         avails:
+           [rnfTypeRep]
+         avails:
+           [eqTypeRep]
+         avails:
+           [decTypeRep]
+         avails:
+           [typeRepKind]
+         avails:
+           [splitApps]
+         section heading, level 1:
+           text:
+             -- * SomeTypeRep
+           identifiers:
+         avails:
+           [SomeTypeRep{SomeTypeRep, SomeTypeRep}]
+         avails:
+           [someTypeRep]
+         avails:
+           [someTypeRepTyCon]
+         avails:
+           [someTypeRepFingerprint]
+         avails:
+           [rnfSomeTypeRep]
+         section heading, level 1:
+           text:
+             -- * Construction
+           identifiers:
+         documentation chunk:
+           text:
+             -- | These are for internal use only
+           identifiers:
+         avails:
+           [mkTrType]
+         avails:
+           [mkTrCon]
+         avails:
+           [mkTrApp]
+         avails:
+           [mkTrAppChecked]
+         avails:
+           [mkTrFun]
+         avails:
+           [mkTyCon]
+         avails:
+           [mkTyCon#]
+         avails:
+           [typeSymbolTypeRep]
+         avails:
+           [typeNatTypeRep]
+         avails:
+           [typeCharTypeRep]
+         section heading, level 1:
+           text:
+             -- * For internal use
+           identifiers:
+         avails:
+           [trLiftedRep]
+       named chunks:
+         "kind_instantiation":
+           text:
+             {-$kind_instantiation
+
+Consider a type like 'Data.Proxy.Proxy',
+
+@
+data Proxy :: forall k. k -> Type
+@
+
+One might think that one could decompose an instantiation of this type like
+@Proxy Int@ into two applications,
+
+@
+'App' (App a b) c === typeRep @(Proxy Int)
+@
+
+where,
+
+@
+a = typeRep @Proxy
+b = typeRep @Type
+c = typeRep @Int
+@
+
+However, this isn't the case. Instead we can only decompose into an application
+and a constructor,
+
+@
+'App' ('Con' proxyTyCon) (typeRep @Int) === typeRep @(Proxy Int)
+@
+
+The reason for this is that 'Typeable' can only represent /kind-monomorphic/
+types. That is, we must saturate enough of @Proxy@\'s arguments to
+fully determine its kind. In the particular case of @Proxy@ this means we must
+instantiate the kind variable @k@ such that no @forall@-quantified variables
+remain.
+
+While it is not possible to decompose the 'Con' above into an application, it is
+possible to observe the kind variable instantiations of the constructor with the
+'Con\'' pattern,
+
+@
+'App' (Con' proxyTyCon kinds) _ === typeRep @(Proxy Int)
+@
+
+Here @kinds@ will be @[typeRep \@Type]@.
+
+-}
+           identifiers:
+             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1203:2-4}
+             App
+             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1218:2-4}
+             App
+             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1218:9-11}
+             Con
+             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1221:30-37}
+             Typeable
+             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1227:44-46}
+             Con
+             {libraries/ghc-internal/src/GHC/Internal/Data/Typeable/Internal.hs:1232:2-4}
+             App
+       haddock options:
+       language:
+         Just Haskell2010
+       language extensions:
+         Cpp
+         UndecidableInstances
+         MonomorphismRestriction
+         MonoLocalBinds
+         DeepSubsumption
+         RelaxedPolyRec
+         ForeignFunctionInterface
+         UnliftedFFITypes
+         ScopedTypeVariables
+         AllowAmbiguousTypes
+         BangPatterns
+         TypeFamilies
+         ViewPatterns
+         GADTs
+         GADTSyntax
+         DoAndIfThenElse
+         ConstraintKinds
+         PolyKinds
+         DataKinds
+         LinearTypes
+         TypeSynonymInstances
+         FlexibleInstances
+         MagicHash
+         EmptyDataDecls
+         KindSignatures
+         PatternGuards
+         RankNTypes
+         TypeOperators
+         ExplicitNamespaces
+         ExplicitForAll
+         DatatypeContexts
+         TraditionalRecordSyntax
+         PatternSynonyms
+         TypeApplications
+         StarIsType
+         StandaloneKindSignatures
+         FieldSelectors
+         ListTuplePuns
+extensible fields:
+
