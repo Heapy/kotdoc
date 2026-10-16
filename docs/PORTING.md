@@ -10379,3 +10379,89 @@ Windows/Winsock and other ABIs; the prior full GHC/network/runtime gaps. All
 original Pandoc readers/writers/App/Lua and all tests, then calibre MOBI/all tests
 and other formats absent from Pandoc/all their tests, remain required without
 narrowing that objective.
+
+### crypton-connection buffered reads, backend lifecycle and sessions
+
+`NetworkConnection` translates the pinned **crypton-connection 0.4.6** buffer
+state machine: get/getExact/getChunk/getChunk', line reading, and the
+waitForInput wrapper's signed-64-bit millisecond-to-microsecond multiplication.
+The timeout mechanism is an explicit runtime effect; full GHC asynchronous
+cancellation and System.Timeout are **not** claimed implemented here.
+
+The port preserves separate non-reentrant buffer/backend cells, backend
+snapshots released before IO, stream reads of 16,384 bytes, socket receives of
+1,500 bytes and TLS receive dispatch. Callback pair/remainder failures restore
+the previous buffer cell without rolling back underlying reads. Callback values
+are evaluated after committing/releasing the cell; EOF never evaluates the
+callback remainder. A first empty backend read returns its callback result and
+sets EOF; later reads throw the original structured EOF with host/port and
+operation location. Zero-size reads bypass the EOF cell; negative sizes retain
+the original userError.
+
+Line reading trims LF only, retains CR, checks the limit only after consuming a
+chunk without LF, and permits the final chunk containing LF to exceed the limit.
+**The original implementation returns an empty line on its first empty backend
+read**, despite its API comment promising an exception. The next line read
+throws EOF. Independent original-code observations establish this behavior.
+
+Backend lifecycle includes stream put/flush order, native socket sendAll, TLS
+send, close and STARTTLS state changes. TLS close suppresses only bye's IO
+exceptions and always closes the context; a close failure replaces an earlier
+bye failure. Upgrades hold buffer then backend, discard buffered bytes/EOF on
+success, restore both cells on failure and do nothing on an already-secure
+connection. connectFromHandle/connectFromSocket ignore SOCKS, leave plain
+contexts unforced, and call contextNew then handshake without inventing cleanup
+on handshake failure. TLS parameter construction/context creation remains an
+explicit factory supplied by the eventual original TLS engine.
+
+`PosixConnectionSocket` connects this layer to the already ported native socket
+IO, rather than a Java Socket transport. `ConnectionSessionManager` ports lookup,
+insert/overwrite, invalidate and atomic lookup/delete for resumeOnlyOnce, with
+no tickets. It is not installed into TLS parameters: the upstream installation
+line is itself commented out.
+
+The development observer compiles the **complete original Connection module and
+Types**, changing only module visibility/names and the TLS effect import. Its
+buffer/EOF/line/rollback/session algorithms are unchanged. Stream reads use real
+binary files; TLS parameter/context/handshake/read/write/close effects log order
+and inject IO/non-IO failures. The pinned release has **no test-suite stanza**;
+all original source and notices remain retained.
+
+The corpus contains **1,399 independent stateful original-code programs** with
+**19 source hashes**, semantic SHA256
+`7bf767f58f357540e6a0915115a83c100b96fd76d0634b46419b14288a7e7b02`.
+It covers Int64 extremes, all byte values and raw host characters, first/later
+EOF, initial empty/data/EOF cells, callback pair/result/remainder failures,
+16,384-byte line boundaries, timer-wrapper overflow, successful/failed/repeated
+upgrades, lazy parameters/context/SOCKS, close failure replacement, 250 seeded
+reading programs and original session insert/lookup/overwrite/delete sequences.
+Five additional units verify concurrent single-use session consumption, backend
+snapshot release and put/flush ordering, reentrant reading from the *result*
+continuation after buffer release, reader/handshake/isSecure lock ordering, and
+real POSIX binary/line/EOF exchange against an independent Java TCP peer.
+
+Validation: **124,135 successful selected HTTP/environment tests** on both
+macOS/aarch64 JDK 21 (71s Gradle build) and Linux/x86_64 JDK 21 (74.888s JUnit).
+Of **124,136 cases**, only the actual Windows Registry test is skipped on POSIX.
+All **23 macOS XML suites** are fully parsed, including agreement between
+declared counts and actual testcase/failure/error/skip elements. Linux reports
+no aborted tests/containers, no failed containers and no failures. The new class
+contributes **1,404 passing tests**, including the five integration/concurrency
+units. Processed fixtures match final source bytes. All **153 source/fixture
+verifiers** pass (38.6s), and all 19 new provenance hashes also match staged Git
+blob bytes. Independent regeneration retains the same semantic corpus hash.
+
+Installed/core JAR identity checks verify **293 HTTP classes**, **22 TLS error
+classes**, all **74 notices**, **250 Pandoc assets**, **six ABI assets** and the
+unchanged **60,137-byte PSL**. All **2,767 preexisting classes** (including
+**2,493 non-HTTP classes**) and every other preceding JAR entry are byte-identical
+to the 0e9a136d checkpoint. CLI/dependency JAR bytes are also unchanged.
+
+This checkpoint does not complete crypton-connection: sequential address
+resolution/connectTo and its bracket/exception behavior, SOCKS negotiation and
+environment parsing, TLS parameter/certificate construction and the actual TLS
+protocol still need translation and verification. The existing resource HTTPS
+seam remains unchanged until a real translated TLS backend can replace it.
+The complete original goal remains required: all Pandoc functionality and tests,
+then calibre MOBI and all its tests, then formats absent from Pandoc and all
+their tests, along with the previously documented runtime/platform gaps.

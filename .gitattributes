@@ -1,4 +1,5 @@
 core/src/test/resources/** linguist-generated=true
+tools/haskell-connection-reference/OriginalConnection*.hs -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-http-manager-reference/http-client-0.7.19/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol linguist-vendored=true
 vendor/network-3.2.9.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/async-2.2.6/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
