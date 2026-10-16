@@ -1,0 +1,1082 @@
+[
+  {
+    "requestHash": "154483f124fe8027ec715403e359c719d7a466bd4791974b5d5646e24999a9b3",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "fa1fa7bcf6f51ccd5dbf1d7b524ce38ac1a41780187ca5912939b7be0f409430",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "bfb98fff5693fd4355260b2b12df0b23c63dc193b8e4edbccbe36191fabdd132",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "21039cfdeda322fc07b7b047f93ad5a1bf808806a7736b8a4bb4dd608dedcc6d",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "fa2d5bc1fcba4e383afd3189c60a71659166149cdabc46143274e2044d33a6ea",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "df8baa7614e168f9efa96b933f9f71defa42d7fb2a2c82c7546a12673ce41529",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "5cd3c6d666bb1078503a246c70941ba424cbb98c9546cdf43062ae80eee070b4",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "9f052ca99511f667328fd19e7de11764762da8dcf9c2854ca395902e8a65ed5a",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "b0616a2186675723583af772256cd2b5a30beea59a4ec3f9688aa040f1497149",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "8357e63b454765ee9510aac1edb552debac1f863de7565575bbbf322bb3baa52",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "d0a81eca3966add2653968565c99c75dd6996510e0a211f9653c5196d8401674",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "035315986f0479a27a2e7a81d6d677e198a26a0f9e005e002c9fa1865f1937e5",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "4dece3fa3d82a8f2a91d954c337f4c23304b6906b5f2216f48dbd44634565b32",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "28dc3ac0c5d15e5e41865f1a39e5e601126d86b6258ca4b7c4701a5e79cb6c74",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "d4db20cc8b396b547f5f30c7698bde4d01265f85326059215b469b65779edaed",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "32c5af632f802a3432b58714995adb4017737d48e655acb9eefb09a0fda4c19b",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "c3b1e7bd8a93981f20f9efa97df9eb202e6fbc0dc2326c0229d41422b865128d",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "69ee994eba0175ba2707e9e314330be23d75270c78db815f22e56089806ff8a9",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "ff42debcd77c5543850e412b3c445b52da2d10b4ff63ac653aa12409fedbba97",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "16c319a7f0c9a15008eaea3448fa96fe12929573361a4a68f1fadd03f696053f",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "e7d9de1892042573282e5a1b387e8482398d11de91557a79612c56c75c8de0a0",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "4034e0748849c7b5b5bc26e330ff9940005c4fa9a091dc378c3bdd157da69d51",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "5273ba2285899a012d85459bda530fae06018e15734c780577cdd9274fd3d98d",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "a1fbc054ab0bc04b561099c2798a680ec1672ef294689bd426395d1d2d705047",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "75adf7feb59af7dd72b37b4ce8daf766d9e095cfe5c1a6f87874e61539466cc6",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "ce79382c1cd95c3b9ae39c98bae28582e385f045b6f569e913a11d7e9742907c",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "19728477e930b500b2cb032209f66a771b777837344bb6e7fef87a29fcdf7c55",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "985b26c04a763ad9da2d466b025667522e4efbb051f4919ccb92cb93d4d151d0",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "9d5ec680b3c1faa819845aa999466436106add5aafec974d173bc25a062d147c",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "4730a0b28a2017db3de93d5af0f2d2083b18632fc73777bc5dd182991077b109",
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": "same-math-base-plus-p",
+    "matchesGroupMathematics": false
+  },
+  {
+    "requestHash": "73dddd448f258dc569dca064edd7708ac15a65aeb2db21cbac1ed1e51eb0ca3f",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "dbf755c62b98e4d743dd8432a0c35cc564180d5332afa1553402db354d576efe",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "eb70d9fd0904ac687bee763c7a4a423af37a26a7c6afceba2f078d375091ed5f",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "09a1b76e3d17ea17910111b70629cb41cbdd894c15a674fded5b328cd76a0237",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "c6083911aea105c0d20e585d10a71b6fce387e53e2445e50017c3cb225eeaca8",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "e6ed4741905864815eb9d60e9547ce7be4ef8a71af963e4e0025b024361770a6",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "43ee4b46c494b6a9c7b4fdad7129b54ffb164ce3e6048caf289c763238a737a3",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "874c1098c3197923cd5993a3ce23eec27ad936877cffdf14e5c3bd556f0afac9",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "f7d71f3b9b811a85761eab3fd7bca7f8900a30d5709468ee26c7a1276fbf07ef",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "2dc6686528af8aec4cc048e9cef7437c212de1a9370bd2344b9d8dc48d93d7f6",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "12a4c987151de9d65d286b5a1381c385d1686705e531723009b384ee58176b24",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "5937c814d047a468ab56034a5f7f7630413377f144441e617a151ad3894b4c9c",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "13ff29d446e6af41af7fb2e7f2f3756cc3a05f9a799a77f40a82a69da1afc681",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "bb3ae134994cc51bf56abd20832d67ada34f1388771fdc9f34a68c1b145990c9",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "a324429e4a8a0295e2e0672db2b5ea5dab0c16226d27e3f52321779f97d181aa",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "1797c4fd1de49baae37fd188469c4cff297318ce1b5a66f5219b07e10c1b51ef",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "1f99ce96cb81ed6415ce32afd091a6b75e64a8fe1f399cba4a37bb3df57d0af7",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "92fe29d73d66493132cb185a7c4b4796b12ecc4beef7afd9cfebdbe4202155c1",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "0bcc884769213492aa67a06e12756ea8837515d901ee9d272c0bbc30393c6586",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "3d696bb874651c6cba4d904901cec53d848c7e7b74849b5848c0352b0fa32d08",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "72818018dbd3783aa91c6a204fb077a3266ed2c3d3ccb784f03172add81fa60d",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "e7067ff7d9a50de7150ed099d153e44560d6ee3cd0fd33e0968823314f874078",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "75f97770898ab33913c063d5bc203e37f44208ee0cf8846168d7c826bf6dfec6",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "21eeee8d7b6bccafd9fbd27f6b3cca97b103b4511827270eff4ef1ad889da720",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "35730f8f626ee9493bef3c61a56d357fbc95a8d0aecfd3097ed4c8f47f8ed330",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "368986d9a27cb5d4a51f5db03d9f121d4ff3b35d69184e760a9740c7f49e4eaa",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "7e6ca4bfae27d15804edcbd2bff939fb4a6f3335d0e4dcef80b5de9fd8160ca6",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "dcbfd6cd3491994740e47b17610f65e1437ea41a3b731d70043ec9b27dea66d3",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "a38ba26afe55b102f536a78f30e8cde3d3a45e56d3a0c1c20fbc5cb7bb0b12dc",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "d228f59bac3cb9422bb1685430ff63641d580afb2a5005721f2075e40078bd19",
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": "same-math-base-plus-p",
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "bb27d044c3edbf9f3205ad041a604dcae02c8ee7af30427005eec489095d97fa",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "8464cc1238495a0f4406fa3f3c6e35916d4b5203f9b24714e3643e8bbd66a780",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "5143ecba19e9abdea703e2c1e0760c64736e847a85d59c5e7c876a3bef74e7c8",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "9fab015824c05557728dada356a06ce128a602ca2cfbee4d30b8690c382482c9",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "de7ccfbe4ff0471dfa19eab5f24589c85f16130ccef15bb12546a002dd1ee321",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "bf44779796399f88bf0fad9d2d8f1f6f9999afeeeda981ea0bd9c5a1fc4f3117",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "92702a487cd9cf9fea7c436736379e5b578cf7cd0cb3d6e06b5429f9ddd81fc9",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "a3d18fc2137f897969820dc57ac633df1b5cd25259bcbe63ebb54ad7d23cc6e9",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "b5b95ecb327e66249ca3729837151ae3a7844190fb6568f9c011e6cf713d20bb",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "068fea55f314c789e7b6105012a278363dfa3d82a87416c266bf3bb7f86fca82",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "201e85b5ae931074cec24dbaf65c252b2c1ac54f6d747b907a2cb7f8c32fed16",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "e477df53b89c1ac16aabcd4cf89a3e1663c8ee6b497226e1d0caef0988c11ed5",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "b2dbc2a99acddc2f3bff5fd276a1eb785c6759a46fdb2ac3161248dbf59ee024",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "4e0075042ae09780437cc137af912f3762d7fc50a11109e55b068d3b728218f4",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "a813f5be582aa2f8a5de0a0c9cc852c99c50f193fe182434314428cbdccee6e9",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "94e575656aef78d0ca90adf72553103125f42c19cfb44d09e7433cc9f73f116c",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "253e17cd79aad86c3f51e08a881a7f5e532f797795a2837257e536531305764f",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "fe99705f1e703c544febf943430581228106c158b71e8ffb4dee86cfc86d00fd",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "a82f6d735dff49140d01fc6ab09e06a275bf2cd7777dfe05a696f21fa3f1c9d8",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "9622f1e77b2181afe4f938036cd590fd906af0a1e891dae6b3bc80cd059cec9a",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "a36da3019b549a8892cb45a80bb027ab86c4b974c0dee606d8377de57b5d9003",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "d3b8d02aef136cbc8d4fcb965e0104c3c2aa6f81d9035ba77a1327f7acd77781",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "95993ccd1eb58867f388c90dc76c97d8e62e017c50bf43ceb558ad4e9b21caad",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "af23c1199c54ec95112f3e79f54c9b3f6dc195c0593c2056db554fac985f813c",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "076287b9f8e010fcce0cc2dcabdc9d3d2f6d591e59a806ac1823b15130884d4c",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "5d686b7a966acabf284eb233ad375d62330b83774f44c094f06cd603a88713e4",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "a8ec75c072694f1c74c11215712c38f694e7fcdfe6a7d80aeeb41a9784c8fc9e",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "9d4492d5ea8fea9d32cadcab022b6f1bf1a7851b34833c86f1bfedacca12bd15",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "e62daac009b75b279713b30f5a83ae8adc7efcccf0ed65fce8d76280e2b0b920",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "40e428ccde586ec9f82b376f6717f6b5ff3dc7079b16d0c4fd27cef8a2050d20",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "op": "add",
+    "boundary": "same-math-base-plus-p",
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "7a180c0f8929230e98ecfa98778809afb4c43d95fc5591c4f9c43dd935985148",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "87d1304fb504570afac0cbc0371b1f5783e83e3c52bade4cefc84a6b041ad2c5",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "sub",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "087256c40f4eb119e37211ed195715083609c2e075b74a86c77078c2e03e3633",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "4eb52ece1eb84da2b4ee36a63dfb01774c41ff277efee7a55d6acc36ec2cdcb7",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "add",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "cc2848fe701220bba8da4d1b3d55b27d8913b904779faec6ccd3bb9fd79d54e5",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "f2b62ab4a662f995a066394a23b725226f29d9f2067ce0df8903974fcabc489a",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "74762df7b755ad516c0c4f3591853160498f37a5d0b3dfdde0b109ea8981854a",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "9467f37639dfd16fa00ec9bb90831fdc1ff197e5903aa02fbccf00974355a137",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "dcf72e68aaa5611319598d8de432089d5411e90b455df145e34559e90680c7f8",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "7752a12770d9fa0ee67a30e0c0248f0a5b581b7a30ef6a8ebb4a930835661aab",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "0b6af08dd9d479ba14fd4fd355f7f8de007327a35ee30d8b64a8e79bd29ff4ca",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "ff04bbb40dfd87549b45137f99d9279b32fbcd01d45fc36d86193af117662f57",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "586e82964f782c08466f86cc445fabf5352b39198bc8a639ada8f207c3749c28",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "ec6ad8312ede7787387a58373a33a68eb3c9c34eb7d7959127741ea145b1a1b6",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "792288072d20a57b910dce465b69795f973ae14afe24781f5c5db0f46d288507",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "d7dbb124edfd398bba96cf834b841e0fc45c0699e2bbbf63893f6e701f06830d",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "4f63eacd27a1904634ec043c08106724bebf7702ba5a35c52bc2d5a6f431d3a5",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "c0df32fd2f73472dacf72d2e2a48ff3027962f7b4af9a4e76ffc119da18f8a9b",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "025c0b2433d6b04505acd595814d6e32f53f448abdc172a8c16aff6a2b4cff9c",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "84940e8fe391fe67f7e27e59169fef0880f2ab1c5af32bc223cdb21d9fde10da",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "06cabb80185402b41c0a7bf71e371cff14fd7f26c8d149af5c2ba1b5795ed976",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "843c4086162841575a9ee29ecfc760e5317dffb46d1d880aaea2733c4dc260a3",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "2e8626dd5162b637a971ce55edd02147d1c63d974f39a09ac05636a4e527a2f3",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "c439f96f031eea95ab79fb3bacee7e9679a3c4cd47e59d94a0620649077b7cae",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "doubleInternal",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "9bbaa208b5dd61f5f5133e7c5616f53ed5aabdf3b431d2c890ef77bf23375921",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "3dd52d83dd9b0453aab63c005999e636c398faafc18da2f4b73fbb2c30f34e08",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "f87a4ea52ad6e4906ae43ee14864db429c250bc115e76aaac1399b707d885626",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "332fc464e7f2344e4f78e301e36c90dcf2401c96dd464be83089af696101cef4",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "392387a5aa1f6cb6d9c9a2dddaad3a5ea4454a6cfda6143ae66135f522a8a40c",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "double",
+    "boundary": null,
+    "matchesGroupMathematics": true
+  },
+  {
+    "requestHash": "9bf2ca8411dc965ec96647cd30807bf28cae3d8ade851ff1363af19e56de97f1",
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "op": "add",
+    "boundary": "same-math-base-plus-p",
+    "matchesGroupMathematics": true
+  }
+]

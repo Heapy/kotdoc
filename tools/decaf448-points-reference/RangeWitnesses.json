@@ -1,0 +1,74 @@
+[
+  {
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "boundary": "same-math-base-plus-p",
+    "firstDifferingFieldStage": 5,
+    "firstDifferingFieldOperation": "mul",
+    "sourcePointAddLine": 346
+  },
+  {
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "boundary": "tight-base-control",
+    "firstDifferingFieldStage": null,
+    "firstDifferingFieldOperation": null,
+    "sourcePointAddLine": null
+  },
+  {
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "boundary": "same-math-base-plus-p",
+    "firstDifferingFieldStage": null,
+    "firstDifferingFieldOperation": null,
+    "sourcePointAddLine": null
+  },
+  {
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "boundary": "tight-base-control",
+    "firstDifferingFieldStage": null,
+    "firstDifferingFieldOperation": null,
+    "sourcePointAddLine": null
+  },
+  {
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "boundary": "same-math-base-plus-p",
+    "firstDifferingFieldStage": null,
+    "firstDifferingFieldOperation": null,
+    "sourcePointAddLine": null
+  },
+  {
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "boundary": "tight-base-control",
+    "firstDifferingFieldStage": null,
+    "firstDifferingFieldOperation": null,
+    "sourcePointAddLine": null
+  },
+  {
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "boundary": "same-math-base-plus-p",
+    "firstDifferingFieldStage": null,
+    "firstDifferingFieldOperation": null,
+    "sourcePointAddLine": null
+  },
+  {
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "boundary": "tight-base-control",
+    "firstDifferingFieldStage": null,
+    "firstDifferingFieldOperation": null,
+    "sourcePointAddLine": null
+  }
+]

@@ -14290,3 +14290,56 @@ No full Muse writer, local:618, Pandoc/tests or later calibre completion is clai
 
 Cached diff checking retains one EOF blank-line diagnostic in the verbatim
 original5107.md fixture; its upstream-byte pin passes. Other staged paths are clean.
+
+### Decaf448 geometry, codecs, Niels and full table checkpoint
+
+This coherent first point slice ports28 decaf.c definitions plus header copy
+(29 functions), all fixed cofactor4/no-twist/no-sigma guards and complete table
+data. SourceMatrix lists45 compiled source definitions:17 remain unimplemented
+plus the separately conditional MSVC helper. Independent review checks exact
+field call order, aliases/disjoint restrict domains, decode failure buffers,
+assertion preconditions, ignored rotation, zero-factor rescaling, torsion equality
+and before_double stale-T behavior. No validity/subgroup safety check is invented.
+Accepted field/scalar production and public APIs are unchanged.
+
+Own extraction/source/native replay passes21,340 observations/47 pins across
+four profiles (5,335 each), with1,764 trace rows/31,590 field stages. Independent
+actual Haskell NEON ABI replay passes926 observations and unchanged29-example
+Ed448/Curve448 native supporting baseline. Own integer proof passes6,441 checks.
+All49 frozen path hashes match; saved fresh59227 XML independently confirms
+21,396 actual tests, zero failures/errors/skips. Completed jar/installDist packs
+four point/table classes without BigInteger and exact existing Decaf notice;
+installed/core JARs match. No additional Gradle run was necessary.
+
+All340 field table elements are independently compared as words,64 raw memory
+bytes and56 wire bytes in every profile. Own direct C-versus-Kotlin comparison
+checks all2,720 56-bit literals; forced32 independently splits to5,440 limbs.
+Constants, identity/base and full comb/wNAF data are present without claiming
+their pending multiplication loops. Host raw-memory byte observations are little
+endian observations, not JVM layout or big-endian proof.
+
+Matched32/32 and64/64 generic profiles are separated from mixed field64/API32
+generic and actual ARM NEON/API32 profiles. NEON repeats low32 mask lanes;
+point-local handling preserves raw noncanonical mask differences without changing
+field arithmetic. Documented zero/all-ones masks and normalized API booleans agree.
+These are portable/host-profile checks, not real32-bit OS or all SIMD ABI proof.
+
+Point_valid does not prove tight limb bounds. All120 independent non-tight
+comparisons and28 original32-bit group-arithmetic discrepancies are retained.
+The explicit base-plus-p witness first differs at field stage5 (multiply at
+decaf.c346 after raw sums343/345); tight32 and all64 controls agree. This proves
+a concrete raw-source behavior and a sufficient tested tight mathematical
+domain, not universal caller-range reachability or a new upstream precondition.
+Raw parity is preserved instead of rewriting expectations to ideal arithmetic.
+
+Remaining17 definitions include scalar/double/dual loops, batch inversion/
+normalization, comb/wNAF lookup/precompute/multiply, direct_scalarmul, X448 ladder/
+key derivation and precomputed destruction. Later recode_wnaf signed-shift UB
+and zero-variable-scalar base-double quirk are explicit pending source concerns.
+Public/modern X448, Ed448/SHAKE, other crypto operations and full local:613/
+Pandoc/tests/later calibre remain open. Existing transparent MIT provenance and
+JVM timing/erasure/foreign-memory limits continue to apply.
+
+Cached diff checking retains304 original whitespace/EOF diagnostics only in
+byte-authenticated original C/header copies and the mechanical point observer.
+Source transformation verification passes; all other staged paths are clean.
