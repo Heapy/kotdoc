@@ -13721,3 +13721,33 @@ equivalence are not claimed. Existing NativeReader remains unchanged; its
 uppercase O/X escapes and Char-list Text integration are the next separate fix.
 225 Eq/Ord, 174 Walk and full public export/effect rows remain open. Local:611,
 full Pandoc/tests and later calibre stages are not completed.
+
+
+### Complete raw Donna ladder, inversion and export
+
+Kotlin ports both full Donna suffixes: fmonty input destruction/output buffers,
+signed32/unsigned64 conditional swaps, the double-buffer 256-bit ladder, both
+254-square/eleven-multiply inversion schedules and the clamped Donna export.
+The accepted two field profiles remain unchanged. Secret bytes are copied
+before clamping; point high-bit masking and byte/limb whole-object aliases
+retain source order. The original Haskell FFI ignores C's constant-zero return
+and this raw Kotlin output API likewise has no new error return policy.
+
+Independent ordinary-C and mechanically observed-C replay passes 1,782 cases/
+twelve source pins, SHA256
+da761f6f1f2c1291397a37c8195fc218e1f19728eb269e3d88394e6215f703a8.
+Each observed case first agrees with unchanged ordinary C on all output/input
+mutations. Fifty-eight complete trace cases retain every ladder coordinate
+round and inversion operation; all four original KATs run in both profiles.
+Fresh independent combined XML passes 8,541 actual tests (1,795 raw plus 6,746
+field), zero failures/errors/skips. JAR/installDist passes with identical
+installed core JAR, two exact Donna notices and no BigInteger/foreign/process
+references or native methods in the Donna classes.
+
+Aliases are whole-object aliases, not arbitrary overlapping memory regions;
+fmonty slots remain source-disjoint and bounded, swaps use source 0/1 masks.
+Signed-C shift UB is selected pinned-clang evidence, not universal ISO-C or
+real32-bit ABI proof. JVM timing/constant-time execution, physical erasure and
+address-layout parity remain unproved. Public Haskell/modern X25519 adapters,
+X448/Edwards, remaining cryptography/trust/TLS, full Pandoc/tests and subsequent
+calibre stages remain open. This does not close local:613.
