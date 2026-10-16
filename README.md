@@ -9,6 +9,15 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- GHC event-manager registration, callback lifetimes/ordering, rearming and
+  error rollback, with actual EPoll on Linux/glibc and KQueue on Darwin. Socket
+  waits now use native event queues and closeFdWith ownership; periodic poll
+  waits are removed. Original-code observations cover multiple waiters,
+  cancellation/replacement, shared close, release/resume/shutdown and event-array
+  growth. Both previously pending invalid-descriptor checks now pass. Complete
+  GHC capability resizing, masking/signals/timers/GC and other OS backends remain
+  pending.
+
 - Native POSIX socket transport: nonblocking creation, original default options,
   connect/SoError, readiness waits, send/sendAll/recv, bind/listen, socket/peer
   names, shutdown and descriptor ownership. Separate Darwin/Linux observations

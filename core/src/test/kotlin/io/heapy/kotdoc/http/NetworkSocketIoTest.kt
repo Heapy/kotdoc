@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit
 import java.util.zip.GZIPInputStream
 
 class NetworkSocketIoTest {
+    private var invalidWaitManager: GhcEventManager? = null
     private val platform = if (Platform.isMac()) "macos-64" else "linux-64"
     private fun n(v: JsonObject, key: String) = v.getValue(key).jsonPrimitive.long
     private fun s(v: JsonObject, key: String) = v.getValue(key).jsonPrimitive.content
@@ -61,6 +62,11 @@ class NetworkSocketIoTest {
                 val socket = NetworkSocketHandle(-1, calls)
                 val result = observe { controlled.sendAll(socket, raw(v.getValue("bytes"))); JsonNull }
                 buildJsonObject { put("result", result); put("events", JsonArray(events)) }
+            }
+            "wait-invalid" -> {
+                val manager = invalidWaitManager ?: GhcEventRuntime.newManager().also { invalidWaitManager = it }
+                try { observe { manager.await(-1, v.getValue("write").jsonPrimitive.boolean, abi.int("EBADF")); JsonPrimitive(true) } }
+                finally { if (v.getValue("write").jsonPrimitive.boolean) manager.cleanup() }
             }
             "invalid" -> observe {
                 val socket = NetworkSocketHandle(-1, NetworkPosixSocketCalls)
@@ -133,8 +139,6 @@ class NetworkSocketIoTest {
             reader.readLine(); reader.lineSequence().mapIndexed { i, line ->
                 val row = Json.parseToJsonElement(line).jsonObject
                 DynamicTest.dynamicTest("$platform $i ${row.getValue("group").jsonPrimitive.content}") {
-                    assumeTrue(row.getValue("request").jsonObject.getValue("api").jsonPrimitive.content != "wait-invalid",
-                        "Exact GHC event-manager invalid-descriptor registration errors remain unported")
                     assertEquals(row.getValue("expected"), request(row.getValue("request").jsonObject))
                 }
             }.toList()
@@ -150,13 +154,8 @@ class NetworkSocketIoTest {
             val socket = io.create(io.addresses.family("AF_INET"), io.addresses.socketType("Stream"), 0)
             try {
                 io.connect(socket, NetworkSocketAddress.Inet(listener.localPort.toUShort(), NetworkHostAddresses.fromTuple(listOf(127u, 0u, 0u, 1u))))
-                // Connect may also poll; count only subsequent readiness waits.
-                val recvPolled = CountDownLatch(1)
-                val readingIo = NetworkSocketIo(io.addresses, io.abi, NetworkSocketCalls { name, args ->
-                    if (name == "poll") recvPolled.countDown(); NetworkPosixSocketCalls.call(name, args)
-                })
-                val reading = FutureTask { readingIo.receive(socket, 1) }; val thread = Thread.ofVirtual().start(reading)
-                assertTrue(recvPolled.await(5, TimeUnit.SECONDS))
+                val reading = FutureTask { io.receive(socket, 1) }; val thread = Thread.ofVirtual().start(reading)
+                awaitRegistered(socket, reading)
                 if (close) socket.close() else thread.interrupt()
                 val failed = assertThrows(ExecutionException::class.java) { reading.get(5, TimeUnit.SECONDS) }
                 if (close) assertInstanceOf(GhcIOException::class.java, failed.cause) else assertInstanceOf(InterruptedException::class.java, failed.cause)
@@ -291,13 +290,9 @@ class NetworkSocketIoTest {
             try {
                 io.setIntOption(socket, "SendBuffer", 4096)
                 io.connect(socket, NetworkSocketAddress.Inet(listener.localPort.toUShort(), NetworkHostAddresses.fromTuple(listOf(127u, 0u, 0u, 1u))))
-                val polled = CountDownLatch(1)
-                val writingIo = NetworkSocketIo(io.addresses, io.abi, NetworkSocketCalls { name, args ->
-                    if (name == "poll") polled.countDown(); NetworkPosixSocketCalls.call(name, args)
-                })
-                val writing = FutureTask { writingIo.sendAll(socket, ByteArray(8 * 1024 * 1024) { 65 }) }
+                val writing = FutureTask { io.sendAll(socket, ByteArray(8 * 1024 * 1024) { 65 }) }
                 val thread = Thread.ofVirtual().start(writing)
-                assertTrue(polled.await(5, TimeUnit.SECONDS)); thread.interrupt()
+                awaitRegistered(socket, writing); thread.interrupt()
                 val error = assertThrows(ExecutionException::class.java) { writing.get(5, TimeUnit.SECONDS) }
                 assertInstanceOf(InterruptedException::class.java, error.cause)
                 thread.join(5000); assertFalse(thread.isAlive)
@@ -306,15 +301,26 @@ class NetworkSocketIoTest {
             finally { listener.close(); server.join(5000); assertFalse(server.isAlive) }
         }
     }
-    @Test fun jvmPollBoundaryDoesNotWaitForeverOnAnAlreadyInvalidDescriptor() {
-        assumeTrue(Platform.isMac() || Platform.isLinux())
-        val calls = NetworkSocketCalls { _, _ -> error("negative poll descriptors must be rejected before poll") }
-        val abi = NetworkSocketIoAbi.currentPosix
-        val waiter = NetworkPosixSocketWaiter(abi, calls)
-        val socket = NetworkSocketHandle(-1, calls)
-        for (write in listOf(false, true)) {
-            val error = assertThrows(GhcIOException::class.java) { waiter.await(socket, -1, write) }
-            assertEquals(abi.int("EBADF"), error.error.errno)
+    private fun awaitRegistered(socket: NetworkSocketHandle, task: FutureTask<*>) {
+        val limit = System.nanoTime() + TimeUnit.SECONDS.toNanos(5)
+        while (GhcEventRuntime.system.snapshot(socket.unsafeFd).isNullOrEmpty()) {
+            assertFalse(task.isDone, "IO finished before an event registration became visible")
+            assertTrue(System.nanoTime() < limit, "event registration did not become visible")
+            Thread.sleep(1)
         }
+    }
+    @Test fun invalidNativeRegistrationFailsBeforeEnteringTheEventPoll() {
+        assumeTrue(Platform.isMac() || Platform.isLinux())
+        val abi = GhcEventAbi.currentPosix; var polls = 0
+        val calls = NetworkSocketCalls { name, arguments ->
+            if (name == "epoll_wait" || name == "kevent" && (arguments[4] as Int) > 0) polls++
+            NetworkPosixSocketCalls.call(name, arguments)
+        }
+        val manager = GhcEventManager(GhcNativeEventBackend(abi, calls), GhcNativeEventControl(abi, calls), abi.haveOneShot, abi.kqueue)
+        try {
+            val socket = NetworkSocketHandle(-1, NetworkPosixSocketCalls)
+            assertThrows(GhcIOException::class.java) { NetworkPosixSocketWaiter(manager).await(socket, -1, false) }
+            assertEquals(0, polls)
+        } finally { manager.cleanup() }
     }
 }

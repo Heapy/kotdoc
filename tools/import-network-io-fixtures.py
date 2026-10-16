@@ -40,7 +40,7 @@ errors=[0,abi['EINTR'],abi['EAGAIN'],abi['EWOULDBLOCK'],abi['EBADF'],1,2,13,22,3
 for mode,prefix,last in itertools.product(['once','retry','block'],[[],[abi['EINTR']],[abi['EAGAIN']],[abi['EINTR'],abi['EAGAIN']],[abi['EAGAIN'],abi['EINTR'],abi['EAGAIN']]],errors):
  add('original-errno-guard-retry-and-wait-order','guard',mode=mode,script=[[-1,e] for e in prefix+[last]]+[[23,0]])
 for mode,n in itertools.product(['once','retry','block'],[-2**31,-2,0,1,2**31-1]):add('non-minus-one-guard-results','guard',mode=mode,script=[[n,abi['EBADF']]])
-for write in [False,True]:add('pending-original-GHC-event-manager-invalid-registration','wait-invalid',write=write)
+for write in [False,True]:add('original-GHC-event-manager-invalid-registration','wait-invalid',write=write)
 for data in [[],[0],[65,66,67],list(range(256))]:
  n=len(data)
  for script in [[[0,n]],[[0,0],[0,n]],[[0,-2],[0,n]],[[0,n+1],[0,0]],[[1,abi['EBADF']]]]:

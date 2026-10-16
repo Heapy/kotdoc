@@ -42,10 +42,8 @@ interruptible bounded poll waits as its readiness boundary, not GHC's event
 manager. The HTTP ByteString representation still has JVM array-size limits.
 TLS and the full Pandoc/calibre port remain required.
 
-Two retained direct threadWait(-1) observations are explicitly pending in the
-Kotlin suite. On the pinned original runtime, Darwin reports kevent errors
-(including a different errno after the preceding failed registration), while
-Linux reports modifyFdOnce. The current JVM poll boundary rejects an invalid
-descriptor with threadWait/EBADF. These are not asserted equivalent or removed
-from the required port. The selected original Event.Thread/Manager sources are
-retained for completing this runtime behavior.
+The two retained direct threadWait(-1) observations are covered by the native
+GHC event-manager port. On the pinned original runtime Darwin reports kevent
+errors (including a different errno after a preceding failed registration),
+while Linux reports modifyFdOnce. The original values are retained; the event
+observer and its source proof are in ../haskell-ghc-event-reference.

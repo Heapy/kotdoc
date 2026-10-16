@@ -10023,3 +10023,127 @@ responseOpenHistory, automatic cookies, TLS and every original local-server/
 httpbin test. The complete original Pandoc readers/writers/App/Lua and all tests,
 then calibre MOBI/all tests and other formats absent from Pandoc/all their tests,
 remain required. This checkpoint does not redefine or complete the full goal.
+
+### GHC event registration, native queues and thread-wait ownership
+
+This checkpoint replaces the preceding temporary timed poll boundary with
+GHC **9.12.2 Event.Manager** registration/dispatch logic and actual **EPoll on
+Linux/glibc** or **KQueue on Darwin**. Socket waits now park on their original
+registration's completion channel. The shared native loop performs the original
+two nonblocking probes, with a yield between them, then a blocking native wait.
+It does not periodically wake IO callers to check Java interruption.
+
+The registry retains 32 fd-hashed locks, unique registration cookies, prepended
+callback order, separate event/lifetime bits, and absent versus empty entries.
+Only an explicit unsupported-False response restores the preceding table state;
+a backend exception leaves the inserted entry. Dispatch partitions triggered
+and untriggered callbacks, preserves the original saved ordering, retains
+multishot callbacks and performs the original one-shot/multishot rearming.
+Callbacks execute outside the callback-table lock. Unregister and close preserve
+their different backend checks and callback behavior. Manager step/loop,
+release/resume, shutdown and cleanup retain the original state transitions.
+
+Native EPoll uses MOD-then-ADD on ENOENT for one-shot registration and the
+original epollControl/modifyFdOnce error locations. Native KQueue deletes old
+filters before adding new ones, retains Darwin's disabled one-shot policy,
+returns unsupported on EINVAL/ENOTSUP, and treats EINTR as the source does.
+Returned ERR/HUP and filter values map through the original event rules.
+Both backends start with 64 native event slots and double capacity after a
+full batch. Their layouts, timespec offsets, flags and constants come from
+native headers in separately checked ABI assets. KQueue deletion retains the
+original pid/fork check. Native control uses the original nonblocking/cloexec
+pipe setup, wakeup pipe on Darwin and eventfd on Linux, wakeup/death messages,
+drain sizes and shutdown error rules for newControl(False).
+
+Socket invalidation still happens atomically before close. Native close now
+removes registrations under the event-manager locks, performs the raw close
+once, then unlocks and notifies each waiting registration with evtClose.
+The stable manager-array close path supports one or several managers; callbacks
+still run if the raw-close action throws. Cancelling a blocked JVM wait invokes
+original unregisterFd_ behavior before leaving the wait. The JVM uses Java
+interruption at this boundary; this does not claim the complete GHC mask/throwTo
+runtime. Capability-array replacement/retry remains pending. Exceptional backend
+modification failures inside closeFdWith also remain a fidelity gap: the current
+JVM path releases acquired locks instead of reproducing the original stranded
+MVar behavior. Standalone-manager GC ownership is also unfinished; the actual
+shared system manager remains process-owned.
+
+The two previously pending direct threadWait(-1) observations now **execute and
+pass without assumptions**. Their original requests and expected values are
+unchanged: Darwin naturally produces kevent/EBADF and then kevent/ENOENT after
+the failed prior registration; Linux naturally produces modifyFdOnce/EBADF.
+No fd=-1 special case or canned error string supplies these results. A dedicated
+native manager isolates their retained failed-registration state in the JVM
+suite. Only their old pending group labels were renamed; all **366 preceding
+network-IO requests and expected values** were compared and remain identical.
+
+The new vendor snapshot retains **22 complete original Event files** with
+revision/file hashes and the full existing GHC notice. The development observer
+compiles **12 unchanged original Event modules**, changing only Manager exports
+for record/state/dispatch observation. OriginalThreadWait contains the complete
+original threadWait and closeFdWith declarations/bodies verbatim; only manager/
+array lookup effects are supplied by its header. The fixture importer verifies
+all copied bytes and both exact excerpts. No expected registry, backend, close
+or wait algorithm is reimplemented in the observer. Both native builds use
+GHC 9.12.2 (patch version enforced), the retained freeze and exact selected
+Hackage revisions.
+
+Each platform has **3,524 independent original-code observation groups** and
+**1,094 source hashes**. There are **3,424 controlled state-machine programs**
+covering event/lifetime combinations, two/three-callback ordering and saved-list
+partitioning, fd hash collisions, unknown/replaced cookies, false rollback versus
+throwing effects, callback failures, all step probe paths, release/resume and
+cleanup. They include 1,000 seeded action sequences and complete per-action
+callback-table/effect/state snapshots. The remaining **100 native groups**
+include 32 failed-registration programs, 60 gated real-pipe waiter scenarios,
+one native release/resume/shutdown scenario and seven queued-readiness bursts.
+
+Real waiter scenarios execute original threadWait/closeFdWith with up to four
+waiters and one/two managers. They wait for actual registrations before readiness,
+partial/full cancellation, replacement or close, retain each result by input id,
+and prove one raw close plus callback notification even when that action fails.
+Bursts make up to 90 descriptors ready before stepping, crossing the original
+64-event initial capacity. Ephemeral descriptor/unique values and unrelated
+scheduler completion order are not projected. Async ThreadKilled is projected
+against JVM interruption only at the deliberately blocked wait boundary.
+These are observations, not relabeled original GHC testsuite units.
+
+Final semantic corpus SHA256 values are:
+
+- macOS: `81e5fbbbb0a3753c2f2cfc4373eb0112b371bee81f77ddca46a93a840c1c5895`
+- Linux: `cf8f11bae29a8725a1cb9ddaeff94ddd754dbe1a881009bd376b18ffcc271417`
+
+Each supported POSIX host executes its entire 3,524-group corpus and the other
+platform's 3,424 controlled programs: **6,948 new assertions**. Native results
+are compared only to the matching OS's original expectations. Existing socket
+integration tests now wait for real registrations before cancellation/concurrent
+close, rather than observing an obsolete poll call.
+
+All selected HTTP/environment checks pass on both hosts: **117,105 successful
+tests** on macOS/aarch64 JDK 21 (63s Gradle build) and the same **117,105 tests**
+on Linux/x86_64 JDK 21 (74.415s). All **18 local XML suites** are fully parsed:
+declared and actual testcase/failure/error/skip counts agree. Of **117,106 cases**,
+only the actual Windows-registry test is skipped on POSIX. There are no failures,
+errors, assumption aborts or aborted containers. The former two GHC assumptions
+are gone. All **150 source/fixture verifiers** pass (38.1s).
+
+Installed/core JARs agree. All **239 HTTP classes**, **70 complete notices**,
+**250 Pandoc assets**, all **six native ABI assets** and the unchanged
+**60,137-byte PSL** match source/build bytes. Every one of the preceding **2,471
+non-HTTP classes** and every CLI/dependency JAR remains byte-identical. Existing
+changed classes are confined to the intended socket IO/ownership/readiness
+layer and its source/debug metadata; the Kotlin module map adds the new native
+helper facade. The preceding native IO commit **c86a245** has a verified
+successful complete CI run **38839234431**, including full Linux and actual
+Windows jobs.
+
+The complete goal remains unfinished. Required runtime work still includes
+capability-array replacement/retry, full GHC masking/throwTo/signals/timers/weak
+references, all exceptional backend-close paths, standalone-manager GC and
+other OS/ABI support. Network accept/datagram/vectored/message IO, all option
+value types, gracefulClose, Read/name-info/interface APIs, Windows/Winsock,
+complete HTTP request override/mutation/history/cookies, TLS and all original
+local-server/httpbin suites remain pending. The full original Pandoc readers/
+writers/App/Lua and all tests, followed by calibre MOBI/all tests and other
+formats absent from Pandoc/all their tests, remain required without narrowing
+that objective.

@@ -1,0 +1,29 @@
+{
+  "upstream": "GHC 9.12.2",
+  "revision": "383be28ffdddf65b57b7b111bfc89808b4229ebc",
+  "sourcePrefix": "ghc-9.12.2/libraries/ghc-internal/src/GHC/Internal/Event/",
+  "files": {
+    "Manager.hs": "894ad513fe83f0dfc4f0fe78c2633eab041704f20e03a15d52cf7b1d3326d8ea",
+    "Windows/ConsoleEvent.hsc": "ed7b39aa2c54cf8006f58295a2b82051acc3691cc89eb0a896af42cdeab1ad20",
+    "Windows/Clock.hs": "ca2ccfcbffa19520ff7b1afa8958d6756571f360781f67e733a8c5b8ff04cc3c",
+    "Windows/FFI.hsc": "26c998ec55383e2fea86ea7e61647e7a22022dd5034a11425729b9cff459fe14",
+    "Windows/Thread.hs": "8dab61006852c1ddf32f47c33b5b38868e06c4c229edcda69919836c922b675b",
+    "Windows/ManagedThreadPool.hs": "3ce21c8e144c5077f801810f969057351308913d885ccb3328036dcee3b52250",
+    "Control.hs": "8f171cb0bfa246267c9ea4e3a4a543ed9ff69adfd7667b6e937c2a5b49d7c83e",
+    "TimeOut.hs": "76bf0b3822fff2ab1f8ddecb6e03d76f064f72ea7d367fca586c5dce536da382",
+    "TimerManager.hs": "6d40b47afa35a71d86f8ea831875fe2848dccaa7e64957233eadd595add594f4",
+    "KQueue.hsc": "22fe019ae02b988410bbc9f6904e6d0e3641b6fd670c0e5b6a3c3cef39f814aa",
+    "Windows.hsc": "07ce106e1b6964a5a92f7de36d3c06467ef3d4a3f6afed325332e4673725958b",
+    "Arr.hs": "9cca38ff8d27e1c9d33a4e58b3bab2f781925eb42b50b6ded7b89545e0e1ae7a",
+    "IntTable.hs": "eb94da7eeb14697f669de9f13cd740e22179e2484599777265fdaa1f0fa7f80f",
+    "Unique.hs": "2df387178035176e76a21ba5292c8d8d2eb88fbe1fb2b4c635b065ced35a6072",
+    "Array.hs": "7a19d8ebccb18779871144576bd08bc7a2aca45c95dd6efed148b6f2956e61b3",
+    "Thread.hs": "f287ca9db9f9eecd60735721bfda7395c2812f0f1d3df786f44544ca4244a95a",
+    "EPoll.hsc": "1ca98efe895ef400821c1b3f2e806173ec822d9d5b31ac59e097a2bd0f756eb5",
+    "IntVar.hs": "b867bb27ab5e194d0443f07c84400a7f23480c4302798bb7cd508bd50762f891",
+    "PSQ.hs": "4694449c2a9a79df87c40d5472111f2d981ce14a1754e8c8715596537550c1f1",
+    "Internal.hs": "d59e09f12d4b1aa54a15ea151aafc71871339981012802db7f1a8b778a54dbba",
+    "Poll.hsc": "7d4ffb15ad908567fea9f15deb6ce987b44336f122c4188ea59221e9214fbecb",
+    "Internal/Types.hs": "739b54923948a7328756f2349765041d58db86fa1c59abb9af9dbde47d658542"
+  }
+}

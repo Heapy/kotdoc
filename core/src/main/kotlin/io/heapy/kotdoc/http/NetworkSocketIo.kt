@@ -49,7 +49,7 @@ object NetworkPosixSocketCalls : NetworkSocketCalls {
         // libffi call silently loses F_SETFL's flags even when it returns 0.
         val result = if (name == "fcntl") fcntl.fcntl(arguments[0] as Int, arguments[1] as Int, arguments[2] as Int).toLong() else {
             val function = libc.getFunction(name)
-            if (name == "send" || name == "recv") function.invokeLong(arguments) else function.invokeInt(arguments).toLong()
+            if (name in listOf("send", "recv", "read", "write")) function.invokeLong(arguments) else function.invokeInt(arguments).toLong()
         }
         return NetworkNativeResult(result, Native.getLastError())
     }
@@ -57,13 +57,15 @@ object NetworkPosixSocketCalls : NetworkSocketCalls {
 
 /** Socket equality is owner identity; Show retains the original descriptor
  * even after close. Explicit close invalidates atomically and ignores errors. */
-class NetworkSocketHandle internal constructor(fd: Int, private val calls: NetworkSocketCalls) {
-    private class Owner(fd: Int, val calls: NetworkSocketCalls) : Runnable {
+class NetworkSocketHandle internal constructor(fd: Int, private val calls: NetworkSocketCalls,
+    closeFdWith: (Int, () -> Unit) -> Unit = { _, action -> action() },
+) {
+    private class Owner(fd: Int, val calls: NetworkSocketCalls, val closeFdWith: (Int, () -> Unit) -> Unit) : Runnable {
         val fd = AtomicInteger(fd)
-        override fun run() { val old = fd.getAndSet(-1); if (old != -1) calls.call("close", arrayOf(old)) }
+        override fun run() { val old = fd.getAndSet(-1); if (old != -1) closeFdWith(old) { calls.call("close", arrayOf(old)) } }
     }
     private val original = fd
-    private val owner = Owner(fd, calls)
+    private val owner = Owner(fd, calls, closeFdWith)
     private val cleanable = cleaner.register(this, owner)
     val unsafeFd get() = owner.fd.get()
     fun <A> withFd(action: (Int) -> A): A = try { action(owner.fd.get()) } finally { Reference.reachabilityFence(this) }
@@ -74,35 +76,14 @@ class NetworkSocketHandle internal constructor(fd: Int, private val calls: Netwo
 
 fun interface NetworkSocketWaiter {
     fun await(socket: NetworkSocketHandle, fd: Int, write: Boolean)
+    fun close(fd: Int, action: () -> Unit) = action()
 }
 
-/** poll is the JVM readiness boundary. Readiness wakes immediately; bounded
- * waits also observe Java interruption and owner invalidation without taking
- * ownership of the descriptor or changing it back to blocking mode. */
-class NetworkPosixSocketWaiter(private val abi: NetworkSocketIoAbi, private val calls: NetworkSocketCalls) : NetworkSocketWaiter {
-    override fun await(socket: NetworkSocketHandle, fd: Int, write: Boolean) {
-        // poll silently ignores negative entries. Reject at the JVM boundary;
-        // exact GHC backend registration errors remain an explicitly tracked gap.
-        if (fd < 0) throw GhcPosixErrno.exception("threadWait", abi.int("EBADF"))
-        Memory(abi.int("pollSize").toLong()).use { p ->
-            p.clear(); p.setInt(abi.int("pollFd").toLong(), fd)
-            p.setShort(abi.int("pollEvents").toLong(), abi.int(if (write) "POLLOUT" else "POLLIN").toShort())
-            while (true) {
-                if (Thread.interrupted()) throw InterruptedException()
-                if (socket.unsafeFd != fd) throw GhcPosixErrno.exception("threadWait", abi.int("EBADF"))
-                val r = calls.call("poll", arrayOf(p, NativeLong(1), 20))
-                if (Thread.interrupted()) throw InterruptedException()
-                if (socket.unsafeFd != fd) throw GhcPosixErrno.exception("threadWait", abi.int("EBADF"))
-                if (r.value == -1L) {
-                    if (r.errno != abi.int("EINTR")) throw GhcPosixErrno.exception("threadWait", r.errno)
-                } else if (r.value > 0) {
-                    if (p.getShort(abi.int("pollRevents").toLong()).toInt() and abi.int("POLLNVAL") != 0)
-                        throw GhcPosixErrno.exception("threadWait", abi.int("EBADF"))
-                    return // HUP/ERR are readiness too: retry the actual syscall for its result.
-                }
-            }
-        }
-    }
+/** Original event-manager registration and threadWait/closeFdWith ownership. */
+class NetworkPosixSocketWaiter(private val manager: GhcEventManager = GhcEventRuntime.system) : NetworkSocketWaiter {
+    override fun await(socket: NetworkSocketHandle, fd: Int, write: Boolean) =
+        manager.await(fd, write, GhcEventAbi.currentPosix.int("EBADF"))
+    override fun close(fd: Int, action: () -> Unit) = manager.closeFdWith(fd, action)
 }
 
 class NetworkSocketIo(
@@ -111,7 +92,7 @@ class NetworkSocketIo(
     private val calls: NetworkSocketCalls,
     waiter: NetworkSocketWaiter? = null,
 ) {
-    private val readiness = waiter ?: NetworkPosixSocketWaiter(abi, calls)
+    private val readiness = waiter ?: NetworkPosixSocketWaiter()
     private val memory = NetworkSocketMemory(addresses)
     /** Original throwErrnoIfMinus1Retry[MayBlock], preserving retry order. */
     fun retry(location: String, onBlock: (() -> Unit)? = null, action: () -> NetworkNativeResult): Long {
@@ -140,7 +121,7 @@ class NetworkSocketIo(
                 // Original Posix.Internals deliberately ignores a failed flag write.
                 if (flags != updated) calls.call("fcntl", arrayOf(fd, abi.int("F_SETFL"), updated))
             }
-            socket = NetworkSocketHandle(fd, calls)
+            socket = NetworkSocketHandle(fd, calls, readiness::close)
             if (family == addresses.family("AF_INET6") && type in listOf(addresses.socketType("Stream"), addresses.socketType("Datagram")) && abi.option("IPv6Only") != (-1 to -1))
                 setIntOption(socket, "IPv6Only", 0)
             if (family == addresses.family("AF_INET") && abi.option("DontFragment") != (-1 to -1)) setIntOption(socket, "DontFragment", 1)

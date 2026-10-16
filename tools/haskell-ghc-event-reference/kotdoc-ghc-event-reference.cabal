@@ -1,0 +1,25 @@
+cabal-version: 3.0
+name: kotdoc-ghc-event-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable ghc-event-reference
+  main-is: GhcEventReference.hs
+  other-modules: OriginalThreadWait
+    GHC.Internal.Event.Manager
+    GHC.Internal.Event.Internal
+    GHC.Internal.Event.Internal.Types
+    GHC.Internal.Event.IntTable
+    GHC.Internal.Event.IntVar
+    GHC.Internal.Event.Unique
+    GHC.Internal.Event.Control
+    GHC.Internal.Event.Array
+    GHC.Internal.Event.Arr
+    GHC.Internal.Event.KQueue
+    GHC.Internal.Event.EPoll
+    GHC.Internal.Event.Poll
+  default-language: Haskell2010
+  ghc-options: -O2 -threaded -rtsopts
+  build-depends: base >=4.21 && <4.22, ghc-prim ==0.13.0, ghc-internal ==9.1202.0,
+                 aeson ==2.2.3.0, bytestring ==0.12.2.0,
+                 text ==2.1.2, containers ==0.7

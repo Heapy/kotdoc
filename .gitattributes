@@ -9,6 +9,9 @@ vendor/ghc-network-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-spa
 tools/haskell-network-io-reference/network-3.2.9.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol linguist-vendored=true
 tools/haskell-network-io-reference/OriginalSend.hs -text whitespace=-blank-at-eof
 vendor/ghc-socket-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/ghc-event-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-ghc-event-reference/GHC/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol linguist-vendored=true
+tools/haskell-ghc-event-reference/OriginalThreadWait.hs -text whitespace=-blank-at-eof
 vendor/** linguist-vendored=true
 # Keep the upstream source byte-for-byte, including its final empty line.
 vendor/zip-archive-0.5/Zip.hs whitespace=-blank-at-eof
