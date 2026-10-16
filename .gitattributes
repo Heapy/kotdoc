@@ -218,3 +218,5 @@ licenses/crypton-pem-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/crypton-x509-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/crypton-x509-store-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/crypton-x509-validation-BSD-3-Clause.txt -text whitespace=cr-at-eol
+vendor/time-hourglass-0.3.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/time-hourglass-BSD-3-Clause.txt -text whitespace=cr-at-eol

@@ -11089,3 +11089,86 @@ typed BER/DER and its DER/Real properties, hourglass-compatible dates,
 ParseASN1, X.509 objects/stores/validation and TLS/resource-I/O integration
 remain. The full Pandoc port/all tests, calibre MOBI/all tests and additional
 formats absent from Pandoc/all their tests remain required.
+
+### High-level ASN.1 values, stream extraction and ParseASN1
+
+The preceding goal turn made concrete progress with **b4e6ef5** and **387b84e**.
+CI run **38866281441** has now completed successfully on Linux and Windows,
+including **39,225** actual Windows cases with no skips. Run **38867372736**
+has a successful Windows job with **51,476** actual cases, including native
+registry/encoding execution and no skips; its full Linux job is still running.
+Neither an observation timeout nor an unfinished full job was treated as a
+failure or restarted.
+
+Retained the complete **time-hourglass 0.3.0** source archive (**27 original
+files**, including its original tests/platform modules/C source), full license
+and per-file hashes. The archive's fixed SHA-256 is
+**9c7c7c74dda5033160328606cb3e8724201abadf9a140271c73c89a2612b9d22**.
+Its original line endings are retained in Git. Kotlin adds the exact date,
+time-of-day, date-time, Month and four Int64 unit models needed by ASN1Time,
+their Eq/Ord/Show, and timezone-offset comparison/Show/seconds conversion.
+Constructors preserve unchecked values and signed machine-width wrapping,
+including the original minBound offset Show failure and pad2 truncation.
+This does not claim the whole hourglass library's numeric/Read, calendar,
+formatting, epoch conversion, current-clock or local-time APIs.
+
+Translated finite materialized `Data.ASN1.Types` values and exported contracts:
+every ASN1 constructor, construction/time types, tag and stream-builder aliases,
+arbitrary Integer/OID payloads, immutable byte payloads, Eq/Show and ASN1Object.
+Real Eq preserves NaN non-reflexivity and equality of signed zeros rather than
+Kotlin data-class Double equality. Original GHC floating-point Show is reused.
+Both Stream extraction functions preserve event associations, nesting, signed
+depth wrapping, mismatched marker kinds and missing closing markers without
+adding validation absent from the source.
+
+The complete finite `ParseASN1` API now includes state/full runs, throw/fail,
+Functor/Applicative/Monad/Alternative composition, next/optional/hasNext,
+container access/optional access, nested parsers, object delegation and getMany.
+Backtracking restores the original input. Nested parsers and full runs reject
+leftovers with the original message. Parser result values, Some payloads,
+function arguments and ignored bind values can remain suspended independently
+of state/errors. Thus an unused error does not replace a later parse failure,
+and a full-run leftover error does not force an unused mapped value. getMany
+uses an iterative implementation and shared immutable input views. Failure
+messages retain raw Haskell String Chars, including a surrogate pair distinct
+from one supplementary Char, with both point and Aeson-text observations.
+
+The new development observer compiles **seven unchanged ASN.1 modules** from
+vendor and the **13-module original hourglass library**, including its real
+platform/C support. No replacement Data.Hourglass module or parser algorithm
+is substituted. A small Witness ASN1Object is only a test dictionary observing
+getObject delegation and tail-building contracts, not an X.509 implementation.
+The two original ASN.1 packages have no standalone test suites. The complete
+hourglass suite is retained, not claimed ported or executed here.
+
+The independent fixture has **9,755 observations**, **57 source hashes** and
+semantic SHA-256
+**697500a100626470199699c7a4d1f69c48a6ba3590b2e99a243daeb9683e94b0**.
+It checks all constructors, complete payloads/Show/Eq matrices, 500 random IEEE
+bit patterns, unchecked date/unit/offset boundaries, both stream splitters,
+all parser combinators, composed programs, deferred-error precedence, raw
+error Chars and **10,000-level finite structures/streams**. A separately
+compiled Linux/x86_64 GHC 9.12.2 observer agrees with every observation. Kotlin
+executes **9,756 cases**, including an extra ownership/optional-null/NaN check.
+
+macOS/aarch64 JDK 21 passes **179,832 selected HTTP/environment/encoding/ASN.1
+tests** in a 72s build. All **32 XML suites** have matching declared/actual
+counts: **179,833 cases**, no failures/errors and only the actual Windows
+Registry skip. Linux/x86_64 independently passes the same **179,832 tests**
+(79.061s JUnit), with no failed/aborted tests or containers. All **162
+source/fixture verifiers** pass (40.7s); the final new manifest is separately
+rechecked after adding raw-error-Char observations. CI requires **61,232
+Windows tests** with no skips; execution awaits this checkpoint's push.
+
+The installed/core JARs match. All **2,952 preexisting classes** remain
+byte-identical; **54 new classes** bring the total to **3,006**. Only Kotlin
+module metadata changes among preceding entries. All **343 HTTP classes**, **22
+TLS error classes**, **87 full notices**, **250 Pandoc assets**, **six native
+ABI assets**, the CodePage table and **60,137-byte PSL** are exact. All
+CLI/dependency JAR bytes remain unchanged.
+
+Typed BER/DER primitive conversion, ASN.1 time parse/print and the remaining
+original DER/Real/IntegralReal properties, Pretty, the rest of hourglass,
+X.509 objects/stores/validation/signatures, TLS and resource-I/O integration
+remain unfinished. The full Pandoc port/all tests, calibre MOBI/all tests and
+additional formats absent from Pandoc/all their tests remain the objective.
