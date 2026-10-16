@@ -25,6 +25,9 @@ census_spec.loader.exec_module(census)
 runtime_spec = importlib.util.spec_from_file_location('runtime_test_inventory', ROOT / 'tools/runtime-test-inventory.py')
 runtime = importlib.util.module_from_spec(runtime_spec)
 runtime_spec.loader.exec_module(runtime)
+dependency_spec = importlib.util.spec_from_file_location('dependency_test_inventory', ROOT / 'tools/dependency-test-inventory.py')
+dependency = importlib.util.module_from_spec(dependency_spec)
+dependency_spec.loader.exec_module(dependency)
 
 
 def digest(path):
@@ -279,13 +282,14 @@ def build():
         ('upstream/calibre/src/calibre/utils/run_tests.py', 'Conditional runtime suites, including embedded find_tests'),
         ('upstream/calibre/src/calibre/customize/ui.py', 'Input/output format enumeration, aliases and enabled plugins'),
         ('upstream/calibre/src/calibre/customize/builtins.py', 'Built-in conversion plugin registry')]]
-    return dict(schema_version=4, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations, a Haskell module/site census and original native runtime Tasty census; NOT all conditional profiles, complete expectation attribution or port coverage.',
+    return dict(schema_version=5, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations, a Haskell module/site census and original native runtime Tasty census; NOT all conditional profiles, complete expectation attribution or port coverage.',
                 counting_units=dict(source_test='Registered predicate/example; paired examples retain two assertion names.', trial='Generated property input, not another source test.', observation='Oracle capture, not another source test.', registry='Suite/factory/import candidate, not a source test count.'),
                 pins=pins, roots=roots, sources=[dict(path=p, sha256=digest(p)) for p in sorted(paths)],
                 registry=sorted(entries, key=lambda r: r['id']), pandoc_types=pt_inventory(),
-                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json'), runtime.source_file('tools/runtime-test-inventory.py'), runtime.source_file('tools/prepare-test-inventory-runtime.py'), runtime.source_file('tools/test-inventory-runtime-reference/RuntimeInventory.hs'), runtime.source_file('docs/test-inventory-runtime.json')],
+                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json'), runtime.source_file('tools/runtime-test-inventory.py'), runtime.source_file('tools/prepare-test-inventory-runtime.py'), runtime.source_file('tools/test-inventory-runtime-reference/RuntimeInventory.hs'), runtime.source_file('docs/test-inventory-runtime.json'), dependency.source('tools/dependency-test-inventory.py'), dependency.source('tools/test-inventory-dependency-reference/CabalInventory.hs'), dependency.source('docs/test-inventory-dependency-cabal.json')],
                 pandoc_command=extraction.command_inventory(), pandoc_old=extraction.old_inventory(), pandoc_lua=extraction.lua_inventory(),
                 checkpoint_evidence=checkpoint_evidence(), pandoc_haskell_census=census.haskell_inventory(),
+                dependency_roots=dependency.inventory(),
                 pandoc_runtime=runtime.runtime_inventory(extraction.command_inventory(),extraction.old_inventory()),
                 pandoc_lua_nested=census.lua_leaves(extraction.lua_inventory()),
                 separate_requirements=[dict(id=x, status='unmapped', gap=g) for x, g in [
@@ -293,7 +297,7 @@ def build():
                     ('pandoc-types/Read', 'Derived Read and lexical/partial contracts require separate acceptance beyond JSON examples.'),
                     ('pandoc-types/Eq-Ord', 'Existing comparison corpora require a separately reviewed mapping; observations are not registered test counts.'),
                     ('pandoc/all-leaves', 'Command/Old and finite nested Lua registrations remain unmapped. Original native-profile runtime Tasty census establishes helper/list/comprehension multiplicities. Other OS/build/conditional profiles, precise generated-leaf expectation attribution and every executable mapping remain required.'),
-                    ('dependencies/all-leaves', 'Cabal declarations/test trees are source discovery only; embedded doctests and non-cabal runners require audit.'),
+                    ('dependencies/all-leaves', 'All retained vendor Cabal roots are reconciled against original Cabal conditional AST; exact frozen-release absences and embedded/non-Cabal candidates are explicit. Runtime leaves, expectation/factory closure and Kotlin mappings remain pending.'),
                     ('calibre/formats-and-tests', 'Reconcile runtime suite IDs, embedded tests, standalone/doctest/RapydScript runners and directional additional-format matrix; map Kotlin evidence.')]])
 
 

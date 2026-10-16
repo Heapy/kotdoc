@@ -12,6 +12,7 @@ Pandoc conversion tests or calibre programs:
 
 ```sh
 python3 tools/build-test-inventory.py
+python3 tools/check-test-inventory-dependencies.py
 python3 tools/check-test-inventory-runtime.py
 python3 tools/check-test-inventory-census.py
 python3 tools/check-test-inventory-extraction.py
@@ -274,3 +275,62 @@ leaf expectations and executable mappings; other build/platform profiles;
 dynamic/platform Lua variants; dependency embedded/non-Cabal suites;
 calibre runtime/factory reconciliation; and directional additional-format
 matrices. `local:622` and the full port remain incomplete.
+
+## Dependency root-to-suite reconciliation
+
+The dependency layer reconciles **all 76 retained vendor Cabal manifests** with
+Cabal 3.14.1.0's original `GenericPackageDescription` parser: **69 declared test
+suite roots**, each with a stable manifest-path/component-name ID. An independent
+source declaration check requires identical names/multiplicities for every test
+suite and executable. Missing or extra manifests, stanzas and hashes fail checks.
+`test-inventory-dependency-cabal.json` preserves the original parsed conditional
+trees and a selected node projection: common imports, entry interfaces, source
+dirs, modules, dependencies, modern build-tool-depends, CPP options and buildable
+flags. Legacy build-tools and other compiler/build fields remain in original
+source and need effective-profile resolution; an empty modern tools list does not
+mean no generator dependency. No branch is selected and no test
+is built, listed or executed by this declaration observer.
+
+Declared, source-available, listed, runtime and assertion units remain distinct.
+67 suite roots have at least one retained potential entry source; the text2.1.2
+and text2.1.3 package fragments lack their declared test entry. Potential paths
+use the union of conditional source dirs for availability discovery only; a path
+is not proof of an effective configuration, buildability or factory expansion.
+Every root is unmapped. All listed/runtime/assertion counts remain unknown.
+
+All **118 retained vendor directories** have a root record and complete retained
+file catalog/digest. **42 have no retained Cabal manifest**, including compiler
+and library fragments and separately fetched image fixtures. That is unknown
+upstream suite availability, not a declaration of zero tests. The chosen frozen
+reference baseline contains **226 exact package IDs**: 73 have a retained matching
+manifest, **153 do not**. Installed compiler packages and source fragments do not
+fill those source/registration gaps. Retained directory names or manifest presence
+do not prove that the full upstream release or test tree is present.
+
+The source-signal census separately retains **310 files** containing top-level
+main declarations, embedded doctest prompts or Hspec preprocessing factories.
+These are 67 Cabal entries, 50 package Setup files, 18 declared non-test executable
+entries and 175 unreconciled source candidates; they are not additive test counts.
+The **1,296 prompt candidates** are original source strings, not grouped doctest
+assertions or newly generated expectations. Nine Hspec preprocessor entrypoints
+retain original pragmas; effective generator versions/factory expansion remain
+required. Fourteen retained scripts/build files remain explicit runner candidates;
+file names alone never establish test classification.
+
+Four additional source-inspected execution routes are recorded separately:
+blaze-builder Makefile `test` (an alias of its Cabal entry), historical LLVM
+regression target, text's literal-rule compiler script, and JuicyPixels' argument
+or program-name dispatch into `testSuite`. The shell script preserves its three
+active source assertions and original expected counts 8/7/4; the commented fourth
+is excluded. The LLVM entry only prints output and is not recast as an assertion.
+JuicyPixels defaults can select benchmarks, and its fixture source v3.3.8 differs
+from library3.3.9. These route/condition distinctions prevent false suite coverage.
+
+Replay/build instructions are in
+`tools/test-inventory-dependency-reference/README.md`. The dependency snapshot
+establishes no omitted **retained Cabal declared roots**, not no omitted global
+dependency tests. Exact missing releases, source/import registration closure,
+embedded prompt grouping, standalone targets, generated factories, all effective
+OS/toolchain profiles, runtime leaves, independent expectation attribution and
+Kotlin mappings remain open. Calibre factory/embedded and directional-format
+reconciliation remains the next separate checkpoint. Full local:622 is incomplete.

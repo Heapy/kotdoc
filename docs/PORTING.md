@@ -13537,3 +13537,30 @@ timing/GC and actual 32-bit/big-endian hosts remain unproved. Generic source
 Integer fallback remains Kotlin BigInteger; accepted fixed engines are not
 replaced. Modern Simple/Crypto.ECC/other curves, remaining crypto/trust/TLS,
 full Pandoc/tests and later calibre stages remain open. Local:613 is not closed.
+
+
+### Retained dependency declaration and runner inventory
+
+An independent original Cabal 3.14.1.0 parser replay reconciles all 76 retained
+vendor manifests and 69 declared test-suite roots, retaining common stanza
+imports and every conditional branch without selecting a build profile. There
+are 67 suites with potential retained entry sources and two without; unioning
+source directories is explicitly not proof of buildability. All 118 retained
+vendor roots are catalogued, including 42 without manifests. Of 226 exact frozen
+dependency identities, 73 have matching retained manifests and 153 do not;
+installed compiler packages/source fragments do not establish absent test trees.
+
+The independent synthetic common/flag/OS fixture replay and eleven focused
+regressions pass. The canonical snapshot passes and all twenty-two corruption
+cases are rejected. Source/catalog hashes retain 9,056 files; 310 files have
+lexical main/doctest/preprocessor signals and fourteen script/build candidates
+remain discovery units. Four inspected non-Cabal routes retain alias/historical
+compiler/argument-dispatch distinctions and three original text rule-firing
+integers. No package tests or assertions run in this checkpoint.
+
+Every suite remains unmapped; listed/runtime/assertion counts remain unknown.
+Effective build profiles, missing exact releases, factory/import and embedded
+expectation closure, runnable dependency leaves and Kotlin assertion mappings
+remain open. Calibre runtime/format-direction inventory follows separately;
+calibre implementation still follows full Pandoc acceptance. Local:622 and
+the full Pandoc/calibre goal are not completed.
