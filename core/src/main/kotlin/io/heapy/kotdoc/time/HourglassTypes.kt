@@ -27,9 +27,20 @@ data class HourglassTimeOfDay(val hour: HourglassHours, val minute: HourglassMin
     override fun compareTo(other: HourglassTimeOfDay) = compareValuesBy(this, other, HourglassTimeOfDay::hour, HourglassTimeOfDay::minute, HourglassTimeOfDay::second, HourglassTimeOfDay::nanoSecond)
     override fun toString() = "TimeOfDay {todHour = $hour, todMin = $minute, todSec = $second, todNSec = $nanoSecond}"
 }
-data class HourglassDateTime(val date: HourglassDate, val time: HourglassTimeOfDay) : Comparable<HourglassDateTime> {
+class HourglassDateTime private constructor(private val delayedDate: Lazy<HourglassDate>, private val delayedTime: Lazy<HourglassTimeOfDay>) : Comparable<HourglassDateTime> {
+    constructor(date: HourglassDate, time: HourglassTimeOfDay): this(lazyOf(date),lazyOf(time))
+    val date get() = delayedDate.value
+    val time get() = delayedTime.value
+    operator fun component1() = date
+    operator fun component2() = time
+    fun copy(date: HourglassDate = this.date, time: HourglassTimeOfDay = this.time) = HourglassDateTime(date,time)
+    override fun equals(other: Any?) = other is HourglassDateTime && date == other.date && time == other.time
+    override fun hashCode() = 31*date.hashCode()+time.hashCode()
     override fun compareTo(other: HourglassDateTime) = compareValuesBy(this, other, HourglassDateTime::date, HourglassDateTime::time)
     override fun toString() = "DateTime {dtDate = $date, dtTime = $time}"
+    companion object {
+        fun deferred(date: () -> HourglassDate, time: () -> HourglassTimeOfDay) = HourglassDateTime(lazy(date),lazy(time))
+    }
 }
 @JvmInline value class HourglassTimezoneOffset(val minutes: Long) : Comparable<HourglassTimezoneOffset> {
     fun toSeconds() = HourglassSeconds(minutes * 60)

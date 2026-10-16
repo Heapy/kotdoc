@@ -36,7 +36,7 @@ class HourglassNativeTest {
             assertTrue(error.message.contains("fileTimeToSystemTime: FileTimeToSystemTime"))
         } else {
             for (seconds in listOf(Long.MIN_VALUE,Long.MAX_VALUE)) {
-                val error = assertThrows(IllegalStateException::class.java) { backend.dateTimeFromUnixEpoch(HourglassElapsed(HourglassSeconds(seconds))) }
+                val error = assertThrows(IllegalStateException::class.java) { backend.dateTimeFromUnixEpoch(HourglassElapsed(HourglassSeconds(seconds))).date }
                 assertEquals("gmTime failed",error.message)
             }
         }

@@ -90,7 +90,11 @@ object HourglassTimeOperations {
 class HourglassLocalTime<A>(val value: A, val timezone: HourglassTimezoneOffset) {
     override fun equals(other: Any?) = other is HourglassLocalTime<*> && timezone == other.timezone && value == other.value
     override fun hashCode() = 31 * timezone.hashCode() + (value?.hashCode() ?: 0)
-    override fun toString() = "$value$timezone"
+    override fun toString(): String {
+        // Force the value's Show before the offset's Show, including errors.
+        val shown = value.toString()
+        return shown + timezone.toString()
+    }
     fun <B> map(transform: (A) -> B) = HourglassLocalTime(transform(value), timezone)
     fun toGlobal(time: HourglassTime<A>): A = if (timezone.minutes == 0L) value else time.fromElapsedP(HourglassCalendar.elapsedTimeAddSecondsP(time.getElapsedP(value), HourglassSeconds(-timezone.toSeconds().value)))
     fun setTimezone(next: HourglassTimezoneOffset, time: HourglassTime<A>): HourglassLocalTime<A> {

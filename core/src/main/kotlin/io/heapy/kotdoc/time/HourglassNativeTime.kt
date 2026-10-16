@@ -27,13 +27,18 @@ interface HourglassPosixTimeApi {
     fun clockCalendar(output: Pointer)
 }
 class HourglassPosixTime(private val api: HourglassPosixTimeApi) : HourglassNativeBackend {
-    private fun dateTime(value: HourglassElapsed, nanos: HourglassNanoSeconds): HourglassDateTime = Memory(60).use { tm -> Memory(8).use { seconds ->
-        seconds.setLong(0, value.seconds.value)
-        if (!api.gmTimeR(seconds, tm)) error("gmTime failed")
-        // The original adds 1900 in CInt before widening to machine Int.
-        HourglassDateTime(HourglassDate((tm.getInt(20) + 1900).toLong(), nativeMonth(tm.getInt(16)), tm.getInt(12).toLong()),
-            HourglassTimeOfDay(HourglassHours(tm.getInt(8).toLong()), HourglassMinutes(tm.getInt(4).toLong()), HourglassSeconds(tm.getInt(0).toLong()), nanos))
-    } }
+    private fun dateTime(value: HourglassElapsed, nanos: HourglassNanoSeconds): HourglassDateTime {
+        // fromCP constructs DateTime before demanding rawGmTime. Share the
+        // native result, but keep Date and TimeOfDay independently suspended.
+        val fields by lazy { Memory(60).use { tm -> Memory(8).use { seconds ->
+            seconds.setLong(0,value.seconds.value)
+            if (!api.gmTimeR(seconds,tm)) error("gmTime failed")
+            IntArray(6) { tm.getInt(it*4L) }
+        } } }
+        return HourglassDateTime.deferred(
+            { HourglassDate((fields[5]+1900).toLong(),nativeMonth(fields[4]),fields[3].toLong()) },
+            { HourglassTimeOfDay(HourglassHours(fields[2].toLong()),HourglassMinutes(fields[1].toLong()),HourglassSeconds(fields[0].toLong()),nanos) })
+    }
     override fun dateTimeFromUnixEpoch(value: HourglassElapsed) = dateTime(value, HourglassNanoSeconds(0))
     override fun dateTimeFromUnixEpochP(value: HourglassElapsedP) = dateTime(value.elapsed, value.nanoSeconds)
     override fun systemGetTimezone(): HourglassTimezoneOffset = Memory(60).use { tm -> Memory(8).use { seconds ->
@@ -58,8 +63,12 @@ class HourglassWindowsTime(private val api: HourglassWindowsTimeApi) : Hourglass
         ft.setLong(0, ((value.seconds.value + 11_644_473_600).toULong() * 10_000_000uL).toLong())
         if (!api.fileTimeToSystemTime(ft, st)) api.failWith("fileTimeToSystemTime: FileTimeToSystemTime", api.getLastError())
         fun word(offset: Long) = st.getShort(offset).toInt() and 65535
-        HourglassDateTime(HourglassDate(word(0).toLong(), nativeMonth((word(2) - 1) and 65535), word(6).toLong()),
-            HourglassTimeOfDay(HourglassHours(word(8).toLong()), HourglassMinutes(word(10).toLong()), HourglassSeconds(word(12).toLong()), nanos))
+        val fields = IntArray(8) { word(it*2L) }
+        // SYSTEMTIME's constructor is demanded before DateTime is returned;
+        // its Date and TimeOfDay fields are still independently lazy.
+        HourglassDateTime.deferred(
+            { HourglassDate(fields[0].toLong(),nativeMonth((fields[1]-1) and 65535),fields[3].toLong()) },
+            { HourglassTimeOfDay(HourglassHours(fields[4].toLong()),HourglassMinutes(fields[5].toLong()),HourglassSeconds(fields[6].toLong()),nanos) })
     } }
     override fun dateTimeFromUnixEpoch(value: HourglassElapsed) = dateTime(value, HourglassNanoSeconds(0))
     override fun dateTimeFromUnixEpochP(value: HourglassElapsedP) = dateTime(value.elapsed, value.nanoSeconds)

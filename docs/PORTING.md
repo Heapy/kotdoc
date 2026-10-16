@@ -11264,3 +11264,104 @@ Typed BER/DER, ASN1 time parse/print, remaining DER/Real/IntegralReal tests,
 Pretty, X509/store/validation/signatures, TLS and resource integration also
 remain. Full Pandoc/all tests, calibre MOBI/all tests and additional formats
 absent from Pandoc/all tests remain the original required end state.
+
+
+### Hourglass format strings, printing, parsing and callbacks
+
+The preceding goal turn made concrete progress and published **c8c86f1**,
+covering calendar/epoch/native time prerequisites. Its exact-SHA CI run
+**38874522194** has a successful Windows job with all **71,910 cases** and no
+skips. At this checkpoint its full Linux job is still executing the Gradle
+suite; no observation timeout was interpreted as termination or grounds to
+restart it. The original complete Pandoc/MOBI/other-format scope remains active.
+
+Translated `Time.Format` format-element/value models, String tokenization,
+ISO date/date-time formats, print/localPrint, both Either-style parsers and
+both Maybe-style parsers. Format lists are immutable. Callback equality uses
+only the raw Haskell String name. Format/element Show and errors have explicit
+CharacterString paths retaining surrogate Chars separately from supplementary
+Chars. Text input/output is represented in Haskell Char points throughout.
+
+Every standard element and programmatic precision/text/function element is
+represented. Printing uses the original generic Timeable path, not a
+specialized DateTime identity. Year2 subtraction, pad truncation/errors,
+subsecond components, precision truncation and all timezone sign/zero forms
+are preserved. Parsing retains the original initial year/month/day/time,
+sequential overwrites, two-digit year pivot, Month2 modulo behavior, unchecked
+fixed-width day/time fields, day-of-year dependence on the current year,
+nanosecond mask merges, Int64 numeric folding, raw (unscaled) precision digits,
+ASCII digits, pinned GHC whitespace, timezone-name consumption without updating
+the offset, offset bounds and exact error text. A literal Z leaves the previous
+offset intact. Global parsing normalizes through LocalTime only for nonzero
+offsets; Maybe parsers discard the remaining input as in the original.
+
+Custom callbacks can preserve/replace state, reject, fail on demand, or replace
+the remaining input with an unrelated string. The parser keeps the accumulated
+pair, DateTime constructor, date and time fields independently suspended.
+This is required to preserve later-error priority, discarded EPOCH values,
+timezone-only observations and callbacks producing an undefined date with a
+valid time, or vice versa. The original platform modules differ: POSIX builds
+the DateTime constructor before demanding rawGmTime, while Windows first
+demands SYSTEMTIME. Native adapters now preserve this distinction and keep date
+validation independent from time-field access.
+
+`HourglassDateTime` therefore now supports independently deferred fields while
+retaining its public eager constructor, getters, component/copy methods,
+comparison, equality, hash and Show for ordinary finite values. An actual Java
+client compiled against the preceding JAR runs unchanged against the new JAR
+and checks all those existing operations. LocalTime Show explicitly evaluates
+the value before the timezone: JVM string interpolation otherwise evaluated a
+failing inline-class offset before demanding the lazy date/time value. All
+preceding hourglass/ASN1 observations continue to pass unchanged.
+
+The new GHC 9.12.2 development observer compiles **12 unchanged hourglass
+modules** plus the **unchanged original CustomTimeFormatFct test module**.
+It reuses the previous native-boundary stubs verbatim; no format/parser
+algorithm is replaced in the reference. The independent fixture contains
+**27,638 observations**, **170 source hashes**, and semantic SHA-256
+**6fb9ae68a5928e613c3358cfbd78f46f3dc4dff053768be614159abb4944ca2b**:
+**5,006 pure**, **8,277 controlled POSIX**, **8,299 controlled Windows**, and
+**6,056 actual native/reference-property** observations. Separately compiled
+Linux/x86_64 GHC executables agree on every observation.
+
+The three original custom-format roundtrip properties each use **1,000 valid
+dates** in the original 1800..2202 generator range with 0..100,000,000ns.
+ISO date/date-time roundtrips contribute another **2,000** cases. The two
+original printing properties are checked against the independent **Data.Time
+1.14** implementation for **1,008** seconds in the common POSIX/Windows range;
+the observer also asserts original hourglass agrees. All **1,321 timezone
+offsets** in the original -660..660 generator range are parsed. Additional
+observations cover all eleven Time types, raw Char tokenization/Show/errors,
+very large digit runs, invalid precision, field overwrites, callback state/input
+replacement, independently undefined date/time fields and native/error demand.
+A complementary Kotlin ownership/deferred-field check brings the new class to
+**27,639 cases**. This is stronger evidence for the named formatting behavior,
+not proof that every hourglass property/generator or arbitrary deep demand
+chain has been ported and verified.
+
+macOS/aarch64 JDK 21 passes **218,149 selected HTTP/environment/encoding/ASN1/
+hourglass tests** in a 68s build. All **35 XML suites** have matching declared
+and actual counts: **218,150 cases**, zero failures/errors and only the actual
+Windows Registry skip. Linux/x86_64 JDK 21 independently passes the same
+**218,149 tests** (79.244s JUnit), with no failures or aborted tests/containers.
+All **164 source/fixture verifiers** pass (43.9s). CI now requires **99,549
+Windows cases** with no skips; execution awaits this checkpoint's push.
+
+Core and installed JAR bytes match. Of **3,073 preexisting classes**, **3,061**
+are byte-identical. The **12 changed class files** are confined to hourglass:
+four semantic classes (DateTime, LocalTime, POSIX/Windows adapters) and eight
+whose complete javap instruction listings are identical (debug metadata only).
+There are **28 new classes**, bringing the total to **3,101**. All other JAR
+entries and all CLI/dependency JAR bytes remain exact, including **343 HTTP
+classes**, **22 TLS error classes**, **87 full notices**, **250 Pandoc assets**,
+**six native ABI assets**, CodePage and the **60,137-byte PSL**.
+
+Read instances, remaining derived numeric/Enum/Integral operations, Time.Compat,
+the rest of the original hourglass property suite and deeper transformation/
+demand stress coverage remain. No known cases from the missing upstream
+`test-time-db` are invented or claimed executed. ASN1 time parse/print still
+needs integration (its manual timezone suffix must not be normalized twice),
+as do typed BER/DER and remaining DER/Real/IntegralReal tests, Pretty,
+X509/store/validation/signatures, TLS and resource integration. Full Pandoc/all
+tests, calibre MOBI/all tests and additional formats absent from Pandoc/all
+tests remain the required end state.
