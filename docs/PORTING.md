@@ -12942,3 +12942,98 @@ signature/trust/chain verification, remaining cryptographic operations/tests,
 native TLS integration and previously recorded fidelity/platform/stress gaps
 remain. Full Pandoc/all tests, calibre MOBI/all tests and every additional
 format absent from Pandoc/all tests remain the required end state.
+
+
+## Internal ECC wrappers, dispatch and permanent base tables (2026-10-16)
+
+Translated the complete pinned crypton 2.0.1 `Crypto.Internal.ECC` module:
+MulResult/CurveField, primeCurveMul, primeCurveTable/primeCurveTableMul,
+baseTable, curveMul, binaryCurveC and binaryCurveMul. It now connects the
+already ported fixed-width prime/binary engines to shared numeric serialization.
+All original widths, shared-buffer layouts, guards, C status mappings and the
+post-call clearing of the exact scalar region are preserved. Coordinate buffers
+are decoded only for success, and all finite return statuses clear the scalar.
+Deferred inputs preserve ignored arguments, strict size bindings and guard/error
+precedence; an exception before the native call does not invent a later wipe.
+
+The prime path uses the permanent named-base table only when the caller says
+base and the scalar width equals the order width. All six numerical key
+components participate in lookup, with short-circuit tuple comparison. Each
+of the fifteen named prime tables is built on first demand and retained; a
+failed build's Nothing is retained too. The Kotlin cache publishes one complete
+shared table under synchronized first use. Borrowed table identity/mutations
+remain observable, and a scalar wider than the order takes the original direct
+path. Unused tables are not built. The binary path rejects x=0 for the public
+caller's affine fallback and otherwise tries the fixed-width engine before the
+original Integer ladder when native multiplication is unsupported.
+
+The complete binary Integer ladder is retained, including exact requested bit
+width (high bits outside that width are not walked), one differential addition
+and doubling per bit, infinity/negation recovery, Maybe inverse failures and
+three affine divisions. Its projective pair fields remain shared/deferred.
+Kotlin evaluates a memoized expression graph with an explicit stack, preserving
+finite upstream wide inputs without relying on JVM recursive-thunk depth.
+Native observations include 512/2048/8192-bit ladders. The pinned emitted GHC
+Core and independent observations distinguish this module's library-call demand
+order from the standalone F2m worker specialization, including left-first
+integerXor, shared field entry and recovery errors. No expected errors are
+rewritten to accommodate the Kotlin implementation. This variable-time Integer
+path is used only where upstream selects it; neither fixed-width algorithm is
+replaced by it.
+
+The reference mechanically retains the entire source of ECC, its raw serializer
+and the numeric/IO compatibility modules. Only module/import/FFI boundaries
+change. Prefilled guarded alloca/foreign buffers expose complete layouts,
+release contents, exact scalar clearing and table SHA-256/guards. The C shim
+normally calls the actual pinned engines; separately labeled return-status
+injection checks wrapper policy without simulating host memory exhaustion.
+A pure table-size FFI function is not assigned an effect counter. Each cache
+scenario executes in a fresh native process, preserving the original lazy CAF;
+ordinary independent cases use a deliberately warmed reference cache. Kotlin
+uses a fresh instance of the same production cache per scenario.
+
+All thirty-three named curves have base/non-base and order/wide-scalar cases,
+with **5,060 independent affine doubleAndAdd coordinate expectations** from the
+original ECCSpec algorithm. Every byte scalar on four curves is exercised.
+There are **136 fresh native cache scenarios**, including every named prime
+curve, all six key components, ignored mismatch tails, failure memoization,
+shared mutation and concurrent first use with two/thirty-two threads. The
+9,216-case raw Integer guard matrix covers negative/zero fields, deferred
+coordinates/coefficient errors and six requested widths. The original complete
+ECCSpec still passes **124 native examples**, seed 1729, max-success 200 with
+its original local 20-case limit. This validates the reference; the remaining
+public ECC/P-256/ECDH/subgroup tests are not counted as already ported.
+
+The independent corpus contains **15,360 observations**, **455 source hashes**
+and semantic SHA-256
+**a88ff868acf45e4ad8ca2405330acb3c286cb895bc6034b2180728e6d5585fb6**.
+Generation, complete independent native replay, the expanded Kotlin suite and
+all **185 source/fixture verifiers** pass. The final JDK 21 regression passes **793,927
+tests across twenty-eight crypto/ASN1/X509/hourglass suites**, with exact XML
+and actual-case counts and no failures/errors/skips. Windows CI now requires
+**820,821 tests**. Both Linux and Windows jobs for aa427142 and a21d6c2a now
+pass. The preceding b43f5094 Windows gate passes its 805,461 cases; its full
+Linux job remains live at this observation.
+
+The installed CLI native/JSON/native round-trip passes. Installed and standalone
+core JARs are identical, with **3,465 classes** and **90 byte-exact notices**.
+All **559 nonmetadata baseline resource assets** remain byte-exact, and none of
+the **3,131 retained baseline classes** is missing. All twelve compiled classes
+of the fixed prime/binary/Montgomery backends still have no BigInteger
+reference. The newly ported wrapper/Integer path deliberately uses BigInteger.
+Production does not invoke Haskell, GMP or native cryptography for this layer.
+
+Upstream ignores serialization failure into uninitialized memory. Bounded
+negative/oversized cases use an explicit poison byte in the observer rather
+than inventing native garbage contents. JVM arrays are zero-initialized in
+production, so unspecified native-memory/disclosure parity is not claimed.
+Table bytes capture a 64-bit little-endian ABI. Invalid pointers, enormous or
+wrapping allocation sizes, real resource pressure, other ABIs, complete
+resource/lifetime equivalence and JVM/JIT/GC/hardware timing remain unverified.
+
+Specialized P-256, public point/scalar arithmetic, the public affine fallback
+and remaining original ECC tests are pending. Number generation/primality,
+signature/trust/chain verification, other cryptographic operations/tests,
+native TLS integration and the previously recorded fidelity/platform/stress
+gaps remain. Full Pandoc/all tests, calibre MOBI/all tests and every additional
+format absent from Pandoc/all tests remain the required end state.
