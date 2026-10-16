@@ -11021,3 +11021,71 @@ TLS parameters/handshake/ciphers/sessions and resource-I/O integration remain.
 Base64 URL/typed/lenient/text APIs and their tests are retained but not claimed
 as implemented. The full Pandoc port/all tests, calibre MOBI/all tests and
 additional formats absent from Pandoc/all their tests remain the unchanged goal.
+
+### ASN.1 bit arrays, character strings and OID contracts
+
+Published the preceding PEM/raw-ASN.1 checkpoint as **b4e6ef5**. Its CI run
+**38866281441** has completed the Windows job successfully, including all
+**39,225 actual cases** with no skips; the full Linux job is still running.
+This goal turn makes further implementation and independent verification
+progress. The complete original objective remains unchanged.
+
+Translated the complete `Data.ASN1.BitArray`, `Data.ASN1.Types.String` and
+`Data.ASN1.OID` APIs from retained **crypton-asn1-types 0.4.1**. Bit arrays retain
+their independent Word64 length/padded bytes, exported constructor semantics,
+unchecked padding subtraction/wrapping, MSB-first indexing, persistent set/clear
+operations, structural equality/Show and distinct typed/underlying bounds
+errors. OIDs remain lists of arbitrary-size integers with object-ID and lookup
+contracts, rather than narrowing arcs to machine integers.
+
+All twelve string encoding constructors retain their original order and
+Eq/Ord/Show. Character strings preserve raw bytes, UTF8 IsString construction,
+Char8 truncation, BMP's low-16-bit truncation and independent surrogate Chars,
+big-endian UTF32, unsupported VideoTex/Character conversion, and original UTF8
+truncation/continuation/range errors. The original accepts overlong UTF8 and
+does not validate ASCII-like character repertoires; these behaviors are
+preserved rather than replaced by a platform charset decoder.
+
+Haskell makes both the String spine and its individual Char values lazy.
+Independent observations exposed **33 initial error-priority mismatches** when
+scalar evaluation was eager. Kotlin now provides separately suspended elements
+(`decodeLazy`), element-by-element demand (`decodePoints`) and full
+materialization (`decode`). Expected outputs remain unchanged by this fix.
+Both demand orders and partial prefixes are compared directly with the source.
+
+The new development observer compiles **three unchanged original modules**
+directly from vendor under GHC 9.12.2. Its bridge only interprets requests,
+projects results and selects evaluation demand. The fixture contains **12,250
+observations**, **21 source hashes**, and semantic SHA-256
+**5be0edf672866c1d723886be2eea1c300ad1199cef1ee637bd867d551f914292**.
+Coverage includes every byte across all encodings, all byte/bit set/clear
+combinations, malformed/unrepresentable strings, raw/padded constructor
+boundaries, comparison/equality, and **1,000 cases in the original upstream
+BitArray generator domain**. The type package defines no original test suite;
+the encoding package's generator definition is retained and hash-checked.
+A separately compiled Linux/x86_64 original observer agrees with all cases.
+Kotlin executes **12,251 tests**, including an additional immutability,
+typed-exception and arbitrary-size OID contract check.
+
+macOS/aarch64 JDK 21 passes **170,076 selected HTTP/environment/encoding/ASN.1
+tests** in a 76s build. All **31 XML suites** have matching declared/actual
+counts: **170,077 cases**, zero failures/errors, and only the actual Windows
+Registry skip. All **161 source/fixture verifiers** pass (39.5s). CI adds this
+fixture check and requires **51,476 Windows cases**, with no skips. Linux/x86_64
+JDK 21 independently passes the same **170,076 cases** (77.458s JUnit), with
+zero failed/aborted tests or containers and the one Registry skip. Windows
+execution of this checkpoint awaits its push.
+
+Core/installed JAR identity is verified. All **2,940 preexisting classes** remain
+byte-identical; **12 new classes** bring the total to **2,952**. Only Kotlin
+module metadata changes among preceding entries. All **343 HTTP classes**, **22
+TLS error classes**, **86 full notices**, **250 Pandoc assets**, **six native
+ABI assets**, the CodePage table and **60,137-byte PSL** remain exact, as do all
+CLI/dependency JAR bytes.
+
+This completes the named three prerequisite modules, not the full ASN.1
+package, certificate handling, or TLS. High-level ASN.1 values, Stream/Pretty,
+typed BER/DER and its DER/Real properties, hourglass-compatible dates,
+ParseASN1, X.509 objects/stores/validation and TLS/resource-I/O integration
+remain. The full Pandoc port/all tests, calibre MOBI/all tests and additional
+formats absent from Pandoc/all their tests remain required.

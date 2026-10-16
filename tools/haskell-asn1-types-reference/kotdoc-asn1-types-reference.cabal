@@ -1,0 +1,12 @@
+cabal-version: 3.0
+name: kotdoc-asn1-types-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable asn1-types-reference
+  main-is: Asn1TypesReference.hs
+  hs-source-dirs: . ../../vendor/crypton-asn1-types-0.4.1/src
+  other-modules: Data.ASN1.BitArray, Data.ASN1.Types.String, Data.ASN1.OID
+  default-language: Haskell2010
+  ghc-options: -O2
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring ==0.12.2.0
