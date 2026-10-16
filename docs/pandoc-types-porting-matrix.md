@@ -58,8 +58,9 @@ for all nineteen default instances and 4,538 private-helper/domain observations,
 including 56 named constructor witnesses. Fresh regression XML has 17,613 actual
 cases with no failures/errors/skips. This supplies the finite standalone/helper
 corpus specified in gate A; it does not close every semantic gate or establish
-unbounded seed/size/demand fidelity. The open shrink, original remaining property,
-Read/ordering and public API gates above remain required before closing local:611.
+unbounded seed/size/demand fidelity. At that accepted checkpoint the remaining property gate was open; it is now
+covered by66722c1 above. Shrink, Read/ordering and public API gates remain required
+before closing local:611.
 
 ## Accepted original registered property checkpoint
 
@@ -79,3 +80,57 @@ Independent source/predicate review and separate byte-exact original replay of a
 literals and both original table literals remain unchanged and are included in
 the focused regression. This checkpoint does not close the shrink/Read/ordering
 or whole public semantic API gates.
+
+## Ordered shrinking closure checkpoint (awaiting independent review)
+
+Finite acceptance rows: all20 Inline and14 Block root constructors and their
+34 wrapper flatten/no-flatten cases; seven table/caption cases;32 list-boundary
+cases; six deep32/128/256 bounded prefixes; one large Cartesian prefix; eight
+Text codepoint-length cases; eight Attr empty/nonempty component masks; two empty
+Caption forms; and two alternative Quote/Math enum witnesses. This is134 named
+cases. Complete cases retain every candidate in original order, including
+duplicates; seven bounded cases retain explicit limit/truncated metadata.
+
+The independent original oracle additionally evaluates every Haskell Char
+codepoint0..0x10ffff through Text.singleton and the actual Str shrink instance:
+1,114,112 complete candidate lists, checked by1,088 canonical numeric-JSON batch
+SHA256 values. This includes all2,048 surrogate Char inputs mapping to U+FFFD by
+Text.pack, all Unicode16 lower/upper mappings and ASCII digit/space ranking.
+
+Six original demand observations distinguish candidate-spine demand from element
+demand on finite known spines. They prove two concrete defects in the initial
+Kotlin helper: copied candidates forced retained elements; DefinitionList eagerly
+constructed recursive tails before the first candidate. Citation's inherited
+empty shrink also requires removing list chunks without reading any elements.
+Read-only AbstractList candidate views now retain original element references,
+expose no mutation operations and defer indexed access. Source-order complete
+list equality tests exercise their iterators; view size reads only known finite
+spine length. Backing Lists follow the AST's existing immutable-input convention.
+Infinite/partial spines and bottom-valued strict AST fields are outside the
+represented Kotlin value model; no general GHC evaluation engine is claimed.
+
+Remaining gates after this named matrix: generator runtime large/deep/demand audit
+(in particular recursive vector construction remains one known implementation
+gap), 23 Definition Read dictionaries plus Builder Many/aliases/dependencies;
+Eq/Ord dictionary evidence audit; and the exported semantic API symbol census and
+missing-method implementation. The19 generator and19 shrink instance source
+families stay explicit; finite observations are not proof of unbounded runtime
+behavior. local:611 remains open.
+
+Focused verification: Gradle session48118 completed successfully in2m05s.
+Actual JUnit XML has33,284 cases (prior32,056 plus1,228 new), zero failures,
+errors or skips. The1,228 new cases are134 ordered lists,1,088 full Char batches
+and six finite demand observations. All five source verifiers and diff checks
+must remain green before integration; independent original replay/review is pending.
+
+Initial exact-source census for the subsequent API audit: Definition has37 export
+entries,23 data/newtypes and five aliases; Builder has74 own export entries plus
+the Definition re-export, one parametric Many type and two aliases; Walk has25
+export entries (the two apostrophe helpers are distinct),58 source instance
+clauses and three class methods; Generic has four exported functions. These are
+140 module-owned export entries before expanding constructor/record/class-member
+children. Walk's58 dictionaries have174 walk/walkM/query method slots. The typed
+ordering audit has25 concrete Definition/Many Inline/Many Block dictionaries and
+225 nine-method slots; Read has the same25 concrete dictionaries plus five
+Definition aliases and dependency grammars. These finite source rows require a
+separate explicit symbol/evidence census; this count does not mark them covered.

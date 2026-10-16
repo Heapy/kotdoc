@@ -1,0 +1,32 @@
+{
+  "sources": {
+    "tools/import-types-shrink-closure-fixtures.py": "41d2ef11f7cfee880b413a09292087fb4d21f908d9c3ce019b731c8d68d97286",
+    "tools/haskell-types-shrink-closure-reference/TypesShrinkClosureReference.hs": "f34ad488a58290f580001f9149ac6869dca2c4a9a6d0d057945b67473a20f8e9",
+    "tools/haskell-types-shrink-closure-reference/kotdoc-types-shrink-closure-reference.cabal": "d3e2e084a64eb73b50eb0ce9f8193311f96334d14ca5b6990a81e9b9b2b6baa5",
+    "tools/haskell-types-shrink-closure-reference/cabal.project": "56ffa5300bebfae315a54c64c5efa7e05cede12efa5e62334e6ec13f593fe379",
+    "tools/haskell-types-shrink-closure-reference/cabal.project.freeze": "04c73a4df34f4a1226d47ad52e3202be68d71f7d47ae4c1279fbbdbeee16f901",
+    "tools/haskell-types-shrink-closure-reference/README.md": "75f1082559e95c3a0753820fc19e3f1c4ce379c9c1f60cba161a2217943d4ba1",
+    "upstream/pandoc-types/src/Text/Pandoc/Arbitrary.hs": "792f2fadfa8e1b7eb0334a8dedaca4f87651a0bd44fbb3a496a0a2e0728213ae",
+    "upstream/pandoc-types/src/Text/Pandoc/Definition.hs": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+    "upstream/pandoc-types/src/Text/Pandoc/Builder.hs": "94ae6bb8d22865e2aef201a68839e9cf87bc0deddc2e4b14c2b20afb063238ad",
+    "vendor/quickcheck-2.16.0.0/Arbitrary.hs": "3e6080d44aa480fc75287071aa774939f8e74f1b533d2653cbe216bacdc99044",
+    "core/src/test/kotlin/io/heapy/kotdoc/ast/OriginalTypesShrink.kt": "c740a7179ac4e7ca4619c6a80548d3fb85e41b568211f52a5736676b2a22a9f4",
+    "core/src/test/kotlin/io/heapy/kotdoc/ast/OriginalTypesShrinkClosureTest.kt": "5389456e3404c2eb4a8a76115e63440e1b0afe8ea9d05e22d14ed867e761c30d",
+    "core/src/main/resources/io/heapy/kotdoc/regex-char-data.json": "2001e8b1a499f74b7d7c9348957bf267a4e7a80e15a7a32968128630559c1956",
+    "core/src/main/resources/io/heapy/kotdoc/parser-char-flags.json": "1e1d7c349fdd524623eb12bbf610b903e72b2324628c62b11609611422b67e49",
+    "core/src/main/kotlin/io/heapy/kotdoc/parsing/RegexCharacters.kt": "da6504339a999e6a068c8e4d873e8382eba549e3f6ff56bdcf600d0f409e3810",
+    "core/src/main/kotlin/io/heapy/kotdoc/parsing/ParserCharacters.kt": "4292487d4e095a553aefe168ddacb3c80423de4d6762565e18fdb7f000a8f7f6",
+    "licenses/pandoc-types-BSD-3-Clause.txt": "9f0bd78c71eacf3a7824bf5ac7215a1b3d6a2714dc740f261064934c2c721596",
+    "licenses/QuickCheck-BSD-3-Clause.txt": "17035f93180f20bc9c9eb2fd5e0c8836c699b6dedae654b3f2a7a76e737bf2b9"
+  },
+  "payloads": {
+    "shrink-closure": "a03389833731db52e9ae1878094173474ede4213dbb010494be9b43324be19a4",
+    "shrink-char-sweep": "aa4a341122c0ff8c49ed0bcf764b5edafe8fbe5ce79b55cf1571a84cf77c21e1",
+    "shrink-demand": "8f30fa783046929d32e87bbe738f320d2a8e16131d30ed5d4b27daaee7bac68b"
+  },
+  "nativeCharRawSha256": "dcf15853c6ce4e18bdc2fa77b97ee9ea0188e2b0c77dbe159572995f7ee2b42e",
+  "finiteCases": 134,
+  "charInputs": 1114112,
+  "charBatches": 1088,
+  "demandCases": 6
+}

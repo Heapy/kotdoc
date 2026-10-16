@@ -13444,3 +13444,23 @@ have explicit Kotlin tests, not claims of lexical native-finalizer equivalence.
 Modern Crypto.ECC policies, generic ECC/ECDH/subgroup suites, other cryptography/
 trust/TLS work, full Pandoc/all tests and subsequent calibre stages remain open.
 This checkpoint does not complete local:613.
+
+
+### Original pandoc-types ordered shrink and finite demand checkpoint
+
+Independent original-module replay reproduces 134 ordered cases byte-for-byte
+(127 complete, seven explicitly truncated prefixes; 21,654 retained candidates),
+six finite demand observations, and all 1,114,112 Haskell Char inputs across
+1,088 complete digest batches. The raw native Char stream hash also matches.
+Original constructor/wrapper/Attr/table/deep/list candidate ordering and duplicates
+are retained. Kotlin list views avoid forcing retained partial elements;
+DefinitionList enumeration and Citation no-op shrinking preserve these observed
+finite demands. Views assume immutable input lists, as do the source AST values.
+
+Source/payload verification passes. Fresh focused XML records 33,284 actual
+tests with zero failures/errors/skips (32,056 preceding checks plus 1,228 new);
+independent XML inspection confirms all 1,228 new cases. This is evidence for
+finite lists and finite prefixes, not infinite/partial spine or general GHC
+bottom/exception semantics. Typed Read, Eq/Ord, public API/vector coverage,
+remaining dependency work, full Pandoc/tests and later calibre stages remain
+open; local:611 is not completed.

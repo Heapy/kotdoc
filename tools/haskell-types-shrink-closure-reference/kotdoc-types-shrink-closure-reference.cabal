@@ -1,0 +1,11 @@
+cabal-version: 3.0
+name: kotdoc-types-shrink-closure-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable types-shrink-closure-reference
+  main-is: TypesShrinkClosureReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring,
+                 text ==2.1.2, pandoc-types ==1.23.1.2, QuickCheck ==2.16.0.0

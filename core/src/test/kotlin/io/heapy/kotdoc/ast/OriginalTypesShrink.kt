@@ -20,18 +20,37 @@ internal object OriginalTypesShrink {
     fun style(x: ListNumberStyle): Sequence<ListNumberStyle> = emptySequence()
     fun delim(x: ListNumberDelim): Sequence<ListNumberDelim> = emptySequence()
 
-    fun <A> list(xs: List<A>, shrink: (A) -> Sequence<A>): Sequence<List<A>> = sequence {
-        suspend fun SequenceScope<List<A>>.removes(k: Int, offset: Int) {
-            val n = xs.size - offset
-            if (k > n) return
-            if (k == n) { yield(xs.take(offset)); return }
-            yield(xs.take(offset) + xs.drop(offset + k))
-            removes(k, offset + k)
+    // Source candidates share the untouched spine/elements. A view preserves
+    // demand on finite Kotlin Lists; copying would force retained partial values.
+    private fun <A> removed(xs: List<A>, offset: Int, count: Int): List<A> = object : AbstractList<A>() {
+        override val size = xs.size - count
+        override fun get(index: Int): A {
+            checkElementIndex(index, size)
+            return xs[if (index < offset) index else index + count]
         }
-        var k = xs.size
-        while (k > 0) { removes(k, 0); k /= 2 }
-        for ((i,x) in xs.withIndex()) for (y in shrink(x)) yield(xs.take(i) + y + xs.drop(i+1))
     }
+    private fun <A> replaced(xs: List<A>, at: Int, value: A): List<A> = object : AbstractList<A>() {
+        override val size = xs.size
+        override fun get(index: Int): A {
+            checkElementIndex(index, size)
+            return if (index == at) value else xs[index]
+        }
+    }
+    private fun checkElementIndex(index: Int, size: Int) {
+        if (index < 0 || index >= size) throw IndexOutOfBoundsException("index=$index size=$size")
+    }
+    fun <A> listWithoutElementShrinks(xs: List<A>): Sequence<List<A>> = sequence {
+        var k = xs.size
+        while (k > 0) {
+            var offset = 0
+            while (k <= xs.size - offset) { yield(removed(xs, offset, k)); offset += k }
+            k /= 2
+        }
+    }
+    fun <A> list(xs: List<A>, shrink: (A) -> Sequence<A>): Sequence<List<A>> =
+        listWithoutElementShrinks(xs) + sequence {
+            for ((i,x) in xs.withIndex()) for (y in shrink(x)) yield(replaced(xs, i, y))
+        }
     private fun char(c: Int): Sequence<Int> {
         fun stamp(x: Int) = listOf(!RegexCharacters.isLower(x), !RegexCharacters.isUpper(x), !ParserCharacters.isDigit(x),
             x != 32, !ParserCharacters.isSpace(x)).map { if (it) 1 else 0 } + x
@@ -83,7 +102,7 @@ internal object OriginalTypesShrink {
         is Inline.Subscript -> inlines(x.content).map { x.copy(content=it) }
         is Inline.SmallCaps -> inlines(x.content).map { x.copy(content=it) }
         is Inline.Quoted -> inlines(x.content).map { x.copy(content=it) }
-        is Inline.Cite -> inlines(x.content).map { x.copy(content=it) } + list(x.citations, ::citation).map { x.copy(citations=it) }
+        is Inline.Cite -> inlines(x.content).map { x.copy(content=it) } + listWithoutElementShrinks(x.citations).map { x.copy(citations=it) }
         is Inline.Code -> text(x.text).map { x.copy(text=it) } + attr(x.attr).map { x.copy(attr=it) }
         is Inline.Math -> text(x.text).map { x.copy(text=it) }
         is Inline.RawInline -> text(x.text).map { x.copy(text=it) }
@@ -104,10 +123,12 @@ internal object OriginalTypesShrink {
         is Block.OrderedList -> list(x.items, ::blocks).map { x.copy(items=it) }
         is Block.BulletList -> list(x.items, ::blocks).map { x.copy(items=it) }
         is Block.DefinitionList -> {
-            fun defs(xs: List<Pair<List<Inline>,List<List<Block>>>>): Sequence<List<Pair<List<Inline>,List<List<Block>>>>> {
-                if (xs.isEmpty()) return emptySequence()
-                val (ils,bs) = xs.first(); val rest = xs.drop(1)
-                return sequenceOf(rest) + (inlines(ils).map { it to bs } + list(bs, ::blocks).map { ils to it }).map { listOf(it) + rest } + defs(rest).map { listOf(xs.first()) + it }
+            fun defs(xs: List<Pair<List<Inline>,List<List<Block>>>>): Sequence<List<Pair<List<Inline>,List<List<Block>>>>> = sequence {
+                for (i in xs.indices) {
+                    yield(removed(xs, i, 1))
+                    val (ils,bs) = xs[i]
+                    for (v in inlines(ils).map { it to bs } + list(bs, ::blocks).map { ils to it }) yield(replaced(xs, i, v))
+                }
             }
             defs(x.items).map { x.copy(items=it) }
         }
