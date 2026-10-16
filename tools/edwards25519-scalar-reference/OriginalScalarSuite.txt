@@ -1,0 +1,24 @@
+
+scalar arithmetic
+  scalarDecodeLong.scalarEncode==id [✔]
+    +++ OK, passed 100 tests.
+  curve order [✔]
+  addition with zero [✔]
+    +++ OK, passed 100 tests.
+  addition associative [✔]
+    +++ OK, passed 100 tests.
+  addition commutative [✔]
+    +++ OK, passed 100 tests.
+  multiplication with zero [✔]
+    +++ OK, passed 100 tests.
+  multiplication with one [✔]
+    +++ OK, passed 100 tests.
+  multiplication associative [✔]
+    +++ OK, passed 100 tests.
+  multiplication commutative [✔]
+    +++ OK, passed 100 tests.
+  multiplication distributive [✔]
+    +++ OK, passed 100 tests.
+
+Finished in 0.0166 seconds
+10 examples, 0 failures

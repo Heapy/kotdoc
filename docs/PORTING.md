@@ -13927,3 +13927,43 @@ Decaf and remaining613/Pandoc/tests/calibre work. Local:613 stays open.
 Cached diff check reports17 cosmetic whitespace diagnostics: nine in verbatim
 original headers and eight in translated Kotlin power-helper lines. They are
 retained without changing arithmetic/source evidence; no other paths are flagged.
+
+
+### Complete Edwards Donna scalar/MODM checkpoint
+
+Kotlin ports all16 helpers in both original MODM profiles: nine30-bit uint32
+words or five56-bit uint64 words, single conditional reduction, fixed-width
+Barrett/convolution, expand/raw/contract/window encodings and batch helpers.
+Source32 final q1 truncation differs from64 retained carry; q3 tail packing is
+separate. MSB subtraction tests, profile-specific batch comparison/default
+branches, and shared byte/word aliases preserve raw source behavior rather
+than replacing it with generic modulo arithmetic. Existing field/tables and
+public engines are unchanged.
+
+Independent ordinary/observed C replay passes11,808 observations/28pins, with
+q1/r1/q3/r2/difference/reducer stage traces and complete guarded buffers. Case
+SHA25659598f3250c2ace94c7fcc8173e91c2f32770d18fab580898df1d8babbb6e388
+remained unchanged during provenance hardening. All actual crypton/RAM source
+map bytes/archive identities and exact RAM notice authenticate. Original
+Haskell scalar partition passes nine property families100trials each plus one
+order literal;200 original Arbitrary samples and all three payloads are
+independently replayed, supporting3,600 Kotlin family checks across profiles.
+Saved fresh Gradle80569 XML independently confirms15,437 actual tests with zero
+failures/errors/skips. Own source/extraction/native/Haskell checks pass.
+Own packaging Gradle passes; installed core JAR is identical, notices match
+exactly, Scalar/Region classes contain no BigInteger/process/foreign references
+or native methods.
+
+Mathematical reduction claims apply only to original bounded inputs. Raw full
+words/unrelated Barrett factors and batch underflow preserve observations
+without normalization. Expand length0..64 and sliding widths1..8 are the finite
+defined matrix; invalid shifts or larger expand stack overwrites are excluded.
+32 scalar value storage is36 bytes, not the entire40-byte Haskell allocation.
+Native alignment/effective-type assumptions, real32-bit OS ABI, timing, physical
+erasure and general GHC laziness remain unproved. Point/selector engines, public
+and modern Edwards plus the remaining16 properties/five literal examples of
+the original31-example suite, Decaf/X448 and full613/Pandoc/tests/calibre remain
+open. This does not close local:613.
+
+Cached diff check retains50 whitespace diagnostics only in verbatim original
+and mechanically observed C headers; Kotlin/test/tool/doc edits are clean.
