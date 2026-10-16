@@ -10564,3 +10564,98 @@ claim these libraries complete. Pandoc resource HTTPS/cache integration remains
 unchanged pending the real TLS backend. All original Pandoc readers/writers,
 App/Lua and all tests, followed by calibre MOBI/all tests and additional formats
 absent from Pandoc/all their tests, remain required under the unchanged goal.
+
+### Native GHC getEnv/lookupEnv and Windows system-error conversion
+
+`GhcEnvironmentLookup` translates the pinned **GHC 9.12.2** getEnv/lookupEnv
+platform branches. POSIX calls live libc getenv, encoding names through the
+foreign C-string IGNORE codec and decoding found values through the separate
+filesystem ROUNDTRIP codec. Missing values never force the filesystem decoder;
+empty found values do. Embedded NUL truncation and invalid byte/surrogate
+behavior are preserved. A missing getEnv raises the original NoSuchThing record
+with location `getEnv`, description `no environment variable`, the full original
+name as filename and no errno. lookupEnv returns null for absence.
+
+Windows uses explicit 16-bit names and GetEnvironmentVariableW with an initial
+256-unit buffer. Required sizes greater than the current size cause another
+allocation/query; the original strict greater-than comparison is retained.
+Valid surrogate pairs are combined, lone surrogates retained, and the returned
+count does not replace NUL-terminated decoding. A zero result returns null from
+lookupEnv. getEnv checks error 203 for a missing variable, otherwise reads
+GetLastError again through throwGetLastError. An empty Windows value follows
+this same source path, rather than inventing a successful empty getEnv result.
+The native binding captures JNA's last-error value immediately after the query
+and retains it per Java thread across decoding/cleanup.
+
+`GhcWindowsErrors` translates original errCodeToIOError/getErrorMessage and the
+complete C maperrno table/ranges, preserving first-match order (including the
+duplicate ERROR_INVALID_HANDLE entry). FormatMessageW uses the original system/
+allocated-buffer flags and neutral/default language; successful messages are
+decoded as UTF-16 and LocalFree results ignored. Missing messages use lowercase
+`Error 0x...`; trailing GHC whitespace is removed before constructing the original
+IOError fields. The data table is derived from **46 original C entries**, pinned
+mingw-w64 v12.0.0 headers, and the original errnoToIOError guard ordering.
+
+`NetworkConnectionDialer` and `NetworkConnectionClient` now default to this live
+getEnv implementation. Their explicit environment effect remains injectable.
+The native SOCKS/HTTP integration test now sets an isolated OS variable after
+JVM-cache initialization and obtains its proxy through the default implementation.
+The former source-counterpart-only environment boundary is thus removed from
+the default connection path.
+
+The observer compiles exact platform-selected getEnv/lookupEnv/missing-error
+fragments, original Windows wide conversion, Windows error conversion, the
+complete original errnoToIOError function, and unchanged C errtable/maperrno_func.
+The C build includes actual retained Windows headers with a minimal declaration
+shim; no retry, classification, mapping, trimming or lookup algorithm is
+rewritten. POSIX conversion uses actual GHC builtin codecs. OS calls, message
+ownership and encoding getters are controlled effects. errnoToString supplies
+an unused placeholder, since the original Windows function overwrites that
+description. Source/header bytes, BSD and mingw header notices are retained.
+
+There are **8,090 independent original-code observations**, **31 source hashes**,
+semantic SHA256
+`110b78951c0808adcc37d61fa9bddac8b31808d800609e4a3deca92e4f693a46`.
+They cover 3,456 name/value codec/NUL/missing cases, lazy encoding/effect failures,
+raw UTF-16 names/results, repeated required-size growth, count==size behavior,
+zero/empty/missing results, separate first/second last-error calls, message
+allocation/free/fallback, every error code 0..4096 plus DWORD wrapping/extremes,
+and original IOError records with malformed UTF-16 and Unicode whitespace.
+One additional native unit executes real libc in an isolated child JVM on POSIX
+or real Kernel32 on Windows, checking live changes, bypass of the JVM cache,
+missing/empty/long Unicode values and Windows message formatting/fallback.
+Windows CI explicitly selects all new cases and requires **18,564 total
+proxy/environment tests**, with no skipped cases and actual registry plus
+environment APIs executed. Actual Windows validation is pending the new CI run.
+
+Validation before publication: **136,067 successful selected HTTP/environment
+tests** on macOS/aarch64 JDK 21 (67s Gradle build) and Linux/x86_64 JDK 21
+(74.459s JUnit). Of **136,068 cases**, only the actual Windows Registry case is
+skipped on POSIX. All **26 macOS XML suites** are fully parsed with declared and
+actual case/failure/error/skip counts in agreement; Linux reports no failures,
+aborted tests or aborted/failed containers. New lookup cases and the native
+lookup unit contribute **8,091 passing tests**. Processed fixture bytes match
+the final corpus. All **155 source/fixture verifiers** pass (38.4s).
+
+Installed/core JAR checks verify **343 HTTP classes**, the new environment/
+Windows-error classes and mapping asset, all **77 complete notices**, **250
+Pandoc assets**, **22 TLS error classes**, all **six native ABI assets** and the
+unchanged **60,137-byte PSL**. Of **2,834 preexisting classes**, **2,830** remain
+byte-identical, including every **2,493 non-HTTP class**. The four changed HTTP
+classes share NetworkConnectionDialer.kt: two gain the live default getter;
+the neighboring ConnectionSocksEnvironment/PosixConnectionDialBackend retain
+identical javap bytecode/descriptors with shifted source/debug locations.
+Every other preceding JAR entry and all CLI/dependency JAR bytes are unchanged.
+The preceding b1140aeb full CI run **38851887009** completed successfully on both
+Linux and actual Windows; the 0e7d3aa6 full run is still in progress.
+
+This does not complete GHC's encoding/runtime layer: configurable global locale,
+foreign and filesystem TextEncoding state (including integration with the older
+getEnvironment/resolver consumers), all codec failure policies/stream state,
+full async masking/RTS thread semantics, remaining Windows APIs and other ABIs
+still require translation and verification. System lookup currently uses the
+initial locale codecs; controlled entry points prove separate/dynamic encoding
+getter ordering without claiming global setters. TLS parameters, certificate
+stores/validation and the actual TLS engine remain unfinished. The full Pandoc
+port/all tests, calibre MOBI/all tests and additional formats absent from Pandoc/
+all their tests remain the unchanged objective.

@@ -1,4 +1,7 @@
 core/src/test/resources/** linguist-generated=true
+vendor/ghc-environment-lookup-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-environment-lookup-reference/Original* -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/mingw-w64-header-notices.txt -text whitespace=-trailing-space,-blank-at-eof
 vendor/crypton-socks-0.6.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 vendor/cereal-0.5.8.3/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 # Upstream Setext headings consist of exactly seven equals signs.

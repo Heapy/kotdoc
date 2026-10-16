@@ -1,0 +1,15 @@
+cabal-version: 3.0
+name: kotdoc-environment-lookup-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable environment-lookup-reference
+  main-is: EnvironmentLookupReference.hs
+  other-modules: OriginalPosixGetEnv, OriginalWindowsGetEnv, OriginalWindowsWide,
+                 OriginalWindowsErrors, OriginalWindowsErrno, EnvironmentLookupEffects, EnvironmentWindowsEffects, LookupEffects
+  c-sources: OriginalMapErrno.c
+  include-dirs: . ../../vendor/ghc-environment-lookup-9.12.2/mingw
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, ghc-internal, aeson ==2.2.3.0, bytestring ==0.12.2.0,
+                 text ==2.1.2, containers ==0.7

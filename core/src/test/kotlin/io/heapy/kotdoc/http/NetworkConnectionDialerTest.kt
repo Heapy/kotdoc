@@ -1,6 +1,7 @@
 package io.heapy.kotdoc.http
 
 import com.sun.jna.Platform
+import com.sun.jna.NativeLibrary
 import com.sun.jna.Pointer
 import com.sun.jna.ptr.PointerByReference
 import io.heapy.kotdoc.errors.GhcIOException
@@ -16,6 +17,7 @@ import java.net.InetAddress
 import java.net.ServerSocket
 import java.util.concurrent.FutureTask
 import java.util.concurrent.TimeUnit
+import java.util.UUID
 import java.util.zip.GZIPInputStream
 
 class NetworkConnectionDialerTest {
@@ -176,6 +178,10 @@ class NetworkConnectionDialerTest {
         if (!Platform.isMac() && !Platform.isLinux()) return
         ServerSocket(0, 1, InetAddress.getByName("127.0.0.1")).use { listener ->
             listener.soTimeout = 5000
+            val variable = "KOTDOC_SOCKS_${UUID.randomUUID()}"
+            val libc = NativeLibrary.getInstance(Platform.C_LIBRARY_NAME)
+            assertNull(System.getenv(variable))
+            assertEquals(0, libc.getFunction("setenv").invokeInt(arrayOf<Any>(variable, "127.0.0.1:${listener.localPort}", 1)))
             val peer = FutureTask {
                 listener.accept().use { socket ->
                     socket.soTimeout = 5000
@@ -196,9 +202,9 @@ class NetworkConnectionDialerTest {
             val server = Thread.ofVirtual().start(peer)
             val client = FutureTask {
                 val backend = NetworkConnectionClient(Unit, {}, PosixConnectionDialBackend(),
-                    ConnectionTlsFactory<Unit, Unit> { _, _, _, _ -> error("unexpected TLS") }, { error("unexpected environment") })
+                    ConnectionTlsFactory<Unit, Unit> { _, _, _, _ -> error("unexpected TLS") })
                 val adapters = HttpTlsManagers(backend, HttpManagers.defaultPosixManagerSettings(), {})
-                val settings = adapters.mkManagerSettings(Unit, HttpSocketProxy.Simple(Chars.fromString("127.0.0.1"), listener.localPort.toUShort()))
+                val settings = adapters.mkManagerSettings(Unit, HttpSocketProxy.Environment(Chars.fromString(variable)))
                     .copy(proxyInsecure = HttpProxyOverrides.fromRequest, proxySecure = HttpProxyOverrides.fromRequest)
                 val manager = HttpManagers.newManager(settings, {})
                 val request = HttpRequests.parseUrlThrow("http://book.invalid/book").copy(responseTimeout = HttpResponseTimeout.Micro(5_000_000))
@@ -206,7 +212,10 @@ class NetworkConnectionDialerTest {
             }
             val thread = Thread.ofVirtual().start(client)
             try { client.get(10, TimeUnit.SECONDS); peer.get(10, TimeUnit.SECONDS) }
-            finally { listener.close(); listOf(thread, server).forEach { it.interrupt(); it.join(5000); assertFalse(it.isAlive) } }
+            finally {
+                assertEquals(0, libc.getFunction("unsetenv").invokeInt(arrayOf(variable)))
+                listener.close(); listOf(thread, server).forEach { it.interrupt(); it.join(5000); assertFalse(it.isAlive) }
+            }
         }
     }
 

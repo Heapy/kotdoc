@@ -1,0 +1,13 @@
+{
+  "ghcRevision": "383be28ffdddf65b57b7b111bfc89808b4229ebc",
+  "mingwTag": "v12.0.0",
+  "files": {
+    "GHC/Internal/Windows.hs": "88ae126100688cedad6d368618a97344820c0531139bda7b9868f2affcd88a0b",
+    "cbits/Win32Utils.c": "f62b489b53c951d02b769a35801abbd9945632ecb9a1f6ade3ccc4ca20060dac",
+    "mingw/errno.h": "85bb8bccd9322b2db53a7cc9ee3ebc89951f671f8180a56eac02b9b3bf97f1a5",
+    "mingw/winerror.h": "28389a26386b57ce458fb2c9f4a054e86509b615d44b188746c6f21ef9e0ada5",
+    "mingw/DISCLAIMER.PD": "87f33608570312a0f2a9745edcb2527275df813b13982e8c3b3f893d88a4141a",
+    "mingw/fltwinerror.h": "c05f1dbe76073dfdc6c0ef1936a22c1f9956a9ed96e7806c5db51b379d02626e",
+    "mingw/COPYING": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f"
+  }
+}

@@ -7,6 +7,7 @@ import io.heapy.kotdoc.formats.HaskellNumber
 import io.heapy.kotdoc.layout.CharacterString
 import io.heapy.kotdoc.layout.CharacterStringChars as Chars
 import java.math.BigInteger
+import io.heapy.kotdoc.resources.GhcEnvironmentLookup
 
 /** IO failures use the translated GHC IOException record (GhcIOException). */
 interface ConnectionDialBackend<S: ConnectionSocket, A> {
@@ -41,7 +42,7 @@ object ConnectionSocksEnvironment {
 /** Original sequential acquisition and bracketOnError ownership. The environment
  * getter is the GHC getEnv effect, whose IO failures trigger direct connection. */
 class NetworkConnectionDialer<C, T, S: ConnectionSocket, A>(private val backend: ConnectionDialBackend<S, A>,
-    private val factory: ConnectionTlsFactory<C, T>, private val getEnvironment: (CharacterString) -> CharacterString) {
+    private val factory: ConnectionTlsFactory<C, T>, private val getEnvironment: (CharacterString) -> CharacterString = GhcEnvironmentLookup::getEnv) {
     fun connect(context: Lazy<C>, params: HttpTlsConnectionParams<T>): NetworkConnection {
         val socket = acquire(params.socks, params.host, params.port)
         try { return NetworkConnections.connectFromSocket(context, socket, params, factory) }
@@ -85,7 +86,7 @@ class NetworkConnectionDialer<C, T, S: ConnectionSocket, A>(private val backend:
  * implementation. A real TLS engine/context initializer must still be supplied. */
 class NetworkConnectionClient<C, T, S: ConnectionSocket, A>(override val defaultTlsSettings: T,
     private val initialize: () -> C, backend: ConnectionDialBackend<S, A>,
-    private val factory: ConnectionTlsFactory<C, T>, environment: (CharacterString) -> CharacterString): HttpTlsConnectionBackend<C, NetworkConnection, T> {
+    private val factory: ConnectionTlsFactory<C, T>, environment: (CharacterString) -> CharacterString = GhcEnvironmentLookup::getEnv): HttpTlsConnectionBackend<C, NetworkConnection, T> {
     private val dialer = NetworkConnectionDialer(backend, factory, environment)
     override fun initializeContext() = initialize()
     override fun connect(context: Lazy<C>, params: HttpTlsConnectionParams<T>) = dialer.connect(context, params)
