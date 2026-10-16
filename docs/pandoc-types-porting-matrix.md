@@ -12,7 +12,7 @@ Source authority: pinned upstream/pandoc-types/{src/Text/Pandoc/{Arbitrary,Defin
 | Ten explicit shrink families | `Arbitrary.hs:36-111,114-142,178-211,309-346` | `fde33c3346204ff8f2eee836ef445fd302a0bdc4`: 134 named lists, all1,114,112 Char, six demand probes; focused XML33,284; supplements665c5da | Covered named finite gateB, all constructors and represented known-spine demand; no general GHC evaluation runtime claimed |
 | Nine inherited empty shrink families | `Arbitrary.hs:288-307,348-407`; QuickCheck `Arbitrary.shrink` default | `cdf2b84906e91b1baad740738564855677966acb`: 270 original inputs, nine explicit Kotlin APIs; compound Citation/Alignment hooks retained | Covered original default no-op semantics on the represented inputs; standalone generator domain remains gateA |
 | All original registered tests | `test/test-pandoc-types.hs:tests` | Existing 56 paired JSON literals and two table literals; exact Walk evidence above | All 81 source registrations have concrete Kotlin mappings and executed finite evidence in remaining-property-manifest.json; whole semantic API and other gates remain open |
-| Derived Read | Definition.hs23 data/newtypes; Builder.hs Many; native GHC dictionaries | Existing Native reader fixtures support complete document syntax | Open: typed dictionary, precedence, prefix/remainder, failure and deep matrix |
+| Derived Read | Definition.hs23 data/newtypes; Builder.hs Many; native GHC dictionaries | Current review checkpoint:16,954 native requests,25 concrete dictionaries/79 constructors+5 aliases, all four methods | Finite typed matrix implemented and tested; independent review pending. NativeReader integration remains separate |
 | Eq/Ord | Definition.hs derived/manual dictionaries; Builder.hs Many | Existing `AstComparison`, 75,470 independent observations, source dictionary dumps | Audit open; retain existing implementation unless a concrete gap/defect is demonstrated |
 | Whole public semantic API | exports/instances of Definition/Walk/Builder/Generic | Existing typed AST/builders/visitor/table helpers | Open: enumerate every export/instance and assign native evidence; missing APIs block611 closure |
 
@@ -109,9 +109,7 @@ spine length. Backing Lists follow the AST's existing immutable-input convention
 Infinite/partial spines and bottom-valued strict AST fields are outside the
 represented Kotlin value model; no general GHC evaluation engine is claimed.
 
-Remaining gates after this named matrix: generator runtime large/deep/demand audit
-(in particular recursive vector construction remains one known implementation
-gap), 23 Definition Read dictionaries plus Builder Many/aliases/dependencies;
+Remaining gates after this named matrix: the vector construction defect was subsequently closed by accepted a5c8fb8f8366b825db351057153b2f3160cfcdef below; typed Read was then implemented in the current review checkpoint. Remaining gates include NativeReader integration;
 Eq/Ord dictionary evidence audit; and the exported semantic API symbol census and
 missing-method implementation. The19 generator and19 shrink instance source
 families stay explicit; finite observations are not proof of unbounded runtime
@@ -148,7 +146,7 @@ synchronous exceptions. Two Kotlin test methods supplement180 native value
 cases: one executes all ten native stages, one checks finite adapter bounds and
 per-run cache isolation. Fresh Gradle64342 passed actual XML33,466 cases
 (prior33,284 plus182), zero failures/errors/skips; six source verifiers pass.
-Independent original replay and review accepted this checkpoint; no source
+Independent original replay and review accepted a5c8fb8f8366b825db351057153b2f3160cfcdef; no source
 expectation is rewritten. This closes the identified vector construction gap
 for the represented finite regression; it does not turn Kotlin into a general lazy Gen interpreter.
 
@@ -184,3 +182,83 @@ The following implementation sequence has explicit source rows and acceptance:
    run relevant complete regression. Close611 only when all named gates have no
    unresolved implementation/evidence rows; closing611 still does not mean the
    entire Pandoc/calibre port is complete.
+
+
+## Typed Read checkpoint awaiting independent review
+
+`PandocRead` now supplies all25 concrete Read dictionaries and five Definition
+aliases, plus the primitive/dependency grammar. The native census retains all79
+constructors with actual Data.gunfold arities and record fields. The manifest
+maps all five operations (readsPrec/readPrec/readList/readListPrec/Prelude.read) for every dictionary and
+alias to exact fixture indices. Its16,936 requests retain complete original
+response lines, full parse-result lists, exact Char remainders and whole-read
+errors. The source matrix covers precedence and Int64 bounds, constructors and
+records, missing/wrong fields and delimiters, whitespace/comment rejection,
+escapes/string gaps/Char lists, surrogate replacement, greedy numeric boundaries,
+IEEE rounding and signed NaN/zero words, and deep32/256/2048/8192 finite inputs.
+Original GHC derived Meta/Seq Read interface evidence is retained. Expected
+responses and the original56 imported examples are never rewritten by Kotlin.
+
+Final Gradle session62176 passed actual XML49,198 cases, zero failures/errors/skips,
+including14,308 new Read cases and the prior types, JSON, table and unchanged
+Native suites. All parser/oracle/source hashes were finalized before that run.
+This is finite represented-value evidence, not a general GHC evaluation engine.
+Independent source and native byte-exact replay review is still required.
+
+Next coherent production checkpoint is NativeReader integration with the ordered
+fallback in `upstream/pandoc/src/Text/Pandoc/Readers/Native.hs`: Pandoc, [Block],
+Block, [Inline], Inline. Two concrete old-reader gaps are now proved by actual
+Read: uppercase numeric escapes `Str "\\X41"` / `Str "\\O101"`, and Text's
+Char-list syntax `Str ['a','b']`. Existing NativeReader still rejects these;
+its existing fixtures and expectations remain untouched in this checkpoint.
+Empty [] must retain the original [Block] fallback precedence. This integration
+must follow independent acceptance of the typed Read API.
+
+After integration, remaining finite closure gates are225 Eq/Ord method slots,
+58 Walk dictionaries/174 methods and140 module-owned export entries before
+constructor/record/class-member expansion, including all four Generic functions
+and Definition/Builder algebra. Existing original ordering evidence must be
+audited and retained; only demonstrated gaps justify production changes.
+local:611 remains open until each named source row has evidence and review.
+
+
+Read review identified the omitted GHC Read.readListPrec method; this is now a
+precedence-aware CharacterString/String API and independently observed via actual
+readPrec_to_S readListPrec. The expanded16,936-request matrix retains the prior
+14,308 unchanged requests/responses plus2,628 method/reset/ambiguity observations.
+All25 dictionaries, five aliases and five primitive dependencies have five
+operation mappings. Int64-min/-1/0/10/11/Int64-max enclosing precedences verify
+list elements reset to zero; Char's quoted-string override remains distinct.
+
+The additional source cases disproved an earlier broad unambiguity assumption:
+Char.readListPrec applies parens outside readListPrecDefault's own parens, so a
+bracket list with n groups has n+1 equal parses. Char.readList and Text's String
+Read delegate to this grammar. The Kotlin parser retains this multiplicity,
+including independent-field Cartesian products, and whole read reports the
+original ambiguity error. Native depths0/1/2/3/8, quoted-string contrast and
+Text/Inline/Target/Attr dependencies retain complete ordered result lists.
+These are identical alternatives in this source branch, not deduplicated values;
+no general arbitrary user-defined nondeterministic Read runtime is claimed.
+Isolated compilation and all16,936 native assertions pass. Final Gradle session93615
+completed successfully in2m03s: actual XML51,826 cases, zero failures/errors/skips.
+All seven source verifiers and diff checks pass. Renewed independent review remains
+required before this checkpoint is accepted.
+
+
+Renewed review identified whole-read demand as a separate defect:31 independent
+ambiguous Text fields have2^31 equal alternatives, while Prelude.read only needs
+two to return its ambiguity error. Whole read now parses with ambiguity saturated
+at two and never builds the ReadS result list. The result-list adapter instead
+uses a shared read-only view for equal alternatives up to Int.MAX_VALUE; larger
+cardinalities are explicitly outside JVM List representation. No universal finite
+ReadS parity is claimed. Whole read has no such result-cardinality restriction.
+
+Eighteen new original Prelude.read requests use2/16/30/31/32/64/256/1024 fields
+and empty/whitespace tails;2/16-field cases also retain nonspace tails. Native
+large rejected tails require exhausting failed alternatives and are not used as
+fast demand probes. The16,954-request corpus and isolated Kotlin replay pass;
+complete prior16,936 observations remain included. Source/input/response hashes
+were finalized before final expanded Gradle session22091. It passed in1m58s:
+actual51,844 Read/types/Native regression cases plus nine separately selected FB2
+goldens, all zero failures/errors/skips. All seven source verifiers and diff checks
+pass. Renewed independent review remains pending; local:611 is still open.

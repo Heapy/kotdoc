@@ -1,0 +1,17 @@
+-- Generated GHC9.12.2 --show-iface of the unchanged original Definition module.
+-- The record Read guard is 11; positional application Read guards are 10.
+  $w$creadPrec7 ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Meta -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> GHC.Internal.Text.ParserCombinators.ReadP.P b
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <L><LC(S,L)>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                @b
+                (eta11['GHC.Types.Many] :: Meta
+                                           -> GHC.Internal.Text.ParserCombinators.ReadP.P b) ->
+              case GHC.Prim.<=# ww 11# of lwild {
+                DEFAULT -> GHC.Internal.Text.ParserCombinators.ReadP.Fail @b
+

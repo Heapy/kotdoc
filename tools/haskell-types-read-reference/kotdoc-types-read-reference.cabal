@@ -1,0 +1,14 @@
+cabal-version: 3.0
+name: kotdoc-types-read-reference
+version: 0.1.0.0
+build-type: Simple
+license: GPL-3.0-only
+executable types-read-reference
+  main-is: TypesReadReference.hs
+  hs-source-dirs: ., ../haskell-ast-show-reference, ../../upstream/pandoc-types/test
+  other-modules: OriginalExamples, Data.String.QQ
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring,
+                 text ==2.1.2, pandoc-types ==1.23.1.2, containers, vector,
+                 template-haskell

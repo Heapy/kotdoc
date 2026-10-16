@@ -13686,3 +13686,38 @@ generator/shrinker/runtime semantics, typed Read work in progress, Eq/Ord,
 complete Walk/Builder/Generic/public API/effects and global Pandoc/calibre
 coverage remain separate open requirements. Local:611 and local:622 are not
 closed by this mapping bridge. FB2 mapping is a separate next finite checkpoint.
+
+
+### Typed original Read dictionaries and finite ambiguity demand
+
+The Kotlin typed Read API covers 25 concrete Definition/Many dictionaries and
+five aliases, all 79 source constructors, the four class methods readsPrec/
+readPrec/readList/readListPrec and Prelude.read. Native Data arity/field census,
+original examples, precedence/remainder/record/lexical/container/numeric cases
+and deep finite inputs through 8,192 retain independent expectations. Text
+packing/remainders distinguish actual Haskell Chars from JVM String adapters;
+Double/ColWidth retain native raw IEEE words as well as canonical Show.
+
+Independent replay matches all 16,954 original response lines byte-for-byte,
+SHA256 ec36cf4e7454f7ae621f95c9b6988fb4ee02d194390c61a41c6f9d3666a828a6;
+the preceding 14,308 response bytes remain unchanged. Review found and fixed
+the omitted readListPrec method and original Char/Text duplicate alternatives.
+Independent field parses multiply; exact counts/order remain without dedup.
+A further review caught whole-read Int overflow/eager duplicate allocation:
+31 ambiguous fields have 2^31 original parses, but Prelude.read needs only two
+to report ambiguity. Whole read now saturates its ambiguity count at two.
+Independent compiled Kotlin probes under 128 MiB reproduce original ambiguity
+for 31/1,024 fields and no-parse for a rejected tail; a 2^30-result ReadS view
+retains exact size/shared endpoints without allocating every result.
+
+Source/payload verification and diff checks pass. Fresh selected XML has 51,853
+actual tests, zero failures/errors/skips: 16,954 Read, preceding types/Native
+checks and nine separately selected FB2 tests. These FB2 executions are separate
+from this Read API checkpoint. The ReadS List adapter supports result cardinality
+through Int.MAX_VALUE and explicitly rejects larger cardinalities; whole read
+does not inherit that adapter limit. Infinite/partial input spines, arbitrary
+user Read instances, asynchronous exceptions and general lazy ReadS/GHC runtime
+equivalence are not claimed. Existing NativeReader remains unchanged; its
+uppercase O/X escapes and Char-list Text integration are the next separate fix.
+225 Eq/Ord, 174 Walk and full public export/effect rows remain open. Local:611,
+full Pandoc/tests and later calibre stages are not completed.

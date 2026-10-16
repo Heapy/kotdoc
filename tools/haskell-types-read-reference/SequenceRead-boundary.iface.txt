@@ -1,0 +1,28 @@
+-- Generated GHC9.12.2 --show-iface of original containers0.7 Data.Sequence.Internal.
+  $w$creadPrec ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Seq a -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> (# GHC.Internal.Base.String
+             -> GHC.Internal.Text.ParserCombinators.ReadP.P b #)
+  [TagSig: <TagTuple[TagDunno]>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <LP(A,A,A,SC(S,C(1,L)))><L><L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (eta['GHC.Types.Many] :: GHC.Internal.Text.ParserCombinators.ReadPrec.Prec)
+                @b
+                (eta1['GHC.Types.Many] :: Seq a
+                                          -> GHC.Internal.Text.ParserCombinators.ReadP.P b) ->
+              GHC.Internal.Read.$wparens
+                @(Seq a)
+                (\ (c['GHC.Types.Many] :: GHC.Internal.Text.ParserCombinators.ReadPrec.Prec)
+                   @b1
+                   (eta2['GHC.Types.Many] :: Seq a
+                                             -> GHC.Internal.Text.ParserCombinators.ReadP.P
+                                                  b1)[OneShot] ->
+                 case c of wild { GHC.Types.I# x ->
+                 case GHC.Prim.<=# x 10# of lwild {
+                   DEFAULT -> GHC.Internal.Text.ParserCombinators.ReadP.Fail @b1
+
