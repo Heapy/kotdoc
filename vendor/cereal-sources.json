@@ -1,0 +1,18 @@
+{
+  "version": "0.5.8.3",
+  "url": "https://hackage.haskell.org/package/cereal-0.5.8.3/cereal-0.5.8.3.tar.gz",
+  "sha256": "99905220661b26e5bd91130bd9772554938608a5b1d717240a6eb331121e0f6a",
+  "files": {
+    "CHANGELOG.md": "70a4fe2c49a6e1a4930e5ff7a7ae5162c62fa445b5a6af1b2ff7f8445d9bb674",
+    "LICENSE": "e7f7c5e8b93b49eff6c78a18e0c64ecbf07e9d039a424d71387e832a11f543b0",
+    "Setup.lhs": "dd23e782fb6be3fe0079f0239c71fa48f378577ff7cc5bd9e694006240346ec8",
+    "cereal.cabal": "87a227c7b510217ea059db3dd59d9665edd8f0d1d3d8de39458e371a1d9402fb",
+    "src/Data/Serialize/Get.hs": "a7cb3a5849ee436c031715a6f7ca539c303fd51eade9d7bfb07b9d147e795930",
+    "src/Data/Serialize/IEEE754.hs": "b8b089778acfff1ed5ab61339ca9e99f36aba4776c01872cc262a8f9e453035b",
+    "src/Data/Serialize/Put.hs": "836e30197c2fcdcb0a1dd21fc0decef3e229738e5bb8f375aacc1b85cdcfbf86",
+    "src/Data/Serialize.hs": "15f9ccd5232d962299b4407a9d64882a7606d5875ac5b32a212ddff707764214",
+    "tests/GetTests.hs": "53e3b352aec2fb9723ac615572cc18e86835903bfc6c0d06402c0335ebc0907a",
+    "tests/Main.hs": "d03c4ce64bbaf956b48168205f73ab7c7fefc8284c4c37d18e6ebd15c616d596",
+    "tests/RoundTrip.hs": "c0c14914ac194ebec750345b7d6b6ae1e9b1d6dbbfafd57eefefaae901164533"
+  }
+}

@@ -10465,3 +10465,102 @@ seam remains unchanged until a real translated TLS backend can replace it.
 The complete original goal remains required: all Pandoc functionality and tests,
 then calibre MOBI and all its tests, then formats absent from Pandoc and all
 their tests, along with the previously documented runtime/platform gaps.
+
+### crypton-connection sequential acquisition and SOCKS5 protocol
+
+`NetworkConnectionDialer` translates the complete original **connectTo**
+acquisition path, with an explicit GHC getEnv effect and the TLS factory from
+the preceding checkpoint. Native `PosixConnectionDialBackend` supplies original
+`AI_ADDRCONFIG`/Stream resolver hints, retains resolver order/duplicates and
+attempts create/connect strictly in sequence. Create/connect IO failures are
+collected in reverse encounter order; resolver failures are outside that
+aggregation. Empty results raise HostNotResolved; exhausted IO failures raise
+HostCannotConnect for the host actually being resolved. Only translated GHC
+IOExceptions are caught. Non-IO errors and cleanup-error replacement preserve
+the original bracket behavior.
+
+OtherProxy connects to the proxy while retaining the destination connection ID.
+Simple SOCKS resolves/connects to the proxy, sends a Char8-packed destination
+domain/port, and rejects domain-name bind replies just like the original.
+Negotiation is still inside acquisition: the original performs no explicit
+close when negotiation itself fails. Once acquisition returns, TLS setup failures
+close the acquired socket; a failing close replaces the original error.
+Environment settings use the first colon, default port 1080 without a colon,
+and the exact whole-remainder PortNumber Read contract. The actual network
+3.2.9.0 instance uses **safeInt bounds 0..65535**, not wrapping Word16 Read.
+Nested parentheses, leading Unicode whitespace and binary/octal/hex integers
+are accepted; plus signs, overflow/underflow and trailing unconsumed whitespace
+reject the proxy. Missing/IO-failing/invalid environment settings fall back to
+direct connection; non-IO environment errors propagate.
+
+`Socks5` translates crypton-socks 0.6.2 Wire serialization and the Command
+incremental receive driver, establish, rpc/rpc_, connectWithSocket and low-level
+listen. It preserves every byte-valued command/method/reply, explicit Other
+constructors, errors/host Show behavior, native-endian IPv4/IPv6 words, BE ports,
+ignored reserved bytes, modulo-256 length fields followed by the complete
+payload, and the source's strict rejection of extra bytes in the current read.
+Separate later chunks remain unread. Initial empty input receives a continuation
+feed before cereal reports insufficient input; fragmented reads request 4096
+bytes. Only method 255 is rejected at authentication selection; other methods
+continue as in the original, without inventing authentication support.
+
+`NetworkConnectionClient` implements the existing http-client-tls backend
+interface using this dialer and the translated connection buffer/lifecycle.
+It requires a TLS engine/context initializer and GHC environment effect supplied
+by its caller; no fake default TLS or Java transport is installed. A real
+integration test sends an HTTP request for an unresolved destination through a
+local SOCKS proxy using the native resolver/socket, original manager adapter,
+new connection client/buffer and translated HTTP execution/response parser.
+A second integration test inspects actual native getaddrinfo hints and verifies
+that the returned native list is freed.
+
+Both source archives are retained byte-for-byte: **crypton-socks 0.6.2** (13 files,
+archive SHA256 `a836087e5c277413c79e6d94a7bf346bfb61eaffb2f55555875c76dfeca69f3b`)
+and **cereal 0.5.8.3** (11 files, including all three original test files,
+archive SHA256 `99905220661b26e5bd91130bd9772554938608a5b1d717240a6eb331121e0f6a`).
+Both complete notices are distributed with the core JAR. crypton-socks has no
+test-suite stanza. The observer compiles six complete original SOCKS modules and
+the complete original Connection/Types, with only visibility/module/import
+changes and controlled socket/resolver/environment/TLS effects. Actual cereal
+0.5.8.3 supplies wire decoding and actual network 3.2.9.0 supplies PortNumber Read.
+No expected wire, retry, bracket, proxy parsing or cleanup algorithm is rewritten.
+
+There are **3,839 independent original-code programs**, **57 provenance hashes**,
+semantic corpus SHA256
+`70380955dac335755e93499595dad30a9c2c8a2cf9c1ac6522156e1bf71e66c8`.
+Coverage includes all method/command/reply/version/address-type byte values,
+negative/oversized Enum inputs, native word and BE port order, 255/256/257-byte
+domains, method-count overflow, every split/truncation of representative frames,
+coalescing/extra chunks, protocol and IO/fatal errors, all sequential-acquisition
+branches, inner/outer cleanup-error replacement, post-SOCKS TLS failures,
+raw-character destinations and environment values, numeric bounds/parentheses/
+bases/whitespace, and 300 seeded malformed frames. Regeneration is deterministic.
+
+Validation: **127,976 successful selected HTTP/environment tests** on both
+macOS/aarch64 JDK 21 (70s Gradle build) and Linux/x86_64 JDK 21 (74.167s JUnit).
+Of **127,977 cases**, only the actual Windows Registry test is skipped on POSIX;
+there are no failed/aborted tests or containers. All **24 macOS XML suites** are
+fully parsed and declared counts match actual testcase/failure/error/skip
+elements. The new class contributes **3,841 passing tests**, including the two
+native integration units. Processed fixtures match final source bytes. All
+**154 source/fixture verifiers** pass (38.7s); all **57 new provenance hashes**
+also match staged Git blob bytes, including original CRLF files. The upstream
+cereal changelog's Setext headings are preserved verbatim with a file-specific
+Git conflict-marker-size attribute, rather than altering the archived source.
+
+Core/installed JAR identity checks verify **341 HTTP classes**, **22 TLS error
+classes**, all **76 complete notices**, **250 Pandoc assets**, all **six native
+ABI assets** and the **60,137-byte PSL**. All **2,786 preceding classes**, including
+**2,493 non-HTTP classes**, and every other preceding JAR entry are byte-identical
+to b1140aeb. CLI/dependency JAR bytes are unchanged. The earlier 0e9a136d full
+CI run **38850392211** completed successfully, including Linux and actual Windows.
+
+Remaining work is explicit: live GHC getEnv/name/value encoding and global
+encoding configuration; TLS parameter/certificate construction, the real TLS
+engine and all its original tests; full GHC async masking/timeouts; Windows and
+other ABI implementations; remaining standalone SOCKS APIs/legacy Parse and
+general cereal combinators/instances/property suites. This checkpoint does not
+claim these libraries complete. Pandoc resource HTTPS/cache integration remains
+unchanged pending the real TLS backend. All original Pandoc readers/writers,
+App/Lua and all tests, followed by calibre MOBI/all tests and additional formats
+absent from Pandoc/all their tests, remain required under the unchanged goal.
