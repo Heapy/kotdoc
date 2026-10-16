@@ -14161,3 +14161,44 @@ full Pandoc/tests or later calibre delivery.
 Cached diff checking reports original trailing whitespace/EOF blank lines only
 in the byte-authenticated original/ C source copies. Those files are preserved
 verbatim; all translated code, wrappers, tools, notice and ledger paths are clean.
+
+### Corrective pure Walk demand checkpoint
+
+The accepted Walk source matrix exposed a real pure-Identity demand defect:
+walk(const Space)(Emph[undefined child]) must return Space, but the previous
+Kotlin implementation forced the child. Pure reconstruction now supplies
+memoized descendants, immutable deferred lists/maps, an explicit walkLazy root
+thunk callback and independently memoized WalkLazyPair fields. Strict walkM
+and query traversal machines are unchanged.
+
+Independent review then rejected eager DefinitionList outer mapping and eager
+pair-field reconstruction: source take1 of a list with an undefined second
+pair succeeds, as does requesting terms while definitions are undefined.
+Both exact original/Kotlin repros now agree after common list extent deferral,
+lazy outer projection and independent per-pair List field views. Fourteen new
+original observations cover these failures, reverse field demand, prefixes,
+forced errors, empty take and adjacent Line/Bullet/Ordered/nested definition
+spines. Original initial38 request/response/paired streams retain exact prefix
+hashes; the5,717 prior original observations remain unchanged.
+
+Own original native replay passes52 exact responses:47 represented Walk cases
+and five source-only Generic contrasts. Both source verifiers pass23+31 hashes
+and actual GHC Identity/First/Last interface bytes. All20 frozen paths match.
+Saved fresh35230 Gradle XML independently confirms11,777 actual tests without
+failures/errors/skips:5,715 old closure+6,000 properties+10 Visitor+47 new
+original Walk+five adapter checks. Author isolated47+five+5,715 replay passes
+512MiB/256KiB; independent exact repro execution also passes. Adapter checks
+cover immutable collection equality/hashing, successful/failed memoization
+and independent pair fields. No Kotlin-derived original expectation is used.
+
+This corrects the earlier pure-demand acceptance boundary; the174-slot/24-helper
+matrix alone did not prove these partial-demand cases. Kotlin convenience
+callbacks/Pair remain strict at their documented boundaries; custom dictionary
+laziness needs the explicit adapter. Finite Int-sized represented containers,
+explicit thunks and bounded source demand are supported, not arbitrary infinite
+spines, GHC black holes or opaque callback laziness. Generic4, the140 exports,
+expanded350-instance/JSON audit and full local:611/Pandoc/tests remain open.
+
+Staged diff checking preserves eight whitespace/EOF diagnostics only in the
+verbatim GHC Identity interface, original syb Basics source and syb license.
+Their exact source bytes pass verification; other checkpoint paths are clean.

@@ -3172,7 +3172,7 @@
     "core/src/main/kotlin/io/heapy/kotdoc/ast/AstShow.kt": "cfbda4715c1ca747975100cb26057a3be4c4c5d36cdd87d27248d5b98a1c79a4",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt": "2a87312003b0352a00da023947ec191c0f4e61bc3584e24484dec68d0ccdbb12",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt": "8f2ee9fc0e40beeec5bbd175ca8b50657320ee26f6e1de5c2750b8f8dc0a6483",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt": "68fe1a7f603197d117c21c4403feb0c781670c5facde9d8589251180e8b29846",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt": "d095d97ead41e6ba522553e6b653c77187288ad058056a1339ed34dd09ece3eb",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/UnicodeText.kt": "a4f38e446ac686c7d07eece96df036203b1115b53c472303221cb95a68c2c4d8",
     "core/src/test/kotlin/io/heapy/kotdoc/ast/OriginalTypesWalkClosureTest.kt": "27ee0844a53a8adfa5e9cc8479ac6cdecc19af6232a5a736492890519edd62cc",
     "core/src/test/resources/pandoc-types/read-examples.jsonl": "8f485865c52cb57727617cfb9f05ef48d6fec66f12f229fde604cca20c1b9717",

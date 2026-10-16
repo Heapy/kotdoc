@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "contract": {
+    "original_response_count": 52,
+    "walk_kotlin_observation_count": 47,
+    "generic_source_only_count": 5,
+    "unchanged_walk_slots": 174,
+    "unchanged_walk_helpers": 24,
+    "strict_callback_adapter": "walkLazy",
+    "lazy_pair_adapter": "Walk.lazyPair / WalkLazyPair",
+    "scope": "finite representable lazy demand; not general GHC heap/bottom/infinite-spine equivalence"
+  },
+  "sha256": {
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt": "d095d97ead41e6ba522553e6b653c77187288ad058056a1339ed34dd09ece3eb",
+    "core/src/test/kotlin/io/heapy/kotdoc/ast/OriginalTypesWalkPureDemandTest.kt": "db654a463efdcb69d7071ebba72cfc57f70a6397f40f1ca90d53bafeb9a041b7",
+    "core/src/test/resources/pandoc-types/walk-pure/demand-probes.jsonl": "9aaae0603eedf8951fd9ea762a9b5922d819ce3bfbb29df7dc736ced811b5fc8",
+    "licenses/GHC-base-BSD-3-Clause.txt": "768c070bd0b7d820d169ee8153d5487acfc262cbbc10dfce18d05c0bb2d2800d",
+    "licenses/pandoc-types-BSD-3-Clause.txt": "9f0bd78c71eacf3a7824bf5ac7215a1b3d6a2714dc740f261064934c2c721596",
+    "tools/haskell-types-walk-pure-reference/GhcIdentity.iface.txt": "3f6a1fc4db27361fdb65d2543bb3fc0135f9a710b6ab39c9637e662de169b426",
+    "tools/haskell-types-walk-pure-reference/OriginalSybAliases.hs": "24ffa7e3010aee59383b3950eb46a399d5e5f21ddcf9986061615be8018df9cf",
+    "tools/haskell-types-walk-pure-reference/OriginalSybBasics.hs": "44215953eb1024bb83a3a11072b54acf6e8399ea172ef5a98b7dd3c79052f5ff",
+    "tools/haskell-types-walk-pure-reference/OriginalSybLICENSE": "dcf827bde5ace6d63125b5f345491ca953b28c7190960a77381359d172ee6351",
+    "tools/haskell-types-walk-pure-reference/OriginalSybSchemes.hs": "ae30c152e92b864e861599a447d2c87ed0ae2a6472ba9b47e4b1a6ee94426c19",
+    "tools/haskell-types-walk-pure-reference/TypesWalkPureReference.hs": "a56ffba6167509dd2d802384963080a0d81ace1c0ed52d8503c18bce7404f16e",
+    "tools/haskell-types-walk-pure-reference/cabal.project": "56ffa5300bebfae315a54c64c5efa7e05cede12efa5e62334e6ec13f593fe379",
+    "tools/haskell-types-walk-pure-reference/cabal.project.freeze": "04c73a4df34f4a1226d47ad52e3202be68d71f7d47ae4c1279fbbdbeee16f901",
+    "tools/haskell-types-walk-pure-reference/capture.py": "999a9f159a20d2559b5c8b7a935c4b0fdd85ed38b79e3ebdef846c5b9188ef85",
+    "tools/haskell-types-walk-pure-reference/kotdoc-types-walk-pure-reference.cabal": "0f10659eaa549e251da64d801c8a7fcb70cfb17029f194c4e32c3900b739f7e5",
+    "tools/haskell-types-walk-pure-reference/original-requests.jsonl": "63d81b6160768cc1ff1c022e3e8fa107dfbfe336f0e5fca5fa475ccd31cc693d",
+    "tools/haskell-types-walk-pure-reference/original-responses.jsonl": "eacfd36a965d08be8b06190ec2fa882217569f6d1419c2a0bd6d51371a784f85",
+    "tools/haskell-types-walk-pure-reference/verify.py": "2b39f8cfe6c9396f48067b1eafb4ee0312189a6038c13564233e048b71782690",
+    "upstream/pandoc-types/pandoc-types.cabal": "c24c01af6d8b785d1cf711f22ad89a710a7d1b9ee458fdd911a1bdc0d857e361",
+    "upstream/pandoc-types/src/Text/Pandoc/Builder.hs": "94ae6bb8d22865e2aef201a68839e9cf87bc0deddc2e4b14c2b20afb063238ad",
+    "upstream/pandoc-types/src/Text/Pandoc/Definition.hs": "686012c18084f5a1daa40146a624ba3e85c9a9ce11f1f4ce3f879c724e488077",
+    "upstream/pandoc-types/src/Text/Pandoc/Generic.hs": "ab5c794b067deead9a55727f04951c65865b29efbdb4bf181d71b1aa1b542762",
+    "upstream/pandoc-types/src/Text/Pandoc/Walk.hs": "d4fa82796d51bbe960a73b736a95c61b0310a1d540fc7390a550f680df179c32"
+  }
+}

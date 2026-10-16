@@ -24,6 +24,11 @@ interface WalkMonad<F> {
 interface Walkable<A, B> {
     fun walk(transform: (A) -> A, value: B): B =
         (walkM(WalkIdentity, { WalkIdentity.Value(transform(it)) }, value) as WalkIdentity.Value<B>).value
+    /** Thunk adapter for source callbacks that may ignore their argument.
+     * Custom dictionaries override this alongside walkM when their own pure
+     * implementation can avoid demanding the input. The default preserves a
+     * custom strict walk override. */
+    fun walkLazy(transform: (() -> A) -> A, value: () -> B): B = walk({ transform { it } }, value())
     fun <F> walkM(monad: WalkMonad<F>, transform: (A) -> WalkEffect<F, A>, value: B): WalkEffect<F, B>
     fun <C> query(transform: (A) -> C, value: B, monoid: WalkMonoid<C>): C
     fun <C> queryLazy(transform: (() -> A) -> C, value: () -> B, monoid: WalkMonoid<C>): C = query({ transform { it } }, value(), monoid)
@@ -36,10 +41,28 @@ internal class AstWalkable<A, B>(
     internal val target: WalkKind,
     internal val lazyPlan: ((() -> B) -> WalkNode) = { plan(it()) },
     private val pureWalk: (((A) -> A, B) -> B)? = null,
+    private val lazyPureWalk: (((() -> A) -> A, () -> B) -> B)? = null,
 ) : Walkable<A, B> {
     @Suppress("UNCHECKED_CAST")
     override fun walk(transform: (A) -> A, value: B): B =
-        if (pureWalk != null) pureWalk.invoke(transform, value) else (walkM(WalkIdentity, { WalkIdentity.Value(transform(it)) }, value) as WalkIdentity.Value<B>).value
+        if (pureWalk != null) pureWalk.invoke(transform, value) else walkLazy({ transform(it()) }, { value })
+
+    /** Pure Identity bind is lazy in its reconstructed argument. */
+    @Suppress("UNCHECKED_CAST")
+    override fun walkLazy(transform: (() -> A) -> A, value: () -> B): B {
+        if (lazyPureWalk != null) return lazyPureWalk.invoke(transform, value)
+        fun descend(node: WalkNode): Any {
+            val rebuilt = lazy {
+                val external = node.external
+                if (external != null) external.walkLazy { transform { it() as A } } ?: WalkNull
+                else node.rebuild(WalkDeferredList({ node.size }) { descend(node.child(it)) })
+            }
+            return if (node.kind == target && node.visit) transform { rebuilt.value as A } as Any? ?: WalkNull
+            else rebuilt.value
+        }
+        val result = descend(lazyPlan(value))
+        return (if (result === WalkNull) null else result) as B
+    }
 
     @Suppress("UNCHECKED_CAST")
     override fun <F> walkM(monad: WalkMonad<F>, transform: (A) -> WalkEffect<F, A>, value: B): WalkEffect<F, B> {
@@ -165,6 +188,14 @@ internal open class WalkNode(
     }
 }
 
+/** A source list result can expose its outer value before its spine is demanded. */
+internal class WalkListNode(
+    kind: WalkKind, original: Any, private val extent: () -> Int,
+    child: (Int) -> WalkNode, rebuild: (List<Any>) -> Any, visit: Boolean = false,
+) : WalkNode(kind, original, 0, child, rebuild, visit) {
+    override val size: Int get() = extent()
+}
+
 class WalkQuery<C> internal constructor(private val forward: Sequence<C>, val reversed: Sequence<C>) : Sequence<C> {
     override fun iterator() = forward.iterator()
 }
@@ -208,7 +239,7 @@ internal class WalkShape(private val target: WalkKind, private val resolve: ((Wa
                 else {
                     val keys = x.keys.sortedWith(UnicodeTextOrder)
                     val m = r.part<Map<String, MetaValue>> {
-                        WalkNode(WalkKind.Other, x, keys.size, { child(WalkKind.MetaValue, x.getValue(keys[it])) }, { values -> keys.indices.associate { keys[it] to values[it] as MetaValue } }, false)
+                        WalkNode(WalkKind.Other, x, keys.size, { child(WalkKind.MetaValue, x.getValue(keys[it])) }, { values -> WalkDeferredMap(keys, WalkDeferredList(keys.size) { values[it] as MetaValue }) }, false)
                     }
                     r.result = { m.get(it) }
                 }
@@ -247,10 +278,16 @@ internal class WalkShape(private val target: WalkKind, private val resolve: ((Wa
                 is Block.BulletList -> { val c = many(WalkKind.Blocks, x.items); r.result = { x.copy(items = c.get(it)) } }
                 is Block.DefinitionList -> {
                     val c = r.part<List<Pair<List<Inline>, List<List<Block>>>>> {
-                        WalkNode(WalkKind.Other, x.items, x.items.size, { index ->
+                        WalkListNode(WalkKind.Other, x.items, { x.items.size }, { index ->
                             val pair = x.items[index]
-                            WalkNode(WalkKind.Other, pair, 2, { n -> if (n == 0) child(WalkKind.Inlines, pair.first) else list(WalkKind.Blocks, pair.second) }, { v -> (v[0] as List<Inline>) to (v[1] as List<List<Block>>) }, false)
-                        }, { it.map { v -> v as Pair<List<Inline>, List<List<Block>>> } }, false)
+                            WalkNode(WalkKind.Other, pair, 2, { n -> if (n == 0) child(WalkKind.Inlines, pair.first) else list(WalkKind.Blocks, pair.second) }, { v ->
+                                // Kotlin Pair fields are strict; list views retain the
+                                // source pair's independent field demands without
+                                // changing the public DefinitionList representation.
+                                WalkDeferredList({ (v[0] as List<Inline>).size }) { index -> (v[0] as List<Inline>)[index] } to
+                                    WalkDeferredList({ (v[1] as List<List<Block>>).size }) { index -> (v[1] as List<List<Block>>)[index] }
+                            }, false)
+                        }, { values -> WalkDeferredList(values.size) { values[it] as Pair<List<Inline>, List<List<Block>>> } }, false)
                     }
                     r.result = { x.copy(items = c.get(it)) }
                 }
@@ -277,7 +314,7 @@ internal class WalkShape(private val target: WalkKind, private val resolve: ((Wa
         return r.node(visit)
     }
     private fun <T : Any> list(childKind: WalkKind, values: List<T>, kind: WalkKind = WalkKind.Other, visit: Boolean = false) =
-        WalkNode(kind, values, values.size, { index -> childLazy(childKind) { values[index] } }, { it }, visit)
+        WalkListNode(kind, values, { values.size }, { index -> childLazy(childKind) { values[index] } }, { it }, visit)
 }
 
 /** Concrete instances declared by the pinned Text.Pandoc.Walk module. */
@@ -431,11 +468,14 @@ fun <A, B, T> Walk.traversable(element: Walkable<A, B>, container: WalkTraversab
         val view = container.view(value)
         WalkNode(WalkKind.Other, value as Any? ?: WalkNull, view.size, { index -> dictionaryNode(element) { view.element(index) } }, {
             @Suppress("UNCHECKED_CAST")
-            view.rebuild(it.map { item -> if (item === WalkNull) null else item } as List<B>) as Any? ?: WalkNull
+            view.rebuild(WalkDeferredList(it.size) { index -> if (it[index] === WalkNull) null else it[index] } as List<B>) as Any? ?: WalkNull
         }, false)
     }, dictionaryTarget(element), pureWalk = { transform, value ->
         val view = container.view(value)
-        view.rebuild(List(view.size) { element.walk(transform, view.element(it)) })
+        view.rebuild(WalkDeferredList(view.size) { index -> element.walk(transform, view.element(index)) })
+    }, lazyPureWalk = { transform, value ->
+        val view = container.view(value())
+        view.rebuild(WalkDeferredList(view.size) { index -> element.walkLazy(transform) { view.element(index) } })
     })
 
 /** The OVERLAPS pair instance traverses both fields, in left-to-right order. */
@@ -448,6 +488,38 @@ fun <A, B, C> Walk.pair(left: Walkable<A, B>, right: Walkable<A, C>): Walkable<A
         }, false)
     }, target, pureWalk = { transform, value -> left.walk(transform, value.first) to right.walk(transform, value.second) })
 }
+
+/** Explicit source pair fields when either field may be unevaluated.
+ * Ordinary Kotlin Pair remains the strict-field convenience representation. */
+class WalkLazyPair<B, C>(first: () -> B, second: () -> C) {
+    private val left by lazy { runCatching(first) }
+    private val right by lazy { runCatching(second) }
+    val first: B get() = left.getOrThrow()
+    val second: C get() = right.getOrThrow()
+}
+
+/** The pair instance with independently memoized source fields. */
+fun <A, B, C> Walk.lazyPair(left: Walkable<A, B>, right: Walkable<A, C>): Walkable<A, WalkLazyPair<B, C>> =
+    object : Walkable<A, WalkLazyPair<B, C>> {
+        override fun walk(transform: (A) -> A, value: WalkLazyPair<B, C>): WalkLazyPair<B, C> =
+            walkLazy({ transform(it()) }, { value })
+        override fun walkLazy(transform: (() -> A) -> A, value: () -> WalkLazyPair<B, C>): WalkLazyPair<B, C> {
+            val input by lazy(value)
+            return WalkLazyPair({ left.walkLazy(transform) { input.first } }, { right.walkLazy(transform) { input.second } })
+        }
+        override fun <F> walkM(monad: WalkMonad<F>, transform: (A) -> WalkEffect<F, A>, value: WalkLazyPair<B, C>): WalkEffect<F, WalkLazyPair<B, C>> =
+            monad.flatMap(left.walkM(monad, transform, value.first)) { first ->
+                monad.flatMap(right.walkM(monad, transform, value.second)) { second -> monad.pure(WalkLazyPair({ first }, { second })) }
+            }
+        override fun <D> query(transform: (A) -> D, value: WalkLazyPair<B, C>, monoid: WalkMonoid<D>): D =
+            queryLazy({ transform(it()) }, { value }, monoid)
+        override fun <D> queryLazy(transform: (() -> A) -> D, value: () -> WalkLazyPair<B, C>, monoid: WalkMonoid<D>): D {
+            val input by lazy(value)
+            val first by lazy { left.queryLazy(transform, { input.first }, monoid) }
+            val second by lazy { right.queryLazy(transform, { input.second }, monoid) }
+            return monoid.fold(WalkQuery(sequence { yield(first); yield(second) }, sequence { yield(second); yield(first) }))
+        }
+    }
 
 object WalkContainers {
     val inlines: WalkTraversable<Inline, Inlines> = object : WalkTraversable<Inline, Inlines> {
@@ -473,10 +545,10 @@ object WalkContainers {
     fun <K, B> map(order: Comparator<K>): WalkTraversable<B, Map<K, B>> = object : WalkTraversable<B, Map<K, B>> {
         override fun size(value: Map<K, B>) = value.size
         override fun element(value: Map<K, B>, index: Int) = value.getValue(value.keys.sortedWith(order)[index])
-        override fun rebuild(original: Map<K, B>, elements: List<B>): Map<K, B> = original.keys.sortedWith(order).zip(elements).toMap()
+        override fun rebuild(original: Map<K, B>, elements: List<B>): Map<K, B> = WalkDeferredMap(original.keys.sortedWith(order), elements)
         override fun view(value: Map<K, B>): WalkContainerView<B, Map<K, B>> {
             val keys = value.keys.sortedWith(order)
-            return WalkContainerView(keys.size, { value.getValue(keys[it]) }, { keys.zip(it).toMap() })
+            return WalkContainerView(keys.size, { value.getValue(keys[it]) }, { WalkDeferredMap(keys, it) })
         }
     }
 }
@@ -497,7 +569,37 @@ object WalkMonoids {
     val sumLong: WalkMonoid<Long> = WalkMonoid { it.fold(0L, Long::plus) }
 }
 
+/** Memoized immutable list: constructing its spine never evaluates an element. */
+internal class WalkDeferredList<T>(extent: () -> Int, private val element: (Int) -> T) : AbstractList<T>() {
+    constructor(size: Int, element: (Int) -> T) : this({ size }, element)
+    private val extentResult by lazy { runCatching(extent) }
+    override val size: Int get() = extentResult.getOrThrow()
+    private val elements = HashMap<Int, Lazy<Result<T>>>()
+    override fun get(index: Int): T {
+        if (index !in 0 until size) throw IndexOutOfBoundsException("index: $index, size: $size")
+        val cell = synchronized(elements) { elements.getOrPut(index) { lazy { runCatching { element(index) } } } }
+        return cell.value.getOrThrow()
+    }
+}
+
+internal class WalkDeferredMap<K, V>(private val orderedKeys: List<K>, private val mappedValues: List<V>) : AbstractMap<K, V>() {
+    override val entries: Set<Map.Entry<K, V>> = object : AbstractSet<Map.Entry<K, V>>() {
+        override val size: Int get() = orderedKeys.size
+        override fun iterator(): Iterator<Map.Entry<K, V>> = orderedKeys.indices.asSequence().map { index ->
+            object : Map.Entry<K, V> {
+                override val key: K get() = orderedKeys[index]
+                override val value: V get() = mappedValues[index]
+                override fun equals(other: Any?): Boolean = other is Map.Entry<*, *> && key == other.key && value == other.value
+                override fun hashCode(): Int = (key?.hashCode() ?: 0) xor (value?.hashCode() ?: 0)
+                override fun toString(): String = "$key=$value"
+            }
+        }.iterator()
+    }
+}
+
 internal interface WalkExternal {
+    fun walkLazy(transform: (() -> Any?) -> Any?): Any?
+
     fun <F> walkM(monad: WalkMonad<F>, transform: (Any?) -> WalkEffect<F, Any?>): WalkEffect<F, Any?>
     fun <C> query(transform: (() -> Any?) -> C, monoid: WalkMonoid<C>): C
 }
@@ -506,6 +608,9 @@ internal fun dictionaryTarget(dictionary: Walkable<*, *>): WalkKind = (dictionar
 internal fun <A, B> dictionaryNode(dictionary: Walkable<A, B>, value: () -> B): WalkNode {
     if (dictionary is AstWalkable<A, B>) return dictionary.lazyPlan(value)
     val external=object:WalkExternal {
+        override fun walkLazy(transform: (() -> Any?) -> Any?): Any? =
+            dictionary.walkLazy({ thunk -> transform { thunk() } as A }, value)
+
         override fun <F> walkM(monad: WalkMonad<F>, transform: (Any?) -> WalkEffect<F, Any?>): WalkEffect<F, Any?> =
             dictionary.walkM(monad, { transform(it) as WalkEffect<F, A> }, value()) as WalkEffect<F, Any?>
         override fun <C> query(transform: (() -> Any?) -> C, monoid: WalkMonoid<C>): C = dictionary.queryLazy({ thunk -> transform { thunk() } }, value, monoid)

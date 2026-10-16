@@ -1,0 +1,2410 @@
+Magic: Wanted 33214052,
+       got    33214052
+Version: Wanted 9122,
+         got    9122
+Way: Wanted ,
+     got    
+interface GHC.Internal.Data.Functor.Identity [family instance module] 9122
+  interface hash: 68ba09587d4de88a0403cf67f767303f
+  ABI hash: dd9dd7f57ba17f562297abc687daae3d
+  export-list hash: 20ae8985ab45673aeaae271db208cf64
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 6562480af22463ef800acbfc7630bee5
+  opt_hash: d4bd5770180ee3e5d15327f4d84fe9db
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  src_hash: 1051e7484781d60e834739b7a7ef991d
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Identity{Identity runIdentity}
+defaults:
+direct module dependencies: ghc-internal-9.1202.0:GHC.Internal.Base
+                            ghc-internal-9.1202.0:GHC.Internal.Control.Monad.Fix
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Bits
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Coerce
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Foldable
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Functor.Utils
+                            ghc-internal-9.1202.0:GHC.Internal.Enum
+                            ghc-internal-9.1202.0:GHC.Internal.Float
+                            ghc-internal-9.1202.0:GHC.Internal.Foreign.Storable
+                            ghc-internal-9.1202.0:GHC.Internal.Generics
+                            ghc-internal-9.1202.0:GHC.Internal.Ix
+                            ghc-internal-9.1202.0:GHC.Internal.Num
+                            ghc-internal-9.1202.0:GHC.Internal.Read
+                            ghc-internal-9.1202.0:GHC.Internal.Real
+                            ghc-internal-9.1202.0:GHC.Internal.Show
+boot module dependencies: (ghc-internal-9.1202.0,
+                           GHC.Internal.ByteOrder {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Conc.Sync)
+                          (ghc-internal-9.1202.0, GHC.Internal.Data.Version {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Enum)
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception)
+                          (ghc-internal-9.1202.0,
+                           GHC.Internal.Exception.Backtrace {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception.Type)
+                          (ghc-internal-9.1202.0, GHC.Internal.Fingerprint {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.IO)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Encoding)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Exception)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Handle)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Handle.Text)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.Handle.Types)
+                          (ghc-internal-9.1202.0, GHC.Internal.IO.StdHandles)
+                          (ghc-internal-9.1202.0, GHC.Internal.Num)
+                          (ghc-internal-9.1202.0, GHC.Internal.Real)
+                          (ghc-internal-9.1202.0, GHC.Internal.Stack {-# SOURCE #-})
+direct package dependencies: ghc-prim-0.13.0
+plugin package dependencies:
+orphans: GHC.Internal.Base GHC.Internal.Float GHC.Prim.Ext
+family instance modules: GHC.Internal.Data.Monoid
+                         GHC.Internal.Data.Semigroup.Internal GHC.Internal.Data.Type.Ord
+                         GHC.Internal.Generics GHC.Internal.IO.Exception
+import  -/  ghc-internal:GHC.Internal.Base 29ec812ead60248b1e26cd94a9165d97
+  exports: 713796e2e0f3bbf03b9e83554d1a1d39
+  $ 664c58473f0bfda3b1e4170cfa02eeda
+  . 18d93cd4c466696aa88d05c72ba7a6ba
+  <> d96f10699e74e05fcd37e50e83f513d8
+  Applicative d221ed5c3ad0fa327772185c44405cab
+  Functor b9d34ad3ee458699bdca49643ee59798
+  Monad 0f08c257868aee15a4ec3f43ddcbd79b
+  Monoid 1d3beb14a290d634076f8d6aebd6fef1
+  Semigroup 78df3bce97a4387ca4c872173c36befd
+  mappend 369280c8359af17444fe906b0aa956e2
+  mconcat 87f652c30c55f0b452579f281bd8f54e
+  mempty 41e87ad8bbbe61548a7c976e5e330c60
+  sconcat 49412edae523697494fd3df274d7c726
+  stimes 9bdd3e6331e3fafdad2982b8cd78f9c9
+import  -/  ghc-internal:GHC.Internal.Bits 70d5bc7e045c77b236b0d688b7cf160c
+  .&. 28d859ae61f2cd0424cd28570050fb3c
+  .|. dcf9c133ea8c204f47abdbdcee1e62aa
+  Bits dc97fadc46704a28c01c202d0ac24173
+  FiniteBits 5bfa691dbbb3886ef1852f88f56e8d11
+  bit 5ff0f9bf6eaea7011b30f58136959623
+  bitSize fc4c3dffee532b2d24149c6b09b66516
+  bitSizeMaybe b1673c37be81e3253656f81e45667647
+  clearBit a15d97ef389ac3a676f7c4118fe6e2f4
+  complement 98f7acdad3496743964744822781df9a
+  complementBit eb3efb056dbf3477a10ab52f85e98250
+  countLeadingZeros 0051e6aa4222f739296fbcd9e5058006
+  countTrailingZeros 3d99eb234fe3cb6524ce64876be7dce1
+  finiteBitSize 1b0ec703cfdc7daf7fb18dc0222a6375
+  isSigned da883693670ec31807afc5a6c94b91f1
+  popCount f849874ac8c31f309d80084350855de7
+  rotate 8c525ece9026eb7bdc46b2024e04bdf7
+  rotateL e97b78a041d4bf05a579296247c3b2ea
+  rotateR 05912d8c1c9719813c0f857c046a3972
+  setBit 64d0f1326d6231b41e0a5e95543c5b90
+  shift 20013705329265652a1ad60794da51c8
+  shiftL e861c16588cb1498df3f97987b17cf57
+  shiftR a72fcd69ae620c0d6fb97c93de2b8029
+  testBit cc4de8cdb21bc90f8b731c2f538aeade
+  unsafeShiftL 15f7aa88b637a0720fe9198d272b0c40
+  unsafeShiftR 397fda44cc1634376d6f2df0e7efd140
+  xor ab0aa951abedd8fdb25617b7a1d5b083
+  zeroBits a4598c661f498b0951613ec76ca7c951
+import  -/  ghc-internal:GHC.Internal.Control.Monad.Fix 83e9bd48c40d36e024f8f77583e3900a
+  exports: 215c3ba9aef107045b6abae6304f97d0
+  MonadFix 1d556f65531c91d32b63722014cde84f
+import  -/  ghc-internal:GHC.Internal.Data.Bits 380c3f806d3f88d8cb12ab4d00b40b42
+  exports: 718cd3f246b4b864b40d84951dd9dc3d
+import  -/  ghc-internal:GHC.Internal.Data.Coerce 8ab5c8c7cd3ee6ad44bc9d8be50be566
+  exports: 3ae00b8d87f6e10818175016579ce3cd
+import  -/  ghc-internal:GHC.Internal.Data.Foldable 25c4b17f475ad6cf536e951dbaaa377c
+  exports: e1d7c676f7462ae636256cd5b038f5c2
+  Foldable c058c9c6e36e473f3148aef5af5a7f84
+  foldr 359878f75de786e6958f049873e3a02a
+import  -/  ghc-internal:GHC.Internal.Data.Function 7905ddf9885435616a606f9e12c33add
+  fix 0172931e0ec9ed4715f372b78598eaf9
+import  -/  ghc-internal:GHC.Internal.Data.Functor.Utils 3281014f6c55b740ecb3cedc0e359673
+  exports: 1095de8e3c43d80c0e639892945f4c79
+  #. d0bda2ade07d73b3dc57eef7bf2c2712
+import  -/  ghc-internal:GHC.Internal.Enum 5613b34cbe03d56d2e094943a893fef9
+  exports: b9b9912848ac24f741fe5d7d84af70f2
+  Bounded 0c215d33455cba14ba3d622b8945e2df
+  Enum 643995c0fdb4aa947bca5521d1ddffe9
+  enumFrom 42f0562b5bd13974a93706acf2a72a4c
+  enumFromThen e7270e29e07eab50f150a248c7b36009
+  enumFromThenTo 8cf86ea898e1a36d2f2a486c038643ed
+  enumFromTo fef102e7ddf5f5805b884077494312b0
+  fromEnum ad1d9388d6ff6e28a7aee56a215ce844
+  maxBound 9e69ed18711329e89ce30e71e4221cde
+  minBound 4a444cab2c9d08200b030b8ae995267e
+  pred a2f91a4f1765847d7c3d62ade9f2f251
+  succ 99faf005d28b5d365cdbe94cc26f8474
+  toEnum 75b01a117ec5b666c218ab80075d3d9e
+import  -/  ghc-internal:GHC.Internal.Float e062aa2fdd5f3fdd384d76de2e911dc2
+  exports: 29a3498a5eefcd4f4e9494604c701648
+  ** 02a69b0f199917c490eda0af92e75fe0
+  Floating 551380bb6cb3ae3ae2431837284d50e0
+  RealFloat 83a42b4eea4c3423d7c8fabeb78ed5bd
+  acos 8005db03a435501f405c6a1dda5dc8db
+  acosh 4493e0f674c822922985e5808a782e3a
+  asin 32281d75fafb5c0dd6e71396abddda9d
+  asinh 3a036340bd450d2c59d6f468c8f58ee6
+  atan 652baafb789c7fb47136e7638f64723d
+  atan2 bfd100a2f50d91add5219eeeff93f7f3
+  atanh 1db50858d425c9d18e9348436a498322
+  cos cb5e72713ade4606c3a2eb5be5bb896d
+  cosh c264259b4601370016befd1507b7d1a9
+  decodeFloat 4512f512e6c74ce216a1384b40a6444e
+  encodeFloat 8799b12a4c8fc1288e1bcf5a7f7dd04f
+  exp 43d8d0b2a8eb4b81290c7740c0c90524
+  expm1 7a5a142beb705bb3d427fcfe88cc6ce9
+  exponent a8bc346f68cf184d4be8cbd98929d0e4
+  floatDigits 969fe68b493a24ca65e1e9ef06299566
+  floatRadix 153e72885a31afc34706a287e3ca5121
+  floatRange c84bd494eab7ad659edc863fe7a27024
+  isDenormalized 56710b0927fd370864b9e880d41dda91
+  isIEEE 5599dd91eebbef0cd1007bda676f315d
+  isInfinite e67562053a617fdea5fa6738ec171a1a
+  isNaN 531c9f4d8321845cf20a8689503bca3b
+  isNegativeZero 5bbb97e601411d8d2162d81fd3374d7a
+  log 4818ec3549305e32e781a551f35b39d5
+  log1mexp 070717bd53697e4850fcf036579c27ec
+  log1p 87294e2933a9eab7fb93062180912f29
+  log1pexp 3a979cea305bf823f32a390c9803db7c
+  logBase 4175e8ae9fa3c52b2d0db51ed574addc
+  pi 5c0b10299f194023a2c1dbe0c36d4e40
+  scaleFloat 349caf63869463be541a4a1b6185ceab
+  significand 118fa45781d08f046cb31915dd7ea643
+  sin 851edc6d90359b812144de3b96ad23dc
+  sinh 014a3aa513e2a19d7bad7a5a645e5ede
+  sqrt 5f9bcdefcf822b3f50c612493bd533fc
+  tan 86d83c0fe23243580eb19ff51c26f88a
+  tanh 17ed8ec26383d72a0ba0e4c44efd913c
+import  -/  ghc-internal:GHC.Internal.Foreign.Storable 03f3acdbbc811102d87125e527d49303
+  exports: 0c0d6b50e5c7edb21de6ca96e6dcce67
+  Storable 5c122ec1538fcfcb2beadfc3b09f64c8
+  alignment bca45ac1fcac16d0b435cf943db71e19
+  peek a2afdb531b39462e6769c801ccd8d823
+  peekByteOff 9d14470ccc93f04ca8c6bd5d0caa7540
+  peekElemOff 03014ae6022e23bbbcafc09e59b528cb
+  poke e33bfc7eeccff5c0efc77372a20d29d8
+  pokeByteOff a3a6659899580c544db487d3723f4676
+  pokeElemOff f5fbce043a233fe6def01cfa5214ce52
+  sizeOf 919904c95d5ad5cc4f7edd2d55440a24
+import  -/  ghc-internal:GHC.Internal.Generics 927095b7d6bbfd7e3e9b98553e8664b5
+  exports: be4942afd160bdaeec9ed9e76c95487d
+  Generic 2911b71414523ea22bf7544b83c55bcf
+  Generic1 88d5a35d9195ff7f4002ea24f2236c34
+  K1 e61fdef3943f9414c835dee6e77acd8c
+  M1 2eb2649086abcb69cb02300dd13d3c92
+  Par1 91d36a061994af72b762a1eec02d3c9b
+  unPar1 cd4a839dbedb9e678b7d7a675eb3f009
+import  -/  ghc-internal:GHC.Internal.Ix 51b16cf7910e68e9e975ce27b080964c
+  exports: 48524ea217a20fd186dc3825f04e0005
+  Ix 819d8eb50e22047f63bafc62e5f911e3
+  inRange 47188e09acaf4929d744fee0a6c929f6
+  index 88fe22e7b8a34e3d6c1ec681af723abe
+  range b8b8cbd0ef4c7d381154d040c4d0cb28
+  rangeSize c18d5c9ad3c7677bc9d37c228328c37c
+  unsafeIndex 0b657067fc677d358508599faa028f4e
+  unsafeRangeSize 58ca95bf70717481ab237e3830a655e9
+import  -/  ghc-internal:GHC.Internal.Num 67698e6e339010ee3a443f0e69b912f7
+  exports: 93d6faa025f33d5fc883321a7a610005
+  * e2279b161eff43bcb0b84289b7cef7ea
+  + 27a5c98b791cb3aef596a5285634118f
+  - 6a79a34e2d0b8cd81c1bb714b6a9e0e9
+  Num c89e8101b756aab365536a40755279d4
+  abs 22446423842806bb63f98768100100ac
+  fromInteger ae3fadd03bbe5be44105eccaa6c2e04f
+  negate 3e8290f1e0e537bccf937ae22947f1cd
+  signum 5a42db91538095e74a5d86eb4ec37946
+import  -/  ghc-internal:GHC.Internal.Read 054d4a3e94e8a3f43ca1a7efe0f12fa1
+  exports: f054178120f44e860fca715d14e6e6d1
+  Read 10735ddf61c633e9afd772ca98d7f611
+  lex f9918039bfdccf72ad636aafc27934c7
+  readParen 987562ca0af171965c9e6018c64fee75
+  readsPrec 32c81775757278fb7e80b8b40ce0e2f1
+import  -/  ghc-internal:GHC.Internal.Real 53ddb8ef54fb51c38f3d176ae4cd831f
+  exports: 04b03e5fc6e7754c21fbfeaa969a09c9
+  / d5488d72d9f104fc2f511476234a30f7
+  Fractional 44592be420e54b42eb61f64060f7adf9
+  Integral 1ea31ae93fc2293320fef15dbad99976
+  Real 9372f44e58bfa9d0602719b6ec5a9248
+  RealFrac be0bcbc0a766b291599566b90935b9c2
+  ceiling e657aaf8d9df9991d5356f59c0d45e2e
+  div 47ee88d2948fae97d74314dd9c5770b0
+  divMod 1cd692fac8448b66ff0b789181b2e3ac
+  floor 7265a12f592fe819c48fa1e2112fba27
+  fromRational 22951a390ca0512c149032a909493a53
+  mod caeb4e54974f0711abbb9ddd682eb9ab
+  properFraction e30af13b5c9c6dcf257b67d14c1f9229
+  quot 116b88709a58fd9c94b862b8f82c50c9
+  quotRem 4ee78decc5e8c67252f640d30f72f773
+  recip 24ec72729c41d6d33c57880f35dcbfd3
+  rem 8f7ce2df0a5845b6d6355aeea1d48784
+  round 046490d7b56ade02e439da0bf332a6b3
+  toInteger ce16f514fd0ab737f96c606473f31d22
+  toRational 0c477d2f7803ad68f0b22d4d192b72a2
+  truncate b39bc051f11d87d185f303e43d3c8d1e
+import  -/  ghc-internal:GHC.Internal.Show 74471ccfb5e62f876955e74ed45644dc
+  exports: 05a50c874a3ac9ed2cfe1a1eec41fe1a
+  Show d4611d93916cbbc06f6faaac357ad8f5
+  showParen e9ad760fc8186a1d311f9a20120820aa
+  showString 90eff2fce97a079a53ba612f392caf56
+  showsPrec 9e3604205c45b939cf99e511bbb0cb9e
+import  -/  GHC.Classes 94513e804d2e9dfa3393f6f9ff56cf25
+import  -/  GHC.Types 7413e2b6d5ee6e022b89c3eebbd39565
+525f8ad13b48167e6a7ba53701bd3815
+  $fApplicativeIdentity :: GHC.Internal.Base.Applicative Identity
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Applicative],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Identity
+                $fFunctorIdentity
+                $fApplicativeIdentity3
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                $fApplicativeIdentity2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <Identity (a -> b)>_R
+                 %<'GHC.Types.Many>_N ->_R N:Identity
+                                               (Sym (N:Identity <a>_R)
+                                                %<'GHC.Types.Many>_N ->_R Sym (N:Identity <b>_R)))
+                $fApplicativeIdentity1
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N) (c :: <*>_N).
+                 <a -> b -> c>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <b>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <c>_R))
+                $fApplicativeIdentity_$c*>
+                GHC.Internal.Base.const
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <b>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+4802f202180e85b82d2df98d46d62a3d
+  $fApplicativeIdentity1 :: (a -> b -> c) -> a -> b -> c
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a @b @c (v['GHC.Types.Many] :: a -> b -> c) -> v]
+8e768682197ccd6b257c3e02cd4db2a9
+  $fApplicativeIdentity2 :: Identity (a -> b) -> Identity (a -> b)
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a @b (v['GHC.Types.Many] :: Identity (a -> b)) -> v]
+7fbb53d720fd3b93e3dbb8efeb91ee2e
+  $fApplicativeIdentity3 :: a -> a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla> \ @a (ds['GHC.Types.Many] :: a) -> ds]
+f5bbdb40c67150a8c7dc748ac1a645fb
+  $fApplicativeIdentity_$c*> ::
+    Identity a -> Identity b -> Identity b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @a
+                @b
+                (eta['GHC.Types.Many] :: Identity a)
+                (eta1['GHC.Types.Many] :: Identity b) ->
+              eta1]
+859aceb8a4474a81e44ad8bae7fc2246
+  $fBitsIdentity ::
+    GHC.Internal.Bits.Bits a => GHC.Internal.Bits.Bits (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Bits.Bits a).
+                @(Identity a)
+                ($fBitsIdentity_$cp1Bits @a v)
+                (GHC.Internal.Bits..&. @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits..|. @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.xor @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.complement @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.shift @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.rotate @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.zeroBits @a v) `cast` (Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.bit @a v)
+                  `cast`
+                (<GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.setBit @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.clearBit @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.complementBit @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.testBit @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int -> GHC.Types.Bool>_R)
+                (GHC.Internal.Bits.bitSizeMaybe @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Internal.Maybe.Maybe
+                                              GHC.Types.Int>_R)
+                (GHC.Internal.Bits.bitSize @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Bits.isSigned @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Bits.shiftL @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.unsafeShiftL @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.shiftR @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.unsafeShiftR @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.rotateL @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.rotateR @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Bits.popCount @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)]
+a271eb9353a86ea616175dd40e1bbee8
+  $fBitsIdentity_$cp1Bits ::
+    GHC.Internal.Bits.Bits a => GHC.Classes.Eq (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(ML,ML),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dBits['GHC.Types.Many] :: GHC.Internal.Bits.Bits a) ->
+              $fEqIdentity @a (GHC.Internal.Bits.$p1Bits @a $dBits)]
+45b826cc0665164b795095443ecd6aae
+  $fBoundedIdentity ::
+    GHC.Internal.Enum.Bounded a =>
+    GHC.Internal.Enum.Bounded (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML)>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Enum.Bounded a).
+                @(Identity a)
+                (GHC.Internal.Enum.minBound @a v) `cast` (Sym (N:Identity <a>_R))
+                (GHC.Internal.Enum.maxBound @a v) `cast` (Sym (N:Identity <a>_R))]
+a8a76a4b2dc480e1eabaa66b01a355d1
+  $fEnumIdentity ::
+    GHC.Internal.Enum.Enum a => GHC.Internal.Enum.Enum (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Enum.Enum a).
+                @(Identity a)
+                (GHC.Internal.Enum.succ @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Enum.pred @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Enum.toEnum @a v)
+                  `cast`
+                (<GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Enum.fromEnum @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Enum.enumFrom @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Identity <a>_R)])_R)
+                (GHC.Internal.Enum.enumFromThen @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Identity <a>_R)])_R)
+                (GHC.Internal.Enum.enumFromTo @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Identity <a>_R)])_R)
+                (GHC.Internal.Enum.enumFromThenTo @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Identity <a>_R)])_R)]
+b3b264fa21cac12f81212287e3d4ee2f
+  $fEqIdentity :: GHC.Classes.Eq a => GHC.Classes.Eq (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Eq a).
+                @(Identity a)
+                (GHC.Classes.== @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes./= @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)]
+e5afcb25bd971a4d2caf7d47b2a53087
+  $fFiniteBitsIdentity ::
+    GHC.Internal.Bits.FiniteBits a =>
+    GHC.Internal.Bits.FiniteBits (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML),ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Bits.FiniteBits a).
+                @(Identity a)
+                ($fFiniteBitsIdentity_$cp1FiniteBits @a v)
+                (GHC.Internal.Bits.finiteBitSize @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Bits.countLeadingZeros @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Bits.countTrailingZeros @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)]
+b49a7d98ab611913885fdf3e4760d191
+  $fFiniteBitsIdentity_$cp1FiniteBits ::
+    GHC.Internal.Bits.FiniteBits a =>
+    GHC.Internal.Bits.Bits (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML),A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dFiniteBits['GHC.Types.Many] :: GHC.Internal.Bits.FiniteBits
+                                                    a) ->
+              $fBitsIdentity
+                @a
+                (GHC.Internal.Bits.$p1FiniteBits @a $dFiniteBits)]
+01aa58b005aa954bdff9eb4a25cb22a8
+  $fFloatingIdentity ::
+    GHC.Internal.Float.Floating a =>
+    GHC.Internal.Float.Floating (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Float.Floating a).
+                @(Identity a)
+                ($fFloatingIdentity_$cp1Floating @a v)
+                (GHC.Internal.Float.pi @a v) `cast` (Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.exp @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.log @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.sqrt @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.** @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.logBase @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.sin @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.cos @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.tan @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.asin @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.acos @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.atan @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.sinh @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.cosh @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.tanh @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.asinh @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.acosh @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.atanh @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.log1p @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.expm1 @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.log1pexp @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.log1mexp @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+67bd5630a0ad32df42b161d497aa6cc7
+  $fFloatingIdentity_$cp1Floating ::
+    GHC.Internal.Float.Floating a =>
+    GHC.Internal.Real.Fractional (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dFloating['GHC.Types.Many] :: GHC.Internal.Float.Floating a) ->
+              $fFractionalIdentity
+                @a
+                (GHC.Internal.Float.$p1Floating @a $dFloating)]
+40e506ab329617f14adfd7a4aa899554
+  $fFoldableIdentity :: GHC.Internal.Data.Foldable.Foldable Identity
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Data.Foldable.C:Foldable],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Identity
+                $fFoldableIdentity8
+                  `cast`
+                (forall (m :: <*>_N).
+                 <GHC.Internal.Base.Monoid m>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <m>_R)
+                 %<'GHC.Types.Many>_N ->_R <m>_R)
+                $fFoldableIdentity7
+                  `cast`
+                (forall (m :: <*>_N) (a :: <*>_N).
+                 <GHC.Internal.Base.Monoid m>_R
+                 %<'GHC.Types.Many>_N ->_R <a -> m>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <m>_R)
+                $fFoldableIdentity_$cfoldMap'
+                $fFoldableIdentity_$cfoldr
+                $fFoldableIdentity_$cfoldr
+                $fFoldableIdentity6
+                  `cast`
+                (forall (b :: <*>_N) (a :: <*>_N).
+                 <b -> a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R <b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <b>_R)
+                $fFoldableIdentity6
+                  `cast`
+                (forall (b :: <*>_N) (a :: <*>_N).
+                 <b -> a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R <b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <b>_R)
+                $fFoldableIdentity5
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a -> a -> a>_R
+                 %<'GHC.Types.Many>_N ->_R <Identity a>_R
+                 %<'GHC.Types.Many>_N ->_R N:Identity <a>_R)
+                $fFoldableIdentity5
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a -> a -> a>_R
+                 %<'GHC.Types.Many>_N ->_R <Identity a>_R
+                 %<'GHC.Types.Many>_N ->_R N:Identity <a>_R)
+                $fFoldableIdentity_$ctoList
+                $fFoldableIdentity_$cnull
+                $fFoldableIdentity_$clength
+                GHC.Classes.==
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Classes.Eq a>_R
+                 %<'GHC.Types.Many>_N ->_R <a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                $fFoldableIdentity3
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Classes.Ord a>_R
+                 %<'GHC.Types.Many>_N ->_R <Identity a>_R
+                 %<'GHC.Types.Many>_N ->_R N:Identity <a>_R)
+                $fFoldableIdentity3
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Classes.Ord a>_R
+                 %<'GHC.Types.Many>_N ->_R <Identity a>_R
+                 %<'GHC.Types.Many>_N ->_R N:Identity <a>_R)
+                $fFoldableIdentity1
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Internal.Num.Num a>_R
+                 %<'GHC.Types.Many>_N ->_R <Identity a>_R
+                 %<'GHC.Types.Many>_N ->_R N:Identity <a>_R)
+                $fFoldableIdentity1
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Internal.Num.Num a>_R
+                 %<'GHC.Types.Many>_N ->_R <Identity a>_R
+                 %<'GHC.Types.Many>_N ->_R N:Identity <a>_R)]
+6ea95303c18419cceda3ca53a8038a5a
+  $fFoldableIdentity1 ::
+    GHC.Internal.Num.Num a => Identity a -> Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dNum['GHC.Types.Many] :: GHC.Internal.Num.Num a) ->
+              $fFoldableIdentity2 @a]
+4d8722e239d64f6c80d4f0d97092cd2b
+  $fFoldableIdentity2 :: Identity a -> Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a (ds['GHC.Types.Many] :: Identity a) -> ds]
+58b85afb76bd41735156582732696a81
+  $fFoldableIdentity3 ::
+    GHC.Classes.Ord a => Identity a -> Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a) ->
+              $fFoldableIdentity2 @a]
+d162716878c4532c843482734d7ea893
+  $fFoldableIdentity4 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# 1#]
+798d40b5327cb901a3dee9e7bcd90da5
+  $fFoldableIdentity5 :: (a -> a -> a) -> Identity a -> Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>,
+   Unfolding: Core: <vanilla>
+              \ @a (ds['GHC.Types.Many] :: a -> a -> a) ->
+              $fFoldableIdentity2 @a]
+f5ee71ad1b083573fcdc9b37df2856b8
+  $fFoldableIdentity6 :: (b -> a -> b) -> b -> a -> b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @b @a (v['GHC.Types.Many] :: b -> a -> b) -> v]
+4dcad81911ae2b131f6ffbd735baa902
+  $fFoldableIdentity7 ::
+    GHC.Internal.Base.Monoid m => (a -> m) -> a -> m
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @m
+                @a
+                ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid m)
+                (v['GHC.Types.Many] :: a -> m) ->
+              v]
+8bfccc6d4d64f3f92cbeaaa47552f9a8
+  $fFoldableIdentity8 :: GHC.Internal.Base.Monoid m => m -> m
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>, Inline:,
+   Unfolding: Core: <vanilla>
+              \ @m ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid m) ->
+              GHC.Internal.Base.id @m]
+52289b22d8652b0bc0ec20a334e9b908
+  $fFoldableIdentity_$cfoldMap' ::
+    GHC.Internal.Base.Monoid m => (a -> m) -> Identity a -> m
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(1P(1C(1,C(1,L)),A,A),ML,A,A)><MC(1,L)><L>,
+   Unfolding: Core: <vanilla>
+              \ @m
+                @a
+                ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid m)
+                (eta['GHC.Types.Many] :: a -> m)
+                (eta1['GHC.Types.Many] :: Identity a) ->
+              GHC.Internal.Base.<>
+                @m
+                (GHC.Internal.Base.$p1Monoid @m $dMonoid)
+                (GHC.Internal.Base.mempty @m $dMonoid)
+                (eta eta1 `cast` (N:Identity <a>_R))]
+86a354f9ec4119597fb71727fc994fa0
+  $fFoldableIdentity_$cfoldr :: (a -> b -> b) -> b -> Identity a -> b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1C(1,C(1,L))><L><L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                @b
+                (f['GHC.Types.Many] :: a -> b -> b)
+                (z['GHC.Types.Many] :: b)
+                (ds['GHC.Types.Many] :: Identity a) ->
+              f ds `cast` (N:Identity <a>_R) z]
+dcac58ef87447c4e08ded38a4fb27794
+  $fFoldableIdentity_$clength :: Identity a -> GHC.Types.Int
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <A>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueTrue>
+              \ @a (ds['GHC.Types.Many] :: Identity a) -> $fFoldableIdentity4]
+a2f3fad62383f44d0f0ffb3ae5aad7f2
+  $fFoldableIdentity_$cnull :: Identity a -> GHC.Types.Bool
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <A>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueTrue>
+              \ @a (ds['GHC.Types.Many] :: Identity a) -> GHC.Types.False]
+cccf4f5302f7627e9f751357f0f5421e
+  $fFoldableIdentity_$ctoList :: Identity a -> [a]
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <L>,
+   Unfolding: Core: <vanilla>
+              \ @a (ds['GHC.Types.Many] :: Identity a) ->
+              GHC.Types.: @a ds `cast` (N:Identity <a>_R) (GHC.Types.[] @a)]
+fdc03e5108a41674960fb021753dec36
+  $fFractionalIdentity ::
+    GHC.Internal.Real.Fractional a =>
+    GHC.Internal.Real.Fractional (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Real.Fractional a).
+                @(Identity a)
+                ($fFractionalIdentity_$cp1Fractional @a v)
+                (GHC.Internal.Real./ @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Real.recip @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Real.fromRational @a v)
+                  `cast`
+                (<GHC.Internal.Real.Rational>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+d78bcabd45dd9fa95f6b4dc7ce030917
+  $fFractionalIdentity_$cp1Fractional ::
+    GHC.Internal.Real.Fractional a => GHC.Internal.Num.Num (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(ML,ML,ML,ML,ML,ML,ML),A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dFractional['GHC.Types.Many] :: GHC.Internal.Real.Fractional
+                                                    a) ->
+              $fNumIdentity @a (GHC.Internal.Real.$p1Fractional @a $dFractional)]
+b7f5ff146740ca90d0b67a61636ce1b3
+  $fFunctorIdentity :: GHC.Internal.Base.Functor Identity
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Functor],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Identity
+                $fFunctorIdentity2
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <b>_R))
+                $fFunctorIdentity1
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <b>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+2ee7e2d0775b646fc5eb4f4c16140771
+  $fFunctorIdentity1 :: a -> b -> a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <1L><A>,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @a @b (eta['GHC.Types.Many] :: a) (ds['GHC.Types.Many] :: b) ->
+              eta]
+12620067d62b85042f6eae4c2abf3e54
+  $fFunctorIdentity2 :: (a -> b) -> a -> b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a @b (v['GHC.Types.Many] :: a -> b) -> v]
+c7910179a59564897e7ffce3631a7a99
+  $fGeneric1TYPEIdentity :: GHC.Internal.Generics.Generic1 Identity
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic1],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @(*)
+                @Identity
+                $fGeneric1TYPEIdentity_$cfrom1
+                $fGeneric1TYPEIdentity_$cto1]
+6f7048c6c914537f71a340eefeffde89
+  $fGeneric1TYPEIdentity_$cfrom1 ::
+    Identity a -> GHC.Internal.Generics.Rep1 Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a (x['GHC.Types.Many] :: Identity a) -> x)
+                `cast`
+              (forall (a :: <*>_N).
+               <Identity a>_R
+               %<'GHC.Types.Many>_N ->_R N:Identity
+                                             (Sym (GHC.Internal.Generics.N:Par1 <a>_R)
+                                              ; (Sym (GHC.Internal.Generics.N:M1
+                                                          <*>_N
+                                                          <GHC.Internal.Generics.S>_P
+                                                          <'GHC.Internal.Generics.MetaSel
+                                                             ('GHC.Internal.Maybe.Just
+                                                                "runIdentity")
+                                                             'GHC.Internal.Generics.NoSourceUnpackedness
+                                                             'GHC.Internal.Generics.NoSourceStrictness
+                                                             'GHC.Internal.Generics.DecidedLazy>_P
+                                                          <GHC.Internal.Generics.Par1>_R)
+                                                 ; Sym (GHC.Internal.Generics.N:M1
+                                                            <*>_N
+                                                            <GHC.Internal.Generics.C>_P
+                                                            <'GHC.Internal.Generics.MetaCons
+                                                               "Identity"
+                                                               'GHC.Internal.Generics.PrefixI
+                                                               'GHC.Types.True>_P
+                                                            <GHC.Internal.Generics.M1
+                                                               GHC.Internal.Generics.S
+                                                               ('GHC.Internal.Generics.MetaSel
+                                                                  ('GHC.Internal.Maybe.Just
+                                                                     "runIdentity")
+                                                                  'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                  'GHC.Internal.Generics.NoSourceStrictness
+                                                                  'GHC.Internal.Generics.DecidedLazy)
+                                                               GHC.Internal.Generics.Par1>_R)
+                                                 ; Sym (GHC.Internal.Generics.N:M1
+                                                            <*>_N
+                                                            <GHC.Internal.Generics.D>_P
+                                                            <'GHC.Internal.Generics.MetaData
+                                                               "Identity"
+                                                               "GHC.Internal.Data.Functor.Identity"
+                                                               "ghc-internal"
+                                                               'GHC.Types.True>_P
+                                                            <GHC.Internal.Generics.M1
+                                                               GHC.Internal.Generics.C
+                                                               ('GHC.Internal.Generics.MetaCons
+                                                                  "Identity"
+                                                                  'GHC.Internal.Generics.PrefixI
+                                                                  'GHC.Types.True)
+                                                               (GHC.Internal.Generics.M1
+                                                                  GHC.Internal.Generics.S
+                                                                  ('GHC.Internal.Generics.MetaSel
+                                                                     ('GHC.Internal.Maybe.Just
+                                                                        "runIdentity")
+                                                                     'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                     'GHC.Internal.Generics.NoSourceStrictness
+                                                                     'GHC.Internal.Generics.DecidedLazy)
+                                                                  GHC.Internal.Generics.Par1)>_R)
+                                                 ; Sub (Sym Rep1_Identity)) <a>_N))]
+6368c4b75df9f331041df51a5230333e
+  $fGeneric1TYPEIdentity_$cto1 ::
+    GHC.Internal.Generics.Rep1 Identity a -> Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              GHC.Internal.Generics.unPar2
+                `cast`
+              (forall (p :: <*>_N).
+               (Sym (GHC.Internal.Generics.N:M1
+                         <*>_N
+                         <GHC.Internal.Generics.S>_P
+                         <'GHC.Internal.Generics.MetaSel
+                            ('GHC.Internal.Maybe.Just "runIdentity")
+                            'GHC.Internal.Generics.NoSourceUnpackedness
+                            'GHC.Internal.Generics.NoSourceStrictness
+                            'GHC.Internal.Generics.DecidedLazy>_P
+                         <GHC.Internal.Generics.Par1>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <*>_N
+                           <GHC.Internal.Generics.C>_P
+                           <'GHC.Internal.Generics.MetaCons
+                              "Identity" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.S
+                              ('GHC.Internal.Generics.MetaSel
+                                 ('GHC.Internal.Maybe.Just "runIdentity")
+                                 'GHC.Internal.Generics.NoSourceUnpackedness
+                                 'GHC.Internal.Generics.NoSourceStrictness
+                                 'GHC.Internal.Generics.DecidedLazy)
+                              GHC.Internal.Generics.Par1>_R)
+                ; Sym (GHC.Internal.Generics.N:M1
+                           <*>_N
+                           <GHC.Internal.Generics.D>_P
+                           <'GHC.Internal.Generics.MetaData
+                              "Identity"
+                              "GHC.Internal.Data.Functor.Identity"
+                              "ghc-internal"
+                              'GHC.Types.True>_P
+                           <GHC.Internal.Generics.M1
+                              GHC.Internal.Generics.C
+                              ('GHC.Internal.Generics.MetaCons
+                                 "Identity" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+                              (GHC.Internal.Generics.M1
+                                 GHC.Internal.Generics.S
+                                 ('GHC.Internal.Generics.MetaSel
+                                    ('GHC.Internal.Maybe.Just "runIdentity")
+                                    'GHC.Internal.Generics.NoSourceUnpackedness
+                                    'GHC.Internal.Generics.NoSourceStrictness
+                                    'GHC.Internal.Generics.DecidedLazy)
+                                 GHC.Internal.Generics.Par1)>_R)
+                ; Sub (Sym Rep1_Identity)) <p>_N
+               %<'GHC.Types.Many>_N ->_R GHC.Internal.Generics.N:Par1
+                                             (Sym (N:Identity <p>_R)))]
+169635675690abc864d0f00821f274cd
+  $fGenericIdentity :: GHC.Internal.Generics.Generic (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Generics.C:Generic],
+   Inline: CONLIKE,
+   Unfolding: DFun: @a.
+                @(Identity a)
+                ($fGenericIdentity_$cfrom @a)
+                ($fGenericIdentity_$cto @a)]
+a77c74d9d01762dc1e288f53c3bee25b
+  $fGenericIdentity_$cfrom ::
+    Identity a -> GHC.Internal.Generics.Rep (Identity a) x
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a @x (x1['GHC.Types.Many] :: Identity a) -> x1)
+                `cast`
+              (forall (a :: <*>_N) (x :: <*>_N).
+               <Identity a>_R
+               %<'GHC.Types.Many>_N ->_R N:Identity
+                                             (Sym (GHC.Internal.Generics.N:K1
+                                                       <*>_N
+                                                       <GHC.Internal.Generics.R>_P
+                                                       <a>_R
+                                                       <x>_P)
+                                              ; (Sym (GHC.Internal.Generics.N:M1
+                                                          <*>_N
+                                                          <GHC.Internal.Generics.S>_P
+                                                          <'GHC.Internal.Generics.MetaSel
+                                                             ('GHC.Internal.Maybe.Just
+                                                                "runIdentity")
+                                                             'GHC.Internal.Generics.NoSourceUnpackedness
+                                                             'GHC.Internal.Generics.NoSourceStrictness
+                                                             'GHC.Internal.Generics.DecidedLazy>_P
+                                                          <GHC.Internal.Generics.K1
+                                                             GHC.Internal.Generics.R a>_R)
+                                                 ; Sym (GHC.Internal.Generics.N:M1
+                                                            <*>_N
+                                                            <GHC.Internal.Generics.C>_P
+                                                            <'GHC.Internal.Generics.MetaCons
+                                                               "Identity"
+                                                               'GHC.Internal.Generics.PrefixI
+                                                               'GHC.Types.True>_P
+                                                            <GHC.Internal.Generics.M1
+                                                               GHC.Internal.Generics.S
+                                                               ('GHC.Internal.Generics.MetaSel
+                                                                  ('GHC.Internal.Maybe.Just
+                                                                     "runIdentity")
+                                                                  'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                  'GHC.Internal.Generics.NoSourceStrictness
+                                                                  'GHC.Internal.Generics.DecidedLazy)
+                                                               (GHC.Internal.Generics.K1
+                                                                  GHC.Internal.Generics.R a)>_R)
+                                                 ; Sym (GHC.Internal.Generics.N:M1
+                                                            <*>_N
+                                                            <GHC.Internal.Generics.D>_P
+                                                            <'GHC.Internal.Generics.MetaData
+                                                               "Identity"
+                                                               "GHC.Internal.Data.Functor.Identity"
+                                                               "ghc-internal"
+                                                               'GHC.Types.True>_P
+                                                            <GHC.Internal.Generics.M1
+                                                               GHC.Internal.Generics.C
+                                                               ('GHC.Internal.Generics.MetaCons
+                                                                  "Identity"
+                                                                  'GHC.Internal.Generics.PrefixI
+                                                                  'GHC.Types.True)
+                                                               (GHC.Internal.Generics.M1
+                                                                  GHC.Internal.Generics.S
+                                                                  ('GHC.Internal.Generics.MetaSel
+                                                                     ('GHC.Internal.Maybe.Just
+                                                                        "runIdentity")
+                                                                     'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                     'GHC.Internal.Generics.NoSourceStrictness
+                                                                     'GHC.Internal.Generics.DecidedLazy)
+                                                                  (GHC.Internal.Generics.K1
+                                                                     GHC.Internal.Generics.R a))>_R)
+                                                 ; Sub (Sym (Rep_Identity <a>_N))) <x>_N))]
+5c661a64fd10a4607d34cffc3d982fb2
+  $fGenericIdentity_$cto ::
+    GHC.Internal.Generics.Rep (Identity a) x -> Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>, Inline: [1] (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseTrue>
+              (\ @a
+                 @x
+                 (ds['GHC.Types.Many] :: GHC.Internal.Generics.Rep
+                                           (Identity a) x) ->
+               ds)
+                `cast`
+              (forall (a :: <*>_N) (x :: <*>_N).
+               <GHC.Internal.Generics.Rep (Identity a) x>_R
+               %<'GHC.Types.Many>_N ->_R Sym (N:Identity
+                                                  (Sym (GHC.Internal.Generics.N:K1
+                                                            <*>_N
+                                                            <GHC.Internal.Generics.R>_P
+                                                            <a>_R
+                                                            <x>_P)
+                                                   ; (Sym (GHC.Internal.Generics.N:M1
+                                                               <*>_N
+                                                               <GHC.Internal.Generics.S>_P
+                                                               <'GHC.Internal.Generics.MetaSel
+                                                                  ('GHC.Internal.Maybe.Just
+                                                                     "runIdentity")
+                                                                  'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                  'GHC.Internal.Generics.NoSourceStrictness
+                                                                  'GHC.Internal.Generics.DecidedLazy>_P
+                                                               <GHC.Internal.Generics.K1
+                                                                  GHC.Internal.Generics.R a>_R)
+                                                      ; Sym (GHC.Internal.Generics.N:M1
+                                                                 <*>_N
+                                                                 <GHC.Internal.Generics.C>_P
+                                                                 <'GHC.Internal.Generics.MetaCons
+                                                                    "Identity"
+                                                                    'GHC.Internal.Generics.PrefixI
+                                                                    'GHC.Types.True>_P
+                                                                 <GHC.Internal.Generics.M1
+                                                                    GHC.Internal.Generics.S
+                                                                    ('GHC.Internal.Generics.MetaSel
+                                                                       ('GHC.Internal.Maybe.Just
+                                                                          "runIdentity")
+                                                                       'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                       'GHC.Internal.Generics.NoSourceStrictness
+                                                                       'GHC.Internal.Generics.DecidedLazy)
+                                                                    (GHC.Internal.Generics.K1
+                                                                       GHC.Internal.Generics.R
+                                                                       a)>_R)
+                                                      ; Sym (GHC.Internal.Generics.N:M1
+                                                                 <*>_N
+                                                                 <GHC.Internal.Generics.D>_P
+                                                                 <'GHC.Internal.Generics.MetaData
+                                                                    "Identity"
+                                                                    "GHC.Internal.Data.Functor.Identity"
+                                                                    "ghc-internal"
+                                                                    'GHC.Types.True>_P
+                                                                 <GHC.Internal.Generics.M1
+                                                                    GHC.Internal.Generics.C
+                                                                    ('GHC.Internal.Generics.MetaCons
+                                                                       "Identity"
+                                                                       'GHC.Internal.Generics.PrefixI
+                                                                       'GHC.Types.True)
+                                                                    (GHC.Internal.Generics.M1
+                                                                       GHC.Internal.Generics.S
+                                                                       ('GHC.Internal.Generics.MetaSel
+                                                                          ('GHC.Internal.Maybe.Just
+                                                                             "runIdentity")
+                                                                          'GHC.Internal.Generics.NoSourceUnpackedness
+                                                                          'GHC.Internal.Generics.NoSourceStrictness
+                                                                          'GHC.Internal.Generics.DecidedLazy)
+                                                                       (GHC.Internal.Generics.K1
+                                                                          GHC.Internal.Generics.R
+                                                                          a))>_R)
+                                                      ; Sub (Sym (Rep_Identity <a>_N))) <x>_N)))]
+32099c25d3061775c5bf30eb62eda470
+  $fIntegralIdentity ::
+    GHC.Internal.Real.Integral a =>
+    GHC.Internal.Real.Integral (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(ML,ML,ML,ML,ML,ML,ML),MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML),MP(ML,ML,ML,ML,ML,ML,ML,ML),ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Real.Integral a).
+                @(Identity a)
+                ($fIntegralIdentity_$cp1Integral @a v)
+                ($fIntegralIdentity_$cp2Integral @a v)
+                (GHC.Internal.Real.quot @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Real.rem @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Real.div @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Real.mod @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Real.quotRem @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R ((,)
+                                              (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R)
+                (GHC.Internal.Real.divMod @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R ((,)
+                                              (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R)
+                (GHC.Internal.Real.toInteger @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Num.Integer.Integer>_R)]
+7e6eeef27f6d7ec312ce48265f550f76
+  $fIntegralIdentity_$cp1Integral ::
+    GHC.Internal.Real.Integral a => GHC.Internal.Real.Real (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(ML,ML,ML,ML,ML,ML,ML),MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML),A,A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dIntegral['GHC.Types.Many] :: GHC.Internal.Real.Integral a) ->
+              $fRealIdentity @a (GHC.Internal.Real.$p1Integral @a $dIntegral)]
+a135b80da1d21d8a4df8bd14f98c3e95
+  $fIntegralIdentity_$cp2Integral ::
+    GHC.Internal.Real.Integral a => GHC.Internal.Enum.Enum (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(A,1P(ML,ML,ML,ML,ML,ML,ML,ML),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dIntegral['GHC.Types.Many] :: GHC.Internal.Real.Integral a) ->
+              $fEnumIdentity @a (GHC.Internal.Real.$p2Integral @a $dIntegral)]
+caf11ad2ed6b0e41283ed03d3e1db4d5
+  $fIxIdentity ::
+    GHC.Internal.Ix.Ix a => GHC.Internal.Ix.Ix (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Internal.Ix.Ix a).
+                @(Identity a)
+                ($fIxIdentity_$cp1Ix @a v)
+                (GHC.Internal.Ix.range @a v)
+                  `cast`
+                (((,) (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R
+                 %<'GHC.Types.Many>_N ->_R ([Sym (N:Identity <a>_R)])_R)
+                (GHC.Internal.Ix.index @a v)
+                  `cast`
+                (((,) (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Ix.unsafeIndex @a v)
+                  `cast`
+                (((,) (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Ix.inRange @a v)
+                  `cast`
+                (((,) (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Ix.rangeSize @a v)
+                  `cast`
+                (((,) (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Ix.unsafeRangeSize @a v)
+                  `cast`
+                (((,) (Sym (N:Identity <a>_R)) (Sym (N:Identity <a>_R)))_R
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)]
+f9ed48e32fb3f5d522f0433c8865e66c
+  $fIxIdentity_$cp1Ix ::
+    GHC.Internal.Ix.Ix a => GHC.Classes.Ord (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dIx['GHC.Types.Many] :: GHC.Internal.Ix.Ix a) ->
+              $fOrdIdentity @a (GHC.Internal.Ix.$p1Ix @a $dIx)]
+6c2bb42947858a1fa4855d016aaaa56c
+  $fMonadFixIdentity ::
+    GHC.Internal.Control.Monad.Fix.MonadFix Identity
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Control.Monad.Fix.C:MonadFix],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Identity $fMonadIdentity $fMonadFixIdentity_$cmfix]
+7ea1505fdf834c231125b6522ba5e4f3
+  $fMonadFixIdentity_$cmfix :: (a -> Identity a) -> Identity a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <SC(S,L)>,
+   Unfolding: Core: <vanilla>
+              \ @a (f['GHC.Types.Many] :: a -> Identity a) ->
+              letrec {
+                x :: Identity a NotJoinPoint [] = f x `cast` (N:Identity <a>_R)
+              } in
+              x]
+eb323cfbd5b215b91002e2dc173b8723
+  $fMonadIdentity :: GHC.Internal.Base.Monad Identity
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Monad], Inline: CONLIKE,
+   Unfolding: DFun:.
+                @Identity
+                $fApplicativeIdentity
+                $fMonadIdentity_$c>>=
+                $fMonadIdentity_$c>>
+                $fApplicativeIdentity3
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+6ec70e3828311d02fd16a9b348ab5f32
+  $fMonadIdentity_$c>> :: Identity a -> Identity b -> Identity b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <A><1L>, Inline: (sat-args=2),
+   Unfolding: Core: StableUser <2,FalseTrue>
+              \ @a
+                @b
+                (m1['GHC.Types.Many] :: Identity a)
+                (k['GHC.Types.Many] :: Identity b) ->
+              k]
+4bff4ea4fbe9e4783e6db1cac8f01d22
+  $fMonadIdentity_$c>>= ::
+    Identity a -> (a -> Identity b) -> Identity b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <L><1C(1,L)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                @b
+                (m['GHC.Types.Many] :: Identity a)
+                (k['GHC.Types.Many] :: a -> Identity b) ->
+              k m `cast` (N:Identity <a>_R)]
+c10cbdcb4fce652ed41f6bc23bbe3a44
+  $fMonoidIdentity ::
+    GHC.Internal.Base.Monoid a => GHC.Internal.Base.Monoid (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(MP(ML,ML,ML),ML,ML,ML)>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Monoid a).
+                @(Identity a)
+                ($fMonoidIdentity_$cp1Monoid @a v)
+                (GHC.Internal.Base.mempty @a v) `cast` (Sym (N:Identity <a>_R))
+                (GHC.Internal.Base.mappend @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Base.mconcat @a v)
+                  `cast`
+                (([Sym (N:Identity <a>_R)])_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+dffa73af0d685e0f68045b1191bd35a8
+  $fMonoidIdentity_$cp1Monoid ::
+    GHC.Internal.Base.Monoid a =>
+    GHC.Internal.Base.Semigroup (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(ML,ML,ML),A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dMonoid['GHC.Types.Many] :: GHC.Internal.Base.Monoid a) ->
+              $fSemigroupIdentity @a (GHC.Internal.Base.$p1Monoid @a $dMonoid)]
+35c481d7e076e263b3b97f2558acc626
+  $fNumIdentity ::
+    GHC.Internal.Num.Num a => GHC.Internal.Num.Num (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML,ML,ML,ML,ML,ML)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Internal.Num.Num a).
+                @(Identity a)
+                (GHC.Internal.Num.+ @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Num.- @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Num.* @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Num.negate @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Num.abs @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Num.signum @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Num.fromInteger @a v)
+                  `cast`
+                (<GHC.Num.Integer.Integer>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+46af04471717711e31e03f2e700bbd67
+  $fOrdIdentity :: GHC.Classes.Ord a => GHC.Classes.Ord (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(Identity a)
+                ($fOrdIdentity_$cp1Ord @a v)
+                (GHC.Classes.compare @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Ordering>_R)
+                (GHC.Classes.< @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.<= @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.> @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.>= @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Classes.max @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Classes.min @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+8c176d419195b2a904f2474ca8cca132
+  $fOrdIdentity_$cp1Ord ::
+    GHC.Classes.Ord a => GHC.Classes.Eq (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(ML,ML),A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a) ->
+              $fEqIdentity @a (GHC.Classes.$p1Ord @a $dOrd)]
+8d8dc0607bd7f995538d80a9e45e8645
+  $fReadIdentity ::
+    GHC.Internal.Read.Read a => GHC.Internal.Read.Read (Identity a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(LC(L,C(1,L)),A,A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Read.Read a).
+                @(Identity a)
+                ($fReadIdentity_$creadsPrec @a v)
+                ($fReadIdentity_$creadList @a v)
+                ($fReadIdentity3 @a v)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <Identity a>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <Identity a>_R))
+                ($fReadIdentity1 @a v)
+                  `cast`
+                (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                    <[Identity a]>_R)
+                 ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                            <[Identity a]>_R))]
+d1b763fd0ffca99c3cfba8b77b03029c
+  $fReadIdentity1 ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Identity a] -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> GHC.Internal.Text.ParserCombinators.ReadP.P b
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,L)),A,A,A)><A><LC(S,L)>, CPR: 2,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (eta['GHC.Types.Many] :: GHC.Internal.Text.ParserCombinators.ReadPrec.Prec)[OneShot]
+                @b
+                (eta1['GHC.Types.Many] :: [Identity a]
+                                          -> GHC.Internal.Text.ParserCombinators.ReadP.P b) ->
+              case GHC.Internal.Text.ParserCombinators.ReadP.$wreadS_to_P
+                     @[Identity a]
+                     (GHC.Internal.Text.ParserCombinators.ReadP.run
+                        @[Identity a]
+                        (((GHC.Internal.Read.list
+                             @(Identity a)
+                             ($fReadIdentity3 @a $dRead)
+                               `cast`
+                             (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                              %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                                 <Identity a>_R)
+                              ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                                         <Identity a>_R)))
+                            `cast`
+                          (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                               <[Identity a]>_R)
+                            $fReadIdentity2)
+                           `cast`
+                         (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                              <[Identity a]>_R)
+                           @[Identity a]
+                           (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                              @[Identity a])))
+                     @b
+                     eta1 of wild { MkSolo# ww ->
+              GHC.Internal.Text.ParserCombinators.ReadP.Look @b ww }]
+c6cf32584ce133dff4c4b895a3aaf0f9
+  $fReadIdentity2 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# 0#]
+bf34a453e94028fcb9980ca96344445a
+  $fReadIdentity3 ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Identity a -> GHC.Internal.Text.ParserCombinators.ReadP.P b)
+       -> GHC.Internal.Text.ParserCombinators.ReadP.P b
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <LP(SC(S,C(1,L)),A,A,A)><ML>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (n['GHC.Types.Many] :: GHC.Internal.Text.ParserCombinators.ReadPrec.Prec)[OneShot] ->
+              let {
+                r :: GHC.Internal.Text.ParserCombinators.ReadP.ReadS (Identity a)
+                  NotJoinPoint []
+                = $fReadIdentity_$creadsPrec @a $dRead n
+              } in
+              \ @b
+                (k['GHC.Types.Many] :: Identity a
+                                       -> GHC.Internal.Text.ParserCombinators.ReadP.P b) ->
+              case GHC.Internal.Text.ParserCombinators.ReadP.$wreadS_to_P
+                     @(Identity a)
+                     r
+                     @b
+                     k of wild { MkSolo# ww ->
+              GHC.Internal.Text.ParserCombinators.ReadP.Look @b ww }]
+278678d45fb00a8ea90c28569370321b
+  $fReadIdentity4 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# 11#]
+b2b5e38c44d06bfa5d3085e9a9f58d6b
+  $fReadIdentity5 :: [GHC.Types.Char]
+  [LambdaFormInfo: LFThunk (updatable=True might_be_function= False),
+   Unfolding: Core: <vanilla>
+              GHC.CString.unpackCString# $fReadIdentity6]
+98970e3f4c2f90e75099529dd7f1da79
+  $fReadIdentity6 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Identity"#]
+2fd40aca608cbea1074b1b5a170fcd9f
+  $fReadIdentity_$creadList ::
+    GHC.Internal.Read.Read a =>
+    GHC.Internal.Text.ParserCombinators.ReadP.ReadS [Identity a]
+  [LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(SC(S,C(1,L)),A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a) ->
+              GHC.Internal.Text.ParserCombinators.ReadP.run
+                @[Identity a]
+                (((GHC.Internal.Read.list
+                     @(Identity a)
+                     ($fReadIdentity3 @a $dRead)
+                       `cast`
+                     (<GHC.Internal.Text.ParserCombinators.ReadPrec.Prec>_R
+                      %<'GHC.Types.Many>_N ->_R Sym (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                                                         <Identity a>_R)
+                      ; Sym (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                                 <Identity a>_R)))
+                    `cast`
+                  (GHC.Internal.Text.ParserCombinators.ReadPrec.N:ReadPrec
+                       <[Identity a]>_R)
+                    $fReadIdentity2)
+                   `cast`
+                 (GHC.Internal.Text.ParserCombinators.ReadP.N:ReadP
+                      <[Identity a]>_R)
+                   @[Identity a]
+                   (GHC.Internal.Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                      @[Identity a]))]
+0c8ba9b73326fdde20b783262aa57485
+  $fReadIdentity_$creadsPrec ::
+    GHC.Internal.Read.Read a =>
+    GHC.Types.Int
+    -> GHC.Internal.Text.ParserCombinators.ReadP.ReadS (Identity a)
+  [LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <LP(SC(S,C(1,L)),A,A,A)><ML>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRead['GHC.Types.Many] :: GHC.Internal.Read.Read a)
+                (d['GHC.Types.Many] :: GHC.Types.Int) ->
+              letrec {
+                go1 :: [(GHC.Internal.Base.String, GHC.Internal.Base.String)]
+                       -> [(Identity a, GHC.Internal.Base.String)]
+                  NotJoinPoint [Arity: 1, Strictness: <1L>]
+                = \ (ds['GHC.Types.Many] :: [(GHC.Internal.Base.String,
+                                              GHC.Internal.Base.String)]) ->
+                  case ds of wild {
+                    [] -> GHC.Types.[] @(Identity a, GHC.Internal.Base.String)
+                    : y ys
+                    -> case y of wild1 { (,) ds1 s ->
+                       let {
+                         ds2 :: [(Identity a, GHC.Internal.Base.String)] NotJoinPoint []
+                         = go1 ys
+                       } in
+                       case GHC.Internal.Base.eqString ds1 $fReadIdentity5 of wild2 {
+                         GHC.Types.False -> ds2
+                         GHC.Types.True
+                         -> letrec {
+                              go2 :: [(a, GHC.Internal.Base.String)]
+                                     -> [(Identity a, GHC.Internal.Base.String)]
+                                NotJoinPoint [Arity: 1, Strictness: <1L>]
+                              = \ (ds3['GHC.Types.Many] :: [(a, GHC.Internal.Base.String)]) ->
+                                case ds3 of wild3 {
+                                  [] -> ds2
+                                  : y1 ys1
+                                  -> case y1 of wild4 { (,) x t ->
+                                     GHC.Types.:
+                                       @(Identity a, GHC.Internal.Base.String)
+                                       (x `cast` (Sym (N:Identity <a>_R)), t)
+                                       (go2 ys1) } }
+                            } in
+                            go2 (GHC.Internal.Read.readsPrec @a $dRead $fReadIdentity4 s) } } }
+              } in
+              GHC.Internal.Read.readParen
+                @(Identity a)
+                (case d of wild { GHC.Types.I# x ->
+                 GHC.Prim.tagToEnum# @GHC.Types.Bool (GHC.Prim.># x 10#) })
+                (\ (r['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                 go1
+                   (GHC.Internal.Text.ParserCombinators.ReadP.run
+                      @GHC.Internal.Base.String
+                      GHC.Internal.Read.lex1
+                      r))]
+a93e9af350efc8accae18f8b21b67d21
+  $fRealFloatIdentity ::
+    GHC.Internal.Float.RealFloat a =>
+    GHC.Internal.Float.RealFloat (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(MP(ML,ML,ML,ML,ML,ML,ML),MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML),MP(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),ML,ML,ML,ML,ML),MP(MP(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML),ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Float.RealFloat a).
+                @(Identity a)
+                ($fRealFloatIdentity_$cp1RealFloat @a v)
+                ($fRealFloatIdentity_$cp2RealFloat @a v)
+                (GHC.Internal.Float.floatRadix @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Num.Integer.Integer>_R)
+                (GHC.Internal.Float.floatDigits @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Float.floatRange @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <(GHC.Types.Int, GHC.Types.Int)>_R)
+                (GHC.Internal.Float.decodeFloat @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <(GHC.Num.Integer.Integer,
+                                             GHC.Types.Int)>_R)
+                (GHC.Internal.Float.encodeFloat @a v)
+                  `cast`
+                (<GHC.Num.Integer.Integer>_R
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.exponent @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Float.significand @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.scaleFloat @a v)
+                  `cast`
+                (<GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Float.isNaN @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Float.isInfinite @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Float.isDenormalized @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Float.isNegativeZero @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Float.isIEEE @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Bool>_R)
+                (GHC.Internal.Float.atan2 @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+e4cdfb300c086eb7d92e286142f9a133
+  $fRealFloatIdentity_$cp1RealFloat ::
+    GHC.Internal.Float.RealFloat a =>
+    GHC.Internal.Real.RealFrac (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(MP(ML,ML,ML,ML,ML,ML,ML),MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML),MP(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),ML,ML,ML,ML,ML),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRealFloat['GHC.Types.Many] :: GHC.Internal.Float.RealFloat a) ->
+              $fRealFracIdentity
+                @a
+                (GHC.Internal.Float.$p1RealFloat @a $dRealFloat)]
+2eea11168f37f12279896868bd40748d
+  $fRealFloatIdentity_$cp2RealFloat ::
+    GHC.Internal.Float.RealFloat a =>
+    GHC.Internal.Float.Floating (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(A,1P(MP(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML,ML),A,A,A,A,A,A,A,A,A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRealFloat['GHC.Types.Many] :: GHC.Internal.Float.RealFloat a) ->
+              $fFloatingIdentity
+                @a
+                (GHC.Internal.Float.$p2RealFloat @a $dRealFloat)]
+69bdb20a72e177b33323291ab2bfe810
+  $fRealFracIdentity ::
+    GHC.Internal.Real.RealFrac a =>
+    GHC.Internal.Real.RealFrac (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(MP(ML,ML,ML,ML,ML,ML,ML),MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML),MP(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Real.RealFrac a).
+                @(Identity a)
+                ($fRealFracIdentity_$cp1RealFrac @a v)
+                ($fRealFracIdentity_$cp2RealFrac @a v)
+                (GHC.Internal.Real.properFraction @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Real.Integral b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R ((,) <b>_R (Sym (N:Identity <a>_R)))_R)
+                (GHC.Internal.Real.truncate @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Real.Integral b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <b>_R)
+                (GHC.Internal.Real.round @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Real.Integral b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <b>_R)
+                (GHC.Internal.Real.ceiling @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Real.Integral b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <b>_R)
+                (GHC.Internal.Real.floor @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Real.Integral b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <b>_R)]
+e6cbaeedef3bf8aaaa73d77f609fa735
+  $fRealFracIdentity_$cp1RealFrac ::
+    GHC.Internal.Real.RealFrac a => GHC.Internal.Real.Real (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(1P(MP(ML,ML,ML,ML,ML,ML,ML),MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML),A,A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRealFrac['GHC.Types.Many] :: GHC.Internal.Real.RealFrac a) ->
+              $fRealIdentity @a (GHC.Internal.Real.$p1RealFrac @a $dRealFrac)]
+710dcbf9ca65fb8524d20836773f1a66
+  $fRealFracIdentity_$cp2RealFrac ::
+    GHC.Internal.Real.RealFrac a =>
+    GHC.Internal.Real.Fractional (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <MP(A,1P(MP(ML,ML,ML,ML,ML,ML,ML),ML,ML,ML),A,A,A,A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dRealFrac['GHC.Types.Many] :: GHC.Internal.Real.RealFrac a) ->
+              $fFractionalIdentity
+                @a
+                (GHC.Internal.Real.$p2RealFrac @a $dRealFrac)]
+4056eb52ae9bb865cfc92e10d4202861
+  $fRealIdentity ::
+    GHC.Internal.Real.Real a => GHC.Internal.Real.Real (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1,
+   Strictness: <LP(MP(ML,ML,ML,ML,ML,ML,ML),MP(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Real.Real a).
+                @(Identity a)
+                ($fRealIdentity_$cp1Real @a v)
+                ($fRealIdentity_$cp2Real @a v)
+                (GHC.Internal.Real.toRational @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Internal.Real.Rational>_R)]
+797a7ee0041502df28b808714c8ac73e
+  $fRealIdentity_$cp1Real ::
+    GHC.Internal.Real.Real a => GHC.Internal.Num.Num (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(1P(ML,ML,ML,ML,ML,ML,ML),A,A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dReal['GHC.Types.Many] :: GHC.Internal.Real.Real a) ->
+              $fNumIdentity @a (GHC.Internal.Real.$p1Real @a $dReal)]
+889c5bb3d5a415436a478f7974a94766
+  $fRealIdentity_$cp2Real ::
+    GHC.Internal.Real.Real a => GHC.Classes.Ord (Identity a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <MP(A,1P(MP(ML,ML),ML,ML,ML,ML,ML,ML,ML),A)>,
+   Unfolding: Core: <vanilla>
+              \ @a ($dReal['GHC.Types.Many] :: GHC.Internal.Real.Real a) ->
+              $fOrdIdentity @a (GHC.Internal.Real.$p2Real @a $dReal)]
+ae645fe5d19ce1756347c06d5699b01a
+  $fSemigroupIdentity ::
+    GHC.Internal.Base.Semigroup a =>
+    GHC.Internal.Base.Semigroup (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML,ML)>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Semigroup a).
+                @(Identity a)
+                (GHC.Internal.Base.<> @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Base.sconcat @a v)
+                  `cast`
+                ((GHC.Internal.Base.NonEmpty (Sym (N:Identity <a>_R)))_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))
+                (GHC.Internal.Base.stimes @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Real.Integral b>_R
+                 %<'GHC.Types.Many>_N ->_R <b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R))]
+fe4febb23094dacf99bea1a88ece4f44
+  $fShowIdentity ::
+    GHC.Internal.Show.Show a => GHC.Internal.Show.Show (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(LC(L,C(1,C(S,L))),A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Show.Show a).
+                @(Identity a)
+                ($fShowIdentity_$cshowsPrec @a v)
+                ($fShowIdentity_$cshow @a v)
+                ($fShowIdentity_$cshowList @a v)]
+960af2c27ce831c5f6a7d837760b1c39
+  $fShowIdentity1 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Identity "#]
+65145a97d4b854d25855c049b189be28
+  $fShowIdentity_$cshow ::
+    GHC.Internal.Show.Show a => Identity a -> GHC.Internal.Base.String
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <MP(1C(1,C(1,C(1,L))),A,A)><L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (x['GHC.Types.Many] :: Identity a) ->
+              GHC.CString.unpackAppendCString#
+                $fShowIdentity1
+                (GHC.Internal.Show.showsPrec
+                   @a
+                   $dShow
+                   $fReadIdentity4
+                   x `cast` (N:Identity <a>_R)
+                   (GHC.Types.[] @GHC.Types.Char))]
+b9e05cb474106e4ba258d6a1517f72a5
+  $fShowIdentity_$cshowList ::
+    GHC.Internal.Show.Show a => [Identity a] -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(SC(S,C(1,C(S,L))),A,A)><1L><L>,
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (ls['GHC.Types.Many] :: [Identity a])
+                (s['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+              GHC.Internal.Show.showList__
+                @(Identity a)
+                (\ (ds['GHC.Types.Many] :: Identity a) ->
+                 $w$cshowsPrec @a $dShow 0# ds)
+                ls
+                s]
+c84148f04cb5e40121791ea0b86d49a8
+  $fShowIdentity_$cshowsPrec ::
+    GHC.Internal.Show.Show a =>
+    GHC.Types.Int -> Identity a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><1!P(L)><L>, Inline: [2],
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (d['GHC.Types.Many] :: GHC.Types.Int)
+                (ds['GHC.Types.Many] :: Identity a) ->
+              case d of wild { GHC.Types.I# ww ->
+              $w$cshowsPrec @a $dShow ww ds }]
+c689900e4b207ae8d168d262f8168f47
+  $fStorableIdentity ::
+    GHC.Internal.Foreign.Storable.Storable a =>
+    GHC.Internal.Foreign.Storable.Storable (Identity a)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(ML,ML,ML,ML,ML,ML,ML,ML)>,
+   Inline: CONLIKE,
+   Unfolding: DFun: @a
+                    (v['GHC.Types.Many] :: GHC.Internal.Foreign.Storable.Storable a).
+                @(Identity a)
+                (GHC.Internal.Foreign.Storable.sizeOf @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Foreign.Storable.alignment @a v)
+                  `cast`
+                (Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R)
+                (GHC.Internal.Foreign.Storable.peekElemOff @a v)
+                  `cast`
+                ((GHC.Internal.Ptr.Ptr
+                    Univ(phantom (phantom)[<*>_N] :: a, Identity a))_R
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R (GHC.Types.IO
+                                              (Sym (N:Identity <a>_R)))_R)
+                (GHC.Internal.Foreign.Storable.pokeElemOff @a v)
+                  `cast`
+                ((GHC.Internal.Ptr.Ptr
+                    Univ(phantom (phantom)[<*>_N] :: a, Identity a))_R
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.IO ()>_R)
+                (GHC.Internal.Foreign.Storable.peekByteOff @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Ptr.Ptr b>_R
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R (GHC.Types.IO
+                                              (Sym (N:Identity <a>_R)))_R)
+                (GHC.Internal.Foreign.Storable.pokeByteOff @a v)
+                  `cast`
+                (forall (b :: <*>_N).
+                 <GHC.Internal.Ptr.Ptr b>_R
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.Int>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.IO ()>_R)
+                (GHC.Internal.Foreign.Storable.peek @a v)
+                  `cast`
+                ((GHC.Internal.Ptr.Ptr
+                    Univ(phantom (phantom)[<*>_N] :: a, Identity a))_R
+                 %<'GHC.Types.Many>_N ->_R (GHC.Types.IO
+                                              (Sym (N:Identity <a>_R)))_R)
+                (GHC.Internal.Foreign.Storable.poke @a v)
+                  `cast`
+                ((GHC.Internal.Ptr.Ptr
+                    Univ(phantom (phantom)[<*>_N] :: a, Identity a))_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:Identity <a>_R)
+                 %<'GHC.Types.Many>_N ->_R <GHC.Types.IO ()>_R)]
+fb0125f877356bdd5a74b085883630f9
+  $tc'Identity :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                7553369982197390973#Word64
+                2244477751350895228#Word64
+                $trModule
+                $tc'Identity2
+                1#
+                $tc'Identity1]
+6a3eb9110e374481ad99dfc4c4945000
+  $tc'Identity1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+0d9f6d71589b7045ff6ac53e60d6b5d5
+  $tc'Identity2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'Identity3]
+b3dc29d1b5d240796ee0c966241ad291
+  $tc'Identity3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'Identity"#]
+92b3a2e2f15e9c7fc9846b2da2729f9a
+  $tcIdentity :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                1040309382766913758#Word64
+                303758342680655209#Word64
+                $trModule
+                $tcIdentity1
+                0#
+                GHC.Types.krep$*Arr*]
+eb7837711e6f0ff67e12bb87375968dd
+  $tcIdentity1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $fReadIdentity6]
+5b155dc568abafdd198b445cb761b55c
+  $trModule :: GHC.Types.Module
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla> GHC.Types.Module $trModule3 $trModule1]
+03258bf42aa63b084bcbac55b82c0467
+  $trModule1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule2]
+0cc84efd5bf25072358492aeccef26f8
+  $trModule2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.Internal.Data.Functor.Identity"#]
+e2240c39b6394ccfa53d8ae0b66e59ce
+  $trModule3 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule4]
+d2316d340cd2fa3157c4fa3c8ad83789
+  $trModule4 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "ghc-internal"#]
+0a27574f0d088e1606f9812392bcb186
+  $w$cshowsPrec ::
+    GHC.Internal.Show.Show a =>
+    GHC.Prim.Int# -> Identity a -> GHC.Internal.Show.ShowS
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(1C(1,C(1,C(S,L))),A,A)><L><L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dShow['GHC.Types.Many] :: GHC.Internal.Show.Show a)
+                (ww['GHC.Types.Many] :: GHC.Prim.Int#)
+                (ds['GHC.Types.Many] :: Identity a) ->
+              let {
+                g :: GHC.Internal.Base.String -> GHC.Internal.Base.String
+                  NotJoinPoint []
+                = GHC.Internal.Show.showsPrec
+                    @a
+                    $dShow
+                    $fReadIdentity4
+                    ds `cast` (N:Identity <a>_R)
+              } in
+              case GHC.Prim.># ww 10# of lwild {
+                DEFAULT
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.CString.unpackAppendCString# $fShowIdentity1 (g x)
+                1#
+                -> \ (x['GHC.Types.Many] :: GHC.Internal.Base.String) ->
+                   GHC.Types.:
+                     @GHC.Types.Char
+                     GHC.Internal.Show.$fShowCallStack3
+                     (GHC.CString.unpackAppendCString#
+                        $fShowIdentity1
+                        (g (GHC.Types.:
+                              @GHC.Types.Char
+                              GHC.Internal.Show.$fShowCallStack2
+                              x))) }]
+23fecb14817e1369ce3a183ba1a204a6
+  type Identity :: * -> *
+  newtype Identity a = Identity {runIdentity :: a}
+f8ace698b9112aba1fecb46de9bb9282
+  axiom Rep1_Identity ::
+      GHC.Internal.Generics.Rep1 Identity
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "Identity"
+               "GHC.Internal.Data.Functor.Identity"
+               "ghc-internal"
+               'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "Identity" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "runIdentity")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  GHC.Internal.Generics.Par1))
+f24fc81da202369423dd1724d36afd7a
+  axiom Rep_Identity ::
+      GHC.Internal.Generics.Rep (Identity a)
+        = GHC.Internal.Generics.D1
+            ('GHC.Internal.Generics.MetaData
+               "Identity"
+               "GHC.Internal.Data.Functor.Identity"
+               "ghc-internal"
+               'GHC.Types.True)
+            (GHC.Internal.Generics.C1
+               ('GHC.Internal.Generics.MetaCons
+                  "Identity" 'GHC.Internal.Generics.PrefixI 'GHC.Types.True)
+               (GHC.Internal.Generics.S1
+                  ('GHC.Internal.Generics.MetaSel
+                     ('GHC.Internal.Maybe.Just "runIdentity")
+                     'GHC.Internal.Generics.NoSourceUnpackedness
+                     'GHC.Internal.Generics.NoSourceStrictness
+                     'GHC.Internal.Generics.DecidedLazy)
+                  (GHC.Internal.Generics.Rec0 a)))
+c7a7f2a81a3dc0166fd23d1944973ebc
+  runIdentity :: Identity a -> a
+  RecSel Left Identity
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              $fFoldableIdentity2
+                `cast`
+              (forall (a :: <*>_N).
+               <Identity a>_R %<'GHC.Types.Many>_N ->_R N:Identity <a>_R)]
+instance GHC.Internal.Base.Applicative [Identity]
+  = $fApplicativeIdentity
+instance GHC.Internal.Bits.Bits [Identity] = $fBitsIdentity
+instance GHC.Internal.Enum.Bounded [Identity] = $fBoundedIdentity
+instance GHC.Internal.Enum.Enum [Identity] = $fEnumIdentity
+instance GHC.Classes.Eq [Identity] = $fEqIdentity
+instance GHC.Internal.Bits.FiniteBits [Identity]
+  = $fFiniteBitsIdentity
+instance GHC.Internal.Float.Floating [Identity]
+  = $fFloatingIdentity
+instance GHC.Internal.Data.Foldable.Foldable [Identity]
+  = $fFoldableIdentity
+instance GHC.Internal.Real.Fractional [Identity]
+  = $fFractionalIdentity
+instance GHC.Internal.Base.Functor [Identity] = $fFunctorIdentity
+instance GHC.Internal.Generics.Generic1 [GHC.Prim.TYPE, Identity]
+  = $fGeneric1TYPEIdentity
+instance GHC.Internal.Generics.Generic [Identity]
+  = $fGenericIdentity
+instance GHC.Internal.Real.Integral [Identity] = $fIntegralIdentity
+instance GHC.Internal.Ix.Ix [Identity] = $fIxIdentity
+instance GHC.Internal.Control.Monad.Fix.MonadFix [Identity]
+  = $fMonadFixIdentity
+instance GHC.Internal.Base.Monad [Identity] = $fMonadIdentity
+instance GHC.Internal.Base.Monoid [Identity] = $fMonoidIdentity
+instance GHC.Internal.Num.Num [Identity] = $fNumIdentity
+instance GHC.Classes.Ord [Identity] = $fOrdIdentity
+instance GHC.Internal.Read.Read [Identity] = $fReadIdentity
+instance GHC.Internal.Float.RealFloat [Identity]
+  = $fRealFloatIdentity
+instance GHC.Internal.Real.RealFrac [Identity] = $fRealFracIdentity
+instance GHC.Internal.Real.Real [Identity] = $fRealIdentity
+instance GHC.Internal.Base.Semigroup [Identity]
+  = $fSemigroupIdentity
+instance GHC.Internal.Show.Show [Identity] = $fShowIdentity
+instance GHC.Internal.Foreign.Storable.Storable [Identity]
+  = $fStorableIdentity
+family instance GHC.Internal.Generics.Rep [Identity] = Rep_Identity
+family instance GHC.Internal.Generics.Rep1 [GHC.Prim.TYPE],
+                                           [Identity]
+  = Rep1_Identity
+Warnings:
+  Deprecated names:
+  Deprecated exports:
+trusted: trustworthy
+require own pkg trusted: True
+docs:
+  Just module header:
+         Just text:
+                -- |
+-- Module      :  GHC.Internal.Data.Functor.Identity
+-- Copyright   :  (c) Andy Gill 2001,
+--                (c) Oregon Graduate Institute of Science and Technology 2001
+-- License     :  BSD-style (see the file LICENSE)
+--
+-- Maintainer  :  ross@soi.city.ac.uk
+-- Stability   :  stable
+-- Portability :  portable
+--
+-- The identity functor and monad.
+--
+-- This trivial type constructor serves two purposes:
+--
+-- * It can be used with functions parameterized by functor or monad classes.
+--
+-- * It can be used as a base monad to which a series of monad
+--   transformers may be applied to construct a composite monad.
+--   Most monad transformer modules include the special case of
+--   applying the transformer to 'Identity'.  For example, @State s@
+--   is an abbreviation for @StateT s 'Identity'@.
+--
+-- @since base-4.8.0.0
+              identifiers:
+                {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:26:35-42}
+                Identity
+                {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:26:35-42}
+                Identity
+                {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:27:40-47}
+                Identity
+                {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:27:40-47}
+                Identity
+       export docs:
+         []
+       declaration docs:
+         [Identity -> [text:
+                         -- | Identity functor and monad. (a non-strict monad)
+--
+-- ==== __Examples__
+--
+-- >>> fmap (+1) (Identity 0)
+-- Identity 1
+--
+-- >>> Identity [1, 2, 3] <> Identity [4, 5, 6]
+-- Identity [1,2,3,4,5,6]
+--
+-- @
+-- >>> do
+--       x <- Identity 10
+--       y <- Identity (x + 5)
+--       pure (x + y)
+-- Identity 25
+-- @
+--
+-- @since base-4.8.0.0
+                       identifiers:],
+          $fApplicativeIdentity -> [text:
+                                      -- | @since base-4.8.0.0
+                                    identifiers:],
+          $fFunctorIdentity -> [text:
+                                  -- | @since base-4.8.0.0
+                                identifiers:],
+          $fBitsIdentity -> [text:
+                               -- ^ @since base-4.9.0.0
+                             identifiers:],
+          $fEqIdentity -> [text:
+                             -- ^ @since base-4.8.0.0
+                           identifiers:],
+          $fBoundedIdentity -> [text:
+                                  -- ^ @since base-4.9.0.0
+                                identifiers:],
+          $fEnumIdentity -> [text:
+                               -- ^ @since base-4.9.0.0
+                             identifiers:],
+          $fFiniteBitsIdentity -> [text:
+                                     -- ^ @since base-4.9.0.0
+                                   identifiers:],
+          $fFloatingIdentity -> [text:
+                                   -- ^ @since base-4.9.0.0
+                                 identifiers:],
+          $fFractionalIdentity -> [text:
+                                     -- ^ @since base-4.9.0.0
+                                   identifiers:],
+          $fFoldableIdentity -> [text:
+                                   -- | @since base-4.8.0.0
+                                 identifiers:],
+          $fNumIdentity -> [text:
+                              -- ^ @since base-4.9.0.0
+                            identifiers:],
+          Rep1_Identity -> [text:
+                              -- ^ @since base-4.8.0.0
+                            identifiers:],
+          Rep_Identity -> [text:
+                             -- ^ @since base-4.8.0.0
+                           identifiers:],
+          $fIntegralIdentity -> [text:
+                                   -- ^ @since base-4.9.0.0
+                                 identifiers:],
+          $fRealIdentity -> [text:
+                               -- ^ @since base-4.9.0.0
+                             identifiers:],
+          $fIxIdentity -> [text:
+                             -- ^ @since base-4.9.0.0
+                           identifiers:],
+          $fOrdIdentity -> [text:
+                              -- ^ @since base-4.8.0.0
+                            identifiers:],
+          $fMonadFixIdentity -> [text:
+                                   -- | @since base-4.8.0.0
+                                 identifiers:],
+          $fMonadIdentity -> [text:
+                                -- | @since base-4.8.0.0
+                              identifiers:],
+          $fMonoidIdentity -> [text:
+                                 -- ^ @since base-4.9.0.0
+                               identifiers:],
+          $fSemigroupIdentity -> [text:
+                                    -- ^ @since base-4.9.0.0
+                                  identifiers:],
+          $fReadIdentity -> [text:
+                               -- | This instance would be equivalent to the derived instances of the
+-- 'Identity' newtype if the 'runIdentity' field were removed
+--
+-- @since base-4.8.0.0
+                             identifiers:
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:96:5-12}
+                               Identity
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:96:5-12}
+                               Identity
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:96:31-41}
+                               runIdentity],
+          $fRealFloatIdentity -> [text:
+                                    -- ^ @since base-4.9.0.0
+                                  identifiers:],
+          $fRealFracIdentity -> [text:
+                                   -- ^ @since base-4.9.0.0
+                                 identifiers:],
+          $fShowIdentity -> [text:
+                               -- | This instance would be equivalent to the derived instances of the
+-- 'Identity' newtype if the 'runIdentity' field were removed
+--
+-- @since base-4.8.0.0
+                             identifiers:
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:104:5-12}
+                               Identity
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:104:5-12}
+                               Identity
+                               {libraries/ghc-internal/src/GHC/Internal/Data/Functor/Identity.hs:104:31-41}
+                               runIdentity],
+          $fStorableIdentity -> [text:
+                                   -- ^ @since base-4.9.0.0
+                                 identifiers:]]
+       arg docs:
+         []
+       documentation structure:
+         avails:
+           [Identity{Identity, Identity, runIdentity}]
+       named chunks:
+       haddock options:
+       language:
+         Just Haskell2010
+       language extensions:
+         MonomorphismRestriction
+         DeepSubsumption
+         RelaxedPolyRec
+         ForeignFunctionInterface
+         DoAndIfThenElse
+         DeriveGeneric
+         EmptyDataDecls
+         GeneralizedNewtypeDeriving
+         PatternGuards
+         DatatypeContexts
+         TraditionalRecordSyntax
+         StarIsType
+         CUSKs
+         FieldSelectors
+         ListTuplePuns
+extensible fields:
+

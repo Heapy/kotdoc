@@ -408,3 +408,76 @@ verification passes31 hashes and reconstructs174 method slots/24 helpers;
 all5,717 original responses and the actual installed GHC Monoid interface replay
 byte-exact. No existing production or expected fixture was changed. Independent
 acceptance passes; the140-export audit remains pending.
+
+## Pure Walk demand correction awaiting independent review
+
+The accepted Walk finite matrix exposed a further source demand defect during the
+Generic audit: original `walk (const Space) (Emph [error "child"])` returns Space,
+but the strict Kotlin Identity machine threw child. Pure AstWalkable reconstruction
+now uses memoized deferred child lists and Map entries; monadic traversal and query
+are unchanged. The original174 slots/24 helpers and their expected fixtures remain
+unchanged, with the current production hash recorded by their source verifier.
+
+`tools/haskell-types-walk-pure-reference` retains38 actual original responses:
+33 represented Walk observations and five explicitly source-only Generic contrasts.
+The33 include constant/constructor/as-pattern/forcing callbacks, bad roots and
+list tails, all seven target families, List/Many/Map, custom dictionaries, pair
+field/query demand, failure before the second field and a two-element prefix from
+a2^30-element list. Five separate Kotlin adapter tests check immutable collection
+behavior and memoized values/failures. They are not original observations.
+
+The source-equivalent thunk callback/input adapter is `walkLazy`. Strict Kotlin
+callbacks still demand their A argument; custom dictionaries supply an appropriate
+walkLazy override for a lazy pure implementation. `WalkLazyPair`/`Walk.lazyPair`
+represent independently memoized source fields where Kotlin Pair's strict fields
+cannot. Explicit adapters execute the concrete bottom/field demands above; no AST
+placeholder substitutes for an unevaluated value. Finite Int-sized containers and
+explicit thunks are the represented model, not a general GHC heap/infinite-spine
+implementation. Default caller dictionary/convenience methods retain their stated
+strict boundaries; source lazy query folds use queryLazy with a lazy monoid.
+
+Focused Gradle69073 passed in1m15s:5,715 unchanged closure cases +6,000 unchanged
+original property cases +10 Visitor cases +33 new original Walk observations +five
+adapter checks =11,763 actual XML cases, zero failures/errors/skips. XML/log/hashes
+are saved in /tmp/kotdoc-types-walk-pure-final-results. Isolated final replay passes
+at512MiB heap/256KiB stack. Original5,717 closure responses and38 correction responses,
+actual GHC First/Last and Identity interfaces replay byte-exact. Source verifiers
+pass31 existing and23 new hashes. Independent review is still required.
+
+The new durable public API census classifies140 module-owned exports and expands
+350 source-owned instance rows; it also retains JSON's extra ToJSONFilter class/six
+instances and Arbitrary's zero exported names/19 orphan instances. These are audit
+rows, not350 accepted implementations. Generic's four functions remain missing;
+Many generic APIs, Num/Enum, Data/Typeable/Generic/NFData, HasMeta/ToMetaValue and
+remaining per-export source proofs stay explicit gates. This correction does not
+close Generic or task611.
+
+
+### DefinitionList independent-review follow-up, awaiting repeat acceptance
+
+The11,763 author run above was not accepted: independent original probes found
+an eager DefinitionList outer map and eager accesses to both inner Pair fields.
+The complete correction defers the common List node extent, its result extent,
+the outer DefinitionList projection and each pair's two List fields. It also
+memoizes failed extents. This repairs the represented constructor demand family,
+rather than adding exceptions for the two reported fixtures.
+
+Fourteen new original observations cover both exact reproducers, reverse field
+selection, terms/definitions/blocks prefixes, deliberate forced-field errors,
+empty prefixes and equivalent nested LineBlock/BulletList/OrderedList/definitions
+paths. Both direct review reproducers now pass. The initial38 request, response
+and paired-fixture streams remain byte-identical prefixes, checked by their
+original SHA-256 values; no prior expected value was rewritten. The accepted
+5,717 source closure responses and their fixtures are unchanged.
+
+The new native stream has52 rows:47 executable Walk observations +five source-only
+Generic contrasts. The new Kotlin class has52 tests:47 original observations +five
+adapter checks. These are different partitions; Generic parity is not claimed.
+Final Gradle35230 passed in1m29s with11,777 actual XML cases/zero failures/errors/
+skips:5,715 closure +6,000 original properties +10 Visitor +47 original demand
+observations +five adapter checks. Isolated47+five+5,715 replay passes at512MiB/
+256KiB. Saved XML/log/frozen paths are in /tmp/kotdoc-types-walk-definition-final-results.
+Source verifiers pass31 existing and23 correction hashes, preserve all174 slots/
+24 helpers and replay52 original correction responses byte-exact. Repeat
+independent acceptance is required. Generic4/all140 exports/350-instance members/
+JSON supplement remain deferred until this correctness checkpoint is accepted.
