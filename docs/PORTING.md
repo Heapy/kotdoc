@@ -12715,3 +12715,72 @@ number/generator/primality/serialization and cryptographic operations/tests,
 native TLS integration and the previously recorded fidelity/platform/stress
 gaps remain work. Full Pandoc/all tests, calibre MOBI/all tests and every
 additional format absent from Pandoc/all tests remain the required end state.
+
+
+## Fixed-width prime-field ECC engine (2026-10-16)
+
+Translated the complete pinned crypton 2.0.1 `cbits/crypton_ecc.c` engine and
+all four entry points: multiplication, precomputed-table sizing, table building
+and table multiplication. Production uses unsigned 64-bit Kotlin limb arrays,
+Montgomery field operations and the original complete homogeneous projective
+addition/doubling formulas, including the public a=0/a=p-3/general branches.
+The direct four-bit loop retains four doublings and one masked table selection
+and addition per window. Precomputed multiplication visits every one of the
+sixteen entries in every window. The implementation retains actual upstream
+representation conversions rather than substituting alternative field formulas.
+
+Borrowed byte-buffer spans extend the existing Montgomery core so final
+inversion can use the same aliased scratch regions as the source. Context and
+secure-inversion allocations, failure statuses, free order and wiping match the
+controlled native observer. Infinity leaves output buffers untouched and skips
+final inversion as upstream. The engine relies on the caller's prime/point
+validation; explicitly labeled bounded unchecked-buffer cases observe C behavior
+without promising mathematical results for invalid parameters. UInt32 table-size
+guards and wraparound are observed independently of JVM allocation capacity.
+
+The reference preserves all native arithmetic bodies, mechanically checks its
+symbol/counter transformation, and instruments allocation failure without
+exhausting memory. It records coordinates/status, exact table-byte SHA-256,
+borrowed table mutations/read-only multiplication, unaligned byte regions,
+aliasing/guards, operation counts, ordered table-address hashes and memory
+clearing. Captures cover all fifteen named prime curves, non-base points,
+order/wide-scalar boundaries, original P-384/P-521 weight inputs and every byte
+scalar on three different curves. Original affine doubleAndAdd supplies separate
+mathematical expectations. At fixed widths the scalar loop's formula and table
+access schedule is identical across all 256 byte values; final infinity
+conversion deliberately has different total work. JVM/JIT/GC/hardware timing,
+real memory pressure, huge wrapped allocation sizes and other native ABIs remain
+unverified; exact table bytes use the captured 64-bit little-endian ABI.
+
+The entire original ECCSpec body also runs under the pinned Hspec reference:
+**124 examples pass**, seed 1729, max-success 200 (source-local property limits
+remain intact). This is evidence for the oracle, not a claim that all public
+ECC operations or original tests are already ported to Kotlin. Only its module
+export and mechanically extracted weight helpers differ from the pinned file.
+
+The new independent corpus contains **2,819 observations**, **450 source hashes**
+and semantic SHA-256
+**6aa3672d3ce2f9220767134bda8de1f9f393a9ee34e4e0a94636f4d573836c68**.
+Generation, complete native replay, the new Kotlin suite and all **182
+source/fixture verifiers** pass. The final JDK 21 regression passes **645,449
+tests across twenty-five suites**, with exact XML/case counts and no
+failures/errors/skips, covering crypto, ASN1, X509 and hourglass. Windows CI now
+requires **672,343 tests**. The preceding b2050201 Windows gate passes its
+669,524 cases; its full Linux job remains live at this observation. Both jobs
+for the earlier 3764c589 commit now pass.
+
+The installed CLI native/JSON/native round-trip passes. Standalone and installed
+core JARs are byte-identical and contain **3,436 classes** and **90 byte-exact
+notices**. No retained baseline class is lost. All **559 nonmetadata baseline
+resource assets** are byte-exact; the Kotlin module metadata is regenerated.
+Compiled prime-ECC and Montgomery backend classes contain no BigInteger
+reference. Neither an upstream executable nor a C cryptography library is a
+production dependency for this engine.
+
+The Haskell prime wrappers/permanent lazy base-table cache, binary-field engine,
+specialized P-256 and public ECC point/scalar operations with their remaining
+original tests are pending. Signature/trust/chain validation, remaining number,
+generator, primality, serialization and other cryptographic operations/tests,
+native TLS integration and previously recorded fidelity/platform/stress gaps
+also remain. Full Pandoc/all tests, calibre MOBI/all tests and every additional
+format absent from Pandoc/all tests remain the required end state.

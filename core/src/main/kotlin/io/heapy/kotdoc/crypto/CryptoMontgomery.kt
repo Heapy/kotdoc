@@ -146,10 +146,11 @@ internal object CryptoMontgomery {
         }
     }
 
-    fun fromBigEndian(r: LongArray, ro: Int, n: Int, bytes: ByteArray): Int {
+    fun fromBigEndian(r: LongArray, ro: Int, n: Int, bytes: ByteArray) = fromBigEndian(r, ro, n, CryptoByteSpan(bytes))
+    fun fromBigEndian(r: LongArray, ro: Int, n: Int, bytes: CryptoByteSpan): Int {
         r.fill(0, ro, ro + n)
-        for (i in bytes.indices) {
-            val byte = bytes[bytes.lastIndex - i].toLong() and 255L
+        for (i in 0..<bytes.size) {
+            val byte = bytes[bytes.size - 1 - i].toLong() and 255L
             if (i / 8 >= n) {
                 if (byte != 0L) return 1
             } else r[ro + i / 8] = r[ro + i / 8] or (byte shl (8 * (i % 8)))
@@ -157,14 +158,18 @@ internal object CryptoMontgomery {
         return 0
     }
 
-    fun toBigEndian(dst: ByteArray, a: LongArray, ao: Int, n: Int) {
-        for (i in dst.indices) dst[dst.lastIndex - i] = if (i / 8 < n) (a[ao + i / 8] ushr (8 * (i % 8))).toByte() else 0
+    fun toBigEndian(dst: ByteArray, a: LongArray, ao: Int, n: Int) = toBigEndian(CryptoByteSpan(dst), a, ao, n)
+    fun toBigEndian(dst: CryptoByteSpan, a: LongArray, ao: Int, n: Int) {
+        for (i in 0..<dst.size) dst[dst.size - 1 - i] = if (i / 8 < n) (a[ao + i / 8] ushr (8 * (i % 8))).toByte() else 0
     }
 
     /** C crypton_powm_sec contract: output has modulus.size bytes, base is already reduced. */
-    fun powInto(out: ByteArray, base: ByteArray, exponent: ByteArray, modulus: ByteArray, audit: Audit? = null, allocate: (Int) -> LongArray = { LongArray(it) }): Int {
+    fun powInto(out: ByteArray, base: ByteArray, exponent: ByteArray, modulus: ByteArray, audit: Audit? = null, allocate: (Int) -> LongArray = { LongArray(it) }): Int =
+        powSpans(CryptoByteSpan(out), CryptoByteSpan(base), CryptoByteSpan(exponent), CryptoByteSpan(modulus), audit, allocate)
+
+    fun powSpans(out: CryptoByteSpan, base: CryptoByteSpan, exponent: CryptoByteSpan, modulus: CryptoByteSpan, audit: Audit? = null, allocate: (Int) -> LongArray = { LongArray(it) }): Int {
         val n = (modulus.size + 7) / 8
-        if (modulus.isEmpty() || n == 0 || modulus.last().toInt() and 1 == 0) return 1
+        if (modulus.size == 0 || n == 0 || modulus[modulus.size - 1].toInt() and 1 == 0) return 1
         require(out.size == modulus.size)
         val space = try { allocate(23 * n) } catch (_: OutOfMemoryError) { return 1 }
         val m = 0; val r2 = n; val acc = 2 * n; val sel = 3 * n; val prod = 4 * n; val t = 5 * n; val table = 7 * n
@@ -182,7 +187,7 @@ internal object CryptoMontgomery {
         for (i in exponent.size * 2 downTo 1) {
             audit?.let { it.windows++ }
             val nibble = i - 1
-            val w = (exponent[exponent.lastIndex - nibble / 2].toLong() ushr (4 * (nibble % 2))) and 15L
+            val w = (exponent[exponent.size - 1 - nibble / 2].toLong() ushr (4 * (nibble % 2))) and 15L
             repeat(4) {
                 square(space, sel, space, acc, space, m, n0, n, space, t, audit)
                 space.copyInto(space, acc, sel, sel + n)
