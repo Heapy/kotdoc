@@ -1,0 +1,89 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+module Network.TLS.Handshake.Server (
+    handshakeServer,
+    handshakeServerWith,
+    requestCertificateServer,
+    keyUpdate,
+    updateKey,
+    KeyUpdateRequest (..),
+) where
+
+import Control.Monad.State.Strict
+import Data.Maybe
+
+import Network.TLS.Context.Internal
+import Network.TLS.Handshake.Common
+import Network.TLS.Handshake.Common13
+import Network.TLS.Handshake.Server.ClientHello
+import Network.TLS.Handshake.Server.ClientHello12
+import Network.TLS.Handshake.Server.ClientHello13
+import Network.TLS.Handshake.Server.ServerHello12
+import Network.TLS.Handshake.Server.ServerHello13
+import Network.TLS.Handshake.Server.TLS12
+import Network.TLS.Handshake.Server.TLS13
+import Network.TLS.Imports
+import Network.TLS.Struct
+
+-- Put the server context in handshake mode.
+--
+-- Expect to receive as first packet a client hello handshake message
+--
+-- This is just a helper to pop the next message from the recv layer,
+-- and call handshakeServerWith.
+handshakeServer :: ServerParams -> Context -> IO ()
+handshakeServer sparams ctx = liftIO $ do
+    hbs <- recvPacketHandshake ctx
+    case hbs of
+        chb : _ -> handshake sparams ctx chb
+        _ -> unexpected (show $ fst $ unzip hbs) (Just "client hello")
+
+handshakeServerWith
+    :: ServerParams -> Context -> HandshakeR -> IO ()
+handshakeServerWith = handshake
+
+-- | Put the server context in handshake mode.
+--
+-- Expect a client hello message as parameter.
+-- This is useful when the client hello has been already popped from the recv layer to inspect the packet.
+--
+-- When the function returns, a new handshake has been successfully negotiated.
+-- On any error, a HandshakeFailed exception is raised.
+handshake :: ServerParams -> Context -> HandshakeR -> IO ()
+handshake sparams ctx chb@(ClientHello ch, bs) = do
+    (chosenVersion, chI, mcrnd) <- processClientHello sparams ctx ch bs
+    if chosenVersion == TLS13
+        then do
+            -- fixme: we should check if the client random is the same as
+            -- that in the first client hello in the case of hello retry.
+            -- r0 :: Cipher, Hash, Bool
+            (keyShareResult, r0, r1) <-
+                processClientHello13 sparams ctx chI
+            case keyShareResult of
+                SelectKeyShareNotFound ->
+                    throwCore $
+                        Error_Protocol "no group in common with the client for HRR" HandshakeFailure
+                SelectKeyShareHRR g -> do
+                    sendHRR ctx g r0 chI $ isJust mcrnd
+                    -- Don't reset ctxEstablished since 0-RTT data
+                    -- would be coming, which should be ignored.
+                    handshakeServer sparams ctx
+                SelectKeyShareFound cliKeyShare -> do
+                    unless (checkClientKeyShareKeyLength cliKeyShare) $
+                        throwCore $
+                            Error_Protocol "broken key_share" IllegalParameter
+                    -- r2 :: ( SecretTriple ApplicationSecret
+                    --       , ClientTrafficSecret HandshakeSecret
+                    --       , Bool  -- authenticated
+                    --       , Bool) -- rtt0OK
+                    r2 <-
+                        sendServerHello13 sparams ctx cliKeyShare r0 r1 chI mcrnd
+                    recvClientSecondFlight13 sparams ctx r2 chI
+        else do
+            r <-
+                processClientHello12 sparams ctx chI
+            updateTranscriptHash12 ctx chb
+            resumeSessionData <-
+                sendServerHello12 sparams ctx r chI
+            recvClientSecondFlight12 sparams ctx resumeSessionData
+handshake _ _ _ = throwCore $ Error_Protocol "client Hello is expected" HandshakeFailure

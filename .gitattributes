@@ -171,3 +171,15 @@ tools/haskell-http-windows-proxy-reference/OriginalWindowsProxy.hs -text whitesp
 # Preserve exact GHC environment/encoding implementation and extracted bodies.
 vendor/ghc-environment-9.12.2/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 tools/haskell-environment-reference/Original*Environment.hs -text whitespace=-trailing-space,-blank-at-eof
+
+# Preserve original TLS releases, copied module bodies and revised Hackage metadata.
+vendor/http-client-tls-0.4.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/crypton-connection-0.4.6/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/crypton-x509-system-1.9.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+vendor/tls-2.4.6/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-http-tls-reference/Original*.hs -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+tools/haskell-http-tls-reference/revisions/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/http-client-tls-MIT.txt -text
+licenses/crypton-connection-BSD-3-Clause.txt -text
+licenses/crypton-x509-system-BSD-3-Clause.txt -text
+licenses/tls-BSD-3-Clause.txt -text

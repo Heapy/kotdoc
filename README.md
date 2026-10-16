@@ -9,6 +9,14 @@ Pandoc or calibre process is used by the implemented Kotlin code.
 
 ## Current implementation
 
+- HTTP TLS adapter orchestration from http-client-tls 0.4.0: independent
+  HTTP/HTTPS SOCKS settings, CONNECT-to-secure handoff, exception policies,
+  default/custom/global manager construction and deferred digest authentication.
+  Original code supplies controlled expectations; digest probes also execute
+  the native POSIX HTTP transport. The adapter requires an explicit connection
+  backend. Native TLS handshake/cipher/certificate/session/SOCKS protocols and
+  replacing the Pandoc resource loader's JDK HTTP seam remain pending.
+
 - HTTP request execution through the real manager/pool/native POSIX transport:
   request manager overrides and hooks, cookies, connection/header timeout budgets,
   stale-connection retries, status checks, ordinary/history redirects, streaming

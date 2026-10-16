@@ -10256,3 +10256,126 @@ previously recorded network APIs. Pandoc resource loading still needs integratio
 with the complete HTTP/TLS implementation. The full original Pandoc readers,
 writers, App/Lua and all tests, then calibre MOBI/all tests and other formats
 missing from Pandoc/all their tests, remain required without narrowing scope.
+
+### http-client-tls manager adapter, SOCKS policy and digest authentication
+
+This checkpoint translates the **http-client-tls 0.4.0** manager adapter and
+its digest authentication implementation. HttpTlsManagers takes an explicit
+Network.Connection backend for the original context/connect/chunk/put/close/
+setSecure effects. It installs neither a fake default TLS connection nor a
+JSSE replacement for the original handshake/cipher/certificate stack. Existing
+Pandoc ResourceContext HTTP fetching still uses its earlier JDK client seam;
+its replacement remains required after the connection/TLS runtime is ported.
+
+mkManagerSettings/mkManagerSettingsContext preserve the original supplied
+manager fields while replacing TLS/proxy/raw factories and retry/wrap policies.
+The no-SOCKS raw factory comes from defaultManagerSettings even when supplied
+settings have a custom raw factory. Raw and secure SOCKS policies are independent.
+Factories initialize a context at the original boundary when none is supplied;
+an existing context is retained. They strip host brackets, ignore the HostAddress
+argument and truncate ports to the original PortNumber. Converted connections
+retain original makeConnection unread/close guards. Only IOException is suppressed
+while closing the converted connection; bracket-on-error cleanup directly closes
+the original connection and can replace the action's failure. Its finalizer
+captures only the backend and original connection, avoiding an extra reference
+to the adapter/global manager that could own the same pooled connection.
+
+The CONNECT adapter writes the tunnel request, converts the connection, invokes
+the status-check callback, then calls connectionSetSecure on the original
+connection/context. Its incompatible SOCKS/CONNECT error stays deferred in the
+connectionUseSocks field: a prior connector failure leaves that field unforced.
+Retry extends the default policy only for **PostHandshake Error_EOF**. The TLS
+wrapper produces HttpExceptionRequest/InternalException for IO, TLSException,
+LineTooLong, HostNotResolved and HostCannotConnect, preserving unrelated exceptions.
+The added TLS error model retains original Eq/Show/precedence for all ten TLSError
+constructors, six TLSException constructors and all byte-valued alert descriptions/
+levels, including unknown values and their custom Show behavior.
+
+newTlsManager snapshots the environment, uses first exact environment lookup
+before the last Unicode-lowercased key, and accepts only socks5:/socks5h: URIs
+with explicit decimal ports, empty/root paths and no query/fragment. Port parsing
+uses Word16 arithmetic. Only the corresponding HTTP/HTTPS proxy policy becomes
+proxyFromRequest when a SOCKS value is present. newTlsManagerWith preserves its
+original TLS and TLS-proxy factories. The global manager is a replaceable reference;
+its initial manager creation and shared global context retain source laziness.
+Synchronous failed initialization is cached and rethrown, rather than retried by
+Kotlin's default lazy. This does not claim the complete GHC asynchronous thunk/
+black-hole/masking runtime.
+
+HttpDigestAuth first performs the real httpNoBody probe with response checking
+disabled, then returns the deferred validation effect. It preserves the source
+five failure reasons, original derived Show and friendly display (including its
+literal wording). It uses the first WWW-Authenticate header, case-insensitive
+Digest prefix, original ASCII-space/quoted/unquoted/duplicate parser rules,
+raw-byte MD5 inputs, path-only digest URI, fixed nonce count/cnonce and qop-presence
+behavior. Authorization replaces all case variants; response cookies enable the
+returned request's jar even if the original jar was disabled. The source method
+and body remain in both probe and returned request. JCA supplies only the MD5
+primitive; the original digest composition and parsing are Kotlin code.
+
+Four complete pinned source archives are now retained: http-client-tls 0.4.0,
+crypton-connection 0.4.6, crypton-x509-system 1.9.0 and tls 2.4.6, with all **133
+original files**, source/archive hashes and four full notices. The original
+http-client-tls test/Spec.hs and all tls test files remain intact. The source
+crypton-connection Cabal file initially required tls <2.4; selected Hackage
+revision **1**, SHA256
+`a3764a44de9f43b1e9f590009ebbea1401fc3911e3ba41ce4d9b93d9f2a8d22e`,
+widens this to <2.5. The actual retained GHC 9.12.2 Cabal plan selects that revision
+and tls 2.4.6; revised metadata is retained separately from immutable archive bytes.
+No dependency-version mismatch is papered over.
+
+The development observer compiles the **complete original http-client-tls module**,
+changing only its module/export header and imports for connection/environment/
+manager/probe effects. Actual crypton-connection parameter/settings/exception types,
+TLS exception classes, HTTP Manager/KeyedPool and MD5 implementation remain original.
+A second local module compiles complete original tls Error.hs with only module/
+Word8-import changes. No expected digest, SOCKS, manager, retry, cleanup or error
+algorithm is rewritten in the observer. Each program starts a fresh original
+process to isolate its genuine global CAFs; multiple operations inside programs
+observe sharing, replacement, lazy parameters and cached initialization failures.
+
+There are **3,845 independent original-code programs**, retaining **970 source
+hashes**. Their semantic corpus SHA256 is
+`903e447779b8c9fb129281a2ac87799ffb3e3d86d76fc3a9f622c2ffb7a0d656`.
+They include 1,500 SOCKS URI/port/suffix cases, 348 environment/Unicode cases,
+556 error/Eq/Show/all-alert-byte programs, every direct exception-policy branch,
+factory/context/cleanup/proxy-check failures, two-context/global initialization
+and replacement sequences, every credential/challenge byte, duplicate/malformed
+headers, disabled-cookie enablement and 200 seeded malformed digest challenges.
+The complete source module and error definitions supply all expectations.
+
+Four native HTTP integration units exercise a successful challenge/authenticated
+request with original-source Authorization bytes and response cookies, the
+original incorrect-authentication status failure, deferred missing-nonce failure
+with the custom checker disabled, and sending the original POST body both during
+the probe and the authenticated request. These local digest tests do not claim
+execution of the original live httpbin/badssl TLS suite.
+
+All selected HTTP/environment checks pass: **122,731 successful tests** on
+macOS/aarch64 JDK 21 (71s Gradle build) and the same **122,731 tests** on
+Linux/x86_64 JDK 21 (72.166s). Of **122,732 cases**, only the actual Windows
+registry test is skipped on POSIX. No failures/errors, assumption aborts or
+aborted containers occur. All **22 local XML suites** are fully parsed and
+declared counts agree with actual testcase/failure/error/skip elements. The
+processed resource exactly matches the final fixture bytes. All **970 source
+hashes** also match staged root blobs or pinned staged submodule commits;
+Git attributes preserve the revised Cabal CRLF bytes. All **152 source/
+fixture verifiers** pass (37.9s).
+
+Installed/core JARs agree on **274 HTTP classes**, **22 new TLS error classes**,
+**74 complete notices**, **250 Pandoc assets**, all **six native ABI assets**
+and the unchanged **60,137-byte PSL**. Every preceding **2,723 class**, including
+all **2,471 non-HTTP classes**, is byte-identical. The only changed preexisting
+JAR entry is Kotlin's module metadata; all CLI/dependency JARs are unchanged.
+The base **9cd5eb4** has a verified successful complete CI run **38847084808**,
+including full Linux and actual Windows jobs; the earlier **d7ae6de** also has
+verified successful complete CI **38844725892**.
+
+The full goal remains unfinished. Required next work includes crypton-connection's
+native stream/socket/buffer/session/SOCKS runtime; the original TLS handshake,
+ciphers, certificate stores/validation, sessions and all TLS/live-server tests;
+Pandoc openURL/cache/certificate-policy integration replacing the JDK seam;
+Windows/Winsock and other ABIs; the prior full GHC/network/runtime gaps. All
+original Pandoc readers/writers/App/Lua and all tests, then calibre MOBI/all tests
+and other formats absent from Pandoc/all their tests, remain required without
+narrowing that objective.
