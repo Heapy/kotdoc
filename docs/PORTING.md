@@ -13069,3 +13069,48 @@ signature/trust/chain verification, other cryptographic operations/tests,
 native TLS integration and the previously recorded fidelity/platform/stress
 gaps remain. Full Pandoc/all tests, calibre MOBI/all tests and every additional
 format absent from Pandoc/all tests remain the required end state.
+
+
+## P-256 fixed-width word arithmetic (2026-10-16)
+
+Translated the complete pinned crypton 2.0.1 `cbits/p256/p256.c` word slice
+to Kotlin, including both 8-by-32 and 4-by-64 digit profiles, all five constants,
+word/helper arithmetic, masked modular addition/subtraction, reduction and
+nonzero top-digit multiplication, binary variable-time inverse, fixed-chain
+Montgomery scalar inversion, point validation and 32-byte big-endian codecs.
+The quotient-overestimate borrow correction is preserved. Production does not
+replace these algorithms with BigInteger or invoke native cryptography.
+
+The independently compiled unchanged C supplies ordinary expected results for
+both original headers. A mechanically verified observer adds only function/loop
+counters, correction counts and bounded pre-iteration R/S/U/V checkpoints.
+Its ordinary results match unchanged C before becoming fixtures. The corpus
+contains **79,934 observations**, **12 source hashes**, semantic SHA-256
+**a9bcf3663ba24e89c1ebaaa98e13ed7b65f201f688b4e3562182957070a12163**.
+There are 39,711 32-bit and 40,223 64-bit observations, 480 bounded inverse
+cases (276 stopped), and 60 observed quotient corrections. Guarded whole-object
+aliases include modulus output; nullable destinations, helper masks, full-width
+operands, all ten original validation points and their invalid neighbours are
+retained. Safe inversion retains the exact 294-Montgomery-call schedule.
+
+Independent review checked function completeness, the original source/headers,
+observer transformation, fixture provenance, aliases and fixed inversion chain.
+Exact extraction, source verification and full native replay pass. The focused
+JDK 21 Kotlin suite passes **79,946 actual tests**, including all source hashes,
+with no failures/errors/skips. All four compiled production classes contain no
+BigInteger reference. The final six-suite ECC/modular/serialization/P-256
+regression passes **247,775 actual tests**, with no failures/errors/skips.
+`installDist` and `core:jar` pass; installed and standalone core JARs are
+byte-identical and contain all four P-256 classes and the byte-exact notice.
+The distribution notice and installed Native/JSON/Native CLI smoke also pass.
+This does not claim the complete public P256Spec suite.
+
+Both digit profiles run on the current 64-bit host; an actual 32-bit OS ABI is
+not established. Zero-residue/negative C shifts, invalid pointers/buffers and
+arbitrary partial overlaps remain outside this evidence. Signed C shift/cast
+idioms are compiler observations, not portable ISO C or JVM timing guarantees.
+Inverse checkpoints establish finite prefixes only; inverse(0) is not assigned
+a finite result and the production algorithm has no iteration cutoff. The
+original notice is retained. Field headers, point engine, public P256/ECC APIs,
+remaining crypto/trust/TLS work, complete Pandoc/tests and subsequent calibre
+MOBI/additional formats/tests remain pending.
