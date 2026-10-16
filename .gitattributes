@@ -220,3 +220,5 @@ licenses/crypton-x509-store-BSD-3-Clause.txt -text whitespace=cr-at-eol
 licenses/crypton-x509-validation-BSD-3-Clause.txt -text whitespace=cr-at-eol
 vendor/time-hourglass-0.3.0/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
 licenses/time-hourglass-BSD-3-Clause.txt -text whitespace=cr-at-eol
+vendor/ghc-bignum-1.3-encode/** -text whitespace=-trailing-space,-blank-at-eof,-space-before-tab,cr-at-eol
+licenses/ghc-bignum-BSD-3-Clause.txt -text whitespace=cr-at-eol

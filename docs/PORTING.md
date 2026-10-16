@@ -11365,3 +11365,117 @@ as do typed BER/DER and remaining DER/Real/IntegralReal tests, Pretty,
 X509/store/validation/signatures, TLS and resource integration. Full Pandoc/all
 tests, calibre MOBI/all tests and additional formats absent from Pandoc/all
 tests remain the required end state.
+
+
+### ASN1 primitives, typed BER/DER and all five original encoding properties
+
+The previous goal turn made concrete progress and published **2c348cd**.
+Both exact-SHA runs **38874522194** (c8c86f1) and **38877005202** (2c348cd)
+are now verified successful on Linux and Windows, including **71,910** and
+**99,549** actual Windows cases respectively, with no skips. No running job
+was restarted because it was slow or an observation timed out.
+
+Translated `Data.ASN1.Prim` materialized primitive values, headers, integer,
+boolean, bit/octet/string, NULL, OID, Real and ASN1 Time conversion, smallest
+length, primitive/one/list/constructed encoding; and the typed BER/DER
+Encoding/BinaryEncoding paths. Existing raw incremental parsing and writing
+remain the byte boundary. The typed decoder preserves an important distinction:
+raw parse failure is an eager Left, while a successful raw parse returns a
+lazy value/representation stream whose typed/policy errors throw ASN1Error
+when demanded. Prefix zero or success-tag observation does not force the
+stream. Primitive headers retain their original ignored fields; constructed
+values map universal Sequence/Set and arbitrary Containers, with raw event
+associations preserved. The DER policy remains exactly the original length
+policy, including machine-Int exponent behavior. It does not silently add a
+canonical boolean check absent from the original typed DER decoder.
+
+ASN1 Time now integrates the real hourglass parser/formatter. UTC/generalized
+formats, missing-seconds fallback, the **2050** UTC year boundary, at most three
+fraction digits, scaled milliseconds and the permissive manual timezone suffix
+are retained. That suffix is attached to the parsed date/time without a second
+UTC conversion. Invalid sign-prefixed suffix lengths become Nothing; exactly
+four suffix characters use the leading digit prefix, as upstream. Output uses
+generic hourglass date normalization and intentionally retains the original
+omission of fractional seconds for both time types.
+
+Real conversion preserves the original base/scale/header handling, including
+the extended exponent-length byte also participating in exponent decoding.
+The required GHC 9.12.2 integerEncodeDouble paths are translated independently
+of Java BigInteger.toDouble: small signed Int intermediate rounding and its
+minBound abs anomaly, GMP truncation and wrapped C-int exponent, and Native
+backend limb accumulation. The complete original Integer/BigNat/GMP/Native/C
+wrapper source files and ghc-bignum **1.3** full notice are retained in a new
+source subset, with fixed hashes; no claim is made to port all ghc-bignum.
+Both backends are checked against actual compiled GHC functions. There is no
+production GMP/Haskell conversion dependency.
+
+The original AArch64 and x86_64 builds produce **positive** and **negative**
+quiet NaN respectively for 0/0. All **37 affected observations** retain both
+raw bit patterns, with explicit source profiles; no sign normalization hides
+the difference. Kotlin exercises both profiles and offers an explicit profile
+parameter; its default selects the matching current architecture profile.
+Every other observation and all generated inputs agree across the two builds.
+
+Encoded lengths and event streams can be demanded independently. Length
+computation retains suffix-before-current error priority. DER output supports
+lazy byte chunks/prefixes. Finite construction handling uses explicit stacks
+for nesting, child lengths and event traversal; top-level End differs between
+Prim.encodeList (skipped) and DER.encodeToRaw (primitive error), and mismatched
+or absent closing marker kinds retain the source behavior. Corpus cases include
+**1,000-level constructions**, incomplete structures, failing later values and
+zero/prefix demand. Finer Event/header-subfield demand and larger composition/
+resource stress coverage remain work; these checks are not an exhaustive
+proof of every possible Haskell thunk observation.
+
+The reference directly compiles **16 unchanged ASN1 modules**, **12 unchanged
+hourglass modules**, a small request bridge, and an original-test module
+adapter. The unmodified **Tests.hs** is retained and separately compiled as its
+own executable. The adapter only normalizes line endings and inserts an
+explicit module header exposing the existing generators/properties; the
+importer verifies that exact transformation. No test body, generator,
+expectation or conversion algorithm is rewritten in the reference.
+
+All **five original crypton-asn1-encoding tests** (Header, Event, DER, Real,
+Integral Real) pass **1,000 QuickCheck cases each** on macOS/AArch64 and
+Linux/x86_64, with replay seed **1095978545**. The corpus also imports **1,000
+actual original generator inputs per property** and invokes each corresponding
+original property for its expected output. Linux independently regenerates
+and exactly matches all **5,000 inputs**, then verifies their outputs. The
+original DER property takes [ASN1]; the unused ASN1s generator is not presented
+as proof that the original property covers nesting. Additional independent
+construction cases provide that evidence separately.
+
+The final corpus has **38,651 observations**, **214 source hashes**, and
+semantic SHA-256
+**df83f342ef1ddddb151049d7f3022d3b1e2f2b4c8d9b2c5f4216a336b8c65d0d**:
+**33,417 pure/profile**, **5,010 actual native/property**, **112 controlled
+POSIX** and **112 controlled Windows** cases. Each source build checks all
+**38,614 observations applicable to its profile**; the extra 37 preserve the
+other architecture's NaN bits. A complementary ownership/lazy-error check
+brings the Kotlin class to **38,652 cases**. It includes eager raw Left versus
+lazy typed failure, independent encoded components, input mutation and
+returned-byte ownership.
+
+macOS/AArch64 JDK 21 passes **256,801 selected HTTP/environment/encoding/ASN1/
+hourglass cases** in an 85s build. All **36 XML suites** have matching declared
+and actual counts: **256,802 cases**, zero failures/errors and only the actual
+Windows Registry skip. All **165 source/fixture verifiers** pass (55.6s).
+Linux/x86_64 JDK 21 independently passes the same **256,801 tests** (79.306s
+JUnit), with no failed or aborted tests/containers and the one Registry skip.
+CI requires **138,201 Windows cases** with no skips; execution awaits this
+checkpoint's push.
+
+Core/installed JAR identity is verified. All **3,101 preexisting classes** and
+every preceding JAR entry remain byte-identical. **20 new classes** bring the
+total to **3,121**; the new complete ghc-bignum notice brings the total to **88**.
+All **343 HTTP classes**, **22 TLS error classes**, **250 Pandoc assets**, **six
+native ABI assets**, CodePage, Windows error mapping and **60,137-byte PSL**
+remain exact, as do all CLI/dependency JAR bytes.
+
+Pretty, remaining hourglass Read/numeric/Enum/Integral/Compat APIs and property
+coverage, finer stream/subfield demand and broader stress cases, X509 objects,
+stores/validation/signatures, TLS and resource-I/O integration remain. Full
+Pandoc/all tests, calibre MOBI/all tests and additional formats absent from
+Pandoc/all tests remain the unchanged required end state. This checkpoint
+completes the five named encoding properties at the recorded replay counts,
+not that whole end state.

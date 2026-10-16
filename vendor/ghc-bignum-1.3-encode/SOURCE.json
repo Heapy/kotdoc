@@ -1,0 +1,15 @@
+{
+  "package": "ghc-bignum",
+  "version": "1.3",
+  "repository": "https://github.com/ghc/ghc",
+  "ref": "ghc-9.12.2-release",
+  "base": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-bignum/",
+  "files": {
+    "src/GHC/Num/Integer.hs": "0a201efed7a87a8a4cf877c1a524ef41e84e9d915eba1ff27d93b61b2ff36757",
+    "src/GHC/Num/BigNat.hs": "e60d2652dee2f1e67e33b7f1a44bc47d2c9b3e7abf0923a061cea6a555c7ccc7",
+    "src/GHC/Num/Backend/GMP.hs": "c00bca961afaba3cabb5ac088180a0de9a240c1f6a9f2d48f3a08b79f4e41952",
+    "src/GHC/Num/Backend/Native.hs": "17ca2495aa71b89afb321b312c9e0b08e0dff2c5bdba1ef00b49ce3ce0920234",
+    "cbits/gmp_wrappers.c": "b76352d34c2f4afa9524e31fac1f7d76d106e93ee1e3a49526e70e4888ee4fcd",
+    "LICENSE": "e06de4065c35a04115f989bd4922ae9446a68c6cbd7f21a8c9703ad259e374ac"
+  }
+}
