@@ -7,15 +7,16 @@ Source authority: pinned upstream/pandoc-types/{src/Text/Pandoc/{Arbitrary,Defin
 | Gate | Exact source | Accepted evidence | Status / remaining gap |
 |---|---|---|---|
 | Original twelve Walk predicates | `test/test-pandoc-types.hs:p_walk,p_walkList,p_query,p_queryList` and twelve registrations | `665c5daf970f0981b2851fc4d50fc35ad0dd004a`: 500 original generator inputs, 6,000 independent Data.Generics expectations | Covered original predicates; all public Walk instances/effects remain separate gateE |
-| Actual QCGen/Gen and original Pandoc seed replay | `Arbitrary.hs:288-289`; QuickCheck2.16.0.0 `Gen.hs`, `Random.hs`; splitmix0.1.3.2 | `cdf2b84906e91b1baad740738564855677966acb`: 420 primitive seed/size cases and 500 complete source Pandoc trees | Partial generator domain: standalone nineteen instances and helper boundaries remain open |
+| Actual QCGen/Gen and original Pandoc seed replay | `Arbitrary.hs:288-289`; QuickCheck2.16.0.0 `Gen.hs`, `Random.hs`; splitmix0.1.3.2 | `cdf2b84906e91b1baad740738564855677966acb`: 420 primitive seed/size cases and 500 complete source Pandoc trees | Covered initial seed replay; accepted standalone/helper domain below. Large/deep/partial generator runtime audit remains open |
+| All nineteen default generators and helper domain | `Arbitrary.hs:all19 instances,realString,arbAttr,arbInline/Block/Inlines/Row/Table*/Cell` | `43db34fe4fd20707b4891e81378c059acdc09d22`: 5,700 exact standalone values and 4,538 private/domain observations; all18 Attr choices,20 Inline/14 Block/22 enum root witnesses, text endpoints | Covered named finite matrixA; broad large/deep/partial generator demand remains in the runtime audit |
 | Ten explicit shrink families | `Arbitrary.hs:36-111,114-142,178-211,309-346` | `665c5daf970f0981b2851fc4d50fc35ad0dd004a`: 104 complete small candidate lists, 80 original raw prefixes, one partial-head demand test | Partial: deterministic constructor/Char/size/deep/partial matrix remains open |
 | Nine inherited empty shrink families | `Arbitrary.hs:288-307,348-407`; QuickCheck `Arbitrary.shrink` default | `cdf2b84906e91b1baad740738564855677966acb`: 270 original inputs, nine explicit Kotlin APIs; compound Citation/Alignment hooks retained | Covered original default no-op semantics on the represented inputs; standalone generator domain remains gateA |
-| All original registered tests | `test/test-pandoc-types.hs:tests` | Existing 56 paired JSON literals and two table literals; exact Walk evidence above | Open for original generator replays of JSON roundtrip, nine table properties, Figure; final81-row inventory reconciliation pending |
+| All original registered tests | `test/test-pandoc-types.hs:tests` | Existing 56 paired JSON literals and two table literals; exact Walk evidence above | All 81 source registrations have concrete Kotlin mappings and executed finite evidence in remaining-property-manifest.json; whole semantic API and other gates remain open |
 | Derived Read | Definition.hs23 data/newtypes; Builder.hs Many; native GHC dictionaries | Existing Native reader fixtures support complete document syntax | Open: typed dictionary, precedence, prefix/remainder, failure and deep matrix |
 | Eq/Ord | Definition.hs derived/manual dictionaries; Builder.hs Many | Existing `AstComparison`, 75,470 independent observations, source dictionary dumps | Audit open; retain existing implementation unless a concrete gap/defect is demonstrated |
 | Whole public semantic API | exports/instances of Definition/Walk/Builder/Generic | Existing typed AST/builders/visitor/table helpers | Open: enumerate every export/instance and assign native evidence; missing APIs block611 closure |
 
-Accepted verification for the second checkpoint: actual JUnit XML7,375 cases, zero failures/errors/skips; both fixture source verifiers and independent original byte-for-byte replay passed. This is the verification of those named slices, not completion611. Test inventory snapshot `5bbf0f27f96e0ef3c369d7684c5be898da2bdf4f` is a separate accepted audit snapshot.
+Accepted verification for the second checkpoint: actual JUnit XML7,375 cases, zero failures/errors/skips; both fixture source verifiers and independent original byte-for-byte replay passed. This is the verification of those named slices, not completion611. Test inventory snapshot `5bbf0f27f96e0ef3c369d7684c5be898da2bdf4f` is a separate accepted audit snapshot. The next accepted generator-domain commit `43db34fe4fd20707b4891e81378c059acdc09d22` passed actual JUnit17,613 cases, zero failures/errors/skips, all three source verifiers and independent raw original replay. Neither count establishes completion611.
 
 ## A. All 19 Arbitrary instances and the actual source generator domain
 
@@ -59,3 +60,22 @@ cases with no failures/errors/skips. This supplies the finite standalone/helper
 corpus specified in gate A; it does not close every semantic gate or establish
 unbounded seed/size/demand fidelity. The open shrink, original remaining property,
 Read/ordering and public API gates above remain required before closing local:611.
+
+## Accepted original registered property checkpoint
+
+The new `remaining-property-manifest.json` enumerates all 81 original source
+registrations and their exact Kotlin method/dynamic-name prefixes. The source
+verifier reconstructs the eleven original remaining property bodies and six
+exposed forall bodies verbatim. The independent native payload contains 4,500
+TableHead/Body/Foot inputs (every width2..16 and seeds1..100), full original
+normalization results and three original predicate truths per input; 305 Figure
+cases (including five empty/whitespace witnesses), and 500 original generated
+Pandoc values with actual Aeson encoder bytes and decoded values. Eleven actual
+original QuickCheck properties additionally report 1,000 successful trials each.
+Fresh focused Gradle execution passed 14,316 new assertions plus the prior
+17,613 cases, 113 unchanged JSON-literal checks and 14 table checks: actual
+JUnit XML32,056 cases, zero failures/errors/skips. Source verifiers pass.
+Independent source/predicate review and separate byte-exact original replay of all 5,305 records and eleven reports pass. Existing 56 paired JSON
+literals and both original table literals remain unchanged and are included in
+the focused regression. This checkpoint does not close the shrink/Read/ordering
+or whole public semantic API gates.

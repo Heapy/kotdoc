@@ -13367,3 +13367,36 @@ variants, calibre runtime registry/factory reconciliation and directional format
 matrices remain required. Newer generator/field/point evidence still needs its
 own machine inventory records. This checkpoint leaves local:622 and the full
 Pandoc/calibre objective open.
+
+
+## Original registered pandoc-types property evidence (2026-10-16)
+
+The remaining eleven original registered properties now have independent Kotlin
+evidence: nine table normalization properties, Figure representation and JSON
+roundtrip. An exact source verifier reconstructs all original property bodies
+and six exposed forall bodies verbatim from the pinned test module. The native
+reference emits **5,305 records**: 4,500 original TableHead/Body/Foot inputs over
+all widths2..16 and seeds1..100, full normalization outputs and original predicate
+truths; 305 Figure inputs/results including five empty/whitespace witnesses; and
+500 original Pandoc inputs with actual Aeson bytes and decoder trees.
+
+Kotlin compares independent full table/Figure results and JSON bytes/trees before
+evaluating the translated source predicates. This is not self-roundtrip-only
+evidence. Eleven separate original QuickCheck runs each retain 1,000 successful
+trials; their eleven report checks supplement 14,305 Kotlin behavior checks.
+The manifest maps all **81 original source registrations** to concrete methods/
+dynamic prefixes, including existing twelve Walk properties, 56 unchanged paired
+JSON literals and two table literals. Trials are not new registered source tests.
+
+Independent review checked the exact predicates, source mappings and complete
+expected values. Separate unchanged native replay reproduces every record and
+all eleven reports byte for byte; source/payload verification passes. Fresh
+JDK21 XML confirms **32,056 actual tests**: 14,316 new checks, 17,613 earlier
+generator/Walk/shrink checks, 113 existing JSON checks and fourteen table checks,
+with no failures/errors/skips. No production converter changed.
+
+This discharges the named registered-suite evidence checkpoint, not every
+pandoc-types semantic requirement. Complete shrinker Char/lazy/deep/partial
+acceptance, typed Read and Eq/Ord dictionaries, all public Walk/Builder/Generic
+exports and effects, and authoritative inventory reconciliation remain open.
+Local:611, full Pandoc/all tests and all subsequent calibre stages remain required.
