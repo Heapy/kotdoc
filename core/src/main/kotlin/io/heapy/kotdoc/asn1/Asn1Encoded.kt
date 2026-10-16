@@ -10,6 +10,10 @@ class Asn1Encoded private constructor(private val prim: Asn1Primitives, private 
         var bytes: ByteArray? = null
     }
     private class Frame(val node: Node, var index: Int, var sum: Long = 0)
+    @Synchronized private fun data(node: Node): ByteArray {
+        node.bytes?.let { return it }
+        return prim.primitiveData(node.value).also { node.bytes = it }
+    }
     @Synchronized private fun size(node: Node): Long {
         node.length?.let { return it }
         val stack = ArrayDeque<Frame>(); stack.addLast(Frame(node,node.children?.lastIndex ?: -1))
@@ -24,7 +28,7 @@ class Asn1Encoded private constructor(private val prim: Asn1Primitives, private 
                 frame.sum += length; frame.index--; continue
             }
             val contentSize = if (children == null) {
-                val bytes = prim.primitiveData(current.value); current.bytes = bytes; bytes.size.toLong()
+                data(current).size.toLong()
             } else frame.sum
             val header = prim.encodeHeader(children != null,Asn1Primitives.smallestLength(contentSize),current.value)
             current.header = header; current.length = Asn1Raw.putHeader(header).size+contentSize
@@ -38,19 +42,21 @@ class Asn1Encoded private constructor(private val prim: Asn1Primitives, private 
         for (i in roots.indices.reversed()) sum += size(roots[i])
         return sum
     }
-    val events: Sequence<Asn1Event> get() = sequence {
+    val events: Sequence<Asn1Event> get() = lazyEvents.map { it.value }
+    /** List cells and their event values are independently lazy upstream. */
+    val lazyEvents: Sequence<Lazy<Asn1Event>> get() = sequence {
         data class Cursor(val nodes: List<Node>, var index: Int, val closing: Boolean)
         val stack = ArrayDeque<Cursor>(); stack.addLast(Cursor(roots,0,false))
         while (stack.isNotEmpty()) {
             val cursor = stack.last()
             if (cursor.index == cursor.nodes.size) {
-                stack.removeLast(); if (cursor.closing) yield(Asn1Event.ConstructionEnd); continue
+                stack.removeLast(); if (cursor.closing) yield(lazyOf(Asn1Event.ConstructionEnd)); continue
             }
-            val node = cursor.nodes[cursor.index++]; size(node)
-            yield(Asn1Event.Header(checkNotNull(node.header)))
+            val node = cursor.nodes[cursor.index++]
+            yield(lazyOf(Asn1Event.Header.deferred { size(node); checkNotNull(node.header) }))
             val children = node.children
-            if (children == null) yield(Asn1Event.Primitive(checkNotNull(node.bytes)))
-            else { yield(Asn1Event.ConstructionBegin); stack.addLast(Cursor(children,0,true)) }
+            if (children == null) yield(lazy { Asn1Event.Primitive(data(node)) })
+            else { yield(lazyOf(Asn1Event.ConstructionBegin)); stack.addLast(Cursor(children,0,true)) }
         }
     }
     companion object {

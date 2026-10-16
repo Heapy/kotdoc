@@ -16,7 +16,16 @@ data class Asn1Header(val kind: Asn1Class, val tag: Long, val constructed: Boole
     override fun toString() = "ASN1Header $kind ${shownArgument(tag)} ${if (constructed) "True" else "False"} " + if (length == Asn1Length.Indefinite) length.show() else "(${length.show()})"
 }
 sealed interface Asn1Event {
-    data class Header(val header: Asn1Header) : Asn1Event { override fun toString() = "Header ($header)" }
+    class Header private constructor(private val delayed: Lazy<Asn1Header>) : Asn1Event {
+        constructor(header: Asn1Header): this(lazyOf(header))
+        val header get() = delayed.value
+        operator fun component1() = header
+        fun copy(header: Asn1Header = this.header) = Header(header)
+        override fun equals(other: Any?) = other is Header && header == other.header
+        override fun hashCode() = header.hashCode()
+        override fun toString() = "Header ($header)"
+        companion object { fun deferred(header: () -> Asn1Header) = Header(lazy(header)) }
+    }
     class Primitive(bytes: ByteArray) : Asn1Event {
         private val data = bytes.copyOf()
         val bytes: ByteArray get() = data.copyOf()

@@ -1,0 +1,10 @@
+{
+  "package": "ghc-internal",
+  "version": "9.1202.0",
+  "ref": "ghc-9.12.2-release",
+  "url": "https://github.com/ghc/ghc",
+  "files": {
+    "LICENSE": "768c070bd0b7d820d169ee8153d5487acfc262cbbc10dfce18d05c0bb2d2800d",
+    "GHC/Internal/Numeric.hs": "f7c9919e2de587743a48c0e744a35fb11c7a14685a5164c838bb2b6b42cc32bc"
+  }
+}

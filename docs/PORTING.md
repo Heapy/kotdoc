@@ -11479,3 +11479,84 @@ Pandoc/all tests, calibre MOBI/all tests and additional formats absent from
 Pandoc/all tests remain the unchanged required end state. This checkpoint
 completes the five named encoding properties at the recorded replay counts,
 not that whole end state.
+
+### ASN1 Pretty and independent event/header demand
+
+`Asn1Pretty` ports the pinned `Data.ASN1.Pretty` implementation, including both
+`PrettyType` constructors and their Eq/Show behavior. Multiline changes only
+indentation and emits **no newlines**; SingleLine includes a comma after the
+last item. The implementation preserves each constructor's exact prefix and
+spacing, hexadecimal integers, quoted lowercase base16 output, raw ByteString
+escapes for the appropriate string encodings, Double display and raw DateTime/
+Maybe Timezone display. Negative integers fail with GHC 9.12.2's actual
+`GHC.Internal.Numeric.showIntAtBase` message. Negative indentation and Int64
+wrap are preserved. A code-point stream allows bounded output before a failing
+later field or input tail, without allocating enormous initial indentation.
+
+The event encoding correction distinguishes **list spine**, **event
+constructor** and **Header payload** demand. `Asn1Encoded.lazyEvents` exposes
+independent lazy event values; `events` continues to expose ordinary events.
+A Header event can be inspected before its payload, whereas Primitive's bytes
+are strict when the event is evaluated. The original ASN1Header's four fields
+remain strict. Length calculation still evaluates later siblings before the
+current one, as in the original; event traversal preserves prefix demand.
+
+The new development-only reference compiles **17 unchanged ASN1 modules**,
+**12 unchanged hourglass modules** and **seven unchanged base16 modules**.
+Pretty and Prim execute directly from the pinned original sources. The small
+bridge supplies JSON adapters and observes code points, errors, modes and
+encoded component demand; it contains no substitute formatting/encoding
+algorithm. Base16 1.0's entire **21-file** release is retained byte-for-byte,
+including its tests and complete notice, with archive SHA-256
+**86366364910b78609677817cf3f987bf1690e1f75bba04bc91a5ed993d619cde**.
+Its historical Cabal bounds are not edited: the observer compiles its modules
+directly with the frozen modern dependencies and selects Pretty's original
+>=1.0 CPP branch. The unchanged GHC Numeric source and full GHC notice are also
+retained and hash-checked. Separate base16 decoding APIs and original base16
+tests are **not** claimed ported by this checkpoint. The crypton-asn1-types
+release has no original test suite; its encoding sibling's five tests remain
+covered by the preceding checkpoint.
+
+The new corpus has **20,160 observations**, **94 source hashes**, and semantic
+SHA-256 **e14f903d4f00f01190ada20e8856fbf3dc8cbe13de627cdb73707953d0740cd4**. The exact
+same expected outputs were independently verified with GHC 9.12.2 on
+macOS/AArch64 and Linux/x86_64. Cases cover all constructors, all 256 byte
+values for all 12 character string encodings, varied byte lengths through
+513, floating point boundaries/random bit patterns, raw time fields and
+extreme timezone offsets, arbitrary unbalanced marker streams, mode Eq/Show,
+negative/overflowing indentation, bounded output before failing DateTime
+fields/input tails, and encoded list/event/header demand around invalid OIDs
+and structural values. Zero-demand bridge expressions are themselves delayed,
+matching Haskell's unevaluated pair rather than forcing a Kotlin function call
+before `take(0)`. One ownership/cache check brings Asn1PrettyTest to **20,161**.
+
+macOS/AArch64 JDK 21 passes **276,962 selected HTTP/environment/encoding/ASN1/
+hourglass tests** in an 88s build. All **37 XML suites** match their actual
+case counts: **276,963 tests**, zero failures/errors and only the actual Windows
+Registry skip. Linux/x86_64 JDK 21 independently passes the same **276,962**
+tests in **84.131s**, with no failed/aborted tests or containers and the same
+one Registry skip. All **166 source/fixture verifiers** pass (74.5s). Windows
+CI now requires
+**158,362 cases**, including the new Pretty class, with no skips. The preceding
+97cf362 Windows job already passed its **138,201** cases; its broader Linux
+CI run remains live rather than being restarted.
+
+Core/installed JAR identity and **89 complete notices** are verified. Against
+97cf362, **3,099 classes are byte-identical**; 18 additional class changes are
+only debug/source-position differences, verified with identical `javap -p -c`
+output. Only Asn1Encoded and Event.Header change executable behavior. Two
+private old event coroutine classes are replaced and 12 classes are added,
+for **3,131 packaged classes**. All **343 HTTP classes**, **22 TLS error
+classes**, **250 Pandoc assets**, **six native ABI assets**, CodePage, Windows
+error mapping, **60,137-byte PSL** and CLI/dependency JAR bytes remain exact.
+A Java client compiled against 97cf362 runs unchanged against the new JAR,
+covering Header construction, getter, component1, copy, copy$default, equality,
+hash and display. Header is now a manually implemented class with lazy storage;
+its former Kotlin-reflection `isData` property is not preserved. Ordinary JVM
+method descriptors are preserved.
+
+Finer nested field/list-thunk observations and broader stress/resource checks,
+remaining hourglass Read/numeric/Enum/Integral/Compat APIs and property coverage,
+X509 objects/stores/validation/signatures, TLS and resource-I/O integration
+remain work. Full Pandoc/all tests, calibre MOBI/all tests and other formats
+absent from Pandoc/all tests remain the unchanged required end state.

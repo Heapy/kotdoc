@@ -1,0 +1,29 @@
+{
+  "package": "base16",
+  "version": "1.0",
+  "url": "https://hackage-content.haskell.org/package/base16-1.0.tar.gz",
+  "sha256": "86366364910b78609677817cf3f987bf1690e1f75bba04bc91a5ed993d619cde",
+  "files": {
+    "LICENSE": "8ad3f5c1ec2f8e3c930759043f788fee06bfc1b9fc9f629b6456cd59fe5bfe28",
+    "base16.cabal": "9b72a280a7af75a5026fa25a1b8ae18ec10200a070947723f1fd61dc8d407862",
+    "CHANGELOG.md": "4eb6e79e9f4a471ca11163752f7b0487dc7f0f27d4411e5d61f61acd925b4710",
+    "MIGRATION-1.0.md": "262a335a67303745f5613659815f91ffedf1bdaa41cdbec2e1f1822eb72d667d",
+    "README.md": "fefb73fcc71a079049974d3c79cb0128832b2f2345c8d8ecc8f8ab3b41aaa301",
+    "test/Main.hs": "b324c00a8ad4b7a38ebc30abf660fac94ee249887048dedc39d722b9a884a395",
+    "test/Internal.hs": "c169c8d14dc7ec2b414c207cd17d7f3d422c72a9c3c43a1c9acee2308a21c134",
+    "benchmarks/Base16Bench.hs": "eb9cd31886170d94bcbd87c2fa345e3f31f2d79295552ce20408d335d75ba632",
+    "src/Data/ByteString/Base16.hs": "7032ba4605a4accda7324cd5a8b54cb44292c3442d566d6427f8403782270682",
+    "src/Data/Base16/Types.hs": "ff4402e8610ff29d7eb1fa614be354cd2f5389551eef2156d464c2e7dbe5dadb",
+    "src/Data/Text/Encoding/Base16.hs": "f4d60857d0a6f420ddfe4592cfc71fa2f363025f7650feb1812f57439313b4cf",
+    "src/Data/Text/Lazy/Encoding/Base16.hs": "c8b85f0f1c02d77cec31f0e5dffc84d97e8f1e5e06f335740b85a71cc5143b8a",
+    "src/Data/Text/Encoding/Base16/Error.hs": "6105bb5a785b4519ecb13cbb0ae0c8ea76e053bddc7d589ae61e5f8635aede8d",
+    "src/Data/Text/Short/Encoding/Base16.hs": "9457fe231b2ffc49cd98787e365eaad509459756ba9d4f97906de6c9868289c9",
+    "src/Data/Base16/Types/Internal.hs": "b35e2acebe0aee7e3fe0ba64265e753dd4de1c70c7e756d8de5feeabeb8efd9d",
+    "src/Data/ByteString/Short/Base16.hs": "7d6bb4bc100fa6016dd8ddf2cfa308851691746ad3c4fe8f58a1cc9c4ebd8e39",
+    "src/Data/ByteString/Lazy/Base16.hs": "6dae8c9ef20a934c5b3799e69f0a49b447c1e3f54e41e074a7f4e4551ea95c74",
+    "src/Data/ByteString/Base16/Internal/Head.hs": "73f987ba3be89aff6e8325d9bfc7398396bf9de22c9949140c3ea6910a63a1be",
+    "src/Data/ByteString/Base16/Internal/Utils.hs": "80283ee1d728d0067e5279496b6972fbfa567c4c893e55e129109c56846c36ea",
+    "src/Data/ByteString/Base16/Internal/W16/Loop.hs": "5bc09bc399201a7c356f62d88751248c2362045c8b47129ee6faf56a8e5bb6dc",
+    "src/Data/ByteString/Base16/Internal/W16/ShortLoop.hs": "3b1e4f19b9e8db9481228cdc2cd883a92430cba10bb2a064c62d7295c3996a93"
+  }
+}
