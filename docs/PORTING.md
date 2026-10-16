@@ -13261,3 +13261,41 @@ registry reconciliation and directional additional-format matrices remain
 required. New field/generator checkpoints still need separate machine evidence
 records. This source inventory checkpoint does not complete local:622 or the
 full Pandoc/calibre objective.
+
+
+## Complete raw P-256 point engine (2026-10-16)
+
+Translated all eleven static helpers and five actual exports of pinned crypton
+2.0.1 `p256_ec.c`, using the accepted specialized Kotlin word/field engines.
+The fixed field inversion chain retains 287 squares, 13 multiplies and six
+assignments. Jacobian doubling, mixed/general/equality-aware addition, masked
+copy, both table selectors, runtime precomputation, base/nonbase scalar windows,
+affine conversion and raw public C exports preserve source operation/write order.
+There is no production BigInteger, generic affine replacement or native process.
+
+Independent unchanged C and mechanically instrumented copies agree on every raw
+output, input mutation and guard for **7,040 observations** (3,520 per profile),
+with **20 source hashes** and semantic SHA-256
+**bf670b6e5e3ae8d94a58edea2b41fcd32f96ad7058cbb278ea461f053e568321**.
+Read-only events retain field temporaries, table reads, complete precomputation,
+branches and scalar windows through counts, bounded prefixes and a full ordered
+FNV1a64 replay accumulator. This is not a cryptographic or timing proof. Labelled
+valid domains additionally have independent affine arithmetic checks.
+
+Independent source/observer review, exact extraction and full native replay pass.
+A fresh no-build-cache/in-process JDK 21 build executes all ten requested tasks;
+XML confirms **7,060 point + 8,457 field + 79,946 word tests = 95,463 actual tests**,
+with no failures/errors/skips. `core:jar`/`installDist` pass, installed and
+standalone core JARs are byte-identical, all three point classes contain no
+BigInteger/foreign/ProcessBuilder references, and the original notice is exact
+in the JAR and installed distribution.
+
+Raw source boundaries are preserved: incomplete add/mixed formulas do not gain
+universal infinity identities; negate(0,0) returns (0,p). Above-order
+points_mul_vartime(n,1,G) returns (0,0), not G, outside its scalar<n precondition.
+Whole/cross-coordinate aliases capture exact write schedules, not universal
+group-law guarantees. Partial/table-output overlaps, exact-self negate memcpy,
+invalid buffers/pointers, actual 32-bit OS ABI and timing/erasure remain outside
+the evidence. Public Haskell P256 wrapper policies, complete P256/ECC/ECDH/
+subgroup suites and remaining crypto/trust/TLS work still require porting.
+Local:613 and the full Pandoc/calibre objective remain open.
