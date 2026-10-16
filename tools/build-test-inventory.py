@@ -19,6 +19,9 @@ sys.dont_write_bytecode = True
 spec = importlib.util.spec_from_file_location('test_inventory_extraction', ROOT / 'tools/extract-test-inventory.py')
 extraction = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(extraction)
+census_spec = importlib.util.spec_from_file_location('test_inventory_census', ROOT / 'tools/census-test-inventory.py')
+census = importlib.util.module_from_spec(census_spec)
+census_spec.loader.exec_module(census)
 
 
 def digest(path):
@@ -125,7 +128,35 @@ def checkpoint_evidence():
                 raise ValueError('Checkpoint source hash drift: ' + path)
     def assets(paths):
         return [dict(path=p, sha256=digest(p)) for p in paths]
-    return [dict(id='local:610/p256-word-observations', kind='oracle-observation-corpus',
+    commit='cdf2b84906e91b1baad740738564855677966acb'
+    submodule_pins={}
+    def committed_bytes(path):
+        for folder in ('upstream/pandoc-types','upstream/pandoc','upstream/calibre'):
+            if path.startswith(folder+'/'):
+                if folder not in submodule_pins:
+                    submodule_pins[folder]=subprocess.check_output(['git','rev-parse',commit+':'+folder],cwd=ROOT,text=True).strip()
+                return subprocess.check_output(['git','show',submodule_pins[folder]+':'+path[len(folder)+1:]],cwd=ROOT/folder)
+        return subprocess.check_output(['git','show',commit+':'+path],cwd=ROOT)
+    generator_manifest_path='core/src/test/resources/pandoc-types/quickcheck-manifest.json'
+    generator_manifest=json.loads(committed_bytes(generator_manifest_path))
+    historical_sources=[]
+    for path,expected in generator_manifest['sources'].items():
+        actual=hashlib.sha256(committed_bytes(path)).hexdigest()
+        if actual!=expected:raise ValueError('Historical generator source hash differs: '+path)
+        historical_sources.append(dict(path=path,sha256=actual))
+    generator_artifacts=[generator_manifest_path,'core/src/test/resources/pandoc-types/quickcheck.jsonl.gz',
+                         'core/src/test/resources/pandoc-types/no-shrink.jsonl.gz',AST+'OriginalQuickCheck.kt',
+                         AST+'OriginalQuickCheckTest.kt',AST+'OriginalTypesShrink.kt',AST+'OriginalTypesPropertiesTest.kt',AST+'OriginalTypesShrinkTest.kt']
+    historical_generator=dict(id='local:611/seeded-generator-and-noop-shrink-cdf2b849',
+        kind='historical-property-trials-and-test-support-observations',recorded_commit=commit,
+        recorded_kotlin_checks=7375,check_components=dict(walk_trials=6000,ordered_shrink_checks=185,quickcheck_operation_checks=420,seeded_pandoc_comparisons=500,implicit_empty_shrink_checks=270),
+        operation_observations=generator_manifest['cases'],implicit_empty_shrink_observations=generator_manifest['noShrinkCases'],
+        artifacts_from_recorded_commit=[dict(path=p,sha256=hashlib.sha256(committed_bytes(p)).hexdigest()) for p in generator_artifacts],
+        independent_sources_from_recorded_commit=historical_sources,
+        expectation_origin='Unchanged-source QuickCheck/splitmix/random and original no-op shrink captures; 500 original generator inputs. Sources and artifact hashes read from the recorded Git commit, not concurrent checkout work.',
+        fresh_execution_in_this_checkpoint=False,
+        gap='Historical finite seeded replay does not establish all seeds/all nineteen generator-instance boundaries, full shrinker lazy/deep/partial acceptance, table/Figure/JSON original-generator replays or Read/ordering. Not additional registered upstream source tests.')
+    return [historical_generator,dict(id='local:610/p256-word-observations', kind='oracle-observation-corpus',
                  recorded_commit='ad16fb3980bf56b6d405da745f1f07910a2599f2',
                  observations=crypto['cases'], semantic_sha256=crypto['caseHash'],
                  artifacts=assets([crypto_path, 'tools/p256-words-reference/README.md',
@@ -148,7 +179,7 @@ def checkpoint_evidence():
                  expectation_origin='Unchanged pinned Text.Pandoc.Arbitrary inputs; independent Data.Generics.everywhere/everything; original ordered shrink outputs.',
                  fresh_execution_in_this_checkpoint=False,
                  artifact_snapshot_role='Current checkout hashes; historical recorded_commit/counts do not assert these files are byte-identical to that commit or freshly validated.',
-                 gap='Full generator/shrinker acceptance, nine no-op shrink APIs, broader Unicode/deep/partial shrink coverage, other properties and Read/ordering remain pending.')]
+                 gap='Historical 6185-check evidence boundary: full generator/shrinker acceptance, nine no-op shrink APIs, broader Unicode/deep/partial coverage, other properties and Read/ordering were not discharged here. The separate cdf2b849 record adds finite seeded/no-op evidence; this old gap is not current global status.')]
 
 
 def build():
@@ -223,18 +254,19 @@ def build():
         ('upstream/calibre/src/calibre/utils/run_tests.py', 'Conditional runtime suites, including embedded find_tests'),
         ('upstream/calibre/src/calibre/customize/ui.py', 'Input/output format enumeration, aliases and enabled plugins'),
         ('upstream/calibre/src/calibre/customize/builtins.py', 'Built-in conversion plugin registry')]]
-    return dict(schema_version=2, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations; NOT complete global leaf inventory or port coverage.',
+    return dict(schema_version=3, generator=dict(path='tools/build-test-inventory.py', sha256=digest('tools/build-test-inventory.py')), scope='Source registry snapshot, complete pandoc-types main registrations, Command and computed Old source leaves, and Lua Haskell/script-suite registrations, finite nested Lua registrations and a Haskell module/site census; NOT complete global runtime leaf inventory or port coverage.',
                 counting_units=dict(source_test='Registered predicate/example; paired examples retain two assertion names.', trial='Generated property input, not another source test.', observation='Oracle capture, not another source test.', registry='Suite/factory/import candidate, not a source test count.'),
                 pins=pins, roots=roots, sources=[dict(path=p, sha256=digest(p)) for p in sorted(paths)],
                 registry=sorted(entries, key=lambda r: r['id']), pandoc_types=pt_inventory(),
-                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json')],
+                extraction_provenance=[extraction.source('tools/extract-test-inventory.py'), extraction.source('docs/test-inventory-command-blocks.json'), census.source('tools/census-test-inventory.py'), census.source('tools/capture-test-inventory-lua.lua'), census.source('docs/test-inventory-lua-trees.json')],
                 pandoc_command=extraction.command_inventory(), pandoc_old=extraction.old_inventory(), pandoc_lua=extraction.lua_inventory(),
-                checkpoint_evidence=checkpoint_evidence(),
+                checkpoint_evidence=checkpoint_evidence(), pandoc_haskell_census=census.haskell_inventory(),
+                pandoc_lua_nested=census.lua_leaves(extraction.lua_inventory()),
                 separate_requirements=[dict(id=x, status='unmapped', gap=g) for x, g in [
                     ('pandoc-types/generators-shrinkers', 'Audit every Arbitrary instance/generator/shrinker independently; Kotlin seeded samples do not port QuickCheck semantics.'),
                     ('pandoc-types/Read', 'Derived Read and lexical/partial contracts require separate acceptance beyond JSON examples.'),
                     ('pandoc-types/Eq-Ord', 'Existing comparison corpora require a separately reviewed mapping; observations are not registered test counts.'),
-                    ('pandoc/all-leaves', 'Command and computed Old source leaves are enumerated but unmapped; enumerate nested Lua script leaves, remaining reader/writer/common trees and CPP conditions, and map every assertion.'),
+                    ('pandoc/all-leaves', 'Command/Old and finite nested Lua registrations remain unmapped. Haskell registration-site census preserves all reachable module roots but requires helper/list/comprehension and conditional multiplicity expansion before claiming complete runtime leaf inventory; map every assertion.'),
                     ('dependencies/all-leaves', 'Cabal declarations/test trees are source discovery only; embedded doctests and non-cabal runners require audit.'),
                     ('calibre/formats-and-tests', 'Reconcile runtime suite IDs, embedded tests, standalone/doctest/RapydScript runners and directional additional-format matrix; map Kotlin evidence.')]])
 
@@ -250,7 +282,7 @@ def main():
         args.snapshot.write_text(data)
     elif not args.snapshot.exists() or args.snapshot.read_text() != data:
         raise SystemExit('Inventory differs: source paths/hashes, registrations, pins or mappings changed. Review and refresh with --write.')
-    print(f"Verified {len(result['sources'])} source/assets, {len(result['registry'])} registry candidates, 81 pandoc-types source tests (56 paired examples; 137 assertions/property registrations). {len(result['pandoc_command'])} Command goldens, {len(result['pandoc_old'])} Old registrations, {len(result['pandoc_lua']['registrations'])} Lua registrations. Global leaf inventory remains incomplete.")
+    print(f"Verified {len(result['sources'])} source/assets, {len(result['registry'])} registry candidates, 81 pandoc-types source tests (56 paired examples; 137 assertions/property registrations). {len(result['pandoc_command'])} Command goldens, {len(result['pandoc_old'])} Old registrations, {len(result['pandoc_lua']['registrations'])} Lua registrations. {len(result['pandoc_haskell_census']['modules'])} remaining Haskell module roots and {len(result['pandoc_lua_nested']['leaves'])} nested Lua registrations; Haskell site multiplicities and global leaf inventory remain incomplete.")
 
 
 if __name__ == '__main__':

@@ -132,14 +132,14 @@ twice upstream; both registrations remain, distinguished by occurrence suffix.
 No asset reuse or Native/FB2 component check is inferred to cover these application
 assertions. All 174 have null Kotlin mappings.
 
-## Lua: 48 registrations, nested script leaves pending
+## Lua Haskell roots: 48 registrations
 
 The four main groups register 34 Haskell assertion leaves and 14 `testPandocLua`
 script suites. IDs retain group/name, including the nested global-module group;
 records retain registration source hashes and independent expectation origins.
 The 14 script suites retain original Lua file/hash, not an invented leaf count.
-Their nested tasty-Lua trees, dynamic/conditional tests and assertions require a
-later source-leaf inventory. Kotlin API examples do not discharge Lua engine
+Their nested tasty-Lua trees are now recorded by the finite source-registration
+checkpoint below; dynamic/platform variants and executable assertions remain pending. Kotlin API examples do not discharge Lua engine
 assertions, so all 48 registrations remain unmapped.
 
 ## Remaining global inventory work
@@ -154,8 +154,8 @@ Before local:622 can complete:
 
 - Map each Command/Old assertion to independently reviewed executable Kotlin CLI
   behavior, preserving options, stderr/status and normalizers.
-- Enumerate nested Lua script leaves, all remaining reader/writer/common suites,
-  and CPP/feature-dependent registration trees.
+- Expand remaining reader/writer/common helper/list/comprehension templates into
+  runtime leaves, and audit Lua dynamic/platform and CPP/feature-dependent variants.
 - Resolve dependency flags, embedded doctests, tests outside exact test directories
   and non-Cabal runners; current discovery does not claim every dependency test.
 - Reconcile calibre's runtime registry with static candidates, exclusions,
@@ -168,3 +168,78 @@ Before local:622 can complete:
 Verifier regressions reject lost sources/registrations/leaves, changed hashes or
 expectations, false mapping promotion and miscounted observation evidence. Skips,
 partial evidence, source tests, trials and observations must remain separate.
+
+## Haskell source-registration census and nested Lua checkpoint
+
+The next finite census traverses every `Tests.*.tests` reference from the pinned
+main registration, resolving Org's qualified import aliases transitively. Besides
+the separately enumerated Command/Old matrices, it preserves **60 module root
+`tests` definitions and 62 module registration references** (the latter includes
+main Command/Old references). Comments, string/character contents and nested block
+comments are excluded lexically. Every complete root definition and registration
+expression retains original source offsets (UTF8-decoded Unicode code points,
+end-exclusive), lines and SHA-256; original files
+and their notices remain untouched.
+
+The **2,391 source registration sites** comprise 1,473 infix-helper uses, 573
+constructor/helper sites and 345 groups. These are deliberately **not runtime
+leaf counts**. Typed local `TestTree` helpers, `test`/`testCase`/`testProperty` and
+infix `=:` form a documented finite recognition rule; other helper applications
+remain covered by complete root-definition source spans and an explicit semantic
+expansion gap. Source names, declaration scopes and directly enclosing literal
+groups are navigation data. Unknown name expressions remain dynamic. Source names are not runtime Tasty
+IDs: `Tests.Helpers.test` truncates source names longer than 54 characters to
+52 plus an ellipsis. The shared helper source and comparison semantics are
+recorded: `test` compares Haskell lines of `ToString` values; `testGolden` uses
+Text equality, with CR filtering only for its failure diff display. A helper
+body, a call of that helper, a reused named list and a comprehension template must
+not be added together as distinct executed source tests.
+
+Examples still requiring semantic expansion are Markdown's nested math/list
+comprehensions, Shared's named helper lists and RTF's `map rtfTest` matrix. The
+census records computed-syntax markers without assigning multiplicity. None of
+the 60 reachable module sources contains a CPP branch directive at this pin;
+the detector is nevertheless tested against both branches and never selects a
+branch. Library/build flags and future conditional registration remain explicit
+acceptance work. All source-site records are unmapped; existing reader/writer
+Kotlin tests are not inferred to cover them.
+
+The 14 original Lua module scripts now also have an independently observed
+nested registration tree: **309 finite registered tests plus one empty group**.
+The development-only observer replaces only `tasty.test_case`/`test_group`, reads
+the scripts using the pinned Pandoc 3.12.1 Lua environment, records callback source
+line ranges and **never invokes a test callback or assertion**. Unsupported
+constructors/assertion execution fail instead of being ignored. The observer
+also verifies that callbacks originate in their registered script. Original
+callback bodies and referenced original helpers supply expectation provenance;
+no expected conversion result is generated and no Kotlin coverage is claimed.
+
+```sh
+python3 tools/census-test-inventory.py --capture-lua-trees
+python3 tools/census-test-inventory.py --verify-lua-trees
+python3 tools/check-test-inventory-census.py
+```
+
+The first two commands require pinned Pandoc only as a development registration
+oracle. Ordinary inventory/census checks consume the committed source-hashed
+capture, without requiring Pandoc or running the original tests. The observed
+finite environment does not prove all dynamic/platform registration variants.
+All 309 nested registrations remain unmapped to Kotlin Lua-engine assertions.
+
+A separate provenance record preserves the later **7,375-check** local:611
+result at `cdf2b84906e91b1baad740738564855677966acb`: 6,000 Walk trials, 185 ordered
+shrink checks, 420 QuickCheck operation checks, 500 seeded Pandoc comparisons and
+270 implicit empty-shrink checks. Its sources and artifacts are read from that
+**Git commit and its pinned submodule objects**, not concurrent checkout work.
+It neither overwrites the earlier 6,185-check historical record nor attributes
+new work to old evidence. The earlier nine-no-op-shrink gap is an earlier
+checkpoint boundary; the separate later record supplies finite evidence for it.
+Exact finite seed replay still does not establish all seeds, all generator
+instances/boundaries, complete shrinker acceptance or the other original
+properties/Read/ordering contracts. No new upstream source properties are counted.
+
+This checkpoint leaves the global leaf inventory open: Haskell helper/list/
+comprehension expansion and independent leaf expectations; all executable
+mappings; dynamic/platform Lua variants; dependency embedded/non-Cabal suites;
+calibre runtime/factory reconciliation; and directional additional-format
+matrices. `local:622` and the full port remain incomplete.

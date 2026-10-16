@@ -1,0 +1,2532 @@
+{
+  "callbacks_executed": 0,
+  "oracle_version": "3.12.1",
+  "scripts": [
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc",
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "first_line": 16,
+                  "kind": "test",
+                  "last_line": 18,
+                  "name": "pandoc.Attr is a function"
+                },
+                {
+                  "first_line": 19,
+                  "kind": "test",
+                  "last_line": 21,
+                  "name": "pandoc.AttributeList is a function"
+                },
+                {
+                  "first_line": 22,
+                  "kind": "test",
+                  "last_line": 24,
+                  "name": "pandoc.Blocks is a function"
+                },
+                {
+                  "first_line": 25,
+                  "kind": "test",
+                  "last_line": 27,
+                  "name": "pandoc.Citation is a function"
+                },
+                {
+                  "first_line": 28,
+                  "kind": "test",
+                  "last_line": 30,
+                  "name": "pandoc.Inlines is a function"
+                },
+                {
+                  "first_line": 31,
+                  "kind": "test",
+                  "last_line": 33,
+                  "name": "pandoc.SimpleTable is a function"
+                },
+                {
+                  "first_line": 34,
+                  "kind": "test",
+                  "last_line": 36,
+                  "name": "pandoc.Meta is a function"
+                },
+                {
+                  "first_line": 37,
+                  "kind": "test",
+                  "last_line": 39,
+                  "name": "pandoc.Pandoc is a function"
+                }
+              ],
+              "kind": "group",
+              "name": "Misc"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 42,
+                  "kind": "test",
+                  "last_line": 44,
+                  "name": "pandoc.AttributeList is a function"
+                },
+                {
+                  "first_line": 45,
+                  "kind": "test",
+                  "last_line": 47,
+                  "name": "pandoc.AttributeList is a function"
+                },
+                {
+                  "first_line": 48,
+                  "kind": "test",
+                  "last_line": 50,
+                  "name": "pandoc.Emph is a function"
+                },
+                {
+                  "first_line": 51,
+                  "kind": "test",
+                  "last_line": 53,
+                  "name": "pandoc.Image is a function"
+                },
+                {
+                  "first_line": 54,
+                  "kind": "test",
+                  "last_line": 56,
+                  "name": "pandoc.Link is a function"
+                },
+                {
+                  "first_line": 57,
+                  "kind": "test",
+                  "last_line": 59,
+                  "name": "pandoc.Math is a function"
+                },
+                {
+                  "first_line": 60,
+                  "kind": "test",
+                  "last_line": 62,
+                  "name": "pandoc.Note is a function"
+                },
+                {
+                  "first_line": 63,
+                  "kind": "test",
+                  "last_line": 65,
+                  "name": "pandoc.Quoted is a function"
+                },
+                {
+                  "first_line": 66,
+                  "kind": "test",
+                  "last_line": 68,
+                  "name": "pandoc.SmallCaps is a function"
+                },
+                {
+                  "first_line": 69,
+                  "kind": "test",
+                  "last_line": 71,
+                  "name": "pandoc.SoftBreak is a function"
+                },
+                {
+                  "first_line": 72,
+                  "kind": "test",
+                  "last_line": 74,
+                  "name": "pandoc.Span is a function"
+                },
+                {
+                  "first_line": 75,
+                  "kind": "test",
+                  "last_line": 77,
+                  "name": "pandoc.Str is a function"
+                },
+                {
+                  "first_line": 78,
+                  "kind": "test",
+                  "last_line": 80,
+                  "name": "pandoc.Strikeout is a function"
+                },
+                {
+                  "first_line": 81,
+                  "kind": "test",
+                  "last_line": 83,
+                  "name": "pandoc.Strong is a function"
+                },
+                {
+                  "first_line": 84,
+                  "kind": "test",
+                  "last_line": 86,
+                  "name": "pandoc.Subscript is a function"
+                },
+                {
+                  "first_line": 87,
+                  "kind": "test",
+                  "last_line": 89,
+                  "name": "pandoc.Superscript is a function"
+                },
+                {
+                  "first_line": 90,
+                  "kind": "test",
+                  "last_line": 92,
+                  "name": "pandoc.Underline is a function"
+                }
+              ],
+              "kind": "group",
+              "name": "Inline elements"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 95,
+                  "kind": "test",
+                  "last_line": 97,
+                  "name": "pandoc.BlockQuote is a function"
+                },
+                {
+                  "first_line": 98,
+                  "kind": "test",
+                  "last_line": 100,
+                  "name": "pandoc.BulletList is a function"
+                },
+                {
+                  "first_line": 101,
+                  "kind": "test",
+                  "last_line": 103,
+                  "name": "pandoc.CodeBlock is a function"
+                },
+                {
+                  "first_line": 104,
+                  "kind": "test",
+                  "last_line": 106,
+                  "name": "pandoc.DefinitionList is a function"
+                },
+                {
+                  "first_line": 107,
+                  "kind": "test",
+                  "last_line": 109,
+                  "name": "pandoc.Div is a function"
+                },
+                {
+                  "first_line": 110,
+                  "kind": "test",
+                  "last_line": 112,
+                  "name": "pandoc.Header is a function"
+                },
+                {
+                  "first_line": 113,
+                  "kind": "test",
+                  "last_line": 115,
+                  "name": "pandoc.LineBlock is a function"
+                },
+                {
+                  "first_line": 116,
+                  "kind": "test",
+                  "last_line": 118,
+                  "name": "pandoc.Figure is a function"
+                },
+                {
+                  "first_line": 119,
+                  "kind": "test",
+                  "last_line": 121,
+                  "name": "pandoc.OrderedList is a function"
+                },
+                {
+                  "first_line": 122,
+                  "kind": "test",
+                  "last_line": 124,
+                  "name": "pandoc.Para is a function"
+                },
+                {
+                  "first_line": 125,
+                  "kind": "test",
+                  "last_line": 127,
+                  "name": "pandoc.Plain is a function"
+                },
+                {
+                  "first_line": 128,
+                  "kind": "test",
+                  "last_line": 130,
+                  "name": "pandoc.RawBlock is a function"
+                },
+                {
+                  "first_line": 131,
+                  "kind": "test",
+                  "last_line": 133,
+                  "name": "pandoc.Table is a function"
+                }
+              ],
+              "kind": "group",
+              "name": "Block elements"
+            }
+          ],
+          "kind": "group",
+          "name": "Constructors"
+        },
+        {
+          "children": [
+            {
+              "first_line": 137,
+              "kind": "test",
+              "last_line": 141,
+              "name": "MetaList elements behave like lists"
+            },
+            {
+              "first_line": 142,
+              "kind": "test",
+              "last_line": 147,
+              "name": "`tag` is an alias for `t``"
+            }
+          ],
+          "kind": "group",
+          "name": "MetaValue elements"
+        },
+        {
+          "children": [
+            {
+              "first_line": 150,
+              "kind": "test",
+              "last_line": 153,
+              "name": "inline list is treated as MetaInlines"
+            },
+            {
+              "first_line": 154,
+              "kind": "test",
+              "last_line": 157,
+              "name": "inline element is treated as MetaInlines singleton"
+            },
+            {
+              "first_line": 158,
+              "kind": "test",
+              "last_line": 161,
+              "name": "block list is treated as MetaBlocks"
+            },
+            {
+              "first_line": 162,
+              "kind": "test",
+              "last_line": 165,
+              "name": "block element is treated as MetaBlocks singleton"
+            }
+          ],
+          "kind": "group",
+          "name": "Meta"
+        },
+        {
+          "children": [
+            {
+              "first_line": 168,
+              "kind": "test",
+              "last_line": 172,
+              "name": "normalize"
+            }
+          ],
+          "kind": "group",
+          "name": "Pandoc"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "first_line": 176,
+                  "kind": "test",
+                  "last_line": 179,
+                  "name": "returns a userdata value"
+                },
+                {
+                  "first_line": 180,
+                  "kind": "test",
+                  "last_line": 183,
+                  "name": "can construct from table"
+                },
+                {
+                  "first_line": 184,
+                  "kind": "test",
+                  "last_line": 191,
+                  "name": "can construct from other ReaderOptions value"
+                }
+              ],
+              "kind": "group",
+              "name": "ReaderOptions"
+            }
+          ],
+          "kind": "group",
+          "name": "Other types"
+        },
+        {
+          "children": [
+            {
+              "first_line": 196,
+              "kind": "test",
+              "last_line": 205,
+              "name": "clones Attr"
+            },
+            {
+              "first_line": 206,
+              "kind": "test",
+              "last_line": 211,
+              "name": "clones ListAttributes"
+            },
+            {
+              "first_line": 212,
+              "kind": "test",
+              "last_line": 217,
+              "name": "clones Para"
+            },
+            {
+              "first_line": 218,
+              "kind": "test",
+              "last_line": 223,
+              "name": "clones Str"
+            },
+            {
+              "first_line": 224,
+              "kind": "test",
+              "last_line": 231,
+              "name": "clones Citation"
+            }
+          ],
+          "kind": "group",
+          "name": "clone"
+        },
+        {
+          "children": [
+            {
+              "first_line": 235,
+              "kind": "test",
+              "last_line": 243,
+              "name": "external string processing"
+            },
+            {
+              "first_line": 244,
+              "kind": "test",
+              "last_line": 257,
+              "name": "failing pipe"
+            }
+          ],
+          "kind": "group",
+          "name": "pipe"
+        },
+        {
+          "children": [
+            {
+              "first_line": 261,
+              "kind": "test",
+              "last_line": 272,
+              "name": "Markdown"
+            },
+            {
+              "first_line": 273,
+              "kind": "test",
+              "last_line": 278,
+              "name": "unsupported extension"
+            },
+            {
+              "first_line": 279,
+              "kind": "test",
+              "last_line": 288,
+              "name": "read with other indented code classes"
+            },
+            {
+              "first_line": 289,
+              "kind": "test",
+              "last_line": 296,
+              "name": "can read epub"
+            },
+            {
+              "first_line": 297,
+              "kind": "test",
+              "last_line": 302,
+              "name": "failing read"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 304,
+                  "kind": "test",
+                  "last_line": 308,
+                  "name": "images are added to the mediabag"
+                },
+                {
+                  "first_line": 309,
+                  "kind": "test",
+                  "last_line": 313,
+                  "name": "images from EPUB are added when using the sandbox"
+                },
+                {
+                  "first_line": 314,
+                  "kind": "test",
+                  "last_line": 321,
+                  "name": "includes work in global env"
+                },
+                {
+                  "first_line": 322,
+                  "kind": "test",
+                  "last_line": 326,
+                  "name": "sandbox disallows access to the filesystem"
+                },
+                {
+                  "first_line": 327,
+                  "kind": "test",
+                  "last_line": 334,
+                  "name": "files can be added to the sandbox"
+                },
+                {
+                  "first_line": 335,
+                  "kind": "test",
+                  "last_line": 345,
+                  "name": "sandbox files can be given as key-value pairs"
+                },
+                {
+                  "first_line": 346,
+                  "kind": "test",
+                  "last_line": 357,
+                  "name": "kv-pairs override contents read from file system"
+                }
+              ],
+              "kind": "group",
+              "name": "read_env"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 360,
+                  "kind": "test",
+                  "last_line": 363,
+                  "name": "string spec"
+                },
+                {
+                  "first_line": 364,
+                  "kind": "test",
+                  "last_line": 369,
+                  "name": "unsupported extension"
+                },
+                {
+                  "first_line": 370,
+                  "kind": "test",
+                  "last_line": 376,
+                  "name": "unknown extension"
+                },
+                {
+                  "first_line": 377,
+                  "kind": "test",
+                  "last_line": 383,
+                  "name": "fails on invalid extension"
+                }
+              ],
+              "kind": "group",
+              "name": "extensions"
+            }
+          ],
+          "kind": "group",
+          "name": "read"
+        },
+        {
+          "children": [
+            {
+              "first_line": 388,
+              "kind": "test",
+              "last_line": 403,
+              "name": "block walking order"
+            }
+          ],
+          "kind": "group",
+          "name": "walk_block"
+        },
+        {
+          "children": [
+            {
+              "first_line": 407,
+              "kind": "test",
+              "last_line": 422,
+              "name": "inline walking order"
+            }
+          ],
+          "kind": "group",
+          "name": "walk_inline"
+        },
+        {
+          "children": [
+            {
+              "first_line": 426,
+              "kind": "test",
+              "last_line": 430,
+              "name": "string spec"
+            },
+            {
+              "first_line": 431,
+              "kind": "test",
+              "last_line": 436,
+              "name": "table format spec with extensions list"
+            },
+            {
+              "first_line": 437,
+              "kind": "test",
+              "last_line": 445,
+              "name": "table format spec with `enable`/`disable` diff"
+            },
+            {
+              "first_line": 446,
+              "kind": "test",
+              "last_line": 455,
+              "name": "table format spec with set-like diff"
+            },
+            {
+              "first_line": 456,
+              "kind": "test",
+              "last_line": 463,
+              "name": "fails on invalid extension"
+            }
+          ],
+          "kind": "group",
+          "name": "write"
+        },
+        {
+          "children": [
+            {
+              "first_line": 467,
+              "kind": "test",
+              "last_line": 474,
+              "name": "request_headers can be modified"
+            },
+            {
+              "first_line": 475,
+              "kind": "test",
+              "last_line": 480,
+              "name": "resource_path can be modified"
+            },
+            {
+              "first_line": 481,
+              "kind": "test",
+              "last_line": 486,
+              "name": "user_data_dir can be modified"
+            },
+            {
+              "first_line": 487,
+              "kind": "test",
+              "last_line": 492,
+              "name": "original value is restored afterwards"
+            },
+            {
+              "first_line": 493,
+              "kind": "test",
+              "last_line": 505,
+              "name": "unsupported options trigger an error"
+            }
+          ],
+          "kind": "group",
+          "name": "with_state"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "first_line": 510,
+                  "kind": "test",
+                  "last_line": 515,
+                  "name": "Strings are broken into words"
+                }
+              ],
+              "kind": "group",
+              "name": "Inlines"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 518,
+                  "kind": "test",
+                  "last_line": 525,
+                  "name": "Strings are broken into words and wrapped in Plain"
+                }
+              ],
+              "kind": "group",
+              "name": "Blocks"
+            }
+          ],
+          "kind": "group",
+          "name": "Marshal"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc.lua",
+        "sha256": "aac7c559585722162cecff4353b3a2d11b58d48d8484a7a9b40c4ea3cde2cc17"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-list.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.List",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 10,
+              "kind": "test",
+              "last_line": 15,
+              "name": "equivalent to List:new"
+            }
+          ],
+          "kind": "group",
+          "name": "List as function"
+        },
+        {
+          "children": [
+            {
+              "first_line": 19,
+              "kind": "test",
+              "last_line": 25,
+              "name": "changing the clone does not affect original"
+            },
+            {
+              "first_line": 26,
+              "kind": "test",
+              "last_line": 29,
+              "name": "result is a list"
+            }
+          ],
+          "kind": "group",
+          "name": "clone"
+        },
+        {
+          "children": [
+            {
+              "first_line": 33,
+              "kind": "test",
+              "last_line": 37,
+              "name": "extends list with other list"
+            }
+          ],
+          "kind": "group",
+          "name": "extend"
+        },
+        {
+          "children": [
+            {
+              "first_line": 41,
+              "kind": "test",
+              "last_line": 47,
+              "name": "keep elements for which property is truthy"
+            }
+          ],
+          "kind": "group",
+          "name": "filter"
+        },
+        {
+          "children": [
+            {
+              "first_line": 51,
+              "kind": "test",
+              "last_line": 56,
+              "name": "returns element and index if found"
+            },
+            {
+              "first_line": 57,
+              "kind": "test",
+              "last_line": 62,
+              "name": "respects start index"
+            },
+            {
+              "first_line": 63,
+              "kind": "test",
+              "last_line": 65,
+              "name": "returns nil if element not found"
+            }
+          ],
+          "kind": "group",
+          "name": "find"
+        },
+        {
+          "children": [
+            {
+              "first_line": 69,
+              "kind": "test",
+              "last_line": 74,
+              "name": "returns element and index if found"
+            },
+            {
+              "first_line": 75,
+              "kind": "test",
+              "last_line": 78,
+              "name": "returns nil if element not found"
+            }
+          ],
+          "kind": "group",
+          "name": "find_if"
+        },
+        {
+          "children": [
+            {
+              "first_line": 82,
+              "kind": "test",
+              "last_line": 88,
+              "name": "finds elements in list"
+            }
+          ],
+          "kind": "group",
+          "name": "includes"
+        },
+        {
+          "children": [
+            {
+              "first_line": 92,
+              "kind": "test",
+              "last_line": 96,
+              "name": "insert value at end of list."
+            },
+            {
+              "first_line": 97,
+              "kind": "test",
+              "last_line": 101,
+              "name": "insert value in the middle of list."
+            }
+          ],
+          "kind": "group",
+          "name": "insert"
+        },
+        {
+          "children": [
+            {
+              "first_line": 105,
+              "kind": "test",
+              "last_line": 109,
+              "name": "applies function to elements"
+            },
+            {
+              "first_line": 110,
+              "kind": "test",
+              "last_line": 114,
+              "name": "leaves original list unchanged"
+            }
+          ],
+          "kind": "group",
+          "name": "map"
+        },
+        {
+          "children": [
+            {
+              "first_line": 118,
+              "kind": "test",
+              "last_line": 124,
+              "name": "make table usable as list"
+            },
+            {
+              "first_line": 125,
+              "kind": "test",
+              "last_line": 127,
+              "name": "return empty list if no argument is given"
+            },
+            {
+              "first_line": 128,
+              "kind": "test",
+              "last_line": 131,
+              "name": "metatable of result is pandoc.List"
+            }
+          ],
+          "kind": "group",
+          "name": "new"
+        },
+        {
+          "children": [
+            {
+              "first_line": 135,
+              "kind": "test",
+              "last_line": 140,
+              "name": "remove value at end of list."
+            },
+            {
+              "first_line": 141,
+              "kind": "test",
+              "last_line": 145,
+              "name": "remove value at beginning of list."
+            }
+          ],
+          "kind": "group",
+          "name": "remove"
+        },
+        {
+          "children": [
+            {
+              "first_line": 149,
+              "kind": "test",
+              "last_line": 153,
+              "name": "sort numeric list"
+            },
+            {
+              "first_line": 154,
+              "kind": "test",
+              "last_line": 158,
+              "name": "reverse-sort numeric"
+            }
+          ],
+          "kind": "group",
+          "name": "sort"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-list.lua",
+        "sha256": "ba02798a8ecdd5299a31c4fba4dfc7c12a5a11ccda65a0ecd923b8592ae25480"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-format.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.format",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 11,
+              "kind": "test",
+              "last_line": 16,
+              "name": "docx"
+            }
+          ],
+          "kind": "group",
+          "name": "default_extensions"
+        },
+        {
+          "children": [
+            {
+              "first_line": 20,
+              "kind": "test",
+              "last_line": 32,
+              "name": "docx"
+            }
+          ],
+          "kind": "group",
+          "name": "all_extensions"
+        },
+        {
+          "children": [
+            {
+              "first_line": 36,
+              "kind": "test",
+              "last_line": 50,
+              "name": "org"
+            }
+          ],
+          "kind": "group",
+          "name": "extensions"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-format.lua",
+        "sha256": "d00ae4c43fab82d52a117066714365c5db11f3f6e21a8a80f76fa1f32129e7e6"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-image.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.image",
+      "tree": [
+        {
+          "children": {},
+          "kind": "group",
+          "name": "static fields"
+        },
+        {
+          "children": [
+            {
+              "first_line": 28,
+              "kind": "test",
+              "last_line": 36,
+              "name": "returns a table"
+            },
+            {
+              "first_line": 37,
+              "kind": "test",
+              "last_line": 42,
+              "name": "fails on faulty eps"
+            },
+            {
+              "first_line": 43,
+              "kind": "test",
+              "last_line": 48,
+              "name": "fails if input is not an image"
+            },
+            {
+              "first_line": 49,
+              "kind": "test",
+              "last_line": 57,
+              "name": "respects the dpi setting"
+            }
+          ],
+          "kind": "group",
+          "name": "size"
+        },
+        {
+          "children": [
+            {
+              "first_line": 61,
+              "kind": "test",
+              "last_line": 63,
+              "name": "SVG"
+            },
+            {
+              "first_line": 64,
+              "kind": "test",
+              "last_line": 66,
+              "name": "returns nil if input is not an image"
+            }
+          ],
+          "kind": "group",
+          "name": "format"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-image.lua",
+        "sha256": "e7da3c356537f490f71fc8e0d876a156e7732aedddcd75a6719b88d19cf55df3"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-json.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.json",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 15,
+              "kind": "test",
+              "last_line": 17,
+              "name": "null"
+            }
+          ],
+          "kind": "group",
+          "name": "static fields"
+        },
+        {
+          "children": [
+            {
+              "first_line": 21,
+              "kind": "test",
+              "last_line": 23,
+              "name": "string"
+            },
+            {
+              "first_line": 24,
+              "kind": "test",
+              "last_line": 26,
+              "name": "null"
+            },
+            {
+              "first_line": 27,
+              "kind": "test",
+              "last_line": 29,
+              "name": "number"
+            },
+            {
+              "first_line": 30,
+              "kind": "test",
+              "last_line": 32,
+              "name": "object"
+            },
+            {
+              "first_line": 33,
+              "kind": "test",
+              "last_line": 43,
+              "name": "object with metamethod"
+            },
+            {
+              "first_line": 44,
+              "kind": "test",
+              "last_line": 50,
+              "name": "pandoc.List"
+            },
+            {
+              "first_line": 51,
+              "kind": "test",
+              "last_line": 56,
+              "name": "Inline (Space)"
+            },
+            {
+              "first_line": 57,
+              "kind": "test",
+              "last_line": 62,
+              "name": "Block (HorizontalRule)"
+            },
+            {
+              "first_line": 63,
+              "kind": "test",
+              "last_line": 68,
+              "name": "Inlines list"
+            },
+            {
+              "first_line": 69,
+              "kind": "test",
+              "last_line": 74,
+              "name": "Pandoc"
+            },
+            {
+              "first_line": 75,
+              "kind": "test",
+              "last_line": 80,
+              "name": "Nested Inline"
+            }
+          ],
+          "kind": "group",
+          "name": "encode"
+        },
+        {
+          "children": [
+            {
+              "first_line": 84,
+              "kind": "test",
+              "last_line": 86,
+              "name": "string"
+            },
+            {
+              "first_line": 87,
+              "kind": "test",
+              "last_line": 89,
+              "name": "null"
+            },
+            {
+              "first_line": 90,
+              "kind": "test",
+              "last_line": 92,
+              "name": "number"
+            },
+            {
+              "first_line": 93,
+              "kind": "test",
+              "last_line": 95,
+              "name": "object"
+            },
+            {
+              "first_line": 96,
+              "kind": "test",
+              "last_line": 98,
+              "name": "list of strings"
+            },
+            {
+              "first_line": 99,
+              "kind": "test",
+              "last_line": 101,
+              "name": "Inline (Space)"
+            },
+            {
+              "first_line": 102,
+              "kind": "test",
+              "last_line": 104,
+              "name": "Inline (Str)"
+            },
+            {
+              "first_line": 105,
+              "kind": "test",
+              "last_line": 110,
+              "name": "disabled AST check"
+            },
+            {
+              "first_line": 111,
+              "kind": "test",
+              "last_line": 116,
+              "name": "Inlines list"
+            }
+          ],
+          "kind": "group",
+          "name": "decode"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-json.lua",
+        "sha256": "be359fee3a040a496c2ee1d68202da2e8d93678163ad30a80a0eb37034fe93aa"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-log.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.log",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 20,
+              "kind": "test",
+              "last_line": 22,
+              "name": "is a function"
+            },
+            {
+              "first_line": 23,
+              "kind": "test",
+              "last_line": 28,
+              "name": "reports a warning"
+            },
+            {
+              "first_line": 29,
+              "kind": "test",
+              "last_line": 34,
+              "name": "info includes the correct number"
+            }
+          ],
+          "kind": "group",
+          "name": "info"
+        },
+        {
+          "children": [
+            {
+              "first_line": 38,
+              "kind": "test",
+              "last_line": 40,
+              "name": "is a function"
+            },
+            {
+              "first_line": 41,
+              "kind": "test",
+              "last_line": 46,
+              "name": "reports a warning"
+            }
+          ],
+          "kind": "group",
+          "name": "warn"
+        },
+        {
+          "children": [
+            {
+              "first_line": 50,
+              "kind": "test",
+              "last_line": 60,
+              "name": "prevents info from being logged"
+            },
+            {
+              "first_line": 61,
+              "kind": "test",
+              "last_line": 65,
+              "name": "returns the messages raised by the called function"
+            },
+            {
+              "first_line": 67,
+              "kind": "test",
+              "last_line": 72,
+              "name": "returns function application results as additional return values"
+            }
+          ],
+          "kind": "group",
+          "name": "silence"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-log.lua",
+        "sha256": "1c3206bae1060f961497a531a7e806698493fbaa20db6c76e3be34615433255c"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-mediabag.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.mediabag",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 11,
+              "kind": "test",
+              "last_line": 22,
+              "name": "insert adds an item to the mediabag"
+            },
+            {
+              "first_line": 23,
+              "kind": "test",
+              "last_line": 34,
+              "name": "is idempotent"
+            }
+          ],
+          "kind": "group",
+          "name": "insert"
+        },
+        {
+          "children": [
+            {
+              "first_line": 38,
+              "kind": "test",
+              "last_line": 49,
+              "name": "removes an item"
+            }
+          ],
+          "kind": "group",
+          "name": "delete"
+        },
+        {
+          "children": [
+            {
+              "first_line": 53,
+              "kind": "test",
+              "last_line": 59,
+              "name": "populates media bag"
+            }
+          ],
+          "kind": "group",
+          "name": "fetch"
+        },
+        {
+          "children": [
+            {
+              "first_line": 63,
+              "kind": "test",
+              "last_line": 73,
+              "name": "populates media bag"
+            }
+          ],
+          "kind": "group",
+          "name": "fill"
+        },
+        {
+          "children": [
+            {
+              "first_line": 77,
+              "kind": "test",
+              "last_line": 94,
+              "name": "iterates over all items"
+            }
+          ],
+          "kind": "group",
+          "name": "items"
+        },
+        {
+          "children": [
+            {
+              "first_line": 98,
+              "kind": "test",
+              "last_line": 104,
+              "name": "returns MIME type and contents"
+            }
+          ],
+          "kind": "group",
+          "name": "lookup"
+        },
+        {
+          "children": [
+            {
+              "first_line": 108,
+              "kind": "test",
+              "last_line": 111,
+              "name": "returns a data URI"
+            },
+            {
+              "first_line": 112,
+              "kind": "test",
+              "last_line": 116,
+              "name": "URI specifies the given MIME type"
+            }
+          ],
+          "kind": "group",
+          "name": "make_data_uri"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-mediabag.lua",
+        "sha256": "ef67d94d0dd66ab463cf5d1f51dae99be1cf38939f5b40d06e7e3f128463e573"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-path.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.path",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 10,
+              "kind": "test",
+              "last_line": 12,
+              "name": "is string"
+            },
+            {
+              "first_line": 13,
+              "kind": "test",
+              "last_line": 15,
+              "name": "is slash or backslash"
+            }
+          ],
+          "kind": "group",
+          "name": "path separator"
+        },
+        {
+          "children": [
+            {
+              "first_line": 18,
+              "kind": "test",
+              "last_line": 20,
+              "name": "is string"
+            },
+            {
+              "first_line": 21,
+              "kind": "test",
+              "last_line": 23,
+              "name": "is colon or semicolon"
+            }
+          ],
+          "kind": "group",
+          "name": "search path separator"
+        },
+        {
+          "children": [
+            {
+              "first_line": 26,
+              "kind": "test",
+              "last_line": 42,
+              "name": "check function existence"
+            }
+          ],
+          "kind": "group",
+          "name": "module"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-path.lua",
+        "sha256": "84476b64b43053bfffc7d528d5377df134e6fd614767bda546dd9b09239a87d3"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-structure.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.structure",
+      "tree": [
+        {
+          "first_line": 11,
+          "kind": "test",
+          "last_line": 13,
+          "name": "is table"
+        },
+        {
+          "children": [
+            {
+              "first_line": 16,
+              "kind": "test",
+              "last_line": 26,
+              "name": "sanity check"
+            },
+            {
+              "first_line": 27,
+              "kind": "test",
+              "last_line": 36,
+              "name": "respects number_sections"
+            },
+            {
+              "first_line": 37,
+              "kind": "test",
+              "last_line": 52,
+              "name": "respects base_level"
+            }
+          ],
+          "kind": "group",
+          "name": "make_sections"
+        },
+        {
+          "children": [
+            {
+              "first_line": 56,
+              "kind": "test",
+              "last_line": 58,
+              "name": "is function"
+            },
+            {
+              "first_line": 59,
+              "kind": "test",
+              "last_line": 64,
+              "name": "returns a chunked doc"
+            }
+          ],
+          "kind": "group",
+          "name": "split_into_chunks"
+        },
+        {
+          "children": [
+            {
+              "first_line": 68,
+              "kind": "test",
+              "last_line": 70,
+              "name": "is function"
+            },
+            {
+              "first_line": 71,
+              "kind": "test",
+              "last_line": 80,
+              "name": "returns a bullet list"
+            },
+            {
+              "first_line": 81,
+              "kind": "test",
+              "last_line": 99,
+              "name": "returns a toc for a list of blocks"
+            },
+            {
+              "first_line": 100,
+              "kind": "test",
+              "last_line": 119,
+              "name": "returns a toc for a chunked doc"
+            },
+            {
+              "first_line": 120,
+              "kind": "test",
+              "last_line": 137,
+              "name": "respects toc-depth option"
+            }
+          ],
+          "kind": "group",
+          "name": "table_of_contents"
+        },
+        {
+          "children": [
+            {
+              "first_line": 140,
+              "kind": "test",
+              "last_line": 144,
+              "name": "returns an identifier based on the input"
+            },
+            {
+              "first_line": 145,
+              "kind": "test",
+              "last_line": 150,
+              "name": "respects the list of used IDs"
+            },
+            {
+              "first_line": 151,
+              "kind": "test",
+              "last_line": 155,
+              "name": "defaults to pandoc Markdown identifiers"
+            },
+            {
+              "first_line": 156,
+              "kind": "test",
+              "last_line": 161,
+              "name": "can generate gfm identifiers"
+            }
+          ],
+          "kind": "group",
+          "name": "unique_identifier"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-structure.lua",
+        "sha256": "c34237ab9a7f2f96f1231d15f586146209eadaa8f488986c39af321e0e677e42"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-template.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.template",
+      "tree": [
+        {
+          "first_line": 10,
+          "kind": "test",
+          "last_line": 12,
+          "name": "is table"
+        },
+        {
+          "children": [
+            {
+              "first_line": 14,
+              "kind": "test",
+              "last_line": 16,
+              "name": "is function"
+            },
+            {
+              "first_line": 17,
+              "kind": "test",
+              "last_line": 26,
+              "name": "returns a string for known format"
+            },
+            {
+              "first_line": 27,
+              "kind": "test",
+              "last_line": 32,
+              "name": "fails on unknown format"
+            }
+          ],
+          "kind": "group",
+          "name": "default"
+        },
+        {
+          "children": [
+            {
+              "first_line": 35,
+              "kind": "test",
+              "last_line": 37,
+              "name": "is function"
+            },
+            {
+              "first_line": 38,
+              "kind": "test",
+              "last_line": 43,
+              "name": "searches the template data directory"
+            },
+            {
+              "first_line": 44,
+              "kind": "test",
+              "last_line": 49,
+              "name": "fails on non-existent file"
+            }
+          ],
+          "kind": "group",
+          "name": "get"
+        },
+        {
+          "children": [
+            {
+              "first_line": 52,
+              "kind": "test",
+              "last_line": 54,
+              "name": "is function"
+            },
+            {
+              "first_line": 55,
+              "kind": "test",
+              "last_line": 60,
+              "name": "returns a Template"
+            },
+            {
+              "first_line": 61,
+              "kind": "test",
+              "last_line": 67,
+              "name": "returns a Template"
+            },
+            {
+              "first_line": 68,
+              "kind": "test",
+              "last_line": 73,
+              "name": "fails if template has non-existing partial"
+            },
+            {
+              "first_line": 74,
+              "kind": "test",
+              "last_line": 81,
+              "name": "works with default template that uses partials"
+            }
+          ],
+          "kind": "group",
+          "name": "compile"
+        },
+        {
+          "children": [
+            {
+              "first_line": 84,
+              "kind": "test",
+              "last_line": 86,
+              "name": "is function"
+            },
+            {
+              "first_line": 87,
+              "kind": "test",
+              "last_line": 93,
+              "name": "returns a Doc value"
+            },
+            {
+              "first_line": 94,
+              "kind": "test",
+              "last_line": 101,
+              "name": "applies the given context"
+            },
+            {
+              "first_line": 102,
+              "kind": "test",
+              "last_line": 108,
+              "name": "accepts string as template"
+            }
+          ],
+          "kind": "group",
+          "name": "apply"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-template.lua",
+        "sha256": "16cedd91ee9c09a8efe5e47e06bf7b7146b9fba672df5c656be5d220d4394100"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-text.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.text",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 20,
+              "kind": "test",
+              "last_line": 22,
+              "name": "is table"
+            },
+            {
+              "first_line": 23,
+              "kind": "test",
+              "last_line": 25,
+              "name": "can be required as \"text\""
+            }
+          ],
+          "kind": "group",
+          "name": "module"
+        },
+        {
+          "children": [
+            {
+              "first_line": 29,
+              "kind": "test",
+              "last_line": 31,
+              "name": "fromencoding"
+            },
+            {
+              "first_line": 32,
+              "kind": "test",
+              "last_line": 34,
+              "name": "len"
+            },
+            {
+              "first_line": 35,
+              "kind": "test",
+              "last_line": 37,
+              "name": "lower"
+            },
+            {
+              "first_line": 38,
+              "kind": "test",
+              "last_line": 40,
+              "name": "reverse"
+            },
+            {
+              "first_line": 41,
+              "kind": "test",
+              "last_line": 43,
+              "name": "sub"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 45,
+                  "kind": "test",
+                  "last_line": 47,
+                  "name": "is a function"
+                },
+                {
+                  "first_line": 48,
+                  "kind": "test",
+                  "last_line": 50,
+                  "name": "converts a string to Unicode subscript chars"
+                },
+                {
+                  "first_line": 51,
+                  "kind": "test",
+                  "last_line": 53,
+                  "name": "returns nil if the input contains unsupported chars"
+                }
+              ],
+              "kind": "group",
+              "name": "subscript"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 56,
+                  "kind": "test",
+                  "last_line": 58,
+                  "name": "is a function"
+                },
+                {
+                  "first_line": 59,
+                  "kind": "test",
+                  "last_line": 61,
+                  "name": "converts a string to Unicode superscript chars"
+                },
+                {
+                  "first_line": 62,
+                  "kind": "test",
+                  "last_line": 64,
+                  "name": "returns nil if the input contains unsupported chars"
+                }
+              ],
+              "kind": "group",
+              "name": "superscript"
+            },
+            {
+              "first_line": 66,
+              "kind": "test",
+              "last_line": 68,
+              "name": "toencoding"
+            },
+            {
+              "first_line": 69,
+              "kind": "test",
+              "last_line": 71,
+              "name": "upper"
+            }
+          ],
+          "kind": "group",
+          "name": "functions"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-text.lua",
+        "sha256": "c1cae71bb544199625997dc0347ac6efd753fabc0210adf0c9a3b55f9ed04bc3"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-types.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.types",
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "first_line": 14,
+                  "kind": "test",
+                  "last_line": 16,
+                  "name": "has type `table`"
+                },
+                {
+                  "first_line": 17,
+                  "kind": "test",
+                  "last_line": 19,
+                  "name": "accepts a single string"
+                },
+                {
+                  "first_line": 20,
+                  "kind": "test",
+                  "last_line": 24,
+                  "name": "accepts a list of strings"
+                },
+                {
+                  "first_line": 25,
+                  "kind": "test",
+                  "last_line": 29,
+                  "name": "accepts list of filepath/content tuples"
+                },
+                {
+                  "first_line": 30,
+                  "kind": "test",
+                  "last_line": 34,
+                  "name": "accepts lists of Source-like tables"
+                }
+              ],
+              "kind": "group",
+              "name": "constructor"
+            }
+          ],
+          "kind": "group",
+          "name": "Sources"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "first_line": 41,
+                  "kind": "test",
+                  "last_line": 43,
+                  "name": "has type `userdata`"
+                },
+                {
+                  "first_line": 44,
+                  "kind": "test",
+                  "last_line": 46,
+                  "name": "accepts list of integers"
+                },
+                {
+                  "first_line": 47,
+                  "kind": "test",
+                  "last_line": 49,
+                  "name": "accepts a single integer"
+                },
+                {
+                  "first_line": 50,
+                  "kind": "test",
+                  "last_line": 55,
+                  "name": "accepts version as string"
+                },
+                {
+                  "first_line": 56,
+                  "kind": "test",
+                  "last_line": 60,
+                  "name": "non-version string is rejected"
+                }
+              ],
+              "kind": "group",
+              "name": "constructor"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 64,
+                  "kind": "test",
+                  "last_line": 70,
+                  "name": "smaller (equal) than"
+                },
+                {
+                  "first_line": 71,
+                  "kind": "test",
+                  "last_line": 76,
+                  "name": "larger (equal) than"
+                },
+                {
+                  "first_line": 77,
+                  "kind": "test",
+                  "last_line": 79,
+                  "name": "equality"
+                },
+                {
+                  "first_line": 80,
+                  "kind": "test",
+                  "last_line": 83,
+                  "name": "second argument can be a version string"
+                }
+              ],
+              "kind": "group",
+              "name": "comparison"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 87,
+                  "kind": "test",
+                  "last_line": 90,
+                  "name": "converting from and to string is a noop"
+                }
+              ],
+              "kind": "group",
+              "name": "conversion to string"
+            },
+            {
+              "children": [
+                {
+                  "first_line": 94,
+                  "kind": "test",
+                  "last_line": 101,
+                  "name": "throws error if version is too old"
+                },
+                {
+                  "first_line": 102,
+                  "kind": "test",
+                  "last_line": 106,
+                  "name": "does nothing if expected version is older than actual"
+                },
+                {
+                  "first_line": 107,
+                  "kind": "test",
+                  "last_line": 111,
+                  "name": "does nothing if expected version equals to actual"
+                }
+              ],
+              "kind": "group",
+              "name": "convenience functions"
+            }
+          ],
+          "kind": "group",
+          "name": "Version"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-types.lua",
+        "sha256": "051e574a3994131f064097356763256a8ad302eac2f3e521e09158d0f623a291"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-utils.lua",
+      "suite_id": "pandoc/lua/Lua modules/pandoc.utils",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 12,
+              "kind": "test",
+              "last_line": 26,
+              "name": "default separator"
+            },
+            {
+              "first_line": 27,
+              "kind": "test",
+              "last_line": 41,
+              "name": "custom separator"
+            }
+          ],
+          "kind": "group",
+          "name": "blocks_to_inlines"
+        },
+        {
+          "children": [
+            {
+              "first_line": 45,
+              "kind": "test",
+              "last_line": 49,
+              "name": "compares Pandoc elements"
+            },
+            {
+              "first_line": 50,
+              "kind": "test",
+              "last_line": 57,
+              "name": "compares Block elements"
+            },
+            {
+              "first_line": 58,
+              "kind": "test",
+              "last_line": 65,
+              "name": "compares Inline elements"
+            },
+            {
+              "first_line": 66,
+              "kind": "test",
+              "last_line": 73,
+              "name": "compares Inline with Block elements"
+            },
+            {
+              "first_line": 74,
+              "kind": "test",
+              "last_line": 81,
+              "name": "compares Pandoc with Block elements"
+            }
+          ],
+          "kind": "group",
+          "name": "equals"
+        },
+        {
+          "children": [
+            {
+              "first_line": 85,
+              "kind": "test",
+              "last_line": 95,
+              "name": "sanity check"
+            }
+          ],
+          "kind": "group",
+          "name": "make_sections"
+        },
+        {
+          "children": [
+            {
+              "first_line": 99,
+              "kind": "test",
+              "last_line": 101,
+              "name": "09 Nov 1989"
+            },
+            {
+              "first_line": 102,
+              "kind": "test",
+              "last_line": 104,
+              "name": "12/31/2017"
+            }
+          ],
+          "kind": "group",
+          "name": "normalize_date"
+        },
+        {
+          "children": [
+            {
+              "first_line": 108,
+              "kind": "test",
+              "last_line": 129,
+              "name": "gets references from doc"
+            }
+          ],
+          "kind": "group",
+          "name": "references"
+        },
+        {
+          "children": [
+            {
+              "first_line": 133,
+              "kind": "test",
+              "last_line": 148,
+              "name": "runs a filter"
+            },
+            {
+              "first_line": 149,
+              "kind": "test",
+              "last_line": 160,
+              "name": "doesn't change the local environment by default"
+            },
+            {
+              "first_line": 161,
+              "kind": "test",
+              "last_line": 171,
+              "name": "accepts an environment in which the filter is executed"
+            }
+          ],
+          "kind": "group",
+          "name": "run_lua_filter"
+        },
+        {
+          "children": [
+            {
+              "first_line": 175,
+              "kind": "test",
+              "last_line": 178,
+              "name": "hashing"
+            }
+          ],
+          "kind": "group",
+          "name": "sha1"
+        },
+        {
+          "children": [
+            {
+              "first_line": 182,
+              "kind": "test",
+              "last_line": 191,
+              "name": "Inline"
+            },
+            {
+              "first_line": 192,
+              "kind": "test",
+              "last_line": 201,
+              "name": "Block"
+            },
+            {
+              "first_line": 202,
+              "kind": "test",
+              "last_line": 205,
+              "name": "boolean"
+            },
+            {
+              "first_line": 206,
+              "kind": "test",
+              "last_line": 209,
+              "name": "number"
+            },
+            {
+              "first_line": 210,
+              "kind": "test",
+              "last_line": 213,
+              "name": "Attr"
+            },
+            {
+              "first_line": 214,
+              "kind": "test",
+              "last_line": 217,
+              "name": "List"
+            },
+            {
+              "first_line": 218,
+              "kind": "test",
+              "last_line": 221,
+              "name": "Blocks"
+            },
+            {
+              "first_line": 222,
+              "kind": "test",
+              "last_line": 225,
+              "name": "Inlines"
+            },
+            {
+              "first_line": 226,
+              "kind": "test",
+              "last_line": 229,
+              "name": "Caption"
+            },
+            {
+              "first_line": 230,
+              "kind": "test",
+              "last_line": 233,
+              "name": "Cell"
+            },
+            {
+              "first_line": 234,
+              "kind": "test",
+              "last_line": 237,
+              "name": "TableFoot"
+            },
+            {
+              "first_line": 238,
+              "kind": "test",
+              "last_line": 241,
+              "name": "TableHead"
+            },
+            {
+              "first_line": 242,
+              "kind": "test",
+              "last_line": 249,
+              "name": "Meta"
+            }
+          ],
+          "kind": "group",
+          "name": "stringify"
+        },
+        {
+          "children": [
+            {
+              "first_line": 253,
+              "kind": "test",
+              "last_line": 255,
+              "name": "convertes number"
+            },
+            {
+              "first_line": 256,
+              "kind": "test",
+              "last_line": 258,
+              "name": "fails on non-convertible argument"
+            }
+          ],
+          "kind": "group",
+          "name": "to_roman_numeral"
+        },
+        {
+          "children": [
+            {
+              "first_line": 262,
+              "kind": "test",
+              "last_line": 264,
+              "name": "nil"
+            },
+            {
+              "first_line": 265,
+              "kind": "test",
+              "last_line": 268,
+              "name": "boolean"
+            },
+            {
+              "first_line": 269,
+              "kind": "test",
+              "last_line": 272,
+              "name": "number"
+            },
+            {
+              "first_line": 273,
+              "kind": "test",
+              "last_line": 276,
+              "name": "string"
+            },
+            {
+              "first_line": 277,
+              "kind": "test",
+              "last_line": 279,
+              "name": "plain table"
+            },
+            {
+              "first_line": 280,
+              "kind": "test",
+              "last_line": 282,
+              "name": "List"
+            },
+            {
+              "first_line": 283,
+              "kind": "test",
+              "last_line": 286,
+              "name": "Inline"
+            },
+            {
+              "first_line": 287,
+              "kind": "test",
+              "last_line": 290,
+              "name": "Inlines"
+            },
+            {
+              "first_line": 291,
+              "kind": "test",
+              "last_line": 294,
+              "name": "Blocks"
+            },
+            {
+              "first_line": 295,
+              "kind": "test",
+              "last_line": 298,
+              "name": "Inlines"
+            }
+          ],
+          "kind": "group",
+          "name": "type"
+        },
+        {
+          "children": [
+            {
+              "first_line": 302,
+              "kind": "test",
+              "last_line": 331,
+              "name": "convertes Table"
+            },
+            {
+              "first_line": 332,
+              "kind": "test",
+              "last_line": 334,
+              "name": "fails on para"
+            }
+          ],
+          "kind": "group",
+          "name": "to_simple_table"
+        },
+        {
+          "children": [
+            {
+              "first_line": 337,
+              "kind": "test",
+              "last_line": 364,
+              "name": "converts SimpleTable to Table"
+            },
+            {
+              "first_line": 365,
+              "kind": "test",
+              "last_line": 379,
+              "name": "empty caption"
+            },
+            {
+              "first_line": 380,
+              "kind": "test",
+              "last_line": 391,
+              "name": "empty body"
+            }
+          ],
+          "kind": "group",
+          "name": "from_simple_table"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/pandoc-utils.lua",
+        "sha256": "560f21daf61d592f5201158320a8c6fa50ab62ddb3ffde7ce9536127d62f895b"
+      }
+    },
+    {
+      "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/globals.lua",
+      "suite_id": "pandoc/lua/Lua modules/globals",
+      "tree": [
+        {
+          "children": [
+            {
+              "first_line": 11,
+              "kind": "test",
+              "last_line": 13,
+              "name": "chunk_template"
+            },
+            {
+              "first_line": 14,
+              "kind": "test",
+              "last_line": 16,
+              "name": "cite_method"
+            },
+            {
+              "first_line": 17,
+              "kind": "test",
+              "last_line": 19,
+              "name": "columns"
+            },
+            {
+              "first_line": 20,
+              "kind": "test",
+              "last_line": 22,
+              "name": "dpi"
+            },
+            {
+              "first_line": 23,
+              "kind": "test",
+              "last_line": 25,
+              "name": "email_obfuscation"
+            },
+            {
+              "first_line": 26,
+              "kind": "test",
+              "last_line": 28,
+              "name": "split_level"
+            },
+            {
+              "first_line": 29,
+              "kind": "test",
+              "last_line": 31,
+              "name": "epub_fonts"
+            },
+            {
+              "first_line": 32,
+              "kind": "test",
+              "last_line": 34,
+              "name": "epub_metadata"
+            },
+            {
+              "first_line": 35,
+              "kind": "test",
+              "last_line": 37,
+              "name": "epub_subdirectory"
+            },
+            {
+              "first_line": 38,
+              "kind": "test",
+              "last_line": 43,
+              "name": "extensions"
+            },
+            {
+              "first_line": 44,
+              "kind": "test",
+              "last_line": 46,
+              "name": "highlight_method"
+            },
+            {
+              "first_line": 47,
+              "kind": "test",
+              "last_line": 49,
+              "name": "html_math_method"
+            },
+            {
+              "first_line": 50,
+              "kind": "test",
+              "last_line": 52,
+              "name": "html_q_tags"
+            },
+            {
+              "first_line": 53,
+              "kind": "test",
+              "last_line": 55,
+              "name": "identifier_prefix"
+            },
+            {
+              "first_line": 56,
+              "kind": "test",
+              "last_line": 58,
+              "name": "incremental"
+            },
+            {
+              "first_line": 59,
+              "kind": "test",
+              "last_line": 64,
+              "name": "number_offset"
+            },
+            {
+              "first_line": 65,
+              "kind": "test",
+              "last_line": 67,
+              "name": "number_sections"
+            },
+            {
+              "first_line": 68,
+              "kind": "test",
+              "last_line": 70,
+              "name": "prefer_ascii"
+            },
+            {
+              "first_line": 71,
+              "kind": "test",
+              "last_line": 73,
+              "name": "reference_doc"
+            },
+            {
+              "first_line": 74,
+              "kind": "test",
+              "last_line": 76,
+              "name": "reference_links"
+            },
+            {
+              "first_line": 77,
+              "kind": "test",
+              "last_line": 79,
+              "name": "reference_location"
+            },
+            {
+              "first_line": 80,
+              "kind": "test",
+              "last_line": 82,
+              "name": "section_divs"
+            },
+            {
+              "first_line": 83,
+              "kind": "test",
+              "last_line": 85,
+              "name": "setext_headers"
+            },
+            {
+              "first_line": 86,
+              "kind": "test",
+              "last_line": 88,
+              "name": "slide_level"
+            },
+            {
+              "first_line": 89,
+              "kind": "test",
+              "last_line": 91,
+              "name": "tab_stop"
+            },
+            {
+              "first_line": 92,
+              "kind": "test",
+              "last_line": 94,
+              "name": "table_of_contents"
+            },
+            {
+              "first_line": 95,
+              "kind": "test",
+              "last_line": 97,
+              "name": "toc_depth"
+            },
+            {
+              "first_line": 98,
+              "kind": "test",
+              "last_line": 100,
+              "name": "top_level_division"
+            },
+            {
+              "first_line": 101,
+              "kind": "test",
+              "last_line": 103,
+              "name": "variables"
+            },
+            {
+              "first_line": 104,
+              "kind": "test",
+              "last_line": 106,
+              "name": "wrap_text"
+            }
+          ],
+          "kind": "group",
+          "name": "PANDOC_WRITER_OPTIONS"
+        },
+        {
+          "children": [
+            {
+              "first_line": 110,
+              "kind": "test",
+              "last_line": 112,
+              "name": "is a table object"
+            },
+            {
+              "first_line": 113,
+              "kind": "test",
+              "last_line": 115,
+              "name": "has property \"input_files\""
+            },
+            {
+              "first_line": 116,
+              "kind": "test",
+              "last_line": 121,
+              "name": "has optional property \"output_file\""
+            },
+            {
+              "first_line": 122,
+              "kind": "test",
+              "last_line": 124,
+              "name": "has property \"log\""
+            },
+            {
+              "first_line": 125,
+              "kind": "test",
+              "last_line": 127,
+              "name": "has property \"request_headers\""
+            },
+            {
+              "first_line": 128,
+              "kind": "test",
+              "last_line": 130,
+              "name": "has property \"resource_path\""
+            },
+            {
+              "first_line": 131,
+              "kind": "test",
+              "last_line": 135,
+              "name": "has optional property \"source_url\""
+            },
+            {
+              "first_line": 136,
+              "kind": "test",
+              "last_line": 138,
+              "name": "has property \"trace\""
+            },
+            {
+              "first_line": 139,
+              "kind": "test",
+              "last_line": 143,
+              "name": "has optional property \"user_data_dir\""
+            },
+            {
+              "first_line": 144,
+              "kind": "test",
+              "last_line": 146,
+              "name": "has property \"verbosity\""
+            },
+            {
+              "first_line": 147,
+              "kind": "test",
+              "last_line": 152,
+              "name": "can be deleted without breaking PandocLua monad functions"
+            }
+          ],
+          "kind": "group",
+          "name": "PANDOC_STATE"
+        }
+      ],
+      "source": {
+        "path": "upstream/pandoc/pandoc-lua-engine/test/lua/module/globals.lua",
+        "sha256": "5c3cc18417f49b53681e3569ea39958a7d6d4eb50a0a7e74e6da9b591b1a2e73"
+      }
+    }
+  ],
+  "observer": {
+    "path": "tools/capture-test-inventory-lua.lua",
+    "sha256": "0bc3fd3672bfebfc5a3a600e86dd2341ceebab773ed9b97bf90389e2c6122d26"
+  },
+  "scope": "Original script registration execution with tasty constructors replaced; NO test callback/assertion or conversion is executed. Finite current registration environment only."
+}

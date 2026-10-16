@@ -13332,3 +13332,38 @@ shrinker and Unicode acceptance, original-generator table/Figure/JSON property
 replays, derived Read/ordering dictionaries and every public semantic export/
 instance still require evidence. Local:611, full Pandoc/tests and subsequent
 calibre stages remain open.
+
+
+## Haskell registration census and nested Lua trees (2026-10-16)
+
+The next inventory checkpoint preserves **60 reachable Haskell module root
+tests definitions, 62 module references and 2,391 registration sites/templates**.
+Sites are not expanded runtime leaves: typed helpers, named-list reuse, map/
+comprehension multiplicities and conditional behavior retain explicit semantic
+expansion gaps. Root definitions, source spans/hashes, aliases and shared helper
+comparison semantics are retained. Lexical handling excludes nested comments,
+strings, characters and quasiquotes; CPP detection records branches without
+selecting them. No CPP branch occurs in these reachable sources at this pin.
+
+A separate original Pandoc Lua registration observer replaces only tasty
+constructors and never invokes assertion callbacks. It captures **309 nested
+registrations plus one empty group across fourteen original script suites**,
+with callback source-line provenance. All remain unmapped. The finite captured
+environment does not establish every dynamic/platform registration variant or
+execute/translate the underlying test assertions.
+
+Independent review checked source-census limits, comparison contracts, the
+Lua observer, source spans and historical evidence provenance. Eight census
+regressions, eight extraction regressions, independent replay of all fourteen
+Lua trees, canonical verification, sixteen negative drift scenarios and the
+56 original JSON fixture checks pass. Historical local:611 **7,375-check**
+evidence reads exact blobs from commit
+`cdf2b84906e91b1baad740738564855677966acb` and its pinned submodules, independently
+of current checkout work; it does not rewrite older 6,185-check history.
+
+Full helper/list/comprehension leaf expansion, original expected-value contracts,
+all executable mappings, dependency embedded/non-Cabal suites, Lua/platform
+variants, calibre runtime registry/factory reconciliation and directional format
+matrices remain required. Newer generator/field/point evidence still needs its
+own machine inventory records. This checkpoint leaves local:622 and the full
+Pandoc/calibre objective open.
