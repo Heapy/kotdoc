@@ -12630,3 +12630,88 @@ validation and the remaining cryptographic operations/tests are still pending.
 The existing native TLS, encoding/resource, platform oracle and stress gaps
 remain open. Full Pandoc/all tests, calibre MOBI/all tests and all additional
 formats absent from Pandoc/all tests remain the required end state.
+
+
+## Modular arithmetic and fixed-width Montgomery core (2026-10-16)
+
+Added all eight public operations of crypton 2.0.1
+`Crypto.Number.ModArithmetic`: expSafe/expFast, inverse/inverseSafe,
+inverseCoprimes/inverseFermat, jacobi and squareRoot, with the two original
+CoprimesAssertionError/ModulusAssertionError types and deferred Maybe payloads.
+The pinned GHC 9.12.2/GMP behavior is observed independently, including signed
+moduli, negative exponents, noninvertible bases, zero/one moduli and the zero
+inverse's ignored modulus. Square roots retain the source's selected result,
+all residue-class dispatches and Tonelli-Shanks constructor/payload boundary.
+The variable-time expFast path uses BigInteger arithmetic; it is not used as a
+replacement for the secure positive-exponent/odd-modulus path.
+
+Translated `cbits/crypton_bignum.h` and `crypton_powm.c` into a Kotlin core of
+fixed-width unsigned 64-bit limbs. It includes carry/borrow arithmetic, shift,
+masked selection/equality, Newton inversion of the low modulus word,
+add-multiply, Montgomery reduction/multiplication/specialized squaring, R-squared
+construction and exact-width big-endian import/export. Exponentiation retains
+four squarings and one multiply per four-bit window, visits every table entry,
+and uses masks instead of exponent-derived table indices. Loop bounds depend
+on public widths. Compiled backend bytecode has no BigInteger reference.
+
+The public wrapper reduces the base, rounds the exponent buffer to whole
+64-bit words (zero needs no words in the pinned GMP configuration), wipes
+serialization temporaries and the exponent buffer, and the core wipes its
+workspace. Failure of that specific workspace allocation maps to the original
+C failure status and ordinary exponentiation fallback. The reference redirects
+only calloc for controlled failure observations; neither process is actually
+forced out of memory. Kotlin tests additionally prove fallback and exponent
+wiping after the controlled failure. Other allocation errors are not broadly
+caught. Real host memory-pressure behavior and sizes beyond JVM array capacity
+remain unverified.
+
+The original vendor NumberSpec/Imports/Utils run unchanged under Hspec 2.11.18:
+all **nine modular arithmetic examples** pass (four exponentiation, four
+inverse, one squareRoot; seed 1729, QuickCheck max-success 200). The broader
+NumberSpec basic-number, serialization, generator and primality examples are
+not counted as ported. A mechanically checked copy changes only the module
+export and appends the exact original inverse-corner literal, allowing reuse
+of every corner and the actual QAInteger/TestDRG/Int0_2901 generators. There
+are **810 concrete original-example observations**, plus **1,338 individual
+results** on the same generated large values/corners, so equality and
+round-trip properties cannot hide an incorrect selected root or numeric result.
+
+The C observer exercises all thirteen fixed-width helpers, records the return
+carry/borrow and complete output/destroyed scratch buffers, and checks supported
+output aliasing. It covers one through thirty-three limbs, unsigned overflow,
+leading zero widths and partial import failure. A mechanically instrumented copy
+of the original exponentiation records multiplication/square/window counts,
+every table read's ordered relative-address hash and workspace zeroing. All
+256 one-byte exponents are captured at three moduli; the access schedule remains
+independent of their bit values. The source arithmetic and masking bodies are
+preserved. These are algorithm/access-schedule observations, not proof of
+machine-code timing under every JVM/JIT/GC/hardware configuration. That runtime
+security audit remains pending. Composite Tonelli searches that can fail to
+terminate retain finite constructor/error observations without invented finite
+payload answers.
+
+The corpus has **16,530 independent observations**, **450 source hashes** and
+semantic SHA-256
+**09f43629695d1dbe898fe7a533ff51e8a7357ee8f65be84d5c471035f3d7cf67**.
+Generation, complete independent C/GMP replay and all **181 source/fixture
+verifiers** pass; after the allocation additions, the affected verifier is
+rechecked. The initial combined regression passes **641,285 tests across
+twenty-four suites**. After adding exact generated values and allocation cases,
+the affected suite passes **16,532 tests**, including two direct wrapper checks.
+Together with the **626,098 unchanged regression cases** this verifies
+**642,630 cases across twenty-four suites**, with exact XML counts and no
+failures/errors/skips. Windows now requires **669,524 tests**. The preceding
+3764c589 Windows gate passes its 652,992 tests; its Linux job is still live.
+The earlier c00cb01d Linux and Windows jobs now both pass.
+
+The installed CLI native/JSON/native smoke passes. Standalone and installed core
+JARs are byte-identical, with **3,429 classes** and **90 byte-exact notices**.
+All **560 baseline assets** are byte-exact and no retained baseline class is
+missing. Production does not invoke an upstream executable or C cryptography
+library for these operations.
+
+General ECC point/scalar arithmetic, signature/trust/chain validation, remaining
+number/generator/primality/serialization and cryptographic operations/tests,
+native TLS integration and the previously recorded fidelity/platform/stress
+gaps remain work. Full Pandoc/all tests, calibre MOBI/all tests and every
+additional format absent from Pandoc/all tests remain the required end state.
