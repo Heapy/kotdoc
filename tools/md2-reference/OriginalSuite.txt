@@ -1,0 +1,12 @@
+
+KATs
+  MD2
+    1 [✔]
+    2 [✔]
+    3 [✔]
+Chunking
+  MD2 [✔]
+    +++ OK, passed 100 tests.
+
+Finished in <elapsed> seconds
+4 examples, 0 failures

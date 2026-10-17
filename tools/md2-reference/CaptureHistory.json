@@ -1,0 +1,12 @@
+{
+  "firstCaptureSha256": "5b57f912004ca8a68f28e013af26fdfa43fcecf492a05314b23076e7fe0cd42b",
+  "savedFirstCapture": "/tmp/kotdoc-md2-first-haskell-capture.json",
+  "finding": "Mutable requests omitted algorithm; dev dispatcher selected SHA256 default. New canonical requests explicitly select MD2. No native expectation was replaced by Kotlin output.",
+  "repositorySnapshot": "tools/md2-reference/history/first-mixed-dispatch.json.gz",
+  "mixedRows": 484,
+  "wrongMutableRows": 192,
+  "correctedInput": "algorithm=MD2 in every generated current request",
+  "sharedCafHistory": "history/borrow-shared-caf.json.gz",
+  "sharedCafSource": "history/Md2BorrowSharedCafReference.hs",
+  "sharedCafLimitation": "Intentional unsafe mutation of original pure/debug context can cross GHC-O2 CAF references; no universal physical-identity/fresh-init equivalence claim"
+}

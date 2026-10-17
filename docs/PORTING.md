@@ -15557,3 +15557,42 @@ The5 saved XML suites and immutable snapshot are used independently of later
 AsciiDoc/MD2 work. General Typeable, remaining instance/member expansion, count
 contracts, Data.Version, JSON filter/supplement, full611/Pandoc623 and calibre
 624–626 remain OPEN. No duplicate shared Gradle was run for this review.
+
+### Portable MD2 and public Hash/IO checkpoint
+
+Accepted all4 pinned MD2 C definitions (3 exports/private chunk),256 substitution
+bytes and17 padding entries, plus public Hash/Hash.IO/Digest/ByteArrayAccess.
+MD2 has no Prefix instance. Source checksum-input alias, uint64 counter wrapping,
+mutable finalize/reset and immutable nonempty-copy/empty-alias behavior are
+preserved within documented valid buffer/alias domains.
+
+Independent review read the complete C and translated modules/public source
+contracts. Own replay passes800 raw observations,33 full round/checksum traces,
+80 virtual counter controls at O0/O2/O3;484 actual Haskell observations,3 literals,
+8 demand,10 borrowed-storage and180 access observations. Original HashSpec4
+examples (3 literal vectors/1 property×100) are independently executed, distinct
+from synthetic cases. Own immutable-JAR probes128MiB/256KiB pass literals,
+copy/alias, tail-preserving reset, deferred access shared failure and ignored
+witness. All65 frozen hashes/70 pins,1769 actual XML cases with zero issues,
+10 packaged classes/115 exact notice payloads and4740 unchanged AsciiDoc baseline
+classes were checked. Author79819 installDist identity is retained under
+/tmp/kotdoc-md2-final-results; snapshot JAR SHA is
+d3a44afd281b5dfbaa2d2d74cb063592f4b7c06409055575da6625fb64de6b26.
+Own checks also bind437 unchanged upstream files,7 visibility-only Cabal exports,
+and all4 Haskell executables/4 native libraries. No shared Gradle was repeated.
+
+Historical484 mixed-dispatch observations retain192 mutable SHA256 rows from the
+omitted development algorithm field. Corrected requests explicitly choose MD2
+and were independently recaptured/replayed; history is excluded from current
+MD2 counts. Ten unsafe debug-pointer mutations of a GHC-O2 shared init CAF are
+also retained and replayed separately. Controlled current borrow cases first
+make a nonempty copy; no universal fresh-init/global CAF physical identity is
+claimed. Expectations and both failed/limited histories remain intact.
+
+C context56 versus public96 leaves40 unspecified native tail bytes; raw tests
+initialize those bytes and reset preserves them. Borrow pointers require valid
+in-scope storage; partial memcpy overlaps/invalid bounds/pointer retention,
+actual32-bit or big-endian heaps, general bottom/async, physical erasure and JVM
+constant-time equivalence are not proved. Virtual counters are not actual2GiB
+reads. RIPEMD160, full PKCS15/PSS/RSA.Types, Digest Data, SystemDRG/signatures,
+trust/chain and remaining613/Pandoc623/calibre624–626 remain OPEN.

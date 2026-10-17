@@ -1,0 +1,48 @@
+{
+  "coreFunctions": [
+    "crypton_md2_init",
+    "crypton_md2_update",
+    "crypton_md2_finalize",
+    "md2_do_chunk"
+  ],
+  "exports": 3,
+  "sboxBytes": 256,
+  "paddingEntries": 17,
+  "logicalPaddingBytes": 136,
+  "Cstruct": 56,
+  "publicContext": 96,
+  "uninitializedPublicTail": 40,
+  "sourcePrefixInstance": false,
+  "originalHashSpec": {
+    "examples": 4,
+    "literals": 3,
+    "chunkProperties": 1,
+    "trials": 100
+  },
+  "currentCorpora": {
+    "raw": 800,
+    "trace": 33,
+    "counter": 80,
+    "haskell": 484,
+    "literal": 3,
+    "demand": 8,
+    "borrow": 10,
+    "access": 180
+  },
+  "isolatedAssertions": 1699,
+  "history": {
+    "mixedDispatchRows": 484,
+    "wrongMutableSha256": 192,
+    "sharedCafBorrowRows": 10,
+    "notCurrentCount": true
+  },
+  "remaining": [
+    "RIPEMD160",
+    "all14 concrete PKCS15 adapters/functions",
+    "PSS",
+    "shared Digest Data",
+    "fullRSA.Types",
+    "SystemDRG",
+    "other signatures/trustchain/rest613/Pandoc/calibre"
+  ]
+}

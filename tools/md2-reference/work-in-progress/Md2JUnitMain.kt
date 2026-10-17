@@ -1,0 +1,2 @@
+package io.heapy.kotdoc.crypto
+object Md2JUnitMain{@JvmStatic fun main(args:Array<String>){val t=CryptoMd2Test();var n=0;for(s in listOf(t.originalNative(),t.originalTraces(),t.originalCounters(),t.originalHaskell(),t.originalLiterals(),t.originalDemand(),t.originalChunkProperty(),t.originalBorrow(),t.originalAccess()))s.use{it.forEach{d->try{d.executable.execute();n++}catch(e:Throwable){throw AssertionError(d.displayName,e)}}};t.ownershipAndSharedResults();println("PASS ${n+1} isolated assertions; pins separate")}}

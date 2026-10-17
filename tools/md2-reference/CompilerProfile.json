@@ -1,0 +1,80 @@
+{
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "machine": "arm64",
+  "byteorder": "little",
+  "Coptimizations": [
+    "O0",
+    "O2",
+    "O3"
+  ],
+  "traceOptimization": "O2",
+  "haskell": "GHC9.12.2-O2; same pinned crypton2.0.1 visibility-only package overlay",
+  "haskellExecutables": {
+    "/tmp/kotdoc-md2-haskell-oracle": "3c4a1e77c2d4cd8564cd680c87e5cedfcd28f946f24c90850ff0f2ac42ad2738",
+    "/tmp/kotdoc-md2-borrow-oracle": "61c6608b478f02174c7189d3ac7c4dc4baa05116a23b930bc7a5d757a7820814",
+    "/tmp/kotdoc-md2-access-oracle": "0dbeee663eeee1cc90fe4ac3614a2450f226b8713123b64279644b2e8e103c8a",
+    "/tmp/kotdoc-md2-caf-oracle": "0ac93d24048348340f5bed38de0b8f8ebf55a12eaac2259224ef84e01418a7e7"
+  },
+  "nativeLibraries": {
+    "/tmp/kotdoc-md2-oracle.dylib": "e5e3d7c81b9a2b276fffa30ed670ce65bb3d49831273e622cbd117235cbb5c79",
+    "/tmp/kotdoc-md2-oracle-0.dylib": "6cc6d3db40afea60b4cdc85d38d6d5bf792b54985c2daf85724a6fe76075003f",
+    "/tmp/kotdoc-md2-oracle-1.dylib": "2734153992fe8ba0abb2cbf59284be585c467e57217afdd52c005bfd937954be",
+    "/tmp/kotdoc-md2-trace.dylib": "e5ae43cf51b0af37772971ab5655320d89d44f535af041f62bb7917b0a1731d8"
+  },
+  "haskellPackageProfile": {
+    "ghc": "9.12.2",
+    "optimization": "-O2",
+    "packages": [
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Actual arm64 little-endian ABI only; no actual 32-bit or big-endian execution",
+    "Virtual counter observations execute no giant buffer reads",
+    "GHC-O2 shared-CAF unsafe debug-pointer mutation retained separately from controlled borrowed-copy observations"
+  ]
+}
