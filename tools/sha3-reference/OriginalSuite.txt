@@ -1,0 +1,75 @@
+
+KATs
+  Keccak-224
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  Keccak-256
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  Keccak-384
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  Keccak-512
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA3-224
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA3-256
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA3-384
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA3-512
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHAKE128_4096
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHAKE256_4096
+    1 [✔]
+    2 [✔]
+    3 [✔]
+Chunking
+  Keccak-224 [✔]
+    +++ OK, passed 100 tests.
+  Keccak-256 [✔]
+    +++ OK, passed 100 tests.
+  Keccak-384 [✔]
+    +++ OK, passed 100 tests.
+  Keccak-512 [✔]
+    +++ OK, passed 100 tests.
+  SHA3-224 [✔]
+    +++ OK, passed 100 tests.
+  SHA3-256 [✔]
+    +++ OK, passed 100 tests.
+  SHA3-384 [✔]
+    +++ OK, passed 100 tests.
+  SHA3-512 [✔]
+    +++ OK, passed 100 tests.
+  SHAKE128_4096 [✔]
+    +++ OK, passed 100 tests.
+  SHAKE256_4096 [✔]
+    +++ OK, passed 100 tests.
+Truncating
+  1 [✔]
+  2 [✔]
+  3 [✔]
+  4 [✔]
+  5 [✔]
+  6 [✔]
+  7 [✔]
+  8 [✔]
+
+Finished in <elapsed> seconds
+48 examples, 0 failures

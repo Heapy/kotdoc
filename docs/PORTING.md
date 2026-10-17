@@ -14430,3 +14430,32 @@ outside the source contract. Cleaner erasure is best effort; JVM constant timing
 physical erasure, general GHC demand equivalence and real32-bit ABI are not
 claimed. Public Ed448/SHAKE/signatures and remaining number/primality/trust/
 chain work keep local:613 and the complete Pandoc/calibre goal OPEN.
+
+
+### Portable SHA3/Keccak/SHAKE dependency checkpoint
+
+All11 portable crypton_sha3.c definitions and six Decaf SHAKE wrappers are
+translated, including all24 round/rotation/permutation constants. Ten selected
+algorithms (four SHA3,four Keccak,two SHAKE) retain independent original KATs,
+chunking, bit truncation and cSHAKE finalization observations. Own full replay
+passed13256 rows/36 pins, including1036850 ordered absorb/round events over
+41474 permutations; actual Haskell replay passed5160 bit/metadata observations
+and the original48-example partition (30 KAT,ten chunk,eight truncation).
+The dev Haskell overlay verifies438 unchanged source/test files and changes
+only two hidden-module visibility declarations; optimized Haskell and portable
+C are separate reference backends, not an ARM assembly implementation claim.
+
+Saved Gradle17317 XML has13293 actual cases with zero failures/errors/skips.
+Own37 frozen hashes,four packaged classes and all three exact notices pass;
+jar/installDist passed. State/index, empty calls, stale buffers, repeated
+finalization, alias domains, reset/destroy and low-bit final-byte truncation
+retain source behavior without adding phase validation.
+
+Nonstandard rates not divisible by eight have explicit C alignment-UB rows,
+retained only as compiler observations. Standard rates and unaligned trampoline
+paths avoid that boundary. Twenty virtual header dispatch observations above
+4GiB prove chunk planning, not resident huge-buffer hashing; JVM ByteArray
+spans remain Int-sized. Little-endian arm64 context ABI, real32/big-endian,
+physical erasure,timing and general Haskell bottom/heap behavior are not proven.
+This is an internal dependency, not the full generic Crypto.Hash API. Ed448,
+signatures,other hashes and remaining local:613/Pandoc/calibre scope stay OPEN.

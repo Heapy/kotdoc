@@ -1,0 +1,22 @@
+{
+  "compiler": [
+    "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "Target: arm64-apple-darwin25.6.0",
+    "Thread model: posix",
+    "InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+  ],
+  "machine": "arm64",
+  "system": "Darwin",
+  "flags": [
+    "-O2",
+    "-std=c99",
+    "-fPIC",
+    "-shared"
+  ],
+  "ordinary": "unchanged portable C; no WITH_SHA3_ARMV8",
+  "observed": "same portable backend with mechanically verified callbacks",
+  "haskell": "GHC9.12.2 optimized original platform backend; Cabal visibility overlay only",
+  "byteOrder": "little",
+  "wordBits": 64,
+  "actual32bit": false
+}

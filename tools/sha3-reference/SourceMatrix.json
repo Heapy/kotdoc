@@ -1,0 +1,112 @@
+{
+  "portableDefinitions": [
+    {
+      "name": "sha3_do_chunk",
+      "source": "cbits/crypton_sha3.c",
+      "line": 105
+    },
+    {
+      "name": "crypton_sha3_init",
+      "source": "cbits/crypton_sha3.c",
+      "line": 167
+    },
+    {
+      "name": "crypton_sha3_update",
+      "source": "cbits/crypton_sha3.c",
+      "line": 176
+    },
+    {
+      "name": "crypton_sha3_finalize_with_pad_byte",
+      "source": "cbits/crypton_sha3.c",
+      "line": 231
+    },
+    {
+      "name": "crypton_sha3_output",
+      "source": "cbits/crypton_sha3.c",
+      "line": 253
+    },
+    {
+      "name": "crypton_sha3_finalize",
+      "source": "cbits/crypton_sha3.c",
+      "line": 293
+    },
+    {
+      "name": "crypton_sha3_finalize_shake",
+      "source": "cbits/crypton_sha3.c",
+      "line": 300
+    },
+    {
+      "name": "crypton_sha3_finalize_cshake",
+      "source": "cbits/crypton_sha3.c",
+      "line": 306
+    },
+    {
+      "name": "crypton_keccak_init",
+      "source": "cbits/crypton_sha3.c",
+      "line": 311
+    },
+    {
+      "name": "crypton_keccak_update",
+      "source": "cbits/crypton_sha3.c",
+      "line": 316
+    },
+    {
+      "name": "crypton_keccak_finalize",
+      "source": "cbits/crypton_sha3.c",
+      "line": 321
+    },
+    {
+      "name": "crypton_decaf_shake256_init",
+      "source": "cbits/decaf/include/decaf/shake.h",
+      "line": 40
+    },
+    {
+      "name": "crypton_decaf_shake256_update",
+      "source": "cbits/decaf/include/decaf/shake.h",
+      "line": 45
+    },
+    {
+      "name": "crypton_decaf_shake256_output",
+      "source": "cbits/decaf/include/decaf/shake.h",
+      "line": 58
+    },
+    {
+      "name": "crypton_decaf_shake256_final",
+      "source": "cbits/decaf/include/decaf/shake.h",
+      "line": 70
+    },
+    {
+      "name": "crypton_decaf_shake256_destroy",
+      "source": "cbits/decaf/include/decaf/shake.h",
+      "line": 78
+    },
+    {
+      "name": "crypton_decaf_shake256_hash",
+      "source": "cbits/decaf/include/decaf/shake.h",
+      "line": 83
+    }
+  ],
+  "conditionalBackends": [
+    "sha3_armv8_ok",
+    "crypton_sha3_armv8_permute",
+    "crypton_keccak_asm_absorb_cext",
+    "crypton_keccak_asm_absorb"
+  ],
+  "constants": {
+    "roundConstants": 24,
+    "rotations": 24,
+    "permutationPositions": 24
+  },
+  "algorithms": [
+    "Keccak-224",
+    "Keccak-256",
+    "Keccak-384",
+    "Keccak-512",
+    "SHA3-224",
+    "SHA3-256",
+    "SHA3-384",
+    "SHA3-512",
+    "SHAKE128",
+    "SHAKE256"
+  ]
+}
