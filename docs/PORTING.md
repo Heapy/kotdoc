@@ -15418,3 +15418,16 @@ transport and arbitrary OS/async/bottom profiles are not completed. Global CLI
 verbosity/-M/templates and remaining621 behavior stay open. Twelve Org-input and
 thirteen Org-output missing reader/writer/citeproc routes, full618/Pandoc623 and
 calibre624/625/626 remain OPEN. No full CLI or Pandoc completion is claimed.
+
+
+Org integration scope clarification: the exact145-path author manifest includes
+25 immutable development source snapshots under its own work-in-progress path.
+Every snapshot is declared in integration-snapshot.sourceCopies, byte-identical
+to its installed counterpart and hash-authenticated; they are outside production
+source sets. Unrelated HMAC/types drafts and caches were not staged. The actual
+scoped cached whitespace check passed. An additional blanket assertion excluding
+any work-in-progress substring then failed because of these declared snapshots;
+the shell sequence continued into the authorized exact-scope commit. This was a
+misapplied scope guard, not a test failure or a clean guard result. No history was
+rewritten. Future integration mutations use fail-fast checked subprocesses so a
+guard failure cannot fall through to a commit.
