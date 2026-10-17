@@ -1,0 +1,108 @@
+{
+  "public": [
+    {
+      "symbol": "normalizeTableHead",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:596",
+      "operation": "head",
+      "kotlin": "PandocTables.normalizeTableHead",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "normalizeTableBody",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:604",
+      "operation": "body",
+      "kotlin": "PandocTables.normalizeTableBody",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "normalizeTableFoot",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:614",
+      "operation": "foot",
+      "kotlin": "PandocTables.normalizeTableFoot",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "placeRowSection",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:703",
+      "operation": "place",
+      "kotlin": "PandocTables.placeRowSection",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "clipRows",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:748",
+      "operation": "clip",
+      "kotlin": "PandocTables.clipRows",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "tableWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:531",
+      "operation": "tableWith",
+      "kotlin": "TableBuilders.tableWith",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "table",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:523",
+      "operation": "table",
+      "kotlin": "TableBuilders.table",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "simpleTable",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:547",
+      "operation": "simpleTable",
+      "kotlin": "TableBuilders.simpleTable",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "cellWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:497",
+      "operation": "cellWith",
+      "kotlin": "TableBuilders.cellWith",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "cell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:508",
+      "operation": "cell",
+      "kotlin": "TableBuilders.cell",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "simpleCell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:514",
+      "operation": "simpleCell",
+      "kotlin": "TableBuilders.simpleCell",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    },
+    {
+      "symbol": "emptyCell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:519",
+      "operation": "emptyCell",
+      "kotlin": "TableBuilders.emptyCell",
+      "proof": "all original finite responses; original demand and legacy observations where applicable"
+    }
+  ],
+  "internal": [
+    {
+      "symbol": "normalizeHeaderSection",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:619",
+      "kotlin": "PandocTables.header",
+      "proof": "head/foot outputs and 13500 original predicates"
+    },
+    {
+      "symbol": "normalizeBodySection",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:634",
+      "kotlin": "PandocTables.body",
+      "proof": "body outputs and 13500 original predicates"
+    },
+    {
+      "symbol": "dropAtMostWhile",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:733",
+      "kotlin": "TableStreams.Plan.decision",
+      "proof": "place output/remnant/truncation and boundary predicate demand"
+    }
+  ]
+}

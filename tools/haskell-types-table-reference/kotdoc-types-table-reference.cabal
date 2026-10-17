@@ -1,0 +1,15 @@
+cabal-version: 3.0
+name: kotdoc-types-table-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable types-table-reference
+ main-is: TableReference.hs
+ default-language: Haskell2010
+ ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+ build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, aeson ==2.2.3.0, text ==2.1.2, bytestring
+executable types-table-demand
+ main-is: TableDemand.hs
+ default-language: Haskell2010
+ ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+ build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, aeson ==2.2.3.0, bytestring

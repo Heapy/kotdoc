@@ -111,9 +111,14 @@ object Builder {
     val emptyCell: Cell get() = Tables.emptyCell
     val emptyCaption: Caption get() = Tables.emptyCaption
     fun tableWith(attr: Attr, caption: Caption, columns: List<ColSpec>, head: TableHead, bodies: List<TableBody>, foot: TableFoot): Blocks =
-        Blocks(listOf(Tables.normalize(Block.Table(attr, caption, columns, head, bodies, foot))))
-    fun table(caption: Caption, columns: List<ColSpec>, head: TableHead, bodies: List<TableBody>, foot: TableFoot): Blocks = tableWith(Attr(), caption, columns, head, bodies, foot)
-    fun simpleTable(headers: List<Blocks>, rows: List<List<Blocks>>): Blocks = Blocks(listOf(Tables.simpleTable(headers.map { it.values }, rows.map { row -> row.map { it.values } })))
+        Blocks(TableBuilders.tableWith({attr}, {caption}, {columns}, {head}, {bodies}, {foot}).toSourceList())
+    fun table(caption: Caption, columns: List<ColSpec>, head: TableHead, bodies: List<TableBody>, foot: TableFoot): Blocks =
+        Blocks(TableBuilders.table({caption}, {columns}, {head}, {bodies}, {foot}).toSourceList())
+    fun simpleTable(headers: List<Blocks>, rows: List<List<Blocks>>): Blocks =
+        Blocks(TableBuilders.simpleTable(
+            {TableStreams.mapped({headers}) { Many.fromList(it().values) }},
+            {TableStreams.mapped({rows}) { row -> TableStreams.mapped(row) { Many.fromList(it().values) } }}
+        ).toSourceList())
     fun caption(short: List<Inline>?, content: Blocks): Caption = Caption(short, content.values)
     fun simpleCaption(content: Blocks): Caption = caption(null, content)
     fun figureWith(attr: Attr, caption: Caption, content: Blocks): Blocks = Blocks(listOf(Block.Figure(attr, caption, content.values)))

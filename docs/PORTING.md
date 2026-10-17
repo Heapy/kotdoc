@@ -14759,3 +14759,36 @@ checkpoint is not full-module equivalence. Host endian/alignment/strict-alias ca
 JVM timing/physical scrubbing and other ABIs remain explicit limits. ChaCha
 StateSimple/DRG/Probabilistic/Prime,other signatures/trust/chain and remaining
 local:613/full Pandoc623/calibre624–626 stay OPEN.
+
+
+### Builder table family and lazy compatibility bridges
+
+Twelve public table exports and three internal algorithms now use source lazy
+placement triples/remnants,Long widths,clipping and independent head/body
+overhangs. Independent original replay matched17559 finite responses plus52
+demand/deep observations and44 pins. Malformed/nonpositive spans,Long MIN/MAX,
+boundary-predicate demand,infinite padding prefixes and50000-row spines remain
+source observations;truncated prefixes are explicit. The unchanged iterator
+Placement convenience remains separate from the source three-field contract.
+
+Only six Tables bodies and three Builder table-entry bodies delegate to the
+new source adapters. Nine retained before/after legacy repros prove unwanted
+second-row/cell/header forcing is removed. Original Builder/Tables Git bytes
+and historical Many manifest are retained;own comparison confirms the current
+Many manifests change only Builder's source hash. Fresh5127 Many original
+responses pass without rewriting inputs or expectations.
+
+Final Gradle62661 five XMLs contain37101 actual zero-failure/error/skip cases:
+17621 new (17559finite,52demand,ninelegacy,integrity),14316 original property
+assertions including13500 table predicates,5128 Many,14 Tables and22 Builder.
+Actual eleven original property reports×1000 remain supporting native evidence.
+The earlier51890 run's37100 behavior passes and lone integrity-path failure
+remain separate;only the test's kotdoc.root lookup was corrected. Bounded
+512MiB/256KiB proof passed. Own39 frozen hashes,three new major classes and104
+exact notices pass on the retained immutable final JAR;installDist matched.
+
+Strict legacy List arguments remain JVM conveniences;explicit source root/
+list/triple adapters provide the represented lazy contracts,not arbitrary GHC
+heap equivalence through every old signature. Generic Many/count classes,
+remaining Builder/Data.Version/JSONfilter,140 exports and350 instance members
+keep local:611 and full Pandoc/calibre scope OPEN.

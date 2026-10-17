@@ -1,0 +1,9 @@
+clip-prefix-ignores-second-row:exception:second
+head-zero-unused-second-cell:exception:second
+foot-zero-unused-second-cell:exception:second
+body-zero-unused-second-cell:exception:second
+head-prefix-ignores-second-row:exception:second
+foot-prefix-ignores-second-row:exception:second
+legacy-tableWith-ignores-head:exception:second
+legacy-table-ignores-head:exception:second
+legacy-simpleTable-ignores-header:exception:header

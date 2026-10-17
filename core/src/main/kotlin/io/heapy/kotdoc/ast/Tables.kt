@@ -7,45 +7,26 @@ object Tables {
     val emptyCaption = Caption(null, emptyList())
 
     fun normalizeHead(width: Int, head: TableHead): TableHead =
-        head.copy(rows = normalizeSection(width, head.rows))
+        PandocTables.normalizeTableHead(width.toLong(), head)
 
     fun normalizeFoot(width: Int, foot: TableFoot): TableFoot =
-        foot.copy(rows = normalizeSection(width, foot.rows))
+        PandocTables.normalizeTableFoot(width.toLong(), foot)
 
-    fun normalizeBody(width: Int, body: TableBody): TableBody {
-        val headWidth = maxOf(0, minOf(width.toLong(), body.rowHeadColumns))
-        var headHang = List(headWidth.toInt()) { 1L }
-        var bodyHang = List(maxOf(0, width - headWidth.toInt())) { 1L }
-        val rows = clipRows(body.body).map { row ->
-            val cells = padded(row.cells)
-            val head = placeRowSection(headHang, cells)
-            val rest = placeRowSection(bodyHang, cells)
-            headHang = head.overhang
-            bodyHang = rest.overhang
-            row.copy(cells = head.cells + rest.cells)
-        }
-        return body.copy(rowHeadColumns = headWidth, head = normalizeSection(width, body.head), body = rows)
-    }
+    fun normalizeBody(width: Int, body: TableBody): TableBody =
+        PandocTables.normalizeTableBody(width.toLong(), body)
 
-    fun normalize(table: Block.Table): Block.Table {
-        val width = table.columns.size
-        return table.copy(head = normalizeHead(width, table.head),
-            bodies = table.bodies.map { normalizeBody(width, it) }, foot = normalizeFoot(width, table.foot))
-    }
+    fun normalize(table: Block.Table): Block.Table =
+        TableBuilders.tableWith({table.attr}, {table.caption}, {table.columns},
+            {table.head}, {table.bodies}, {table.foot}).toSourceList()[0] as Block.Table
 
-    fun simpleTable(headers: List<List<Block>>, rows: List<List<List<Block>>>): Block.Table {
-        val width = maxOf(headers.size, rows.maxOfOrNull { it.size } ?: 0)
-        fun row(cells: List<List<Block>>) = Row(Attr(), cells.map { emptyCell.copy(blocks = it) })
-        return normalize(Block.Table(Attr(), emptyCaption,
-            List(width) { ColSpec(Alignment.AlignDefault, ColWidth.Default) },
-            TableHead(Attr(), if (headers.isEmpty()) emptyList() else listOf(row(headers))),
-            listOf(TableBody(Attr(), 0, emptyList(), rows.map(::row))), TableFoot(Attr(), emptyList())))
-    }
+    fun simpleTable(headers: List<List<Block>>, rows: List<List<List<Block>>>): Block.Table =
+        TableBuilders.simpleTable(
+            {TableStreams.mapped({headers}) { Many.fromList(it()) }},
+            {TableStreams.mapped({rows}) { row -> TableStreams.mapped(row) { Many.fromList(it()) } }}
+        ).toSourceList()[0] as Block.Table
 
     /** Row spans are bounded by the remaining height of this section, never the whole table. */
-    fun clipRows(rows: List<Row>): List<Row> = rows.mapIndexed { index, row ->
-        row.copy(cells = row.cells.map { cell -> cell.copy(rowSpan = cell.rowSpan.coerceIn(1, (rows.size - index).toLong())) })
-    }
+    fun clipRows(rows: List<Row>): List<Row> = PandocTables.clipRows { rows }
 
     data class Placement(val overhang: List<Long>, val cells: List<Cell>)
 

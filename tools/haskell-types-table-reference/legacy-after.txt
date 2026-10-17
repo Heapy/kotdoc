@@ -1,0 +1,9 @@
+clip-prefix-ignores-second-row:[Row ("",[],[]) [Cell ("",[],[]) AlignDefault (RowSpan 1) (ColSpan 1) []]]
+head-zero-unused-second-cell:[Row ("",[],[]) []]
+foot-zero-unused-second-cell:[Row ("",[],[]) []]
+body-zero-unused-second-cell:[Row ("",[],[]) []]
+head-prefix-ignores-second-row:[Row ("",[],[]) [Cell ("",[],[]) AlignDefault (RowSpan 1) (ColSpan 1) []]]
+foot-prefix-ignores-second-row:[Row ("",[],[]) [Cell ("",[],[]) AlignDefault (RowSpan 1) (ColSpan 1) []]]
+legacy-tableWith-ignores-head:1
+legacy-table-ignores-head:1
+legacy-simpleTable-ignores-header:1

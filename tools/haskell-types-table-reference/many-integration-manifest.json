@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "historical_many_commit": "5adcfdb5972f62bb81bdfbc4531610b790e0f94e",
+  "pre_table_metadata_commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+  "historical_manifest": "historical/Many-source-manifest-before.json",
+  "old_builder_sha256": "9d46a4df889f535e88eec8c020f27f7b29c4c8c5fe7258b4c04c374628155fc5",
+  "current_builder_sha256": "5474ae82a1b782428ae9513187eaa2946b2be84e1ec63e579bdfc0dd98176ca2",
+  "patch": "Builder-delegation.patch",
+  "patch_sha256": "bd013f1712dd4e01819571ae612e8c6b712f6dd10cc2ce862f1fd67edb4fbcc8",
+  "changed_methods": [
+    "Builder.tableWith",
+    "Builder.table",
+    "Builder.simpleTable"
+  ],
+  "expectations": "All original Many requests/responses/demand/interface artifacts unchanged; only current Builder artifact binding refreshed. Historical 17713 execution remains attributed to accepted Many commit, not this source."
+}

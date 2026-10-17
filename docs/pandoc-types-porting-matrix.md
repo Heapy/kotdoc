@@ -671,3 +671,32 @@ four byte-exact notices and identical installed core JAR pass. Nine XMLs,
 commands/logs/package/immutable JAR/frozen hashes: /tmp/kotdoc-metadata-final-results.
 The complete25-method/10-helper slice is frozen pending independent review.
 All other140/350/JSON and derived-class/Builder/Data.Version gates stay open.
+
+
+## Table family author checkpoint (awaiting shared execution and review)
+
+Metadata25-method/10-helper checkpoint is independently accepted at
+c16c6e5adf6452008893bef387bf0248caad3cdf; earlier pending wording above is historical.
+The next table family covers12 public exports and3 private algorithms, with
+17,559 original finite responses and52 original demand/deep observations.
+The isolated Kotlin factory assertions and all13,500 original table predicates
+pass at512MiB/256KiB, including signed Long width endpoints and50,000-row spines.
+Nine legacy before/after repros justify narrow delegation in Tables.kt and three
+Builder entry points. Original fixtures are unchanged. The iterator API remains
+a compatibility API; the original lazy triple/remnant contract has its own API.
+Historical Many source/pin evidence is retained separately from the refreshed
+current Builder integration binding. Source mapping and exact proof bounds are
+in tools/haskell-types-table-reference/{acceptance-matrix.json,README.md}.
+All remaining140-export/350-member, generic Many/count, remaining Builder,
+Data.Version and JSONfilter gates remain open.
+
+
+Table author final shared gate: Gradle62661 SUCCESS2m27s,37,101 actual XML cases
+with zero failures/errors/skips. New table17,621 plus original properties14,316,
+Many5,128, Tables14 and Builder22. Native17,559+52, source44pins, fresh original
+Many5,127 and eleven actual source properties×1,000 are byte-exact. Three main
+classes/104 exact notices/installed JAR identity pass. The earlier51890 failure
+was solely the new integrity adapter's relative path, corrected to kotdoc.root;
+all original behavior/expectations and production stayed unchanged. Saved
+evidence/frozen39paths: /tmp/kotdoc-tables-final-results. Independent review is
+pending; this table slice does not close full140/350/JSON or remaining classes.

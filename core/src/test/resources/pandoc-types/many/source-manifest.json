@@ -25,7 +25,7 @@
   },
   "sha256": {
     "core/src/main/kotlin/io/heapy/kotdoc/ast/AstShow.kt": "cfbda4715c1ca747975100cb26057a3be4c4c5d36cdd87d27248d5b98a1c79a4",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "9d46a4df889f535e88eec8c020f27f7b29c4c8c5fe7258b4c04c374628155fc5",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "5474ae82a1b782428ae9513187eaa2946b2be84e1ec63e579bdfc0dd98176ca2",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/GenericData.kt": "16e813e3a596c346b23d42044b419f187292b0b3331b45195442a538fe58ade4",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/GenericMonad.kt": "1306197dfa9713515afb571f9a04074cea04068afac82c48a856011e3efc5430",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/ManyAlgebra.kt": "d327fa2b8fd2a1695131571a4859fd0efbb4c8f1ab334c54115bd27e59c702cb",

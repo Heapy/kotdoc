@@ -1,0 +1,73 @@
+package io.heapy.kotdoc.ast
+import kotlinx.serialization.json.*
+import java.nio.file.Path
+import kotlin.io.path.readLines
+internal fun tableDemandExecute(name:String):JsonElement=try {
+ fun <A> bad(message:String):A=error(message)
+ fun root(value:Any?)="root"
+ fun <A> ignore(value:()->A)="True"
+ fun <A> first(input:List<A>):List<A> = when(val n=GenericList.view(input).step()){GenericList.Step.Nil->emptyList();is GenericList.Step.Cons->listOf(n.head())}
+ fun hs()=GenericList.cons({2L},{GenericList.cons({bad<Long>("tail")},{GenericList.empty()})})
+ fun tailCells()=GenericList.cons({TableBuilders.emptyCell},{bad("tail")})
+ fun placed(h:()->List<Long>,c:()->List<Cell>)=PandocTables.placeRowSection(h,c)()
+ fun showHang(input:List<Long>)=input.joinToString(",","[","]"){AstShow.rowSpan(it)}
+ fun row()=Row(Attr(),listOf(TableBuilders.emptyCell))
+ fun badRows()=GenericList.cons({row()},{GenericList.cons({bad<Row>("second")},{GenericList.empty()})})
+ fun badSecondCell()=listOf(Row(Attr(),GenericList.cons({TableBuilders.emptyCell},{GenericList.cons({bad<Cell>("second")},{GenericList.empty()})})))
+ val actual=when(name){
+ "place-ignore-root"->ignore(PandocTables.placeRowSection({bad("hang")},{bad("stream")}))
+ "place-force-hang"->root(placed({bad("hang")},{bad("stream")}))
+ "place-skip-root"->root(placed(::hs,{bad("stream")}))
+ "place-skip-first-prefix"->showHang(first(placed(::hs,{bad("stream")}).first))
+ "place-skip-cells"->root(placed(::hs,{bad("stream")}).second.step())
+ "place-skip-remnant"->root(placed(::hs,{bad("stream")}).third.step())
+ "place-empty-hang-stream"->root(placed({emptyList()},{bad("stream")}))
+ "place-empty-hang-cell"->root(placed({emptyList()},{GenericList.cons({bad("cell")},{GenericList.empty()})}))
+ "place-invalid-hang-cell"->root(placed({listOf(0L)},{GenericList.cons({bad("cell")},{GenericList.empty()})}))
+ "place-empty-hang-no-cell-tail"->root(placed({emptyList()},::tailCells))
+ "place-empty-hang-remnant-prefix"->AstShow.show(first(placed({emptyList()},::tailCells).third))
+ "place-fit-root"->root(placed({listOf(1L)},::tailCells))
+ "place-fit-hang-prefix"->showHang(first(placed({listOf(1L)},::tailCells).first))
+ "place-fit-cell-prefix"->AstShow.show(first(placed({listOf(1L)},::tailCells).second))
+ "place-fit-remnant"->root(placed({listOf(1L)},::tailCells).third.step())
+ "place-predicate-before-bound"->root(placed({GenericList.cons({1L},{GenericList.cons({bad<Long>("boundary")},{GenericList.empty()})})},{listOf(TableBuilders.emptyCell)}))
+ "place-boundary-tail"->root(placed({GenericList.cons({1L},{bad("boundary")})},{listOf(TableBuilders.emptyCell)}))
+ "place-cell-body-root"->root(placed({emptyList()},{listOf(TableBuilders.emptyCell.copy(blocks=GenericList.defer{bad("body")}))}))
+ "place-cell-body-head"->root(placed({emptyList()},{listOf(TableBuilders.emptyCell.copy(blocks=GenericList.cons({bad("block")},{GenericList.empty()})))}))
+ "place-max-skip"->showHang(first(placed({listOf(Long.MAX_VALUE)},{bad("stream")}).first))
+ "clip-ignore"->"[]".also{PandocTables.clipRows{bad("rows")}}
+ "clip-force"->root(PandocTables.clipRows{bad("rows")}.step())
+ "clip-head-lazy"->root(PandocTables.clipRows{GenericList.cons({bad<Row>("row")},{GenericList.cons({row()},{GenericList.empty()})})}.step())
+ "clip-prefix-ignores-second-row"->AstShow.show(first(PandocTables.clipRows(::badRows)))
+ "clip-length-before-head"->root(PandocTables.clipRows{GenericList.cons({bad<Row>("head")},{bad("tail")})}.step())
+ "clip-row-attr-ignores-cell"->AstShow.show(PandocTables.clipRows{listOf(Row(Attr(),GenericList.cons({bad("cell")},{GenericList.empty()})))}[0].attr)
+ "head-empty-ignores-width"->root(PandocTables.normalizeTableHead({bad("width")},{TableHead(Attr(),emptyList())})())
+ "foot-empty-ignores-width"->root(PandocTables.normalizeTableFoot({bad("width")},{TableFoot(Attr(),emptyList())})())
+ "body-empty-forces-width"->root(PandocTables.normalizeTableBody({bad("width")},{TableBody(Attr(),0,emptyList(),emptyList())})())
+ "head-nonempty-root-ignores-width"->root(PandocTables.normalizeTableHead({bad("width")},{TableHead(Attr(),listOf(row()))})())
+ "head-row-forces-width"->root(PandocTables.normalizeTableHead({bad("width")},{TableHead(Attr(),listOf(row()))})().rows[0])
+ "head-zero-unused-second-cell"->AstShow.show(PandocTables.normalizeTableHead(0,TableHead(Attr(),badSecondCell())).rows)
+ "foot-zero-unused-second-cell"->AstShow.show(PandocTables.normalizeTableFoot(0,TableFoot(Attr(),badSecondCell())).rows)
+ "body-zero-unused-second-cell"->AstShow.show(PandocTables.normalizeTableBody(0,TableBody(Attr(),0,emptyList(),badSecondCell())).body)
+ "head-prefix-ignores-second-row"->AstShow.show(first(PandocTables.normalizeTableHead(1,TableHead(Attr(),badRows())).rows))
+ "foot-prefix-ignores-second-row"->AstShow.show(first(PandocTables.normalizeTableFoot(1,TableFoot(Attr(),badRows())).rows))
+ "cell-ignore-root"->ignore(TableBuilders.cellWith({bad("attr")},{bad("align")},{bad("r")},{bad("c")},{bad("blocks")}))
+ "cell-strict-fields-order"->root(TableBuilders.cellWith({bad("attr")},{bad("align")},{bad("r")},{bad("c")},{bad("blocks")})())
+ "cell-strict-after-rowspan"->root(TableBuilders.cellWith({bad("attr")},{bad("align")},{RowSpan(1)},{bad("c")},{bad("blocks")})())
+ "cell-strict-after-spans"->root(TableBuilders.cellWith({bad("attr")},{bad("align")},{RowSpan(1)},{ColSpan(1)},{bad("blocks")})())
+ "cell-strict-after-attr"->root(TableBuilders.cellWith({Attr()},{bad("align")},{RowSpan(1)},{ColSpan(1)},{bad("blocks")})())
+ "legacy-tableWith-ignores-head"->TableBuilders.tableWith({Attr()},{Caption(null,emptyList())},{listOf(ColSpec(Alignment.AlignDefault,ColWidth.Default))},{TableHead(Attr(),badRows())},{emptyList()},{TableFoot(Attr(),emptyList())}).length.toString()
+ "legacy-table-ignores-head"->TableBuilders.table({Caption(null,emptyList())},{listOf(ColSpec(Alignment.AlignDefault,ColWidth.Default))},{TableHead(Attr(),badRows())},{emptyList()},{TableFoot(Attr(),emptyList())}).length.toString()
+ "legacy-simpleTable-ignores-header"->TableBuilders.simpleTable({GenericList.cons({bad<Many<Block>>("header")},{GenericList.empty()})},{emptyList()}).length.toString()
+ "head-max-width-first-cell"->AstShow.show(first(PandocTables.normalizeTableHead(Long.MAX_VALUE,TableHead(Attr(),listOf(row()))).rows[0].cells))
+ "foot-min-width-empty-cells"->AstShow.show(PandocTables.normalizeTableFoot(Long.MIN_VALUE,TableFoot(Attr(),listOf(row()))).rows[0].cells)
+ "body-max-width-first-cell"->AstShow.show(first(PandocTables.normalizeTableBody(Long.MAX_VALUE,TableBody(Attr(),1,emptyList(),listOf(row()))).body[0].cells))
+ "body-min-width-clamp"->AstShow.rowHeadColumns(PandocTables.normalizeTableBody(Long.MIN_VALUE,TableBody(Attr(),Long.MAX_VALUE,emptyList(),emptyList())).rowHeadColumns)
+ "clip-deep-count"->TableStreams.length(PandocTables.clipRows(List(50000){row()})).toString()
+ "head-deep-count"->TableStreams.length(PandocTables.normalizeTableHead(1,TableHead(Attr(),List(50000){row()})).rows).toString()
+ "table-many-ignores-fields"->TableBuilders.tableWith({bad("attr")},{bad("caption")},{bad("specs")},{bad("head")},{bad("bodies")},{bad("foot")}).length.toString()
+ "simple-table-many-ignores-fields"->TableBuilders.simpleTable({bad("headers")},{bad("rows")}).length.toString()
+ else->error("probe:$name")
+ };JsonPrimitive(actual)
+}catch(e:RuntimeException){buildJsonObject{put("exception",e.message.orEmpty())}}
+fun main(){val lines=Path.of("tools/haskell-types-table-reference/demand-native.jsonl").readLines();lines.chunked(2).forEach{(n,e)->val name=Json.parseToJsonElement(n).jsonPrimitive.content;val actual=tableDemandExecute(name);check(actual==Json.parseToJsonElement(e)){"$name: $actual != $e"}};println("${lines.size/2} original table demand observations PASS")}

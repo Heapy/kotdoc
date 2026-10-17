@@ -2825,17 +2825,21 @@
       "source_line": 505,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 109,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/TableBuilders.kt",
           "symbol": "cell"
         }
       ],
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/simpleCell",
@@ -2844,17 +2848,21 @@
       "source_line": 513,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 110,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/TableBuilders.kt",
           "symbol": "simpleCell"
         }
       ],
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/emptyCell",
@@ -2863,17 +2871,21 @@
       "source_line": 517,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 111,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/TableBuilders.kt",
           "symbol": "emptyCell"
         }
       ],
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/cellWith",
@@ -2882,17 +2894,21 @@
       "source_line": 497,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 108,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/TableBuilders.kt",
           "symbol": "cellWith"
         }
       ],
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/table",
@@ -2901,17 +2917,21 @@
       "source_line": 523,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 115,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/TableBuilders.kt",
           "symbol": "table"
         }
       ],
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/simpleTable",
@@ -2920,17 +2940,21 @@
       "source_line": 547,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 116,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/TableBuilders.kt",
           "symbol": "simpleTable"
         }
       ],
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/tableWith",
@@ -2939,17 +2963,21 @@
       "source_line": 531,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 113,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/TableBuilders.kt",
           "symbol": "tableWith"
         }
       ],
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/figure",
@@ -3130,9 +3158,8 @@
       "source_line": 596,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
-          "line": 9,
-          "symbol": "normalizeHead"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocTables.kt",
+          "symbol": "normalizeTableHead"
         }
       ],
       "original_tests": [
@@ -3142,10 +3169,14 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        },
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/normalizeTableBody",
@@ -3154,9 +3185,8 @@
       "source_line": 604,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
-          "line": 15,
-          "symbol": "normalizeBody"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocTables.kt",
+          "symbol": "normalizeTableBody"
         }
       ],
       "original_tests": [
@@ -3166,10 +3196,14 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        },
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/normalizeTableFoot",
@@ -3178,9 +3212,8 @@
       "source_line": 614,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
-          "line": 12,
-          "symbol": "normalizeFoot"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocTables.kt",
+          "symbol": "normalizeTableFoot"
         }
       ],
       "original_tests": [
@@ -3190,10 +3223,14 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        },
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/placeRowSection",
@@ -3202,8 +3239,7 @@
       "source_line": 703,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
-          "line": 56,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocTables.kt",
           "symbol": "placeRowSection"
         }
       ],
@@ -3214,10 +3250,14 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        },
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Builder/clipRows",
@@ -3226,8 +3266,7 @@
       "source_line": 748,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Tables.kt",
-          "line": 46,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocTables.kt",
           "symbol": "clipRows"
         }
       ],
@@ -3238,10 +3277,14 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Nine original table properties/two original literals;4500 original table inputs"
+        },
+        {
+          "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
+          "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Original property matrix accepted; independently audit each public function bounds, remainder/demand contract and out-of-generator-domain inputs. Iterator Placement API is not by itself proof of original lazy triple result."
+      "status": "implemented_tables_awaiting_review",
+      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
     },
     {
       "id": "Generic/bottomUp",
