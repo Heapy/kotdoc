@@ -1,0 +1,19 @@
+{
+  "status": "intermediate isolated, not PKCS15 acceptance",
+  "prerequisite": "RIPEMD160 review pending",
+  "compiler": "Kotlin current / JDK21; GHC9.12.2-O2 pinned crypton2.0.1 source",
+  "baselineJar": "/tmp/kotdoc-ripemd160-final-results/core-0.1.0-SNAPSHOT.jar",
+  "baselineJarSha256": "9af51c4d9dc56d0241c6b8e6dd5acf6854cb5a7d5248c61045a6bda8b518463a",
+  "executables": {
+    "/tmp/kotdoc-pkcs15-haskell-oracle": "6377fe69eba2f237d2d1e92c84c477d76b36f78ec4c8d61df986e0a8bd5cf60d",
+    "/tmp/kotdoc-pkcs15-demand-oracle": "09cc4bc97eaa3b5de18b68b6497a5631acecc7f651ec4d781329df9732a822f7",
+    "/tmp/kotdoc-pkcs15-sourcecase-oracle": "eefc1fbae4ba1d686acdb3cbbae9fd95bcdfca473caa3ac1b5f12dabf3ef662e"
+  },
+  "commands": [
+    "sh tools/pkcs15-reference/BuildHaskell.sh",
+    "python3 tools/pkcs15-reference/capture.py",
+    "python3 tools/pkcs15-reference/capture-demand.py",
+    "kotlinc tools/pkcs15-reference/work-in-progress/*.kt -Xfriend-paths=/tmp/kotdoc-ripemd160-final-results/core-0.1.0-SNAPSHOT.jar -cp <immutable baseline and recorded existing serialization/JUnit classpath> -d /tmp/kotdoc-pkcs15-draft-classes",
+    "java -Xss256k -Xmx768m -cp <draft classes:immutable baseline:recorded dependencies> io.heapy.kotdoc.crypto.Pkcs15Replay tools/pkcs15-reference/Observations.json"
+  ]
+}

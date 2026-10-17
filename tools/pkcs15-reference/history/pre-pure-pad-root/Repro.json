@@ -1,0 +1,15 @@
+{
+  "request": {
+    "op": "pad",
+    "mode": "normal",
+    "projection": "root",
+    "size": 64
+  },
+  "expected": {
+    "draws": [],
+    "results": [
+      "Right",
+      "Right"
+    ]
+  }
+}

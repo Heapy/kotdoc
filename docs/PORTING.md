@@ -15686,3 +15686,49 @@ no fallback is used. All9 gzip payloads, API and loader are unchanged. Fresh
 stale Generate-pin failure with all other behavior passing; it is not relabeled
 PASS. This metadata repair is separate from first PKCS15 acceptance and closes no
 whole RSA/crypto/Pandoc/calibre task.
+
+### Complete PKCS15 source checkpoint
+
+Accepted all9 PKCS15 exports, nonzero-random retry, signature encoding helpers,
+unpad full scan/select and all14 HashAlgorithmASN1 instances backed by real
+accepted hash engines, including MD2/RIPEMD160. Generic dictionary callbacks,
+source key-root/hash/input ordering, pure State versus IO, lazy Right payloads,
+independent state projections and repeated failure sharing are preserved within
+the explicitly represented synchronous domain. Public ByteArray adapters snapshot
+inputs/output; unpad retains its owned snapshot, not a mutable caller buffer.
+
+Independent review read the full pinned implementation/tests and translation,
+checked the exact private-export-only module transform and all prefixes, and
+replayed5347 ordinary,31 original source cases,784 paired-demand,416 custom
+hash/ASN1,452 defined DRG,372 IO and88 root-only virtual observations (7490 total).
+Original RSASpec37 supporting examples are31 PKCS15 and6 prior rawRSA, not37 new
+PKCS tests. Own immutable-JAR probes128MiB/256KiB confirm pure Right-root without
+RNG, IO effects before ignored results, shared state/payload draw, key-root first,
+ignored custom hash/message, unpad ownership and5000 retries without stack failure.
+
+Final88440 XML contains21902 actual tests with zero issues:7587 PKCS15
+(7490 corpus +ownership +96pins),3124 rawRSA and11191 OAEP. Own83 frozen owned
+hashes/104 frozen inputs/96 current pins, all6 old expected-file hashes and7
+original executable identities match. The operational capture cursors changed
+while own replay was live, then returned to their exact frozen final hashes;
+no expected payload was regenerated. Immutable JAR SHA
+263d12251b2839aec4a51925b3fa7c07015a5b1a0d1ab85cf0c4752ed598728a
+has10 new PKCS classes,4783 unchanged prior classes and115 exact upstream notices
+plus root GPL. Author installed/core identity and failed first-run proof remain
+in /tmp/kotdoc-pkcs15-final-results. No duplicate shared Gradle was launched.
+
+All456 original DRG observations and12 pre-fix differences remain immutable.
+Only4 empty-provider safer/state observations are unsafe historical evidence:
+Generate would access p0 of zero-byte storage. They were never re-executed;
+452 defined rows replay against accepted Generate20c461d2. For this key profile
+bytes/root/ignored results use dpSlow and do not demand the blinder; that fact
+must not be generalized to arbitrary keys/providers. The8 short/long defined
+state cases are resolved. Earlier pre-sign-demand/pre-pure-pad-root source and
+logs and the first stale-OAEP-pin XML/JAR remain preserved.
+
+Virtual88 controls prove signed64 guards and lazy root behavior, not giant
+allocations/RNG. Materialized ByteArray/callback dimensions remain Int-sized.
+Native/host ABI, unsafe pointers, full heap/async/bottom equivalence, physical
+scrubbing and constant-time behavior are not claimed. PSS/fullRSA.Types,
+SystemDRG/OS entropy, other signatures/trust/chain, rest613/fullPandoc623 and
+calibre624–626 remain OPEN. AsciiDoc/types WIP is excluded from this checkpoint.

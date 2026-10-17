@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.IllegalStateException: row247 request={"op":"signRoot","hashMode":"hash","faults":["size","hash"],"input":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"message":[1,2,3]} expected=["hash","hash"] actual=["size","size"]
+	at io.heapy.kotdoc.crypto.Pkcs15DemandReplay.main(Pkcs15DemandReplay.kt:37)

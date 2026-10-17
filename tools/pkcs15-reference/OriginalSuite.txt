@@ -1,0 +1,54 @@
+
+generateWith
+  0 [✔]
+  1 [✔]
+  2 [✔]
+private exponent
+  is the inverse of e modulo phi [✔]
+blinder
+  holds a number and its inverse [✔]
+    +++ OK, passed 100 tests.
+  leaves the decryption where it was [✔]
+    +++ OK, passed 100 tests.
+SHA1
+  signature
+    0 [✔]
+    1 [✔]
+    2 [✔]
+  verify
+    0 [✔]
+    1 [✔]
+  malleability
+    0
+      the signature itself verifies [✔]
+      a leading zero octet is rejected [✔]
+      a trailing zero octet is rejected [✔]
+      s + n is rejected [✔]
+      an empty signature is rejected [✔]
+    1
+      the signature itself verifies [✔]
+      a leading zero octet is rejected [✔]
+      a trailing zero octet is rejected [✔]
+      s + n is rejected [✔]
+      an empty signature is rejected [✔]
+unpadding
+  the shortest permitted padding [✔]
+  a longer padding [✔]
+  an empty message [✔]
+  a message of one octet [✔]
+  a first octet that is not 00 [✔]
+  a second octet that is not 02 [✔]
+  a padding string of seven octets [✔]
+  a padding string of no octets [✔]
+  a zero inside the first eight padding octets [✔]
+  no octet ending the padding string [✔]
+  an empty block [✔]
+  a block of one octet [✔]
+  a block of two octets [✔]
+ciphertext range
+  the ciphertext itself decrypts [✔]
+  the same ciphertext plus n is refused [✔]
+  a ciphertext representative equal to the modulus is refused [✔]
+
+Finished in <elapsed> seconds
+37 examples, 0 failures

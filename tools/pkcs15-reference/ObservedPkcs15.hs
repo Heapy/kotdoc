@@ -1,0 +1,579 @@
+-- |
+-- Module      : Crypto.PubKey.RSA.PKCS15
+-- License     : BSD-style
+-- Maintainer  : Vincent Hanquez <vincent@snarc.org>
+-- Stability   : experimental
+-- Portability : Good
+module ObservedPkcs15 (
+    -- * Padding and unpadding
+    pad,
+    padSignature,
+    unpad,
+
+    -- * Private key operations
+    decrypt,
+    decryptSafer,
+    sign,
+    signSafer,
+
+    -- * Public key operations
+    encrypt,
+    verify,
+
+    -- * Hash ASN1 description
+    HashAlgorithmASN1 (..),
+    makeSignature,
+    addDigestPrefix,
+) where
+
+import Crypto.Hash
+import Crypto.Number.Serialize (os2ip)
+import Crypto.PubKey.Internal (and')
+import Crypto.PubKey.RSA (generateBlinder)
+import Crypto.PubKey.RSA.Prim
+import Crypto.PubKey.RSA.Types
+import Crypto.Random.Types
+
+import Data.Bits (complement, shiftR, (.&.), (.|.))
+import Data.ByteString (ByteString)
+import Data.Word
+
+import Crypto.Internal.ByteArray (ByteArray, Bytes)
+import qualified Crypto.Internal.ByteArray as B
+import Data.List (foldl')
+import Prelude hiding (foldl')
+
+-- | A specialized class for hash algorithm that can product
+-- a ASN1 wrapped description the algorithm plus the content
+-- of the digest.
+class HashAlgorithm hashAlg => HashAlgorithmASN1 hashAlg where
+    -- | Convert a Digest into an ASN1 wrapped descriptive ByteArray
+    hashDigestASN1 :: ByteArray out => Digest hashAlg -> out
+
+-- http://uk.emc.com/emc-plus/rsa-labs/pkcs/files/h11300-wp-pkcs-1v2-2-rsa-cryptography-standard.pdf
+-- EMSA-PKCS1-v1_5
+instance HashAlgorithmASN1 MD2 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x20
+            , 0x30
+            , 0x0c
+            , 0x06
+            , 0x08
+            , 0x2a
+            , 0x86
+            , 0x48
+            , 0x86
+            , 0xf7
+            , 0x0d
+            , 0x02
+            , 0x02
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x10
+            ]
+instance HashAlgorithmASN1 MD5 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x20
+            , 0x30
+            , 0x0c
+            , 0x06
+            , 0x08
+            , 0x2a
+            , 0x86
+            , 0x48
+            , 0x86
+            , 0xf7
+            , 0x0d
+            , 0x02
+            , 0x05
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x10
+            ]
+instance HashAlgorithmASN1 SHA1 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x21
+            , 0x30
+            , 0x09
+            , 0x06
+            , 0x05
+            , 0x2b
+            , 0x0e
+            , 0x03
+            , 0x02
+            , 0x1a
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x14
+            ]
+instance HashAlgorithmASN1 SHA224 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x2d
+            , 0x30
+            , 0x0d
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x04
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x1c
+            ]
+instance HashAlgorithmASN1 SHA256 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x31
+            , 0x30
+            , 0x0d
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x01
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x20
+            ]
+instance HashAlgorithmASN1 SHA384 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x41
+            , 0x30
+            , 0x0d
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x02
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x30
+            ]
+instance HashAlgorithmASN1 SHA512 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x51
+            , 0x30
+            , 0x0d
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x03
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x40
+            ]
+instance HashAlgorithmASN1 SHA512t_224 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x2d
+            , 0x30
+            , 0x0d
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x05
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x1c
+            ]
+instance HashAlgorithmASN1 SHA512t_256 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x31
+            , 0x30
+            , 0x0d
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x06
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x20
+            ]
+instance HashAlgorithmASN1 SHA3_224 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x2b
+            , 0x30
+            , 0x0b
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x07
+            , 0x04
+            , 0x1c
+            ]
+instance HashAlgorithmASN1 SHA3_256 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x2f
+            , 0x30
+            , 0x0b
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x08
+            , 0x04
+            , 0x20
+            ]
+instance HashAlgorithmASN1 SHA3_384 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x3f
+            , 0x30
+            , 0x0b
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x09
+            , 0x04
+            , 0x30
+            ]
+instance HashAlgorithmASN1 SHA3_512 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x4f
+            , 0x30
+            , 0x0b
+            , 0x06
+            , 0x09
+            , 0x60
+            , 0x86
+            , 0x48
+            , 0x01
+            , 0x65
+            , 0x03
+            , 0x04
+            , 0x02
+            , 0x0a
+            , 0x04
+            , 0x40
+            ]
+instance HashAlgorithmASN1 RIPEMD160 where
+    hashDigestASN1 =
+        addDigestPrefix
+            [ 0x30
+            , 0x21
+            , 0x30
+            , 0x09
+            , 0x06
+            , 0x05
+            , 0x2b
+            , 0x24
+            , 0x03
+            , 0x02
+            , 0x01
+            , 0x05
+            , 0x00
+            , 0x04
+            , 0x14
+            ]
+
+--
+
+-- ** Hack **
+
+--
+-- this happens to not need a real ASN1 encoder, because
+-- thanks to the digest being a specific size AND
+-- that the digest data is the last bytes in the encoding,
+-- this allows to just prepend the right prefix to the
+-- computed digest, to make it in the expected and valid shape.
+--
+-- Otherwise the expected structure is in the following form:
+--
+--   Start Sequence
+--     ,Start Sequence
+--       ,OID oid
+--       ,optional parameters (Null for SHA-2, absent for SHA-3)
+--     ,End Sequence
+--     ,OctetString digest
+--   ,End Sequence
+addDigestPrefix :: ByteArray out => [Word8] -> Digest hashAlg -> out
+addDigestPrefix prefix digest =
+    B.pack prefix `B.append` B.convert digest
+
+-- | This produce a standard PKCS1.5 padding for encryption
+pad
+    :: (MonadRandom m, ByteArray message) => Int -> message -> m (Either Error message)
+pad len m
+    | B.length m > len - 11 = return (Left MessageTooLong)
+    | otherwise = do
+        padding <- getNonNullRandom (len - B.length m - 3)
+        return $ Right $ B.concat [B.pack [0, 2], padding, B.pack [0], m]
+  where
+    -- get random non-null bytes
+    getNonNullRandom :: (ByteArray bytearray, MonadRandom m) => Int -> m bytearray
+    getNonNullRandom n = do
+        bs0 <- getRandomBytes n
+        let bytes = B.pack $ filter (/= 0) $ B.unpack (bs0 :: Bytes)
+            left = n - B.length bytes
+        if left == 0
+            then return bytes
+            else do
+                bend <- getNonNullRandom left
+                return (bytes `B.append` bend)
+
+-- | Produce a standard PKCS1.5 padding for signature
+padSignature
+    :: ByteArray signature => Int -> signature -> Either Error signature
+padSignature klen signature
+    | klen < siglen + 11 = Left SignatureTooLong
+    | otherwise = Right (B.pack padding `B.append` signature)
+  where
+    siglen = B.length signature
+    padding = 0 : 1 : (replicate (klen - siglen - 3) 0xff ++ [0])
+
+-- | Try to remove a standard PKCS1.5 encryption padding.
+--
+-- The block is scanned in full rather than up to the octet ending the padding
+-- string, so how long that string is does not show up in how long this takes.
+--
+-- What remains visible is the result itself: whether the padding was well
+-- formed, and the length of the message when it was.  That is inherent to the
+-- scheme, and it is the signal Bleichenbacher's attack needs, so a caller that
+-- decrypts attacker-supplied ciphertext must not pass the distinction on --
+-- TLS, for instance, continues with a random premaster secret and reports
+-- nothing.
+unpad :: ByteArray bytearray => bytearray -> Either Error bytearray
+unpad packed
+    | paddingSuccess = Right m
+    | otherwise = Left MessageNotRecognized
+  where
+    len = B.length packed
+    (zt, ps0m) = B.splitAt 2 packed
+
+    -- index of the first zero octet in ps0m, counted from the start of packed,
+    -- or len when there is none; every octet is looked at either way
+    zeroIndex = fst $ foldl' step (fromIntegral len :: Word32, 1 :: Word32) indexed
+    indexed = zip [2 ..] (B.unpack ps0m)
+    step (idx, unseen) (i, b) = (select found i idx, unseen .&. complement found)
+      where
+        w = fromIntegral b :: Word32
+        -- 0 when b is zero, 1 otherwise
+        nonZero = (w .|. negate w) `shiftR` 31
+        -- all ones at the first zero octet only
+        found = negate (unseen .&. complement nonZero)
+    select mask a b = (a .&. mask) .|. (b .&. complement mask)
+
+    psLength = fromIntegral zeroIndex - 2 :: Int
+    m = B.drop (fromIntegral zeroIndex + 1) packed
+    paddingSuccess =
+        and'
+            [ zt `B.constEq` (B.pack [0, 2] :: Bytes)
+            , fromIntegral zeroIndex < len
+            , psLength >= 8
+            ]
+
+-- | decrypt message using the private key.
+--
+-- When the decryption is not in a context where an attacker could gain
+-- information from the timing of the operation, the blinder can be set to None.
+--
+-- If unsure always set a blinder or use decryptSafer
+--
+-- The message is returned un-padded.
+--
+-- Following RFC 8017, the ciphertext is rejected unless it is exactly as long
+-- as the modulus (section 7.2.2, step 1) and its integer representative is
+-- below the modulus (RSADP, section 5.1.2, step 1).  The decryption primitive
+-- normalises any multiple of the modulus away, so without the second check
+-- @c + n@ would decrypt to the same message as @c@, and a ciphertext would not
+-- be unique to its plaintext.  Both checks are made on the ciphertext alone,
+-- which is public, and report 'MessageSizeIncorrect'.
+decrypt
+    :: ByteArray ba
+    => Maybe Blinder
+    -- ^ optional blinder
+    -> PrivateKey
+    -- ^ RSA private key
+    -> ByteString
+    -- ^ cipher text
+    -> Either Error ba
+decrypt blinder pk c
+    | B.length c /= (private_size pk) = Left MessageSizeIncorrect
+    | os2ip c >= private_n pk = Left MessageSizeIncorrect
+    -- "convert" must be apply to "c".
+    | otherwise = unpad $ dp blinder pk $ B.convert c
+
+-- | decrypt message using the private key and by automatically generating a blinder.
+decryptSafer
+    :: (MonadRandom m, ByteArray ba)
+    => PrivateKey
+    -- ^ RSA private key
+    -> ByteString
+    -- ^ cipher text
+    -> m (Either Error ba)
+decryptSafer pk b = do
+    blinder <- generateBlinder (private_n pk)
+    return (decrypt (Just blinder) pk b)
+
+-- | encrypt a bytestring using the public key.
+--
+-- The message needs to be smaller than the key size - 11.
+-- The message should not be padded.
+encrypt
+    :: (MonadRandom m, ByteArray ba) => PublicKey -> ba -> m (Either Error ByteString)
+encrypt pk m = do
+    r <- pad (public_size pk) m
+    case r of
+        Left err -> return $ Left err
+        Right em -> return $ Right (B.convert $ ep pk em)
+
+-- | sign message using private key, a hash and its ASN1 description
+--
+-- When the signature is not in a context where an attacker could gain
+-- information from the timing of the operation, the blinder can be set to None.
+--
+-- If unsure always set a blinder or use signSafer
+sign
+    :: HashAlgorithmASN1 hashAlg
+    => Maybe Blinder
+    -- ^ optional blinder
+    -> Maybe hashAlg
+    -- ^ hash algorithm
+    -> PrivateKey
+    -- ^ private key
+    -> ByteString
+    -- ^ message to sign
+    -> Either Error ByteString
+sign blinder hashDescr pk m = dp blinder pk `fmap` makeSignature hashDescr (private_size pk) m
+
+-- | sign message using the private key and by automatically generating a blinder.
+signSafer
+    :: (HashAlgorithmASN1 hashAlg, MonadRandom m)
+    => Maybe hashAlg
+    -- ^ Hash algorithm
+    -> PrivateKey
+    -- ^ private key
+    -> ByteString
+    -- ^ message to sign
+    -> m (Either Error ByteString)
+signSafer hashAlg pk m = do
+    blinder <- generateBlinder (private_n pk)
+    return (sign (Just blinder) hashAlg pk m)
+
+-- | verify message with the signed message
+--
+-- Following RFC 8017, the signature is rejected unless it is exactly as long
+-- as the modulus (section 8.2.2, step 1) and its integer representative is
+-- below the modulus (section 5.2.2, step 1).  Verification works by
+-- re-encoding the expected signature and comparing it with the result of the
+-- public-key operation, and that operation normalises away both the length of
+-- the encoding and any multiple of the modulus; without these checks a
+-- zero-padded signature, or @s + n@, would verify just as well as @s@.
+verify
+    :: HashAlgorithmASN1 hashAlg
+    => Maybe hashAlg
+    -> PublicKey
+    -> ByteString
+    -- ^ Message
+    -> ByteString
+    -- ^ Signature
+    -> Bool
+verify hashAlg pk m sm
+    | B.length sm /= public_size pk = False
+    | os2ip sm >= public_n pk = False
+    | otherwise =
+        case makeSignature hashAlg (public_size pk) m of
+            Left _ -> False
+            Right s -> s == (ep pk sm)
+
+-- | make signature digest, used in 'sign' and 'verify'
+makeSignature
+    :: HashAlgorithmASN1 hashAlg
+    => Maybe hashAlg
+    -- ^ optional hashing algorithm
+    -> Int
+    -> ByteString
+    -> Either Error ByteString
+makeSignature Nothing klen m = padSignature klen m
+makeSignature (Just hashAlg) klen m = padSignature klen (hashDigestASN1 $ hashWith hashAlg m)

@@ -1,0 +1,71 @@
+{
+  "status": "full PKCS15 implementation; final JUnit/package/review pending",
+  "exports": [
+    "pad",
+    "padSignature",
+    "unpad",
+    "decrypt",
+    "decryptSafer",
+    "sign",
+    "signSafer",
+    "encrypt",
+    "verify"
+  ],
+  "privateMapping": {
+    "getNonNullRandom": "padIo iterative filter/draw loop",
+    "makeSignature": "makeSignature",
+    "addDigestPrefix": "algorithm digestASN1 closure",
+    "step/scan": "unpad full traversal",
+    "select": "unpad mask expression"
+  },
+  "classMethod": "HashAlgorithmASN1.hashDigestASN1 -> HashAlgorithmASN1.digestASN1",
+  "adapters": [
+    "MD2",
+    "MD5",
+    "SHA1",
+    "SHA224",
+    "SHA256",
+    "SHA384",
+    "SHA512",
+    "SHA512t_224",
+    "SHA512t_256",
+    "SHA3_224",
+    "SHA3_256",
+    "SHA3_384",
+    "SHA3_512",
+    "RIPEMD160"
+  ],
+  "sourceSuite": {
+    "total": 37,
+    "PKCS15": 31,
+    "previouslyAcceptedRawRSA": 6
+  },
+  "gates": {
+    "ordinary": "PASS5347 prior immutable capture/replay",
+    "source31": "PASS prior replay; full37 original support retained",
+    "demand": "PASS784 immutable independent capture/replay",
+    "dictionary": "PASS416 immutable independent capture/replay",
+    "definedRandom": "PASS452 against accepted Generate correction",
+    "ioCallbacks": "PASS372 original+Kotlin at256KiB stack incl5000retries",
+    "virtualBounds": "PASS88 original+Kotlin root-only; no giant allocation"
+  },
+  "remaining": [
+    "final JUnit/package/independent review",
+    "PSS/fullRSA.Types/SystemDRG/other signatures/trust/chain/rest613/fullPandoc/calibre"
+  ],
+  "prerequisites": {
+    "RIPEMD160": "24c0c77b73af3258e20a652306ef68d58673b892 accepted",
+    "Number.Generate actual storage length": "20c461d2cde50ffc650e6bfa31884a3356987091 accepted"
+  },
+  "counts": {
+    "ordinary": 5347,
+    "sourcePKCS15": 31,
+    "sourceRawRSA_supporting_only": 6,
+    "pairedDemand": 784,
+    "genericHashASN1": 416,
+    "definedPureRandom": 452,
+    "historicalUnsafeNotExecuted": 4,
+    "ioCallbacks": 372,
+    "rootOnlyVirtualBounds": 88
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "isolated intermediate; RIPEMD160 independent acceptance pending",
+  "exports": [
+    "pad",
+    "padSignature",
+    "unpad",
+    "decrypt",
+    "decryptSafer",
+    "sign",
+    "signSafer",
+    "encrypt",
+    "verify"
+  ],
+  "privateMapping": {
+    "getNonNullRandom": "padIo iterative filter/draw loop",
+    "makeSignature": "makeSignature",
+    "addDigestPrefix": "algorithm digestASN1 closure",
+    "step/scan": "unpad full traversal",
+    "select": "unpad mask expression"
+  },
+  "classMethod": "HashAlgorithmASN1.hashDigestASN1 -> HashAlgorithmASN1.digestASN1",
+  "adapters": [
+    "MD2",
+    "MD5",
+    "SHA1",
+    "SHA224",
+    "SHA256",
+    "SHA384",
+    "SHA512",
+    "SHA512t_224",
+    "SHA512t_256",
+    "SHA3_224",
+    "SHA3_256",
+    "SHA3_384",
+    "SHA3_512",
+    "RIPEMD160"
+  ],
+  "sourceSuite": {
+    "total": 37,
+    "PKCS15": 31,
+    "previouslyAcceptedRawRSA": 6
+  },
+  "gates": {
+    "draftCompile": "PASS",
+    "source31KotlinReplay": "PASS at256KiB stack",
+    "fullOriginalSuite37": "PASS",
+    "ordinaryCapture": "TERMINAL PASS5347 original observations; handle35211",
+    "pairedDemandCapture": "TERMINAL PASS784 independent original observations; handle35889; Kotlin replay PENDING",
+    "ordinaryKotlinReplay": "TERMINAL PASS5347 at256KiB stack"
+  },
+  "remaining": [
+    "RIPEMD160 independent acceptance before integration",
+    "generic/nonlawful HashAlgorithm/ASN1 callbacks and source witness representation",
+    "paired demand Kotlin replay",
+    "pure state/IO callbacks/custom DRG/root projection/error sharing",
+    "nonzero padding bounded long retries and eventual success",
+    "safer blinder source guards/root/state/error order",
+    "virtual bounds and valid-host-buffer domain metadata",
+    "source extraction/current pins/licenses/JUnit/immutable package/final independent review",
+    "PSS/RSA.Types/SystemDRG/other signatures/trust/chain/rest613/fullPandoc/calibre"
+  ]
+}
