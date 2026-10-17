@@ -1,0 +1,30 @@
+[
+  {
+    "bits": 32,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "returncode": -6,
+    "reason": "original sign_prehash public-key mismatch abort"
+  },
+  {
+    "bits": 64,
+    "scalarBits": 64,
+    "vectorMasks32": false,
+    "returncode": -6,
+    "reason": "original sign_prehash public-key mismatch abort"
+  },
+  {
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": false,
+    "returncode": -6,
+    "reason": "original sign_prehash public-key mismatch abort"
+  },
+  {
+    "bits": 64,
+    "scalarBits": 32,
+    "vectorMasks32": true,
+    "returncode": -6,
+    "reason": "original sign_prehash public-key mismatch abort"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "compiler": [
+    "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "Target: arm64-apple-darwin25.6.0",
+    "Thread model: posix",
+    "InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+  ],
+  "machine": "arm64",
+  "flags": [
+    "-O2",
+    "-std=c99",
+    "-fPIC",
+    "-shared"
+  ],
+  "profiles": [
+    [
+      32,
+      32,
+      false
+    ],
+    [
+      64,
+      64,
+      false
+    ],
+    [
+      64,
+      32,
+      false
+    ],
+    [
+      64,
+      32,
+      true
+    ]
+  ],
+  "ordinary": "unchanged Decaf/SHA3/eddsa sources",
+  "normalized": "only accepted negative signed shift replaced by signed multiplication in point wNAF",
+  "actual32bitABI": false,
+  "actualHaskell": "original pinned crypton AArch64 field64/API32 NEON",
+  "endianness": "little",
+  "abortMapping": "native SIGABRT versus Kotlin checked exception; not process-level equivalence"
+}

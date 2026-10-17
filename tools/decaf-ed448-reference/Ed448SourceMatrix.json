@@ -1,0 +1,126 @@
+{
+  "definitions": [
+    {
+      "name": "clamp",
+      "line": 41,
+      "private": true
+    },
+    {
+      "name": "hash_init_with_dom",
+      "line": 56,
+      "private": true
+    },
+    {
+      "name": "crypton_decaf_ed448_prehash_init",
+      "line": 81,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_convert_private_key_to_x448",
+      "line": 88,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_derive_public_key",
+      "line": 102,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_sign_internal",
+      "line": 141,
+      "private": true
+    },
+    {
+      "name": "crypton_decaf_ed448_sign",
+      "line": 226,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_sign_prehash",
+      "line": 247,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_derive_keypair",
+      "line": 274,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_keypair_extract_public_key",
+      "line": 282,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_keypair_extract_private_key",
+      "line": 289,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_keypair_destroy",
+      "line": 296,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_keypair_sign",
+      "line": 302,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_keypair_sign_prehash",
+      "line": 315,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_verify",
+      "line": 335,
+      "private": false
+    },
+    {
+      "name": "crypton_decaf_ed448_verify_prehash",
+      "line": 400,
+      "private": false
+    }
+  ],
+  "constants": {
+    "privateBytes": 57,
+    "publicBytes": 57,
+    "signatureBytes": 114,
+    "prehashBytes": 64,
+    "encodeRatio": 4,
+    "decodeRatio": 1,
+    "cofactor": 4,
+    "contextless": false
+  },
+  "profiles": [
+    [
+      32,
+      32,
+      false
+    ],
+    [
+      64,
+      64,
+      false
+    ],
+    [
+      64,
+      32,
+      false
+    ],
+    [
+      64,
+      32,
+      true
+    ]
+  ],
+  "headerAliases": [
+    "prehash_update=shake256_update",
+    "prehash_destroy=shake256_destroy",
+    "prehash_ctx=shake256_ctx"
+  ],
+  "remaining": [
+    "public3types3sizes8functions",
+    "fulloriginalEd448Spec25onKotlinpublic",
+    "remaininglocal613"
+  ]
+}

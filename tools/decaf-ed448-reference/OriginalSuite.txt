@@ -1,0 +1,32 @@
+
+gen secretkey [✔]
+gen publickey
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+  4 [✔]
+  5 [✔]
+  6 [✔]
+  7 [✔]
+gen signature
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+  4 [✔]
+  5 [✔]
+  6 [✔]
+  7 [✔]
+verify sig
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+  4 [✔]
+  5 [✔]
+  6 [✔]
+  7 [✔]
+
+Finished in <elapsed> seconds
+25 examples, 0 failures

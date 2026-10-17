@@ -14519,3 +14519,34 @@ No Doku/Muse source was changed here. Local caption handling is stack-safe,
 while common DocumentShared gaps remain. RST flags --list-tables/reference-links
 optional booleans and template errors are covered;global verbosity,-M and
 generic template behavior remain621. Full Pandoc/tests/later calibre stay OPEN.
+
+
+### Complete raw Ed448 core checkpoint
+
+All16 pinned eddsa.c definitions and the two prehash update/destroy header
+aliases are translated on the accepted Kotlin Decaf/SHAKE engines. Independent
+source review and replay passed9884 guarded ordinary/normalized observations
+over four source profiles,59 pins and four original SIGABRT subprocess probes.
+Own actual Haskell ABI2061 observations plus unchanged original25 examples and
+an independent affine Edwards/hashlib model114 checks passed. Author finite
+O0/O3 optimizer observations824 also pass;these do not remove the original
+negative-shift wNAF ISO-C UB boundary reached by verification.
+
+Saved Gradle15421 XML has9945 actual zero-failure/error/skip cases;jar and
+installDist passed. Own56 frozen hashes,one packaged class,no BigInteger/JNA
+references and three exact notices were verified. Eight original literal
+public/signature/verify vectors run through all four Kotlin profiles.
+Prehash copies exactly344 bytes,source keypairs occupy114 bytes,domain flags/
+context lengths,error order,canonical response byte113 check,ratio constants,
+raw aliases and destruction match the finite source domains. No accepted
+engine source changed.
+
+Raw sign intentionally consumes supplied public bytes without rederivation;
+sign_prehash rederives and aborts on mismatch. Kotlin represents that fatal
+process boundary with a checked IllegalStateException,not invented successful
+signing or a CryptoError. Pointer/memcpy UB,unbounded buffers,real32/big-endian
+ABI,JVM physical erasure/timing and universal limb reachability are not claimed.
+The archive's absent LICENSE.txt remains transparently documented under the
+accepted MIT notice provenance. Public Ed448 three types/three sizes/eight
+functions and full original public suite are the next gate. No source modern
+Curve_Ed448 instance is invented;remaining local:613/Pandoc/calibre stay OPEN.
