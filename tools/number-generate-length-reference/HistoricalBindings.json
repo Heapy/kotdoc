@@ -1,0 +1,4 @@
+{
+  "tools/number-generate-reference/README.md": "tools/number-generate-length-reference/history/README.md",
+  "tools/import-number-generate-fixtures.py": "tools/number-generate-length-reference/history/import-number-generate-fixtures.py"
+}

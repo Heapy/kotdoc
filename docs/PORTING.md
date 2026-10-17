@@ -15633,3 +15633,44 @@ identity or general bottom/async equivalence. Actual arm64/little-endian only;
 physical erasure/timing/other ABIs and huge reads are not proved. Virtual counters
 do not allocate/read2GiB. Full PKCS15/PSS/RSA.Types, Digest Data, SystemDRG,
 other signatures/trust/chain/rest613/Pandoc623/calibre624–626 remain OPEN.
+
+### Number.Generate actual returned storage correction
+
+Corrected the accepted dependency's extra exact-request-length requirement.
+Pinned Generate.hs copies the actual provider buffer; top operations precede
+mask at p0, then optional odd store at the requested pEnd. Kotlin now checks each
+actually executed index, retaining source-defined short/long-buffer results.
+Prefix performs no pointer tweaks and accepts any returned length, including0.
+Public signatures remain unchanged. The old bits1/SetTwoHighest/one-byte numeric
+prefix observation remains an explicit unsafe source-memory boundary, not a new
+memory-parity claim or newly executed native case.
+
+Independent source/classifier audit and own replay pass1139 pre-classified
+source-defined observations across all4 exports.278 requests are recorded as
+excluded before invoking the original executable; the classifier includes early
+top/odd failures and only accesses actually reached. Own9 additional fresh
+native/final-JAR probes cover short/long/empty Prefix, top-before-mask, odd demand,
+input ownership and Max/Between. Own8 existing source-defined PKCS safer/state
+blinder consumers pass on the immutable final JAR at128MiB/256KiB. These use9/63
+and11/65-byte nonempty provider storage, not the four historical empty-storage
+unsafe observations. Those four are retained but were not re-executed.
+
+Final70505 XML contains56924 actual tests with zero failures/errors/skips:
+37955 oldGenerate,1455 newlength,14390 Prime and3124 rawRSA. Own33 frozen hashes,
+28 current pins, baseline JAR, unchanged37127-row gzip, original executable hash,
+4763 unchanged neighboring classes and only Generate.class changed were checked.
+The JAR b323aaeeb0a6677505fa840f5a38961caf4d4a9f5cb43fd3ba1f44dd953e41b8
+contains115 exact upstream notices plus byte-exact root GPL; author installed
+identity and immutable XML/proofs remain /tmp/kotdoc-number-generate-length-results.
+No shared build was repeated.
+
+Historical26 source pins resolve exactly24 unchanged current files and2 explicit
+README/importer archives with no fallback; the modified production/tool/test/docs
+are bound separately by CurrentPins. Old source/JAR/docs/importer/gzip and all456
+PKCS RNG observations/12 pre-fix differences remain retained. Existing unsafe old
+numeric rows are Kotlin regression evidence here, not new native executions.
+One explicitly owned development replay remains outside production. Full PKCS15
+is still isolated/pending, and PSS/RSA.Types/SystemDRG/signatures/trust/chain/rest613,
+full Pandoc623/calibre624–626 remain OPEN. Host array/Int versus source Integer/
+Int64 limits, actual huge allocations, other ABIs/heap/timing/erasure/general
+bottom and async equivalence are not claimed.

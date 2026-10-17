@@ -49,8 +49,8 @@ class CryptoNumberGenerateTest {
   }
  }}.stream()
  @org.junit.jupiter.api.TestFactory
- fun sourcePins():java.util.stream.Stream<org.junit.jupiter.api.DynamicTest> = manifest.getValue("sources").jsonObject.map{(path,expected)->org.junit.jupiter.api.DynamicTest.dynamicTest(path){
-  org.junit.jupiter.api.Assertions.assertEquals(expected.jsonPrimitive.content,java.security.MessageDigest.getInstance("SHA-256").digest(File(System.getProperty("kotdoc.root"),path).readBytes()).toHexString())
+ fun historicalSourcePins():java.util.stream.Stream<org.junit.jupiter.api.DynamicTest> = manifest.getValue("sources").jsonObject.map{(path,expected)->org.junit.jupiter.api.DynamicTest.dynamicTest(path){
+  org.junit.jupiter.api.Assertions.assertEquals(expected.jsonPrimitive.content,java.security.MessageDigest.getInstance("SHA-256").digest(NumberGenerateHistoricalBindings.sourceFile(System.getProperty("kotdoc.root"),path).readBytes()).toHexString())
  }}.stream()
  @org.junit.jupiter.api.Test
  fun logicalBoundsDifferenceIsExplicit() {

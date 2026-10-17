@@ -1,5 +1,9 @@
 # Complete Crypto.Number.Generate checkpoint
 
+The original accepted evidence below is historical. Current actual-storage
+semantics and separate current/historical bindings are documented in
+[the provider-length correction](../number-generate-length-reference/README.md).
+
 All four exports and both GenTopPolicy constructors/Show/Eq are ported from the
 pinned module. Number.Basic and Number.Serialize are accepted dependencies.
 The source API operates on arbitrary-precision Integer, so Kotlin BigInteger is
@@ -43,8 +47,9 @@ of ChaChaDRG, system entropy or all NumberSpec/Prime tests.
   text. The latter accepts r, r-range or r-2range in that order, then retries.
 - generateBetween is inclusive and does not reject reversed endpoints: a
   nonpositive resulting range returns low without RNG calls.
-- Valid random providers return exactly the requested length. Malformed provider
-  lengths are outside the source contract and rejected by the Kotlin bridge.
+- The original Kotlin bridge required exact provider lengths. That rejected
+  source-defined short/long storage and has been corrected: actual executed
+  indices determine the valid domain. See the linked correction matrix.
 
 The original SetTwoHighest tweak for bits=1 unconditionally writes p1 beyond
 its one-byte LOGICAL copy. Ordinary native numerical observations (512 rows)

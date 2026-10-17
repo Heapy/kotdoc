@@ -1,0 +1,11 @@
+{
+  "acceptedGenerateCommit": "4a70aab40b83101ddc0bfab884e7bc35885f05c1",
+  "files": {
+    "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoNumberGenerate.kt": "90dcd6e2b4d77556428e48e8d825529a8d2a396f9f4a758bdc9a709aa5d1b823",
+    "core/src/test/resources/crypto-number-generate/data.jsonl.gz": "7c346dbf44425a2a224566cc0d96da708d13ccf3d2194631f85d7cbb415d51b2",
+    "tools/number-generate-reference/README.md": "430dc36bf8ce8374dee91b9eb381a3f422d17b02494d7d57d5d745e348b2bcbf"
+  },
+  "jarSha256": "9af51c4d9dc56d0241c6b8e6dd5acf6854cb5a7d5248c61045a6bda8b518463a",
+  "expectedPayloadSha256": "c3ca17d70e485a8bcf99124174af9a6dfb7695a538fb9cf6767884fd15630e06",
+  "historicalBindings": "Original corpus header archived byte-exact; new source binding is separate"
+}

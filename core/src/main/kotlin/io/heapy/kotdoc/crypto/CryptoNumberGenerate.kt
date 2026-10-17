@@ -10,13 +10,14 @@ object CryptoNumberGenerate {
  fun generateParams(bits:Int,top:GenTopPolicy?,odd:Boolean,random:(Int)->ByteArray)=generateParamsDeferred(lazyOf(bits),lazyOf(top),lazyOf(odd),random)
  fun generateParamsDeferred(bits:Lazy<Int>,top:Lazy<GenTopPolicy?>,odd:Lazy<Boolean>,random:(Int)->ByteArray):BigInteger {
   val count=bits.value;if(count<=0)return zero
-  val size=((count.toLong()+7)/8).toInt();val input=random(size);require(input.size==size){"random provider returned ${input.size} bytes for $size-byte request"};val copy=input.copyOf()
+  val size=((count.toLong()+7)/8).toInt();val input=random(size);val copy=input.copyOf()
   try {val bit=(count-1)%8
-   when(top.value){null->Unit;GenTopPolicy.SetHighest->copy[0]=(copy[0].toInt()or(1 shl bit)).toByte();GenTopPolicy.SetTwoHighest->if(bit==0){copy[0]=1;/* Source bits=1 writes outside its logical copy; retain only its observed numeric prefix. */if(size>1)copy[1]=(copy[1].toInt()or 128).toByte()}else copy[0]=(copy[0].toInt()or(3 shl(bit-1))).toByte()}
-   copy[0]=(copy[0].toInt()and((1 shl(bit+1))-1)).toByte();if(odd.value)copy[size-1]=(copy[size-1].toInt()or 1).toByte();return CryptoSerialize.os2ip(copy)
+   fun checkIndex(index:Int){require(index in copy.indices){"random provider storage has no byte at index $index (actual length ${copy.size})"}}
+   when(top.value){null->Unit;GenTopPolicy.SetHighest->{checkIndex(0);copy[0]=(copy[0].toInt()or(1 shl bit)).toByte()};GenTopPolicy.SetTwoHighest->if(bit==0){checkIndex(0);copy[0]=1;/* Source bits=1 writes outside its logical copy; retain only its observed numeric prefix. */if(copy.size>1)copy[1]=(copy[1].toInt()or 128).toByte()else if(size!=1)checkIndex(1)}else {checkIndex(0);copy[0]=(copy[0].toInt()or(3 shl(bit-1))).toByte()}}
+   checkIndex(0);copy[0]=(copy[0].toInt()and((1 shl(bit+1))-1)).toByte();if(odd.value){checkIndex(size-1);copy[size-1]=(copy[size-1].toInt()or 1).toByte()};return CryptoSerialize.os2ip(copy)
   }finally{copy.fill(0)}
  }
- fun generatePrefix(bits:Int,random:(Int)->ByteArray):BigInteger {if(bits<=0)return zero;val rounded=bits.toLong()+7;val count=(rounded/8).toInt();val offset=(rounded%8).toInt();val input=random(count);require(input.size==count){"random provider returned ${input.size} bytes for $count-byte request"};return CryptoSerialize.os2ip(input).shiftRight(7-offset)}
+ fun generatePrefix(bits:Int,random:(Int)->ByteArray):BigInteger {if(bits<=0)return zero;val rounded=bits.toLong()+7;val count=(rounded/8).toInt();val offset=(rounded%8).toInt();val input=random(count);return CryptoSerialize.os2ip(input).shiftRight(7-offset)}
  fun generateMax(range:BigInteger,random:(Int)->ByteArray):BigInteger {
   if(range<=one)return zero
   val bits=CryptoNumberBasic.numBits(range)

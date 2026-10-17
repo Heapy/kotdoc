@@ -43,11 +43,18 @@ def pins():
  subprocess.run([sys.executable,str(R/'tools/extract-number-generate-reference.py'),'--check'],check=True)
  paths=[p for p in D.rglob('*')if p.is_file()and'work-in-progress'not in str(p)and'__pycache__'not in str(p)]+[R/'tools/extract-number-generate-reference.py',Path(__file__).resolve(),R/'licenses/crypton-BSD-3-Clause.txt',R/'licenses/ram-BSD-3-Clause.txt',R/'vendor/crypton-2.0.1/SOURCE.json',R/'vendor/ram-0.22.1/SOURCE.json']
  return{str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
+def historical_pins():
+ values=pins()
+ expected={'tools/number-generate-reference/README.md':'tools/number-generate-length-reference/history/README.md','tools/import-number-generate-fixtures.py':'tools/number-generate-length-reference/history/import-number-generate-fixtures.py'}
+ mappings=json.loads((R/'tools/number-generate-length-reference/HistoricalBindings.json').read_text())
+ assert mappings==expected,'historical whitelist changed'
+ for path,archive in expected.items():values[path]=hashlib.sha256((R/archive).read_bytes()).hexdigest()
+ return values
 def main():
  p=argparse.ArgumentParser();p.add_argument('--oracle');p.add_argument('--verify-oracle',action='store_true');p.add_argument('--check-source',action='store_true');a=p.parse_args();rows=inputs()
  if a.check_source or a.verify_oracle:
   with gzip.open(TARGET,'rt')as f:old=[json.loads(line)for line in f]
-  assert old[0]['sources']==pins()
+  assert old[0]['sources']==historical_pins()
  if not a.check_source:
   run=subprocess.run([a.oracle],input=''.join(json.dumps(row['request'])+'\n'for row in rows),capture_output=True,text=True,check=True);values=[json.loads(line)for line in run.stdout.splitlines()];assert len(values)==len(rows)
   for row,value in zip(rows,values):row['expected']=value
