@@ -15674,3 +15674,15 @@ is still isolated/pending, and PSS/RSA.Types/SystemDRG/signatures/trust/chain/re
 full Pandoc623/calibre624–626 remain OPEN. Host array/Int versus source Integer/
 Int64 limits, actual huge allocations, other ABIs/heap/timing/erasure/general
 bottom and async equivalence are not claimed.
+
+### OAEP dependency metadata repair after Generate correction
+
+Updated only the OAEP README/current SourcePins and added the byte-exact previous
+manifest as SourcePins.pre-generate-length.json. Independent review compared the
+archived manifest with the accepted Git blob and the pre-correction Generate
+source with Git4a70aab4. Current91 pins bind Generate20c461d2 and the archive;
+no fallback is used. All9 gzip payloads, API and loader are unchanged. Fresh
+88440 OAEP XML has11191 cases/zero issues. The first25729 bundle retains its sole
+stale Generate-pin failure with all other behavior passing; it is not relabeled
+PASS. This metadata repair is separate from first PKCS15 acceptance and closes no
+whole RSA/crypto/Pandoc/calibre task.

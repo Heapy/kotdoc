@@ -84,3 +84,15 @@ are not proved. Selected synchronous callback/error traces are preserved.
 PKCS15/PSS, full RSA.Types, other signatures, SystemDRG/OS entropy, optimized
 hash backends/missing hash families, Digest Data, X509 trust/chain and rest613
 remain open. Full Pandoc623 and later calibre624–626 are not completed here.
+
+## Accepted Generate dependency binding correction
+
+SourcePins.pre-generate-length.json preserves the exact original accepted OAEP
+manifest. Its Generate pin90dcd6e2... refers to the accepted pre-correction source,
+retained byte-exact in tools/number-generate-length-reference/history/
+CryptoNumberGenerate.kt and verified against Git commit4a70aab4. Current SourcePins
+now binds actual accepted Generate20c461d2, this README and the archived manifest.
+No loader/API/expected/gzip corpus is changed; no historical fallback is used by
+the current verifier. The final fresh behavioral OAEP replay, rather than the old
+hash, supports compatibility. Initial PKCS integration25729 failed only this stale
+integrity pin; its XML/JAR/log remain immutable in the PKCS final evidence bundle.
