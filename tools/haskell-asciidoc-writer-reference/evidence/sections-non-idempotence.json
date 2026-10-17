@@ -1,0 +1,707 @@
+{
+  "invalidExploratoryAssertion": "make(make(input)) == make(input) for every synthetic duplicate-attribute input",
+  "reason": "The independently captured original source is itself non-idempotent for these140 cases; this was an invalid generic assertion, not a Kotlin mismatch.",
+  "count": 140,
+  "cases": [
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), [], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "bcb24b7c0fa4e0b42c2e169be7fb85c51b53b890d1e393ce321463ace6451a77",
+      "secondOriginalAstSha256": "927b78606a1b88aa178db8b9526a7c73549b1618e29a199f6f24f0262137250b"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), [], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "0ff8601b00ced5aa1977a25d7c3ea1259264f7edee3fa6c59ac34591fbf029de",
+      "secondOriginalAstSha256": "0c837914d56c3922b8e6d0cec683e7a0ccd37e16be5b42ac497b00c9f3384ec9"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), [], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "8a749754355c4903135d6640355c5a2eb86e38424e83fd4b87b24f97bb1e16a3",
+      "secondOriginalAstSha256": "0de9973d321b3c78082794b87876f684ae52c1e3ad8e5ec7335fab2a1b9e9a00"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), [], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "e094a1a504dc711584d3c0f2ae0ca6bc3c7a9b026b820295a50b5c91eb5f19e9",
+      "secondOriginalAstSha256": "d59c528489797610831dc4a1b086900bf8b979a366008268be4d4366aaf6c0b9"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['section'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "e6014ba58e47530630454b4c0de614c6a4cbbf4326c2e361370db2127fed795c",
+      "secondOriginalAstSha256": "931dff62c06e8dc13aed89f801426bc249597eb0c1d48c63c3642d05eec77f11"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['section'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "a5b47ad6ce7c2e0e62c13b46a460dc532da2b823a1bc85492d6a2b66f21655f5",
+      "secondOriginalAstSha256": "231e815444aa8f9801b26ff558feae1f2fe8952008d2a7f52bbd4ab78e8d2392"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['section'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "3d9a4e119949be6cf8087c55e83ec14c15541abd7c163d929141c3cae347ff8f",
+      "secondOriginalAstSha256": "4815b03196ef3b434da15221b6a5922b5dba016ee9a1cf25bf9ac966719019ab"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['section'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "0a2582e66eeb1280e94c0b7158756f332782ef293aa7873a6e98121ab53fdabf",
+      "secondOriginalAstSha256": "46ffd7f58eb8654848ddeaef17e457a7cd4df2fb94f2b8ee598a14e7dbbb878f"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['column'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "6875a73b6f36ee6dce575aadfe455af407b94ad0a29c1353421aa020a572c2e8",
+      "secondOriginalAstSha256": "9bb86277707a38bf357a2eebcbb1af3bcb60b6d4faa6cbb9f3478415cfc87f64"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['column'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "d6ea177591224ee96e6d25b5129ffff3a670769b84ac27bf3ce0d173ba82eebd",
+      "secondOriginalAstSha256": "ae2df8308ce43389374369d876929164cfc4c67105278028e0b53fc585567a16"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['column'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "6ab27c1126656fc6ebe0d0d1e81048697aa4fa2d86563bb3b9aca30219205345",
+      "secondOriginalAstSha256": "4f3b93355d2d457b0a3cf449856511378d4507f57d9a0b7d3ef83c7b08271c37"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['column'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "7a0053f8788f0acf3973e78c93ee30db185a2dde085ab1423ebaabc2db2fb5db",
+      "secondOriginalAstSha256": "a25d9817255233e17f23b81186c8e294543a95148a916e32f16c32bcae96b577"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['columns'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "9aca20f4cae63097d0e6978ea3017da9e74613900aca03bee886306fb0c104fa",
+      "secondOriginalAstSha256": "38f73c51a594545c8022bd78eaa93b6412ed393d7d33d7f9807a27d9f1b83863"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['columns'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f8807dbc92208f8ec7c27a58765ac801f7551793a936568f9fcb0f64c2ce08f9",
+      "secondOriginalAstSha256": "80bfe010b4de1f170900cde58cf73fb530f5745e372ee9536a40137d3bd4fd27"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['columns'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "b21ae5412d0596343cd2d27fc4b556ac88a0fa0bbdffc131289199bdd01d022a",
+      "secondOriginalAstSha256": "31bbb54e01d15fe56b857dfef9356b8e8e153e01fd0f51e84a3845d559714710"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['columns'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "1fd7e640d74e1886b1167cc7980f64f2cc9fa92023edf12daab6a3559d4bf460",
+      "secondOriginalAstSha256": "1ba70a970e3ab386eb8d3f597149c35b9ebf945ef4510611ff23f49f7276d4bb"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['fragment'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "6d8215f66e571a9126db420033e084ba8e448a0f3761eea1ad44c79fb7ccf420",
+      "secondOriginalAstSha256": "92abb940968615f315cfd86dc2afec0f43977a71a0ed22994a2c18527d490a80"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['fragment'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "986338bd92dd3ad8151f1048a66e5f22607c0cb9115ecae7514417f7bf47cae3",
+      "secondOriginalAstSha256": "e153345ffca314bc7be4dc2c2e606d65786b43ad10ce0daac94d1af691d4b6bb"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['fragment'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "3febe0b0adbb36fddbaee89f8793ee256b77d9d942f33094cbd9d4c7852c3674",
+      "secondOriginalAstSha256": "07dcd58035609ed86c14a4df1496868bc72a98bd134beb500d76a338cbbff51c"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['fragment'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "6bc3ed5a46972bfac2bbcca7ab621572ab34b1b79f6070deee096488efcd01ff",
+      "secondOriginalAstSha256": "a6dd5f90744a6ed46f9ad3873bd778657c11ddbcf3b16cc9f57470bfc74d3368"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['cell'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "181e0d3eb3b188a5195950b7aabfedbd0fa8da8e5b02f04316a991b58386f727",
+      "secondOriginalAstSha256": "fcfcc0878e4c73586c2f60e061c11839da61ddd60a732a3b186c4bbb77f6aa15"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['cell'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "4208481fdae984426898c99437ca58bc6b8b52a655558bf4dc225417ca5b67a3",
+      "secondOriginalAstSha256": "91d46c4ef4622bb7120417e5e90809d551f2a1472ac45159add253c05b910f25"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['cell'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "b22c54a68e0078df7ad935ac1d91d6cdfe2917c542af4e0da157d3e790358db8",
+      "secondOriginalAstSha256": "7445d48c8dd494497df79af43d770719c663f3b80917c6cc9ee4c8c0add1de15"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['cell'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "be049c0d09697db63592edb53473d925ca7ad55708269efa92c5dcffd45ac861",
+      "secondOriginalAstSha256": "af62cf1db34499861b473b434d23870f30c47c96417df5928033b4edab2f75ad"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['other'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "c14571c7486c11bfcfbdca1bcf73c29a7ddaa77dca296b8820a67ded0ed6ea51",
+      "secondOriginalAstSha256": "ba95316eff40ee741d2785cc6828661276ea85ba7899a92fc340b0d75942e525"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['other'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "68b5fbe753190272b333c70d649996f55976355149990d0ae0862cfcb8e93234",
+      "secondOriginalAstSha256": "e9a11b286a9be3c40f2d33baacd5957aefb163824baeba290ae1507f3b3e211f"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['other'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "8c0d5c98005d494153cfb43fb5df617a0fe9f779aad43d2d73246ee62561fb3d",
+      "secondOriginalAstSha256": "a0729c93f78dcd4d22e95faa6bb9c60760309ebfe4efa54d68877402b33ba398"
+    },
+    {
+      "name": "sections/((1, 2, 3, 2, 4, 1), ['other'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "ac7e596f59fc747fa446cbf7244d7d99c8e63419472b75e80ba3db31ebd94c24",
+      "secondOriginalAstSha256": "cab0963efeae69d63c2f6edca7188aa15464a46bc689b068d4e30249e575febd"
+    },
+    {
+      "name": "sections/((2, 1), [], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f7f93585b5a356fdac5b43ac7e23ae32b159922eaebe55d5ba3225204a2f9968",
+      "secondOriginalAstSha256": "64f5a922bb78ccfeba8b39592794acd13d7df215b4224f9108abd5ca4d2b91e4"
+    },
+    {
+      "name": "sections/((2, 1), [], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "bda3d3dc5f32c24f0c38ac1fe94afcb3be66d5cf0fb5dc8ad33ef8b59c5e828a",
+      "secondOriginalAstSha256": "71b3b7a10c82ce4538edb8114651d35cdddd93c9d05003aa3b3813df0fea38ac"
+    },
+    {
+      "name": "sections/((2, 1), [], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "50233b5680ea5384de4c4e9c50375755cede87cd3bd058fab5e29130eb9de975",
+      "secondOriginalAstSha256": "93becf89e1c28b3c322153392a6c9db598bda0cd47cf050d97447597b66e91ec"
+    },
+    {
+      "name": "sections/((2, 1), [], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "11442f12eb285f0e4db13e33a56980b4cb9ca8285e54be5d62a3111e91b28090",
+      "secondOriginalAstSha256": "285053bfc1be49e36ea6d15643153ed0ce08c520cf72a3ac47d39fc76be11f24"
+    },
+    {
+      "name": "sections/((2, 1), ['section'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "a737d1a8faff72f947f9ad1cbb269ac37573942253ba00cd6b8c6a82277a7130",
+      "secondOriginalAstSha256": "d66fd04c068c914f4f94c1660af5e9ea979bd39801f4a543858634f09774333f"
+    },
+    {
+      "name": "sections/((2, 1), ['section'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "84c91ea8596dc7b090937996ed8d1567ecadf8f7d51882f4eb220b82be2541ce",
+      "secondOriginalAstSha256": "78da300871cd6520b7f36037bca6852e48ac38e88ac9c6a6f65083b6d98a4bd3"
+    },
+    {
+      "name": "sections/((2, 1), ['section'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "d6c10ad5834e768d04b171ecacb1b38739941e4d083065b02ac9de94111b070d",
+      "secondOriginalAstSha256": "02dd41085f361a9ac375d076c88d91e07e20e23fe5fdd75ca358da456b555b2e"
+    },
+    {
+      "name": "sections/((2, 1), ['section'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "e7e492a255f0971fd4c9b32b2f63af9bbbdfc95d58a11a2417277ce2d83251d0",
+      "secondOriginalAstSha256": "551065d98c8f5e6258759f82dafc651cad1f7ceb1763b52be50dd88ce5087299"
+    },
+    {
+      "name": "sections/((2, 1), ['column'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "a1064116788a407266d7076843f84da6199dfbac01ac3cab3ada7def756f39bd",
+      "secondOriginalAstSha256": "86f813a83efbf64b5ebc75da418cff87288c7cd9df56b392a2bda8dd30674c0b"
+    },
+    {
+      "name": "sections/((2, 1), ['column'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "bc7adf222d1acfa01c9fd49434c9c4819338bc04223812e9b7a302e24443af86",
+      "secondOriginalAstSha256": "2fb7cb4db0708b05c74fa654674a42c96967af44affd27ac78118b7a5c83fd31"
+    },
+    {
+      "name": "sections/((2, 1), ['column'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "85b5ddc04b1358d863a3cef5843e9937de918307446a55c2ca7bb4774e77e3c4",
+      "secondOriginalAstSha256": "f6396957943d94f9576c676c288ee7cc67dd5840009b34a8c785f9f9b5adf4b1"
+    },
+    {
+      "name": "sections/((2, 1), ['column'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "145fceed7a9dc706c565c5da0eed4339d030bb558824ea68245145459bd28c36",
+      "secondOriginalAstSha256": "b067fe391a6666984b449a9bd104a3378eceb7b92864a9a02504310f0993dbbb"
+    },
+    {
+      "name": "sections/((2, 1), ['columns'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "1fa54678a3ee555e40895ea448176d804f0bdf90f2e620cb0e2a5490266e96af",
+      "secondOriginalAstSha256": "33544579767bbbb309933870a8ec2400d6d273f4339eda9d5073b468180fc154"
+    },
+    {
+      "name": "sections/((2, 1), ['columns'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "d44ecf31405f73c87744b8447a443c9831636ea936f6ecc2374737760838fb8f",
+      "secondOriginalAstSha256": "a86e53f1d279a035c4fb4f8340c56969f0ac95fd0a1792d51244eefd3eaaa460"
+    },
+    {
+      "name": "sections/((2, 1), ['columns'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "d7ba2fdf3fd71f4b77da298cde41c59a5b5f32677437997ee9419babb09f227a",
+      "secondOriginalAstSha256": "ea46e545010ec4e586fe31c56d43ecab200e134ea25b2d42e572b83a380604c1"
+    },
+    {
+      "name": "sections/((2, 1), ['columns'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "472c66c991bdab4b28646fb066b0488d230550ca6d5cbed19d9f1d070cae5df3",
+      "secondOriginalAstSha256": "f5c181c748cdb60d9aa1870c05ba10028edd6893c16f44c7ad3931f13d1c32d9"
+    },
+    {
+      "name": "sections/((2, 1), ['fragment'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "9c94db60a0aca105b6e4cd3d83589a3918994ae3e8193beac5866d13bb454b86",
+      "secondOriginalAstSha256": "187984d0f62daa8d973f85c263be388473071bbbe4a72a127141999cb4d960ef"
+    },
+    {
+      "name": "sections/((2, 1), ['fragment'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "bc90674e49688077c118125d88d36dbea9dca9fe867191919d2cdcfe4f1de0ee",
+      "secondOriginalAstSha256": "e014fdb9f4936e4d99231585ae49eac346b73af98066238eba09fa353acdcf4b"
+    },
+    {
+      "name": "sections/((2, 1), ['fragment'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "52b5dcecca0070cebfbf18e6d477d4e19bc3b7713b9c80efdbed2b684db3d713",
+      "secondOriginalAstSha256": "6b5695332fb220b5866198c2d0573c3c7efb08fc7059ca222893fd356361b2b4"
+    },
+    {
+      "name": "sections/((2, 1), ['fragment'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "b063526888578b4cfce3261ebd88995f9da80a3f9a7c0525a332a3b3930a57c3",
+      "secondOriginalAstSha256": "e8b13837b0d9815da630f54a613e2fd258f4992092a0810eb231f12d3e720d27"
+    },
+    {
+      "name": "sections/((2, 1), ['cell'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "6499072f69630ae11889a679ffa829cd53d3fbad34ad59273996b2f1680fe026",
+      "secondOriginalAstSha256": "b8f0ad7d5438b56952d02bf80b27d5a35326280fd0968da1d974584314d07433"
+    },
+    {
+      "name": "sections/((2, 1), ['cell'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "4f5a5f3e1a61b522c31de394ef63e5bb017ae2672fc8b62fa0c9ddb0e4f9ffb3",
+      "secondOriginalAstSha256": "1556c7b8c7e7a360be9aff2125668823ffc4aafc5541e34e3cc3b9c39f2c184f"
+    },
+    {
+      "name": "sections/((2, 1), ['cell'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "72ab322c0ba8546920bb7bfa98a6e792ea9d188d6bbddd938c040944732960e7",
+      "secondOriginalAstSha256": "d87d57e6827e49113b2540465bd9d7aa6f3882b9991768b4a9d71b8e65bceda7"
+    },
+    {
+      "name": "sections/((2, 1), ['cell'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "02caed7c2df8c404d291aeecc619310d6bb3ce9a16b832fb1b9ed86f4f92af81",
+      "secondOriginalAstSha256": "e7c0811f408c9fa34286be6f5300ab95997b48f98786b65e4826bae29ed5cf8e"
+    },
+    {
+      "name": "sections/((2, 1), ['other'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "86b89fee431bf358ee6357a566330cdd2d2b5cfec2b60bf033eaad20ad3d6cd7",
+      "secondOriginalAstSha256": "edeb6fc05b46c207ae2f060bcf6592afaca794eb794eafef07d56bb27073e7d4"
+    },
+    {
+      "name": "sections/((2, 1), ['other'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "7a0fd007b2caa52f5a994b4b575a330db4807cef48351496f5f65c0c71a82578",
+      "secondOriginalAstSha256": "ebd7c708f318598ddcc40f0ad8cb3c39f3196d37291052d58712b53ede045e4a"
+    },
+    {
+      "name": "sections/((2, 1), ['other'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "1d3c2276991db6d7fdaf937d27c23e758ce0779839d1ea56d905cb6b36fcfbf8",
+      "secondOriginalAstSha256": "e5a7d798ffd93192ee5e13bd222ec72d2e1c8c1f9e4d5b38a0c1a9c209915197"
+    },
+    {
+      "name": "sections/((2, 1), ['other'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f92b618c8da0628f1bc3ad9e390837038831de198cce4cf59a413ad173763174",
+      "secondOriginalAstSha256": "dfaa9978a414033639f1a577673ae41c6e6c11eba269b6982f4fd4c2ea85f6a1"
+    },
+    {
+      "name": "sections/((0, -1, 3), [], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "20b4ad6a8b59bec1e89bdeac50557e2ef996fd1e53a5dcb8c784a029751b26cf",
+      "secondOriginalAstSha256": "9abb127d54af67c131c4af4baf4049d176b381737fbe80f29df35e8ab71cd7fd"
+    },
+    {
+      "name": "sections/((0, -1, 3), [], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "984a63d0402094133deda94d8bb77d224d340d22defea4b42365d99f2d636a24",
+      "secondOriginalAstSha256": "4dce3a4afc52b9fb20ab58c5c6c287f856c30589c3d0c85279af8c548501044b"
+    },
+    {
+      "name": "sections/((0, -1, 3), [], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "e016294fd069ed6b49ef92d3ef9add1f586d15310d59c6edd5e7b7784980049a",
+      "secondOriginalAstSha256": "c544cadb9ec712d8043431cdf8d4238959979546dd9482e6c0baca8efef7f90b"
+    },
+    {
+      "name": "sections/((0, -1, 3), [], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "9e3a424e0da82034ec51ea4e0859f3eb018d527faa90b9e7d98ac20425589ce6",
+      "secondOriginalAstSha256": "132be067c859c4768de3bbd8eb6ee2de4c7af497bb428ee3a4ee834df52d75db"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['section'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "a82847114bf04b06ea54fbceff92a5712ca88a478379859a37dab5d2f4877492",
+      "secondOriginalAstSha256": "ef120c916607a04b849dd6b529038ed80718cfbb066abf1ad49b1fc9b641a4a3"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['section'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "65e9aee4161d8d75b9830146663d4cf15e228486efa05b6cdd19b476c47ce2a6",
+      "secondOriginalAstSha256": "49bab981224409afc53cafd3294076af0cbe1cff3439a2b98e4bd30003b097f4"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['section'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "d9e158db107071769aa9dd4f2f80ab13d2c6d385e82035595d952b76da746752",
+      "secondOriginalAstSha256": "c2db2a1b003c5e8bafb95be57c2c0ebe10566ee048f6d942f9934ff970ed89cf"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['section'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "81d07f4ce09524081c447e25d17242411c31de692508d4911b7470b17786d683",
+      "secondOriginalAstSha256": "44479e290df1eb4bcdad6b33b545e81ac97d9383ccd0521e6e931a3c93ad6dd2"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['column'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "54e3706f27ffe4c59b5050c041403b2ed218693a028fd4661fe23b73c1fd5c5c",
+      "secondOriginalAstSha256": "1e7dd8e2fe37a093d2228361c2a6be0962901436e79716cd4fe494b1978f44d6"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['column'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "ac9099eb0f5abd1f660d933de7b5e2f6f64171bf908cb45457edb635045d4b8f",
+      "secondOriginalAstSha256": "558a08dae9975e88ef9a8389e4d118bb064e47bb3b512fd395c71b2d40019929"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['column'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "dd07fba77a54bc14b75282b2bae242283211155e21a1d2336c7c0eba6fc590a9",
+      "secondOriginalAstSha256": "9258fd0e0645d9002536c89e103b5d79ed996ea627e33735b723981dae72ec93"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['column'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "01d1e3c5e193c7b3867524797bdaeffa11976b10dc2145d9598a942cd065ca81",
+      "secondOriginalAstSha256": "743bacce2e7feebc4e458834e58f5b317bf47549d9f276faa9cc7bdde57b4cd0"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['columns'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f07f69cec1268a6bce751d5ebd4839d99218abd368c079ff27f02e76a0e89f66",
+      "secondOriginalAstSha256": "98da80c88ef4e78529f7dcc488e94c2944d3469f8287adad81dfc2d7228ac04b"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['columns'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "9e1a4bc0e9f2f235156fc5a2549748b0ffac7e68f4472ef6735a0cceac003c49",
+      "secondOriginalAstSha256": "447a6e0807c8f28587f6117fb23c9a5b10ed199c9958b9ac775f40fe7bf1ec72"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['columns'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "e4941cc5cd30d24d6e49ba31917c93aea14ec6c94903039985145aacbd622f37",
+      "secondOriginalAstSha256": "2097c476b35a159ddd972401a1b54cc5d21336c358f0e11c9f34ff4e71639ba1"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['columns'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "6f97177ca31f73f4b3555a211738da897e8eb9a3e6f17f389f12a4b7ed75706c",
+      "secondOriginalAstSha256": "9940e0fac2af086d8b1eea154d84dfec562ae771c8e1da91c162e1f685da3461"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['fragment'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "3d8d81d837ca02e9992ced058464f98866f633e319f28ba99f3bde0ddacf4f85",
+      "secondOriginalAstSha256": "702238750537741f8c684349f7c46eae08f656e17d4088a5c51ff39f6cf2b302"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['fragment'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "a72b4fd2896081f7d40b5727f2174fbe14aad43bdd1706032cbc04c8d935326d",
+      "secondOriginalAstSha256": "2a0531555959030af2da4e56979c679d9bc46cdb9157ca959d69f1778cfc5049"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['fragment'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "bcf1f2bdba4699621ad7fb81cdd57876d3417b415e52cc635d5dcb1a0048128b",
+      "secondOriginalAstSha256": "84c0c48a862a5d1e2f6c3689da703f7ac2109bd601041501080a3bcb37d684fa"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['fragment'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "5833a5303ca3e77a37b221e4f09133d48f1cc72632ef5cd0552ead3a828a3da2",
+      "secondOriginalAstSha256": "65629a7ced14acb2913b727395020b5f69f388f645894ad49156578ee3d6565b"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['cell'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "318d8f43af0ccf835d53f3b8dc592e9faf8f045921bc322f6d0365f407b5c8ae",
+      "secondOriginalAstSha256": "899b96dcca63439bdaca75648523adecfaa5571076b8501828a183e76333c5e8"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['cell'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "d7c9a08a3093ccc33d1bc984c68880b8c65671e13714a61df70a5bd47e6522de",
+      "secondOriginalAstSha256": "79ef9a2a6bd0b2ea556ce88c175ee7fcf2531bf21c7b11fd391adcb1ace10679"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['cell'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "9b708a9be7fc1a4a4b472816f181e8f6f347287f585a30cefcdb42ccac4809b9",
+      "secondOriginalAstSha256": "3907b800c0f2c981fc75db096b6d184de8bd9cefcc86acc1acd73511beaca781"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['cell'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "2a2892b8b6ffb60d720167580fd57cef4f6937831cfed55532d5678b955c1a5b",
+      "secondOriginalAstSha256": "946ed0a8b1051d9603b392ce0dbaa1f1d70332e6522e892985e93da004351b72"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['other'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "37a95df3eef3a752cca6fe29c19720806581b8cf4acfc9392465513274758b7c",
+      "secondOriginalAstSha256": "44d713f1954e9f753d8f4a07a4aaa4c7381bb430ca2524ca9622feb718220ed2"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['other'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "0a6e5a2fafa99e37b49a0ef256f954dfb4c516f87deb19a8133db18542269171",
+      "secondOriginalAstSha256": "cf8d2f92060ecfbd1ab54db5ab61af367dba928cba395b62a98090f7bd41e7aa"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['other'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "4072a32c9a50d0fd5d88b3532a606425df4db8ab8d7c929c7cc40311f9227079",
+      "secondOriginalAstSha256": "db1e2c374569e58bca20f54f5960ebb7883b3cee98da1efeb1e4b30f2f978fba"
+    },
+    {
+      "name": "sections/((0, -1, 3), ['other'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "19c81c3b1cc6eeaa0a812434ced78dd8765fc7d301622d63696bac3be35a1794",
+      "secondOriginalAstSha256": "11033592c8d31d60b9c02de401d6303be67b977842f83d652928f55da598cfbc"
+    },
+    {
+      "name": "sections/((99, 100), [], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "9b815310dc02c58e94772ff6e8d77243afbfb8187fdbd0939b755e37e5e8f2cf",
+      "secondOriginalAstSha256": "b9fff369af5d8737ceacd218cd922679e11f56c5eab683d6fde906e7c1270486"
+    },
+    {
+      "name": "sections/((99, 100), [], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "793fb90c5f8c6d0b2e9724c1ee0bdc379cde32503c76543e4f62d2307d0b09b7",
+      "secondOriginalAstSha256": "041bc79da13d45c91c330c504c39140bb0b1c0064a583ce62bc77c75c9a734df"
+    },
+    {
+      "name": "sections/((99, 100), [], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "53ce1f9666738f4f3faaabd566041091d4f9f0d1cdb26d45220afe8c9fe35ba7",
+      "secondOriginalAstSha256": "ec51d1763a0a77976d449cdf4ab2440990b051d7f2f6b13242b27584a320af8f"
+    },
+    {
+      "name": "sections/((99, 100), [], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f92a300027adf44353a682d0dace106068f8af8635e0b760660b26041022838b",
+      "secondOriginalAstSha256": "fba89303ab52d7002fde14f70e267b77b77fa42fa1b7c84464c61a1a02484d4b"
+    },
+    {
+      "name": "sections/((99, 100), ['section'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "9b815310dc02c58e94772ff6e8d77243afbfb8187fdbd0939b755e37e5e8f2cf",
+      "secondOriginalAstSha256": "b9fff369af5d8737ceacd218cd922679e11f56c5eab683d6fde906e7c1270486"
+    },
+    {
+      "name": "sections/((99, 100), ['section'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "793fb90c5f8c6d0b2e9724c1ee0bdc379cde32503c76543e4f62d2307d0b09b7",
+      "secondOriginalAstSha256": "041bc79da13d45c91c330c504c39140bb0b1c0064a583ce62bc77c75c9a734df"
+    },
+    {
+      "name": "sections/((99, 100), ['section'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "53ce1f9666738f4f3faaabd566041091d4f9f0d1cdb26d45220afe8c9fe35ba7",
+      "secondOriginalAstSha256": "ec51d1763a0a77976d449cdf4ab2440990b051d7f2f6b13242b27584a320af8f"
+    },
+    {
+      "name": "sections/((99, 100), ['section'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f92a300027adf44353a682d0dace106068f8af8635e0b760660b26041022838b",
+      "secondOriginalAstSha256": "fba89303ab52d7002fde14f70e267b77b77fa42fa1b7c84464c61a1a02484d4b"
+    },
+    {
+      "name": "sections/((99, 100), ['column'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "16bc66cb7e985ca7eb9d276b269fabccf16fa02b6ea854cc38fd6934d94ecaaf",
+      "secondOriginalAstSha256": "35164f23c776125305fa6449643a697545554aae672d3d564804be3aa1dfc346"
+    },
+    {
+      "name": "sections/((99, 100), ['column'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "52dccf997a7472bb12ab208445dd1e5ca49d22f7899151a9da66a2786baba315",
+      "secondOriginalAstSha256": "0b9b053f63d93c80fc29d7476246b0b31d89329cf98c7a500de0f9f29b1ad8b7"
+    },
+    {
+      "name": "sections/((99, 100), ['column'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "a109bfb5ca9212b23a336511dccc3c421638d0b3bd337bd60a9178b193d20548",
+      "secondOriginalAstSha256": "5f36f3d54c5d6c2542d5ca693e952c2151498e3f4b1157ef5833be573bcc0179"
+    },
+    {
+      "name": "sections/((99, 100), ['column'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "92342574d4b557a7a1561b8af01743d25f876c1b14169bc61c38b55f5eabe673",
+      "secondOriginalAstSha256": "e80bb4166f832df9ba9c7b90012e0b554b6bfe3d3396a9bc185bacf6782ab124"
+    },
+    {
+      "name": "sections/((99, 100), ['columns'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "74572a5261b0cfd3561e9ebc05753e65569ff5db63c065613e074e11b28d919d",
+      "secondOriginalAstSha256": "daefa009357faca36bbcd84ed34b1b9871040e078caa96e62351939ddb71c214"
+    },
+    {
+      "name": "sections/((99, 100), ['columns'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "34b5730e790723d330ee165f9963d1da4677b93b4314bf34ab280343f2d59025",
+      "secondOriginalAstSha256": "f2197eaf11c661ca59f592eddbf99c417129364da82cb67a0c668b8c927aaf4a"
+    },
+    {
+      "name": "sections/((99, 100), ['columns'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "1d789a6456d8f507d812b9a59bd6d3974634c8f1ccf7385c3d3f43f0baefd8a0",
+      "secondOriginalAstSha256": "83c2e6745524df48526024a319549101e13861af45276b3f5b98f60a18ac7365"
+    },
+    {
+      "name": "sections/((99, 100), ['columns'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "3dd348372e5271e26e3b272a9244452686ab8221b9b9176bee18ba9361a921c2",
+      "secondOriginalAstSha256": "829e0f361142163afbcf1abd1b90ba4822238bb2a10fa418d3600afdadc5dc2f"
+    },
+    {
+      "name": "sections/((99, 100), ['fragment'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "bf7ba32d45e666cd764d444976b0245b6ba5166808de1ac25141117c6689acac",
+      "secondOriginalAstSha256": "e340c41aa0d7d55ee7541db5edf985f1696b32ece8a05180286979825c5a374a"
+    },
+    {
+      "name": "sections/((99, 100), ['fragment'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "b7939a443b78eb4ddf379e302ed97d8d6909f4fce9d9a15d6ae1ea48ec3c37ad",
+      "secondOriginalAstSha256": "9fd4950c2bd505698d621c8ae1d5852f7a3f441d364f32a04cc7e54b9de1b0bb"
+    },
+    {
+      "name": "sections/((99, 100), ['fragment'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "53396faa99fa772404a789285eb0624fc1301bacc2b41cd0bfb0ce9b5f0a1ac9",
+      "secondOriginalAstSha256": "7420d6827b6742fc1e30720f2d0ee873c1bcf0815597d174415add745a9ab057"
+    },
+    {
+      "name": "sections/((99, 100), ['fragment'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "aaf1aa4b4bfdcbdf98065522c9660ea92441c98145e706534de093ce3f5eac08",
+      "secondOriginalAstSha256": "8ba95ad04e29dc5a7395a7f1ed1bba28ed23aac50882f7c26f26bfc7f0a37878"
+    },
+    {
+      "name": "sections/((99, 100), ['cell'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "34608564f324fe1475608c41a0ce2d3eb59ea09dd6f1ecf83b939302a4c98e53",
+      "secondOriginalAstSha256": "659be923acc637410910a2dec489c2e8cb521c450500ea4bad52011ccad3b34c"
+    },
+    {
+      "name": "sections/((99, 100), ['cell'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "de100e58bb25be26b71d2e343d5b1b84a255fafa21452c1427557a86165243d3",
+      "secondOriginalAstSha256": "2370e0f7fa27c70291c369a64b98739cd3553940cb9dd02ef4a3dffea9d68972"
+    },
+    {
+      "name": "sections/((99, 100), ['cell'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "4a44b4ef9fed795d1201ed2fd468b7cba5acca7cb18526f89b963a77a33dddeb",
+      "secondOriginalAstSha256": "de1b63e65dd05b2e01f7df9dc9ea25ca9cc94f3b1a1e4d969af30eddc5f0616e"
+    },
+    {
+      "name": "sections/((99, 100), ['cell'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "69de5450128bb8c188875bc1a8ba903690d806681902112e51b401ea90e32708",
+      "secondOriginalAstSha256": "8ab2a80a3f33cdd95f2d514f4e316a0afa50592c47296ee3e92821d1fab18bdf"
+    },
+    {
+      "name": "sections/((99, 100), ['other'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "c04316c42325df0756839b7ba917a535acba2ef37ff9f1414d16e2f9413401dc",
+      "secondOriginalAstSha256": "ba5bd9f8469c863bdb57033b1516598ae2708bab7c29bc080a811c6e83681088"
+    },
+    {
+      "name": "sections/((99, 100), ['other'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f229342b1bad19983fb9ff7a80b6b2bf8c7e853bc9c78553957dda5cf9d606d6",
+      "secondOriginalAstSha256": "b3a00ddd9ca40905b8f87282eab1a0518ccc1cdb61b0d9050b041f9a2f355664"
+    },
+    {
+      "name": "sections/((99, 100), ['other'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "53fe7666c774ed67f82ed2e42ed23200a7bcd5dd5730f77e85d44cc8168910d8",
+      "secondOriginalAstSha256": "6c42b728ce9e7e5d0ea67bd2f5e039356dc5f3448986ba545eea51c9f19a0f01"
+    },
+    {
+      "name": "sections/((99, 100), ['other'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "2031c0c71325422d2c8e4dd53f7d481c983b6587dfcd373899a004ca1ab83d46",
+      "secondOriginalAstSha256": "1966da5efbd605d4adf4c4a2ccde1306559e43dd1dacec5e61bdfc7b22c0d204"
+    },
+    {
+      "name": "sections/((1, 1), [], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "2203efca4f8698265a75ea8a4a1c39237cafeecee2fd41aec26139f5218c18f0",
+      "secondOriginalAstSha256": "f76ff51e74553566146f07a947f1856dae1f9f882cbde84a52f20748fdfc6de4"
+    },
+    {
+      "name": "sections/((1, 1), [], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "bbeb6fc9829e437186c37fc88a58800f0894b798292d3635571da21c9d613251",
+      "secondOriginalAstSha256": "c60dd8b90df4fdb8f4f7853510efa6a4ca0a4a50a87dee01f5b7460262b468be"
+    },
+    {
+      "name": "sections/((1, 1), [], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "1c69b3ed269923d637ff1029f5bae5e65356ad91f1f2d42ac7a2e6e4c7786e57",
+      "secondOriginalAstSha256": "c93e7f34da52be5e621f71e733758f20af9c52cd6fa843fefa45db1f35af6101"
+    },
+    {
+      "name": "sections/((1, 1), [], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "5674b0fce2f5765a93682d39919d8c839cdfaab61386629241fd9f2def6e8041",
+      "secondOriginalAstSha256": "2c6cb602708217bc0075dabdddd74a6f31770203b9e9a8b72f266387ff3ff1fc"
+    },
+    {
+      "name": "sections/((1, 1), ['section'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "b3ac073f35631ec6bb0d387cb4c0beb909474e738400fd559b8b956aaa7af02a",
+      "secondOriginalAstSha256": "cef2b17eb122d061fdb502d29781a737a9425a4995524c0feb969ad30965feaf"
+    },
+    {
+      "name": "sections/((1, 1), ['section'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "8cbcbe05e9fd888d0c8c3196acfa4680b5f62c93823062445d17f44b0543efe6",
+      "secondOriginalAstSha256": "c6985db887bf36466e86de7e3e3eac9849ddfe73530bbaf6bca20487752516eb"
+    },
+    {
+      "name": "sections/((1, 1), ['section'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "0e4af07a2e19dc8a6e3cd604b00e8d03d682220fae342ca4bce13e5abd213a74",
+      "secondOriginalAstSha256": "84f822b5ef9fe6c2321da00a93d8e11f3ac8cbc95ebac6a824ea849bdaabcd9e"
+    },
+    {
+      "name": "sections/((1, 1), ['section'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "c3ff5678352772afbdc9c5719de668894779744680064f2e69bd4806477a3e54",
+      "secondOriginalAstSha256": "982469eba3a5b034a91b683ca00e4724e304c670bbb55a786ce79140541e0358"
+    },
+    {
+      "name": "sections/((1, 1), ['column'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "baf8a61fa2885668abe4a6ed3f5af7a162206758faf66b0b8453c2bb37911f51",
+      "secondOriginalAstSha256": "29e07eadbaa85add6b84b675df73e38d8fe2c24041af9d31e6e3c946fa9a218f"
+    },
+    {
+      "name": "sections/((1, 1), ['column'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "37bf9f28f9dd50c819bc055f5a8c6f19c37400dad33af660aee970b42352027c",
+      "secondOriginalAstSha256": "b9f26c46637148909afa731cbf5d953ae3d49c76755148e52b136d8339e74e15"
+    },
+    {
+      "name": "sections/((1, 1), ['column'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "1cfce49a490e9c0ce6581e12038e6f5a4fc4cbfbba8e0f6ace065e3c96a7856c",
+      "secondOriginalAstSha256": "824fce6c61f641b86aebee290941e83402e3a3c22908da091c6d7ffdaa1638ba"
+    },
+    {
+      "name": "sections/((1, 1), ['column'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "69860c4fa7cbc2d92ad7950cb50a0ac4f115992ce020657d9b973790a209238a",
+      "secondOriginalAstSha256": "f64fbfa548e8a43fa8c64de67b6bc0528f28396420f8d956f11cf05a88d0bcac"
+    },
+    {
+      "name": "sections/((1, 1), ['columns'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "48511b08bd6dab9a4be94b85ee576156d29457ab4126b1ae9c0f5040d50d1c3d",
+      "secondOriginalAstSha256": "032a533a3f89e97a5d17896784d97f38f461fb8b391fa8544678f902632fffe8"
+    },
+    {
+      "name": "sections/((1, 1), ['columns'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "3c7970084c477a74e6c474b0b8313442a9b0aefd5d910cf7bc2980530f77a5b7",
+      "secondOriginalAstSha256": "f570f28e000d778c201d1876cbe5b8032b83aa6e4170867ec5515a0649bb527b"
+    },
+    {
+      "name": "sections/((1, 1), ['columns'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f350169dda4fff9037e01ecdba0d341f8e19e83a3126bbeaf5c38603e2ba98fa",
+      "secondOriginalAstSha256": "7f1f920fe471276df67d35ff9aca693da85f716e8a3ebaaa9989d7cc0f0ba5d4"
+    },
+    {
+      "name": "sections/((1, 1), ['columns'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "4b1a03baaaad8dd12e1b183fc899352e11e968e83b0960df3c2392d59f5cf6d8",
+      "secondOriginalAstSha256": "acac1817657807a042b30a562a893ccb4787d516b2ad3b426c3f8ff2c6b01770"
+    },
+    {
+      "name": "sections/((1, 1), ['fragment'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "3187ccd63e079d24761e7331edb6214345fb10f1d2908ea18720f39453f21f99",
+      "secondOriginalAstSha256": "f5a027172905a286ec85e5fbd0695c25acbb0e4743e02fd40b97d23105cc57cf"
+    },
+    {
+      "name": "sections/((1, 1), ['fragment'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "8330193c836f52c8b5d8a4d7c8ee2ad651d354a278c9ce0a4f70b45be4aa4354",
+      "secondOriginalAstSha256": "85d933dfe35545e2582e30f000a3daa114f73dba0aa6e2d6d33a292207676ecf"
+    },
+    {
+      "name": "sections/((1, 1), ['fragment'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "cb61cae52a75bb70ed9cf907813601877b1e1f5b6e12cd8ac00dcf3427761b01",
+      "secondOriginalAstSha256": "ccfce2b34591c8d02d68c6ca15e91e63ce140618ca738ba7e688aaa8f607af05"
+    },
+    {
+      "name": "sections/((1, 1), ['fragment'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "f01f58345d82abfdc835f74dc521735606166193dc395babb52ea4b5ee911d0c",
+      "secondOriginalAstSha256": "e4e8eec764e950c6d8c3bf2fab1d7866d6ec0c3b958f87a47d047caee6b21c86"
+    },
+    {
+      "name": "sections/((1, 1), ['cell'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "58d8de5084d2cbf07a110a6d859441b90288cfdfd16aa8032d52e936bd3b622b",
+      "secondOriginalAstSha256": "b1b4772f6ae1e70dc31c73538ed97ce72978ec16a63b6dcc0aad4ea0f8b2fcb4"
+    },
+    {
+      "name": "sections/((1, 1), ['cell'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "4aa117bc87eb9e8483234a814daaa72cd842040dd5776aa676c22953da1723bd",
+      "secondOriginalAstSha256": "3df9a97c16862c88c0d845195ec79219911378687faef1cf6590efbdd8e9fda4"
+    },
+    {
+      "name": "sections/((1, 1), ['cell'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "c668b942f541241029ee1f04f098796d8c1a93c31263baefed300c3f388168d0",
+      "secondOriginalAstSha256": "a2e50e760cacdee022f4010ee4c4bb650bf398bc326a48f7e0dfec07d7cd268f"
+    },
+    {
+      "name": "sections/((1, 1), ['cell'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "7a3b81f0bd74b6c197db55d3e2e8cdbd2bda45038c5166fccde9e8dac65ead9d",
+      "secondOriginalAstSha256": "31ad29c79933605dfd1e722c161e2a3e40692997710448cce2e86da2b491d583"
+    },
+    {
+      "name": "sections/((1, 1), ['other'], '', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "d640e62c2ce98e392914dfcd061e82d9b09ffc27b728a2ec8c0c12cecf665a38",
+      "secondOriginalAstSha256": "62e39221392c37e3dd5e4b1f151c1934fea59bc81edbf04e32ba2bafd27a9071"
+    },
+    {
+      "name": "sections/((1, 1), ['other'], '', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "cfc9dfae79105df680ce501da51eedf67c9f8514c3912e2b3d3ff36df1f1207f",
+      "secondOriginalAstSha256": "a01cfac04f5fd669523b5dba8401a3db63856aa7801afe0b142911c5fa433677"
+    },
+    {
+      "name": "sections/((1, 1), ['other'], 'outer', '', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "aca44cd1c774cbf72f395405ae043895c6bed52f8965fd3e40561c910826a9dc",
+      "secondOriginalAstSha256": "f66c41be6bc1f118adeb04598e6cb00a408d2f5172414c108210d5fb8a61dcc1"
+    },
+    {
+      "name": "sections/((1, 1), ['other'], 'outer', 'inner', [['number', '9'], ['epub:type', 'x'], ['role', 'note'], ['role', 'heading']])",
+      "firstOriginalAstSha256": "471534db831b62ff09b1ec9fee2ec250957fb9fb1d8ff757c8f5b4d7768050cc",
+      "secondOriginalAstSha256": "7ef9c238f0acb2c87f4275fdd3951fd518ba938109829efd8a1381acc3e92d5d"
+    }
+  ]
+}

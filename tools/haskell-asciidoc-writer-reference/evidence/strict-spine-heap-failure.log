@@ -1,0 +1,85 @@
+RUN deep/div/64/False
+PASS deep/div/64/False
+RUN deep/div/64/True
+PASS deep/div/64/True
+RUN deep/div/1024/False
+PASS deep/div/1024/False
+RUN deep/div/1024/True
+PASS deep/div/1024/True
+RUN deep/div/4096/False
+PASS deep/div/4096/False
+RUN deep/div/4096/True
+PASS deep/div/4096/True
+RUN deep/caption/64/False
+PASS deep/caption/64/False
+RUN deep/caption/64/True
+PASS deep/caption/64/True
+RUN deep/caption/1024/False
+PASS deep/caption/1024/False
+RUN deep/caption/1024/True
+PASS deep/caption/1024/True
+RUN deep/caption/4096/False
+PASS deep/caption/4096/False
+RUN deep/caption/4096/True
+PASS deep/caption/4096/True
+RUN deep/span/64/False
+PASS deep/span/64/False
+RUN deep/span/64/True
+PASS deep/span/64/True
+RUN deep/span/1024/False
+PASS deep/span/1024/False
+RUN deep/span/1024/True
+PASS deep/span/1024/True
+RUN deep/span/4096/False
+PASS deep/span/4096/False
+RUN deep/span/4096/True
+PASS deep/span/4096/True
+RUN deep/emph/64/False
+PASS deep/emph/64/False
+RUN deep/emph/64/True
+PASS deep/emph/64/True
+RUN deep/emph/1024/False
+PASS deep/emph/1024/False
+RUN deep/emph/1024/True
+PASS deep/emph/1024/True
+RUN deep/emph/4096/False
+PASS deep/emph/4096/False
+RUN deep/emph/4096/True
+PASS deep/emph/4096/True
+RUN deep/note/64/False
+PASS deep/note/64/False
+RUN deep/note/64/True
+PASS deep/note/64/True
+RUN deep/note/1024/False
+PASS deep/note/1024/False
+RUN deep/note/1024/True
+PASS deep/note/1024/True
+RUN deep/note/4096/False
+PASS deep/note/4096/False
+RUN deep/note/4096/True
+PASS deep/note/4096/True
+RUN deep/quote/64/False
+PASS deep/quote/64/False
+RUN deep/quote/64/True
+PASS deep/quote/64/True
+RUN deep/quote/1024/False
+PASS deep/quote/1024/False
+RUN deep/quote/1024/True
+PASS deep/quote/1024/True
+RUN deep/quote/4096/False
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at io.heapy.kotdoc.layout.DocKt.plus(Doc.kt:25)
+	at io.heapy.kotdoc.writers.AsciiDocChompKt$asciiDocChomp$go$1.invokeSuspend(AsciiDocChomp.kt:19)
+	at io.heapy.kotdoc.writers.AsciiDocChompKt$asciiDocChomp$go$1.invoke(AsciiDocChomp.kt)
+	at io.heapy.kotdoc.writers.AsciiDocChompKt$asciiDocChomp$go$1.invoke(AsciiDocChomp.kt)
+	at kotlin.DeepRecursiveScopeImpl.runCallLoop(DeepRecursive.kt:199)
+	at kotlin.DeepRecursiveKt.invoke(DeepRecursive.kt:83)
+	at io.heapy.kotdoc.writers.AsciiDocChompKt.asciiDocChomp(AsciiDocChomp.kt:23)
+	at io.heapy.kotdoc.writers.AsciiDocWriter$Session.renderBlock(AsciiDocWriter.kt:140)
+	at io.heapy.kotdoc.writers.AsciiDocWriter$Session$renderBlock$1.invokeSuspend(AsciiDocWriter.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlin.DeepRecursiveScopeImpl.runCallLoop(DeepRecursive.kt:206)
+	at kotlin.DeepRecursiveKt.invoke(DeepRecursive.kt:83)
+	at io.heapy.kotdoc.writers.AsciiDocWriter$Session.document(AsciiDocWriter.kt:37)
+	at io.heapy.kotdoc.writers.AsciiDocWriter.write(AsciiDocWriter.kt:19)
+	at io.heapy.kotdoc.writers.DeepProofKt.main(DeepProof.kt:22)

@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
-        println((listOf("dokuwiki", "fb2", "json", "muse", "native", "org", "rst") + HtmlCliWriter.formats).sorted().joinToString("\n"))
+        println((listOf("asciidoc", "asciidoctor", "asciidoc_legacy", "dokuwiki", "fb2", "json", "muse", "native", "org", "rst") + HtmlCliWriter.formats).sorted().joinToString("\n"))
         return
     }
     try {
@@ -110,26 +110,34 @@ fun main(args: Array<String>) {
         }
         if (!explicitReader && input != null) {
             val inferred = FlavoredFormat.fromFilePaths(listOf(input))
-            val dokuOutput = FlavoredFormat.parse(to).name in listOf("dokuwiki", "muse", "org", "rst") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("dokuwiki", "muse", "org", "rst") } == true
+            val dokuOutput = FlavoredFormat.parse(to).name in listOf("asciidoc", "asciidoctor", "asciidoc_legacy", "dokuwiki", "muse", "org", "rst") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("asciidoc", "asciidoctor", "asciidoc_legacy", "dokuwiki", "muse", "org", "rst") } == true
             if (inferred != null && (inferred.name in listOf("dokuwiki", "muse", "org", "rst") || dokuOutput)) from = inferred.name
         }
         val inputFormat = FlavoredFormat.parse(from)
         if (!explicitWriter) {
             val inferred = output?.let { FlavoredFormat.fromFilePaths(listOf(it)) }
             if (inputFormat.name in listOf("dokuwiki", "muse", "org", "rst")) to = inferred?.name ?: "html"
-            else if (inferred?.name in listOf("dokuwiki", "muse", "org", "rst")) to = checkNotNull(inferred).name
+            else if (inferred?.name in listOf("asciidoc", "asciidoctor", "asciidoc_legacy", "dokuwiki", "muse", "org", "rst")) to = checkNotNull(inferred).name
         }
         val outputFormat = FlavoredFormat.parse(to)
         require(inputFormat.name in listOf("dokuwiki", "fb2", "json", "latex", "muse", "native", "org", "rst")) { "Supported input formats: dokuwiki, fb2, json, latex, muse, native, org, rst (requested $from)" }
-        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "muse", "native", "org", "rst") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
+        require(outputFormat.name in listOf("asciidoc", "asciidoctor", "asciidoc_legacy", "dokuwiki", "fb2", "json", "muse", "native", "org", "rst") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
         val inputExtensions = ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
+        AsciiDocCliWriter.outputSettings(outputFormat.name)
         val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
         from = inputFormat.name
         to = outputFormat.name
         require(columns > 0) { "Column count must be positive" }
+        // OutputSettings prepares AsciiDoc templates before reading input.
+        // Other format paths retain their accepted application boundary.
+        val asciiDocPrepared = if (to in listOf("asciidoc", "asciidoctor", "asciidoc_legacy")) {
+            val initialMedia = MediaBag()
+            initialMedia to AsciiDocCliWriter.prepare { htmlOptions.finish(htmlOptions.options.copy(columns=columns.toLong(), mathMethod=mathMethod,
+                extensions=outputExtensions), to, input, output, ResourceContext(initialMedia, resourcePaths)) }
+        } else null
         val inputBytes = if (input == null || input == "-") System.`in`.readBytes() else File(input).readBytes()
         val text = if (from in listOf("latex", "muse", "org", "rst")) "" else inputBytes.toString(Charsets.UTF_8)
-        val media = MediaBag()
+        val media = asciiDocPrepared?.first ?: MediaBag()
         var document = when (from) {
             "dokuwiki" -> DokuWikiCli.read(inputBytes, if (input == null || input == "-") "" else input,
                 ReaderOptions(extensions = if (htmlOptions.options.tableOfContents) inputExtensions + io.heapy.kotdoc.options.Extensions.of(io.heapy.kotdoc.options.ExtensionName.AutoIdentifiers) else inputExtensions,
@@ -144,7 +152,7 @@ fun main(args: Array<String>) {
                 ReaderOptions(extensions = if (htmlOptions.options.tableOfContents) inputExtensions + io.heapy.kotdoc.options.Extensions.of(io.heapy.kotdoc.options.ExtensionName.AutoIdentifiers) else inputExtensions,
                     standalone = htmlOptions.standaloneFor(to), columns = columns.toLong(), tabStop = htmlOptions.options.tabStop, defaultImageExtension = defaultImageExtension), preserveTabs, trace, resourcePaths)
             "json" -> PandocJson.decode(text)
-            "native" -> NativeReader.read(text)
+            "native" -> if (asciiDocPrepared != null) AsciiDocCliWriter.readNative(text) else NativeReader.read(text)
             "latex" -> LaTeXCliReader.read(inputBytes,if (input == null || input == "-") "" else input,
                 ReaderOptions(extensions=inputExtensions,columns=columns.toLong(),tabStop=tabStop,defaultImageExtension=defaultImageExtension),preserveTabs,resourcePaths).also { resourcePaths=it.resourcePaths }.document
             else -> FB2Reader.readWithEffects(text.removePrefix("\uFEFF")).also { result ->
@@ -158,13 +166,14 @@ fun main(args: Array<String>) {
             document = MediaOperations.fill(document, media, resources, ::reportResource)
             document = MediaOperations.extract(destination, document, media, ::reportResource)
         }
-        val writerOptions = htmlOptions.finish(htmlOptions.options.copy(columns=columns.toLong(), mathMethod=mathMethod,
+        val writerOptions = asciiDocPrepared?.second ?: htmlOptions.finish(htmlOptions.options.copy(columns=columns.toLong(), mathMethod=mathMethod,
             extensions=outputExtensions), to, input, output, resources)
         val rendered = when (to) {
             "dokuwiki" -> DokuWikiCli.write(writerOptions, document)
             "muse" -> MuseCliWriter.write(writerOptions, document)
             "rst" -> RstCliWriter.write(writerOptions, document)
             "org" -> OrgCliWriter.write(writerOptions, document)
+            "asciidoc", "asciidoctor", "asciidoc_legacy" -> AsciiDocCliWriter.write(to, writerOptions, document)
             "json" -> PandocJson.encode(document)
             "native" -> NativeWriter.write(document, writerOptions)
             in HtmlCliWriter.formats -> HtmlCliWriter.write(to, writerOptions, document)

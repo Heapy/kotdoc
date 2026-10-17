@@ -1,0 +1,898 @@
+[
+  {
+    "direction": "Reader",
+    "format": "native",
+    "storage": "TextReader",
+    "function": "readNative",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Reader",
+    "format": "json",
+    "storage": "TextReader",
+    "function": "readJSON",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Reader",
+    "format": "markdown",
+    "storage": "TextReader",
+    "function": "readMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "markdown_strict",
+    "storage": "TextReader",
+    "function": "readMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "markdown_phpextra",
+    "storage": "TextReader",
+    "function": "readMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "markdown_github",
+    "storage": "TextReader",
+    "function": "readMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "markdown_mmd",
+    "storage": "TextReader",
+    "function": "readMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "commonmark",
+    "storage": "TextReader",
+    "function": "readCommonMark",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "commonmark_x",
+    "storage": "TextReader",
+    "function": "readCommonMark",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "asciidoc",
+    "storage": "TextReader",
+    "function": "readAsciiDoc",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "creole",
+    "storage": "TextReader",
+    "function": "readCreole",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "dokuwiki",
+    "storage": "TextReader",
+    "function": "readDokuWiki",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Reader",
+    "format": "gfm",
+    "storage": "TextReader",
+    "function": "readCommonMark",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "rst",
+    "storage": "TextReader",
+    "function": "readRST",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Reader",
+    "format": "mediawiki",
+    "storage": "TextReader",
+    "function": "readMediaWiki",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "vimwiki",
+    "storage": "TextReader",
+    "function": "readVimwiki",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "docbook",
+    "storage": "TextReader",
+    "function": "readDocBook",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "opml",
+    "storage": "TextReader",
+    "function": "readOPML",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "org",
+    "storage": "TextReader",
+    "function": "readOrg",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Reader",
+    "format": "textile",
+    "storage": "TextReader",
+    "function": "readTextile",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "html",
+    "storage": "TextReader",
+    "function": "readHtml",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "bits",
+    "storage": "TextReader",
+    "function": "readJATS",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "jats",
+    "storage": "TextReader",
+    "function": "readJATS",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "jira",
+    "storage": "TextReader",
+    "function": "readJira",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "latex",
+    "storage": "TextReader",
+    "function": "readLaTeX",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Reader",
+    "format": "haddock",
+    "storage": "TextReader",
+    "function": "readHaddock",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "twiki",
+    "storage": "TextReader",
+    "function": "readTWiki",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "tikiwiki",
+    "storage": "TextReader",
+    "function": "readTikiWiki",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "docx",
+    "storage": "ByteStringReader",
+    "function": "readDocx",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Reader",
+    "format": "pptx",
+    "storage": "ByteStringReader",
+    "function": "readPptx",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Reader",
+    "format": "xlsx",
+    "storage": "ByteStringReader",
+    "function": "readXlsx",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Reader",
+    "format": "odt",
+    "storage": "ByteStringReader",
+    "function": "readODT",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Reader",
+    "format": "fodt",
+    "storage": "TextReader",
+    "function": "readFODT",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Reader",
+    "format": "t2t",
+    "storage": "TextReader",
+    "function": "readTxt2Tags",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "epub",
+    "storage": "ByteStringReader",
+    "function": "readEPUB",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Reader",
+    "format": "muse",
+    "storage": "TextReader",
+    "function": "readMuse",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Reader",
+    "format": "man",
+    "storage": "TextReader",
+    "function": "readMan",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "fb2",
+    "storage": "TextReader",
+    "function": "readFB2",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Reader",
+    "format": "ipynb",
+    "storage": "TextReader",
+    "function": "readIpynb",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Reader",
+    "format": "csv",
+    "storage": "TextReader",
+    "function": "readCSV",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "tsv",
+    "storage": "TextReader",
+    "function": "readTSV",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "csljson",
+    "storage": "TextReader",
+    "function": "readCslJson",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "bibtex",
+    "storage": "TextReader",
+    "function": "readBibTeX",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "biblatex",
+    "storage": "TextReader",
+    "function": "readBibLaTeX",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "endnotexml",
+    "storage": "TextReader",
+    "function": "readEndNoteXML",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "ris",
+    "storage": "TextReader",
+    "function": "readRIS",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "rtf",
+    "storage": "TextReader",
+    "function": "readRTF",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "typst",
+    "storage": "TextReader",
+    "function": "readTypst",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "djot",
+    "storage": "TextReader",
+    "function": "readDjot",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "mdoc",
+    "storage": "TextReader",
+    "function": "readMdoc",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "pod",
+    "storage": "TextReader",
+    "function": "readPod",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Reader",
+    "format": "xml",
+    "storage": "TextReader",
+    "function": "readXML",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "native",
+    "storage": "TextWriter",
+    "function": "writeNative",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Writer",
+    "format": "json",
+    "storage": "TextWriter",
+    "function": "writeJSON",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Writer",
+    "format": "docx",
+    "storage": "ByteStringWriter",
+    "function": "writeDocx",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "odt",
+    "storage": "ByteStringWriter",
+    "function": "writeODT",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "fodt",
+    "storage": "TextWriter",
+    "function": "writeFODT",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "pptx",
+    "storage": "ByteStringWriter",
+    "function": "writePowerpoint",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "epub",
+    "storage": "ByteStringWriter",
+    "function": "writeEPUB3",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "epub2",
+    "storage": "ByteStringWriter",
+    "function": "writeEPUB2",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "epub3",
+    "storage": "ByteStringWriter",
+    "function": "writeEPUB3",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "fb2",
+    "storage": "TextWriter",
+    "function": "writeFB2",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Writer",
+    "format": "ipynb",
+    "storage": "TextWriter",
+    "function": "writeIpynb",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "html",
+    "storage": "TextWriter",
+    "function": "writeHtml5String",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "html4",
+    "storage": "TextWriter",
+    "function": "writeHtml4String",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "html5",
+    "storage": "TextWriter",
+    "function": "writeHtml5String",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "icml",
+    "storage": "TextWriter",
+    "function": "writeICML",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "s5",
+    "storage": "TextWriter",
+    "function": "writeS5",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "slidy",
+    "storage": "TextWriter",
+    "function": "writeSlidy",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "slideous",
+    "storage": "TextWriter",
+    "function": "writeSlideous",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "dzslides",
+    "storage": "TextWriter",
+    "function": "writeDZSlides",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "revealjs",
+    "storage": "TextWriter",
+    "function": "writeRevealJs",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "docbook",
+    "storage": "TextWriter",
+    "function": "writeDocBook5",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "docbook4",
+    "storage": "TextWriter",
+    "function": "writeDocBook4",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "docbook5",
+    "storage": "TextWriter",
+    "function": "writeDocBook5",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "jats",
+    "storage": "TextWriter",
+    "function": "writeJatsArchiving",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "jats_articleauthoring",
+    "storage": "TextWriter",
+    "function": "writeJatsArticleAuthoring",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "jats_publishing",
+    "storage": "TextWriter",
+    "function": "writeJatsPublishing",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "jats_archiving",
+    "storage": "TextWriter",
+    "function": "writeJatsArchiving",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "jira",
+    "storage": "TextWriter",
+    "function": "writeJira",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "opml",
+    "storage": "TextWriter",
+    "function": "writeOPML",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "opendocument",
+    "storage": "TextWriter",
+    "function": "writeOpenDocument",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "latex",
+    "storage": "TextWriter",
+    "function": "writeLaTeX",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "beamer",
+    "storage": "TextWriter",
+    "function": "writeBeamer",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "context",
+    "storage": "TextWriter",
+    "function": "writeConTeXt",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "texinfo",
+    "storage": "TextWriter",
+    "function": "writeTexinfo",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "man",
+    "storage": "TextWriter",
+    "function": "writeMan",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "ms",
+    "storage": "TextWriter",
+    "function": "writeMs",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "markdown",
+    "storage": "TextWriter",
+    "function": "writeMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "markdown_strict",
+    "storage": "TextWriter",
+    "function": "writeMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "markdown_phpextra",
+    "storage": "TextWriter",
+    "function": "writeMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "markdown_github",
+    "storage": "TextWriter",
+    "function": "writeMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "markdown_mmd",
+    "storage": "TextWriter",
+    "function": "writeMarkdown",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "plain",
+    "storage": "TextWriter",
+    "function": "writePlain",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "rst",
+    "storage": "TextWriter",
+    "function": "writeRST",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Writer",
+    "format": "mediawiki",
+    "storage": "TextWriter",
+    "function": "writeMediaWiki",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "dokuwiki",
+    "storage": "TextWriter",
+    "function": "writeDokuWiki",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Writer",
+    "format": "xwiki",
+    "storage": "TextWriter",
+    "function": "writeXWiki",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "zimwiki",
+    "storage": "TextWriter",
+    "function": "writeZimWiki",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "textile",
+    "storage": "TextWriter",
+    "function": "writeTextile",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "t2t",
+    "storage": "TextWriter",
+    "function": "writeTxt2Tags",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "typst",
+    "storage": "TextWriter",
+    "function": "writeTypst",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "rtf",
+    "storage": "TextWriter",
+    "function": "writeRTF",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "org",
+    "storage": "TextWriter",
+    "function": "writeOrg",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Writer",
+    "format": "asciidoc",
+    "storage": "TextWriter",
+    "function": "writeAsciiDoc",
+    "status": "current full writer checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "asciidoctor",
+    "storage": "TextWriter",
+    "function": "writeAsciiDoc",
+    "status": "current full writer checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "asciidoc_legacy",
+    "storage": "TextWriter",
+    "function": "writeAsciiDocLegacy",
+    "status": "current full writer checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "haddock",
+    "storage": "TextWriter",
+    "function": "writeHaddock",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "commonmark",
+    "storage": "TextWriter",
+    "function": "writeCommonMark",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "commonmark_x",
+    "storage": "TextWriter",
+    "function": "writeCommonMark",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "gfm",
+    "storage": "TextWriter",
+    "function": "writeCommonMark",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "tei",
+    "storage": "TextWriter",
+    "function": "writeTEI",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "muse",
+    "storage": "TextWriter",
+    "function": "writeMuse",
+    "status": "accepted earlier; current integration separate"
+  },
+  {
+    "direction": "Writer",
+    "format": "csljson",
+    "storage": "TextWriter",
+    "function": "writeCslJson",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "bibtex",
+    "storage": "TextWriter",
+    "function": "writeBibTeX",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "biblatex",
+    "storage": "TextWriter",
+    "function": "writeBibLaTeX",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "markua",
+    "storage": "TextWriter",
+    "function": "writeMarkua",
+    "status": "other HTML/LaTeX/Markdown ownership; not this checkpoint"
+  },
+  {
+    "direction": "Writer",
+    "format": "chunkedhtml",
+    "storage": "ByteStringWriter",
+    "function": "writeChunkedHTML",
+    "status": "container/office/notebook ownership classification required; not claimed"
+  },
+  {
+    "direction": "Writer",
+    "format": "djot",
+    "storage": "TextWriter",
+    "function": "writeDjot",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "ansi",
+    "storage": "TextWriter",
+    "function": "writeANSI",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "xml",
+    "storage": "TextWriter",
+    "function": "writeXML",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "vimdoc",
+    "storage": "TextWriter",
+    "function": "writeVimdoc",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "bbcode",
+    "storage": "TextWriter",
+    "function": "writeBBCode",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "bbcode_steam",
+    "storage": "TextWriter",
+    "function": "writeBBCodeSteam",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "bbcode_phpbb",
+    "storage": "TextWriter",
+    "function": "writeBBCodePhpBB",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "bbcode_fluxbb",
+    "storage": "TextWriter",
+    "function": "writeBBCodeFluxBB",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "bbcode_hubzilla",
+    "storage": "TextWriter",
+    "function": "writeBBCodeHubzilla",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  },
+  {
+    "direction": "Writer",
+    "format": "bbcode_xenforo",
+    "storage": "TextWriter",
+    "function": "writeBBCodeXenforo",
+    "status": "remaining registry path; implementation/test/ownership audit required"
+  }
+]

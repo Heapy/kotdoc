@@ -1,0 +1,219 @@
+[
+  {
+    "command": "pandoc -t asciidoc",
+    "expected": "==== section\n\n====== five\n",
+    "file": "upstream/pandoc/test/command/10062.md",
+    "input": "### section\n\n##### five\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -t asciidoc --wrap=preserve",
+    "expected": "https://example.com[link]\nlink:ftps://example.com[link]\n",
+    "file": "upstream/pandoc/test/command/10105.md",
+    "input": "[link](https://example.com)\n[link](ftps://example.com)\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -t asciidoc",
+    "expected": "C{plus} C{plus}{plus} C{plus}{plus}{plus} `{plus}{plus}`\n\n`++`++` ++`++hi++`++\n\n`hi++\\++there++``++ ok`\n\n....\n++`\n....\n",
+    "file": "upstream/pandoc/test/command/10385.md",
+    "input": "C+ C++ C+++ `++`\n\n`` ` `` \\`hi\\`\n\n`hi\\there`` ok`\n\n```\n++`\n```\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "* Paragraph one\n+\nParagraph two to force a list continuation\n\n** First nested\n** Second nested\n\nHow about ordered lists?\n\n. Paragraph one\n+\nParagraph two to force a list continuation\n\n.. Nested item\n\nWith non-default attributes:\n\n. Paragraph one\n+\nParagraph two to force a list continuation\n[start=5]\n.. Nested item\n",
+    "file": "upstream/pandoc/test/command/11006.md",
+    "input": "<ul>\n  <li>\n    <p>Paragraph one</p>\n    <p>Paragraph two to force a list continuation</p>\n    <ul>\n      <li>First nested</li>\n      <li>Second nested</li>\n    </ul>\n  </li>\n</ul>\n\n<p>How about ordered lists?</p>\n\n<ol>\n  <li>\n    <p>Paragraph one</p>\n    <p>Paragraph two to force a list continuation</p>\n    <ol><li>Nested item</li></ol>\n  </li>\n</ol>\n\n<p>With non-default attributes:</p>\n\n<ol>\n  <li>\n    <p>Paragraph one</p>\n    <p>Paragraph two to force a list continuation</p>\n    <ol start=5><li>Nested item</li></ol>\n  </li>\n</ol>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f markdown -t asciidoc",
+    "expected": "This is a __test__footnote:[Test footnote.].\n\nAnd yet another **one**footnote:[Test footnote.].\n\nWe can also try to write ++#++hashtags [.test]#this#.\n",
+    "file": "upstream/pandoc/test/command/11362.md",
+    "input": "This is a _test_[^1].\n\nAnd yet another **one**[^1].\n\nWe can also try to write #hashtags [this]{.test}.\n\n[^1]: Test footnote.\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f native -t asciidoc",
+    "expected": "[smallcaps]#foo#\n",
+    "file": "upstream/pandoc/test/command/11374.md",
+    "input": "[ Para [ SmallCaps [ Str \"foo\" ] ] ]\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -t asciidoc -f html",
+    "expected": "http://example.com[++][++]\n",
+    "file": "upstream/pandoc/test/command/2337.md",
+    "input": "<a href=\"http://example.com\">][</a>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -t asciidoc",
+    "expected": "Test 1\n\n++[++my text++]++\n\nTest 2\n",
+    "file": "upstream/pandoc/test/command/4545.md",
+    "input": "Test 1\n\n[my text]\n\nTest 2\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -t asciidoc",
+    "expected": "{empty}4. foo\n",
+    "file": "upstream/pandoc/test/command/4545.md",
+    "input": "4\\. foo\n",
+    "number": 2
+  },
+  {
+    "command": "pandoc -t asciidoc",
+    "expected": "[.small .red]#foo _bar_#\n",
+    "file": "upstream/pandoc/test/command/5080.md",
+    "input": "[foo *bar*]{.small .red key=val}\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "[.small]#SMALL#\n",
+    "file": "upstream/pandoc/test/command/5080.md",
+    "input": "<small>SMALL</small>\n",
+    "number": 2
+  },
+  {
+    "command": "pandoc -t asciidoc",
+    "expected": "*_hi_*\n",
+    "file": "upstream/pandoc/test/command/5565.md",
+    "input": "***hi***\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -t asciidoc -f html",
+    "expected": "fo[.c]##o## f[.c]##o##o [.c]##f##oo [.c]#foo#\n",
+    "file": "upstream/pandoc/test/command/5566.md",
+    "input": "fo<span class=\"c\">o</span> f<span class=\"c\">o</span>o <span class=\"c\">f</span>oo <span class=\"c\">foo</span>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f docbook -t asciidoc",
+    "expected": "[WARNING]\n.My warning!\n====\nA warning.\n\nAnother paragraph.\n====\n",
+    "file": "upstream/pandoc/test/command/5690.md",
+    "input": "<warning>\n<title>My warning!</title>\n<para>A warning.</para>\n<para>Another paragraph.</para>\n</warning>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f org -t asciidoc",
+    "expected": "== Header\n\n[TIP]\n====\nI'm a tip\n====\n\n=== Subheader\n",
+    "file": "upstream/pandoc/test/command/6308.md",
+    "input": "* Header\n#+begin_tip\nI'm a tip\n#+end_tip\n\n** Subheader\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -t asciidoc",
+    "expected": "testfootnote:[this is a note++]++. and more]\n",
+    "file": "upstream/pandoc/test/command/6424.md",
+    "input": "test^[this is a note\\]. and more]\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "[width=\"100%\",cols=\"17%,16%,15%,52%\",options=\"header\",]\n|===\n|Header 1 |Header 2 |Header 3 |Header 4\n|body row 1 |column 2 |column 3 |column 4\n|body row 2 2+|Cells may span columns. |fff\n|body row 3 .2+|Cells may span rows. .2+a|\n* Cells\n* can\n* contain\n* blocks.\n\n.2+a|\n* This is a very long line of text\n* http://www.python.org/[Python]\n* b\n* c\n\n|body row 4\n|===\n",
+    "file": "upstream/pandoc/test/command/7326.md",
+    "input": "<table>\n  <colgroup>\n    <col style=\"width: 17%\" />\n    <col style=\"width: 16%\" />\n    <col style=\"width: 15%\" />\n    <col style=\"width: 52%\" />\n  </colgroup>\n  <thead>\n    <tr>\n      <th>Header 1</th>\n      <th>Header 2</th>\n      <th>Header 3</th>\n      <th>Header 4</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>body row 1</td>\n      <td>column 2</td>\n      <td>column 3</td>\n      <td>column 4</td>\n    </tr>\n    <tr>\n      <td>body row 2</td>\n      <td colspan=\"2\">Cells may span columns.</td>\n      <td>fff</td>\n    </tr>\n    <tr>\n      <td>body row 3</td>\n      <td rowspan=\"2\">Cells may span rows.</td>\n      <td rowspan=\"2\">\n        <ul>\n          <li>Cells</li>\n          <li>can</li>\n          <li>contain</li>\n          <li>blocks.</li>\n        </ul>\n      </td>\n      <td rowspan=\"2\">\n        <ul>\n          <li>This is a very long line of text</li>\n          <li><a href=\"http://www.python.org/\">Python</a></li>\n          <li>b</li>\n          <li>c</li>\n        </ul>\n      </td>\n    </tr>\n    <tr>\n      <td>body row 4</td>\n    </tr>\n  </tbody>\n</table>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "[cols=\",,\",options=\"header,footer\",]\n|===\n2+|Inputs |Output\n|A |B |A or B\n|False |False |False\n|True |False |True\n|False |True |True\n|True |True |True\n|A |B |A or B\n2+|Inputs |Output\n|===\n\n[cols=\",\",options=\"header,footer\",]\n|===\n2+|Header\n|Body 1-1 |Body 2-1\n2+|Footer\n|===\n",
+    "file": "upstream/pandoc/test/command/7326.md",
+    "input": "<table>\n  <thead>\n    <tr>\n      <th colspan=\"2\">Inputs</th>\n      <th>Output</th>\n    </tr>\n    <tr>\n      <th>A</th>\n      <th>B</th>\n      <th>A or B</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>False</td>\n      <td>False</td>\n      <td>False</td>\n    </tr>\n    <tr>\n      <td>True</td>\n      <td>False</td>\n      <td>True</td>\n    </tr>\n    <tr>\n      <td>False</td>\n      <td>True</td>\n      <td>True</td>\n    </tr>\n    <tr>\n      <td>True</td>\n      <td>True</td>\n      <td>True</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td>A</td>\n      <td>B</td>\n      <td>A or B</td>\n    </tr>\n    <tr>\n      <td colspan=\"2\">Inputs</td>\n      <td>Output</td>\n    </tr>\n  </tfoot>\n</table>\n<table>\n  <thead>\n    <tr>\n      <th colspan=\"2\">Header</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Body 1-1</td>\n      <td>Body 2-1</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td colspan=\"2\">Footer</td>\n    </tr>\n  </tfoot>\n</table>\n",
+    "number": 2
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "[width=\"100%\",cols=\"37%,37%,26%\",options=\"footer\",]\n|===\n|False |False |False\n|True |False |True\n|False |True |True\n|True |True |True\n|A |B |A or B\n2+|Inputs |Output\n|===\n",
+    "file": "upstream/pandoc/test/command/7326.md",
+    "input": "<table>\n  <colgroup>\n    <col style=\"width: 37%\" />\n    <col style=\"width: 37%\" />\n    <col style=\"width: 26%\" />\n  </colgroup>\n  <tbody>\n    <tr>\n      <td>False</td>\n      <td>False</td>\n      <td>False</td>\n    </tr>\n    <tr>\n      <td>True</td>\n      <td>False</td>\n      <td>True</td>\n    </tr>\n    <tr>\n      <td>False</td>\n      <td>True</td>\n      <td>True</td>\n    </tr>\n    <tr>\n      <td>True</td>\n      <td>True</td>\n      <td>True</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td>A</td>\n      <td>B</td>\n      <td>A or B</td>\n    </tr>\n    <tr>\n      <td colspan=\"2\">Inputs</td>\n      <td>Output</td>\n    </tr>\n  </tfoot>\n</table>\n",
+    "number": 3
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "[width=\"63%\",cols=\"49%,17%,17%,17%\",options=\"header\",]\n|===\n|Location 3+|Temperature 1961-1990 in degree Celsius\n| |min |mean |max\n|Antarctica |-89.2 |N/A |19.8\n|Earth |-89.2 |14 |56.7\n|===\n\n[width=\"63%\",cols=\"19%,17%,17%,47%\",options=\"header\",]\n|===\n3+|Temperature 1961-1990 in degree Celsius |Location\n|min |mean |max |\n|-89.2 |N/A |19.8 |Antarctica\n|-89.2 |14 |56.7 |Earth\n|===\n\n[width=\"65%\",cols=\"20%,16%,16%,27%,21%\",options=\"header\",]\n|===\n3+|Temperature 1961-1990 in degree Celsius |Location |Extra\n|min |mean |max | |Extra 2\n|-89.2 |N/A |19.8 |Antarctica |Extra 3\n|-89.2 |14 |56.7 |Earth |Extra 4\n|===\n\n[cols=\",,\",options=\"header\",]\n|===\n|Header 1-1 2+|Header 1-2\n|Header 2-1 2+|\n|Header 3-1 |Header 3-2 |Header 3-3\n.2+|Body 1-1 2+|Body 1-2\n|Body 2-1 |Body 2-2\n|===\n\n[cols=\",,\",options=\"header\",]\n|===\n|Header 1-1 |Header 1-2 |Header 1-3\n| |Header 2-1 |\n|Header 3-1 |Header 3-2 |Header 3-3\n|===\n",
+    "file": "upstream/pandoc/test/command/7326.md",
+    "input": "<table style=\"width: 63%\">\n  <colgroup>\n    <col style=\"width: 30%\" />\n    <col style=\"width: 11%\" />\n    <col style=\"width: 11%\" />\n    <col style=\"width: 11%\" />\n  </colgroup>\n  <thead>\n    <tr>\n      <th rowspan=\"2\">Location</th>\n      <th colspan=\"3\">Temperature 1961-1990 in degree Celsius</th>\n    </tr>\n    <tr>\n      <th>min</th>\n      <th>mean</th>\n      <th>max</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Antarctica</td>\n      <td>-89.2</td>\n      <td>N/A</td>\n      <td>19.8</td>\n    </tr>\n    <tr>\n      <td>Earth</td>\n      <td>-89.2</td>\n      <td>14</td>\n      <td>56.7</td>\n    </tr>\n  </tbody>\n</table>\n<table style=\"width: 63%\">\n  <colgroup>\n    <col style=\"width: 11%\" />\n    <col style=\"width: 11%\" />\n    <col style=\"width: 11%\" />\n    <col style=\"width: 30%\" />\n  </colgroup>\n  <thead>\n    <tr>\n      <th colspan=\"3\">Temperature 1961-1990 in degree Celsius</th>\n      <th rowspan=\"2\">Location</th>\n    </tr>\n    <tr>\n      <th>min</th>\n      <th>mean</th>\n      <th>max</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>-89.2</td>\n      <td>N/A</td>\n      <td>19.8</td>\n      <td>Antarctica</td>\n    </tr>\n    <tr>\n      <td>-89.2</td>\n      <td>14</td>\n      <td>56.7</td>\n      <td>Earth</td>\n    </tr>\n  </tbody>\n</table>\n<table style=\"width: 65%\">\n  <colgroup>\n    <col style=\"width: 11%\" />\n    <col style=\"width: 11%\" />\n    <col style=\"width: 11%\" />\n    <col style=\"width: 18%\" />\n    <col style=\"width: 14%\" />\n  </colgroup>\n  <thead>\n    <tr>\n      <th colspan=\"3\">Temperature 1961-1990 in degree Celsius</th>\n      <th rowspan=\"2\">Location</th>\n      <th>Extra</th>\n    </tr>\n    <tr>\n      <th>min</th>\n      <th>mean</th>\n      <th>max</th>\n      <th>Extra 2</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>-89.2</td>\n      <td>N/A</td>\n      <td>19.8</td>\n      <td>Antarctica</td>\n      <td>Extra 3</td>\n    </tr>\n    <tr>\n      <td>-89.2</td>\n      <td>14</td>\n      <td>56.7</td>\n      <td>Earth</td>\n      <td>Extra 4</td>\n    </tr>\n  </tbody>\n</table>\n<table>\n  <thead>\n    <tr>\n      <th>Header 1-1</th>\n      <th colspan=\"2\" rowspan=\"2\">Header 1-2</th>\n    </tr>\n    <tr>\n      <th>Header 2-1</th>\n    </tr>\n    <tr>\n      <th>Header 3-1</th>\n      <th>Header 3-2</th>\n      <th>Header 3-3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td rowspan=\"2\">Body 1-1</td>\n      <td colspan=\"2\">Body 1-2</td>\n    </tr>\n    <tr>\n      <td>Body 2-1</td>\n      <td>Body 2-2</td>\n    </tr>\n  </tbody>\n</table>\n<table>\n  <thead>\n    <tr>\n      <th rowspan=\"2\">Header 1-1</th>\n      <th>Header 1-2</th>\n      <th rowspan=\"2\">Header 1-3</th>\n    </tr>\n    <tr>\n      <th>Header 2-1</th>\n    </tr>\n    <tr>\n      <th>Header 3-1</th>\n      <th>Header 3-2</th>\n      <th>Header 3-3</th>\n    </tr>\n  </thead>\n  <tbody></tbody>\n</table>\n",
+    "number": 4
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "[width=\"100%\",cols=\"40%,40%,20%\",options=\"footer\",]\n|===\n|Body 1-1 |Body 1-2 |Body 1-3\n2+|Footer 1-1/2 |Footer 1-3\n|Footer 2-1 .2+|Span 3 |Footer 2-3\n|Span 2 |Footer 3-3\n| | |Footer 4-3\n|===\n\n[cols=\",,,,\",options=\"footer\",]\n|===\n|Body 1-1 |Body 1-2 |Body 1-3 |Body 1-4 |Body 1-5\n|Body 2-1 |Body 2-2 |Body 2-3 |Body 2-4 |Body 2-5\n3+|Footer 1-1/2/3 |Footer 1-4 |Footer 1-5\n|Footer 2-1 .3+|Span 3 |Footer 2-3 2+|Footer 2-4/5\n.2+|Span 2 2+|Footer 3-3/4 .2+|Span 2\n.2+|Span 3 |Footer 4-4\n|Footer 5-1 |Footer 5-2 |Footer 5-4 |Span 2\n2+|Footer 6-1/2 | |Footer 6-4 |\n|===\n\n[cols=\",,,\",options=\"footer\",]\n|===\n|Body 1 |Body 2 |Body 3 |Body 4\n|Footer 1-1 2.2+|Span 3 .2+|Span 2\n|Footer 2-1\n|Footer 3-1 2+| |Footer 3-4\n|===\n\n[cols=\",,,\",options=\"footer\",]\n|===\n|Body 1-1 |Body 1-2 |Body 1-3 |Body 1-4\n2+|Footer 1-1/2 .5+|Span 6 |Footer 1-4\n.3+|Span 3 |Footer 2-2 |Footer 2-4\n|Footer 3-2 |Footer 3-4\n|Footer 4-2 |Footer 4-4\n|Footer 5-1 |Footer 5-2 |Span 2\n2+|Footer 6-1/2 | |\n|===\n",
+    "file": "upstream/pandoc/test/command/7326.md",
+    "input": "<table>\n  <colgroup>\n    <col style=\"width: 40%\" />\n    <col style=\"width: 40%\" />\n    <col style=\"width: 20%\" />\n  </colgroup>\n  <tbody>\n    <tr>\n      <td>Body 1-1</td>\n      <td>Body 1-2</td>\n      <td>Body 1-3</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td colspan=\"2\">Footer 1-1/2</td>\n      <td>Footer 1-3</td>\n    </tr>\n    <tr>\n      <td>Footer 2-1</td>\n      <td rowspan=\"3\">Span 3</td>\n      <td>Footer 2-3</td>\n    </tr>\n    <tr>\n      <td rowspan=\"2\">Span 2</td>\n      <td>Footer 3-3</td>\n    </tr>\n    <tr>\n      <td>Footer 4-3</td>\n    </tr>\n  </tfoot>\n</table>\n<table>\n  <tbody>\n    <tr>\n      <td>Body 1-1</td>\n      <td>Body 1-2</td>\n      <td>Body 1-3</td>\n      <td>Body 1-4</td>\n      <td>Body 1-5</td>\n    </tr>\n    <tr>\n      <td>Body 2-1</td>\n      <td>Body 2-2</td>\n      <td>Body 2-3</td>\n      <td>Body 2-4</td>\n      <td>Body 2-5</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td colspan=\"3\">Footer 1-1/2/3</td>\n      <td>Footer 1-4</td>\n      <td>Footer 1-5</td>\n    </tr>\n    <tr>\n      <td>Footer 2-1</td>\n      <td rowspan=\"3\">Span 3</td>\n      <td>Footer 2-3</td>\n      <td colspan=\"2\">Footer 2-4/5</td>\n    </tr>\n    <tr>\n      <td rowspan=\"2\">Span 2</td>\n      <td colspan=\"2\">Footer 3-3/4</td>\n      <td rowspan=\"2\">Span 2</td>\n    </tr>\n    <tr>\n      <td rowspan=\"3\">Span 3</td>\n      <td>Footer 4-4</td>\n    </tr>\n    <tr>\n      <td>Footer 5-1</td>\n      <td>Footer 5-2</td>\n      <td>Footer 5-4</td>\n      <td rowspan=\"2\">Span 2</td>\n    </tr>\n    <tr>\n      <td colspan=\"2\">Footer 6-1/2</td>\n      <td>Footer 6-4</td>\n    </tr>\n  </tfoot>\n</table>\n<table>\n  <tbody>\n    <tr>\n      <td>Body 1</td>\n      <td>Body 2</td>\n      <td>Body 3</td>\n      <td>Body 4</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td>Footer 1-1</td>\n      <td colspan=\"2\" rowspan=\"3\">Span 3</td>\n      <td rowspan=\"2\">Span 2</td>\n    </tr>\n    <tr>\n      <td>Footer 2-1</td>\n    </tr>\n    <tr>\n      <td>Footer 3-1</td>\n      <td>Footer 3-4</td>\n    </tr>\n  </tfoot>\n</table>\n<table>\n  <tbody>\n    <tr>\n      <td>Body 1-1</td>\n      <td>Body 1-2</td>\n      <td>Body 1-3</td>\n      <td>Body 1-4</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <td colspan=\"2\">Footer 1-1/2</td>\n      <td rowspan=\"6\">Span 6</td>\n      <td>Footer 1-4</td>\n    </tr>\n    <tr>\n      <td rowspan=\"3\">Span 3</td>\n      <td>Footer 2-2</td>\n      <td>Footer 2-4</td>\n    </tr>\n    <tr>\n      <td>Footer 3-2</td>\n      <td>Footer 3-4</td>\n    </tr>\n    <tr>\n      <td>Footer 4-2</td>\n      <td>Footer 4-4</td>\n    </tr>\n    <tr>\n      <td>Footer 5-1</td>\n      <td>Footer 5-2</td>\n      <td rowspan=\"2\">Span 2</td>\n    </tr>\n    <tr>\n      <td colspan=\"2\">Footer 6-1/2</td>\n    </tr>\n  </tfoot>\n</table>\n",
+    "number": 5
+  },
+  {
+    "command": "pandoc -f native -t asciidoc",
+    "expected": "[cols=\",,\",options=\"header,footer\",]\n|===\n<|Left Header 2+^|Center Headers\n>|Right Header 2+|\n^|Center Header >|Right Header <|Left Header\n.2+>|Right Body 2+<|Left Body\n^|Center Body >|Right Body\n3+^|Center Footer\n2+<|Left Footer .2+^|Center Footer\n2+>|Right Footer\n2+^|Center Footer |\n|===\n",
+    "file": "upstream/pandoc/test/command/7326.md",
+    "input": "[ Table\n    ( \"\" , [] , [] )\n    (Caption Nothing [])\n    [ ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    ]\n    (TableHead\n       ( \"\" , [] , [] )\n       [ Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignLeft\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Left\" , Space , Str \"Header\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignCenter\n               (RowSpan 2)\n               (ColSpan 2)\n               [ Plain [ Str \"Center\" , Space , Str \"Headers\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignRight\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Right\" , Space , Str \"Header\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignCenter\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Center\" , Space , Str \"Header\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignRight\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Right\" , Space , Str \"Header\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignLeft\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Left\" , Space , Str \"Header\" ] ]\n           ]\n       ])\n    [ TableBody\n        ( \"\" , [] , [] )\n        (RowHeadColumns 0)\n        []\n        [ Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignRight\n               (RowSpan 2)\n               (ColSpan 1)\n               [ Plain [ Str \"Right\" , Space , Str \"Body\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignLeft\n               (RowSpan 1)\n               (ColSpan 2)\n               [ Plain [ Str \"Left\" , Space , Str \"Body\" ] ]\n           ]\n        , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignCenter\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Center\" , Space , Str \"Body\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignRight\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Right\" , Space , Str \"Body\" ] ]\n           ]\n        ]\n    ]\n    (TableFoot\n        ( \"\" , [] , [] )\n        [ Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignCenter\n                (RowSpan 1)\n                (ColSpan 3)\n                [ Plain [ Str \"Center\" , Space , Str \"Footer\" ] ]\n            ]\n        , Row\n             ( \"\" , [] , [] )\n             [ Cell\n                 ( \"\" , [] , [] )\n                 AlignLeft\n                 (RowSpan 1)\n                 (ColSpan 2)\n                 [ Plain [ Str \"Left\" , Space , Str \"Footer\" ] ]\n             , Cell\n                 ( \"\" , [] , [] )\n                 AlignCenter\n                 (RowSpan 3)\n                 (ColSpan 1)\n                 [ Plain [ Str \"Center\" , Space , Str \"Footer\" ] ]\n             ]\n         , Row\n             ( \"\" , [] , [] )\n             [ Cell\n                 ( \"\" , [] , [] )\n                 AlignRight\n                 (RowSpan 1)\n                 (ColSpan 2)\n                 [ Plain [ Str \"Right\" , Space , Str \"Footer\" ] ]\n             ]\n         , Row\n             ( \"\" , [] , [] )\n             [ Cell\n                 ( \"\" , [] , [] )\n                 AlignCenter\n                 (RowSpan 1)\n                 (ColSpan 2)\n                 [ Plain [ Str \"Center\" , Space , Str \"Footer\" ] ]\n             ]\n        ])\n]\n",
+    "number": 6
+  },
+  {
+    "command": "pandoc -f native -t asciidoc",
+    "expected": "[cols=\",,\",options=\"header,footer\",]\n|===\n|Header 1-1 |Span 3 |Header 1-3\n|Header 2-1 | |Header 2-3\n2+|Body 1-1/2 .3+|Span 5\n|Body 2-1 |Body 2-2\n|Body 3-1 |Body 3-2\n| | |\n.3+|Span 5 2+|Footer 1-2\n2+|Span 2\n2+|Footer 3-2/3\n| 2+|Footer 4-2/3\n|===\n\n[cols=\",,\",options=\"footer\",]\n|===\n|Body 1-1 |Body 1-2 .2+|Span 4\n.3+|Span 5 |Body 2-2\n|Body 3-2 |Body 3-3\n|Body 4-2 |Body 4-3\n| | |\n|Body 6-1 |Body 6-2 |Span 6-3\n|Footer 1-1 .5+|Span 8 |Footer 1-3\n.2+|Span 3 |Footer 2-3\n|Span 2\n|Footer 4-1 |Footer 4-3\n|Footer 5-1 |Span 3\n|Span 2 | |\n|===\n\n[cols=\",,\",]\n|===\n.5+|Span 6 |Body 1-2 .2+|Span 2\n.2+|Span 3\n.3+|Span 4\n|Body 3-2\n|Body 4-2\n| | |\n| | |\n|===\n",
+    "file": "upstream/pandoc/test/command/7326.md",
+    "input": "[ Table\n    ( \"\" , [] , [] )\n    (Caption Nothing [])\n    [ ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    ]\n    (TableHead\n       ( \"\" , [] , [] )\n       [ Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 2)\n               (ColSpan 1)\n               [ Plain [ Str \"Header\" , Space , Str \"1-1\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 3)\n               (ColSpan 1)\n               [ Plain [ Str \"Span\" , Space , Str \"3\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 2)\n               (ColSpan 1)\n               [ Plain [ Str \"Header\" , Space , Str \"1-3\" ] ]\n           ]\n       , Row ( \"\" , [] , [] ) []\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Header\" , Space , Str \"2-1\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Header\" , Space , Str \"2-3\" ] ]\n           ]\n       ])\n    [ TableBody\n        ( \"\" , [] , [] )\n        (RowHeadColumns 0)\n        []\n        [ Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 3)\n                (ColSpan 2)\n                [ Plain [ Str \"Body\" , Space , Str \"1-1/2\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 5)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"5\" ] ]\n            ]\n        , Row ( \"\" , [] , [] ) []\n        , Row ( \"\" , [] , [] ) []\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"2-1\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"2-2\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"3-1\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"3-2\" ] ]\n            ]\n        , Row ( \"\" , [] , [] ) []\n        ]\n    ]\n    (TableFoot\n       ( \"\" , [] , [] )\n       [ Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 5)\n               (ColSpan 1)\n               [ Plain\n                   [ Str \"Span\" , Space , Str \"5\" ]\n               ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 2)\n               [ Plain [ Str \"Footer\" , Space , Str \"1-2\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 2)\n               (ColSpan 2)\n               [ Plain\n                   [ Str \"Span\" , Space , Str \"2\" ]\n               ]\n           ]\n       , Row ( \"\" , [] , [] ) []\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 2)\n               [ Plain [ Str \"Footer\" , Space , Str \"3-2/3\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 2)\n               [ Plain [ Str \"Footer\" , Space , Str \"4-2/3\" ] ]\n           ]\n       ])\n, Table\n    ( \"\" , [] , [] )\n    (Caption Nothing [])\n    [ ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    ]\n    (TableHead ( \"\" , [] , [] ) [])\n    [ TableBody\n        ( \"\" , [] , [] )\n        (RowHeadColumns 0)\n        []\n        [ Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"1-1\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"1-2\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 3)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"4\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 5)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"5\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"2-2\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] ) []\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"3-2\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"3-3\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"4-2\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"4-3\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] ) []\n        , Row\n            ( \"\" , [] , [] ) []\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"6-1\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"6-2\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"6-3\" ] ]\n            ]\n        ]\n    ]\n    (TableFoot\n       ( \"\" , [] , [] )\n       [ Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Footer\" , Space , Str \"1-1\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 8)\n               (ColSpan 1)\n               [ Plain [ Str \"Span\" , Space , Str \"8\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Footer\" , Space , Str \"1-3\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 3)\n               (ColSpan 1)\n               [ Plain [ Str \"Span\" , Space , Str \"3\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Footer\" , Space , Str \"2-3\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 2)\n               (ColSpan 1)\n               [ Plain [ Str \"Span\" , Space , Str \"2\" ] ]\n           ]\n       , Row ( \"\" , [] , [] ) []\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Footer\" , Space , Str \"4-1\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Footer\" , Space , Str \"4-3\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 1)\n               (ColSpan 1)\n               [ Plain [ Str \"Footer\" , Space , Str \"5-1\" ] ]\n           , Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 3)\n               (ColSpan 1)\n               [ Plain [ Str \"Span\" , Space , Str \"3\" ] ]\n           ]\n       , Row\n           ( \"\" , [] , [] )\n           [ Cell\n               ( \"\" , [] , [] )\n               AlignDefault\n               (RowSpan 2)\n               (ColSpan 1)\n               [ Plain [ Str \"Span\" , Space , Str \"2\" ] ]\n           ]\n       , Row ( \"\" , [] , [] ) []\n       ])\n, Table\n    ( \"\" , [] , [] )\n    (Caption Nothing [])\n    [ ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    , ( AlignDefault , ColWidthDefault )\n    ]\n    (TableHead ( \"\" , [] , [] ) [])\n    [ TableBody\n        ( \"\" , [] , [] )\n        (RowHeadColumns 0)\n        []\n        [ Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [ \"rowspan-cell\" ] , [] )\n                AlignDefault\n                (RowSpan 6)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"6\" ] ]\n            , Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"1-2\" ] ]\n            , Cell\n                ( \"\" , [ \"rowspan-cell\" ] , [] )\n                AlignDefault\n                (RowSpan 2)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"2\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [ \"rowspan-cell\" ] , [] )\n                AlignDefault\n                (RowSpan 3)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"3\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [ \"rowspan-cell\" ] , [] )\n                AlignDefault\n                (RowSpan 4)\n                (ColSpan 1)\n                [ Plain [ Str \"Span\" , Space , Str \"4\" ] ]\n            ]\n        , Row ( \"\" , [] , [] ) []\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"3-2\" ] ]\n            ]\n        , Row\n            ( \"\" , [] , [] )\n            [ Cell\n                ( \"\" , [] , [] )\n                AlignDefault\n                (RowSpan 1)\n                (ColSpan 1)\n                [ Plain [ Str \"Body\" , Space , Str \"4-2\" ] ]\n            ]\n        , Row ( \"\" , [] , [] ) []\n        , Row ( \"\" , [] , [] ) []\n        ]\n    ]\n    (TableFoot ( \"\" , [] , [] ) [])\n]\n",
+    "number": 7
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "link:++https://example.com/show.cgi?id=hi--there--everyone++[]\n",
+    "file": "upstream/pandoc/test/command/7529.md",
+    "input": "<a href=\"https://example.com/show.cgi?id=hi--there--everyone\">https://example.com/show.cgi?id=hi--there--everyone</a>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "* link:x.htm[_Xx_]_,_\n* link:x.htm[_Xx_]_,,_\n* link:x.htm[_Xx_]_1_\n* link:x.htm[_Xx_]1__1__\n* link:x.htm[_Xx_]_bcd_\n* link:x.htm[_Xx_]a__bcd__\n* link:x.htm[_Xx_]a__bcd__e\n* link:x.htm[_Xx_] _,_\n* link:x.htm[_Xx_],_,_\n* link:x.htm[Xx]_,_\n",
+    "file": "upstream/pandoc/test/command/7803.md",
+    "input": "<ul>\n<li><a href=x.htm><i>Xx</i></a><i>,</i>\n<li><a href=x.htm><i>Xx</i></a><i>,,</i>\n<li><a href=x.htm><i>Xx</i></a><i>1</i>\n<li><a href=x.htm><i>Xx</i></a>1<i>1</i>\n<li><a href=x.htm><i>Xx</i></a><i>bcd</i>\n<li><a href=x.htm><i>Xx</i></a>a<i>bcd</i>\n<li><a href=x.htm><i>Xx</i></a>a<i>bcd</i>e\n<li><a href=x.htm><i>Xx</i></a> <i>,</i>\n<li><a href=x.htm><i>Xx</i></a>,<i>,</i>\n<li><a href=x.htm>Xx</a><i>,</i>\n</ul>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "https://docs.oracle.com/database/121/BRADV/rcmxplat.htm#BRADV724[12.1\nmanual&#44; Database Backup and Recovery User’s Guide:\n[.enumeration_chapter]#Chapter 28# Transporting Data Across\nPlatforms&#44; Steps to Transport a Database to a Different Platform\nUsing Backup Sets]\n",
+    "file": "upstream/pandoc/test/command/8070.md",
+    "input": "<p><a href=\"https://docs.oracle.com/database/121/BRADV/rcmxplat.htm#BRADV724\">12.1\nmanual&#44; Database Backup and Recovery User&#8217;s Guide:\n<span class=\"enumeration_chapter\">Chapter 28</span> Transporting Data Across Platforms&#44;\nSteps to Transport a Database to a Different Platform Using Backup Sets</a></p>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f markdown -t asciidoc",
+    "expected": "http://www.apache.org/licenses/LICENSE-2.0[image:https://img.shields.io/badge/License-Apache%202.0-blue.svg[alt,title=\"title\"]]\n",
+    "file": "upstream/pandoc/test/command/8437.md",
+    "input": "[![alt](https://img.shields.io/badge/License-Apache%202.0-blue.svg \"title\")](http://www.apache.org/licenses/LICENSE-2.0)\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f docbook -t asciidoc",
+    "expected": "[cols=\",\",options=\"header\",]\n|===\n<|h1 <|h2\n<|!@++#++$%^&++*++()++{++}{vbar}~?{plus}-',.\"++<>[]\\`++ <|col 2\n|===\n",
+    "file": "upstream/pandoc/test/command/8665.md",
+    "input": "<informaltable frame=\"all\" rowsep=\"1\" colsep=\"1\">\n    <tgroup cols=\"1\">\n        <thead>\n            <row>\n                <entry align=\"left\" valign=\"top\">h1</entry>\n                <entry align=\"left\" valign=\"top\">h2</entry>\n            </row>\n        </thead>\n        <tbody>\n            <row>\n                <entry align=\"left\" valign=\"top\">\n                    <simpara>!@#$%^&amp;*(){}|~?+-',.\"&lt;&gt;[]\\`</simpara>\n                </entry>\n                <entry align=\"left\" valign=\"top\">\n                    <simpara>col 2</simpara>\n                </entry>\n            </row>\n        </tbody>\n    </tgroup>\n</informaltable>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f gfm -t asciidoc",
+    "expected": "[TIP]\n====\nA tip.\n====\n",
+    "file": "upstream/pandoc/test/command/alerts.md",
+    "input": "> [!TIP]\n> A tip.\n",
+    "number": 3
+  },
+  {
+    "command": "pandoc -f html -t asciidoc",
+    "expected": "[width=\"100%\",cols=\"50%,50%\",]\n|===\na|\n[cols=\",\",]\n!===\n!a1 !a2\n!===\n\n|b\n|c |d\n|===\n",
+    "file": "upstream/pandoc/test/command/nested-table-to-asciidoc-6942.md",
+    "input": "<!doctype html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<title> NestedTables </title>\n</head>\n<body>\n<table>\n <tr>\n  <td >\n   <table>  <tr> <td> a1 </td> <td> a2 </td> </tr>  </table>\n  </td>\n  <td>b</td>\n </tr>\n <tr>\n   <td>c</td> <td>d </td>\n </tr>\n</table>\n</body>\n</html>\n",
+    "number": 1
+  },
+  {
+    "command": "pandoc -f html -t asciidoc --verbose",
+    "expected": "2> [INFO] Not rendering Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidth 0.5),(AlignDefault,ColWidth 0.5)] (TableHead (\"\",[],[]) []) [TableBody (\"\",[],[]) (RowHeadColumns 0) [] [Row (\"\",[],[]) [Cell (\"\",[],[]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"a1\"]],Cell (\"\",[],[]) AlignDefault (RowSpan 1) (ColSpan 1) [Table (\"\",[],[]) (Caption Nothing []) [(AlignDefault,ColWidthDefault),(AlignDefault,ColWidthDefault)] (TableHead (\"\",[],[]) []) [TableBody (\"\",[],[]) (RowHeadColumns 0) [] [Row (\"\",[],[]) [Cell (\"\",[],[]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"\",[],[]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"2\"]]]]] (TableFoot (\"\",[],[]) [])]]]] (TableFoot (\"\",[],[]) [])\n[width=\"100%\",cols=\"50%,50%\",]\n|===\na|\n[width=\"100%\",cols=\"50%,50%\",]\n!===\n!a1 !\n!===\n\n|b\n|c |d\n|===\n",
+    "file": "upstream/pandoc/test/command/nested-table-to-asciidoc-6942.md",
+    "input": "<!doctype html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<title> NestedTables </title>\n</head>\n<body>\n<table>\n <tr>\n  <td>\n    <table>  <tr>\n\t<td> a1 </td>\n\t<td>\n\t  <table>  <tr> <td> 1 </td> <td> 2 </td> </tr>  </table>\n\t</td>\n    </tr>  </table>\n  </td>\n  <td>b</td>\n </tr>\n <tr>\n   <td>c</td> <td>d </td>\n </tr>\n</table>\n</body>\n</html>\n",
+    "number": 2
+  }
+]

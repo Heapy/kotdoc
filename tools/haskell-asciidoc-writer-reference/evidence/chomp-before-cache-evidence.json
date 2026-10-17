@@ -1,0 +1,20 @@
+{
+  "state": "superseded-not-pass",
+  "reason": "Measured repeated full Concat scans in private stripEmptyConcat; source-correct memoized revision compiled. Stop only this obsolete own proof, not a timeout restart.",
+  "pid": 38604,
+  "limits": [
+    "-Xmx512m",
+    "-Xss256k"
+  ],
+  "timestamp": "2026-10-17T06:18:48.468600+00:00",
+  "pins": {
+    "/tmp/kotdoc-asciidoc-writer/test-final-draft.jar": "4e0595f81cce0d8de4fe5ad3255b244f6aa1f16104102284c5d8d9bd8b15029a",
+    "/tmp/kotdoc-asciidoc-writer/writer-final-draft.jar": "ebb46ca47975adf5dcd12b8a21637a95198554f2935e421f8915c4ba5225bcf6",
+    "/tmp/kotdoc-asciidoc-writer/baseline-core.jar": "327d51a4734386acbab314ab68e53b24b6ecc2a4477041d79e0080188ec81ff3",
+    "/tmp/kotdoc-asciidoc-writer/final-isolated-junit-thread.txt": "69bebaa2b5b5d2e16114f1cc148a99b04eeb1febc3b7c8f577cbda1453d1c102",
+    "tools/haskell-asciidoc-writer-reference/fixtures/deep.jsonl.gz": "4d8a6602fa5bf3963922ae00555082c2ec00290f971fc1809204af6e0b91333b"
+  },
+  "terminalToolExitCode": 143,
+  "signal": "SIGTERM15",
+  "logSha256": "dd0061e4bb8dd168dc4747dd5132f078b6cc96cc9a2683e73798e4029b56334b"
+}

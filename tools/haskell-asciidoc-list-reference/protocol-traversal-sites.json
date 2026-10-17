@@ -1,0 +1,433 @@
+{
+  "matchingLines": 61,
+  "scope": "current production drafts, all nine modules; multiple operations may share a line",
+  "sites": [
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 31,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "val renderer=DeepRecursiveFunction<Work,Doc<String>>{w->when(w){is Work.Blocks->{val parts=mutableListOf<Doc<String>>();for(value in AsciiDocPatternList(w.xs))parts.add(callRecursive(Work.B(value)));concat(parts)};is Work.B->renderBlock(w.b);is Work.Inlines->renderInlines(w.xs);is Work.I->renderInline(w.i)}}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 50,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "for(c in s){if(c=='+'||c=='|'&&tableLevel>0){if(active){out.append(\"++\");active=false};out.append(if(c=='+')\"{plus}\"else\"{vbar}\")}",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 98,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Inline.Note->{val cells=AsciiDocPatternList(i.blocks).iterator();val first=if(cells.hasNext())cells.next()else null;val b=if((first is Block.Para||first is Block.Plain)&&!cells.hasNext())first else null;if(b is Block.Plain)t(\"footnote:[\")+inlines(b.content)+t(\"]\")else if(b is Block.Para)t(\"footnote:[\")+inlines(b.content)+t(\"]\")else t(\"[multiblock footnote omitted]\")}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 115,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is CaptionWork.Blocks->joinInlines(asciiDocWholeSpine(work.values).map{callRecursive(CaptionWork.BlockValue(it))},Builder.linebreak)",
+      "classification": "source-required whole extent; ordinary size retained, protocol cursor adapted"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 120,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.LineBlock->Inlines(AsciiDocPatternList(b.lines).flatMapIndexed{i,line->if(i==0)AsciiDocPatternList(line) else listOf(Inline.LineBreak)+AsciiDocPatternList(line)})",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 126,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.OrderedList->joinInlines(asciiDocWholeSpine(b.items).map{callRecursive(CaptionWork.Blocks(it))})",
+      "classification": "source-required whole extent; ordinary size retained, protocol cursor adapted"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 127,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.BulletList->joinInlines(asciiDocWholeSpine(b.items).map{callRecursive(CaptionWork.Blocks(it))})",
+      "classification": "source-required whole extent; ordinary size retained, protocol cursor adapted"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 128,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.DefinitionList->joinInlines(asciiDocWholeSpine(b.items).map{(term,defs)->Inlines(AsciiDocPatternList(term))+Builder.str(\":\")+Builder.space+joinInlines(asciiDocWholeSpine(defs).map{callRecursive(CaptionWork.Blocks(it))})})",
+      "classification": "source-required whole extent; ordinary size retained, protocol cursor adapted"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 129,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.Table->{val rows=asciiDocWholeSpine(b.head.rows)+asciiDocWholeSpine(b.bodies).flatMap{asciiDocWholeSpine(it.head)+asciiDocWholeSpine(it.body)}+asciiDocWholeSpine(b.foot.rows);joinInlines(rows.map{row->joinInlines(asciiDocWholeSpine(row.cells).map{callRecursive(CaptionWork.Blocks(it.blocks))})},Builder.linebreak)}",
+      "classification": "source-required whole extent; ordinary size retained, protocol cursor adapted"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 136,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "val parser=ListParsing.anyOrderedListMarker(ExampleNumbers).flatMap{attr->val two=attr.delimiter==ListNumberDelim.Period&&(attr.style==ListNumberStyle.UpperAlpha||attr.style==ListNumberStyle.UpperRoman&&attr.start in listOf(1L,5L,10L,50L,100L,500L,1000L));val space=PandocTextCharacters.satisfy<ExampleNumbers>{it==32||it==9};if(two)space.then(space)else space}",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 148,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "val cells=values.iterator();cells.next()",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 156,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "for(b in AsciiDocPatternList(actual)){val x=chomp.apply(block(b));when{",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 169,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.LineBlock->vertical(t(\"[verse]\"),t(\"--\"),l.nowrap(concat(AsciiDocPatternList(b.lines).flatMapIndexed{n,line->(if(n==0)emptyList()else listOf(l.cr))+if(asciiDocNull(line))l.blankline else inlines(line)})),t(\"--\"),l.blankline)",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 174,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.CodeBlock->{val classes=AsciiDocPatternList(b.attr.classes).asSequence().toMutableList();val lineNumbers=classes.remove(\"numberLines\");l.flush(if(classes.isEmpty()&&!lineNumbers)vertical(t(\"....\"),t(b.text),t(\"....\"))else vertical(t(\"[\"+(listOf(if(lineNumbers)\"source%linesnum\"else\"source\")+classes).joinToString(\",\")+\"]\"),t(\"----\"),t(b.text),t(\"----\")))+l.blankline}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 175,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.BlockQuote->{val contents=blocks(b.blocks);val nested=if(AsciiDocPatternList(b.blocks).any{it is Block.BlockQuote})vertical(t(\"--\"),contents,t(\"--\"))else contents;vertical(t(\"____\"),chomp.apply(nested),t(\"____\"))+l.blankline}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 178,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "is Block.DefinitionList->{val saved=inList;inList=true;val contents=concat(asciiDocMap(b.items){(label,defs)->val labelDoc=inlines(label);val marker=definitionMarker;definitionMarker=if(marker==\"::\")\";;\"else\"::\";val divider=l.cr+t(\"+\")+l.cr;val documents=asciiDocMap(defs){ds->l.vcat(asciiDocMap(ds){chomp.apply(block(it))}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d})};definitionMarker=marker;labelDoc+t(marker)+l.cr+l.nest(2,l.vcat(documents.map{chomp.apply(it)}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d}))+l.cr});inList=saved;contents+l.blankline}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 191,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "val relative=if(simple)widths else widths.map{it/total};val result=relative.map{HaskellNumber.floor(it*100)}",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 199,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "suspend fun DeepRecursiveScope<Work,Doc<String>>.makeCell(cell:Cell):Doc<String>{val bs=AsciiDocPatternList(cell.blocks);val cells=bs.iterator();val empty= !cells.hasNext();val head=if(empty)null else cells.next();val first=if((head is Block.Plain||head is Block.Para)&&!cells.hasNext())head else null;val content=when{empty->separator;first is Block.Plain->separator+chomp.apply(block(first));first is Block.Para->separator+chomp.apply(block(Block.Plain(first.content)));tableLevel==2L->{report(LogMessage.BlockNotRendered(b));separator};else->vertical(t(\"a\")+separator,blocks(bs))};val span=(if(cell.colSpan>1)cell.colSpan.toString()else\"\")+(if(cell.rowSpan>1)\".${cell.rowSpan}\"else\"\");return t(span+(if(span.isEmpty())\"\"else\"+\")+align(cell.alignment))+content}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 203,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "if(!AsciiDocTables.allRowsEmpty(headers)){val headerRows=AsciiDocPatternList(hs);if(headerRows.hasAt(0))for(row in headerRows.dropFirst())yield(row)}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 204,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "for(row in AsciiDocPatternList(rows))yield(row)",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocWriter.kt",
+      "line": 205,
+      "sourceSHA256": "72d3779faf2c52e4ed52fc52df6772bedd0b34c56b214bf9305a415178011d8e",
+      "site": "if(!AsciiDocTables.allRowsEmpty(footers))for(row in AsciiDocPatternList(asciiDocInit(fs)))yield(row)",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocSections.kt",
+      "line": 23,
+      "sourceSHA256": "7733f9c05a7d6ce97e8a1d25df120cbbdb63f6878bbce280d4a2e8c28b098b90",
+      "site": "val children=callRecursive((index until end).map{observedInput[it]});index=end",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocSections.kt",
+      "line": 25,
+      "sourceSHA256": "7733f9c05a7d6ce97e8a1d25df120cbbdb63f6878bbce280d4a2e8c28b098b90",
+      "site": "val headerKvs=asciiDocGenerated(sequence{for((key,value)in AsciiDocPatternList(b.attr.keyValues))if(key!=\"epub:type\"&&(key!=\"role\"||value in listOf(\"tab\",\"presentation\",\"none\",\"treeitem\",\"menuitem\",\"button\",\"heading\")))yield(key to value)})",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocSections.kt",
+      "line": 32,
+      "sourceSHA256": "7733f9c05a7d6ce97e8a1d25df120cbbdb63f6878bbce280d4a2e8c28b098b90",
+      "site": "val merge=head!=null&&observed.dropFirst().asSequence().all{it !is Block.Header||it.level>head.level}&&(asciiDocContains(b.attr.classes,\"section\")||(!asciiDocContains(b.attr.classes,\"column\")&&!asciiDocContains(b.attr.classes,\"columns\")&&!asciiDocContains(b.attr.classes,\"fragment\")&&!asciiDocContains(b.attr.classes,\"cell\")))",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 31,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "for(ignored in cells){} // mapAccumL final accumulator is required by row two.",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 52,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "for(cell in AsciiDocPatternList(row.cells)){",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 65,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "for(change in steps)if(left>=1){if(change)cell=decrement(cell);left--}",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 70,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "fun hasSpan():Boolean {for((cell,left)in AsciiDocPatternList(cells()))if(cell.rowSpan>1&&left>=1)return true;return false}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 73,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "val source=AsciiDocPatternList(rows).iterator();val pending=java.util.ArrayDeque<RowsLeft>()",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 76,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "val row=pull()?:break;var maximum=0L;for((cell,_)in AsciiDocPatternList(row.cells()))maximum=maxOf(maximum,cell.rowSpan)",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 80,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "val consume=asciiDocNull(next.initial)&&active.any{it.hasSpan()}",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 81,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "active=active.map{it.remaining(consume)}.let{if(consume)it else listOf(next)+it}",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 83,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "val ordered=active.asReversed();yield(ordered.first().row());for(i in ordered.lastIndex downTo 1)pending.addFirst(ordered[i])",
+      "classification": "internal result/constant/cursor-derived view; full entry contract in borrowed-boundary-audit.md"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 86,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "fun bodiesToRows(bodies:List<TableBody>):List<Row> =asciiDocGenerated(sequence{for(body in AsciiDocPatternList(bodies)){for(row in AsciiDocPatternList(body.head))yield(row);for(row in AsciiDocPatternList(body.body))yield(row)}})",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocTables.kt",
+      "line": 87,
+      "sourceSHA256": "2c8e3be374eac216dd2f211d8ebf8d84b63661cd5074fc2f7487c5645f6ead56",
+      "site": "fun allRowsEmpty(rows:List<Row>):Boolean {for(row in AsciiDocPatternList(rows))for(cell in AsciiDocPatternList(row.cells))if(!asciiDocNull(cell.blocks))return false;return true}",
+      "classification": "public List uses common cursor"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 9,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "val cells=AsciiDocPatternList(values).iterator()",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 17,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "val cells=AsciiDocPatternList(values).iterator()",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 67,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "else {iterator=input.iterator();ordinary=iterator;ordinaryCell(iterator)}",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 80,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "internal fun <A> asciiDocFirst(values:List<A>):A? {val cells=AsciiDocPatternList(values).iterator();return if(cells.hasNext())cells.next()else null}",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 86,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "val result=mutableListOf<B>();for(value in input)result.add(action(value));return result",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 92,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "override fun iterator()=values.iterator()",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 96,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "internal fun <A,B> asciiDocLazyMap(values:List<A>,action:(A)->B):List<B> =asciiDocGenerated(sequence{for(value in AsciiDocPatternList(values))yield(action(value))})",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 97,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "internal fun <A> asciiDocNull(values:List<A>):Boolean =if(values is AsciiDocListSpine<*>)values.asciiDocCell()==null else !values.iterator().hasNext()",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocPatterns.kt",
+      "line": 99,
+      "sourceSHA256": "f9471f81ed5d2c3f55b4f87654c9dd6840e3a970f585aa2983384e578d05b334",
+      "site": "internal fun <A> asciiDocLast(values:List<A>):A? {var result:A?=null;for(value in AsciiDocPatternList(values))result=value;return result}",
+      "classification": "common protocol-first cursor or explicit required extent; guarded ordinary fallback, owned shape/generator"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocMinLevel.kt",
+      "line": 12,
+      "sourceSHA256": "47d78162defc3cad439cb0ed0a6313be2288c45d9e1bbd16f6886bdbc325423d",
+      "site": "is List<*>->AsciiDocPatternList(value).asSequence().map{checkNotNull(it)}.asIterable()",
+      "classification": "supplied Lists use cursor; other iterator inputs are internal frame/child vectors"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocMinLevel.kt",
+      "line": 13,
+      "sourceSHA256": "47d78162defc3cad439cb0ed0a6313be2288c45d9e1bbd16f6886bdbc325423d",
+      "site": "is Iterable<*>->value.asSequence().map{checkNotNull(it)}.asIterable()",
+      "classification": "supplied Lists use cursor; other iterator inputs are internal frame/child vectors"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocMinLevel.kt",
+      "line": 35,
+      "sourceSHA256": "47d78162defc3cad439cb0ed0a6313be2288c45d9e1bbd16f6886bdbc325423d",
+      "site": "for(child in children)minimum=minOf(minimum,callRecursive(child))",
+      "classification": "supplied Lists use cursor; other iterator inputs are internal frame/child vectors"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocCommaWalk.kt",
+      "line": 9,
+      "sourceSHA256": "9d2c4fa7f8ff241a12047fb113a665dbe94e143b9f853b2c372a4b504fbb7a09",
+      "site": "private fun <A,B> map(values:List<A>,action:(A)->B):List<B> =asciiDocGenerated(sequence{for(value in AsciiDocPatternList(values))yield(action(value))})",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocCommaWalk.kt",
+      "line": 11,
+      "sourceSHA256": "9d2c4fa7f8ff241a12047fb113a665dbe94e143b9f853b2c372a4b504fbb7a09",
+      "site": "for(value in AsciiDocPatternList(values)){",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocCommaWalk.kt",
+      "line": 14,
+      "sourceSHA256": "9d2c4fa7f8ff241a12047fb113a665dbe94e143b9f853b2c372a4b504fbb7a09",
+      "site": "for((index,text)in walked.text.split(',').withIndex()){",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocStringify.kt",
+      "line": 9,
+      "sourceSHA256": "26c181e84685dbf886bf4e1041fe40b4f980a83e8d24d09bab2e9d12291be6ad",
+      "site": "val frames=ArrayDeque<Iterator<Any>>();frames.addLast(listOf<Any>(blocks).iterator())",
+      "classification": "supplied Lists use cursor; other iterator inputs are internal frame/child vectors"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocStringify.kt",
+      "line": 10,
+      "sourceSHA256": "26c181e84685dbf886bf4e1041fe40b4f980a83e8d24d09bab2e9d12291be6ad",
+      "site": "fun children(values:List<Any>){frames.addLast(values.iterator())}",
+      "classification": "supplied Lists use cursor; other iterator inputs are internal frame/child vectors"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocStringify.kt",
+      "line": 15,
+      "sourceSHA256": "26c181e84685dbf886bf4e1041fe40b4f980a83e8d24d09bab2e9d12291be6ad",
+      "site": "is List<*>->frames.addLast(AsciiDocPatternList(value).asSequence().map{checkNotNull(it)}.iterator())",
+      "classification": "supplied Lists use cursor; other iterator inputs are internal frame/child vectors"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocMetadata.kt",
+      "line": 12,
+      "sourceSHA256": "9171909a715bddd8820b551cd8608b7995fc75cd5520904a840cf9afcf4d64fd",
+      "site": "is MetaValue.MetaMap->{val entries=linkedMapOf<String,Val<String>>();for(key in value.values.keys.sortedWith(UnicodeTextOrder))entries[key]=callRecursive(value.values.getValue(key));Val.MapVal(Context(entries))}",
+      "classification": "source MetaValue callbacks or null-only Definition projection; every raw list wrapped by cursor/null"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocMetadata.kt",
+      "line": 13,
+      "sourceSHA256": "9171909a715bddd8820b551cd8608b7995fc75cd5520904a840cf9afcf4d64fd",
+      "site": "is MetaValue.MetaList->{val entries=mutableListOf<Val<String>>();for(child in AsciiDocPatternList(value.values))entries.add(callRecursive(child));Val.ListVal(entries)}",
+      "classification": "source MetaValue callbacks or null-only Definition projection; every raw list wrapped by cursor/null"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocMetadata.kt",
+      "line": 43,
+      "sourceSHA256": "9171909a715bddd8820b551cd8608b7995fc75cd5520904a840cf9afcf4d64fd",
+      "site": "for(group in 0..3){for(item in authors){",
+      "classification": "source MetaValue callbacks or null-only Definition projection; every raw list wrapped by cursor/null"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocAttrs.kt",
+      "line": 6,
+      "sourceSHA256": "4f8cdb0c6b3de949015a337ff1dda1c4102a8c4602dafef308c3822bfd612f53",
+      "site": "internal fun <A> asciiDocContains(values:List<A>,value:A):Boolean {for(item in AsciiDocPatternList(values))if(item==value)return true;return false}",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocAttrs.kt",
+      "line": 7,
+      "sourceSHA256": "4f8cdb0c6b3de949015a337ff1dda1c4102a8c4602dafef308c3822bfd612f53",
+      "site": "internal fun <A> asciiDocPrepend(first:A,rest:List<A>):List<A> =asciiDocGenerated(sequence{yield(first);for(value in AsciiDocPatternList(rest))yield(value)})",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocAttrs.kt",
+      "line": 10,
+      "sourceSHA256": "4f8cdb0c6b3de949015a337ff1dda1c4102a8c4602dafef308c3822bfd612f53",
+      "site": "val seen=hashSetOf<String>();for(values in listOf(first.classes,second.classes))for(value in AsciiDocPatternList(values))if(seen.add(value))yield(value)",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocAttrs.kt",
+      "line": 16,
+      "sourceSHA256": "4f8cdb0c6b3de949015a337ff1dda1c4102a8c4602dafef308c3822bfd612f53",
+      "site": "for(existing in AsciiDocPatternList(rest))if(existing.first==entry.first){found=true;break}",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    },
+    {
+      "file": "tools/haskell-asciidoc-list-reference/work-in-progress/AsciiDocAttrs.kt",
+      "line": 22,
+      "sourceSHA256": "4f8cdb0c6b3de949015a337ff1dda1c4102a8c4602dafef308c3822bfd612f53",
+      "site": "val kvs=asciiDocGenerated(sequence{for(value in AsciiDocPatternList(merged))yield(value)})",
+      "classification": "pure lazy AST/attribute map over source cursor; identifier-only source unEmoji pattern bounded"
+    }
+  ]
+}

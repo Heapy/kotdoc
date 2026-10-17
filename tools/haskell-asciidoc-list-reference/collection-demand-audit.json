@@ -1,0 +1,745 @@
+{
+  "scope": "74 recorded callsites before corrections; line numbers identify retained pre-correction snapshot; exact current closures below",
+  "sites": [
+    {
+      "file": "AsciiDocMinLevel.kt",
+      "line": 12,
+      "operation": "map",
+      "site": "is List<*>->AsciiDocPatternList(value).asSequence().map{checkNotNull(it)}.asIterable()",
+      "site_id": 0,
+      "classification": "iterator-only",
+      "source_demand": "Query traversal maps a Sequence; no Collection extent is read.",
+      "proof": "MinLevel/ListOracle; StringifyOracle"
+    },
+    {
+      "file": "AsciiDocMinLevel.kt",
+      "line": 13,
+      "operation": "map",
+      "site": "is Iterable<*>->value.asSequence().map{checkNotNull(it)}.asIterable()",
+      "site_id": 1,
+      "classification": "iterator-only",
+      "source_demand": "Query traversal maps a Sequence; no Collection extent is read.",
+      "proof": "MinLevel/ListOracle; StringifyOracle"
+    },
+    {
+      "file": "AsciiDocPatterns.kt",
+      "line": 42,
+      "operation": "size",
+      "site": "override val size:Int get()=parent.size",
+      "site_id": 2,
+      "classification": "explicit API extent",
+      "source_demand": "List.size explicitly requests full spine; rendering does not use it for singleton matching.",
+      "proof": "List cursor sharing/prefix tests"
+    },
+    {
+      "file": "AsciiDocPatterns.kt",
+      "line": 54,
+      "operation": "size",
+      "site": "while(prefix.size<=index&&!ended){",
+      "site_id": 3,
+      "classification": "internal state",
+      "source_demand": "Size/emptiness belongs to an already constructed cache, stack or queue.",
+      "proof": "List cursor sharing; deep72"
+    },
+    {
+      "file": "AsciiDocPatterns.kt",
+      "line": 67,
+      "operation": "size",
+      "site": "return index<prefix.size",
+      "site_id": 4,
+      "classification": "internal state",
+      "source_demand": "Size/emptiness belongs to an already constructed cache, stack or queue.",
+      "proof": "List cursor sharing; deep72"
+    },
+    {
+      "file": "AsciiDocSections.kt",
+      "line": 21,
+      "operation": "contains",
+      "site": "if(minimum<=b.level)b.attr.classes.contains(\"unnumbered\")",
+      "site_id": 5,
+      "classification": "fixed prefix predicate",
+      "source_demand": "Source elem/notElem short-circuits; replaced with asciiDocContains and sequential guards.",
+      "proof": "AttrListOracle"
+    },
+    {
+      "file": "AsciiDocSections.kt",
+      "line": 23,
+      "operation": "map",
+      "site": "val children=callRecursive((index until end).map{observedInput[it]});index=end",
+      "site_id": 6,
+      "classification": "bounded known interval",
+      "source_demand": "Section interval endpoints were already inspected by source break; range map cannot inspect later input.",
+      "proof": "ListOracle section/query"
+    },
+    {
+      "file": "AsciiDocSections.kt",
+      "line": 25,
+      "operation": "filter",
+      "site": "val headerAttr=Attr(classes=b.attr.classes,keyValues=b.attr.keyValues.filter{(key,value)->key!=\"epub:type\"&&(key!=\"role\"||value in listOf(\"tab\",\"presentation\",\"none\",\"treeitem\",\"menuitem\",\"button\",\"heading\"))})",
+      "site_id": 7,
+      "classification": "fixed lazy filter",
+      "source_demand": "Header key/value filter is now generated lazily; ignored attr fields do not demand tail.",
+      "proof": "AttrListOracle"
+    },
+    {
+      "file": "AsciiDocSections.kt",
+      "line": 31,
+      "operation": "all",
+      "site": "val merge=head!=null&&observed.dropFirst().asSequence().all{it !is Block.Header||it.level>head.level}&&(\"section\" in b.attr.classes||b.attr.classes.none{it in listOf(\"column\",\"columns\",\"fragment\",\"cell\")})",
+      "site_id": 8,
+      "classification": "source predicate extent",
+      "source_demand": "Source all over inspected merge tail short-circuits in order.",
+      "proof": "38 PatternOracle merge guards"
+    },
+    {
+      "file": "AsciiDocSections.kt",
+      "line": 31,
+      "operation": "none",
+      "site": "val merge=head!=null&&observed.dropFirst().asSequence().all{it !is Block.Header||it.level>head.level}&&(\"section\" in b.attr.classes||b.attr.classes.none{it in listOf(\"column\",\"columns\",\"fragment\",\"cell\")})",
+      "site_id": 9,
+      "classification": "fixed prefix predicate",
+      "source_demand": "Source elem/notElem short-circuits; replaced with asciiDocContains and sequential guards.",
+      "proof": "AttrListOracle"
+    },
+    {
+      "file": "AsciiDocSections.kt",
+      "line": 34,
+      "operation": "isEmpty",
+      "site": "out.add(if(b.attr.identifier==section.attr.identifier||b.attr.identifier.isEmpty())section.copy(attr=combined)else section.copy(attr=combined.copy(identifier=b.attr.identifier),blocks=listOf(innerHeader.copy(attr=innerHeader.attr.copy(identifier=section.attr.identifier)))+section.blocks.drop(1)))",
+      "site_id": 10,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocSections.kt",
+      "line": 34,
+      "operation": "drop",
+      "site": "out.add(if(b.attr.identifier==section.attr.identifier||b.attr.identifier.isEmpty())section.copy(attr=combined)else section.copy(attr=combined.copy(identifier=b.attr.identifier),blocks=listOf(innerHeader.copy(attr=innerHeader.attr.copy(identifier=section.attr.identifier)))+section.blocks.drop(1)))",
+      "site_id": 11,
+      "classification": "already demanded result",
+      "source_demand": "drop operates on completed recursive section result, not the uninspected public input.",
+      "proof": "ListOracle sections; deep72"
+    },
+    {
+      "file": "AsciiDocStringify.kt",
+      "line": 11,
+      "operation": "isNotEmpty",
+      "site": "while(frames.isNotEmpty()){",
+      "site_id": 12,
+      "classification": "internal state",
+      "source_demand": "Size/emptiness belongs to an already constructed cache, stack or queue.",
+      "proof": "List cursor sharing; deep72"
+    },
+    {
+      "file": "AsciiDocStringify.kt",
+      "line": 15,
+      "operation": "map",
+      "site": "is List<*>->frames.addLast(AsciiDocPatternList(value).asSequence().map{checkNotNull(it)}.iterator())",
+      "site_id": 13,
+      "classification": "iterator-only",
+      "source_demand": "Query traversal maps a Sequence; no Collection extent is read.",
+      "proof": "MinLevel/ListOracle; StringifyOracle"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 10,
+      "operation": "sortedBy",
+      "site": "val sorted=placements.sortedBy{it.first}",
+      "site_id": 14,
+      "classification": "source required sort",
+      "source_demand": "Source sortOn demands placements before insertion; remaining extent is internal sorted output.",
+      "proof": "TableListOracle"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 11,
+      "operation": "isEmpty",
+      "site": "if(sorted.isEmpty())return row",
+      "site_id": 15,
+      "classification": "source required sort",
+      "source_demand": "Source sortOn demands placements before insertion; remaining extent is internal sorted output.",
+      "proof": "TableListOracle"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 15,
+      "operation": "size",
+      "site": "while(emptyAt<sorted.size){val(at,empty)=sorted[emptyAt]",
+      "site_id": 16,
+      "classification": "source required sort",
+      "source_demand": "Source sortOn demands placements before insertion; remaining extent is internal sorted output.",
+      "proof": "TableListOracle"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 48,
+      "operation": "size",
+      "site": "val footerLength by lazy {rows.size.toLong()} // explicit source length, only a reaching rowspan needs it.",
+      "site_id": 17,
+      "classification": "source required length",
+      "source_demand": "Footer length is explicitly used by source when a positive rowspan needs it; kept lazy until that branch.",
+      "proof": "TableListOracle footer/rowspan"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 74,
+      "operation": "isNotEmpty",
+      "site": "fun pull():RowsLeft? =if(pending.isNotEmpty())pending.removeFirst()else if(source.hasNext())source.next().let{row->RowsLeft(row.attr,asciiDocLazyMap(row.cells){it to if(it.rowSpan>1)it.rowSpan-1 else 0})}else null",
+      "site_id": 18,
+      "classification": "internal state",
+      "source_demand": "Size/emptiness belongs to an already constructed cache, stack or queue.",
+      "proof": "List cursor sharing; deep72"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 80,
+      "operation": "any",
+      "site": "val consume=asciiDocNull(next.initial)&&active.any{it.hasSpan()}",
+      "site_id": 19,
+      "classification": "defined accumulator",
+      "source_demand": "Active row-span state is internally defined. Source any/map/reverse semantics retained, no raw input Collection preallocation.",
+      "proof": "TableListOracle rowspan"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 81,
+      "operation": "map",
+      "site": "active=active.map{it.remaining(consume)}.let{if(consume)it else listOf(next)+it}",
+      "site_id": 20,
+      "classification": "defined accumulator",
+      "source_demand": "Active row-span state is internally defined. Source any/map/reverse semantics retained, no raw input Collection preallocation.",
+      "proof": "TableListOracle rowspan"
+    },
+    {
+      "file": "AsciiDocTables.kt",
+      "line": 83,
+      "operation": "asReversed",
+      "site": "val ordered=active.asReversed();yield(ordered.first().row());for(i in ordered.lastIndex downTo 1)pending.addFirst(ordered[i])",
+      "site_id": 21,
+      "classification": "defined accumulator",
+      "source_demand": "Active row-span state is internally defined. Source any/map/reverse semantics retained, no raw input Collection preallocation.",
+      "proof": "TableListOracle rowspan"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 44,
+      "operation": "isEmpty",
+      "site": "if(\"titleblock\" !in ctx.entries)put(\"titleblock\",Val.BoolVal(!(docTitle(d.meta).isEmpty()&&docAuthors(d.meta).isEmpty()&&docDate(d.meta).isEmpty())))",
+      "site_id": 22,
+      "classification": "previously demanded metadata",
+      "source_demand": "Metadata callbacks have completed all leaves before titleblock access; generic list view measures this already rendered immutable result.",
+      "proof": "MetadataListOracle; metadata-map oracle"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 44,
+      "operation": "isEmpty",
+      "site": "if(\"titleblock\" !in ctx.entries)put(\"titleblock\",Val.BoolVal(!(docTitle(d.meta).isEmpty()&&docAuthors(d.meta).isEmpty()&&docDate(d.meta).isEmpty())))",
+      "site_id": 23,
+      "classification": "previously demanded metadata",
+      "source_demand": "Metadata callbacks have completed all leaves before titleblock access; generic list view measures this already rendered immutable result.",
+      "proof": "MetadataListOracle; metadata-map oracle"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 44,
+      "operation": "isEmpty",
+      "site": "if(\"titleblock\" !in ctx.entries)put(\"titleblock\",Val.BoolVal(!(docTitle(d.meta).isEmpty()&&docAuthors(d.meta).isEmpty()&&docDate(d.meta).isEmpty())))",
+      "site_id": 24,
+      "classification": "previously demanded metadata",
+      "source_demand": "Metadata callbacks have completed all leaves before titleblock access; generic list view measures this already rendered immutable result.",
+      "proof": "MetadataListOracle; metadata-map oracle"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 55,
+      "operation": "isEmpty",
+      "site": "fun spacy(i:Inline,end:Boolean):Boolean=when(i){Inline.Space,Inline.LineBreak,Inline.SoftBreak->true;is Inline.Str->if(i.text.isEmpty())false else (if(end)i.text.codePointBefore(i.text.length)else i.text.codePointAt(0)).let{RegexCharacters.isPunctuation(it)||ParserCharacters.isSpace(it)};is Inline.Link,is Inline.Image->end;else->false}",
+      "site_id": 25,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 55,
+      "operation": "length",
+      "site": "fun spacy(i:Inline,end:Boolean):Boolean=when(i){Inline.Space,Inline.LineBreak,Inline.SoftBreak->true;is Inline.Str->if(i.text.isEmpty())false else (if(end)i.text.codePointBefore(i.text.length)else i.text.codePointAt(0)).let{RegexCharacters.isPunctuation(it)||ParserCharacters.isSpace(it)};is Inline.Link,is Inline.Image->end;else->false}",
+      "site_id": 26,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 69,
+      "operation": "isEmpty",
+      "site": "val observed=AsciiDocPatternList(alt);val actual=if(observed.isEmpty()||asciiDocSingletonEquals(observed,Inline.Str(\"\")))listOf(Inline.Str(dropExtension(src)))else observed",
+      "site_id": 27,
+      "classification": "bounded pattern cache",
+      "source_demand": "Image-alt singleton observation checks cached prefix, not source list size.",
+      "proof": "38 PatternOracle alt cases"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 70,
+      "operation": "mapNotNull",
+      "site": "val label=inlines(actual);val dims=listOf(Direction.Width,Direction.Height).mapNotNull{dir->Dimensions.dimension(dir,attr)?.let{dim->if(dim is Dimension.Percent)\"scaledwidth=$dim\"else\"$dir=\"+Dimensions.showInPixel(dim,options.dpi.toBigInteger())}}",
+      "site_id": 28,
+      "classification": "closed finite enumeration",
+      "source_demand": "Dimensions mapNotNull ranges over two constant directions; dimension lookup retains ordered prefix search.",
+      "proof": "Original image dimensions/38 alt controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 71,
+      "operation": "isEmpty",
+      "site": "return t(src+\"[\")+label+t((if(title.isEmpty())\"\"else\",title=\\\"$title\\\"\")+(if(dims.isEmpty())\"\"else\",\"+dims.joinToString(\",\"))+\"]\")",
+      "site_id": 29,
+      "classification": "defined Text",
+      "source_demand": "Title text already produced by stringify before emptiness is tested.",
+      "proof": "NullTitleListOracle; StringifyOracle"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 71,
+      "operation": "isEmpty",
+      "site": "return t(src+\"[\")+label+t((if(title.isEmpty())\"\"else\",title=\\\"$title\\\"\")+(if(dims.isEmpty())\"\"else\",\"+dims.joinToString(\",\"))+\"]\")",
+      "site_id": 30,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 75,
+      "operation": "take",
+      "site": "fun dropExtension(src:String):String{val slash=src.lastIndexOf('/');val dot=src.lastIndexOf('.');return if(dot>slash)src.take(dot)else src}",
+      "site_id": 31,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 89,
+      "operation": "fold",
+      "site": "is Inline.RawInline->if(OrgCaseFold.fold(i.format.value)==\"asciidoc\")t(i.text)else{report(LogMessage.InlineNotRendered(i));l.empty}",
+      "site_id": 32,
+      "classification": "pinned text profile",
+      "source_demand": "Casefold is the exact text2.1.2 mapping, unrelated to List extent.",
+      "proof": "Full mapping/profile proof"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 99,
+      "operation": "isEmpty",
+      "site": "is Inline.Span->{val d=inlines(i.content);val marker=if(intraword)\"##\"else\"#\";if(!i.attr.classes.iterator().hasNext()&&i.attr.identifier.isEmpty())d else if(asciiDocSingletonEquals(i.attr.classes,\"mark\")&&i.attr.identifier.isEmpty())t(marker)+d+t(marker)else t(\"[\"+((if(i.attr.identifier.isEmpty())emptyList()else listOf(\"#\"+i.attr.identifier))+i.attr.classes.map{\".$it\"}).joinToString(\" \")+\"]\"+marker)+d+t(marker)}",
+      "site_id": 33,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 99,
+      "operation": "isEmpty",
+      "site": "is Inline.Span->{val d=inlines(i.content);val marker=if(intraword)\"##\"else\"#\";if(!i.attr.classes.iterator().hasNext()&&i.attr.identifier.isEmpty())d else if(asciiDocSingletonEquals(i.attr.classes,\"mark\")&&i.attr.identifier.isEmpty())t(marker)+d+t(marker)else t(\"[\"+((if(i.attr.identifier.isEmpty())emptyList()else listOf(\"#\"+i.attr.identifier))+i.attr.classes.map{\".$it\"}).joinToString(\" \")+\"]\"+marker)+d+t(marker)}",
+      "site_id": 34,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 99,
+      "operation": "isEmpty",
+      "site": "is Inline.Span->{val d=inlines(i.content);val marker=if(intraword)\"##\"else\"#\";if(!i.attr.classes.iterator().hasNext()&&i.attr.identifier.isEmpty())d else if(asciiDocSingletonEquals(i.attr.classes,\"mark\")&&i.attr.identifier.isEmpty())t(marker)+d+t(marker)else t(\"[\"+((if(i.attr.identifier.isEmpty())emptyList()else listOf(\"#\"+i.attr.identifier))+i.attr.classes.map{\".$it\"}).joinToString(\" \")+\"]\"+marker)+d+t(marker)}",
+      "site_id": 35,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 99,
+      "operation": "map",
+      "site": "is Inline.Span->{val d=inlines(i.content);val marker=if(intraword)\"##\"else\"#\";if(!i.attr.classes.iterator().hasNext()&&i.attr.identifier.isEmpty())d else if(asciiDocSingletonEquals(i.attr.classes,\"mark\")&&i.attr.identifier.isEmpty())t(marker)+d+t(marker)else t(\"[\"+((if(i.attr.identifier.isEmpty())emptyList()else listOf(\"#\"+i.attr.identifier))+i.attr.classes.map{\".$it\"}).joinToString(\" \")+\"]\"+marker)+d+t(marker)}",
+      "site_id": 36,
+      "classification": "fixed action-before-tail",
+      "source_demand": "Span class map now uses asciiDocMap; each action precedes the next source spine.",
+      "proof": "AttrListOracle class/span-prefix"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 104,
+      "operation": "map",
+      "site": "is CaptionWork.Blocks->joinInlines(work.values.map{callRecursive(CaptionWork.BlockValue(it))},Builder.linebreak)",
+      "site_id": 37,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 109,
+      "operation": "flatMapIndexed",
+      "site": "is Block.LineBlock->Inlines(b.lines.flatMapIndexed{i,line->if(i==0)line else listOf(Inline.LineBreak)+line})",
+      "site_id": 38,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 115,
+      "operation": "map",
+      "site": "is Block.OrderedList->joinInlines(b.items.map{callRecursive(CaptionWork.Blocks(it))})",
+      "site_id": 39,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 116,
+      "operation": "map",
+      "site": "is Block.BulletList->joinInlines(b.items.map{callRecursive(CaptionWork.Blocks(it))})",
+      "site_id": 40,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 117,
+      "operation": "map",
+      "site": "is Block.DefinitionList->joinInlines(b.items.map{(term,defs)->Inlines(term)+Builder.str(\":\")+Builder.space+joinInlines(defs.map{callRecursive(CaptionWork.Blocks(it))})})",
+      "site_id": 41,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 117,
+      "operation": "map",
+      "site": "is Block.DefinitionList->joinInlines(b.items.map{(term,defs)->Inlines(term)+Builder.str(\":\")+Builder.space+joinInlines(defs.map{callRecursive(CaptionWork.Blocks(it))})})",
+      "site_id": 42,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 118,
+      "operation": "flatMap",
+      "site": "is Block.Table->{val rows=b.head.rows+b.bodies.flatMap{it.head+it.body}+b.foot.rows;joinInlines(rows.map{row->joinInlines(row.cells.map{callRecursive(CaptionWork.Blocks(it.blocks))})},Builder.linebreak)}",
+      "site_id": 43,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 118,
+      "operation": "map",
+      "site": "is Block.Table->{val rows=b.head.rows+b.bodies.flatMap{it.head+it.body}+b.foot.rows;joinInlines(rows.map{row->joinInlines(row.cells.map{callRecursive(CaptionWork.Blocks(it.blocks))})},Builder.linebreak)}",
+      "site_id": 44,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 118,
+      "operation": "map",
+      "site": "is Block.Table->{val rows=b.head.rows+b.bodies.flatMap{it.head+it.body}+b.foot.rows;joinInlines(rows.map{row->joinInlines(row.cells.map{callRecursive(CaptionWork.Blocks(it.blocks))})},Builder.linebreak)}",
+      "site_id": 45,
+      "classification": "source caption concatenation",
+      "source_demand": "blocksToInlines uses Builder mconcat over mapped block/list/table content; explicit complete concatenation spine is retained. No blanket lazy replacement.",
+      "proof": "AdjacentListOracle caption; original deep caption controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 124,
+      "operation": "length",
+      "site": "if(s.length>=2&&s.startsWith('[')&&s.endsWith(']'))return true",
+      "site_id": 46,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 125,
+      "operation": "flatMap",
+      "site": "val parser=ListParsing.anyOrderedListMarker(ExampleNumbers).flatMap{attr->val two=attr.delimiter==ListNumberDelim.Period&&(attr.style==ListNumberStyle.UpperAlpha||attr.style==ListNumberStyle.UpperRoman&&attr.start in listOf(1L,5L,10L,50L,100L,500L,1000L));val space=PandocTextCharacters.satisfy<ExampleNumbers>{it==32||it==9};if(two)space.then(space)else space}",
+      "site_id": 47,
+      "classification": "parser combinator",
+      "source_demand": "flatMap is parser sequencing, not Collection.flatMap.",
+      "proof": "Original options/list marker cases"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 126,
+      "operation": "length",
+      "site": "val prefix=String(s.codePoints().limit(10).toArray(),0,minOf(10,s.codePointCount(0,s.length)))",
+      "site_id": 48,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 149,
+      "operation": "isEmpty",
+      "site": "(b is Block.Para||b is Block.Plain)&&l.isEmpty(d)->d=x",
+      "site_id": 49,
+      "classification": "defined finite layout",
+      "source_demand": "Doc emptiness concerns constructed finite layout. Arbitrary deferred Doc bottoms remain native-only domain controls.",
+      "proof": "Chomp11154; deferred Doc native controls"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 158,
+      "operation": "flatMapIndexed",
+      "site": "is Block.LineBlock->vertical(t(\"[verse]\"),t(\"--\"),l.nowrap(concat(b.lines.flatMapIndexed{n,line->(if(n==0)emptyList()else listOf(l.cr))+if(asciiDocNull(line))l.blankline else inlines(line)})),t(\"--\"),l.blankline)",
+      "site_id": 50,
+      "classification": "fixed null predicate",
+      "source_demand": "LineBlock iteration preserves concat order; inner null now uses asciiDocNull without forcing a line head.",
+      "proof": "NullTitleListOracle line/inner-prefix"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 159,
+      "operation": "fold",
+      "site": "is Block.RawBlock->if(OrgCaseFold.fold(b.format.value)==\"asciidoc\")t(b.text)else{report(LogMessage.BlockNotRendered(b));l.empty}",
+      "site_id": 51,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 161,
+      "operation": "isEmpty",
+      "site": "is Block.Header->{val contents=inlines(b.content);val id=DokuWikiIdentifiers.unique(b.content,autoIds,options.extensions);autoIds.add(id);val ident=if(b.attr.identifier.isEmpty()||options.isEnabled(ExtensionName.AutoIdentifiers)&&b.attr.identifier==id)l.empty else t(\"[[${b.attr.identifier}]]\");vertical(ident,l.nowrap(t(\"=\".repeat((b.level+1).coerceAtLeast(0).toInt()))+l.space+contents))+l.blankline}",
+      "site_id": 52,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 162,
+      "operation": "isEmpty",
+      "site": "is Block.Figure->{val cap=if(asciiDocNull(b.caption.long))l.empty else t(\".\")+l.nowrap(inlines(captionInlines(b.caption.long)));l.vcat(asciiDocMap(b.blocks){element->val observed=(element as? Block.Plain)?.content?.let{AsciiDocPatternList(it)};val image=observed?.let{asciiDocSingleConstructor<Inline,Inline.Image>(it)};if(image==null)block(if(observed==null)element else Block.Plain(observed))else vertical(cap,if(b.attr.identifier.isEmpty())l.empty else t(\"[#${b.attr.identifier}]\"),t(\"image::\")+imageArguments(image.attr,image.content,image.target.url,image.target.title))+l.blankline})}",
+      "site_id": 53,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 163,
+      "operation": "toMutableList",
+      "site": "is Block.CodeBlock->{val classes=b.attr.classes.asSequence().toMutableList();val lineNumbers=classes.remove(\"numberLines\");l.flush(if(classes.isEmpty()&&!lineNumbers)vertical(t(\"....\"),t(b.text),t(\"....\"))else vertical(t(\"[\"+(listOf(if(lineNumbers)\"source%linesnum\"else\"source\")+classes).joinToString(\",\")+\"]\"),t(\"----\"),t(b.text),t(\"----\")))+l.blankline}",
+      "site_id": 54,
+      "classification": "source class rendering",
+      "source_demand": "Code classes must be consumed for delete/join. Iterator materialization reads heads in order; subsequent emptiness is internal.",
+      "proof": "Original code attributes/profile cases"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 163,
+      "operation": "isEmpty",
+      "site": "is Block.CodeBlock->{val classes=b.attr.classes.asSequence().toMutableList();val lineNumbers=classes.remove(\"numberLines\");l.flush(if(classes.isEmpty()&&!lineNumbers)vertical(t(\"....\"),t(b.text),t(\"....\"))else vertical(t(\"[\"+(listOf(if(lineNumbers)\"source%linesnum\"else\"source\")+classes).joinToString(\",\")+\"]\"),t(\"----\"),t(b.text),t(\"----\")))+l.blankline}",
+      "site_id": 55,
+      "classification": "source class rendering",
+      "source_demand": "Code classes must be consumed for delete/join. Iterator materialization reads heads in order; subsequent emptiness is internal.",
+      "proof": "Original code attributes/profile cases"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 164,
+      "operation": "any",
+      "site": "is Block.BlockQuote->{val contents=blocks(b.blocks);val nested=if(b.blocks.any{it is Block.BlockQuote})vertical(t(\"--\"),contents,t(\"--\"))else contents;vertical(t(\"____\"),chomp.apply(nested),t(\"____\"))+l.blankline}",
+      "site_id": 56,
+      "classification": "previously demanded block actions",
+      "source_demand": "BlockQuote predicate runs after rendering all block actions; no first action is postponed behind raw size.",
+      "proof": "Old38 and ListOracle block action order"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 166,
+      "operation": "isEmpty",
+      "site": "is Block.OrderedList->{val style=when(b.attributes.style){ListNumberStyle.DefaultStyle,ListNumberStyle.Example->emptyList();ListNumberStyle.Decimal->listOf(\"arabic\");else->listOf(LaTeXReaderText.toLower(b.attributes.style.name))};val opts=style+if(b.attributes.start!=1L)listOf(\"start=${b.attributes.start}\")else emptyList();val saved=inList;inList=true;val contents=concat(asciiDocMap(b.items){listItem(it,false)});inList=saved;vertical(if(opts.isEmpty())l.empty else t(\"[\"+opts.joinToString(\", \")+\"]\"),contents)+l.blankline}",
+      "site_id": 57,
+      "classification": "defined internal results",
+      "source_demand": "Option/doc lists consist of completed monadic results or closed scalar options. Collection transforms do not inspect raw AST lists.",
+      "proof": "Original list/definition branches; deep72"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 167,
+      "operation": "flatMapIndexed",
+      "site": "is Block.DefinitionList->{val saved=inList;inList=true;val contents=concat(asciiDocMap(b.items){(label,defs)->val labelDoc=inlines(label);val marker=definitionMarker;definitionMarker=if(marker==\"::\")\";;\"else\"::\";val divider=l.cr+t(\"+\")+l.cr;val documents=asciiDocMap(defs){ds->l.vcat(asciiDocMap(ds){chomp.apply(block(it))}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d})};definitionMarker=marker;labelDoc+t(marker)+l.cr+l.nest(2,l.vcat(documents.map{chomp.apply(it)}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d}))+l.cr});inList=saved;contents+l.blankline}",
+      "site_id": 58,
+      "classification": "defined internal results",
+      "source_demand": "Option/doc lists consist of completed monadic results or closed scalar options. Collection transforms do not inspect raw AST lists.",
+      "proof": "Original list/definition branches; deep72"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 167,
+      "operation": "map",
+      "site": "is Block.DefinitionList->{val saved=inList;inList=true;val contents=concat(asciiDocMap(b.items){(label,defs)->val labelDoc=inlines(label);val marker=definitionMarker;definitionMarker=if(marker==\"::\")\";;\"else\"::\";val divider=l.cr+t(\"+\")+l.cr;val documents=asciiDocMap(defs){ds->l.vcat(asciiDocMap(ds){chomp.apply(block(it))}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d})};definitionMarker=marker;labelDoc+t(marker)+l.cr+l.nest(2,l.vcat(documents.map{chomp.apply(it)}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d}))+l.cr});inList=saved;contents+l.blankline}",
+      "site_id": 59,
+      "classification": "defined internal results",
+      "source_demand": "Option/doc lists consist of completed monadic results or closed scalar options. Collection transforms do not inspect raw AST lists.",
+      "proof": "Original list/definition branches; deep72"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 167,
+      "operation": "flatMapIndexed",
+      "site": "is Block.DefinitionList->{val saved=inList;inList=true;val contents=concat(asciiDocMap(b.items){(label,defs)->val labelDoc=inlines(label);val marker=definitionMarker;definitionMarker=if(marker==\"::\")\";;\"else\"::\";val divider=l.cr+t(\"+\")+l.cr;val documents=asciiDocMap(defs){ds->l.vcat(asciiDocMap(ds){chomp.apply(block(it))}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d})};definitionMarker=marker;labelDoc+t(marker)+l.cr+l.nest(2,l.vcat(documents.map{chomp.apply(it)}.flatMapIndexed{n,d->(if(n==0)emptyList()else listOf(divider))+d}))+l.cr});inList=saved;contents+l.blankline}",
+      "site_id": 60,
+      "classification": "defined internal results",
+      "source_demand": "Option/doc lists consist of completed monadic results or closed scalar options. Collection transforms do not inspect raw AST lists.",
+      "proof": "Original list/definition branches; deep72"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 169,
+      "operation": "isEmpty",
+      "site": "val name=classHead;val ident=if(b.attr.identifier.isEmpty())l.empty else t(\"[[${b.attr.identifier}]]\");val content=if(name!=null&&(name in listOf(\"attention\",\"caution\",\"danger\",\"error\",\"hint\",\"important\",\"note\",\"tip\",\"warning\")||LaTeXReaderText.toLower(name)==\"sidebar\")){",
+      "site_id": 61,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 178,
+      "operation": "all",
+      "site": "val simple by lazy{widths.all{it==0.0}};val total by lazy{widths.sum()}",
+      "site_id": 62,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 180,
+      "operation": "map",
+      "site": "val relative=if(simple)widths else widths.map{it/total};val result=relative.map{HaskellNumber.floor(it*100)}",
+      "site_id": 63,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 180,
+      "operation": "map",
+      "site": "val relative=if(simple)widths else widths.map{it/total};val result=relative.map{HaskellNumber.floor(it*100)}",
+      "site_id": 64,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 181,
+      "operation": "isNotEmpty",
+      "site": "if(!simple&&result.isNotEmpty()&&result.fold(java.math.BigInteger.ZERO,java.math.BigInteger::add)<100.toBigInteger())listOf(100.toBigInteger()-result.drop(1).fold(java.math.BigInteger.ZERO,java.math.BigInteger::add))+result.drop(1)else result",
+      "site_id": 65,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 181,
+      "operation": "fold",
+      "site": "if(!simple&&result.isNotEmpty()&&result.fold(java.math.BigInteger.ZERO,java.math.BigInteger::add)<100.toBigInteger())listOf(100.toBigInteger()-result.drop(1).fold(java.math.BigInteger.ZERO,java.math.BigInteger::add))+result.drop(1)else result",
+      "site_id": 66,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 181,
+      "operation": "drop",
+      "site": "if(!simple&&result.isNotEmpty()&&result.fold(java.math.BigInteger.ZERO,java.math.BigInteger::add)<100.toBigInteger())listOf(100.toBigInteger()-result.drop(1).fold(java.math.BigInteger.ZERO,java.math.BigInteger::add))+result.drop(1)else result",
+      "site_id": 67,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 181,
+      "operation": "fold",
+      "site": "if(!simple&&result.isNotEmpty()&&result.fold(java.math.BigInteger.ZERO,java.math.BigInteger::add)<100.toBigInteger())listOf(100.toBigInteger()-result.drop(1).fold(java.math.BigInteger.ZERO,java.math.BigInteger::add))+result.drop(1)else result",
+      "site_id": 68,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 181,
+      "operation": "drop",
+      "site": "if(!simple&&result.isNotEmpty()&&result.fold(java.math.BigInteger.ZERO,java.math.BigInteger::add)<100.toBigInteger())listOf(100.toBigInteger()-result.drop(1).fold(java.math.BigInteger.ZERO,java.math.BigInteger::add))+result.drop(1)else result",
+      "site_id": 69,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 186,
+      "operation": "isEmpty",
+      "site": "val spec by lazy{t(\"[\"+(if(totalWidth.signum()==0)\"\"else\"width=\\\"$totalWidth%\\\",\")+\"cols=\\\"\"+aligns.zip(percentages).joinToString(\",\"){(a,w)->align(a)+(if(w.signum()==0)\"\"else\"$w%\") }+\"\\\",\"+(if(optionsList.isEmpty())\"\"else\"options=\\\"\"+optionsList.joinToString(\",\")+\"\\\",\")+\"]\")}",
+      "site_id": 70,
+      "classification": "defined internal options",
+      "source_demand": "Header/footer predicates are lazy source allRowsEmpty; option emptiness observes completed small option list.",
+      "proof": "TableListOracle header/footer"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 188,
+      "operation": "isEmpty",
+      "site": "suspend fun DeepRecursiveScope<Work,Doc<String>>.makeCell(cell:Cell):Doc<String>{val bs=AsciiDocPatternList(cell.blocks);val cells=bs.iterator();val empty= !cells.hasNext();val head=if(empty)null else cells.next();val first=if((head is Block.Plain||head is Block.Para)&&!cells.hasNext())head else null;val content=when{empty->separator;first is Block.Plain->separator+chomp.apply(block(first));first is Block.Para->separator+chomp.apply(block(Block.Plain(first.content)));tableLevel==2L->{report(LogMessage.BlockNotRendered(b));separator};else->vertical(t(\"a\")+separator,blocks(bs))};val span=(if(cell.colSpan>1)cell.colSpan.toString()else\"\")+(if(cell.rowSpan>1)\".${cell.rowSpan}\"else\"\");return t(span+(if(span.isEmpty())\"\"else\"+\")+align(cell.alignment))+content}",
+      "site_id": 71,
+      "classification": "defined Text",
+      "source_demand": "Strict Haskell Text / Kotlin String operation; not a public List extent. Text profile is separately pinned.",
+      "proof": "Original branches; four classifier/mapping domains"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 189,
+      "operation": "size",
+      "site": "suspend fun DeepRecursiveScope<Work,Doc<String>>.makeRow(row:Row):Doc<String>{val cells=if(asciiDocNull(row.cells))List(percentages.size){Cell(Attr(),Alignment.AlignDefault,1,1,emptyList())}else row.cells;return l.hsep(asciiDocMap(cells){makeCell(it)})}",
+      "site_id": 72,
+      "classification": "source required width extent",
+      "source_demand": "Source all/sum/map/length require widths when formatting uses them. Computations are now lazy so body-cell actions precede pure spec errors; empty row still requires source length.",
+      "proof": "TableListOracle body-before-columns/empty-body-needs-columns"
+    },
+    {
+      "file": "AsciiDocWriter.kt",
+      "line": 198,
+      "operation": "isEmpty",
+      "site": "return vertical(if(caption.isEmpty())l.empty else t(\".\")+captionDoc+l.cr,spec,border,if(AsciiDocTables.allRowsEmpty(headers))l.empty else head,bodyDoc,if(AsciiDocTables.allRowsEmpty(footers))l.empty else foot,border,l.blankline)",
+      "site_id": 73,
+      "classification": "previously constructed caption",
+      "source_demand": "Caption inlines are completed by caption conversion before this check.",
+      "proof": "Original captions/deep72"
+    }
+  ]
+}

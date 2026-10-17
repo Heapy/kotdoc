@@ -1,0 +1,40 @@
+[
+  {
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "asciidoc"
+    ],
+    "input": "W1BhcmEgW1N0ciAi/yJdXQ==",
+    "original": {
+      "exitCode": 0,
+      "stdout": "w78K",
+      "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+    },
+    "kotlin": {
+      "exitCode": 0,
+      "stdout": "77+9Cg==",
+      "stderr": ""
+    }
+  },
+  {
+    "args": [
+      "-f",
+      "json",
+      "-t",
+      "asciidoc"
+    ],
+    "input": "YnJva2Vu",
+    "original": {
+      "exitCode": 64,
+      "stdout": "",
+      "stderr": "SlNPTiBwYXJzZSBlcnJvcjogVW5leHBlY3RlZCAiYnJva2VuXG5cbiIsIGV4cGVjdGluZyBKU09OIHZhbHVlCg=="
+    },
+    "kotlin": {
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "a290ZG9jOiBFbGVtZW50IGNsYXNzIGtvdGxpbnguc2VyaWFsaXphdGlvbi5qc29uLkpzb25MaXRlcmFsIChLb3RsaW4gcmVmbGVjdGlvbiBpcyBub3QgYXZhaWxhYmxlKSBpcyBub3QgYSBKc29uT2JqZWN0Cg=="
+    }
+  }
+]

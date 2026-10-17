@@ -1,0 +1,35 @@
+{
+  "original": [
+    {
+      "name": "link-label-prefix",
+      "thrown": "inline-head"
+    },
+    {
+      "name": "link-emph-prefix",
+      "thrown": "inline-head"
+    },
+    {
+      "name": "link-note-prefix",
+      "thrown": "block-head"
+    },
+    {
+      "name": "link-comma-prefix",
+      "thrown": "second-head"
+    },
+    {
+      "length": 27,
+      "name": "link-comma-finite"
+    }
+  ],
+  "before": "false: {\"name\":\"link-label-prefix\",\"thrown\":\"unused-tail\"}\nfalse: {\"name\":\"link-emph-prefix\",\"thrown\":\"unused-tail\"}\nfalse: {\"name\":\"link-note-prefix\",\"thrown\":\"block-tail\"}\nfalse: {\"name\":\"link-comma-prefix\",\"thrown\":\"unused-tail\"}\nfalse: {\"name\":\"link-comma-finite\",\"length\":27}\ntrue: {\"name\":\"link-label-prefix\",\"thrown\":\"unused-tail\"}\ntrue: {\"name\":\"link-emph-prefix\",\"thrown\":\"unused-tail\"}\ntrue: {\"name\":\"link-note-prefix\",\"thrown\":\"block-tail\"}\ntrue: {\"name\":\"link-comma-prefix\",\"thrown\":\"unused-tail\"}\ntrue: {\"name\":\"link-comma-finite\",\"length\":27}\n",
+  "command": [
+    "/Users/yoda/.sdkman/candidates/java/21.0.12-librca/bin/java",
+    "-Xmx128m",
+    "-Xss256k",
+    "-cp",
+    "/tmp/kotdoc-asciidoc-comma-list-proof.jar:/tmp/kotdoc-asciidoc-list-final/core-final.jar:/tmp/kotdoc-asciidoc-writer/runtime-libs/*",
+    "CommaListDebugKt"
+  ],
+  "jarSha256": "aad2f3418307dedf69533eb8a7c1a755dad0e51c9535bb9bf8473ac350ec53e0",
+  "sharedDependency": "PandocVisitor.walkInlines value.map asks Collection.size before first head; source Walk concatMap closure is lazy; local fix does not change shared Visitor"
+}

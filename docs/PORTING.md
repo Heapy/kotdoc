@@ -15816,3 +15816,79 @@ JUnit/package/distribution proof remain open. Accepted public Walk Applicative
 and PandocJson depth1024 decoder defects remain separate611/612 gaps. All140
 exports/350 source-instance member expansion, fullJSON6/611, Pandoc623 and
 calibre624–626 remain OPEN. This commit changes the ledger only.
+
+### AsciiDoc writer and bounded application checkpoint (independently reviewed)
+
+The pinned912-line Writers.AsciiDoc module and its used helper closures are
+implemented in Kotlin, with asciidoc/asciidoctor/asciidoc_legacy output aliases.
+Source review covers options, state, escaping, lists, notes, captions/tables,
+metadata/templates, Text2.1.2 profiles, identifier generation and ordered reports.
+The12 original writer leaves, four exact Old library goldens and31 source-command
+AST writer observations retain independent expectations. They are distinct from
+four complete original CLI commands and183 installed App comparisons;27 commands
+requiring missing input routes and four Old --quiet CLI commands remain pending.
+
+Repeated independent review rejected premature collection extent, constructor
+matching and public source-spine bypasses. The final common cursor supports
+ordinary Lists and explicit independent spine/head/tail values; Note/Span/code,
+line/quote, caption/list/definition/table and borrowed-helper routes use it.
+Required pure caption/sort/length extent is preserved, rather than universally
+changed to head-first traversal. Session identity memo bounds caption adaptation
+without caching rendered actions. Local metadata titleblock projection follows
+Definition147–181; dimensions receives a cursor KV view. Identifier input uses
+complete lazy identity mapping and bounded unEmoji singleton matching, preserving
+ignored heads/tails and source Text profiles. The74-site extent audit is separate
+from the later protocol-traversal and borrowed-entry catalogs.
+
+Final Gradle36903 succeeded:1942 actual XML tests, zero failures/errors/skips
+(Writer1633, Pattern38, ListBoundary271). These factory registrations are not a
+count of upstream tests or all nested observations. Retained original source
+replays include45284 writer/helper observations plus four exhaustive domains;
+the final additive source replay has106 writer+34 Walk+34 Stringify+34 identity
+observations. Grouped271 passed at128MiB/256KiB; old1425 registrations including
+72 deep cases passed at512MiB/256KiB. Independent review reran all eight decisive
+previous probes on the final JAR, plus nine separately authored protocol-only
+metadata/dimensions/GFM/ascii identifier boundaries at128MiB/256KiB; all pass.
+Current source verifier passes. No expensive full CLI/suite rerun was needed
+after verifying the final immutable evidence and class bindings.
+
+Authoritative evidence: /tmp/kotdoc-asciidoc-borrowed-final contains198 frozen
+path hashes, terminal logs/XML, package and durable installed status/report.
+Core JAR SHA2569d7ab91408cd141b994a773e238b88a9347da2a0cd0e94572c6214ca6ad73fc4
+is identical to copied installDist. Relative to its immediate baseline,4819
+classes are identical; four changed,14 added and13 removed classes are exclusively
+AsciiDoc. All115 upstream license payloads plus rootGPL are byte-exact. Durable
+CLI68040 exited0 with183 exact comparisons/four full commands; stdout SHA256
+7cc09617b66efe8d4a7fd1e331eb99304c04aa9fde128f3cba73115e39e1b57d.
+Old394 sibling CLI proofs are reused through unchanged noncore JARs and4391
+old noncrypto/nonAsciiDoc classes, not a false whole-JAR identity claim.
+
+Rejected115/132/1709/1753/185/1912 snapshots, failed runs and original expectations
+remain immutable. Historical115 provenance resolves four changed identities to
+explicit retained snapshots; current-source.json separately binds current code.
+Historical integration.json is not evidence that its old source hashes match
+current code. Before-Main/HtmlOptions snapshots independently match accepted
+Git743248cb07f8f1a842c927ff2f7f3d16e6537436 blobs. Exactly25 owned development
+snapshots in the frozen scope are intentional historical evidence, not unrelated
+WIP. RSA.Types, FB2 inventory and JSON drafts are excluded from this commit.
+The fail-fast staged whitespace guard stopped before commit on the authenticated
+chomp-before-cache-thread.txt JVM thread dump only. Its original trailing spaces
+and final blank line are preserved; all other staged paths pass diff --check.
+
+Remaining611/612: shared Visitor preallocation/effect order, sections/caption/
+DocLayout resource behavior, generic metadata List-facade interoperability and
+shared identifier emoji singleton extent/order require separate consumer/source
+proof and fixes. AsciiDoc-local closures do not repair those APIs globally.
+Ordinary Dimensions prefix lookup is not a general defect: this consumer only
+needed adaptation for the new source-spine interface. Arbitrary custom Template
+Context/Val spine interoperation remains its separate API scope. Deferred String/
+Doc bottom controls remain native-only; nonproductive original zero-column/
+empty-row domains are retained, not relabeled as passing Kotlin conversions.
+
+Remaining621: general Native/JSON/UTF8 App error/decoding differences, templates,
+verbosity/quiet/-M, HTTP and general IO paths retain concrete earlier evidence.
+The new AsciiDoc-specific Native parse/missing-template handling is narrow.
+No universal heap/async/ABI/bottom/termination claim follows. Full618/612/621,
+all remaining Pandoc623 tests/formats and calibre624–626 remain OPEN. The next
+independent text writer candidate is DocBook4/5, whose early source review and
+original26unit/fourOld execution inventory are prepared, not a Kotlin port.

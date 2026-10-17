@@ -1,0 +1,7 @@
+{
+  "core/src/main/kotlin/io/heapy/kotdoc/writers/AsciiDocWriter.kt": "tools/haskell-asciidoc-pattern-reference/work-in-progress/AsciiDocWriter.kt",
+  "core/src/main/kotlin/io/heapy/kotdoc/writers/AsciiDocSections.kt": "tools/haskell-asciidoc-pattern-reference/work-in-progress/AsciiDocSections.kt",
+  "core/src/main/kotlin/io/heapy/kotdoc/writers/AsciiDocPatterns.kt": "tools/haskell-asciidoc-pattern-reference/work-in-progress/AsciiDocPatterns.kt",
+  "core/src/main/kotlin/io/heapy/kotdoc/writers/AsciiDocTables.kt": "tools/haskell-asciidoc-writer-reference/work-in-progress/AsciiDocTables.kt",
+  "core/src/test/kotlin/io/heapy/kotdoc/writers/AsciiDocWriterTest.kt": "tools/haskell-asciidoc-pattern-reference/work-in-progress/AsciiDocWriterTest.kt"
+}
