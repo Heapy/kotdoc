@@ -1,0 +1,23 @@
+
+KATs
+  MD5
+    1 [✔]
+    2 [✔]
+    3 [✔]
+KATs over several blocks
+  MD5
+    1 [✔]
+    2 [✔]
+    3 [✔]
+Chunking
+  MD5 [✔]
+    +++ OK, passed 100 tests.
+Prefix
+  MD5 [✔]
+    +++ OK, passed 100 tests.
+Hybrid
+  MD5 [✔]
+    +++ OK, passed 100 tests.
+
+Finished in <elapsed> seconds
+9 examples, 0 failures

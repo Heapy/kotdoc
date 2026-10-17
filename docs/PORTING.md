@@ -15278,3 +15278,45 @@ ABIs, universal bottom/async behavior, heap/timing and physical erasure are not
 proved. Conditional ARM/x86/ASM instruction/backend ports, shared Digest Data
 reflection, HMAC/RSA padding/fullTypes/signatures,OS/SystemDRG,other cryptographic
 families/trust/chain and full613/Pandoc/calibre remain OPEN.
+
+
+### Portable MD5 core and public hash/IO prerequisite (reviewed)
+
+Independent review accepts all eight pinned portable MD5 definitions (four public
+entries and private chunk/index/increment/select), seven shared masked helpers,
+68 IV/K words and64 message indices/rotations. Source little-endian words,
+64-round schedule/state updates, uint64 counter wrap, final length encoding,
+source prefix padding/masks, defined destructive aliases and public immutable/
+mutable hash/digest Read/Eq/Ord/Show adapters were checked. Empty immutable
+updates retain identity; mutable finalize/reset and bounded deferred demand/
+synchronous failure sharing follow original observations. No accepted production
+implementation changed; HMAC drafts are excluded from this checkpoint.
+
+Own replay passed1780 unchanged C observations,660 counter/alignment cases,180
+defined aliases,40 mechanically authenticated full-round traces,7440 virtual
+prefix-control states and770 actual Haskell rows plus six verbatim literals and
+12 demand cases. Selected HashSpec has nine examples/three properties×100trials;
+300 original generator rows also execute translated property equations. Author
+O0/O2/O3 replay is retained separately from own default-profile replay. This is
+not the whole HashSpec or HMACSpec suite.
+
+Own50 frozen hashes, saved1336 XML11246actual/zero failures/errors/skips and
+immutable core JAR SHA8e18c9b2b06b83a8d049d09fed1e2be5634e29881bbb57b5777e7a8998346970
+with10 MD5 classes/112 byte-exact repository notices pass; author installDist
+identity evidence remains under /tmp/kotdoc-md5-final-results. No duplicate shared
+Gradle was needed. One owned development runner remains outside production.
+Earlier Org packaging saw only the materialized MD5 notice, not these production
+classes/fixtures; its separate timing-boundary report is not a whole-worktree
+freeze claim.
+
+Native context88/public96 leaves an unspecified eight-byte native tail excluded
+from public comparisons, while raw guards/tail remain preserved. This is the
+pinned little-endian aarch64 ABI; explicit LE arithmetic represents the source
+big-endian conversion mathematically, not an actual big-endian run. Invalid
+pointers/allocations and overlapping memcpy are outside parity domain. Long
+prefix positions avoid signed overflow for all valid JVM array lengths; n<=len,
+padding1..64 and end<=len+72 fit uint32 masks. Virtual controls do not establish
+actual2GiB allocation/hash execution. General heap/async/bottom/timing/physical
+erasure equivalence is unproved. Shared Digest Data reflection, full HMAC, RSA
+padding/Types/signatures,SystemDRG/OS entropy,trust/chain and remaining613/full
+Pandoc/calibre stay OPEN.
