@@ -15240,3 +15240,41 @@ Checked sizes reject unsupported JVM array/BigInteger-index dimensions rather
 than wrapping source Int64; giant allocations/other ABIs remain unproven. Full
 RSA.Types Read/Data/Generic/NFData/KeyPair,PKCS15/OAEP/PSS/MGF1,other hashes/HMAC,
 SystemDRG/OS entropy,signatures/trust/chain and rest613/Pandoc/calibre remain OPEN.
+
+
+### SHA1 / SHA224 / SHA256 portable cores and public hash adapters (reviewed)
+
+Independent review accepts all22 portable C definitions (12 entries/10 private),
+seven shared masked helpers and89 IV/K words, with immutable hash/prefix/digest
+and mutable IO adapters. Source compression schedules/rounds, counter wrap,
+SHA224 temporary truncation, defined aliases, input alignment branches, Read
+remainder and finite deferred error/failure sharing were checked against pinned
+crypton2.0.1 originals. No accepted dependency implementation was edited.
+
+Own original replay passed7160 ordinary C observations (4640 base,1980 counter
+and alignment,540 defined aliases),120 mechanically verified full compression
+traces,7440 virtual prefix controls,2310 actual Haskell observations,18 verbatim
+literals and36 demand probes. Selected original HashSpec27 examples include
+nine properties×100 trials;900 actual generator rows also execute translated
+properties. This is not the complete HashSpec suite. Author O0/O2/O3 evidence
+is retained separately from own default-profile replay.
+
+Own57 frozen hashes, saved60560 XML18048actual/zero failures/errors/skips and
+immutable JAR SHA5b07d18be377091ccfd95f5d28bb0bd0a84bf2ea0fa8ba5b516a22ba93af07cb
+with11 SHA32 classes/109 byte-exact repository notices pass. Author jar/installDist
+identity and438-file Haskell source binding with seven visibility-only Cabal
+exports are retained under /tmp/kotdoc-sha32-final-results. No duplicate shared
+Gradle was needed. Four explicitly owned development replay files remain outside
+production source sets.
+
+Prefix control uses Long positions/bounds for every valid JVM byte-array length;
+source uint32 comparisons remain explicit. n clamps to0..len, padding1..128 and
+digestEnd<=len+136 fit unsigned32 while real indexing occurs only at pos<len.
+Virtual controls establish arithmetic, not actual2GiB allocation/hash execution.
+SHA1 context96 and SHA224/256 C168/public192 are pinned native profiles; the
+unspecified24-byte native tail is excluded from public comparisons, while raw
+guards remain preserved. Invalid pointers/allocations, overlapping memcpy, other
+ABIs, universal bottom/async behavior, heap/timing and physical erasure are not
+proved. Conditional ARM/x86/ASM instruction/backend ports, shared Digest Data
+reflection, HMAC/RSA padding/fullTypes/signatures,OS/SystemDRG,other cryptographic
+families/trust/chain and full613/Pandoc/calibre remain OPEN.

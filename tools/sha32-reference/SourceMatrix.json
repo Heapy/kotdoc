@@ -1,0 +1,119 @@
+{
+  "portableDefinitions": {
+    "sha1": [
+      "crypton_sha1_init",
+      "sha1_do_chunk_generic",
+      "sha1_do_chunk",
+      "crypton_sha1_update",
+      "crypton_sha1_finalize",
+      "crypton_sha1_get_index",
+      "crypton_sha1_incr_sz",
+      "crypton_sha1_select_digest",
+      "crypton_sha1_finalize_prefix"
+    ],
+    "sha224_256": [
+      "crypton_sha224_init",
+      "crypton_sha256_init",
+      "sha256_do_chunk_generic",
+      "sha256_do_chunk",
+      "crypton_sha224_update",
+      "crypton_sha256_update",
+      "crypton_sha224_finalize",
+      "crypton_sha224_finalize_prefix",
+      "crypton_sha256_finalize",
+      "crypton_sha256_get_index",
+      "crypton_sha256_incr_sz",
+      "crypton_sha256_select_digest",
+      "crypton_sha256_finalize_prefix"
+    ],
+    "masks": [
+      "constant_time_msb",
+      "constant_time_lt",
+      "constant_time_ge",
+      "constant_time_is_zero",
+      "constant_time_eq",
+      "constant_time_msb_64",
+      "constant_time_lt_64"
+    ]
+  },
+  "counts": {
+    "definitions": 29,
+    "publicCEntries": 12,
+    "privateCDefinitions": 10,
+    "maskHelpers": 7,
+    "literalWords": 89
+  },
+  "publicModules": [
+    "Crypto.Hash.SHA1",
+    "Crypto.Hash.SHA224",
+    "Crypto.Hash.SHA256",
+    "Crypto.Hash",
+    "Crypto.Hash.Types",
+    "Crypto.Hash.IO"
+  ],
+  "publicFunctions": [
+    "hashInit",
+    "hashInitWith",
+    "hashUpdate",
+    "hashUpdates",
+    "hashFinalize",
+    "hashFinalizePrefix",
+    "hash",
+    "hashWith",
+    "hashPrefix",
+    "hashPrefixWith",
+    "hashlazy",
+    "digestFromByteString",
+    "hashBlockSize",
+    "hashDigestSize",
+    "hashInternalContextSize",
+    "hashMutableInit",
+    "hashMutableInitWith",
+    "hashMutableUpdate",
+    "hashMutableFinalize",
+    "hashMutableReset"
+  ],
+  "instances": [
+    "HashAlgorithm \u00d73",
+    "HashAlgorithmPrefix \u00d73",
+    "Context ByteArrayAccess/NFData",
+    "Digest Eq/Ord/Show/Read/NFData/ByteArrayAccess"
+  ],
+  "rawLayout": {
+    "SHA1": {
+      "C": 96,
+      "Haskell": 96,
+      "stateOffset": 72,
+      "bufferOffset": 8,
+      "bufferCapacity": 64
+    },
+    "SHA224_256": {
+      "C": 168,
+      "Haskell": 192,
+      "stateOffset": 136,
+      "bufferOffset": 8,
+      "bufferCapacity": 128
+    }
+  },
+  "originalPartition": {
+    "literals": 18,
+    "properties": 9,
+    "trials": 100,
+    "generatorRows": 900,
+    "originalExamples": 27
+  },
+  "remaining": [
+    "conditional ARMv8/x86/ASM backend implementations and dispatch",
+    "shared Digest Data reflection adapter beyond bounded byte/digest APIs",
+    "HMAC",
+    "RSA full Types/padding/signatures",
+    "OS/SystemDRG",
+    "other task613 cryptographic families and X509 trust/chain"
+  ],
+  "limits": [
+    "native profile observations, no universal ABI/heap/timing parity",
+    "virtual large-prefix arithmetic, not actual2GiB hashing",
+    "pointer/allocation and memcpy nonoverlap preconditions",
+    "bounded pure demand probes, not all possible Haskell bottoms"
+  ]
+}

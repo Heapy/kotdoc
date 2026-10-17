@@ -1,0 +1,51 @@
+
+KATs
+  SHA1
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA224
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA256
+    1 [✔]
+    2 [✔]
+    3 [✔]
+KATs over several blocks
+  SHA1
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA224
+    1 [✔]
+    2 [✔]
+    3 [✔]
+  SHA256
+    1 [✔]
+    2 [✔]
+    3 [✔]
+Chunking
+  SHA1 [✔]
+    +++ OK, passed 100 tests.
+  SHA224 [✔]
+    +++ OK, passed 100 tests.
+  SHA256 [✔]
+    +++ OK, passed 100 tests.
+Prefix
+  SHA1 [✔]
+    +++ OK, passed 100 tests.
+  SHA224 [✔]
+    +++ OK, passed 100 tests.
+  SHA256 [✔]
+    +++ OK, passed 100 tests.
+Hybrid
+  SHA1 [✔]
+    +++ OK, passed 100 tests.
+  SHA224 [✔]
+    +++ OK, passed 100 tests.
+  SHA256 [✔]
+    +++ OK, passed 100 tests.
+
+Finished in <elapsed> seconds
+27 examples, 0 failures

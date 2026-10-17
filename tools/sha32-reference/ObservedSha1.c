@@ -1,0 +1,365 @@
+/*
+ * Copyright (C) 2006-2009 Vincent Hanquez <vincent@snarc.org>
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <string.h>
+#include "crypton_sha1.h"
+#include "crypton_bitfn.h"
+#include "crypton_align.h"
+/*
+ * AArch64 can do four rounds at a time with the SHA-1 instructions; see
+ * sha1_armv8.c.  They are optional in ARMv8.0, so ask before using them.
+ * Two threads racing to answer here both write the same value.
+ */
+#ifdef WITH_ARMV8_SHA1
+extern void crypton_sha1_armv8_do_chunk(uint32_t state[5], const uint32_t buf[16]);
+extern void crypton_sha1_armv8_do_chunks(uint32_t state[5], const uint8_t *data,
+                                         uint32_t blocks);
+extern int crypton_sha1_armv8_available(void);
+
+#ifdef WITH_ARMV8_SHA1_ASM
+/*
+ * SHA-1 from CRYPTOGAMS, in cbits/asm/sha1-armv8-*.S.  The instructions are
+ * the ones the intrinsics beside it use; what the module does with them is
+ * schedule the message schedule of the next four rounds against the rounds
+ * of this one, which a C function cannot be made to do.
+ *
+ * The entry point for processors that have the instructions is not
+ * exported, so the module's own dispatch is what picks it, and the answer
+ * to the question this file already asks goes into the word that dispatch
+ * reads.
+ */
+#define SHA1_ASM 1
+#include "crypton_cpu.h"
+extern void crypton_sha1_asm_block_data_order(uint32_t state[5],
+                                              const void *data, size_t blocks);
+#endif
+
+static int sha1_use_armv8 = -1;
+#endif
+
+#ifdef WITH_X86_SHA_NI
+#include "crypton_cpu.h"
+#endif
+
+void crypton_sha1_init(struct sha1_ctx *ctx)
+{
+	memset(ctx, 0, sizeof(*ctx));
+
+	ctx->h[0] = 0x67452301;
+	ctx->h[1] = 0xefcdab89;
+	ctx->h[2] = 0x98badcfe;
+	ctx->h[3] = 0x10325476;
+	ctx->h[4] = 0xc3d2e1f0;
+}
+
+#define f1(x, y, z)   (z ^ (x & (y ^ z)))
+#define f2(x, y, z)   (x ^ y ^ z)
+#define f3(x, y, z)   ((x & y) + (z & (x ^ y)))
+#define f4(x, y, z)   f2(x, y, z)
+
+#define K1  0x5a827999
+#define K2  0x6ed9eba1
+#define K3  0x8f1bbcdc
+#define K4  0xca62c1d6
+
+#define R(a, b, c, d, e, f, k, w)  \
+	e += rol32(a, 5) + f(b, c, d) + k + w; b = rol32(b, 30)
+
+#define M(i)  (w[i & 0x0f] = rol32(w[i & 0x0f] ^ w[(i - 14) & 0x0f] \
+              ^ w[(i - 8) & 0x0f] ^ w[(i - 3) & 0x0f], 1))
+
+static void sha1_do_chunk_generic(struct sha1_ctx *ctx, uint32_t *buf)
+{
+	uint32_t a, b, c, d, e;
+	uint32_t w[16];
+#define CPY(i)	w[i] = be32_to_cpu(buf[i])
+	CPY(0); CPY(1); CPY(2); CPY(3); CPY(4); CPY(5); CPY(6); CPY(7);
+	CPY(8); CPY(9); CPY(10); CPY(11); CPY(12); CPY(13); CPY(14); CPY(15);
+#undef CPY
+
+	a = ctx->h[0]; b = ctx->h[1]; c = ctx->h[2]; d = ctx->h[3]; e = ctx->h[4];
+
+	ref_snapshot(999,16,w);
+	R(a, b, c, d, e, f1, K1, w[0]); ref_snapshot(0,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f1, K1, w[1]); ref_snapshot(1,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f1, K1, w[2]); ref_snapshot(2,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f1, K1, w[3]); ref_snapshot(3,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f1, K1, w[4]); ref_snapshot(4,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f1, K1, w[5]); ref_snapshot(5,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f1, K1, w[6]); ref_snapshot(6,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f1, K1, w[7]); ref_snapshot(7,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f1, K1, w[8]); ref_snapshot(8,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f1, K1, w[9]); ref_snapshot(9,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f1, K1, w[10]); ref_snapshot(10,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f1, K1, w[11]); ref_snapshot(11,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f1, K1, w[12]); ref_snapshot(12,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f1, K1, w[13]); ref_snapshot(13,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f1, K1, w[14]); ref_snapshot(14,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f1, K1, w[15]); ref_snapshot(15,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f1, K1, M(16)); ref_snapshot(16,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f1, K1, M(17)); ref_snapshot(17,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f1, K1, M(18)); ref_snapshot(18,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f1, K1, M(19)); ref_snapshot(19,5,(uint32_t[]){a,b,c,d,e});
+
+	R(a, b, c, d, e, f2, K2, M(20)); ref_snapshot(20,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f2, K2, M(21)); ref_snapshot(21,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f2, K2, M(22)); ref_snapshot(22,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f2, K2, M(23)); ref_snapshot(23,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f2, K2, M(24)); ref_snapshot(24,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f2, K2, M(25)); ref_snapshot(25,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f2, K2, M(26)); ref_snapshot(26,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f2, K2, M(27)); ref_snapshot(27,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f2, K2, M(28)); ref_snapshot(28,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f2, K2, M(29)); ref_snapshot(29,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f2, K2, M(30)); ref_snapshot(30,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f2, K2, M(31)); ref_snapshot(31,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f2, K2, M(32)); ref_snapshot(32,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f2, K2, M(33)); ref_snapshot(33,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f2, K2, M(34)); ref_snapshot(34,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f2, K2, M(35)); ref_snapshot(35,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f2, K2, M(36)); ref_snapshot(36,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f2, K2, M(37)); ref_snapshot(37,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f2, K2, M(38)); ref_snapshot(38,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f2, K2, M(39)); ref_snapshot(39,5,(uint32_t[]){a,b,c,d,e});
+
+	R(a, b, c, d, e, f3, K3, M(40)); ref_snapshot(40,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f3, K3, M(41)); ref_snapshot(41,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f3, K3, M(42)); ref_snapshot(42,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f3, K3, M(43)); ref_snapshot(43,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f3, K3, M(44)); ref_snapshot(44,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f3, K3, M(45)); ref_snapshot(45,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f3, K3, M(46)); ref_snapshot(46,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f3, K3, M(47)); ref_snapshot(47,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f3, K3, M(48)); ref_snapshot(48,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f3, K3, M(49)); ref_snapshot(49,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f3, K3, M(50)); ref_snapshot(50,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f3, K3, M(51)); ref_snapshot(51,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f3, K3, M(52)); ref_snapshot(52,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f3, K3, M(53)); ref_snapshot(53,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f3, K3, M(54)); ref_snapshot(54,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f3, K3, M(55)); ref_snapshot(55,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f3, K3, M(56)); ref_snapshot(56,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f3, K3, M(57)); ref_snapshot(57,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f3, K3, M(58)); ref_snapshot(58,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f3, K3, M(59)); ref_snapshot(59,5,(uint32_t[]){a,b,c,d,e});
+
+	R(a, b, c, d, e, f4, K4, M(60)); ref_snapshot(60,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f4, K4, M(61)); ref_snapshot(61,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f4, K4, M(62)); ref_snapshot(62,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f4, K4, M(63)); ref_snapshot(63,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f4, K4, M(64)); ref_snapshot(64,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f4, K4, M(65)); ref_snapshot(65,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f4, K4, M(66)); ref_snapshot(66,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f4, K4, M(67)); ref_snapshot(67,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f4, K4, M(68)); ref_snapshot(68,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f4, K4, M(69)); ref_snapshot(69,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f4, K4, M(70)); ref_snapshot(70,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f4, K4, M(71)); ref_snapshot(71,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f4, K4, M(72)); ref_snapshot(72,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f4, K4, M(73)); ref_snapshot(73,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f4, K4, M(74)); ref_snapshot(74,5,(uint32_t[]){a,b,c,d,e});
+	R(a, b, c, d, e, f4, K4, M(75)); ref_snapshot(75,5,(uint32_t[]){e,a,b,c,d});
+	R(e, a, b, c, d, f4, K4, M(76)); ref_snapshot(76,5,(uint32_t[]){d,e,a,b,c});
+	R(d, e, a, b, c, f4, K4, M(77)); ref_snapshot(77,5,(uint32_t[]){c,d,e,a,b});
+	R(c, d, e, a, b, f4, K4, M(78)); ref_snapshot(78,5,(uint32_t[]){b,c,d,e,a});
+	R(b, c, d, e, a, f4, K4, M(79)); ref_snapshot(79,5,(uint32_t[]){a,b,c,d,e});
+
+	ctx->h[0] += a;
+	ctx->h[1] += b;
+	ctx->h[2] += c;
+	ctx->h[3] += d;
+	ctx->h[4] += e;
+}
+
+#ifdef WITH_X86_SHA_NI
+/*
+ * x86 can do four rounds at a time with the SHA extensions; see sha1_x86.c.
+ * They arrived long after the x86-64 baseline, so ask before using them.
+ * Two threads racing to answer here both write the same value.
+ */
+extern void crypton_sha1_x86_do_chunk(uint32_t state[5], const uint32_t buf[16]);
+extern void crypton_sha1_x86_do_chunks(uint32_t state[5], const uint8_t *data,
+                                       uint32_t blocks);
+
+static int sha1_use_x86 = -1;
+#endif
+
+static inline void sha1_do_chunk(struct sha1_ctx *ctx, uint32_t *buf)
+{
+#ifdef WITH_ARMV8_SHA1
+	if (sha1_use_armv8 < 0) {
+		sha1_use_armv8 = crypton_sha1_armv8_available();
+#ifdef SHA1_ASM
+		if (sha1_use_armv8)
+			crypton_armcap_P |= CRYPTON_ARMCAP_SHA1;
+#endif
+	}
+	if (sha1_use_armv8) {
+#ifdef SHA1_ASM
+		crypton_sha1_asm_block_data_order(ctx->h, buf, 1);
+#else
+		crypton_sha1_armv8_do_chunk(ctx->h, buf);
+#endif
+		return;
+	}
+#endif
+#ifdef WITH_X86_SHA_NI
+	if (sha1_use_x86 < 0)
+		sha1_use_x86 =
+		    (crypton_x86_simd_features() & CRYPTON_X86_SHA_NI) != 0;
+	if (sha1_use_x86) {
+		crypton_sha1_x86_do_chunk(ctx->h, buf);
+		return;
+	}
+#endif
+	sha1_do_chunk_generic(ctx, buf);
+}
+
+void crypton_sha1_update(struct sha1_ctx *ctx, const uint8_t *data, uint32_t len)
+{
+	uint32_t index, to_fill;
+
+	index = (uint32_t) (ctx->sz & 0x3f);
+	to_fill = 64 - index;
+
+	ctx->sz += len;
+
+	/* process partial buffer if there's enough data to make a block */
+	if (index && len >= to_fill) {
+		memcpy(ctx->buf + index, data, to_fill);
+		sha1_do_chunk(ctx, (uint32_t *) ctx->buf);
+		len -= to_fill;
+		data += to_fill;
+		index = 0;
+	}
+
+	/*
+	 * Where there are instructions for this, the whole run of blocks
+	 * goes over at once: the state then stays in registers from one
+	 * block to the next, and the message is read as bytes, so neither
+	 * the alignment nor the copy below is wanted.
+	 */
+#ifdef WITH_ARMV8_SHA1
+	if (sha1_use_armv8 < 0) {
+		sha1_use_armv8 = crypton_sha1_armv8_available();
+#ifdef SHA1_ASM
+		if (sha1_use_armv8)
+			crypton_armcap_P |= CRYPTON_ARMCAP_SHA1;
+#endif
+	}
+	if (sha1_use_armv8 && len >= 64) {
+		uint32_t blocks = len / 64;
+
+#ifdef SHA1_ASM
+		crypton_sha1_asm_block_data_order(ctx->h, data, blocks);
+#else
+		crypton_sha1_armv8_do_chunks(ctx->h, data, blocks);
+#endif
+		data += blocks * 64;
+		len -= blocks * 64;
+	}
+#endif
+#ifdef WITH_X86_SHA_NI
+	if (sha1_use_x86 < 0)
+		sha1_use_x86 =
+		    (crypton_x86_simd_features() & CRYPTON_X86_SHA_NI) != 0;
+	if (sha1_use_x86 && len >= 64) {
+		uint32_t blocks = len / 64;
+
+		crypton_sha1_x86_do_chunks(ctx->h, data, blocks);
+		data += blocks * 64;
+		len -= blocks * 64;
+	}
+#endif
+
+	if (need_alignment(data, 4)) {
+		uint32_t tramp[16];
+		ASSERT_ALIGNMENT(tramp, 4);
+		for (; len >= 64; len -= 64, data += 64) {
+			memcpy(tramp, data, 64);
+			sha1_do_chunk(ctx, tramp);
+		}
+	} else {
+		/* process as much 64-block as possible */
+		for (; len >= 64; len -= 64, data += 64)
+			sha1_do_chunk(ctx, (uint32_t *) data);
+	}
+
+	/* append data into buf */
+	if (len)
+		memcpy(ctx->buf + index, data, len);
+}
+
+void crypton_sha1_finalize(struct sha1_ctx *ctx, uint8_t *out)
+{
+	static uint8_t padding[64] = { 0x80, };
+	uint64_t bits;
+	uint32_t index, padlen;
+
+	/* add padding and update data with it */
+	bits = cpu_to_be64(ctx->sz << 3);
+
+	/* pad out to 56 */
+	index = (uint32_t) (ctx->sz & 0x3f);
+	padlen = (index < 56) ? (56 - index) : ((64 + 56) - index);
+	crypton_sha1_update(ctx, padding, padlen);
+
+	/* append length */
+	crypton_sha1_update(ctx, (uint8_t *) &bits, sizeof(bits));
+
+	/* output hash */
+	store_be32(out   , ctx->h[0]);
+	store_be32(out+ 4, ctx->h[1]);
+	store_be32(out+ 8, ctx->h[2]);
+	store_be32(out+12, ctx->h[3]);
+	store_be32(out+16, ctx->h[4]);
+}
+
+#define HASHED(m) SHA1_##m
+#define HASHED_LOWER(m) sha1_##m
+#define CRYPTON_HASHED(m) crypton_sha1_##m
+#define SHA1_BLOCK_SIZE 64
+#define SHA1_BITS_ELEMS 1
+
+static inline uint32_t crypton_sha1_get_index(const struct sha1_ctx *ctx)
+{
+	return (uint32_t) (ctx->sz & 0x3f);
+}
+
+static inline void crypton_sha1_incr_sz(struct sha1_ctx *ctx, uint64_t *bits, uint32_t n)
+{
+	ctx->sz += n;
+	*bits = cpu_to_be64(ctx->sz << 3);
+}
+
+static inline void crypton_sha1_select_digest(const struct sha1_ctx *ctx, uint8_t *out, uint32_t out_mask)
+{
+	xor_be32(out   , ctx->h[0] & out_mask);
+	xor_be32(out+ 4, ctx->h[1] & out_mask);
+	xor_be32(out+ 8, ctx->h[2] & out_mask);
+	xor_be32(out+12, ctx->h[3] & out_mask);
+	xor_be32(out+16, ctx->h[4] & out_mask);
+}
+
+#include <crypton_hash_prefix.c>
