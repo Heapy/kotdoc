@@ -1,0 +1,17 @@
+{
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "host": "arm64",
+  "wordDomain": "original uint32 prefix controls; uint64 byte counters; actual size_t64 host",
+  "optimizationProfiles": [
+    "-O0",
+    "-O2",
+    "-O3"
+  ],
+  "flags": [
+    "-std=c99",
+    "-DNO_INLINE_ASM"
+  ],
+  "kind": "mechanically transformed segmented control observer; no compression or hugeallocation",
+  "validLengthDomain": "0..Int.MAX_VALUE; tested sampled source windows plus documented arithmetic argument",
+  "originalArchive": "9e2fcd5c9326d85076cb48cee7fdd9add98384d9d9b79af0ccba0ae9d99c5914"
+}

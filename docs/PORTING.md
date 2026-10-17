@@ -14792,3 +14792,32 @@ list/triple adapters provide the represented lazy contracts,not arbitrary GHC
 heap equivalence through every old signature. Generic Many/count classes,
 remaining Builder/Data.Version/JSONfilter,140 exports and350 instance members
 keep local:611 and full Pandoc/calibre scope OPEN.
+
+
+### SHA512 prefix signed-boundary correction
+
+The actionable signed-Int len+144 prefix bound recorded above is fixed.
+Production finalizePrefix now uses the same PrefixControl tested by the new
+corpus:Long position/limit,input index narrowed only under pos<len,original
+uint32 bit patterns retained only at masked comparisons. For every valid JVM
+span,0<=n<=len<=Int.MAX_VALUE,padlen1..128,digestEnd<=len+144<2^32;the
+position cannot wrap before termination and offset+input index remains in-range.
+SHA384 delegates to the corrected common loop.
+
+Own mechanically checked segmented original-source replay passed14349 windows/
+15 pins;author O0/O2/O3 windows agree. The observer keeps original clamp,counter,
+mask,padding,index/increment/selection expressions while virtualizing bytes and
+omitting compression. Its jumps preserve control because compression changes
+chaining words only,not counters or local position/index. This is source control
+proof,not a huge-buffer chaining/digest oracle. Own ordinary9974-row replay/33
+pins passed;all accepted request/expected lines remain byte-identical and only
+the original manifest's README source pin changed.
+
+Saved Gradle52610 XML has25974 actual zero-failure/error/skip cases (11608 old
+plus14366 new). Own18 frozen hashes,eight packaged classes and three exact
+notices pass;jar/installDist passed. The arithmetic gap is resolved separately
+from still-unverified actual2GiB allocation/reading/compression/digest execution.
+Other invalid-span/pointer,ABI,phantom/demand,timing and scrubbing limits remain.
+FullSHA512/module equivalence beyond represented contracts and local:613/
+Pandoc/calibre closure are not inferred;remaining ChaCha/DRG/Prime/signature/
+trust/chain work stays OPEN.

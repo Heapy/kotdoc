@@ -73,16 +73,34 @@ internal object CryptoSha512 {
         val m=(mask.toLong() and 0xffffffffL).let {it or (it shl 32)}
         for(i in 0..<8) {val v=ctx.state(i) and m;for(j in 0..<8) {val p=out.offset+8*i+j;out.data[p]=(out.data[p].toInt() xor (v ushr (56-8*j)).toInt()).toByte()} }
     }
+    /** Source uint32 positions can exceed signed Int while padding a valid JVM buffer. */
+    class PrefixControl(val length:Int,nInput:Int,lowCounter:Long) {
+        val n=nInput+((length-nInput) and lt(length,nInput))
+        val initialIndex=(lowCounter and 127).toInt()
+        private val padIndex=((lowCounter+n.toLong()) and 127).toInt()
+        val padLength=240-padIndex-(128 and lt(padIndex,112))
+        val limit=length.toLong()+144L
+        private val paddingStart=n.toLong()+padLength
+        private val digestEnd=paddingStart+16L
+        fun continues(position:Long)=position<limit
+        fun hasInput(position:Long)=position<length.toLong()
+        // The source masked helpers operate on uint32, not signed positions.
+        fun inputMask(position:Long)=lt(position.toInt(),n)
+        fun firstPaddingMask(position:Long)=eq(position.toInt(),n)
+        fun sizeMask(position:Long)=ge(position.toInt(),paddingStart.toInt())
+        fun outputMask(position:Long)=eq(position.toInt(),digestEnd.toInt())
+    }
     fun finalizePrefix(ctx:Context,input:CryptoByteSpan,nInput:Int,out:CryptoByteSpan) {
-        val len=input.size;val n=nInput+((len-nInput) and lt(len,nInput));var index=getIndex(ctx);val bits=incrementSize(ctx,n);val padidx=getIndex(ctx)
-        var padlen=240-padidx;padlen-=128 and lt(padidx,112)
+        val control=PrefixControl(input.size,nInput,ctx.word(0));var index=control.initialIndex
+        val bits=incrementSize(ctx,control.n)
         ctx.data.fill(0,ctx.offset+16+index,ctx.offset+144);out.data.fill(0,out.offset,out.offset+64)
-        var pos=0
-        while(pos<len+144) {
-            var b=if(pos<len)(input.data[input.offset+pos].toInt() and 255) and lt(pos,n) else 0
-            b=b or (128 and eq(pos,n));if(index>=112)b=b or ((bits[index-112].toInt() and 255) and ge(pos,n+padlen))
+        var pos=0L
+        while(control.continues(pos)) {
+            // Narrow only within the real input; padding positions may exceed Int.MAX_VALUE.
+            var b=if(control.hasInput(pos))(input.data[input.offset+pos.toInt()].toInt() and 255) and control.inputMask(pos) else 0
+            b=b or (128 and control.firstPaddingMask(pos));if(index>=112)b=b or ((bits[index-112].toInt() and 255) and control.sizeMask(pos))
             val p=ctx.offset+16+index;ctx.data[p]=(ctx.data[p].toInt() xor b).toByte();index++;pos++
-            if(index>=128) {index=0;chunk(ctx,ctx.data,ctx.offset+16);ctx.data.fill(0,ctx.offset+16,ctx.offset+144);selectDigest(ctx,out,eq(pos,n+padlen+16))}
+            if(index>=128) {index=0;chunk(ctx,ctx.data,ctx.offset+16);ctx.data.fill(0,ctx.offset+16,ctx.offset+144);selectDigest(ctx,out,control.outputMask(pos))}
         }
     }
     fun finalizePrefix384(ctx:Context,input:CryptoByteSpan,n:Int,out:CryptoByteSpan) {val temp=ByteArray(64);finalizePrefix(ctx,input,n,CryptoByteSpan(temp));temp.copyInto(out.data,out.offset,0,48)}

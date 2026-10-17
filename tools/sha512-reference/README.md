@@ -48,9 +48,10 @@ only 224 or 256. Prefix n is converted to uint32 and clamped as in source,
 including negative public Int observations. Prefix output may alias the input:
 source zeroing/truncation order is retained rather than replaced with hashing a
 copied prefix. Input and context/output overlapping memcpy regions, invalid
-pointers and insufficient spans are outside the defined input domain. Finite
-prefix loops require len+144 not to wrap uint32; huge allocations or actual
-2GB/4GB input buffers are not claimed. Counter carry and bit-length wrap are
+pointers and insufficient spans are outside the defined input domain. Prefix loop positions and input predicates use Long across the entire valid
+JVM span-length domain. The separate sha512-prefix-boundary-reference observer
+and arithmetic argument cover the signed Int boundary; no actual huge
+allocation or 2GB/4GB input hashing is claimed. Counter carry and bit-length wrap are
 checked using injected valid-sized contexts, independently of allocating that
 many bytes. Mask helpers are tested across signed/unsigned high-bit boundaries.
 
