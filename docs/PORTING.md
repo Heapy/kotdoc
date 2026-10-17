@@ -15596,3 +15596,40 @@ actual32-bit or big-endian heaps, general bottom/async, physical erasure and JVM
 constant-time equivalence are not proved. Virtual counters are not actual2GiB
 reads. RIPEMD160, full PKCS15/PSS/RSA.Types, Digest Data, SystemDRG/signatures,
 trust/chain and remaining613/Pandoc623/calibre624–626 remain OPEN.
+
+### Portable RIPEMD160 and public Hash/IO checkpoint
+
+Accepted the complete4-definition portable core (3 exports/private chunk), all
+160 ordered R steps,9 K constants/5 IV words/Boolean and rotate macros/padding,
+and public Hash/IO/Digest/ByteArrayAccess contracts. No source Prefix instance
+exists and none is invented. Little-endian loads/stores, wrapped counter/bit
+length, alignment trampoline/direct blocks and sequential finalize stores retain
+the source alias effects within documented valid buffers.
+
+Independent source audit and own replays pass860 ordinary C rows,33 full160-step
+traces and80 virtual counter controls at O0/O2/O3;484 actual Haskell rows,
+3 literals,8 demand,10 controlled borrow and180 access observations. Original
+HashSpec4 examples (3 literals/one chunk property×100) are executed separately;
+Kotlin executes100 translated property equations plus ownership/sharing. Own
+immutable-JAR probes at128MiB/256KiB pass literals, nonempty-copy/empty-alias,
+tail-preserving reset, deferred access failure sharing and ignored witnesses.
+An extra raw finalize output-alias76 probe matches all128 C context bytes,
+including source sequential overwrites of later state words.
+
+All61 frozen hashes/67 pins,1826 actual XML cases with zero issues,10 new classes,
+116 exact packaged notice payloads and4750 unchanged prior MD2 baseline classes
+were checked independently. Own provenance check confirms437 upstream files
+unchanged and7 visibility-only Cabal exports, with3 Haskell executable and4 native
+library hashes bound. Author34234 installed/core identity and immutable proof
+remain in /tmp/kotdoc-ripemd160-final-results; JAR SHA
+9af51c4d9dc56d0241c6b8e6dd5acf6854cb5a7d5248c61045a6bda8b518463a.
+No shared build was repeated; unrelated AsciiDoc/types/PKCS15 drafts are excluded.
+
+C context96/public128 leaves32 unspecified native tail bytes. Raw/borrow tests
+initialize them explicitly; reset preserves the public tail. Defined input/output
+aliases are tested, not partial memcpy overlaps, invalid bounds or retained
+pointers. Controlled copied contexts do not imply universal GHC CAF/allocator
+identity or general bottom/async equivalence. Actual arm64/little-endian only;
+physical erasure/timing/other ABIs and huge reads are not proved. Virtual counters
+do not allocate/read2GiB. Full PKCS15/PSS/RSA.Types, Digest Data, SystemDRG,
+other signatures/trust/chain/rest613/Pandoc623/calibre624–626 remain OPEN.

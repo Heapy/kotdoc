@@ -1,0 +1,48 @@
+{
+  "coreDefinitions": [
+    "crypton_ripemd160_init",
+    "crypton_ripemd160_update",
+    "crypton_ripemd160_finalize",
+    "ripemd160_do_chunk"
+  ],
+  "exports": 3,
+  "constants": 9,
+  "booleanMacros": 5,
+  "orderedRSteps": 160,
+  "ivWords": 5,
+  "paddingBytes": 64,
+  "Cstruct": 96,
+  "stateOffset": 72,
+  "abiPadding": [
+    92,
+    96
+  ],
+  "publicContext": 128,
+  "uninitializedTail": 32,
+  "sourcePrefixInstance": false,
+  "originalHashSpec": {
+    "examples": 4,
+    "literals": 3,
+    "chunkProperties": 1,
+    "trials": 100
+  },
+  "currentCorpora": {
+    "raw": 860,
+    "trace": 33,
+    "counter": 80,
+    "haskell": 484,
+    "literal": 3,
+    "demand": 8,
+    "borrow": 10,
+    "access": 180
+  },
+  "behavioralAssertions": 1759,
+  "remaining": [
+    "all14 PKCS15 adapters/functions",
+    "PSS",
+    "RSA.Types",
+    "Digest Data",
+    "SystemDRG",
+    "other signatures/trust/chain/rest613/Pandoc/calibre"
+  ]
+}

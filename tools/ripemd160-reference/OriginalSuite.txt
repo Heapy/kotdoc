@@ -1,0 +1,12 @@
+
+KATs
+  RIPEMD160
+    1 [✔]
+    2 [✔]
+    3 [✔]
+Chunking
+  RIPEMD160 [✔]
+    +++ OK, passed 100 tests.
+
+Finished in <elapsed> seconds
+4 examples, 0 failures

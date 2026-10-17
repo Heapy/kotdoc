@@ -1,0 +1,81 @@
+{
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "machine": "arm64",
+  "byteorder": "little",
+  "Coptimizations": [
+    "O0",
+    "O2",
+    "O3"
+  ],
+  "flags": [
+    "-shared",
+    "-fPIC",
+    "-DWITH_ASSERT_ALIGNMENT"
+  ],
+  "traceOptimization": "O2",
+  "haskellPackageProfile": {
+    "ghc": "9.12.2",
+    "optimization": "-O2",
+    "packages": [
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      }
+    ]
+  },
+  "executables": {
+    "/tmp/kotdoc-ripemd160-haskell-oracle": "6338ac36f941e7ce212345488c69596df898d04729f79c3eb88a745c4f225ccc",
+    "/tmp/kotdoc-ripemd160-borrow-oracle": "819350ab5ce40f467fb056590d9daaecb527fda205af96904a70590359a1c61f",
+    "/tmp/kotdoc-ripemd160-access-oracle": "4f2d9bc396ebd8b1d523d93b42638538e9d2aef1c87748ce9c3771839e9eec35",
+    "/tmp/kotdoc-ripemd160-oracle.dylib": "79fbe82bf0697878b532f14691aee2ad839d426252da62c9fe8ca44af99b3006",
+    "/tmp/kotdoc-ripemd160-oracle-O0.dylib": "357a6e487e97e2115d9402614f95c7d832b86b2f46e2cfdd9d61aaf19ce15187",
+    "/tmp/kotdoc-ripemd160-oracle-O3.dylib": "0cde9e446f3cf8502a84e2e5a0330cfd6cda54e559360959230c8b5e725711da",
+    "/tmp/kotdoc-ripemd160-trace.dylib": "b4515529ffae4eddf90025c4a0ad1aab2aa8f345934a195b178c727d66b846ad"
+  },
+  "limits": [
+    "Actual arm64 little endian only",
+    "Virtual counter arithmetic is not giant buffer processing",
+    "Controlled copy/borrow observations do not prove universal CAF or allocator identity"
+  ]
+}
