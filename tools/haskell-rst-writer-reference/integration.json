@@ -1,0 +1,27 @@
+{
+  "acceptedMuseCheckpoint": "bfa1abbabc820bf91d5dad1b96288b72dbd5c8bd",
+  "files": {
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt": {
+      "acceptedGitBlob": "b1a81754c789379c1bda515eccbaa6004aee0267",
+      "acceptedSha256": "2b0f4a77173fdd13a9056153b6a3c7dc25381bbd00f0a6c72b5352ca2c0ab0da",
+      "currentIntegrationSha256": "9ae4ebdf1220e5c224c2cbd2a73ede772d5c901f711f72cd07f3675eb0392bc8"
+    },
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/HtmlCliOptions.kt": {
+      "acceptedGitBlob": "0379eba0a9e63638184fe508ad06d9c8f04ec3f1",
+      "acceptedSha256": "51f850bb5a018cb0821b8065c311410f5abcfe379882d4134828cbe7932fbbcf",
+      "currentIntegrationSha256": "dd97c813ab6ca7a9c7f5b5c2d923e3df852c3473d70da8efed19c2dd374f2cd5"
+    }
+  },
+  "ownership": [
+    "Main.kt RST output registry/dispatch/inference only",
+    "HtmlCliOptions.kt RST template activation/default/error5 plus exact optionalBoolean --reference-links/--list-tables",
+    "RstCliWriter.kt source defaultWARNING console filtering; ordered library logs preserved"
+  ],
+  "remaining": [
+    "621 --verbose/--quiet and general-M remain; generic template compilation errors outsideMuse/RST remain",
+    "612 sharedDocumentShared recursion/eager caption forotherconsumers; ownedlocalcaptionhelper usesheapcontinuations",
+    "22reader-dependent RSTcommands andRSTreader/full618/globalPandoc/calibre remainopen"
+  ],
+  "proofPolicy": "Final App evidence requires durable atomic exit/status JSON; historical accepted manifests are immutable snapshots, not current integration claims.",
+  "cliIntegrationDiffSha256": "fc5db34aa8fb14d978aae37c1c8dd60602990db643875503f396db6dcb36aa42"
+}

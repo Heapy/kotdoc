@@ -14486,3 +14486,36 @@ unbounded GHC stack-equivalence claim. Other Many Data/Eq/Ord/Read/Show/Typeable
 Generic members,NumEnum/metadata/Builder/Data.Version,140 module exports,350
 expanded instance members and JSON supplement remain OPEN within local:611.
 The complete Pandoc/tests and later calibre goal is not complete.
+
+
+### Complete RST writer and narrow CLI checkpoint
+
+The pinned997-line RST writer and public flatten helper are translated with
+all22 original leaves (19writer/three flatten),four verbatim Old goldens and
+43 original reader-produced command ASTs. Own full-source/helper review and
+native replay passed2723 observations,all1114112 classifier inputs and43
+command extractions. Two exhaustive classifier/lowercase assertions make2725
+JUnit cases. Saved final Gradle99759 XML has2725 actual zero-failure/error/skip
+cases and installDist passed; the complete factory passed512MiB/256KiB.
+The first display-math occurrence stops the source space-removal recursion even
+when it has no following Space;three appended originals prove the correction.
+All28 prior fixture payloads remain unchanged.
+
+Durable final copied CLI proof records96 exact App observations and21 complete
+original commands with exit0/empty stderr. Own eight targeted final CLI checks
+passed. All common CLI classes are byte-identical to the initial10971-test
+regression build;only common RstWriter.class changed. This binds the earlier
+Muse204/six Doku/two4172 durable regression without claiming it was rerun after
+the writer-only fix. All56 owned hashes and final class bindings were verified.
+The22 remaining commands need missing readers;their AST writer probes are not
+full command completion. RST reader and full local:618 remain OPEN.
+
+RST uses the actual Pandoc text-2.1.2/GHC Unicode16 profile:all1433 lowercase
+mappings match the vendored source,independently enumerated over every Char.
+CoreUnicodeText intentionally implements a distinct text-2.1.3 profile. Existing
+Doku auto_identifier U+1C89 mismatch is a consumer-profile defect,not a corrupt
+core table;the concrete original/Kotlin repro is retained for task612 followup.
+No Doku/Muse source was changed here. Local caption handling is stack-safe,
+while common DocumentShared gaps remain. RST flags --list-tables/reference-links
+optional booleans and template errors are covered;global verbosity,-M and
+generic template behavior remain621. Full Pandoc/tests/later calibre stay OPEN.

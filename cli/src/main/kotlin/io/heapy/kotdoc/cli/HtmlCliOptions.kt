@@ -33,6 +33,12 @@ internal class HtmlCliOptions {
             "false" -> false
             else -> error("Argument of $name must be true or false")
         }
+        // CommandLineOptions.readBoolFromOptArg: optional argument, ASCII spelling after lowercase.
+        fun rstFlag(): Boolean = if ('=' !in arg) true else when (arg.substringAfter('=').lowercase(java.util.Locale.ROOT)) {
+            "true" -> true
+            "false" -> false
+            else -> throw PandocError.PandocOptionError("Argument of $name must be either true or false")
+        }
         fun positive(label: String, min: Long = 1, max: Long = Long.MAX_VALUE): Long = value().toLong().also {
             require(it in min..max) { "Invalid $label: $it" }
         }
@@ -55,6 +61,8 @@ internal class HtmlCliOptions {
             "--tab-stop" -> options = options.copy(tabStop = positive("tab stop"))
             "--id-prefix" -> options = options.copy(identifierPrefix = value())
             "--email-obfuscation" -> options = options.copy(emailObfuscation = ObfuscationMethod.fromJson(JsonPrimitive(value())))
+            "--reference-links" -> options = options.copy(referenceLinks = rstFlag())
+            "--list-tables" -> options = options.copy(listTables = rstFlag())
             "--reference-location" -> options = options.copy(referenceLocation = ReferenceLocation.fromJson(JsonPrimitive(value())))
             "--top-level-division" -> options = options.copy(topLevelDivision = TopLevelDivision.fromJson(JsonPrimitive(value())))
             "--figure-caption-position" -> options = options.copy(figureCaptionPosition = CaptionPosition.fromJson(JsonPrimitive(value())))
@@ -108,7 +116,7 @@ internal class HtmlCliOptions {
         append(key, text)
     }
 
-    fun standaloneFor(format: String) = standalone || (format in listOf("dokuwiki", "muse") && templateFile != null)
+    fun standaloneFor(format: String) = standalone || (format in listOf("dokuwiki", "muse", "rst") && templateFile != null)
 
     fun finish(base: WriterOptions, format: String, input: String?, output: String?, resources: ResourceContext): WriterOptions {
         appendList("sourcefile", input ?: "-")
@@ -130,9 +138,9 @@ internal class HtmlCliOptions {
             templateFile?.let { path ->
                 when (val r = templates.compileWithPartials(path, templates.getTemplate(path))) {
                     is CompiledTemplate.Success -> r.template
-                    is CompiledTemplate.Failure -> if (format == "muse") throw PandocError.PandocTemplateError(r.error) else error(r.error)
+                    is CompiledTemplate.Failure -> if (format in listOf("muse", "rst")) throw PandocError.PandocTemplateError(r.error) else error(r.error)
                 }
-            } ?: if (format in HtmlCliWriter.formats || format in listOf("dokuwiki", "muse")) templates.compileDefaultTemplate(format) else Template.Empty
+            } ?: if (format in HtmlCliWriter.formats || format in listOf("dokuwiki", "muse", "rst")) templates.compileDefaultTemplate(format) else Template.Empty
         }
         return base.copy(template = template, variables = variables)
     }

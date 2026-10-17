@@ -1,0 +1,33 @@
+{
+  "input": "====== Ᲊ ======\n",
+  "results": [
+    {
+      "command": [
+        "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-3.12.1/t/test-pandoc/noopt/build/test-pandoc/test-pandoc",
+        "--emulate",
+        "-f",
+        "dokuwiki+auto_identifiers",
+        "-t",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Header\",\"c\":[1,[\"Ᲊ\",[],[]],[{\"t\":\"Str\",\"c\":\"Ᲊ\"}]]}]}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/kotdoc-muse-writer/installed-cli/bin/cli",
+        "-f",
+        "dokuwiki+auto_identifiers",
+        "-t",
+        "json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Header\",\"c\":[1,[\"ᲊ\",[],[]],[{\"t\":\"Str\",\"c\":\"Ᲊ\"}]]}]}\n",
+      "stderr": ""
+    }
+  ],
+  "rootCause": "DokuWikiIdentifiers uses text-2.1.3 UnicodeText.toLower; pinned original Pandoc uses text-2.1.2. CoreUnicodeText is a separate valid dependency profile, not itself a faulty table.",
+  "acceptedKotlinCheckpoint": "bfa1abbabc820bf91d5dad1b96288b72dbd5c8bd",
+  "followup": "Separate narrow consumer-profile fix after RST review; accepted Doku/Muse source unchanged in this checkpoint."
+}

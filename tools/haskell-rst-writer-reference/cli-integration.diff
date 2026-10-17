@@ -1,0 +1,86 @@
+--- accepted/cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt
++++ current/cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt
+@@ -38,7 +38,7 @@
+         return
+     }
+     if (args.toList() == listOf("--list-output-formats")) {
+-        println((listOf("dokuwiki", "fb2", "json", "muse", "native") + HtmlCliWriter.formats).sorted().joinToString("\n"))
++        println((listOf("dokuwiki", "fb2", "json", "muse", "native", "rst") + HtmlCliWriter.formats).sorted().joinToString("\n"))
+         return
+     }
+     try {
+@@ -110,18 +110,18 @@
+         }
+         if (!explicitReader && input != null) {
+             val inferred = FlavoredFormat.fromFilePaths(listOf(input))
+-            val dokuOutput = FlavoredFormat.parse(to).name in listOf("dokuwiki", "muse") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("dokuwiki", "muse") } == true
++            val dokuOutput = FlavoredFormat.parse(to).name in listOf("dokuwiki", "muse", "rst") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("dokuwiki", "muse", "rst") } == true
+             if (inferred != null && (inferred.name in listOf("dokuwiki", "muse") || dokuOutput)) from = inferred.name
+         }
+         val inputFormat = FlavoredFormat.parse(from)
+         if (!explicitWriter) {
+             val inferred = output?.let { FlavoredFormat.fromFilePaths(listOf(it)) }
+             if (inputFormat.name in listOf("dokuwiki", "muse")) to = inferred?.name ?: "html"
+-            else if (inferred?.name in listOf("dokuwiki", "muse")) to = checkNotNull(inferred).name
++            else if (inferred?.name in listOf("dokuwiki", "muse", "rst")) to = checkNotNull(inferred).name
+         }
+         val outputFormat = FlavoredFormat.parse(to)
+         require(inputFormat.name in listOf("dokuwiki", "fb2", "json", "latex", "muse", "native")) { "Supported input formats: dokuwiki, fb2, json, latex, muse, native (requested $from)" }
+-        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "muse", "native") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
++        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "muse", "native", "rst") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
+         val inputExtensions = ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
+         val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
+         from = inputFormat.name
+@@ -157,6 +157,7 @@
+         val rendered = when (to) {
+             "dokuwiki" -> DokuWikiCli.write(writerOptions, document)
+             "muse" -> MuseCliWriter.write(writerOptions, document)
++            "rst" -> RstCliWriter.write(writerOptions, document)
+             "json" -> PandocJson.encode(document)
+             "native" -> NativeWriter.write(document, writerOptions)
+             in HtmlCliWriter.formats -> HtmlCliWriter.write(to, writerOptions, document)
+--- accepted/cli/src/main/kotlin/io/heapy/kotdoc/cli/HtmlCliOptions.kt
++++ current/cli/src/main/kotlin/io/heapy/kotdoc/cli/HtmlCliOptions.kt
+@@ -33,6 +33,12 @@
+             "false" -> false
+             else -> error("Argument of $name must be true or false")
+         }
++        // CommandLineOptions.readBoolFromOptArg: optional argument, ASCII spelling after lowercase.
++        fun rstFlag(): Boolean = if ('=' !in arg) true else when (arg.substringAfter('=').lowercase(java.util.Locale.ROOT)) {
++            "true" -> true
++            "false" -> false
++            else -> throw PandocError.PandocOptionError("Argument of $name must be either true or false")
++        }
+         fun positive(label: String, min: Long = 1, max: Long = Long.MAX_VALUE): Long = value().toLong().also {
+             require(it in min..max) { "Invalid $label: $it" }
+         }
+@@ -55,6 +61,8 @@
+             "--tab-stop" -> options = options.copy(tabStop = positive("tab stop"))
+             "--id-prefix" -> options = options.copy(identifierPrefix = value())
+             "--email-obfuscation" -> options = options.copy(emailObfuscation = ObfuscationMethod.fromJson(JsonPrimitive(value())))
++            "--reference-links" -> options = options.copy(referenceLinks = rstFlag())
++            "--list-tables" -> options = options.copy(listTables = rstFlag())
+             "--reference-location" -> options = options.copy(referenceLocation = ReferenceLocation.fromJson(JsonPrimitive(value())))
+             "--top-level-division" -> options = options.copy(topLevelDivision = TopLevelDivision.fromJson(JsonPrimitive(value())))
+             "--figure-caption-position" -> options = options.copy(figureCaptionPosition = CaptionPosition.fromJson(JsonPrimitive(value())))
+@@ -108,7 +116,7 @@
+         append(key, text)
+     }
+ 
+-    fun standaloneFor(format: String) = standalone || (format in listOf("dokuwiki", "muse") && templateFile != null)
++    fun standaloneFor(format: String) = standalone || (format in listOf("dokuwiki", "muse", "rst") && templateFile != null)
+ 
+     fun finish(base: WriterOptions, format: String, input: String?, output: String?, resources: ResourceContext): WriterOptions {
+         appendList("sourcefile", input ?: "-")
+@@ -130,9 +138,9 @@
+             templateFile?.let { path ->
+                 when (val r = templates.compileWithPartials(path, templates.getTemplate(path))) {
+                     is CompiledTemplate.Success -> r.template
+-                    is CompiledTemplate.Failure -> if (format == "muse") throw PandocError.PandocTemplateError(r.error) else error(r.error)
++                    is CompiledTemplate.Failure -> if (format in listOf("muse", "rst")) throw PandocError.PandocTemplateError(r.error) else error(r.error)
+                 }
+-            } ?: if (format in HtmlCliWriter.formats || format in listOf("dokuwiki", "muse")) templates.compileDefaultTemplate(format) else Template.Empty
++            } ?: if (format in HtmlCliWriter.formats || format in listOf("dokuwiki", "muse", "rst")) templates.compileDefaultTemplate(format) else Template.Empty
+         }
+         return base.copy(template = template, variables = variables)
+     }
