@@ -15431,3 +15431,47 @@ the shell sequence continued into the authorized exact-scope commit. This was a
 misapplied scope guard, not a test failure or a clean guard result. No history was
 rewritten. Future integration mutations use fail-fast checked subprocesses so a
 guard failure cannot fall through to a commit.
+
+
+### Crypto.MAC.HMAC complete source checkpoint (reviewed)
+
+Independent review accepts all six pinned functions (hmac,hmacLazy,initialize,
+update,updates,finalize), strict two-field Context, HMAC constructor/getter/
+ByteArrayAccess/constEq and private initialize key branches. Generic raw hash
+dictionaries expose block/digest/context dimensions and IO methods;16 named
+adapters plus SHAKE output-bit factories reuse accepted Kotlin cores unchanged.
+Long keys finalize/reset before pad setup; inner0x36 precedes outer0x5c setup,
+with a shared initial hash context. Empty updates, Context root demand, selected
+optimized GHC right-first equality error order and once-only synchronous results
+are preserved without assuming universal bottom behavior.
+
+Own six original executable replays passed4653 observational rows:3788 ordinary,
+218 custom dictionary,216 repeated/list/newtype,305 ByteArrayAccess,96 IO-result
+and30 borrowed-memory cases. Full original HMACSpec42 examples execute28 KAT
+assertions/14 vectors and14 properties×100;1400 actual generator rows execute
+translated property equations too. Verbatim source/test extraction and68 source/
+fixture pins pass. Source capture uses437 byte-identical implementation/test
+files with seven visibility-only Cabal exports; no Kotlin-derived expectations.
+
+Raw hash IO effects occur before returned lazy results: ignored Unit roots are
+not forced, while equal-key pad-pair roots are needed. Explicit borrowed access
+shares HMAC/Digest storage and permits the original observed in-scope writes;
+bytes() returns owned copies. Constructor/getter Digest identity is retained.
+HMAC has no source Show; the host-only opaque marker does not expose content.
+constEq's length-first/full XOR accumulation is functional source evidence, not
+a JVM constant-time guarantee. Shared Digest Data reflection remains separate.
+
+Own58 frozen hashes, saved22900 XML6151actual/zero failures/errors/skips and
+immutable JAR SHAac12ba3bdb0673a0cdd2be1ec18e446b6f17f4031b07f4f916fdcf02a1d2742a
+with22 HMAC classes/112 byte-exact repository notices pass. Author jar/installDist
+identity and isolated6083 assertions at256KiB are retained under
+/tmp/kotdoc-hmac-final-results. One explicitly owned development runner remains
+outside production. No duplicate shared Gradle or accepted-core edit was needed.
+
+Valid callback dimensions/buffer allocations are required; invalid pointers,
+retained foreign pointers, unsafe post-freeze mutation, giant allocations,
+arbitrary Nat widths, other heap/ABI profiles, async behavior and physical
+scrubbing/erasure are not proved. Accepted engine unspecified native tails and
+optimized-backend gates remain distinct. Missing MD2/MD4/RIPEMD160/Tiger/Whirlpool/
+Blake2/Skein families, shared Digest Data, RSA padding/fullTypes/signatures,
+SystemDRG/OS entropy,trust/chain and rest613/fullPandoc/calibre remain OPEN.

@@ -1,0 +1,80 @@
+
+KATs
+  md5
+    1 [✔]
+    incr-1 [✔]
+    2 [✔]
+    incr-2 [✔]
+  sha1
+    1 [✔]
+    incr-1 [✔]
+    2 [✔]
+    incr-2 [✔]
+  sha256
+    1 [✔]
+    incr-1 [✔]
+    2 [✔]
+    incr-2 [✔]
+  keccak-224
+    1 [✔]
+    incr-1 [✔]
+  keccak-256
+    1 [✔]
+    incr-1 [✔]
+  keccak-384
+    1 [✔]
+    incr-1 [✔]
+  keccak-512
+    1 [✔]
+    incr-1 [✔]
+  sha3-224
+    1 [✔]
+    incr-1 [✔]
+  sha3-256
+    1 [✔]
+    incr-1 [✔]
+  sha3-384
+    1 [✔]
+    incr-1 [✔]
+  sha3-512
+    1 [✔]
+    incr-1 [✔]
+properties
+  MD5
+    list-one [✔]
+      +++ OK, passed 100 tests.
+    list-multi [✔]
+      +++ OK, passed 100 tests.
+  SHA1
+    list-one [✔]
+      +++ OK, passed 100 tests.
+    list-multi [✔]
+      +++ OK, passed 100 tests.
+  SHA256
+    list-one [✔]
+      +++ OK, passed 100 tests.
+    list-multi [✔]
+      +++ OK, passed 100 tests.
+  SHA3_224
+    list-one [✔]
+      +++ OK, passed 100 tests.
+    list-multi [✔]
+      +++ OK, passed 100 tests.
+  SHA3_256
+    list-one [✔]
+      +++ OK, passed 100 tests.
+    list-multi [✔]
+      +++ OK, passed 100 tests.
+  SHA3_384
+    list-one [✔]
+      +++ OK, passed 100 tests.
+    list-multi [✔]
+      +++ OK, passed 100 tests.
+  SHA3_512
+    list-one [✔]
+      +++ OK, passed 100 tests.
+    list-multi [✔]
+      +++ OK, passed 100 tests.
+
+Finished in <elapsed> seconds
+42 examples, 0 failures

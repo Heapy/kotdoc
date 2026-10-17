@@ -1,0 +1,68 @@
+{
+  "source": "Crypto/MAC/HMAC.hs",
+  "functions": [
+    "hmac",
+    "hmacLazy",
+    "initialize",
+    "update",
+    "updates",
+    "finalize"
+  ],
+  "types": {
+    "Context": "strict outer then inner Hash.Context fields",
+    "HMAC": "newtype Digest; constructor/getter/ByteArrayAccess/Eq constEq; no Show"
+  },
+  "initializePrivate": [
+    "doHashAlg short/equal/long branches",
+    "mutable init/update/finalize/reset",
+    "inner pad 0x36 then outer pad 0x5c",
+    "shared initial hash context"
+  ],
+  "HashAlgorithm": [
+    "blockSize",
+    "digestSize",
+    "contextSize",
+    "initialize IO",
+    "update IO",
+    "finalize IO"
+  ],
+  "ByteArrayAccess": [
+    "length",
+    "withByteArray",
+    "default copyByteArrayToPtr"
+  ],
+  "adapters": 16,
+  "shakeOutputBitAdapters": 14,
+  "originalSuite": {
+    "examples": 42,
+    "literalVectors": 14,
+    "literalAssertions": 28,
+    "properties": 14,
+    "trialsPerProperty": 100
+  },
+  "observations": {
+    "ordinary": 3788,
+    "dictionary": 218,
+    "extra": 216,
+    "access": 305,
+    "unit": 96,
+    "borrow": 30
+  },
+  "isolatedAssertions": 6083,
+  "remaining": [
+    "missing HashAlgorithm families MD2/MD4/RIPEMD160/Tiger/Whirlpool/Blake2/Skein",
+    "shared Digest Data reflection",
+    "optimized hash backends",
+    "RSA padding/types/signatures",
+    "OS/SystemDRG",
+    "trust/chain",
+    "rest of 613"
+  ],
+  "limits": [
+    "valid callback buffers and nonnegative array allocation dimensions",
+    "no retained pointers after withBytes",
+    "no universal bottom/error order or async exception equivalence",
+    "no physical scrubbed erasure or JVM timing guarantee",
+    "no giant allocation execution proof"
+  ]
+}

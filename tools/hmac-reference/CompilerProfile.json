@@ -1,0 +1,76 @@
+{
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "machine": "arm64",
+  "byteorder": "little",
+  "portableFlags": [
+    "-O2",
+    "-shared",
+    "-fPIC",
+    "no WITH_* backend macros"
+  ],
+  "haskell": {
+    "ghc": "9.12.2",
+    "optimization": "-O2",
+    "packages": [
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "MD5 native raw layout little-endian aarch64C88/public96; tail8 unspecified",
+    "Actual big-endian ABI is not exercised",
+    "Virtual2GiB arithmetic, not actual2GiB hash"
+  ],
+  "scope": "HMAC original Haskell oracle; inherited native backend profile is not a portable-backend equivalence claim",
+  "executables": {
+    "/tmp/kotdoc-hmac-haskell-oracle": "24a351e4367d4b92a88e6244c9ca8b03ebc4992a3157ad9d87c8c53981f62e27",
+    "/tmp/kotdoc-hmac-dictionary-oracle": "1723af8cfb274611c60f2945ba59e23676fa97f440d47253c62e97bf10dfc046",
+    "/tmp/kotdoc-hmac-dictionary-extra-oracle": "a51bae5bdda5f28c6693d2b45cd92f35dd21cb1e1d47e65f92f1b37545f6ef14",
+    "/tmp/kotdoc-hmac-access-oracle": "e216653bc3ef66697f81c7ec7a02c414964f291b4a5089fb3d30db41c5395568",
+    "/tmp/kotdoc-hmac-unit-oracle": "f97d2ebb0c73664432afca4fa9c501e340ef93e84edacf6e194da7e8d6313ca6",
+    "/tmp/kotdoc-hmac-borrow-oracle": "dd6e589884fce50ac8ab0a99b5e416134d1b063ac3d7cafe86f0806419a25a57"
+  }
+}
