@@ -1,0 +1,88 @@
+{
+  "moduleFunctions": [
+    {
+      "name": "initialize",
+      "line": 98
+    },
+    {
+      "name": "initializeX",
+      "line": 128
+    },
+    {
+      "name": "combine",
+      "line": 175
+    },
+    {
+      "name": "generate",
+      "line": 192
+    },
+    {
+      "name": "initializeSimple",
+      "line": 158
+    },
+    {
+      "name": "generateSimple",
+      "line": 208
+    },
+    {
+      "name": "generateSimpleBlock",
+      "line": 222
+    }
+  ],
+  "states": [
+    "State",
+    "StateSimple"
+  ],
+  "instances": {
+    "State": [
+      "getCounter64",
+      "setCounter64",
+      "getCounter32",
+      "setCounter32"
+    ],
+    "StateSimple": [
+      "getCounter64",
+      "setCounter64",
+      "getCounter32",
+      "setCounter32"
+    ]
+  },
+  "derivedInstances": [
+    "NFData"
+  ],
+  "absentInstances": [
+    "Show",
+    "Eq",
+    "Ord",
+    "ByteArrayAccess"
+  ],
+  "privateWrappers": [
+    "getCounter64'",
+    "setCounter64'",
+    "getCounter32'",
+    "setCounter32'"
+  ],
+  "ffi": [
+    "ccrypton_chacha_init_core",
+    "ccrypton_chacha_init",
+    "ccrypton_xchacha_init",
+    "ccrypton_chacha_combine",
+    "ccrypton_chacha_generate",
+    "ccrypton_chacha_random",
+    "ccrypton_chacha_counter64",
+    "ccrypton_chacha_set_counter64",
+    "ccrypton_chacha_counter32",
+    "ccrypton_chacha_set_counter32",
+    "ccrypton_chacha_generate_simple_block",
+    "ccrypton_chacha_get_state"
+  ],
+  "logicalContextBytes": 132,
+  "observedCContextBytes": 136,
+  "remaining": [
+    "ChaChaDRG",
+    "Random.Probabilistic",
+    "optimized raw backends",
+    "Prime/signatures/trust/chain",
+    "full613/Pandoc623/calibre624-626"
+  ]
+}

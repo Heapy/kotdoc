@@ -1,0 +1,16 @@
+{
+  "compiler": "GHC9.12.2",
+  "optimization": "Cabal optimization2 / ghc -O2",
+  "host": "aarch64-osx",
+  "crypton": "2.0.1 pinned unchanged source",
+  "ram": "0.22.1 pinned unchanged source",
+  "rawBackend": "original Cabal-selected AArch64 NEON/assembly; public bytes only",
+  "kotlinBackend": "accepted portable CryptoChaChaCore",
+  "haskellIntBits": 64,
+  "kotlinIntBits": 32,
+  "word8Conversion": "generateSimpleBlock rounds mod256 before guard",
+  "contextLogicalBytes": 132,
+  "contextObservedCBytes": 136,
+  "demand": "finite original optimized executable observations; no general exception-choice equivalence",
+  "negativeSimple": "RAM alloc n<0 maps to0; writer count is fromIntegral n :: CUInt, out-of-object writes outside safe span domain; not executed"
+}

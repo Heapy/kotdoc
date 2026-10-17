@@ -14853,3 +14853,34 @@ Real32/big-endian,optimized raw backends,JVM timing and physical scrubbing remai
 limits. NEON/SSE/assembly instruction ports,public ChaCha two state types/seven
 functions/class-counter wrappers,DRG/Probabilistic/Prime/signatures/trust/chain
 and rest613/full Pandoc623/calibre624–626 remain OPEN.
+
+
+### Complete public ChaCha wrapper checkpoint
+
+Seven module functions,two opaque state types,four ChaChaState methods for each,
+four private counter wrappers and twelve FFI mappings now delegate to accepted
+Kotlin portable core. No source Eq/Ord/Show/ByteArrayAccess instance is invented;
+NFData and finite deferred-demand adapters are explicit. Own actual original
+Haskell replay passed2664 rows/19 pins,covering all63 pending phases,counter
+wrap/seeking,previous immutable-state output forks,Simple rekey and zero-copy
+behavior,Word8 block rounds and ordered errors. The unchanged original79-suite/
+676 observations/600 property samples remain independently retained and were
+reverified by the author;accepted raw-core behavior is unchanged.
+
+Saved Gradle66204 XML contains19180 actual zero-failure/error/skip cases:
+2684 public plus16496 raw. Own14 frozen hashes,seven classes and three exact
+notices pass on the retained immutable JAR;jar/installDist passed identically.
+Initialization preserves key→nonce→round errors for defined inputs;optimized
+multi-bottom observations use explicit Lazy adapters with their compiler limits.
+Generate<=0 and empty combine retain the previous state;Simple zero generation
+and counter setters copy. Input/output/seed ownership is detached,seed suffix
+after40 bytes ignored and seeking leaves pending bytes intact.
+
+Haskell logical132/C sizeof136 context-store boundary remains a controlled
+guard observation,not heap-memory parity;Kotlin models safe136 bytes. Negative
+Simple count combines a zero logical allocation with uint32 C length and lies
+outside safe source buffers;Kotlin rejects it rather than matching unsafe writes.
+Huge counts/GHC Int64 versus JVM Int32,optimized raw backend aliases,JVM timing/
+Cleaner erasure and general bottom behavior remain explicit limits. ChaChaDRG,
+Probabilistic,Prime,other signatures/trust/chain and rest613/Pandoc/calibre stay
+OPEN. This checkpoint adds no production foreign engine or entropy provider.
