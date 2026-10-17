@@ -1,0 +1,73 @@
+{
+  "proof": "Immutable packaged baseline; exact source/tests/profile documented in reader-manifest/integration",
+  "artifacts": {
+    "final-xml-counts.json": {
+      "path": "/tmp/kotdoc-rst-reader/final-xml-counts.json",
+      "sha256": "dcfbbc6e487a651991d5f268584834aa26fb45a969287a25323c073b1e44382c"
+    },
+    "callback-xml-counts.json": {
+      "path": "/tmp/kotdoc-rst-reader/callback-xml-counts.json",
+      "sha256": "c79700f3b345dccc830513c1fcda0c6b4329d76fa51dc3b80660bcce3b5d4615"
+    },
+    "final-gradle.log": {
+      "path": "/tmp/kotdoc-rst-reader/final-gradle.log",
+      "sha256": "064a68582a709d8c91e3d1089e5fa54acd52c60151f9a77742c5f1f9ad403c86"
+    },
+    "callback-gradle.log": {
+      "path": "/tmp/kotdoc-rst-reader/callback-gradle.log",
+      "sha256": "bc2e0378fe5f6b7980763defd9d6bcfa9cf5fdfbb4aaedab28e9e91bd1efb7bd"
+    },
+    "final-native-callback-check.log": {
+      "path": "/tmp/kotdoc-rst-reader/final-native-callback-check.log",
+      "sha256": "e25e1a638c788c6c05d580f37da157802b97ca073354ff254c16a56d1e1150e6"
+    },
+    "callback-bounded.log": {
+      "path": "/tmp/kotdoc-rst-reader/callback-bounded.log",
+      "sha256": "f12c641f2c8832866581111e23cf18eb7c4519173fa3ad59d3a9eb7b7d8e93f5"
+    },
+    "installed-dist-hashes.json": {
+      "path": "/tmp/kotdoc-rst-reader/installed-dist-hashes.json",
+      "sha256": "135782f5a5520e7368e851026b202ed8828edd434c2d7837c8cd28ef76b3731c"
+    },
+    "final-installed-cli-second/status.json": {
+      "path": "/tmp/kotdoc-rst-reader/final-installed-cli-second/status.json",
+      "sha256": "5b977bbad4878cdb371a35a251891d608fdd7b129799d14828f4d74e6be543b6"
+    },
+    "final-installed-cli-second/report.json": {
+      "path": "/tmp/kotdoc-rst-reader/final-installed-cli-second/report.json",
+      "sha256": "f75d2b14940c5dcc5cb02a0364d4a86e6d641a9b13de8baeb44c6a94608c8e31"
+    },
+    "final-installed-cli-second/stdout-stderr.log": {
+      "path": "/tmp/kotdoc-rst-reader/final-installed-cli-second/stdout-stderr.log",
+      "sha256": "a99f21c31011e32a9a362eb5c02e58d1702568c4724b5ec2b44578e263b4c86b"
+    },
+    "final-installed-cli/status.json": {
+      "path": "/tmp/kotdoc-rst-reader/final-installed-cli/status.json",
+      "sha256": "89c341d9f020f1e3bbf458f9a68fc1072730a0ee3cab7870070a42cc5a89daf6"
+    },
+    "final-installed-cli/stdout-stderr.log": {
+      "path": "/tmp/kotdoc-rst-reader/final-installed-cli/stdout-stderr.log",
+      "sha256": "88b907eaba3c950f6b2013fa0090bb52a74c96a7c09bf56a2413fc78da35bd0a"
+    },
+    "final-installed-cli/check-cli-snapshot.py": {
+      "path": "/tmp/kotdoc-rst-reader/final-installed-cli/check-cli-snapshot.py",
+      "sha256": "fac431f6f5e846ba116c9cbe0865e8e26e845218bc52bd0a98a671747b8fdba7"
+    },
+    "XML/TEST-io.heapy.kotdoc.readers.RstReaderHelpersTest.xml": {
+      "path": "/tmp/kotdoc-rst-reader/final-results/TEST-io.heapy.kotdoc.readers.RstReaderHelpersTest.xml",
+      "sha256": "e7308c42196ff65efc28194b0d0e72aedd435e4cc7c55164be367cfca61addcf"
+    },
+    "XML/TEST-io.heapy.kotdoc.readers.RstReaderCallbacksTest.xml": {
+      "path": "/tmp/kotdoc-rst-reader/final-results/TEST-io.heapy.kotdoc.readers.RstReaderCallbacksTest.xml",
+      "sha256": "7cb3ade47c55cad4b6b15298e66abf45dd5eee76074a2f76fe786d04176b88c5"
+    },
+    "XML/TEST-io.heapy.kotdoc.readers.RstReaderTest.xml": {
+      "path": "/tmp/kotdoc-rst-reader/final-results/TEST-io.heapy.kotdoc.readers.RstReaderTest.xml",
+      "sha256": "d4a9eeacc82be2d690636417a2b354dbb06a289e08896490251744832f99c118"
+    },
+    "XML/TEST-io.heapy.kotdoc.writers.RstWriterTest.xml": {
+      "path": "/tmp/kotdoc-rst-reader/final-results/TEST-io.heapy.kotdoc.writers.RstWriterTest.xml",
+      "sha256": "1554a490b1182f78e85f570844cbe43a56e83dc916d9cb2722c81fa324e1dc2e"
+    }
+  }
+}

@@ -1,0 +1,1667 @@
+{
+  "pandocCommit": "e51c9c6054c8f4ec5c3209d5abe10939dfe2963e",
+  "source": "upstream/pandoc/src/Text/Pandoc/Readers/RST.hs",
+  "sourceLines": 1962,
+  "functions": [
+    {
+      "sourceFunction": "readRST",
+      "sourceLine": 55,
+      "kotlinSymbol": "read",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 63
+        },
+        {
+          "file": "RstCliReader.kt",
+          "line": 23
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "bulletListMarkers",
+      "sourceLine": 72,
+      "kotlinSymbol": "bullets",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 139
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "underlineChars",
+      "sourceLine": 75,
+      "kotlinSymbol": "underlines",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 152
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "isSpecialChar",
+      "sourceLine": 80,
+      "kotlinSymbol": "special",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 197
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "isHeader",
+      "sourceLine": 113,
+      "kotlinSymbol": "isHeader",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 283
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "promoteHeaders",
+      "sourceLine": 119,
+      "kotlinSymbol": "titleTransform",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 273
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "titleTransform",
+      "sourceLine": 129,
+      "kotlinSymbol": "titleTransform",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 273
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "metaFromDefList",
+      "sourceLine": 148,
+      "kotlinSymbol": "metaFromDefinitions",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 287
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "parseRST",
+      "sourceLine": 182,
+      "kotlinSymbol": "document",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 66
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "resolveBlockSubstitutions",
+      "sourceLine": 210,
+      "kotlinSymbol": "resolveBlockSubstitutions",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 276
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "resolveReferences",
+      "sourceLine": 226,
+      "kotlinSymbol": "resolveReferences",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 276
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "parseCitation",
+      "sourceLine": 307,
+      "kotlinSymbol": "document",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 270
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "parseBlocks",
+      "sourceLine": 319,
+      "kotlinSymbol": "parseBlocks",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 108
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "block",
+      "sourceLine": 322,
+      "kotlinSymbol": "block",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 108
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "rawFieldListItem",
+      "sourceLine": 347,
+      "kotlinSymbol": "rawFieldListItem",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 110
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "fieldListItem",
+      "sourceLine": 362,
+      "kotlinSymbol": "fieldListItem",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 111
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "fieldList",
+      "sourceLine": 373,
+      "kotlinSymbol": "fieldList",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "optionList",
+      "sourceLine": 381,
+      "kotlinSymbol": "optionList",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "optionListItem",
+      "sourceLine": 384,
+      "kotlinSymbol": "optionListItem",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 117
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "shortOpt",
+      "sourceLine": 399,
+      "kotlinSymbol": "shortOpt",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 114
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "optArg",
+      "sourceLine": 405,
+      "kotlinSymbol": "optArg",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 113
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "longOpt",
+      "sourceLine": 412,
+      "kotlinSymbol": "longOpt",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 115
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "dosOpt",
+      "sourceLine": 420,
+      "kotlinSymbol": "dosOpt",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 116
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "lineBlock",
+      "sourceLine": 430,
+      "kotlinSymbol": "lineBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "lineBlockDirective",
+      "sourceLine": 436,
+      "kotlinSymbol": "lineBlockDirective",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 129
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "para",
+      "sourceLine": 446,
+      "kotlinSymbol": "para",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "plain",
+      "sourceLine": 459,
+      "kotlinSymbol": "plain",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 111
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "header",
+      "sourceLine": 466,
+      "kotlinSymbol": "header",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "doubleHeader",
+      "sourceLine": 470,
+      "kotlinSymbol": "headerParts",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 168
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "singleHeader",
+      "sourceLine": 504,
+      "kotlinSymbol": "headerParts",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 168
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "hrule",
+      "sourceLine": 544,
+      "kotlinSymbol": "hrule",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "indentedLine",
+      "sourceLine": 558,
+      "kotlinSymbol": "indentedBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 110
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "indentedBlock",
+      "sourceLine": 567,
+      "kotlinSymbol": "indentedBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 110
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "quotedBlock",
+      "sourceLine": 577,
+      "kotlinSymbol": "quotedBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 179
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "codeBlockStart",
+      "sourceLine": 584,
+      "kotlinSymbol": "codeBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "codeBlock",
+      "sourceLine": 587,
+      "kotlinSymbol": "codeBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "codeBlockBody",
+      "sourceLine": 590,
+      "kotlinSymbol": "codeBlockBody",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 189
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "lhsCodeBlock",
+      "sourceLine": 596,
+      "kotlinSymbol": "lhsCodeBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "latexCodeBlock",
+      "sourceLine": 606,
+      "kotlinSymbol": "lhsCodeBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "birdCodeBlock",
+      "sourceLine": 613,
+      "kotlinSymbol": "lhsCodeBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "birdTrackLine",
+      "sourceLine": 621,
+      "kotlinSymbol": "lhsCodeBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "blockQuote",
+      "sourceLine": 628,
+      "kotlinSymbol": "blockQuote",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "includeDirective",
+      "sourceLine": 641,
+      "kotlinSymbol": "includeDirective",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 385
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "list",
+      "sourceLine": 681,
+      "kotlinSymbol": "list",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "definitionListItem",
+      "sourceLine": 684,
+      "kotlinSymbol": "definitionListItem",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 137
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "definitionList",
+      "sourceLine": 694,
+      "kotlinSymbol": "definitionList",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 112
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "bulletListStart",
+      "sourceLine": 698,
+      "kotlinSymbol": "bulletListStart",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 139
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "orderedListStart",
+      "sourceLine": 706,
+      "kotlinSymbol": "orderedListStart",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 140
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "listLine",
+      "sourceLine": 715,
+      "kotlinSymbol": "listLine",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 143
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "rawListItem",
+      "sourceLine": 722,
+      "kotlinSymbol": "rawListItem",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 144
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "listContinuation",
+      "sourceLine": 733,
+      "kotlinSymbol": "listContinuation",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 145
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "listItem",
+      "sourceLine": 739,
+      "kotlinSymbol": "listItem",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 146
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "orderedList",
+      "sourceLine": 766,
+      "kotlinSymbol": "orderedList",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 148
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "bulletList",
+      "sourceLine": 773,
+      "kotlinSymbol": "bulletList",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 149
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "comment",
+      "sourceLine": 780,
+      "kotlinSymbol": "comment",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "directiveLabel",
+      "sourceLine": 790,
+      "kotlinSymbol": "directiveBody",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 339
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "directive",
+      "sourceLine": 794,
+      "kotlinSymbol": "directive",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "tableDirective",
+      "sourceLine": 960,
+      "kotlinSymbol": "tableDirective",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 386
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "listTableDirective",
+      "sourceLine": 1001,
+      "kotlinSymbol": "listTableDirective",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 387
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "csvTableDirective",
+      "sourceLine": 1036,
+      "kotlinSymbol": "csvTableDirective",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 388
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "parseCell",
+      "sourceLine": 1107,
+      "kotlinSymbol": "parseCell",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 442
+        },
+        {
+          "file": "RstTableAdapter.kt",
+          "line": 26
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "addNewRole",
+      "sourceLine": 1113,
+      "kotlinSymbol": "addNewRole",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 356
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "unicodeTransform",
+      "sourceLine": 1176,
+      "kotlinSymbol": "unicodeTransform",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 354
+        },
+        {
+          "file": "RstReaderPure.kt",
+          "line": 8
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "extractUnicodeChar",
+      "sourceLine": 1195,
+      "kotlinSymbol": "unicodeTransform",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 354
+        },
+        {
+          "file": "RstReaderPure.kt",
+          "line": 8
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "extractCaption",
+      "sourceLine": 1200,
+      "kotlinSymbol": "directiveResult",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 375
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "toChunks",
+      "sourceLine": 1208,
+      "kotlinSymbol": "chunks",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 355
+        },
+        {
+          "file": "RstReaderPure.kt",
+          "line": 18
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "codeblock",
+      "sourceLine": 1217,
+      "kotlinSymbol": "codeblock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 349
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "mkAttr",
+      "sourceLine": 1236,
+      "kotlinSymbol": "mkAttr",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 348
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "noteBlock",
+      "sourceLine": 1246,
+      "kotlinSymbol": "noteBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "citationBlock",
+      "sourceLine": 1252,
+      "kotlinSymbol": "noteBlock",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "citationMarker",
+      "sourceLine": 1274,
+      "kotlinSymbol": "citationMarker",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 217
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "noteMarker",
+      "sourceLine": 1281,
+      "kotlinSymbol": "noteMarker",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 218
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "quotedReferenceName",
+      "sourceLine": 1295,
+      "kotlinSymbol": "quotedReferenceName",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 214
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleReferenceName",
+      "sourceLine": 1304,
+      "kotlinSymbol": "simpleReferenceName",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 215
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "referenceName",
+      "sourceLine": 1311,
+      "kotlinSymbol": "referenceName",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 216
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "referenceKey",
+      "sourceLine": 1314,
+      "kotlinSymbol": "referenceKey",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "targetURI",
+      "sourceLine": 1320,
+      "kotlinSymbol": "targetURI",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 331
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "substKey",
+      "sourceLine": 1335,
+      "kotlinSymbol": "substKey",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 336
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "anonymousKey",
+      "sourceLine": 1353,
+      "kotlinSymbol": "anonymousKey",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 336
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "referenceNames",
+      "sourceLine": 1365,
+      "kotlinSymbol": "referenceNames",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 332
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "regularKey",
+      "sourceLine": 1383,
+      "kotlinSymbol": "regularKey",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 336
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "anchor",
+      "sourceLine": 1396,
+      "kotlinSymbol": "anchor",
+      "locations": [
+        {
+          "file": "RstGridTable.kt",
+          "line": 104
+        },
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "dashedLine",
+      "sourceLine": 1432,
+      "kotlinSymbol": "dashedLine",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 469
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleDashedLines",
+      "sourceLine": 1438,
+      "kotlinSymbol": "simpleDashedLines",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 470
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTableSep",
+      "sourceLine": 1451,
+      "kotlinSymbol": "simpleDashedLines",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 470
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTableFooter",
+      "sourceLine": 1455,
+      "kotlinSymbol": "simpleTableFooter",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 472
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTableRawLine",
+      "sourceLine": 1459,
+      "kotlinSymbol": "simpleTableRawLine",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 484
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTableRawLineWithInitialEmptyCell",
+      "sourceLine": 1467,
+      "kotlinSymbol": "simpleTableRow",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 486
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTableRow",
+      "sourceLine": 1476,
+      "kotlinSymbol": "simpleTableRow",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 486
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTableSplitLine",
+      "sourceLine": 1487,
+      "kotlinSymbol": "splitTableLine",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 476
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTableHeader",
+      "sourceLine": 1496,
+      "kotlinSymbol": "simpleTableHeader",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 495
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "rowWithOptionalColSpan",
+      "sourceLine": 1524,
+      "kotlinSymbol": "rowWithOptionalColSpan",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 483
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "simpleTable",
+      "sourceLine": 1536,
+      "kotlinSymbol": "simpleTable",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 509
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "gridTable",
+      "sourceLine": 1557,
+      "kotlinSymbol": "grid",
+      "locations": [
+        {
+          "file": "RstGridTable.kt",
+          "line": 26
+        },
+        {
+          "file": "RstReader.kt",
+          "line": 419
+        },
+        {
+          "file": "RstTableAdapter.kt",
+          "line": 26
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "table",
+      "sourceLine": 1562,
+      "kotlinSymbol": "table",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 109
+        },
+        {
+          "file": "RstTableAdapter.kt",
+          "line": 8
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "inline",
+      "sourceLine": 1570,
+      "kotlinSymbol": "inline",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 137
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "inlineContent",
+      "sourceLine": 1582,
+      "kotlinSymbol": "inlineContent",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 207
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "parseInlineFromText",
+      "sourceLine": 1590,
+      "kotlinSymbol": "parseInlineFromText",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 111
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "escapedChar",
+      "sourceLine": 1593,
+      "kotlinSymbol": "escapedChar",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 203
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "canPrecedeOpener",
+      "sourceLine": 1602,
+      "kotlinSymbol": "canPrecedeOpener",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 198
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "symbol",
+      "sourceLine": 1607,
+      "kotlinSymbol": "symbol",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 202
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "code",
+      "sourceLine": 1614,
+      "kotlinSymbol": "code",
+      "locations": [
+        {
+          "file": "RstGridTable.kt",
+          "line": 18
+        },
+        {
+          "file": "RstReader.kt",
+          "line": 77
+        },
+        {
+          "file": "RstReaderPure.kt",
+          "line": 6
+        },
+        {
+          "file": "RstTableAdapter.kt",
+          "line": 34
+        },
+        {
+          "file": "RstCliReader.kt",
+          "line": 42
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "atStart",
+      "sourceLine": 1622,
+      "kotlinSymbol": "atStart",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 204
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "emph",
+      "sourceLine": 1630,
+      "kotlinSymbol": "emph",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 207
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "strong",
+      "sourceLine": 1634,
+      "kotlinSymbol": "strong",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 208
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "interpretedRole",
+      "sourceLine": 1645,
+      "kotlinSymbol": "interpretedRole",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 212
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "renderRole",
+      "sourceLine": 1650,
+      "kotlinSymbol": "renderRole",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 235
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "cite",
+      "sourceLine": 1696,
+      "kotlinSymbol": "cite",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 243
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "parseCite",
+      "sourceLine": 1708,
+      "kotlinSymbol": "parseCite",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 246
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "roleName",
+      "sourceLine": 1733,
+      "kotlinSymbol": "roleName",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 226
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "roleMarker",
+      "sourceLine": 1736,
+      "kotlinSymbol": "roleMarker",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 227
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "roleBefore",
+      "sourceLine": 1739,
+      "kotlinSymbol": "interpretedRole",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 212
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "roleAfter",
+      "sourceLine": 1745,
+      "kotlinSymbol": "interpretedRole",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 212
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "unmarkedInterpretedText",
+      "sourceLine": 1751,
+      "kotlinSymbol": "unmarkedInterpretedText",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 228
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "whitespace",
+      "sourceLine": 1765,
+      "kotlinSymbol": "whitespace",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 199
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "str",
+      "sourceLine": 1768,
+      "kotlinSymbol": "str",
+      "locations": [
+        {
+          "file": "RstBlockInlines.kt",
+          "line": 25
+        },
+        {
+          "file": "RstReader.kt",
+          "line": 193
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "endline",
+      "sourceLine": 1777,
+      "kotlinSymbol": "endline",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 137
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "link",
+      "sourceLine": 1791,
+      "kotlinSymbol": "link",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 96
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "linkPossible",
+      "sourceLine": 1803,
+      "kotlinSymbol": "linkPossible",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 222
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "explicitLink",
+      "sourceLine": 1815,
+      "kotlinSymbol": "explicitLink",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 221
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "citationName",
+      "sourceLine": 1841,
+      "kotlinSymbol": "citationMarker",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 217
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "referenceLink",
+      "sourceLine": 1849,
+      "kotlinSymbol": "referenceLink",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 220
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "lookupKey",
+      "sourceLine": 1860,
+      "kotlinSymbol": "lookupKey",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 308
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "autoURI",
+      "sourceLine": 1886,
+      "kotlinSymbol": "autoLink",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 223
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "autoEmail",
+      "sourceLine": 1891,
+      "kotlinSymbol": "autoLink",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 223
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "autoLink",
+      "sourceLine": 1896,
+      "kotlinSymbol": "autoLink",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 223
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "subst",
+      "sourceLine": 1899,
+      "kotlinSymbol": "subst",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 212
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "note",
+      "sourceLine": 1910,
+      "kotlinSymbol": "note",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 212
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "smart",
+      "sourceLine": 1917,
+      "kotlinSymbol": "smart",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 210
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "inlineAnchor",
+      "sourceLine": 1920,
+      "kotlinSymbol": "inlineAnchor",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 212
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "dashedLinesToLinesWithIndices",
+      "sourceLine": 1930,
+      "kotlinSymbol": "dashedIndices",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 471
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "colSpans",
+      "sourceLine": 1939,
+      "kotlinSymbol": "colSpans",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 473
+        },
+        {
+          "file": "RstReaderPure.kt",
+          "line": 23
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    },
+    {
+      "sourceFunction": "colSpanCount",
+      "sourceLine": 1955,
+      "kotlinSymbol": "colSpans",
+      "locations": [
+        {
+          "file": "RstReader.kt",
+          "line": 473
+        },
+        {
+          "file": "RstReaderPure.kt",
+          "line": 23
+        }
+      ],
+      "status": "source translation present; group corpus binding in READER-MATRIX.md"
+    }
+  ]
+}

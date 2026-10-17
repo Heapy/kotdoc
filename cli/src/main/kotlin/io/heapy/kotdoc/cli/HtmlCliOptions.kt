@@ -58,7 +58,11 @@ internal class HtmlCliOptions {
             "--html-q-tags" -> options = options.copy(htmlQTags = flag())
             "--slide-level" -> options = options.copy(slideLevel = positive("slide level", 0, 6))
             "--dpi" -> options = options.copy(dpi = positive("DPI"))
-            "--tab-stop" -> options = options.copy(tabStop = positive("tab stop"))
+            "--tab-stop" -> {
+                val stop=io.heapy.kotdoc.resources.safeReadInteger(value())?.toLong()
+                if(stop==null || stop<=0)throw PandocError.PandocOptionError("Argument of --tab-stop must be a number greater than 0")
+                options=options.copy(tabStop=stop)
+            }
             "--id-prefix" -> options = options.copy(identifierPrefix = value())
             "--email-obfuscation" -> options = options.copy(emailObfuscation = ObfuscationMethod.fromJson(JsonPrimitive(value())))
             "--reference-links" -> options = options.copy(referenceLinks = rstFlag())

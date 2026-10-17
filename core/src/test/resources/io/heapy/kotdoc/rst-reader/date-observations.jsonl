@@ -1,0 +1,669 @@
+{"request":{"name":"date/0","kind":"date","input":"%%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/0","result":"%"}}
+{"request":{"name":"date/1","kind":"date","input":"%E%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/1","result":"%"}}
+{"request":{"name":"date/2","kind":"date","input":"%_%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/2","result":"%"}}
+{"request":{"name":"date/3","kind":"date","input":"%_E%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/3","result":"%"}}
+{"request":{"name":"date/4","kind":"date","input":"%-%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/4","result":"%"}}
+{"request":{"name":"date/5","kind":"date","input":"%-E%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/5","result":"%"}}
+{"request":{"name":"date/6","kind":"date","input":"%0%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/6","result":"%"}}
+{"request":{"name":"date/7","kind":"date","input":"%0E%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/7","result":"%"}}
+{"request":{"name":"date/8","kind":"date","input":"%^%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/8","result":"%"}}
+{"request":{"name":"date/9","kind":"date","input":"%^E%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/9","result":"%"}}
+{"request":{"name":"date/10","kind":"date","input":"%#%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/10","result":"%"}}
+{"request":{"name":"date/11","kind":"date","input":"%#E%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/11","result":"%"}}
+{"request":{"name":"date/12","kind":"date","input":"%t","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/12","result":"\t"}}
+{"request":{"name":"date/13","kind":"date","input":"%Et","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/13","result":"\t"}}
+{"request":{"name":"date/14","kind":"date","input":"%_t","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/14","result":"\t"}}
+{"request":{"name":"date/15","kind":"date","input":"%_Et","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/15","result":"\t"}}
+{"request":{"name":"date/16","kind":"date","input":"%-t","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/16","result":"\t"}}
+{"request":{"name":"date/17","kind":"date","input":"%-Et","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/17","result":"\t"}}
+{"request":{"name":"date/18","kind":"date","input":"%0t","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/18","result":"\t"}}
+{"request":{"name":"date/19","kind":"date","input":"%0Et","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/19","result":"\t"}}
+{"request":{"name":"date/20","kind":"date","input":"%^t","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/20","result":"\t"}}
+{"request":{"name":"date/21","kind":"date","input":"%^Et","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/21","result":"\t"}}
+{"request":{"name":"date/22","kind":"date","input":"%#t","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/22","result":"\t"}}
+{"request":{"name":"date/23","kind":"date","input":"%#Et","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/23","result":"\t"}}
+{"request":{"name":"date/24","kind":"date","input":"%n","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/24","result":"\n"}}
+{"request":{"name":"date/25","kind":"date","input":"%En","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/25","result":"\n"}}
+{"request":{"name":"date/26","kind":"date","input":"%_n","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/26","result":"\n"}}
+{"request":{"name":"date/27","kind":"date","input":"%_En","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/27","result":"\n"}}
+{"request":{"name":"date/28","kind":"date","input":"%-n","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/28","result":"\n"}}
+{"request":{"name":"date/29","kind":"date","input":"%-En","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/29","result":"\n"}}
+{"request":{"name":"date/30","kind":"date","input":"%0n","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/30","result":"\n"}}
+{"request":{"name":"date/31","kind":"date","input":"%0En","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/31","result":"\n"}}
+{"request":{"name":"date/32","kind":"date","input":"%^n","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/32","result":"\n"}}
+{"request":{"name":"date/33","kind":"date","input":"%^En","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/33","result":"\n"}}
+{"request":{"name":"date/34","kind":"date","input":"%#n","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/34","result":"\n"}}
+{"request":{"name":"date/35","kind":"date","input":"%#En","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/35","result":"\n"}}
+{"request":{"name":"date/36","kind":"date","input":"%c","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/36","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/37","kind":"date","input":"%Ec","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/37","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/38","kind":"date","input":"%_c","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/38","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/39","kind":"date","input":"%_Ec","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/39","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/40","kind":"date","input":"%-c","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/40","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/41","kind":"date","input":"%-Ec","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/41","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/42","kind":"date","input":"%0c","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/42","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/43","kind":"date","input":"%0Ec","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/43","result":"Thu Jan  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/44","kind":"date","input":"%^c","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/44","result":"THU JAN  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/45","kind":"date","input":"%^Ec","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/45","result":"THU JAN  1 00:00:00 UTC 1970"}}
+{"request":{"name":"date/46","kind":"date","input":"%#c","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/46","result":"thu jan  1 00:00:00 utc 1970"}}
+{"request":{"name":"date/47","kind":"date","input":"%#Ec","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/47","result":"thu jan  1 00:00:00 utc 1970"}}
+{"request":{"name":"date/48","kind":"date","input":"%R","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/48","result":"00:00"}}
+{"request":{"name":"date/49","kind":"date","input":"%ER","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/49","result":"00:00"}}
+{"request":{"name":"date/50","kind":"date","input":"%_R","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/50","result":"00:00"}}
+{"request":{"name":"date/51","kind":"date","input":"%_ER","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/51","result":"00:00"}}
+{"request":{"name":"date/52","kind":"date","input":"%-R","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/52","result":"00:00"}}
+{"request":{"name":"date/53","kind":"date","input":"%-ER","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/53","result":"00:00"}}
+{"request":{"name":"date/54","kind":"date","input":"%0R","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/54","result":"00:00"}}
+{"request":{"name":"date/55","kind":"date","input":"%0ER","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/55","result":"00:00"}}
+{"request":{"name":"date/56","kind":"date","input":"%^R","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/56","result":"00:00"}}
+{"request":{"name":"date/57","kind":"date","input":"%^ER","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/57","result":"00:00"}}
+{"request":{"name":"date/58","kind":"date","input":"%#R","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/58","result":"00:00"}}
+{"request":{"name":"date/59","kind":"date","input":"%#ER","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/59","result":"00:00"}}
+{"request":{"name":"date/60","kind":"date","input":"%T","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/60","result":"00:00:00"}}
+{"request":{"name":"date/61","kind":"date","input":"%ET","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/61","result":"00:00:00"}}
+{"request":{"name":"date/62","kind":"date","input":"%_T","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/62","result":"00:00:00"}}
+{"request":{"name":"date/63","kind":"date","input":"%_ET","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/63","result":"00:00:00"}}
+{"request":{"name":"date/64","kind":"date","input":"%-T","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/64","result":"00:00:00"}}
+{"request":{"name":"date/65","kind":"date","input":"%-ET","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/65","result":"00:00:00"}}
+{"request":{"name":"date/66","kind":"date","input":"%0T","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/66","result":"00:00:00"}}
+{"request":{"name":"date/67","kind":"date","input":"%0ET","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/67","result":"00:00:00"}}
+{"request":{"name":"date/68","kind":"date","input":"%^T","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/68","result":"00:00:00"}}
+{"request":{"name":"date/69","kind":"date","input":"%^ET","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/69","result":"00:00:00"}}
+{"request":{"name":"date/70","kind":"date","input":"%#T","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/70","result":"00:00:00"}}
+{"request":{"name":"date/71","kind":"date","input":"%#ET","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/71","result":"00:00:00"}}
+{"request":{"name":"date/72","kind":"date","input":"%X","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/72","result":"00:00:00"}}
+{"request":{"name":"date/73","kind":"date","input":"%EX","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/73","result":"00:00:00"}}
+{"request":{"name":"date/74","kind":"date","input":"%_X","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/74","result":"00:00:00"}}
+{"request":{"name":"date/75","kind":"date","input":"%_EX","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/75","result":"00:00:00"}}
+{"request":{"name":"date/76","kind":"date","input":"%-X","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/76","result":"00:00:00"}}
+{"request":{"name":"date/77","kind":"date","input":"%-EX","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/77","result":"00:00:00"}}
+{"request":{"name":"date/78","kind":"date","input":"%0X","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/78","result":"00:00:00"}}
+{"request":{"name":"date/79","kind":"date","input":"%0EX","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/79","result":"00:00:00"}}
+{"request":{"name":"date/80","kind":"date","input":"%^X","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/80","result":"00:00:00"}}
+{"request":{"name":"date/81","kind":"date","input":"%^EX","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/81","result":"00:00:00"}}
+{"request":{"name":"date/82","kind":"date","input":"%#X","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/82","result":"00:00:00"}}
+{"request":{"name":"date/83","kind":"date","input":"%#EX","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/83","result":"00:00:00"}}
+{"request":{"name":"date/84","kind":"date","input":"%r","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/84","result":"12:00:00 AM"}}
+{"request":{"name":"date/85","kind":"date","input":"%Er","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/85","result":"12:00:00 AM"}}
+{"request":{"name":"date/86","kind":"date","input":"%_r","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/86","result":"12:00:00 AM"}}
+{"request":{"name":"date/87","kind":"date","input":"%_Er","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/87","result":"12:00:00 AM"}}
+{"request":{"name":"date/88","kind":"date","input":"%-r","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/88","result":"12:00:00 AM"}}
+{"request":{"name":"date/89","kind":"date","input":"%-Er","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/89","result":"12:00:00 AM"}}
+{"request":{"name":"date/90","kind":"date","input":"%0r","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/90","result":"12:00:00 AM"}}
+{"request":{"name":"date/91","kind":"date","input":"%0Er","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/91","result":"12:00:00 AM"}}
+{"request":{"name":"date/92","kind":"date","input":"%^r","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/92","result":"12:00:00 AM"}}
+{"request":{"name":"date/93","kind":"date","input":"%^Er","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/93","result":"12:00:00 AM"}}
+{"request":{"name":"date/94","kind":"date","input":"%#r","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/94","result":"12:00:00 am"}}
+{"request":{"name":"date/95","kind":"date","input":"%#Er","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/95","result":"12:00:00 am"}}
+{"request":{"name":"date/96","kind":"date","input":"%P","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/96","result":"am"}}
+{"request":{"name":"date/97","kind":"date","input":"%EP","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/97","result":"am"}}
+{"request":{"name":"date/98","kind":"date","input":"%_P","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/98","result":"am"}}
+{"request":{"name":"date/99","kind":"date","input":"%_EP","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/99","result":"am"}}
+{"request":{"name":"date/100","kind":"date","input":"%-P","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/100","result":"am"}}
+{"request":{"name":"date/101","kind":"date","input":"%-EP","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/101","result":"am"}}
+{"request":{"name":"date/102","kind":"date","input":"%0P","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/102","result":"am"}}
+{"request":{"name":"date/103","kind":"date","input":"%0EP","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/103","result":"am"}}
+{"request":{"name":"date/104","kind":"date","input":"%^P","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/104","result":"AM"}}
+{"request":{"name":"date/105","kind":"date","input":"%^EP","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/105","result":"AM"}}
+{"request":{"name":"date/106","kind":"date","input":"%#P","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/106","result":"am"}}
+{"request":{"name":"date/107","kind":"date","input":"%#EP","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/107","result":"am"}}
+{"request":{"name":"date/108","kind":"date","input":"%p","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/108","result":"AM"}}
+{"request":{"name":"date/109","kind":"date","input":"%Ep","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/109","result":"AM"}}
+{"request":{"name":"date/110","kind":"date","input":"%_p","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/110","result":"AM"}}
+{"request":{"name":"date/111","kind":"date","input":"%_Ep","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/111","result":"AM"}}
+{"request":{"name":"date/112","kind":"date","input":"%-p","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/112","result":"AM"}}
+{"request":{"name":"date/113","kind":"date","input":"%-Ep","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/113","result":"AM"}}
+{"request":{"name":"date/114","kind":"date","input":"%0p","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/114","result":"AM"}}
+{"request":{"name":"date/115","kind":"date","input":"%0Ep","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/115","result":"AM"}}
+{"request":{"name":"date/116","kind":"date","input":"%^p","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/116","result":"AM"}}
+{"request":{"name":"date/117","kind":"date","input":"%^Ep","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/117","result":"AM"}}
+{"request":{"name":"date/118","kind":"date","input":"%#p","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/118","result":"am"}}
+{"request":{"name":"date/119","kind":"date","input":"%#Ep","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/119","result":"am"}}
+{"request":{"name":"date/120","kind":"date","input":"%H","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/120","result":"00"}}
+{"request":{"name":"date/121","kind":"date","input":"%EH","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/121","result":"00"}}
+{"request":{"name":"date/122","kind":"date","input":"%_H","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/122","result":" 0"}}
+{"request":{"name":"date/123","kind":"date","input":"%_EH","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/123","result":" 0"}}
+{"request":{"name":"date/124","kind":"date","input":"%-H","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/124","result":"0"}}
+{"request":{"name":"date/125","kind":"date","input":"%-EH","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/125","result":"0"}}
+{"request":{"name":"date/126","kind":"date","input":"%0H","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/126","result":"00"}}
+{"request":{"name":"date/127","kind":"date","input":"%0EH","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/127","result":"00"}}
+{"request":{"name":"date/128","kind":"date","input":"%^H","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/128","result":"00"}}
+{"request":{"name":"date/129","kind":"date","input":"%^EH","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/129","result":"00"}}
+{"request":{"name":"date/130","kind":"date","input":"%#H","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/130","result":"00"}}
+{"request":{"name":"date/131","kind":"date","input":"%#EH","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/131","result":"00"}}
+{"request":{"name":"date/132","kind":"date","input":"%I","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/132","result":"12"}}
+{"request":{"name":"date/133","kind":"date","input":"%EI","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/133","result":"12"}}
+{"request":{"name":"date/134","kind":"date","input":"%_I","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/134","result":"12"}}
+{"request":{"name":"date/135","kind":"date","input":"%_EI","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/135","result":"12"}}
+{"request":{"name":"date/136","kind":"date","input":"%-I","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/136","result":"12"}}
+{"request":{"name":"date/137","kind":"date","input":"%-EI","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/137","result":"12"}}
+{"request":{"name":"date/138","kind":"date","input":"%0I","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/138","result":"12"}}
+{"request":{"name":"date/139","kind":"date","input":"%0EI","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/139","result":"12"}}
+{"request":{"name":"date/140","kind":"date","input":"%^I","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/140","result":"12"}}
+{"request":{"name":"date/141","kind":"date","input":"%^EI","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/141","result":"12"}}
+{"request":{"name":"date/142","kind":"date","input":"%#I","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/142","result":"12"}}
+{"request":{"name":"date/143","kind":"date","input":"%#EI","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/143","result":"12"}}
+{"request":{"name":"date/144","kind":"date","input":"%k","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/144","result":" 0"}}
+{"request":{"name":"date/145","kind":"date","input":"%Ek","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/145","result":" 0"}}
+{"request":{"name":"date/146","kind":"date","input":"%_k","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/146","result":" 0"}}
+{"request":{"name":"date/147","kind":"date","input":"%_Ek","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/147","result":" 0"}}
+{"request":{"name":"date/148","kind":"date","input":"%-k","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/148","result":"0"}}
+{"request":{"name":"date/149","kind":"date","input":"%-Ek","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/149","result":"0"}}
+{"request":{"name":"date/150","kind":"date","input":"%0k","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/150","result":"00"}}
+{"request":{"name":"date/151","kind":"date","input":"%0Ek","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/151","result":"00"}}
+{"request":{"name":"date/152","kind":"date","input":"%^k","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/152","result":" 0"}}
+{"request":{"name":"date/153","kind":"date","input":"%^Ek","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/153","result":" 0"}}
+{"request":{"name":"date/154","kind":"date","input":"%#k","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/154","result":" 0"}}
+{"request":{"name":"date/155","kind":"date","input":"%#Ek","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/155","result":" 0"}}
+{"request":{"name":"date/156","kind":"date","input":"%l","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/156","result":"12"}}
+{"request":{"name":"date/157","kind":"date","input":"%El","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/157","result":"12"}}
+{"request":{"name":"date/158","kind":"date","input":"%_l","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/158","result":"12"}}
+{"request":{"name":"date/159","kind":"date","input":"%_El","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/159","result":"12"}}
+{"request":{"name":"date/160","kind":"date","input":"%-l","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/160","result":"12"}}
+{"request":{"name":"date/161","kind":"date","input":"%-El","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/161","result":"12"}}
+{"request":{"name":"date/162","kind":"date","input":"%0l","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/162","result":"12"}}
+{"request":{"name":"date/163","kind":"date","input":"%0El","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/163","result":"12"}}
+{"request":{"name":"date/164","kind":"date","input":"%^l","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/164","result":"12"}}
+{"request":{"name":"date/165","kind":"date","input":"%^El","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/165","result":"12"}}
+{"request":{"name":"date/166","kind":"date","input":"%#l","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/166","result":"12"}}
+{"request":{"name":"date/167","kind":"date","input":"%#El","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/167","result":"12"}}
+{"request":{"name":"date/168","kind":"date","input":"%M","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/168","result":"00"}}
+{"request":{"name":"date/169","kind":"date","input":"%EM","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/169","result":"00"}}
+{"request":{"name":"date/170","kind":"date","input":"%_M","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/170","result":" 0"}}
+{"request":{"name":"date/171","kind":"date","input":"%_EM","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/171","result":" 0"}}
+{"request":{"name":"date/172","kind":"date","input":"%-M","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/172","result":"0"}}
+{"request":{"name":"date/173","kind":"date","input":"%-EM","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/173","result":"0"}}
+{"request":{"name":"date/174","kind":"date","input":"%0M","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/174","result":"00"}}
+{"request":{"name":"date/175","kind":"date","input":"%0EM","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/175","result":"00"}}
+{"request":{"name":"date/176","kind":"date","input":"%^M","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/176","result":"00"}}
+{"request":{"name":"date/177","kind":"date","input":"%^EM","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/177","result":"00"}}
+{"request":{"name":"date/178","kind":"date","input":"%#M","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/178","result":"00"}}
+{"request":{"name":"date/179","kind":"date","input":"%#EM","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/179","result":"00"}}
+{"request":{"name":"date/180","kind":"date","input":"%S","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/180","result":"00"}}
+{"request":{"name":"date/181","kind":"date","input":"%ES","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/181","result":"00"}}
+{"request":{"name":"date/182","kind":"date","input":"%_S","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/182","result":" 0"}}
+{"request":{"name":"date/183","kind":"date","input":"%_ES","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/183","result":" 0"}}
+{"request":{"name":"date/184","kind":"date","input":"%-S","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/184","result":"0"}}
+{"request":{"name":"date/185","kind":"date","input":"%-ES","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/185","result":"0"}}
+{"request":{"name":"date/186","kind":"date","input":"%0S","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/186","result":"00"}}
+{"request":{"name":"date/187","kind":"date","input":"%0ES","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/187","result":"00"}}
+{"request":{"name":"date/188","kind":"date","input":"%^S","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/188","result":"00"}}
+{"request":{"name":"date/189","kind":"date","input":"%^ES","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/189","result":"00"}}
+{"request":{"name":"date/190","kind":"date","input":"%#S","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/190","result":"00"}}
+{"request":{"name":"date/191","kind":"date","input":"%#ES","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/191","result":"00"}}
+{"request":{"name":"date/192","kind":"date","input":"%q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/192","result":"000000000000"}}
+{"request":{"name":"date/193","kind":"date","input":"%Eq","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/193","result":"000000000000"}}
+{"request":{"name":"date/194","kind":"date","input":"%_q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/194","result":"            "}}
+{"request":{"name":"date/195","kind":"date","input":"%_Eq","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/195","result":"            "}}
+{"request":{"name":"date/196","kind":"date","input":"%-q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/196","result":""}}
+{"request":{"name":"date/197","kind":"date","input":"%-Eq","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/197","result":""}}
+{"request":{"name":"date/198","kind":"date","input":"%0q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/198","result":"000000000000"}}
+{"request":{"name":"date/199","kind":"date","input":"%0Eq","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/199","result":"000000000000"}}
+{"request":{"name":"date/200","kind":"date","input":"%^q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/200","result":"000000000000"}}
+{"request":{"name":"date/201","kind":"date","input":"%^Eq","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/201","result":"000000000000"}}
+{"request":{"name":"date/202","kind":"date","input":"%#q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/202","result":"000000000000"}}
+{"request":{"name":"date/203","kind":"date","input":"%#Eq","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/203","result":"000000000000"}}
+{"request":{"name":"date/204","kind":"date","input":"%Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/204","result":""}}
+{"request":{"name":"date/205","kind":"date","input":"%EQ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/205","result":""}}
+{"request":{"name":"date/206","kind":"date","input":"%_Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/206","result":".            "}}
+{"request":{"name":"date/207","kind":"date","input":"%_EQ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/207","result":".            "}}
+{"request":{"name":"date/208","kind":"date","input":"%-Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/208","result":""}}
+{"request":{"name":"date/209","kind":"date","input":"%-EQ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/209","result":""}}
+{"request":{"name":"date/210","kind":"date","input":"%0Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/210","result":".000000000000"}}
+{"request":{"name":"date/211","kind":"date","input":"%0EQ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/211","result":".000000000000"}}
+{"request":{"name":"date/212","kind":"date","input":"%^Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/212","result":""}}
+{"request":{"name":"date/213","kind":"date","input":"%^EQ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/213","result":""}}
+{"request":{"name":"date/214","kind":"date","input":"%#Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/214","result":""}}
+{"request":{"name":"date/215","kind":"date","input":"%#EQ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/215","result":""}}
+{"request":{"name":"date/216","kind":"date","input":"%s","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/216","result":"0"}}
+{"request":{"name":"date/217","kind":"date","input":"%Es","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/217","result":"0"}}
+{"request":{"name":"date/218","kind":"date","input":"%_s","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/218","result":"0"}}
+{"request":{"name":"date/219","kind":"date","input":"%_Es","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/219","result":"0"}}
+{"request":{"name":"date/220","kind":"date","input":"%-s","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/220","result":"0"}}
+{"request":{"name":"date/221","kind":"date","input":"%-Es","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/221","result":"0"}}
+{"request":{"name":"date/222","kind":"date","input":"%0s","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/222","result":"0"}}
+{"request":{"name":"date/223","kind":"date","input":"%0Es","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/223","result":"0"}}
+{"request":{"name":"date/224","kind":"date","input":"%^s","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/224","result":"0"}}
+{"request":{"name":"date/225","kind":"date","input":"%^Es","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/225","result":"0"}}
+{"request":{"name":"date/226","kind":"date","input":"%#s","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/226","result":"0"}}
+{"request":{"name":"date/227","kind":"date","input":"%#Es","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/227","result":"0"}}
+{"request":{"name":"date/228","kind":"date","input":"%z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/228","result":"+0000"}}
+{"request":{"name":"date/229","kind":"date","input":"%Ez","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/229","result":"+00:00"}}
+{"request":{"name":"date/230","kind":"date","input":"%_z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/230","result":"+   0"}}
+{"request":{"name":"date/231","kind":"date","input":"%_Ez","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/231","result":"+ 0:00"}}
+{"request":{"name":"date/232","kind":"date","input":"%-z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/232","result":"+0"}}
+{"request":{"name":"date/233","kind":"date","input":"%-Ez","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/233","result":"+0:00"}}
+{"request":{"name":"date/234","kind":"date","input":"%0z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/234","result":"+0000"}}
+{"request":{"name":"date/235","kind":"date","input":"%0Ez","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/235","result":"+00:00"}}
+{"request":{"name":"date/236","kind":"date","input":"%^z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/236","result":"+0000"}}
+{"request":{"name":"date/237","kind":"date","input":"%^Ez","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/237","result":"+00:00"}}
+{"request":{"name":"date/238","kind":"date","input":"%#z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/238","result":"+0000"}}
+{"request":{"name":"date/239","kind":"date","input":"%#Ez","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/239","result":"+00:00"}}
+{"request":{"name":"date/240","kind":"date","input":"%Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/240","result":"UTC"}}
+{"request":{"name":"date/241","kind":"date","input":"%EZ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/241","result":"UTC"}}
+{"request":{"name":"date/242","kind":"date","input":"%_Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/242","result":"UTC"}}
+{"request":{"name":"date/243","kind":"date","input":"%_EZ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/243","result":"UTC"}}
+{"request":{"name":"date/244","kind":"date","input":"%-Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/244","result":"UTC"}}
+{"request":{"name":"date/245","kind":"date","input":"%-EZ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/245","result":"UTC"}}
+{"request":{"name":"date/246","kind":"date","input":"%0Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/246","result":"UTC"}}
+{"request":{"name":"date/247","kind":"date","input":"%0EZ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/247","result":"UTC"}}
+{"request":{"name":"date/248","kind":"date","input":"%^Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/248","result":"UTC"}}
+{"request":{"name":"date/249","kind":"date","input":"%^EZ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/249","result":"UTC"}}
+{"request":{"name":"date/250","kind":"date","input":"%#Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/250","result":"utc"}}
+{"request":{"name":"date/251","kind":"date","input":"%#EZ","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/251","result":"utc"}}
+{"request":{"name":"date/252","kind":"date","input":"%u","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/252","result":"4"}}
+{"request":{"name":"date/253","kind":"date","input":"%Eu","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/253","result":"4"}}
+{"request":{"name":"date/254","kind":"date","input":"%_u","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/254","result":"4"}}
+{"request":{"name":"date/255","kind":"date","input":"%_Eu","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/255","result":"4"}}
+{"request":{"name":"date/256","kind":"date","input":"%-u","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/256","result":"4"}}
+{"request":{"name":"date/257","kind":"date","input":"%-Eu","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/257","result":"4"}}
+{"request":{"name":"date/258","kind":"date","input":"%0u","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/258","result":"4"}}
+{"request":{"name":"date/259","kind":"date","input":"%0Eu","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/259","result":"4"}}
+{"request":{"name":"date/260","kind":"date","input":"%^u","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/260","result":"4"}}
+{"request":{"name":"date/261","kind":"date","input":"%^Eu","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/261","result":"4"}}
+{"request":{"name":"date/262","kind":"date","input":"%#u","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/262","result":"4"}}
+{"request":{"name":"date/263","kind":"date","input":"%#Eu","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/263","result":"4"}}
+{"request":{"name":"date/264","kind":"date","input":"%w","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/264","result":"4"}}
+{"request":{"name":"date/265","kind":"date","input":"%Ew","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/265","result":"4"}}
+{"request":{"name":"date/266","kind":"date","input":"%_w","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/266","result":"4"}}
+{"request":{"name":"date/267","kind":"date","input":"%_Ew","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/267","result":"4"}}
+{"request":{"name":"date/268","kind":"date","input":"%-w","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/268","result":"4"}}
+{"request":{"name":"date/269","kind":"date","input":"%-Ew","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/269","result":"4"}}
+{"request":{"name":"date/270","kind":"date","input":"%0w","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/270","result":"4"}}
+{"request":{"name":"date/271","kind":"date","input":"%0Ew","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/271","result":"4"}}
+{"request":{"name":"date/272","kind":"date","input":"%^w","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/272","result":"4"}}
+{"request":{"name":"date/273","kind":"date","input":"%^Ew","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/273","result":"4"}}
+{"request":{"name":"date/274","kind":"date","input":"%#w","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/274","result":"4"}}
+{"request":{"name":"date/275","kind":"date","input":"%#Ew","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/275","result":"4"}}
+{"request":{"name":"date/276","kind":"date","input":"%a","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/276","result":"Thu"}}
+{"request":{"name":"date/277","kind":"date","input":"%Ea","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/277","result":"Thu"}}
+{"request":{"name":"date/278","kind":"date","input":"%_a","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/278","result":"Thu"}}
+{"request":{"name":"date/279","kind":"date","input":"%_Ea","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/279","result":"Thu"}}
+{"request":{"name":"date/280","kind":"date","input":"%-a","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/280","result":"Thu"}}
+{"request":{"name":"date/281","kind":"date","input":"%-Ea","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/281","result":"Thu"}}
+{"request":{"name":"date/282","kind":"date","input":"%0a","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/282","result":"Thu"}}
+{"request":{"name":"date/283","kind":"date","input":"%0Ea","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/283","result":"Thu"}}
+{"request":{"name":"date/284","kind":"date","input":"%^a","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/284","result":"THU"}}
+{"request":{"name":"date/285","kind":"date","input":"%^Ea","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/285","result":"THU"}}
+{"request":{"name":"date/286","kind":"date","input":"%#a","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/286","result":"thu"}}
+{"request":{"name":"date/287","kind":"date","input":"%#Ea","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/287","result":"thu"}}
+{"request":{"name":"date/288","kind":"date","input":"%A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/288","result":"Thursday"}}
+{"request":{"name":"date/289","kind":"date","input":"%EA","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/289","result":"Thursday"}}
+{"request":{"name":"date/290","kind":"date","input":"%_A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/290","result":"Thursday"}}
+{"request":{"name":"date/291","kind":"date","input":"%_EA","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/291","result":"Thursday"}}
+{"request":{"name":"date/292","kind":"date","input":"%-A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/292","result":"Thursday"}}
+{"request":{"name":"date/293","kind":"date","input":"%-EA","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/293","result":"Thursday"}}
+{"request":{"name":"date/294","kind":"date","input":"%0A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/294","result":"Thursday"}}
+{"request":{"name":"date/295","kind":"date","input":"%0EA","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/295","result":"Thursday"}}
+{"request":{"name":"date/296","kind":"date","input":"%^A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/296","result":"THURSDAY"}}
+{"request":{"name":"date/297","kind":"date","input":"%^EA","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/297","result":"THURSDAY"}}
+{"request":{"name":"date/298","kind":"date","input":"%#A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/298","result":"thursday"}}
+{"request":{"name":"date/299","kind":"date","input":"%#EA","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/299","result":"thursday"}}
+{"request":{"name":"date/300","kind":"date","input":"%Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/300","result":"1970"}}
+{"request":{"name":"date/301","kind":"date","input":"%EY","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/301","result":"1970"}}
+{"request":{"name":"date/302","kind":"date","input":"%_Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/302","result":"1970"}}
+{"request":{"name":"date/303","kind":"date","input":"%_EY","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/303","result":"1970"}}
+{"request":{"name":"date/304","kind":"date","input":"%-Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/304","result":"1970"}}
+{"request":{"name":"date/305","kind":"date","input":"%-EY","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/305","result":"1970"}}
+{"request":{"name":"date/306","kind":"date","input":"%0Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/306","result":"1970"}}
+{"request":{"name":"date/307","kind":"date","input":"%0EY","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/307","result":"1970"}}
+{"request":{"name":"date/308","kind":"date","input":"%^Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/308","result":"1970"}}
+{"request":{"name":"date/309","kind":"date","input":"%^EY","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/309","result":"1970"}}
+{"request":{"name":"date/310","kind":"date","input":"%#Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/310","result":"1970"}}
+{"request":{"name":"date/311","kind":"date","input":"%#EY","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/311","result":"1970"}}
+{"request":{"name":"date/312","kind":"date","input":"%y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/312","result":"70"}}
+{"request":{"name":"date/313","kind":"date","input":"%Ey","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/313","result":"70"}}
+{"request":{"name":"date/314","kind":"date","input":"%_y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/314","result":"70"}}
+{"request":{"name":"date/315","kind":"date","input":"%_Ey","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/315","result":"70"}}
+{"request":{"name":"date/316","kind":"date","input":"%-y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/316","result":"70"}}
+{"request":{"name":"date/317","kind":"date","input":"%-Ey","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/317","result":"70"}}
+{"request":{"name":"date/318","kind":"date","input":"%0y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/318","result":"70"}}
+{"request":{"name":"date/319","kind":"date","input":"%0Ey","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/319","result":"70"}}
+{"request":{"name":"date/320","kind":"date","input":"%^y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/320","result":"70"}}
+{"request":{"name":"date/321","kind":"date","input":"%^Ey","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/321","result":"70"}}
+{"request":{"name":"date/322","kind":"date","input":"%#y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/322","result":"70"}}
+{"request":{"name":"date/323","kind":"date","input":"%#Ey","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/323","result":"70"}}
+{"request":{"name":"date/324","kind":"date","input":"%C","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/324","result":"19"}}
+{"request":{"name":"date/325","kind":"date","input":"%EC","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/325","result":"19"}}
+{"request":{"name":"date/326","kind":"date","input":"%_C","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/326","result":"19"}}
+{"request":{"name":"date/327","kind":"date","input":"%_EC","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/327","result":"19"}}
+{"request":{"name":"date/328","kind":"date","input":"%-C","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/328","result":"19"}}
+{"request":{"name":"date/329","kind":"date","input":"%-EC","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/329","result":"19"}}
+{"request":{"name":"date/330","kind":"date","input":"%0C","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/330","result":"19"}}
+{"request":{"name":"date/331","kind":"date","input":"%0EC","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/331","result":"19"}}
+{"request":{"name":"date/332","kind":"date","input":"%^C","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/332","result":"19"}}
+{"request":{"name":"date/333","kind":"date","input":"%^EC","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/333","result":"19"}}
+{"request":{"name":"date/334","kind":"date","input":"%#C","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/334","result":"19"}}
+{"request":{"name":"date/335","kind":"date","input":"%#EC","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/335","result":"19"}}
+{"request":{"name":"date/336","kind":"date","input":"%B","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/336","result":"January"}}
+{"request":{"name":"date/337","kind":"date","input":"%EB","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/337","result":"January"}}
+{"request":{"name":"date/338","kind":"date","input":"%_B","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/338","result":"January"}}
+{"request":{"name":"date/339","kind":"date","input":"%_EB","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/339","result":"January"}}
+{"request":{"name":"date/340","kind":"date","input":"%-B","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/340","result":"January"}}
+{"request":{"name":"date/341","kind":"date","input":"%-EB","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/341","result":"January"}}
+{"request":{"name":"date/342","kind":"date","input":"%0B","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/342","result":"January"}}
+{"request":{"name":"date/343","kind":"date","input":"%0EB","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/343","result":"January"}}
+{"request":{"name":"date/344","kind":"date","input":"%^B","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/344","result":"JANUARY"}}
+{"request":{"name":"date/345","kind":"date","input":"%^EB","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/345","result":"JANUARY"}}
+{"request":{"name":"date/346","kind":"date","input":"%#B","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/346","result":"january"}}
+{"request":{"name":"date/347","kind":"date","input":"%#EB","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/347","result":"january"}}
+{"request":{"name":"date/348","kind":"date","input":"%b","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/348","result":"Jan"}}
+{"request":{"name":"date/349","kind":"date","input":"%Eb","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/349","result":"Jan"}}
+{"request":{"name":"date/350","kind":"date","input":"%_b","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/350","result":"Jan"}}
+{"request":{"name":"date/351","kind":"date","input":"%_Eb","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/351","result":"Jan"}}
+{"request":{"name":"date/352","kind":"date","input":"%-b","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/352","result":"Jan"}}
+{"request":{"name":"date/353","kind":"date","input":"%-Eb","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/353","result":"Jan"}}
+{"request":{"name":"date/354","kind":"date","input":"%0b","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/354","result":"Jan"}}
+{"request":{"name":"date/355","kind":"date","input":"%0Eb","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/355","result":"Jan"}}
+{"request":{"name":"date/356","kind":"date","input":"%^b","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/356","result":"JAN"}}
+{"request":{"name":"date/357","kind":"date","input":"%^Eb","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/357","result":"JAN"}}
+{"request":{"name":"date/358","kind":"date","input":"%#b","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/358","result":"jan"}}
+{"request":{"name":"date/359","kind":"date","input":"%#Eb","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/359","result":"jan"}}
+{"request":{"name":"date/360","kind":"date","input":"%h","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/360","result":"Jan"}}
+{"request":{"name":"date/361","kind":"date","input":"%Eh","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/361","result":"Jan"}}
+{"request":{"name":"date/362","kind":"date","input":"%_h","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/362","result":"Jan"}}
+{"request":{"name":"date/363","kind":"date","input":"%_Eh","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/363","result":"Jan"}}
+{"request":{"name":"date/364","kind":"date","input":"%-h","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/364","result":"Jan"}}
+{"request":{"name":"date/365","kind":"date","input":"%-Eh","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/365","result":"Jan"}}
+{"request":{"name":"date/366","kind":"date","input":"%0h","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/366","result":"Jan"}}
+{"request":{"name":"date/367","kind":"date","input":"%0Eh","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/367","result":"Jan"}}
+{"request":{"name":"date/368","kind":"date","input":"%^h","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/368","result":"JAN"}}
+{"request":{"name":"date/369","kind":"date","input":"%^Eh","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/369","result":"JAN"}}
+{"request":{"name":"date/370","kind":"date","input":"%#h","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/370","result":"jan"}}
+{"request":{"name":"date/371","kind":"date","input":"%#Eh","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/371","result":"jan"}}
+{"request":{"name":"date/372","kind":"date","input":"%m","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/372","result":"01"}}
+{"request":{"name":"date/373","kind":"date","input":"%Em","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/373","result":"01"}}
+{"request":{"name":"date/374","kind":"date","input":"%_m","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/374","result":" 1"}}
+{"request":{"name":"date/375","kind":"date","input":"%_Em","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/375","result":" 1"}}
+{"request":{"name":"date/376","kind":"date","input":"%-m","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/376","result":"1"}}
+{"request":{"name":"date/377","kind":"date","input":"%-Em","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/377","result":"1"}}
+{"request":{"name":"date/378","kind":"date","input":"%0m","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/378","result":"01"}}
+{"request":{"name":"date/379","kind":"date","input":"%0Em","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/379","result":"01"}}
+{"request":{"name":"date/380","kind":"date","input":"%^m","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/380","result":"01"}}
+{"request":{"name":"date/381","kind":"date","input":"%^Em","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/381","result":"01"}}
+{"request":{"name":"date/382","kind":"date","input":"%#m","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/382","result":"01"}}
+{"request":{"name":"date/383","kind":"date","input":"%#Em","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/383","result":"01"}}
+{"request":{"name":"date/384","kind":"date","input":"%d","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/384","result":"01"}}
+{"request":{"name":"date/385","kind":"date","input":"%Ed","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/385","result":"01"}}
+{"request":{"name":"date/386","kind":"date","input":"%_d","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/386","result":" 1"}}
+{"request":{"name":"date/387","kind":"date","input":"%_Ed","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/387","result":" 1"}}
+{"request":{"name":"date/388","kind":"date","input":"%-d","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/388","result":"1"}}
+{"request":{"name":"date/389","kind":"date","input":"%-Ed","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/389","result":"1"}}
+{"request":{"name":"date/390","kind":"date","input":"%0d","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/390","result":"01"}}
+{"request":{"name":"date/391","kind":"date","input":"%0Ed","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/391","result":"01"}}
+{"request":{"name":"date/392","kind":"date","input":"%^d","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/392","result":"01"}}
+{"request":{"name":"date/393","kind":"date","input":"%^Ed","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/393","result":"01"}}
+{"request":{"name":"date/394","kind":"date","input":"%#d","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/394","result":"01"}}
+{"request":{"name":"date/395","kind":"date","input":"%#Ed","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/395","result":"01"}}
+{"request":{"name":"date/396","kind":"date","input":"%D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/396","result":"01/01/70"}}
+{"request":{"name":"date/397","kind":"date","input":"%ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/397","result":"01/01/70"}}
+{"request":{"name":"date/398","kind":"date","input":"%_D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/398","result":"01/01/70"}}
+{"request":{"name":"date/399","kind":"date","input":"%_ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/399","result":"01/01/70"}}
+{"request":{"name":"date/400","kind":"date","input":"%-D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/400","result":"01/01/70"}}
+{"request":{"name":"date/401","kind":"date","input":"%-ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/401","result":"01/01/70"}}
+{"request":{"name":"date/402","kind":"date","input":"%0D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/402","result":"01/01/70"}}
+{"request":{"name":"date/403","kind":"date","input":"%0ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/403","result":"01/01/70"}}
+{"request":{"name":"date/404","kind":"date","input":"%^D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/404","result":"01/01/70"}}
+{"request":{"name":"date/405","kind":"date","input":"%^ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/405","result":"01/01/70"}}
+{"request":{"name":"date/406","kind":"date","input":"%#D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/406","result":"01/01/70"}}
+{"request":{"name":"date/407","kind":"date","input":"%#ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/407","result":"01/01/70"}}
+{"request":{"name":"date/408","kind":"date","input":"%e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/408","result":" 1"}}
+{"request":{"name":"date/409","kind":"date","input":"%Ee","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/409","result":" 1"}}
+{"request":{"name":"date/410","kind":"date","input":"%_e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/410","result":" 1"}}
+{"request":{"name":"date/411","kind":"date","input":"%_Ee","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/411","result":" 1"}}
+{"request":{"name":"date/412","kind":"date","input":"%-e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/412","result":"1"}}
+{"request":{"name":"date/413","kind":"date","input":"%-Ee","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/413","result":"1"}}
+{"request":{"name":"date/414","kind":"date","input":"%0e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/414","result":"01"}}
+{"request":{"name":"date/415","kind":"date","input":"%0Ee","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/415","result":"01"}}
+{"request":{"name":"date/416","kind":"date","input":"%^e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/416","result":" 1"}}
+{"request":{"name":"date/417","kind":"date","input":"%^Ee","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/417","result":" 1"}}
+{"request":{"name":"date/418","kind":"date","input":"%#e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/418","result":" 1"}}
+{"request":{"name":"date/419","kind":"date","input":"%#Ee","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/419","result":" 1"}}
+{"request":{"name":"date/420","kind":"date","input":"%j","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/420","result":"001"}}
+{"request":{"name":"date/421","kind":"date","input":"%Ej","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/421","result":"001"}}
+{"request":{"name":"date/422","kind":"date","input":"%_j","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/422","result":"  1"}}
+{"request":{"name":"date/423","kind":"date","input":"%_Ej","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/423","result":"  1"}}
+{"request":{"name":"date/424","kind":"date","input":"%-j","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/424","result":"1"}}
+{"request":{"name":"date/425","kind":"date","input":"%-Ej","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/425","result":"1"}}
+{"request":{"name":"date/426","kind":"date","input":"%0j","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/426","result":"001"}}
+{"request":{"name":"date/427","kind":"date","input":"%0Ej","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/427","result":"001"}}
+{"request":{"name":"date/428","kind":"date","input":"%^j","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/428","result":"001"}}
+{"request":{"name":"date/429","kind":"date","input":"%^Ej","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/429","result":"001"}}
+{"request":{"name":"date/430","kind":"date","input":"%#j","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/430","result":"001"}}
+{"request":{"name":"date/431","kind":"date","input":"%#Ej","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/431","result":"001"}}
+{"request":{"name":"date/432","kind":"date","input":"%G","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/432","result":"1970"}}
+{"request":{"name":"date/433","kind":"date","input":"%EG","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/433","result":"1970"}}
+{"request":{"name":"date/434","kind":"date","input":"%_G","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/434","result":"1970"}}
+{"request":{"name":"date/435","kind":"date","input":"%_EG","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/435","result":"1970"}}
+{"request":{"name":"date/436","kind":"date","input":"%-G","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/436","result":"1970"}}
+{"request":{"name":"date/437","kind":"date","input":"%-EG","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/437","result":"1970"}}
+{"request":{"name":"date/438","kind":"date","input":"%0G","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/438","result":"1970"}}
+{"request":{"name":"date/439","kind":"date","input":"%0EG","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/439","result":"1970"}}
+{"request":{"name":"date/440","kind":"date","input":"%^G","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/440","result":"1970"}}
+{"request":{"name":"date/441","kind":"date","input":"%^EG","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/441","result":"1970"}}
+{"request":{"name":"date/442","kind":"date","input":"%#G","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/442","result":"1970"}}
+{"request":{"name":"date/443","kind":"date","input":"%#EG","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/443","result":"1970"}}
+{"request":{"name":"date/444","kind":"date","input":"%g","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/444","result":"70"}}
+{"request":{"name":"date/445","kind":"date","input":"%Eg","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/445","result":"70"}}
+{"request":{"name":"date/446","kind":"date","input":"%_g","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/446","result":"70"}}
+{"request":{"name":"date/447","kind":"date","input":"%_Eg","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/447","result":"70"}}
+{"request":{"name":"date/448","kind":"date","input":"%-g","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/448","result":"70"}}
+{"request":{"name":"date/449","kind":"date","input":"%-Eg","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/449","result":"70"}}
+{"request":{"name":"date/450","kind":"date","input":"%0g","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/450","result":"70"}}
+{"request":{"name":"date/451","kind":"date","input":"%0Eg","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/451","result":"70"}}
+{"request":{"name":"date/452","kind":"date","input":"%^g","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/452","result":"70"}}
+{"request":{"name":"date/453","kind":"date","input":"%^Eg","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/453","result":"70"}}
+{"request":{"name":"date/454","kind":"date","input":"%#g","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/454","result":"70"}}
+{"request":{"name":"date/455","kind":"date","input":"%#Eg","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/455","result":"70"}}
+{"request":{"name":"date/456","kind":"date","input":"%f","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/456","result":"19"}}
+{"request":{"name":"date/457","kind":"date","input":"%Ef","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/457","result":"19"}}
+{"request":{"name":"date/458","kind":"date","input":"%_f","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/458","result":"19"}}
+{"request":{"name":"date/459","kind":"date","input":"%_Ef","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/459","result":"19"}}
+{"request":{"name":"date/460","kind":"date","input":"%-f","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/460","result":"19"}}
+{"request":{"name":"date/461","kind":"date","input":"%-Ef","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/461","result":"19"}}
+{"request":{"name":"date/462","kind":"date","input":"%0f","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/462","result":"19"}}
+{"request":{"name":"date/463","kind":"date","input":"%0Ef","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/463","result":"19"}}
+{"request":{"name":"date/464","kind":"date","input":"%^f","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/464","result":"19"}}
+{"request":{"name":"date/465","kind":"date","input":"%^Ef","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/465","result":"19"}}
+{"request":{"name":"date/466","kind":"date","input":"%#f","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/466","result":"19"}}
+{"request":{"name":"date/467","kind":"date","input":"%#Ef","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/467","result":"19"}}
+{"request":{"name":"date/468","kind":"date","input":"%V","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/468","result":"01"}}
+{"request":{"name":"date/469","kind":"date","input":"%EV","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/469","result":"01"}}
+{"request":{"name":"date/470","kind":"date","input":"%_V","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/470","result":" 1"}}
+{"request":{"name":"date/471","kind":"date","input":"%_EV","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/471","result":" 1"}}
+{"request":{"name":"date/472","kind":"date","input":"%-V","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/472","result":"1"}}
+{"request":{"name":"date/473","kind":"date","input":"%-EV","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/473","result":"1"}}
+{"request":{"name":"date/474","kind":"date","input":"%0V","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/474","result":"01"}}
+{"request":{"name":"date/475","kind":"date","input":"%0EV","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/475","result":"01"}}
+{"request":{"name":"date/476","kind":"date","input":"%^V","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/476","result":"01"}}
+{"request":{"name":"date/477","kind":"date","input":"%^EV","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/477","result":"01"}}
+{"request":{"name":"date/478","kind":"date","input":"%#V","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/478","result":"01"}}
+{"request":{"name":"date/479","kind":"date","input":"%#EV","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/479","result":"01"}}
+{"request":{"name":"date/480","kind":"date","input":"%U","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/480","result":"00"}}
+{"request":{"name":"date/481","kind":"date","input":"%EU","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/481","result":"00"}}
+{"request":{"name":"date/482","kind":"date","input":"%_U","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/482","result":" 0"}}
+{"request":{"name":"date/483","kind":"date","input":"%_EU","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/483","result":" 0"}}
+{"request":{"name":"date/484","kind":"date","input":"%-U","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/484","result":"0"}}
+{"request":{"name":"date/485","kind":"date","input":"%-EU","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/485","result":"0"}}
+{"request":{"name":"date/486","kind":"date","input":"%0U","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/486","result":"00"}}
+{"request":{"name":"date/487","kind":"date","input":"%0EU","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/487","result":"00"}}
+{"request":{"name":"date/488","kind":"date","input":"%^U","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/488","result":"00"}}
+{"request":{"name":"date/489","kind":"date","input":"%^EU","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/489","result":"00"}}
+{"request":{"name":"date/490","kind":"date","input":"%#U","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/490","result":"00"}}
+{"request":{"name":"date/491","kind":"date","input":"%#EU","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/491","result":"00"}}
+{"request":{"name":"date/492","kind":"date","input":"%W","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/492","result":"00"}}
+{"request":{"name":"date/493","kind":"date","input":"%EW","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/493","result":"00"}}
+{"request":{"name":"date/494","kind":"date","input":"%_W","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/494","result":" 0"}}
+{"request":{"name":"date/495","kind":"date","input":"%_EW","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/495","result":" 0"}}
+{"request":{"name":"date/496","kind":"date","input":"%-W","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/496","result":"0"}}
+{"request":{"name":"date/497","kind":"date","input":"%-EW","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/497","result":"0"}}
+{"request":{"name":"date/498","kind":"date","input":"%0W","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/498","result":"00"}}
+{"request":{"name":"date/499","kind":"date","input":"%0EW","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/499","result":"00"}}
+{"request":{"name":"date/500","kind":"date","input":"%^W","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/500","result":"00"}}
+{"request":{"name":"date/501","kind":"date","input":"%^EW","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/501","result":"00"}}
+{"request":{"name":"date/502","kind":"date","input":"%#W","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/502","result":"00"}}
+{"request":{"name":"date/503","kind":"date","input":"%#EW","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/503","result":"00"}}
+{"request":{"name":"date/504","kind":"date","input":"%D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/504","result":"01/01/70"}}
+{"request":{"name":"date/505","kind":"date","input":"%ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/505","result":"01/01/70"}}
+{"request":{"name":"date/506","kind":"date","input":"%_D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/506","result":"01/01/70"}}
+{"request":{"name":"date/507","kind":"date","input":"%_ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/507","result":"01/01/70"}}
+{"request":{"name":"date/508","kind":"date","input":"%-D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/508","result":"01/01/70"}}
+{"request":{"name":"date/509","kind":"date","input":"%-ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/509","result":"01/01/70"}}
+{"request":{"name":"date/510","kind":"date","input":"%0D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/510","result":"01/01/70"}}
+{"request":{"name":"date/511","kind":"date","input":"%0ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/511","result":"01/01/70"}}
+{"request":{"name":"date/512","kind":"date","input":"%^D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/512","result":"01/01/70"}}
+{"request":{"name":"date/513","kind":"date","input":"%^ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/513","result":"01/01/70"}}
+{"request":{"name":"date/514","kind":"date","input":"%#D","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/514","result":"01/01/70"}}
+{"request":{"name":"date/515","kind":"date","input":"%#ED","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/515","result":"01/01/70"}}
+{"request":{"name":"date/516","kind":"date","input":"%F","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/516","result":"1970-01-01"}}
+{"request":{"name":"date/517","kind":"date","input":"%EF","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/517","result":"1970-01-01"}}
+{"request":{"name":"date/518","kind":"date","input":"%_F","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/518","result":"1970-01-01"}}
+{"request":{"name":"date/519","kind":"date","input":"%_EF","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/519","result":"1970-01-01"}}
+{"request":{"name":"date/520","kind":"date","input":"%-F","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/520","result":"1970-01-01"}}
+{"request":{"name":"date/521","kind":"date","input":"%-EF","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/521","result":"1970-01-01"}}
+{"request":{"name":"date/522","kind":"date","input":"%0F","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/522","result":"1970-01-01"}}
+{"request":{"name":"date/523","kind":"date","input":"%0EF","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/523","result":"1970-01-01"}}
+{"request":{"name":"date/524","kind":"date","input":"%^F","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/524","result":"1970-01-01"}}
+{"request":{"name":"date/525","kind":"date","input":"%^EF","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/525","result":"1970-01-01"}}
+{"request":{"name":"date/526","kind":"date","input":"%#F","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/526","result":"1970-01-01"}}
+{"request":{"name":"date/527","kind":"date","input":"%#EF","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/527","result":"1970-01-01"}}
+{"request":{"name":"date/528","kind":"date","input":"%x","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/528","result":"01/01/70"}}
+{"request":{"name":"date/529","kind":"date","input":"%Ex","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/529","result":"01/01/70"}}
+{"request":{"name":"date/530","kind":"date","input":"%_x","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/530","result":"01/01/70"}}
+{"request":{"name":"date/531","kind":"date","input":"%_Ex","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/531","result":"01/01/70"}}
+{"request":{"name":"date/532","kind":"date","input":"%-x","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/532","result":"01/01/70"}}
+{"request":{"name":"date/533","kind":"date","input":"%-Ex","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/533","result":"01/01/70"}}
+{"request":{"name":"date/534","kind":"date","input":"%0x","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/534","result":"01/01/70"}}
+{"request":{"name":"date/535","kind":"date","input":"%0Ex","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/535","result":"01/01/70"}}
+{"request":{"name":"date/536","kind":"date","input":"%^x","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/536","result":"01/01/70"}}
+{"request":{"name":"date/537","kind":"date","input":"%^Ex","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/537","result":"01/01/70"}}
+{"request":{"name":"date/538","kind":"date","input":"%#x","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/538","result":"01/01/70"}}
+{"request":{"name":"date/539","kind":"date","input":"%#Ex","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/539","result":"01/01/70"}}
+{"request":{"name":"date/540","kind":"date","input":"%0Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/540","result":"1970"}}
+{"request":{"name":"date/541","kind":"date","input":"%1Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/541","result":"1970"}}
+{"request":{"name":"date/542","kind":"date","input":"%3Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/542","result":"1970"}}
+{"request":{"name":"date/543","kind":"date","input":"%14Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/543","result":"00000000001970"}}
+{"request":{"name":"date/544","kind":"date","input":"%-0Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/544","result":"1970"}}
+{"request":{"name":"date/545","kind":"date","input":"%-1Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/545","result":"1970"}}
+{"request":{"name":"date/546","kind":"date","input":"%-3Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/546","result":"1970"}}
+{"request":{"name":"date/547","kind":"date","input":"%-14Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/547","result":"          1970"}}
+{"request":{"name":"date/548","kind":"date","input":"%_0Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/548","result":"1970"}}
+{"request":{"name":"date/549","kind":"date","input":"%_1Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/549","result":"1970"}}
+{"request":{"name":"date/550","kind":"date","input":"%_3Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/550","result":"1970"}}
+{"request":{"name":"date/551","kind":"date","input":"%_14Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/551","result":"          1970"}}
+{"request":{"name":"date/552","kind":"date","input":"%00Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/552","result":"1970"}}
+{"request":{"name":"date/553","kind":"date","input":"%01Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/553","result":"1970"}}
+{"request":{"name":"date/554","kind":"date","input":"%03Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/554","result":"1970"}}
+{"request":{"name":"date/555","kind":"date","input":"%014Y","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/555","result":"00000000001970"}}
+{"request":{"name":"date/556","kind":"date","input":"%0e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/556","result":"01"}}
+{"request":{"name":"date/557","kind":"date","input":"%1e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/557","result":" 1"}}
+{"request":{"name":"date/558","kind":"date","input":"%3e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/558","result":"  1"}}
+{"request":{"name":"date/559","kind":"date","input":"%14e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/559","result":"             1"}}
+{"request":{"name":"date/560","kind":"date","input":"%-0e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/560","result":"1"}}
+{"request":{"name":"date/561","kind":"date","input":"%-1e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/561","result":"1"}}
+{"request":{"name":"date/562","kind":"date","input":"%-3e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/562","result":"  1"}}
+{"request":{"name":"date/563","kind":"date","input":"%-14e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/563","result":"             1"}}
+{"request":{"name":"date/564","kind":"date","input":"%_0e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/564","result":" 1"}}
+{"request":{"name":"date/565","kind":"date","input":"%_1e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/565","result":" 1"}}
+{"request":{"name":"date/566","kind":"date","input":"%_3e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/566","result":"  1"}}
+{"request":{"name":"date/567","kind":"date","input":"%_14e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/567","result":"             1"}}
+{"request":{"name":"date/568","kind":"date","input":"%00e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/568","result":"01"}}
+{"request":{"name":"date/569","kind":"date","input":"%01e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/569","result":"01"}}
+{"request":{"name":"date/570","kind":"date","input":"%03e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/570","result":"001"}}
+{"request":{"name":"date/571","kind":"date","input":"%014e","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/571","result":"00000000000001"}}
+{"request":{"name":"date/572","kind":"date","input":"%0q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/572","result":"000000000000"}}
+{"request":{"name":"date/573","kind":"date","input":"%1q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/573","result":"0"}}
+{"request":{"name":"date/574","kind":"date","input":"%3q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/574","result":"000"}}
+{"request":{"name":"date/575","kind":"date","input":"%14q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/575","result":"00000000000000"}}
+{"request":{"name":"date/576","kind":"date","input":"%-0q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/576","result":""}}
+{"request":{"name":"date/577","kind":"date","input":"%-1q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/577","result":" "}}
+{"request":{"name":"date/578","kind":"date","input":"%-3q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/578","result":"   "}}
+{"request":{"name":"date/579","kind":"date","input":"%-14q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/579","result":"              "}}
+{"request":{"name":"date/580","kind":"date","input":"%_0q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/580","result":""}}
+{"request":{"name":"date/581","kind":"date","input":"%_1q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/581","result":" "}}
+{"request":{"name":"date/582","kind":"date","input":"%_3q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/582","result":"   "}}
+{"request":{"name":"date/583","kind":"date","input":"%_14q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/583","result":"              "}}
+{"request":{"name":"date/584","kind":"date","input":"%00q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/584","result":""}}
+{"request":{"name":"date/585","kind":"date","input":"%01q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/585","result":"0"}}
+{"request":{"name":"date/586","kind":"date","input":"%03q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/586","result":"000"}}
+{"request":{"name":"date/587","kind":"date","input":"%014q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/587","result":"00000000000000"}}
+{"request":{"name":"date/588","kind":"date","input":"%0Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/588","result":".000000000000"}}
+{"request":{"name":"date/589","kind":"date","input":"%1Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/589","result":".0"}}
+{"request":{"name":"date/590","kind":"date","input":"%3Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/590","result":".000"}}
+{"request":{"name":"date/591","kind":"date","input":"%14Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/591","result":".00000000000000"}}
+{"request":{"name":"date/592","kind":"date","input":"%-0Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/592","result":""}}
+{"request":{"name":"date/593","kind":"date","input":"%-1Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/593","result":". "}}
+{"request":{"name":"date/594","kind":"date","input":"%-3Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/594","result":".   "}}
+{"request":{"name":"date/595","kind":"date","input":"%-14Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/595","result":".              "}}
+{"request":{"name":"date/596","kind":"date","input":"%_0Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/596","result":""}}
+{"request":{"name":"date/597","kind":"date","input":"%_1Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/597","result":". "}}
+{"request":{"name":"date/598","kind":"date","input":"%_3Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/598","result":".   "}}
+{"request":{"name":"date/599","kind":"date","input":"%_14Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/599","result":".              "}}
+{"request":{"name":"date/600","kind":"date","input":"%00Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/600","result":""}}
+{"request":{"name":"date/601","kind":"date","input":"%01Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/601","result":".0"}}
+{"request":{"name":"date/602","kind":"date","input":"%03Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/602","result":".000"}}
+{"request":{"name":"date/603","kind":"date","input":"%014Q","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/603","result":".00000000000000"}}
+{"request":{"name":"date/604","kind":"date","input":"%0A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/604","result":"Thursday"}}
+{"request":{"name":"date/605","kind":"date","input":"%1A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/605","result":"Thursday"}}
+{"request":{"name":"date/606","kind":"date","input":"%3A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/606","result":"Thursday"}}
+{"request":{"name":"date/607","kind":"date","input":"%14A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/607","result":"      Thursday"}}
+{"request":{"name":"date/608","kind":"date","input":"%-0A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/608","result":"Thursday"}}
+{"request":{"name":"date/609","kind":"date","input":"%-1A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/609","result":"Thursday"}}
+{"request":{"name":"date/610","kind":"date","input":"%-3A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/610","result":"Thursday"}}
+{"request":{"name":"date/611","kind":"date","input":"%-14A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/611","result":"      Thursday"}}
+{"request":{"name":"date/612","kind":"date","input":"%_0A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/612","result":"Thursday"}}
+{"request":{"name":"date/613","kind":"date","input":"%_1A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/613","result":"Thursday"}}
+{"request":{"name":"date/614","kind":"date","input":"%_3A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/614","result":"Thursday"}}
+{"request":{"name":"date/615","kind":"date","input":"%_14A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/615","result":"      Thursday"}}
+{"request":{"name":"date/616","kind":"date","input":"%00A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/616","result":"Thursday"}}
+{"request":{"name":"date/617","kind":"date","input":"%01A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/617","result":"Thursday"}}
+{"request":{"name":"date/618","kind":"date","input":"%03A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/618","result":"Thursday"}}
+{"request":{"name":"date/619","kind":"date","input":"%014A","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/619","result":"000000Thursday"}}
+{"request":{"name":"date/620","kind":"date","input":"%0z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/620","result":"+0000"}}
+{"request":{"name":"date/621","kind":"date","input":"%1z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/621","result":"+0000"}}
+{"request":{"name":"date/622","kind":"date","input":"%3z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/622","result":"+0000"}}
+{"request":{"name":"date/623","kind":"date","input":"%14z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/623","result":"+00000000000000"}}
+{"request":{"name":"date/624","kind":"date","input":"%-0z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/624","result":"+0"}}
+{"request":{"name":"date/625","kind":"date","input":"%-1z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/625","result":"+0"}}
+{"request":{"name":"date/626","kind":"date","input":"%-3z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/626","result":"+  0"}}
+{"request":{"name":"date/627","kind":"date","input":"%-14z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/627","result":"+             0"}}
+{"request":{"name":"date/628","kind":"date","input":"%_0z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/628","result":"+   0"}}
+{"request":{"name":"date/629","kind":"date","input":"%_1z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/629","result":"+   0"}}
+{"request":{"name":"date/630","kind":"date","input":"%_3z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/630","result":"+   0"}}
+{"request":{"name":"date/631","kind":"date","input":"%_14z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/631","result":"+             0"}}
+{"request":{"name":"date/632","kind":"date","input":"%00z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/632","result":"+0000"}}
+{"request":{"name":"date/633","kind":"date","input":"%01z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/633","result":"+0000"}}
+{"request":{"name":"date/634","kind":"date","input":"%03z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/634","result":"+0000"}}
+{"request":{"name":"date/635","kind":"date","input":"%014z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/635","result":"+00000000000000"}}
+{"request":{"name":"date/636","kind":"date","input":"%0Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/636","result":"UTC"}}
+{"request":{"name":"date/637","kind":"date","input":"%1Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/637","result":"UTC"}}
+{"request":{"name":"date/638","kind":"date","input":"%3Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/638","result":"UTC"}}
+{"request":{"name":"date/639","kind":"date","input":"%14Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/639","result":"           UTC"}}
+{"request":{"name":"date/640","kind":"date","input":"%-0Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/640","result":"UTC"}}
+{"request":{"name":"date/641","kind":"date","input":"%-1Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/641","result":"UTC"}}
+{"request":{"name":"date/642","kind":"date","input":"%-3Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/642","result":"UTC"}}
+{"request":{"name":"date/643","kind":"date","input":"%-14Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/643","result":"           UTC"}}
+{"request":{"name":"date/644","kind":"date","input":"%_0Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/644","result":"UTC"}}
+{"request":{"name":"date/645","kind":"date","input":"%_1Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/645","result":"UTC"}}
+{"request":{"name":"date/646","kind":"date","input":"%_3Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/646","result":"UTC"}}
+{"request":{"name":"date/647","kind":"date","input":"%_14Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/647","result":"           UTC"}}
+{"request":{"name":"date/648","kind":"date","input":"%00Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/648","result":"UTC"}}
+{"request":{"name":"date/649","kind":"date","input":"%01Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/649","result":"UTC"}}
+{"request":{"name":"date/650","kind":"date","input":"%03Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/650","result":"UTC"}}
+{"request":{"name":"date/651","kind":"date","input":"%014Z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/651","result":"00000000000UTC"}}
+{"request":{"name":"date/652","kind":"date","input":"%c|%D|%F|%G-%g-%f-%V-%u|%U-%W|%Y-%y-%C|%s|%q|%Q","timestamp":"2000-02-29 12:34:56.123456789012 UTC"},"expected":{"name":"date/652","result":"Tue Feb 29 12:34:56 UTC 2000|02/29/00|2000-02-29|2000-00-20-09-2|09-09|2000-00-20|951827696|123456789012|.123456789012"}}
+{"request":{"name":"date/653","kind":"date","input":"%c|%D|%F|%G-%g-%f-%V-%u|%U-%W|%Y-%y-%C|%s|%q|%Q","timestamp":"1969-12-31 23:59:59.1 UTC"},"expected":{"name":"date/653","result":"Wed Dec 31 23:59:59 UTC 1969|12/31/69|1969-12-31|1970-70-19-01-3|52-52|1969-69-19|-1|100000000000|.1"}}
+{"request":{"name":"date/654","kind":"date","input":"%c|%D|%F|%G-%g-%f-%V-%u|%U-%W|%Y-%y-%C|%s|%q|%Q","timestamp":"2024-12-31 23:01:02.00001 UTC"},"expected":{"name":"date/654","result":"Tue Dec 31 23:01:02 UTC 2024|12/31/24|2024-12-31|2025-25-20-01-2|52-53|2024-24-20|1735686062|000010000000|.00001"}}
+{"request":{"name":"date/655","kind":"date","input":"%c|%D|%F|%G-%g-%f-%V-%u|%U-%W|%Y-%y-%C|%s|%q|%Q","timestamp":"0001-01-01 00:00:00 UTC"},"expected":{"name":"date/655","result":"Mon Jan  1 00:00:00 UTC 1|01/01/01|1-01-01|1-01-0-01-1|00-01|1-01-0|-62135596800|000000000000|"}}
+{"request":{"name":"date/656","kind":"date","input":"%c|%D|%F|%G-%g-%f-%V-%u|%U-%W|%Y-%y-%C|%s|%q|%Q","timestamp":"2016-01-01 01:02:03 UTC"},"expected":{"name":"date/656","result":"Fri Jan  1 01:02:03 UTC 2016|01/01/16|2016-01-01|2015-15-20-53-5|00-00|2016-16-20|1451610123|000000000000|"}}
+{"request":{"name":"date/657","kind":"date","input":"%","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/657","result":"%"}}
+{"request":{"name":"date/658","kind":"date","input":"%_","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/658","result":"%_"}}
+{"request":{"name":"date/659","kind":"date","input":"%012","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/659","result":"%012"}}
+{"request":{"name":"date/660","kind":"date","input":"%E","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/660","result":"%E"}}
+{"request":{"name":"date/661","kind":"date","input":"%_12E","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/661","result":"%_12E"}}
+{"request":{"name":"date/662","kind":"date","input":"%%x","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/662","result":"%x"}}
+{"request":{"name":"date/663","kind":"date","input":"%#A %^B","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/663","result":"thursday JANUARY"}}
+{"request":{"name":"date/664","kind":"date","input":"a%?b","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/664","result":"ab"}}
+{"request":{"name":"date/665","kind":"date","input":"%😀","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/665","result":""}}
+{"request":{"name":"date/666","kind":"date","input":"%Oa","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/666","result":"a"}}
+{"request":{"name":"date/667","kind":"date","input":"%::z","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/667","result":":z"}}
+{"request":{"name":"date/668","kind":"date","input":"%0-3d","timestamp":"1970-01-01 00:00:00 UTC"},"expected":{"name":"date/668","result":"3d"}}

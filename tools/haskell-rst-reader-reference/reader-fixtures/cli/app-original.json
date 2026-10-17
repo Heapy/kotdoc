@@ -1,0 +1,1943 @@
+[
+  {
+    "name": "cli-input.json/0",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad.rst"
+    ],
+    "files": {
+      "bad.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZC5yc3QgaXMgbm90IFVURi04IGVuY29kZWQ6IGZhbGxpbmcgYmFjayB0byBsYXRpbjEuCg=="
+  },
+  {
+    "name": "cli-input.json/1",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad.rst"
+    ],
+    "files": {
+      "bad.rst": "Yf8NCmINYw=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJhw78ifSx7InQiOiJTb2Z0QnJlYWsifSx7InQiOiJTdHIiLCJjIjoiYmMifV19XX0K",
+    "stderr": "W1dBUk5JTkddIGJhZC5yc3QgaXMgbm90IFVURi04IGVuY29kZWQ6IGZhbGxpbmcgYmFjayB0byBsYXRpbjEuCg=="
+  },
+  {
+    "name": "cli-input.json/2",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "wK8=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDgMKvIn1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/3",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "4oI=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDosKCIn1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/4",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "gA==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLCgCJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/5",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "77u/dGV4dA0K",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJ0ZXh0In1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/6",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "77u//w0=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDr8K7wr/DvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/7",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "YQBi",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJhXHUwMDAwYiJ9XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/8",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "DQoJKiBpdGVtDQo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19XX0K",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/9",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "PT09IPCem4AgPT09DQo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiI9PT0ifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiLwnpuAIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoiPT09In1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/10",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "UEsDBA==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJQS1x1MDAwM1x1MDAwNCJ9XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/11",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad.rst"
+    ],
+    "files": {
+      "bad.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkLnJzdCcuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-input.json/12",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "UEsDBA0K",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJQS1x1MDAwM1x1MDAwNCJ9XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/13",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "UEsD/w==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJQS1x1MDAwM8O/In1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/14",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "cHJlZml4UEsDBP8=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJwcmVmaXhQS1x1MDAwM1x1MDAwNMO/In1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/15",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "JVBERi0=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiIlUERGLSJ9XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/16",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad.rst"
+    ],
+    "files": {
+      "bad.rst": "JVBERi3/"
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkLnJzdCcuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-input.json/17",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "JVBERi0NCg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiIlUERGLSJ9XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/18",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "JVBERv8=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiIlUERGw78ifV19XX0K",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/19",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "cHJlZml4JVBERi3/",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJwcmVmaXglUERGLcO/In1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/20",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "0M8R4KGxGuE=",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gc3RkaW4uCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-input.json/21",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad.rst"
+    ],
+    "files": {
+      "bad.rst": "0M8R4KGxGuH/"
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkLnJzdCcuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-input.json/22",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "0M8R4KGxGuENCg==",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gc3RkaW4uCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-input.json/23",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "0M8R4KGxGv8=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDkMOPXHUwMDExw6DCocKxXHUwMDFhw78ifV19XX0K",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/24",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "cHJlZml40M8R4KGxGuH/",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJwcmVmaXjDkMOPXHUwMDExw6DCocKxXHUwMDFhw6HDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/25",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "QVQmVEZPUk0xMjM0REpW",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJBVCZURk9STTEyMzRESlYifV19XX0K",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/26",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad.rst"
+    ],
+    "files": {
+      "bad.rst": "QVQmVEZPUk0xMjM0REpW/w=="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkLnJzdCcuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-input.json/27",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "QVQmVEZPUk0xMjM0REpWDQo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJBVCZURk9STTEyMzRESlYifV19XX0K",
+    "stderr": ""
+  },
+  {
+    "name": "cli-input.json/28",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "QVQmVEZPUk0xMjM0REr/",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJBVCZURk9STTEyMzRESsO/In1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/29",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "cHJlZml4QVQmVEZPUk0xMjM0REpW/w==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJwcmVmaXhBVCZURk9STTEyMzRESlbDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/30",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "QVQmVEZPUk1ESlb/",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJBVCZURk9STURKVsO/In1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/31",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "QVQmVEZPUk0xMjNESlb/",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJBVCZURk9STTEyM0RKVsO/In1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/32",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "QVQmVEZPUk0xMjM0NURKVv8=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJBVCZURk9STTEyMzQ1REpWw78ifV19XX0K",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/33",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "UEsD/w==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJQS1x1MDAwM8O/In1dfV19Cg==",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-input.json/34",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "JVBERv8=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiIlUERGw78ifV19XX0K",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-warnings.json/0",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\nfile.rst"
+    ],
+    "files": {
+      "bad\nfile.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZAogIGZpbGUucnN0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-warnings.json/1",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\nfile.rst"
+    ],
+    "files": {
+      "bad\nfile.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkCmZpbGUucnN0Jy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "name": "cli-warnings.json/2",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\n\nfile.rst"
+    ],
+    "files": {
+      "bad\n\nfile.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZAogIAogIGZpbGUucnN0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-warnings.json/3",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\n\nfile.rst"
+    ],
+    "files": {
+      "bad\n\nfile.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkCgpmaWxlLnJzdCcuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-warnings.json/4",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\r\nfile.rst"
+    ],
+    "files": {
+      "bad\r\nfile.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZA0KICBmaWxlLnJzdCBpcyBub3QgVVRGLTggZW5jb2RlZDogZmFsbGluZyBiYWNrIHRvIGxhdGluMS4K"
+  },
+  {
+    "name": "cli-warnings.json/5",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\r\nfile.rst"
+    ],
+    "files": {
+      "bad\r\nfile.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkDQpmaWxlLnJzdCcuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-warnings.json/6",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\rfile.rst"
+    ],
+    "files": {
+      "bad\rfile.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZA1maWxlLnJzdCBpcyBub3QgVVRGLTggZW5jb2RlZDogZmFsbGluZyBiYWNrIHRvIGxhdGluMS4K"
+  },
+  {
+    "name": "cli-warnings.json/7",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\rfile.rst"
+    ],
+    "files": {
+      "bad\rfile.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkDWZpbGUucnN0Jy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "name": "cli-warnings.json/8",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\tfile.rst"
+    ],
+    "files": {
+      "bad\tfile.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGJhZAlmaWxlLnJzdCBpcyBub3QgVVRGLTggZW5jb2RlZDogZmFsbGluZyBiYWNrIHRvIGxhdGluMS4K"
+  },
+  {
+    "name": "cli-warnings.json/9",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "bad\tfile.rst"
+    ],
+    "files": {
+      "bad\tfile.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnYmFkCWZpbGUucnN0Jy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "name": "cli-warnings.json/10",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "Ж😀.rst"
+    ],
+    "files": {
+      "Ж😀.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddINCW8J+YgC5yc3QgaXMgbm90IFVURi04IGVuY29kZWQ6IGZhbGxpbmcgYmFjayB0byBsYXRpbjEuCg=="
+  },
+  {
+    "name": "cli-warnings.json/11",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "Ж😀.rst"
+    ],
+    "files": {
+      "Ж😀.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAn0Jbwn5iALnJzdCcuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-warnings.json/12",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "\nleading.rst"
+    ],
+    "files": {
+      "\nleading.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIAogIGxlYWRpbmcucnN0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-warnings.json/13",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "\nleading.rst"
+    ],
+    "files": {
+      "\nleading.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnCmxlYWRpbmcucnN0Jy4KSWYgeW91IGludGVuZGVkIHRvIGNvbnZlcnQgZnJvbSBiaW5hcnkgZm9ybWF0LCB2ZXJpZnkgdGhhdCBpdCdzIHN1cHBvcnRlZCBhbmQgdXNlCmV4cGxpY2l0IC1mIEZPUk1BVC4K"
+  },
+  {
+    "name": "cli-warnings.json/14",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "trailing.rst\n"
+    ],
+    "files": {
+      "trailing.rst\n": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIHRyYWlsaW5nLnJzdAogICBpcyBub3QgVVRGLTggZW5jb2RlZDogZmFsbGluZyBiYWNrIHRvIGxhdGluMS4K"
+  },
+  {
+    "name": "cli-warnings.json/15",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "trailing.rst\n"
+    ],
+    "files": {
+      "trailing.rst\n": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAndHJhaWxpbmcucnN0CicuCklmIHlvdSBpbnRlbmRlZCB0byBjb252ZXJ0IGZyb20gYmluYXJ5IGZvcm1hdCwgdmVyaWZ5IHRoYXQgaXQncyBzdXBwb3J0ZWQgYW5kIHVzZQpleHBsaWNpdCAtZiBGT1JNQVQuCg=="
+  },
+  {
+    "name": "cli-warnings.json/16",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "one\ntwo\nthree.rst"
+    ],
+    "files": {
+      "one\ntwo\nthree.rst": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIG9uZQogIHR3bwogIHRocmVlLnJzdCBpcyBub3QgVVRGLTggZW5jb2RlZDogZmFsbGluZyBiYWNrIHRvIGxhdGluMS4K"
+  },
+  {
+    "name": "cli-warnings.json/17",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "one\ntwo\nthree.rst"
+    ],
+    "files": {
+      "one\ntwo\nthree.rst": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnb25lCnR3bwp0aHJlZS5yc3QnLgpJZiB5b3UgaW50ZW5kZWQgdG8gY29udmVydCBmcm9tIGJpbmFyeSBmb3JtYXQsIHZlcmlmeSB0aGF0IGl0J3Mgc3VwcG9ydGVkIGFuZCB1c2UKZXhwbGljaXQgLWYgRk9STUFULgo="
+  },
+  {
+    "name": "cli-warnings.json/18",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "chunk"
+    ],
+    "files": {
+      "chunk": "/w=="
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGNodW5rIGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-warnings.json/19",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "chunk"
+    ],
+    "files": {
+      "chunk": "UEsDBP8="
+    },
+    "input": "",
+    "exitCode": 95,
+    "stdout": "",
+    "stderr": "RXhwZWN0ZWQgdGV4dCBhcyBhbiBpbnB1dCwgYnV0IHJlY2VpdmVkIGJpbmFyeSBkYXRhIGZyb20gZmlsZSAnY2h1bmsnLgpJZiB5b3UgaW50ZW5kZWQgdG8gY29udmVydCBmcm9tIGJpbmFyeSBmb3JtYXQsIHZlcmlmeSB0aGF0IGl0J3Mgc3VwcG9ydGVkIGFuZCB1c2UKZXhwbGljaXQgLWYgRk9STUFULgo="
+  },
+  {
+    "name": "cli-warnings.json/20",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "/woKYgo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiYiJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "cli-warnings.json/21",
+    "args": [
+      "--trace",
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-"
+    ],
+    "files": {},
+    "input": "/woKYgo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiLDvyJ9XX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiYiJ9XX1dfQo=",
+    "stderr": "W1dBUk5JTkddIGlucHV0IGlzIG5vdCBVVEYtOCBlbmNvZGVkOiBmYWxsaW5nIGJhY2sgdG8gbGF0aW4xLgo="
+  },
+  {
+    "name": "original37/line block with blank line",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "fCBhCnwKfCAgYg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJMaW5lQmxvY2siLCJjIjpbW3sidCI6IlN0ciIsImMiOiJhIn1dLFtdLFt7InQiOiJTdHIiLCJjIjoiwqBiIn1dXX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/field list/general",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "cGFyYQoKOkhvc3RuYW1lOiBtZWRpYTA4CjpJUCBhZGRyZXNzOiAxMC4wLjAuMTkKOlNpemU6IDNydQo6VmVyc2lvbjogMQo6SW5kZW50YXRpb246IFNpbmNlIHRoZSBmaWVsZCBtYXJrZXIgbWF5IGJlIHF1aXRlIGxvbmcsIHRoZSBzZWNvbmQKICAgYW5kIHN1YnNlcXVlbnQgbGluZXMgb2YgdGhlIGZpZWxkIGJvZHkgZG8gbm90IGhhdmUgdG8gbGluZSB1cAogICB3aXRoIHRoZSBmaXJzdCBsaW5lLCBidXQgdGhleSBtdXN0IGJlIGluZGVudGVkIHJlbGF0aXZlIHRvIHRoZQogICBmaWVsZCBuYW1lIG1hcmtlciwgYW5kIHRoZXkgbXVzdCBsaW5lIHVwIHdpdGggZWFjaCBvdGhlci4KOlBhcmFtZXRlciBpOiBpbnRlZ2VyCjpGaW5hbDogaXRlbQogIG9uIHR3byBsaW5lcwo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJwYXJhIn1dfSx7InQiOiJEZWZpbml0aW9uTGlzdCIsImMiOltbW3sidCI6IlN0ciIsImMiOiJIb3N0bmFtZSJ9XSxbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJtZWRpYTA4In1dfV1dXSxbW3sidCI6IlN0ciIsImMiOiJJUCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImFkZHJlc3MifV0sW1t7InQiOiJQbGFpbiIsImMiOlt7InQiOiJTdHIiLCJjIjoiMTAuMC4wLjE5In1dfV1dXSxbW3sidCI6IlN0ciIsImMiOiJTaXplIn1dLFtbeyJ0IjoiUGxhaW4iLCJjIjpbeyJ0IjoiU3RyIiwiYyI6IjNydSJ9XX1dXV0sW1t7InQiOiJTdHIiLCJjIjoiVmVyc2lvbiJ9XSxbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiIxIn1dfV1dXSxbW3sidCI6IlN0ciIsImMiOiJJbmRlbnRhdGlvbiJ9XSxbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJTaW5jZSJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6InRoZSJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImZpZWxkIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoibWFya2VyIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoibWF5In0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoiYmUifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJxdWl0ZSJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImxvbmcsIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoidGhlIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoic2Vjb25kIn0seyJ0IjoiU29mdEJyZWFrIn0seyJ0IjoiU3RyIiwiYyI6ImFuZCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6InN1YnNlcXVlbnQifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJsaW5lcyJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6Im9mIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoidGhlIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoiZmllbGQifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJib2R5In0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoiZG8ifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJub3QifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJoYXZlIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoidG8ifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJsaW5lIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoidXAifSx7InQiOiJTb2Z0QnJlYWsifSx7InQiOiJTdHIiLCJjIjoid2l0aCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6InRoZSJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImZpcnN0In0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoibGluZSwifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJidXQifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJ0aGV5In0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoibXVzdCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImJlIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoiaW5kZW50ZWQifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJyZWxhdGl2ZSJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6InRvIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoidGhlIn0seyJ0IjoiU29mdEJyZWFrIn0seyJ0IjoiU3RyIiwiYyI6ImZpZWxkIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoibmFtZSJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6Im1hcmtlciwifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJhbmQifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJ0aGV5In0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoibXVzdCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImxpbmUifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJ1cCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6IndpdGgifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJlYWNoIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoib3RoZXIuIn1dfV1dXSxbW3sidCI6IlN0ciIsImMiOiJQYXJhbWV0ZXIifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJpIn1dLFtbeyJ0IjoiUGxhaW4iLCJjIjpbeyJ0IjoiU3RyIiwiYyI6ImludGVnZXIifV19XV1dLFtbeyJ0IjoiU3RyIiwiYyI6IkZpbmFsIn1dLFtbeyJ0IjoiUGxhaW4iLCJjIjpbeyJ0IjoiU3RyIiwiYyI6Iml0ZW0ifSx7InQiOiJTb2Z0QnJlYWsifSx7InQiOiJTdHIiLCJjIjoib24ifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJ0d28ifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJsaW5lcyJ9XX1dXV1dfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/field list/metadata",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "PT09PT0KVGl0bGUKPT09PT0KLS0tLS0tLS0KU3VidGl0bGUKLS0tLS0tLS0KCjpWZXJzaW9uOiAxCg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnsic3VidGl0bGUiOnsidCI6Ik1ldGFJbmxpbmVzIiwiYyI6W3sidCI6IlN0ciIsImMiOiJTdWJ0aXRsZSJ9XX0sInRpdGxlIjp7InQiOiJNZXRhSW5saW5lcyIsImMiOlt7InQiOiJTdHIiLCJjIjoiVGl0bGUifV19LCJ2ZXJzaW9uIjp7InQiOiJNZXRhSW5saW5lcyIsImMiOlt7InQiOiJTdHIiLCJjIjoiMSJ9XX19LCJibG9ja3MiOltdfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/field list/with inline markup",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "OipEYXRlKjogdG9kYXkKCi4uCgo6Km9uZSo6IGVtcGhhc2lzCjp0d29fOiByZWZlcmVuY2UKOmB0aHJlZWBfOiBhbm90aGVyIG9uZQo6YGBmb3VyYGA6IGxpdGVyYWwKCi4uIF90d286IGh0dHA6Ly9leGFtcGxlLmNvbQouLiBfdGhyZWU6IGh0dHA6Ly9leGFtcGxlLm9yZwo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnsiZGF0ZSI6eyJ0IjoiTWV0YUlubGluZXMiLCJjIjpbeyJ0IjoiU3RyIiwiYyI6InRvZGF5In1dfX0sImJsb2NrcyI6W3sidCI6IkRlZmluaXRpb25MaXN0IiwiYyI6W1tbeyJ0IjoiRW1waCIsImMiOlt7InQiOiJTdHIiLCJjIjoib25lIn1dfV0sW1t7InQiOiJQbGFpbiIsImMiOlt7InQiOiJTdHIiLCJjIjoiZW1waGFzaXMifV19XV1dLFtbeyJ0IjoiTGluayIsImMiOltbIiIsW10sW11dLFt7InQiOiJTdHIiLCJjIjoidHdvIn1dLFsiaHR0cDovL2V4YW1wbGUuY29tIiwiIl1dfV0sW1t7InQiOiJQbGFpbiIsImMiOlt7InQiOiJTdHIiLCJjIjoicmVmZXJlbmNlIn1dfV1dXSxbW3sidCI6IkxpbmsiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6InRocmVlIn1dLFsiaHR0cDovL2V4YW1wbGUub3JnIiwiIl1dfV0sW1t7InQiOiJQbGFpbiIsImMiOlt7InQiOiJTdHIiLCJjIjoiYW5vdGhlciJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6Im9uZSJ9XX1dXV0sW1t7InQiOiJDb2RlIiwiYyI6W1siIixbXSxbXV0sImZvdXIiXX1dLFtbeyJ0IjoiUGxhaW4iLCJjIjpbeyJ0IjoiU3RyIiwiYyI6ImxpdGVyYWwifV19XV1dXX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/URLs with following punctuation",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "aHR0cDovL2dvb2dsZS5jb20sIGh0dHA6Ly95YWhvby5jb207IGh0dHA6Ly9mb28uYmFyLmJhei4KaHR0cDovL2Zvby5iYXIvYmF6XyhiYW0pIChodHRwOi8vZm9vLmJhcik=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkxpbmsiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6Imh0dHA6Ly9nb29nbGUuY29tIn1dLFsiaHR0cDovL2dvb2dsZS5jb20iLCIiXV19LHsidCI6IlN0ciIsImMiOiIsIn0seyJ0IjoiU3BhY2UifSx7InQiOiJMaW5rIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJodHRwOi8veWFob28uY29tIn1dLFsiaHR0cDovL3lhaG9vLmNvbSIsIiJdXX0seyJ0IjoiU3RyIiwiYyI6IjsifSx7InQiOiJTcGFjZSJ9LHsidCI6IkxpbmsiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6Imh0dHA6Ly9mb28uYmFyLmJheiJ9XSxbImh0dHA6Ly9mb28uYmFyLmJheiIsIiJdXX0seyJ0IjoiU3RyIiwiYyI6Ii4ifSx7InQiOiJTb2Z0QnJlYWsifSx7InQiOiJMaW5rIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJodHRwOi8vZm9vLmJhci9iYXpfKGJhbSkifV0sWyJodHRwOi8vZm9vLmJhci9iYXpfKGJhbSkiLCIiXV19LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6IigifSx7InQiOiJMaW5rIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJodHRwOi8vZm9vLmJhciJ9XSxbImh0dHA6Ly9mb28uYmFyIiwiIl1dfSx7InQiOiJTdHIiLCJjIjoiKSJ9XX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/Reference names with special characters",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "QS0xLUJfMl9DOjM6RCs0K0UuNS5GXwoKLi4gX0EtMS1CXzJfQzozOkQrNCtFLjUuRjogaHR0cHM6Ly9leGFtcGxlLmNvbQo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkxpbmsiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6IkEtMS1CXzJfQzozOkQrNCtFLjUuRiJ9XSxbImh0dHBzOi8vZXhhbXBsZS5jb20iLCIiXV19XX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/Code directive with class and number-lines",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gY29kZTo6cHl0aG9uCiAgIDpudW1iZXItbGluZXM6IDM0CiAgIDpjbGFzczogY2xhc3MxIGNsYXNzMiBjbGFzczMKCiAgZGVmIGZ1bmMoeCk6CiAgICByZXR1cm4geQo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJDb2RlQmxvY2siLCJjIjpbWyIiLFsicHl0aG9uIiwibnVtYmVyTGluZXMiLCJjbGFzczEiLCJjbGFzczIiLCJjbGFzczMiXSxbWyJzdGFydEZyb20iLCIzNCJdXV0sImRlZiBmdW5jKHgpOlxuICByZXR1cm4geSJdfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/Code directive with number-lines, no line specified",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gY29kZTo6cHl0aG9uCiAgIDpudW1iZXItbGluZXM6CgogIGRlZiBmdW5jKHgpOgogICAgcmV0dXJuIHkK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJDb2RlQmxvY2siLCJjIjpbWyIiLFsicHl0aG9uIiwibnVtYmVyTGluZXMiXSxbXV0sImRlZiBmdW5jKHgpOlxuICByZXR1cm4geSJdfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/indented literal block",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "OjoKCiAgYmxvY2sgcXVvdGVzCgogIGNhbiBnbyBvbiBmb3IgbWFueSBsaW5lcwpidXQgbXVzdCBzdG9wIGhlcmUK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJDb2RlQmxvY2siLCJjIjpbWyIiLFtdLFtdXSwiYmxvY2sgcXVvdGVzXG5cbmNhbiBnbyBvbiBmb3IgbWFueSBsaW5lcyJdfSx7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJidXQifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJtdXN0In0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoic3RvcCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImhlcmUifV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/line block with 3 lines",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "fCBhCnwgYgp8IGM=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJMaW5lQmxvY2siLCJjIjpbW3sidCI6IlN0ciIsImMiOiJhIn1dLFt7InQiOiJTdHIiLCJjIjoiYiJ9XSxbeyJ0IjoiU3RyIiwiYyI6ImMifV1dfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/line blocks with blank lines",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "fAoKfAp8IGEKfCBiCnwKCnwK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJMaW5lQmxvY2siLCJjIjpbW11dfSx7InQiOiJMaW5lQmxvY2siLCJjIjpbW10sW3sidCI6IlN0ciIsImMiOiJhIn1dLFt7InQiOiJTdHIiLCJjIjoiYiJ9XSxbXV19LHsidCI6IkxpbmVCbG9jayIsImMiOltbXV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/quoted literal block using >",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "OjoKCj4gcXVvdGVkCj4gYmxvY2sKCk9yZGluYXJ5IHBhcmFncmFwaA==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJDb2RlQmxvY2siLCJjIjpbWyIiLFtdLFtdXSwiPiBxdW90ZWRcbj4gYmxvY2siXX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiT3JkaW5hcnkifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJwYXJhZ3JhcGgifV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/quoted literal block using | (not  a line block)",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "OjoKCnwgcXVvdGVkCnwgYmxvY2sKCk9yZGluYXJ5IHBhcmFncmFwaA==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJDb2RlQmxvY2siLCJjIjpbWyIiLFtdLFtdXSwifCBxdW90ZWRcbnwgYmxvY2siXX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiT3JkaW5hcnkifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJwYXJhZ3JhcGgifV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/class directive with single paragraph",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gY2xhc3M6OiBzcGVjaWFsCgpUaGlzIGlzIGEgInNwZWNpYWwiIHBhcmFncmFwaC4=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJEaXYiLCJjIjpbWyIiLFsic3BlY2lhbCJdLFtdXSxbeyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiVGhpcyJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImlzIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoiYSJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6Ilwic3BlY2lhbFwiIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoicGFyYWdyYXBoLiJ9XX1dXX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/class directive with two paragraphs",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gY2xhc3M6OiBleGNlcHRpb25hbCByZW1hcmthYmxlCgogICAgRmlyc3QgcGFyYWdyYXBoLgoKICAgIFNlY29uZCBwYXJhZ3JhcGgu",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJEaXYiLCJjIjpbWyIiLFsiZXhjZXB0aW9uYWwiLCJyZW1hcmthYmxlIl0sW11dLFt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJGaXJzdCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6InBhcmFncmFwaC4ifV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiU3RyIiwiYyI6IlNlY29uZCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6InBhcmFncmFwaC4ifV19XV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/literal / line / code blocks/class directive around literal block",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gY2xhc3M6OiBjbGFzc3kKCjo6CgogICAgYQogICAgYg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJEaXYiLCJjIjpbWyIiLFsiY2xhc3N5Il0sW11dLFt7InQiOiJDb2RlQmxvY2siLCJjIjpbWyIiLFtdLFtdXSwiYVxuYiJdfV1dfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/literal role prefix",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "OmxpdGVyYWw6YGFg",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFtdLFtdXSwiYSJdfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/literal role postfix",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "YGFgOmxpdGVyYWw6",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFtdLFtdXSwiYSJdfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/literal text",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "YGB0ZXh0YGA=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFtdLFtdXSwidGV4dCJdfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/code role",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "OmNvZGU6YGFg",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFtdLFtdXSwiYSJdfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/inherited code role",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gcm9sZTo6IGNvZGVMaWtlKGNvZGUpCgo6Y29kZUxpa2U6YGFg",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFsiY29kZUxpa2UiXSxbXV0sImEiXX1dfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/custom code role with language field",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gcm9sZTo6IGxocyhjb2RlKQogICAgOmxhbmd1YWdlOiBoYXNrZWxsCgo6bGhzOmBhYA==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFsibGhzIiwiaGFza2VsbCJdLFtdXSwiYSJdfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/custom role with class field",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gcm9sZTo6IGNsYXNzeQogICAgOmNsYXNzOiBteWNsYXNzCgo6Y2xhc3N5OmBhYA==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlNwYW4iLCJjIjpbWyIiLFsibXljbGFzcyJdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImEifV1dfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/custom role with class field containing multiple whitespace-separated classes",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gcm9sZTo6IGNsYXNzeQogICAgOmNsYXNzOiBteWNsYXNzMSBteWNsYXNzMgogICAgICAgbXljbGFzczMKCjpjbGFzc3k6YGFg",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlNwYW4iLCJjIjpbWyIiLFsibXljbGFzczEiLCJteWNsYXNzMiIsIm15Y2xhc3MzIl0sW11dLFt7InQiOiJTdHIiLCJjIjoiYSJ9XV19XX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/custom role with inherited class field",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gcm9sZTo6IGNsYXNzeQogICAgOmNsYXNzOiBteWNsYXNzMQouLiByb2xlOjogY2xhc3NpZXIoY2xhc3N5KQogICAgOmNsYXNzOiBteWNsYXNzMgoKOmNsYXNzaWVyOmBhYA==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlNwYW4iLCJjIjpbWyIiLFsibXljbGFzczIiLCJteWNsYXNzMSJdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImEifV1dfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/custom role with unspecified parent role",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gcm9sZTo6IGNsYXNzeQoKOmNsYXNzeTpgdGV4dGA=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlNwYW4iLCJjIjpbWyIiLFsiY2xhc3N5Il0sW11dLFt7InQiOiJTdHIiLCJjIjoidGV4dCJ9XV19XX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/role with recursive inheritance",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gcm9sZTo6IGhhc2tlbGwoY29kZSkKLi4gcm9sZTo6IGxocyhoYXNrZWxsKQoKOmxoczpgdGV4dGA=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFsibGhzIiwiaGFza2VsbCJdLFtdXSwidGV4dCJdfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/interpreted text roles/unknown role",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "OnVua25vd246YHRleHRg",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkNvZGUiLCJjIjpbWyIiLFsiaW50ZXJwcmV0ZWQtdGV4dCJdLFtbInJvbGUiLCJ1bmtub3duIl1dXSwidGV4dCJdfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/footnotes/remove space before note",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Zm9vIFsxXV8KCi4uIFsxXQogICBiYXIK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJmb28ifSx7InQiOiJOb3RlIiwiYyI6W3sidCI6IlBhcmEiLCJjIjpbeyJ0IjoiU3RyIiwiYyI6ImJhciJ9XX1dfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/inlines/links can contain an URI without being parsed twice (#4581)",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "YGh0dHA6Ly9sb2MgPGh0dHA6Ly9sb2M+YF9f",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkxpbmsiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6Imh0dHA6Ly9sb2MifV0sWyJodHRwOi8vbG9jIiwiIl1dfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/inlines/inline markup cannot be nested",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "KiphKmIqYyoq",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0cm9uZyIsImMiOlt7InQiOiJTdHIiLCJjIjoiYSpiKmMifV19XX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "original37/inlines/bare URI parsing disabled inside emphasis (#4561)",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Kmh0dHA6Ly9sb2NhdGlvbio=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IkVtcGgiLCJjIjpbeyJ0IjoiU3RyIiwiYyI6Imh0dHA6Ly9sb2NhdGlvbiJ9XX1dfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/inlines/include newlines",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "KipiZWZvcmUKYWZ0ZXIqKg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0cm9uZyIsImMiOlt7InQiOiJTdHIiLCJjIjoiYmVmb3JlIn0seyJ0IjoiU29mdEJyZWFrIn0seyJ0IjoiU3RyIiwiYyI6ImFmdGVyIn1dfV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/inlines/bare reference reusing a named target resolves correctly",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gX3RhcmdldDoKClNlZSBgYWxpYXMgPHRhcmdldF8+YF8gYW5kIGFnYWluIGFsaWFzXy4K",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJEaXYiLCJjIjpbWyJ0YXJnZXQiLFtdLFtdXSxbeyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiU2VlIn0seyJ0IjoiU3BhY2UifSx7InQiOiJMaW5rIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJhbGlhcyJ9XSxbIiN0YXJnZXQiLCIiXV19LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImFuZCJ9LHsidCI6IlNwYWNlIn0seyJ0IjoiU3RyIiwiYyI6ImFnYWluIn0seyJ0IjoiU3BhY2UifSx7InQiOiJMaW5rIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJhbGlhcyJ9XSxbIiN0YXJnZXQiLCIiXV19LHsidCI6IlN0ciIsImMiOiIuIn1dfV1dfV19",
+    "stderr": ""
+  },
+  {
+    "name": "original37/inlines/self-referencing named target does not loop forever",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "U2VlIGBhIDxhXz5gXy4=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJTZWUifSx7InQiOiJTcGFjZSJ9LHsidCI6IkxpbmsiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImEifV0sWyIjI1JFRiMjYSIsIiJdXX0seyJ0IjoiU3RyIiwiYyI6Ii4ifV19XX0=",
+    "stderr": "W1dBUk5JTkddIENpcmN1bGFyIHJlZmVyZW5jZSAnYScgYXQgbGluZSAzIGNvbHVtbiAxCg=="
+  },
+  {
+    "name": "original37/inlines/reference to internal target embedded in a substitution",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gX3RhcmdldDoKClNlZSB8c3VifC4KCi4uIHxzdWJ8IHJlcGxhY2U6OiBgdGV4dCA8dGFyZ2V0Xz5gXwo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJEaXYiLCJjIjpbWyJ0YXJnZXQiLFtdLFtdXSxbeyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoiU2VlIn0seyJ0IjoiU3BhY2UifSx7InQiOiJMaW5rIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJ0ZXh0In1dLFsiI3RhcmdldCIsIiJdXX0seyJ0IjoiU3RyIiwiYyI6Ii4ifV19XV19XX0=",
+    "stderr": ""
+  },
+  {
+    "name": "original37/inlines/circular substitution does not loop forever",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "Li4gfGF8IHJlcGxhY2U6OiB8YXwKClRlc3QgfGF8IGhlcmUuCg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJUZXN0In0seyJ0IjoiU3BhY2UifSx7InQiOiJTcGFuIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJ8YXwifV1dfSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJoZXJlLiJ9XX1dfQ==",
+    "stderr": "W1dBUk5JTkddIENpcmN1bGFyIHJlZmVyZW5jZSAnYScgYXQgbGluZSA1IGNvbHVtbiAxCg=="
+  },
+  {
+    "name": "option/rst",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJIZWFkZXIiLCJjIjpbMSxbImjDqWxsby13b3JsZCIsW10sW11dLFt7InQiOiJTdHIiLCJjIjoiSMOJTExPIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoid29ybGQhIn1dXX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoicGFyYWdyYXBoIn1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "option/rst-auto_identifiers",
+    "args": [
+      "-f",
+      "rst-auto_identifiers",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJIZWFkZXIiLCJjIjpbMSxbIiIsW10sW11dLFt7InQiOiJTdHIiLCJjIjoiSMOJTExPIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoid29ybGQhIn1dXX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoicGFyYWdyYXBoIn1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "option/rst+ascii_identifiers",
+    "args": [
+      "-f",
+      "rst+ascii_identifiers",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJIZWFkZXIiLCJjIjpbMSxbImhlbGxvLXdvcmxkIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJIw4lMTE8ifSx7InQiOiJTcGFjZSJ9LHsidCI6IlN0ciIsImMiOiJ3b3JsZCEifV1dfSx7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJwYXJhZ3JhcGgifV19XX0K",
+    "stderr": ""
+  },
+  {
+    "name": "option/rst+gfm_auto_identifiers",
+    "args": [
+      "-f",
+      "rst+gfm_auto_identifiers",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJIZWFkZXIiLCJjIjpbMSxbImjDqWxsby13b3JsZCIsW10sW11dLFt7InQiOiJTdHIiLCJjIjoiSMOJTExPIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoid29ybGQhIn1dXX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoicGFyYWdyYXBoIn1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "option/rst+smart",
+    "args": [
+      "-f",
+      "rst+smart",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJIZWFkZXIiLCJjIjpbMSxbImjDqWxsby13b3JsZCIsW10sW11dLFt7InQiOiJTdHIiLCJjIjoiSMOJTExPIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoid29ybGQhIn1dXX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoicGFyYWdyYXBoIn1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "option/rst+old_dashes",
+    "args": [
+      "-f",
+      "rst+old_dashes",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 23,
+    "stdout": "",
+    "stderr": "VGhlIGV4dGVuc2lvbiAnb2xkX2Rhc2hlcycgaXMgbm90IHN1cHBvcnRlZCBmb3IgcnN0LgpVc2UgLS1saXN0LWV4dGVuc2lvbnM9cnN0IHRvIGxpc3Qgc3VwcG9ydGVkIGV4dGVuc2lvbnMuCg=="
+  },
+  {
+    "name": "option/rst+lhs",
+    "args": [
+      "-f",
+      "rst+lhs",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJIZWFkZXIiLCJjIjpbMSxbImjDqWxsby13b3JsZCIsW10sW11dLFt7InQiOiJTdHIiLCJjIjoiSMOJTExPIn0seyJ0IjoiU3BhY2UifSx7InQiOiJTdHIiLCJjIjoid29ybGQhIn1dXX0seyJ0IjoiUGFyYSIsImMiOlt7InQiOiJTdHIiLCJjIjoicGFyYWdyYXBoIn1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "option/rst+raw_html",
+    "args": [
+      "-f",
+      "rst+raw_html",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 23,
+    "stdout": "",
+    "stderr": "VGhlIGV4dGVuc2lvbiAncmF3X2h0bWwnIGlzIG5vdCBzdXBwb3J0ZWQgZm9yIHJzdC4KVXNlIC0tbGlzdC1leHRlbnNpb25zPXJzdCB0byBsaXN0IHN1cHBvcnRlZCBleHRlbnNpb25zLgo="
+  },
+  {
+    "name": "option/rst+tex_math_dollars",
+    "args": [
+      "-f",
+      "rst+tex_math_dollars",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "SMOJTExPIHdvcmxkIQo9PT09PT09PT09PT0KCnBhcmFncmFwaAo=",
+    "exitCode": 23,
+    "stdout": "",
+    "stderr": "VGhlIGV4dGVuc2lvbiAndGV4X21hdGhfZG9sbGFycycgaXMgbm90IHN1cHBvcnRlZCBmb3IgcnN0LgpVc2UgLS1saXN0LWV4dGVuc2lvbnM9cnN0IHRvIGxpc3Qgc3VwcG9ydGVkIGV4dGVuc2lvbnMuCg=="
+  },
+  {
+    "name": "option/[]",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiSW1hZ2UiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImltYWdlIn1dLFsiaW1hZ2UiLCIiXV19XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "option/['--tab-stop=1']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--tab-stop=1"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiSW1hZ2UiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImltYWdlIn1dLFsiaW1hZ2UiLCIiXV19XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "option/['--tab-stop=8']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--tab-stop=8"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiSW1hZ2UiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImltYWdlIn1dLFsiaW1hZ2UiLCIiXV19XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "option/['--preserve-tabs']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--preserve-tabs"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJsb2NrUXVvdGUiLCJjIjpbeyJ0IjoiQnVsbGV0TGlzdCIsImMiOltbeyJ0IjoiUGxhaW4iLCJjIjpbeyJ0IjoiU3RyIiwiYyI6Iml0ZW0ifV19XV19XX1dfSx7InQiOiJQYXJhIiwiYyI6W3sidCI6IkltYWdlIiwiYyI6W1siIixbXSxbXV0sW3sidCI6IlN0ciIsImMiOiJpbWFnZSJ9XSxbImltYWdlIiwiIl1dfV19XX0K",
+    "stderr": ""
+  },
+  {
+    "name": "option/['--trace']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--trace"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiSW1hZ2UiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImltYWdlIn1dLFsiaW1hZ2UiLCIiXV19XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "option/['--default-image-extension=png']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--default-image-extension=png"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiSW1hZ2UiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImltYWdlIn1dLFsiaW1hZ2UiLCIiXV19XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "option/['--toc']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--toc"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiSW1hZ2UiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImltYWdlIn1dLFsiaW1hZ2UiLCIiXV19XX1dfQo=",
+    "stderr": ""
+  },
+  {
+    "name": "option/['-s']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "-s"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJCbG9ja1F1b3RlIiwiYyI6W3sidCI6IkJ1bGxldExpc3QiLCJjIjpbW3sidCI6IlBsYWluIiwiYyI6W3sidCI6IlN0ciIsImMiOiJpdGVtIn1dfV1dfV19LHsidCI6IlBhcmEiLCJjIjpbeyJ0IjoiSW1hZ2UiLCJjIjpbWyIiLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6ImltYWdlIn1dLFsiaW1hZ2UiLCIiXV19XX1dfQ==",
+    "stderr": ""
+  },
+  {
+    "name": "option/['--tab-stop=0']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--tab-stop=0"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 6,
+    "stdout": "",
+    "stderr": "QXJndW1lbnQgb2YgLS10YWItc3RvcCBtdXN0IGJlIGEgbnVtYmVyIGdyZWF0ZXIgdGhhbiAwCg=="
+  },
+  {
+    "name": "option/['--tab-stop=-1']",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json",
+      "--tab-stop=-1"
+    ],
+    "files": {},
+    "input": "CS0gaXRlbQoKLi4gaW1hZ2U6OiBpbWFnZQoK",
+    "exitCode": 6,
+    "stdout": "",
+    "stderr": "QXJndW1lbnQgb2YgLS10YWItc3RvcCBtdXN0IGJlIGEgbnVtYmVyIGdyZWF0ZXIgdGhhbiAwCg=="
+  },
+  {
+    "name": "io/csv-table/'/kotdoc-rst-absent/file.csv'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gY3N2LXRhYmxlOjoKICAgOmZpbGU6IC9rb3Rkb2MtcnN0LWFic2VudC9maWxlLmNzdgoK",
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "L2tvdGRvYy1yc3QtYWJzZW50L2ZpbGUuY3N2OiB3aXRoQmluYXJ5RmlsZTogZG9lcyBub3QgZXhpc3QgKE5vIHN1Y2ggZmlsZSBvciBkaXJlY3RvcnkpCg=="
+  },
+  {
+    "name": "io/include/'/kotdoc-rst-absent/file.csv'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gaW5jbHVkZTo6IC9rb3Rkb2MtcnN0LWFic2VudC9maWxlLmNzdgoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOltdfQo=",
+    "stderr": "W1dBUk5JTkddIENvdWxkIG5vdCBsb2FkIGluY2x1ZGUgZmlsZSAva290ZG9jLXJzdC1hYnNlbnQvZmlsZS5jc3YgYXQgbGluZSA0IGNvbHVtbiAxCg=="
+  },
+  {
+    "name": "io/raw:: html/'/kotdoc-rst-absent/file.csv'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gcmF3OjogaHRtbAogICA6ZmlsZTogL2tvdGRvYy1yc3QtYWJzZW50L2ZpbGUuY3N2Cgo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJSYXdCbG9jayIsImMiOlsiaHRtbCIsIiJdfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "io/csv-table/'/tmp'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gY3N2LXRhYmxlOjoKICAgOmZpbGU6IC90bXAKCg==",
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "L3RtcDogd2l0aEJpbmFyeUZpbGU6IGluYXBwcm9wcmlhdGUgdHlwZSAoaXMgYSBkaXJlY3RvcnkpCg=="
+  },
+  {
+    "name": "io/include/'/tmp'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gaW5jbHVkZTo6IC90bXAKCg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOltdfQo=",
+    "stderr": "W1dBUk5JTkddIENvdWxkIG5vdCBsb2FkIGluY2x1ZGUgZmlsZSAvdG1wIGF0IGxpbmUgNCBjb2x1bW4gMQo="
+  },
+  {
+    "name": "io/raw:: html/'/tmp'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gcmF3OjogaHRtbAogICA6ZmlsZTogL3RtcAoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJSYXdCbG9jayIsImMiOlsiaHRtbCIsIiJdfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "io/csv-table/'/tmp/\\x00bad'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gY3N2LXRhYmxlOjoKICAgOmZpbGU6IC90bXAvAGJhZAoK",
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "L3RtcC8AYmFkOiB3aXRoQmluYXJ5RmlsZTogaW52YWxpZCBhcmd1bWVudCAoRmlsZVBhdGhzIG11c3Qgbm90IGNvbnRhaW4gaW50ZXJuYWwgTlVMIGNvZGUgdW5pdHMuKQo="
+  },
+  {
+    "name": "io/include/'/tmp/\\x00bad'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gaW5jbHVkZTo6IC90bXAvAGJhZAoK",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOltdfQo=",
+    "stderr": "W1dBUk5JTkddIENvdWxkIG5vdCBsb2FkIGluY2x1ZGUgZmlsZSAvdG1wLwBiYWQgYXQgbGluZSA0IGNvbHVtbiAxCg=="
+  },
+  {
+    "name": "io/raw:: html/'/tmp/\\x00bad'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gcmF3OjogaHRtbAogICA6ZmlsZTogL3RtcC8AYmFkCgo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJSYXdCbG9jayIsImMiOlsiaHRtbCIsIiJdfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "io/csv-table/'/tmp/kotdoc-rst-reader/full-oracle/no.csv'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gY3N2LXRhYmxlOjoKICAgOmZpbGU6IC90bXAva290ZG9jLXJzdC1yZWFkZXIvZnVsbC1vcmFjbGUvbm8uY3N2Cgo=",
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "L3RtcC9rb3Rkb2MtcnN0LXJlYWRlci9mdWxsLW9yYWNsZS9uby5jc3Y6IHdpdGhCaW5hcnlGaWxlOiBpbmFwcHJvcHJpYXRlIHR5cGUgKE5vdCBhIGRpcmVjdG9yeSkK"
+  },
+  {
+    "name": "io/include/'/tmp/kotdoc-rst-reader/full-oracle/no.csv'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gaW5jbHVkZTo6IC90bXAva290ZG9jLXJzdC1yZWFkZXIvZnVsbC1vcmFjbGUvbm8uY3N2Cgo=",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOltdfQo=",
+    "stderr": "W1dBUk5JTkddIENvdWxkIG5vdCBsb2FkIGluY2x1ZGUgZmlsZSAvdG1wL2tvdGRvYy1yc3QtcmVhZGVyL2Z1bGwtb3JhY2xlL25vLmNzdiBhdCBsaW5lIDQgY29sdW1uIDEK"
+  },
+  {
+    "name": "io/raw:: html/'/tmp/kotdoc-rst-reader/full-oracle/no.csv'",
+    "args": [
+      "-f",
+      "rst",
+      "-t",
+      "json"
+    ],
+    "files": {},
+    "input": "Li4gcmF3OjogaHRtbAogICA6ZmlsZTogL3RtcC9rb3Rkb2MtcnN0LXJlYWRlci9mdWxsLW9yYWNsZS9uby5jc3YKCg==",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJSYXdCbG9jayIsImMiOlsiaHRtbCIsIiJdfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "default/125",
+    "args": [
+      "document.rst",
+      "-t",
+      "json"
+    ],
+    "files": {
+      "document.rst": "SGVhZGluZwo9PT09PT09Cgpib2R5"
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJIZWFkZXIiLCJjIjpbMSxbImhlYWRpbmciLFtdLFtdXSxbeyJ0IjoiU3RyIiwiYyI6IkhlYWRpbmcifV1dfSx7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJib2R5In1dfV19Cg==",
+    "stderr": ""
+  },
+  {
+    "name": "default/126",
+    "args": [
+      "-f",
+      "rst"
+    ],
+    "files": {},
+    "input": "SGVhZGluZwo9PT09PT09Cgpib2R5",
+    "exitCode": 0,
+    "stdout": "PGgxIGlkPSJoZWFkaW5nIj5IZWFkaW5nPC9oMT4KPHA+Ym9keTwvcD4K",
+    "stderr": ""
+  },
+  {
+    "name": "default/127",
+    "args": [
+      "-t",
+      "json",
+      "--trace",
+      "document.rst"
+    ],
+    "files": {
+      "document.rst": "Li4gaW5jbHVkZTo6IGNoaWxkLnJzdAoK",
+      "child.rst": "Y2hpbGQK"
+    },
+    "input": "",
+    "exitCode": 0,
+    "stdout": "eyJwYW5kb2MtYXBpLXZlcnNpb24iOlsxLDIzLDEsMl0sIm1ldGEiOnt9LCJibG9ja3MiOlt7InQiOiJQYXJhIiwiYyI6W3sidCI6IlN0ciIsImMiOiJjaGlsZCJ9XX1dfQo=",
+    "stderr": ""
+  }
+]

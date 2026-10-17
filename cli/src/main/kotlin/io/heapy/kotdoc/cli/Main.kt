@@ -30,11 +30,11 @@ import kotlin.system.exitProcess
 /** Entry point for ported formats. Full Pandoc CLI parity is tracked in docs/PORTING.md. */
 fun main(args: Array<String>) {
     if (args.toList() == listOf("--help")) {
-        println("Usage: kotdoc [--from dokuwiki|fb2|json|latex|muse|native] [--to FORMAT] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
+        println("Usage: kotdoc [--from dokuwiki|fb2|json|latex|muse|native|rst] [--to FORMAT] [--standalone] [--columns N] [--math-method METHOD] [--resource-path PATHS] [--extract-media PATH] [--output FILE] [FILE|-]")
         return
     }
     if (args.toList() == listOf("--list-input-formats")) {
-        println("dokuwiki\nfb2\njson\nlatex\nmuse\nnative")
+        println("dokuwiki\nfb2\njson\nlatex\nmuse\nnative\nrst")
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
@@ -111,16 +111,16 @@ fun main(args: Array<String>) {
         if (!explicitReader && input != null) {
             val inferred = FlavoredFormat.fromFilePaths(listOf(input))
             val dokuOutput = FlavoredFormat.parse(to).name in listOf("dokuwiki", "muse", "rst") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("dokuwiki", "muse", "rst") } == true
-            if (inferred != null && (inferred.name in listOf("dokuwiki", "muse") || dokuOutput)) from = inferred.name
+            if (inferred != null && (inferred.name in listOf("dokuwiki", "muse", "rst") || dokuOutput)) from = inferred.name
         }
         val inputFormat = FlavoredFormat.parse(from)
         if (!explicitWriter) {
             val inferred = output?.let { FlavoredFormat.fromFilePaths(listOf(it)) }
-            if (inputFormat.name in listOf("dokuwiki", "muse")) to = inferred?.name ?: "html"
+            if (inputFormat.name in listOf("dokuwiki", "muse", "rst")) to = inferred?.name ?: "html"
             else if (inferred?.name in listOf("dokuwiki", "muse", "rst")) to = checkNotNull(inferred).name
         }
         val outputFormat = FlavoredFormat.parse(to)
-        require(inputFormat.name in listOf("dokuwiki", "fb2", "json", "latex", "muse", "native")) { "Supported input formats: dokuwiki, fb2, json, latex, muse, native (requested $from)" }
+        require(inputFormat.name in listOf("dokuwiki", "fb2", "json", "latex", "muse", "native", "rst")) { "Supported input formats: dokuwiki, fb2, json, latex, muse, native, rst (requested $from)" }
         require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "muse", "native", "rst") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
         val inputExtensions = ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
         val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
@@ -128,7 +128,7 @@ fun main(args: Array<String>) {
         to = outputFormat.name
         require(columns > 0) { "Column count must be positive" }
         val inputBytes = if (input == null || input == "-") System.`in`.readBytes() else File(input).readBytes()
-        val text = if (from in listOf("latex", "muse")) "" else inputBytes.toString(Charsets.UTF_8)
+        val text = if (from in listOf("latex", "muse", "rst")) "" else inputBytes.toString(Charsets.UTF_8)
         val media = MediaBag()
         var document = when (from) {
             "dokuwiki" -> DokuWikiCli.read(inputBytes, if (input == null || input == "-") "" else input,
@@ -137,6 +137,9 @@ fun main(args: Array<String>) {
             "muse" -> MuseCliReader.read(inputBytes, if (input == null || input == "-") "" else input,
                 ReaderOptions(extensions = if (htmlOptions.options.tableOfContents) inputExtensions + io.heapy.kotdoc.options.Extensions.of(io.heapy.kotdoc.options.ExtensionName.AutoIdentifiers) else inputExtensions,
                     standalone = htmlOptions.standaloneFor(to), columns = columns.toLong(), tabStop = htmlOptions.options.tabStop, defaultImageExtension = defaultImageExtension), preserveTabs, trace)
+            "rst" -> RstCliReader.read(inputBytes, if (input == null || input == "-") "" else input,
+                ReaderOptions(extensions = if (htmlOptions.options.tableOfContents) inputExtensions + io.heapy.kotdoc.options.Extensions.of(io.heapy.kotdoc.options.ExtensionName.AutoIdentifiers) else inputExtensions,
+                    standalone = htmlOptions.standaloneFor(to), columns = columns.toLong(), tabStop = htmlOptions.options.tabStop, defaultImageExtension = defaultImageExtension), preserveTabs, trace, resourcePaths)
             "json" -> PandocJson.decode(text)
             "native" -> NativeReader.read(text)
             "latex" -> LaTeXCliReader.read(inputBytes,if (input == null || input == "-") "" else input,

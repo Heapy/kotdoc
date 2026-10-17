@@ -1,0 +1,20 @@
+{
+  "args": [
+    "-f",
+    "rst",
+    "-t",
+    "json"
+  ],
+  "input": "Li4gY3N2LXRhYmxlOjoKICAgOnVybDogaW52YWxpZDovL2V4YW1wbGUvYS5jc3YKCg==",
+  "original": {
+    "exitCode": 61,
+    "stdout": "",
+    "stderr": "Q291bGQgbm90IGZldGNoIGludmFsaWQ6Ly9leGFtcGxlL2EuY3N2CkludmFsaWRVcmxFeGNlcHRpb24gImludmFsaWQ6Ly9leGFtcGxlL2EuY3N2IiAiSW52YWxpZCBzY2hlbWUiCg=="
+  },
+  "kotlin": {
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "a290ZG9jOiBSU1QgcmVhZGVyIEhUVFAgYmFja2VuZCBpcyBub3QgeWV0IGNvbm5lY3RlZDogaW52YWxpZDovL2V4YW1wbGUvYS5jc3YK"
+  },
+  "gap": "Class.IO.HTTP backend is not installed; no substitute Java HTTP semantics"
+}

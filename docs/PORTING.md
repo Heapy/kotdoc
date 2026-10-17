@@ -14884,3 +14884,41 @@ Huge counts/GHC Int64 versus JVM Int32,optimized raw backend aliases,JVM timing/
 Cleaner erasure and general bottom behavior remain explicit limits. ChaChaDRG,
 Probabilistic,Prime,other signatures/trust/chain and rest613/Pandoc/calibre stay
 OPEN. This checkpoint adds no production foreign engine or entropy provider.
+
+
+### RST reader and narrow CLI checkpoint
+
+The complete pinned 1962-line Readers/RST module (133 signature inventory) and
+reader-used 302-line Parsing.GridTable adapter now have Kotlin paths. Grammar,
+state, deferred references/notes, roles/directives, includes, CSV/grid/simple
+tables, pure fetch callbacks and UTC formatting retain independent original
+expectations. Own read-only replay passed all 2828 expanded observations and
+37 unchanged upstream assertions; all 66 frozen file hashes match. Additional
+original/Kotlin probes for ModifiedJulianDay 2^63, 2^64 and 2^200 agree, including
+source Int64 calendar behavior. No upstream process is a production reader.
+
+Saved 93955/additive49732 XMLs contain 5921 actual cases with zero failures,
+errors or skips: 2830 reader, 35 callback-order, 331 helper and 2725 writer.
+The 2865 reader bindings include all 37 original tests. Three Old goldens keep
+the original App normalization. Own evidence/hash verification authenticated
+all retained proof artifacts, historical Main/HtmlOptions blobs, copied JARs
+and 99 packaged class pins. Durable installed CLI proof has exit 0 and 279/279
+comparisons: 74 source commands, 128 App cases, 60 tab-stop controls, three Old
+goldens, 12 Muse/Doku controls and two Muse commands. The earlier harness-only
+optional-files failure after 265 passes remains retained, not counted as PASS.
+
+Main registration/inference and HtmlCliOptions tab-stop parsing are narrow:
+GHC Int64 wrapping, positive validation and OptionError6 are covered. ENOTDIR
+is represented by the tested typed GHC IO error; this is not arbitrary OS/IO
+equivalence. Historical Builder/PandocMany baseline 7fdd75fe remains immutable;
+reader source checking explicitly reports later checkout drift. The separate
+Builder23701 run supplies fresh 2865-reader consumer evidence and does not
+rewrite this baseline.
+
+Default Class.IO.HTTP transport/TLS manager integration remains absent: the
+retained invalid-scheme probe differs (original exit61, Kotlin exit1). Resource
+callbacks are explicit; no substitute HTTP backend is claimed. Eleven of the
+85 RST-input command captures still need missing writers/citeproc. These are
+distinct from the previously pending RST-writer commands with other inputs.
+General GHC IO/platform semantics, global CLI options and the rest of 612/613/
+618/621, full Pandoc623 and calibre624–626 remain OPEN.
