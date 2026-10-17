@@ -548,3 +548,48 @@ Saved license-fix XML/log/package proof are under /tmp/kotdoc-generic-final-resu
 The earlier12,585 semantic regression is retained; this attribution-only change
 requires no expectation or semantic-suite rewrite. Repeat review/integration is
 pending and full611 remains open.
+
+### Generic acceptance and next Many dictionary checkpoint
+
+Generic's four-function checkpoint and the exact syb attribution/package
+correction were independently accepted and pushed as
+`1171e93b2c7666043e6bbfac387fd81f76f1b22c` (611 remains open). This supersedes the
+pending-review wording in the historical author report above; it does not
+certify all Data/Typeable/GHC.Generic/NFData instance members.
+
+The next source-closed Many slice is the 42-slot matrix at
+`tools/haskell-types-many-reference/acceptance-matrix.json`: Functor2,
+Foldable17, Traversable4, specialized Inlines/Blocks algebra13, four helpers and
+Many/unMany2. Original Builder and GHC interfaces resolve every derived/default
+method. There is no source Applicative/Alternative/Monad/NFData Many instance.
+The Kotlin effect protocol's Monad constraint is not a Monad instance for Many.
+
+Author isolated JUnit bodies currently pass5,128 cases:5,080 raw original
+responses,47 demand responses and one source-integrity check. The native verifier
+independently replays all5,127 responses byte-for-byte and validates the actual
+GHC/Builder interfaces. Core1,407; Seq structure1,596; algebra1,288; numeric364;
+traversal grouping425; demand47. Source numeric observations cover NaN, signed
+zero, Float64 association and Int64 wrap; partial-field probes distinguish strict
+append middles from lazy fmap/repetition and cached length. Shared2^40 repetition
+executes without expanding its values; source-list step/head/tail adapters avoid
+requiring an Int-sized JVM List. These are author results pending installation,
+focused Gradle and independent review, not a completion claim.
+
+The remaining gate is still the complete140-export/350-expanded-instance-member
+matrix and JSON.ToJSONFilter supplement, including other generic Many class
+members, Num/Enum count types, metadata conversions/HasMeta, remaining Builder
+exports, Data.Version and complete Data/Typeable/GHC.Generic/NFData surfaces.
+Existing concrete Read/EqOrd/Walk/JSON witnesses do not automatically close those
+families. Source-language thunk/list/effect adapters execute the represented
+partial cases; arbitrary GHC heaps, infinite spines and unbounded JVM callback
+stack behavior are not claimed.
+
+Many author final gate: Gradle65560 `BUILD SUCCESSFUL in1m20s`,17,713 actual
+cases/zero failures/errors/skips:5,128 Many +808 Generic +5,715 Walk closure
++52 pure demand +6,000 original properties +10 Visitor. Final verifier64 hashes
+and all5,127 original raw responses/GHC+Builder interfaces pass byte-exact.
+JAR/installDist pass;13 major new class entries and four retained notices are
+verified; installed core JAR is identical. Saved XML/command/log/frozen hashes are
+at /tmp/kotdoc-many-final-results. The 42-slot checkpoint is frozen for independent
+review; no source expectation or existing production file changed. The enclosing
+140/350/JSON and generic Many instance gates above remain open.

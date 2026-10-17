@@ -1,0 +1,18 @@
+cabal-version: 3.0
+name: kotdoc-types-many-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable types-many-reference
+  main-is: ManyReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2,
+                 aeson ==2.2.3.0, text ==2.1.2, containers ==0.7,
+                 bytestring, mtl
+executable types-many-demand
+  main-is: ManyDemand.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts -with-rtsopts=-K256m
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2,
+                 aeson ==2.2.3.0, containers ==0.7, bytestring

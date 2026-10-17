@@ -1,0 +1,1 @@
+Many draft copies are local author workspace only. Canonical production/tests are installed under core/src; source-manifest pins those installed files. Do not include duplicate draft Kotlin files in the scoped commit.

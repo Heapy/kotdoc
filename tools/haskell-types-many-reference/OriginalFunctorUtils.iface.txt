@@ -1,0 +1,1462 @@
+Magic: Wanted 33214052,
+       got    33214052
+Version: Wanted 9122,
+         got    9122
+Way: Wanted ,
+     got    
+interface GHC.Internal.Data.Functor.Utils 9122
+  interface hash: 1d3dedffdd4eb8d5458c0367af550f90
+  ABI hash: 3281014f6c55b740ecb3cedc0e359673
+  export-list hash: 1095de8e3c43d80c0e639892945f4c79
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: fab6d345fb59f26a84062ddc11ba2c4a
+  opt_hash: d4bd5770180ee3e5d15327f4d84fe9db
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  src_hash: 78067fc7a7841f0360370832922471c2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  #.
+  Max{Max getMax}
+  Min{Min getMin}
+  StateL{StateL runStateL}
+  StateR{StateR runStateR}
+  StateT{StateT runStateT}
+defaults:
+direct module dependencies: ghc-internal-9.1202.0:GHC.Internal.Base
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Coerce
+                            ghc-internal-9.1202.0:GHC.Internal.List
+boot module dependencies: (ghc-internal-9.1202.0,
+                           GHC.Internal.Enum {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception.Type {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.IO {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Num)
+                          (ghc-internal-9.1202.0, GHC.Internal.Real {-# SOURCE #-})
+direct package dependencies:
+plugin package dependencies:
+orphans: GHC.Internal.Base GHC.Prim.Ext
+family instance modules:
+import  -/  ghc-internal:GHC.Internal.Base 29ec812ead60248b1e26cd94a9165d97
+  exports: 713796e2e0f3bbf03b9e83554d1a1d39
+  $ 664c58473f0bfda3b1e4170cfa02eeda
+  <> d96f10699e74e05fcd37e50e83f513d8
+  >>= 5e32fdcb8e60c60ef6dc41606c9f0753
+  Applicative d221ed5c3ad0fa327772185c44405cab
+  Functor b9d34ad3ee458699bdca49643ee59798
+  Monad 0f08c257868aee15a4ec3f43ddcbd79b
+  Monoid 1d3beb14a290d634076f8d6aebd6fef1
+  Semigroup 78df3bce97a4387ca4c872173c36befd
+  liftM 534818e87625d902203365edcfa1b9c0
+  mempty 41e87ad8bbbe61548a7c976e5e330c60
+  otherwise c896f2b20cdef1fcdf5030a536a26aee
+  return df4e334a7f50f715e7d6615f32a06b2b
+import  -/  ghc-internal:GHC.Internal.Data.Coerce 8ab5c8c7cd3ee6ad44bc9d8be50be566
+  exports: 3ae00b8d87f6e10818175016579ce3cd
+import  -/  ghc-internal:GHC.Internal.List a5078bd7d87c446ced3216d37242823b
+  exports: df5010bea1b1e3736955185731a83325
+  foldl' 682c828f6bdcc60bbab47fec8c4e254f
+import  -/  GHC.Classes 94513e804d2e9dfa3393f6f9ff56cf25
+d0bda2ade07d73b3dc57eef7bf2c2712
+  (#.) :: GHC.Types.Coercible b c => (b -> c) -> (a -> b) -> a -> c
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1!P(1L)><A><1L>, Inline: (sat-args=1),
+   Unfolding: Core: StableUser <1,FalseFalse>
+              \ @b
+                @c
+                @a
+                ($dCoercible['GHC.Types.Many] :: GHC.Types.Coercible b c)
+                (eta['GHC.Types.Many] :: b -> c)
+                (eta1['GHC.Types.Many] :: a -> b) ->
+              case GHC.Types.coercible_sel
+                     @(*)
+                     @b
+                     @c
+                     $dCoercible of co { DEFAULT ->
+              eta1 `cast` (<a>_R %<'GHC.Types.Many>_N ->_R co) }]
+25fecadd88ba7c8e0bbcab0b0581ccda
+  $fApplicativeStateL :: GHC.Internal.Base.Applicative (StateL s)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Applicative],
+   Inline: CONLIKE,
+   Unfolding: DFun: @s.
+                @(StateL s)
+                ($fFunctorStateL @s)
+                ($fApplicativeStateL5 @s)
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym (N:StateL <s>_R <a>_R))
+                ($fApplicativeStateL4 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateL s (a -> b)>_R
+                 %<'GHC.Types.Many>_N ->_R <StateL s a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateL <s>_R <b>_R))
+                ($fApplicativeStateL3 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N) (c :: <*>_N).
+                 <a -> b -> c>_R
+                 %<'GHC.Types.Many>_N ->_R <StateL s a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateL s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateL <s>_R <c>_R))
+                ($fApplicativeStateL2 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateL s a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateL s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateL <s>_R <b>_R))
+                ($fApplicativeStateL1 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateL s a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateL s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateL <s>_R <a>_R))]
+53339d73ce3e9b3b63ac3427c4b7f93f
+  $fApplicativeStateL1 :: StateL s a -> StateL s b -> s -> (s, a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,P(ML,ML))><MC(1,P(1L,A))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (ds['GHC.Types.Many] :: StateL s a)
+                (ds1['GHC.Types.Many] :: StateL s b)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds2 :: (s, a) NotJoinPoint [] = ds `cast` (N:StateL <s>_R <a>_R) s1
+              } in
+              (case ds1 `cast` (N:StateL <s>_R <b>_R)
+                      (case ds2 of wild { (,) s' x -> s' }) of wild { (,) s'' y ->
+               s'' },
+               case ds2 of wild { (,) s' x -> x })]
+3d10feaa3235150fde583368c861c57d
+  $fApplicativeStateL2 :: StateL s a -> StateL s b -> s -> (s, b)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,P(1L,A))><MC(1,P(ML,ML))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (eta['GHC.Types.Many] :: StateL s a)
+                (eta1['GHC.Types.Many] :: StateL s b)
+                (eta2['GHC.Types.Many] :: s) ->
+              let {
+                ds :: (s, b) NotJoinPoint []
+                = eta1 `cast` (N:StateL <s>_R <b>_R)
+                    (case eta `cast` (N:StateL <s>_R <a>_R) eta2 of wild { (,) s' v ->
+                     s' })
+              } in
+              (case ds of wild { (,) s'' v -> s'' },
+               case ds of wild { (,) s'' v -> v })]
+756b8e89dc882df78a263c68873fe492
+  $fApplicativeStateL3 ::
+    (a -> b -> c) -> StateL s a -> StateL s b -> s -> (s, c)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 4,
+   Arity: 4,
+   Strictness: <MC(1,C(1,L))><MC(1,P(ML,ML))><MC(1,P(ML,ML))><L>,
+   CPR: 1,
+   Unfolding: Core: StableSystem <4,TrueFalse>
+              \ @s
+                @a
+                @b
+                @c
+                (f['GHC.Types.Many] :: a -> b -> c)
+                (ds['GHC.Types.Many] :: StateL s a)
+                (ds1['GHC.Types.Many] :: StateL s b)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds2 :: (s, a) NotJoinPoint [] = ds `cast` (N:StateL <s>_R <a>_R) s1
+              } in
+              let {
+                ds3 :: (s, b) NotJoinPoint []
+                = ds1 `cast` (N:StateL <s>_R <b>_R)
+                    (case ds2 of wild { (,) s' x -> s' })
+              } in
+              (case ds3 of wild { (,) s'' y -> s'' },
+               f (case ds2 of wild { (,) s' x -> x })
+                 (case ds3 of wild { (,) s'' y -> y }))]
+648dd43c5014af0c9bd67a3754eff8af
+  $fApplicativeStateL4 ::
+    StateL s (a -> b) -> StateL s a -> s -> (s, b)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,P(ML,MC(1,L)))><MC(1,P(ML,ML))><L>,
+   CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (ds['GHC.Types.Many] :: StateL s (a -> b))
+                (ds1['GHC.Types.Many] :: StateL s a)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds2 :: (s, a -> b) NotJoinPoint []
+                = ds `cast` (N:StateL <s>_R <a -> b>_R) s1
+              } in
+              let {
+                ds3 :: (s, a) NotJoinPoint []
+                = ds1 `cast` (N:StateL <s>_R <a>_R)
+                    (case ds2 of wild { (,) s' f -> s' })
+              } in
+              (case ds3 of wild { (,) s'' v -> s'' },
+               case ds2 of wild { (,) s' f ->
+               f (case ds3 of wild1 { (,) s'' v -> v }) })]
+86eb27c94062c44321f5938dc443c567
+  $fApplicativeStateL5 :: a -> s -> (s, a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <L><L>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueTrue>
+              \ @s @a (x['GHC.Types.Many] :: a) (s1['GHC.Types.Many] :: s) ->
+              (s1, x)]
+ecdd76712ac8e6436b42ae9227ab028c
+  $fApplicativeStateR :: GHC.Internal.Base.Applicative (StateR s)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Applicative],
+   Inline: CONLIKE,
+   Unfolding: DFun: @s.
+                @(StateR s)
+                ($fFunctorStateR @s)
+                ($fApplicativeStateL5 @s)
+                  `cast`
+                (forall (a :: <*>_N).
+                 <a>_R %<'GHC.Types.Many>_N ->_R Sym (N:StateR <s>_R <a>_R))
+                ($fApplicativeStateR4 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateR s (a -> b)>_R
+                 %<'GHC.Types.Many>_N ->_R <StateR s a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateR <s>_R <b>_R))
+                ($fApplicativeStateR3 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N) (c :: <*>_N).
+                 <a -> b -> c>_R
+                 %<'GHC.Types.Many>_N ->_R <StateR s a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateR s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateR <s>_R <c>_R))
+                ($fApplicativeStateR2 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateR s a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateR s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateR <s>_R <b>_R))
+                ($fApplicativeStateR1 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateR s a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateR s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateR <s>_R <a>_R))]
+b00bc81b75d7403474445f0a4c414c86
+  $fApplicativeStateR1 :: StateR s a -> StateR s b -> s -> (s, a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,P(ML,ML))><MC(1,P(1L,A))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (ds['GHC.Types.Many] :: StateR s a)
+                (ds1['GHC.Types.Many] :: StateR s b)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds2 :: (s, a) NotJoinPoint []
+                = ds `cast` (N:StateR <s>_R <a>_R)
+                    (case ds1 `cast` (N:StateR <s>_R <b>_R) s1 of wild { (,) s' y ->
+                     s' })
+              } in
+              (case ds2 of wild { (,) s'' x -> s'' },
+               case ds2 of wild { (,) s'' x -> x })]
+780962feedb4436d6f9f8d34da961f53
+  $fApplicativeStateR2 :: StateR s a -> StateR s b -> s -> (s, b)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,P(1L,A))><MC(1,P(ML,ML))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (eta['GHC.Types.Many] :: StateR s a)
+                (eta1['GHC.Types.Many] :: StateR s b)
+                (eta2['GHC.Types.Many] :: s) ->
+              let {
+                ds :: (s, b) NotJoinPoint []
+                = eta1 `cast` (N:StateR <s>_R <b>_R) eta2
+              } in
+              (case eta `cast` (N:StateR <s>_R <a>_R)
+                      (case ds of wild { (,) s' v -> s' }) of wild { (,) s' v ->
+               s' },
+               case ds of wild { (,) s' v -> v })]
+7c39f7f58f3426ddf9860ebbecfe87ad
+  $fApplicativeStateR3 ::
+    (a -> b -> c) -> StateR s a -> StateR s b -> s -> (s, c)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 4,
+   Arity: 4,
+   Strictness: <MC(1,C(1,L))><MC(1,P(ML,ML))><MC(1,P(ML,ML))><L>,
+   CPR: 1,
+   Unfolding: Core: StableSystem <4,TrueFalse>
+              \ @s
+                @a
+                @b
+                @c
+                (f['GHC.Types.Many] :: a -> b -> c)
+                (ds['GHC.Types.Many] :: StateR s a)
+                (ds1['GHC.Types.Many] :: StateR s b)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds2 :: (s, b) NotJoinPoint []
+                = ds1 `cast` (N:StateR <s>_R <b>_R) s1
+              } in
+              let {
+                ds3 :: (s, a) NotJoinPoint []
+                = ds `cast` (N:StateR <s>_R <a>_R)
+                    (case ds2 of wild { (,) s' y -> s' })
+              } in
+              (case ds3 of wild { (,) s'' x -> s'' },
+               f (case ds3 of wild { (,) s'' x -> x })
+                 (case ds2 of wild { (,) s' y -> y }))]
+811b4d89b561238bb45419d5fb6c8bc6
+  $fApplicativeStateR4 ::
+    StateR s (a -> b) -> StateR s a -> s -> (s, b)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,P(ML,MC(1,L)))><MC(1,P(ML,ML))><L>,
+   CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (ds['GHC.Types.Many] :: StateR s (a -> b))
+                (ds1['GHC.Types.Many] :: StateR s a)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds2 :: (s, a) NotJoinPoint []
+                = ds1 `cast` (N:StateR <s>_R <a>_R) s1
+              } in
+              let {
+                ds3 :: (s, a -> b) NotJoinPoint []
+                = ds `cast` (N:StateR <s>_R <a -> b>_R)
+                    (case ds2 of wild { (,) s' v -> s' })
+              } in
+              (case ds3 of wild { (,) s'' f -> s'' },
+               case ds3 of wild { (,) s'' f ->
+               f (case ds2 of wild1 { (,) s' v -> v }) })]
+4672fc3af3864968a0e082340de68572
+  $fApplicativeStateT ::
+    GHC.Internal.Base.Monad m =>
+    GHC.Internal.Base.Applicative (StateT s m)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(A,LC(L,C(1,L)),A,L)>, Inline: CONLIKE,
+   Unfolding: DFun: @m :: * -> *
+                    @s
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Monad m).
+                @(StateT s m)
+                ($fFunctorStateT @m @s v)
+                ($fApplicativeStateT_$cpure @m @s v)
+                ($fApplicativeStateT_$c<*> @m @s v)
+                ($fApplicativeStateT2 @m @s v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N) (c :: <*>_N).
+                 <a -> b -> c>_R
+                 %<'GHC.Types.Many>_N ->_R <StateT s m a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateT s m b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateT <s>_N <m>_R <c>_N))
+                ($fApplicativeStateT3 @m @s v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateT s m a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateT s m b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateT <s>_N <m>_R <b>_N))
+                ($fApplicativeStateT1 @m @s v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateT s m a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateT s m b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateT <s>_N <m>_R <a>_N))]
+24af8b60d1d9ae98ce834f7f2b7fad69
+  $fApplicativeStateT1 ::
+    GHC.Internal.Base.Monad m =>
+    StateT s m a -> StateT s m b -> s -> m (s, a)
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <SP(A,SC(S,C(1,L)),A,L)><MC(1,L)><LC(S,L)><L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: * -> *
+                @s
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                @a
+                @b ->
+              $fApplicativeStateT2
+                @m
+                @s
+                $dMonad
+                @a
+                @b
+                @a
+                (GHC.Internal.Base.const @a @b)]
+b73b2a2a17e86f58ca9e8d2b526fdd98
+  $fApplicativeStateT2 ::
+    GHC.Internal.Base.Monad m =>
+    (a -> b -> c) -> StateT s m a -> StateT s m b -> s -> m (s, c)
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 5, Arity: 5,
+   Strictness: <SP(A,SC(S,C(1,L)),A,L)><LC(S,L)><MC(1,L)><LC(S,L)><L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: * -> *
+                @s
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                @a
+                @b
+                @c
+                (eta['GHC.Types.Many] :: a -> b -> c)
+                (eta1['GHC.Types.Many] :: StateT s m a)
+                (eta2['GHC.Types.Many] :: StateT s m b)
+                (eta3['GHC.Types.Many] :: s) ->
+              GHC.Internal.Base.>>=
+                @m
+                $dMonad
+                @(s, b -> c)
+                @(s, c)
+                (GHC.Internal.Base.>>=
+                   @m
+                   $dMonad
+                   @(s, a)
+                   @(s, b -> c)
+                   (eta1 `cast` (N:StateT <s>_N <m>_R <a>_N) eta3)
+                   (\ (ds['GHC.Types.Many] :: (s, a)) ->
+                    case ds of wild { (,) s' a1 ->
+                    GHC.Internal.Base.return @m $dMonad @(s, b -> c) (s', eta a1) }))
+                (\ (ds['GHC.Types.Many] :: (s, b -> c)) ->
+                 case ds of wild { (,) s' f ->
+                 GHC.Internal.Base.>>=
+                   @m
+                   $dMonad
+                   @(s, b)
+                   @(s, c)
+                   (eta2 `cast` (N:StateT <s>_N <m>_R <b>_N) s')
+                   (\ (ds1['GHC.Types.Many] :: (s, b)) ->
+                    case ds1 of wild1 { (,) s'' x ->
+                    GHC.Internal.Base.return @m $dMonad @(s, c) (s'', f x) }) })]
+9e69eadb7098cdec43e981222cfe0395
+  $fApplicativeStateT3 ::
+    GHC.Internal.Base.Monad m =>
+    StateT s m a -> StateT s m b -> s -> m (s, b)
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <1P(A,1C(1,C(1,L)),A,A)><MC(1,L)><LC(S,L)><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @m :: * -> *
+                @s
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                @a
+                @b
+                (eta['GHC.Types.Many] :: StateT s m a)
+                (eta1['GHC.Types.Many] :: StateT s m b)
+                (eta2['GHC.Types.Many] :: s) ->
+              GHC.Internal.Base.>>=
+                @m
+                $dMonad
+                @(s, a)
+                @(s, b)
+                (eta `cast` (N:StateT <s>_N <m>_R <a>_N) eta2)
+                (\ (ds['GHC.Types.Many] :: (s, a)) ->
+                 case ds of wild { (,) s' a1 ->
+                 eta1 `cast` (N:StateT <s>_N <m>_R <b>_N) s' })]
+f9235167ae29eabd52636da111f5ee59
+  $fApplicativeStateT_$c<*> ::
+    GHC.Internal.Base.Monad m =>
+    StateT s m (a -> b) -> StateT s m a -> StateT s m b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <S!P(A,SC(S,C(1,L)),A,LC(S,L))><MC(1,L)><LC(S,L)><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              (\ @m :: * -> *
+                 @s
+                 ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                 @a
+                 @b
+                 (ds['GHC.Types.Many] :: StateT s m (a -> b))
+                 (ds1['GHC.Types.Many] :: StateT s m a)
+                 (s1['GHC.Types.Many] :: s) ->
+               GHC.Internal.Base.>>=
+                 @m
+                 $dMonad
+                 @(s, a -> b)
+                 @(s, b)
+                 (ds `cast` (N:StateT <s>_N <m>_R <a -> b>_N) s1)
+                 (\ (ds2['GHC.Types.Many] :: (s, a -> b)) ->
+                  case ds2 of wild { (,) s' f ->
+                  GHC.Internal.Base.>>=
+                    @m
+                    $dMonad
+                    @(s, a)
+                    @(s, b)
+                    (ds1 `cast` (N:StateT <s>_N <m>_R <a>_N) s')
+                    (\ (ds3['GHC.Types.Many] :: (s, a)) ->
+                     case ds3 of wild1 { (,) s'' x ->
+                     GHC.Internal.Base.return @m $dMonad @(s, b) (s'', f x) }) }))
+                `cast`
+              (forall (m :: <* -> *>_N) (s :: <*>_N).
+               <GHC.Internal.Base.Monad m>_R
+               %<'GHC.Types.Many>_N ->_R forall (a :: <*>_N) (b :: <*>_N).
+                                         <StateT s m (a -> b)>_R
+                                         %<'GHC.Types.Many>_N ->_R <StateT s m a>_R
+                                         %<'GHC.Types.Many>_N ->_R Sym (N:StateT
+                                                                            <s>_N <m>_R <b>_N))]
+91594d408f7bc3b57aab5ff742e06f06
+  $fApplicativeStateT_$cpure ::
+    GHC.Internal.Base.Monad m => a -> StateT s m a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1!P(A,A,A,1C(1,L))><L><L>, Inline: (sat-args=1),
+   Unfolding: Core: StableUser <2,FalseFalse>
+              (\ @m :: * -> *
+                 @s
+                 ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                 @a
+                 (a1['GHC.Types.Many] :: a)
+                 (s1['GHC.Types.Many] :: s) ->
+               GHC.Internal.Base.return @m $dMonad @(s, a) (s1, a1))
+                `cast`
+              (forall (m :: <* -> *>_N) (s :: <*>_N).
+               <GHC.Internal.Base.Monad m>_R
+               %<'GHC.Types.Many>_N ->_R forall (a :: <*>_N).
+                                         <a>_R
+                                         %<'GHC.Types.Many>_N ->_R Sym (N:StateT
+                                                                            <s>_N <m>_R <a>_N))]
+877abbff0a45e8b9095743c198f2e310
+  $fFunctorStateL :: GHC.Internal.Base.Functor (StateL s)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Functor],
+   Inline: CONLIKE,
+   Unfolding: DFun: @s.
+                @(StateL s)
+                ($fFunctorStateL2 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R <StateL s a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateL <s>_R <b>_R))
+                ($fFunctorStateL1 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateL s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateL <s>_R <a>_R))]
+b7c218208e23402d5584e07d18a92565
+  $fFunctorStateL1 :: a -> StateL s b -> s -> (s, a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <L><MC(1,P(1L,A))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueTrue>
+              \ @s
+                @a
+                @b
+                (eta['GHC.Types.Many] :: a)
+                (ds['GHC.Types.Many] :: StateL s b)
+                (s1['GHC.Types.Many] :: s) ->
+              (case ds `cast` (N:StateL <s>_R <b>_R) s1 of wild { (,) s' v ->
+               s' },
+               eta)]
+7c2056125c9f91244321c708b22c9742
+  $fFunctorStateL2 :: (a -> b) -> StateL s a -> s -> (s, b)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,L)><MC(1,P(ML,ML))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (f['GHC.Types.Many] :: a -> b)
+                (ds['GHC.Types.Many] :: StateL s a)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds1 :: (s, a) NotJoinPoint [] = ds `cast` (N:StateL <s>_R <a>_R) s1
+              } in
+              (case ds1 of wild { (,) s' v -> s' },
+               f (case ds1 of wild { (,) s' v -> v }))]
+eb16f1fd984ad5f1537cd2ac1da62a46
+  $fFunctorStateR :: GHC.Internal.Base.Functor (StateR s)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Internal.Base.C:Functor],
+   Inline: CONLIKE,
+   Unfolding: DFun: @s.
+                @(StateR s)
+                ($fFunctorStateR2 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a -> b>_R
+                 %<'GHC.Types.Many>_N ->_R <StateR s a>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateR <s>_R <b>_R))
+                ($fFunctorStateR1 @s)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateR s b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateR <s>_R <a>_R))]
+bd0304b33350ec4c6efcd16b61932a8d
+  $fFunctorStateR1 :: a -> StateR s b -> s -> (s, a)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <L><MC(1,P(1L,A))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueTrue>
+              \ @s
+                @a
+                @b
+                (eta['GHC.Types.Many] :: a)
+                (ds['GHC.Types.Many] :: StateR s b)
+                (s1['GHC.Types.Many] :: s) ->
+              (case ds `cast` (N:StateR <s>_R <b>_R) s1 of wild { (,) s' v ->
+               s' },
+               eta)]
+00682d755d68b06df1ee51bb1ba3c4bd
+  $fFunctorStateR2 :: (a -> b) -> StateR s a -> s -> (s, b)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 3,
+   Arity: 3, Strictness: <MC(1,L)><MC(1,P(ML,ML))><L>, CPR: 1,
+   Unfolding: Core: StableSystem <3,TrueFalse>
+              \ @s
+                @a
+                @b
+                (f['GHC.Types.Many] :: a -> b)
+                (ds['GHC.Types.Many] :: StateR s a)
+                (s1['GHC.Types.Many] :: s) ->
+              let {
+                ds1 :: (s, a) NotJoinPoint [] = ds `cast` (N:StateR <s>_R <a>_R) s1
+              } in
+              (case ds1 of wild { (,) s' v -> s' },
+               f (case ds1 of wild { (,) s' v -> v }))]
+542cb568d137fc54ad9ad74aa8024799
+  $fFunctorStateT ::
+    GHC.Internal.Base.Monad m => GHC.Internal.Base.Functor (StateT s m)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(A,LC(L,C(1,L)),A,L)>, Inline: CONLIKE,
+   Unfolding: DFun: @m :: * -> *
+                    @s
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Monad m).
+                @(StateT s m)
+                ($fFunctorStateT_$cfmap @m @s v)
+                ($fFunctorStateT1 @m @s v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateT s m b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateT <s>_N <m>_R <a>_N))]
+dc1e573ae1285e10b68cfeacb535af7a
+  $fFunctorStateT1 ::
+    GHC.Internal.Base.Monad m => a -> StateT s m b -> s -> m (s, a)
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <SP(A,1C(1,C(1,L)),A,LC(S,L))><L><MC(1,L)><L>,
+   Unfolding: Core: <vanilla>
+              \ @m :: * -> *
+                @s
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                @a
+                @b
+                (eta['GHC.Types.Many] :: a)
+                (m1['GHC.Types.Many] :: StateT s m b)
+                (s1['GHC.Types.Many] :: s) ->
+              GHC.Internal.Base.>>=
+                @m
+                $dMonad
+                @(s, b)
+                @(s, a)
+                (m1 `cast` (N:StateT <s>_N <m>_R <b>_N) s1)
+                (\ (ds['GHC.Types.Many] :: (s, b)) ->
+                 case ds of wild { (,) s' a1 ->
+                 GHC.Internal.Base.return @m $dMonad @(s, a) (s', eta) })]
+103977aa129f20958f81153311e4733a
+  $fFunctorStateT_$cfmap ::
+    GHC.Internal.Base.Monad m =>
+    (a -> b) -> StateT s m a -> StateT s m b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <S!P(A,1C(1,C(1,L)),A,LC(S,L))><LC(S,L)><MC(1,L)><L>,
+   Inline: (sat-args=0),
+   Unfolding: Core: StableUser <1,FalseFalse>
+              (\ @m :: * -> *
+                 @s
+                 ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                 @a
+                 @b
+                 (f['GHC.Types.Many] :: a -> b)
+                 (m1['GHC.Types.Many] :: StateT s m a)
+                 (s1['GHC.Types.Many] :: s) ->
+               GHC.Internal.Base.>>=
+                 @m
+                 $dMonad
+                 @(s, a)
+                 @(s, b)
+                 (m1 `cast` (N:StateT <s>_N <m>_R <a>_N) s1)
+                 (\ (ds['GHC.Types.Many] :: (s, a)) ->
+                  case ds of wild { (,) s' a1 ->
+                  GHC.Internal.Base.return @m $dMonad @(s, b) (s', f a1) }))
+                `cast`
+              (forall (m :: <* -> *>_N) (s :: <*>_N).
+               <GHC.Internal.Base.Monad m>_R
+               %<'GHC.Types.Many>_N ->_R forall (a :: <*>_N) (b :: <*>_N).
+                                         <a -> b>_R
+                                         %<'GHC.Types.Many>_N ->_R <StateT s m a>_R
+                                         %<'GHC.Types.Many>_N ->_R Sym (N:StateT
+                                                                            <s>_N <m>_R <b>_N))]
+1df618bf246c46a05bc74c98f94ef4b8
+  $fMonadStateT ::
+    GHC.Internal.Base.Monad m => GHC.Internal.Base.Monad (StateT s m)
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <LP(A,LC(L,C(1,L)),A,L)>, Inline: CONLIKE,
+   Unfolding: DFun: @m :: * -> *
+                    @s
+                    (v['GHC.Types.Many] :: GHC.Internal.Base.Monad m).
+                @(StateT s m)
+                ($fApplicativeStateT @m @s v)
+                ($fMonadStateT_$c>>= @m @s v)
+                ($fMonadStateT1 @m @s v)
+                  `cast`
+                (forall (a :: <*>_N) (b :: <*>_N).
+                 <StateT s m a>_R
+                 %<'GHC.Types.Many>_N ->_R <StateT s m b>_R
+                 %<'GHC.Types.Many>_N ->_R Sym (N:StateT <s>_N <m>_R <b>_N))
+                ($fApplicativeStateT_$cpure @m @s v)]
+442bb67ea7ad2d4d2b06c422ae414a21
+  $fMonadStateT1 ::
+    GHC.Internal.Base.Monad m =>
+    StateT s m a -> StateT s m b -> s -> m (s, b)
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <1P(A,1C(1,C(1,L)),A,A)><MC(1,L)><LC(S,L)><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @m :: * -> *
+                @s
+                ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                @a
+                @b
+                (eta['GHC.Types.Many] :: StateT s m a)
+                (eta1['GHC.Types.Many] :: StateT s m b)
+                (eta2['GHC.Types.Many] :: s) ->
+              GHC.Internal.Base.>>=
+                @m
+                $dMonad
+                @(s, a)
+                @(s, b)
+                (eta `cast` (N:StateT <s>_N <m>_R <a>_N) eta2)
+                (\ (ds['GHC.Types.Many] :: (s, a)) ->
+                 case ds of wild { (,) s' a1 ->
+                 eta1 `cast` (N:StateT <s>_N <m>_R <b>_N) s' })]
+4f90c8664582c86ff385800e6d1b699b
+  $fMonadStateT_$c>>= ::
+    GHC.Internal.Base.Monad m =>
+    StateT s m a -> (a -> StateT s m b) -> StateT s m b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <1!P(A,1C(1,C(1,L)),A,A)><MC(1,L)><LC(S,C(1,L))><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              (\ @m :: * -> *
+                 @s
+                 ($dMonad['GHC.Types.Many] :: GHC.Internal.Base.Monad m)
+                 @a
+                 @b
+                 (m1['GHC.Types.Many] :: StateT s m a)
+                 (k['GHC.Types.Many] :: a -> StateT s m b)
+                 (s1['GHC.Types.Many] :: s) ->
+               GHC.Internal.Base.>>=
+                 @m
+                 $dMonad
+                 @(s, a)
+                 @(s, b)
+                 (m1 `cast` (N:StateT <s>_N <m>_R <a>_N) s1)
+                 (\ (ds['GHC.Types.Many] :: (s, a)) ->
+                  case ds of wild { (,) s' a1 ->
+                  (k a1) `cast` (N:StateT <s>_N <m>_R <b>_N) s' }))
+                `cast`
+              (forall (m :: <* -> *>_N) (s :: <*>_N).
+               <GHC.Internal.Base.Monad m>_R
+               %<'GHC.Types.Many>_N ->_R forall (a :: <*>_N) (b :: <*>_N).
+                                         <StateT s m a>_R
+                                         %<'GHC.Types.Many>_N ->_R <a -> StateT s m b>_R
+                                         %<'GHC.Types.Many>_N ->_R Sym (N:StateT
+                                                                            <s>_N <m>_R <b>_N))]
+c7fee3fffda9020e7617e928cf897694
+  $fMonoidMax ::
+    GHC.Classes.Ord a => GHC.Internal.Base.Monoid (Max a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(A,A,A,A,A,LC(L,C(1,L)),A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(Max a)
+                ($fSemigroupMax @a v)
+                (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:Max <a>_N)
+                ($fMonoidMax_$c<> @a v)
+                ($fMonoidMax_$cmconcat @a v)]
+4c8ff5a98cbdd9bbf92de8d69b8d4fe3
+  $fMonoidMax_$c<> :: GHC.Classes.Ord a => Max a -> Max a -> Max a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,A,A,A,A,1C(1,C(1,L)),A,A)><1L><1L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (m['GHC.Types.Many] :: Max a)
+                (ds['GHC.Types.Many] :: Max a) ->
+              case ds `cast` (N:Max <a>_N) of wild {
+                GHC.Internal.Maybe.Nothing -> m
+                GHC.Internal.Maybe.Just ipv
+                -> case m `cast` (N:Max <a>_N) of wild1 {
+                     GHC.Internal.Maybe.Nothing -> wild `cast` (Sym N:Max <a>_N)
+                     GHC.Internal.Maybe.Just x
+                     -> case GHC.Classes.>= @a $dOrd x ipv of wild2 {
+                          GHC.Types.False -> wild `cast` (Sym N:Max <a>_N)
+                          GHC.Types.True -> wild1 `cast` (Sym N:Max <a>_N) } } }]
+af0e163f9fe95059da152519ac2fbd6d
+  $fMonoidMax_$cmconcat :: GHC.Classes.Ord a => [Max a] -> Max a
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <LP(A,A,A,A,A,SC(S,C(1,L)),A,A)><1L>,
+   Inline: (sat-args=0),
+   Unfolding: Core: StableUser <1,FalseFalse>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (xs['GHC.Types.Many] :: [Max a]) ->
+              GHC.Internal.Base.foldr
+                @(Max a)
+                @(Max a -> Max a)
+                (\ (ds['GHC.Types.Many] :: Max a)
+                   (ds1['GHC.Types.Many] :: Max a -> Max a)[OneShot]
+                   (v['GHC.Types.Many] :: Max a)[OneShot] ->
+                 case v `cast` (N:Max <a>_N) of nt { DEFAULT ->
+                 ds1
+                   (case ds `cast` (N:Max <a>_N) of wild {
+                      GHC.Internal.Maybe.Nothing -> nt `cast` (Sym N:Max <a>_N)
+                      GHC.Internal.Maybe.Just ipv
+                      -> case nt of wild1 {
+                           GHC.Internal.Maybe.Nothing -> wild `cast` (Sym N:Max <a>_N)
+                           GHC.Internal.Maybe.Just x
+                           -> case GHC.Classes.>= @a $dOrd x ipv of wild2 {
+                                GHC.Types.False -> wild `cast` (Sym N:Max <a>_N)
+                                GHC.Types.True -> wild1 `cast` (Sym N:Max <a>_N) } } }) })
+                (GHC.Internal.Base.id @(Max a))
+                xs
+                (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:Max <a>_N)]
+40c337db6e1b0295b7563306588e0b6a
+  $fMonoidMin ::
+    GHC.Classes.Ord a => GHC.Internal.Base.Monoid (Min a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(A,A,A,LC(L,C(1,L)),A,A,A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(Min a)
+                ($fSemigroupMin @a v)
+                (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:Min <a>_N)
+                ($fMonoidMin_$c<> @a v)
+                ($fMonoidMin_$cmconcat @a v)]
+a875520d8d01e1ad027df00b640f617f
+  $fMonoidMin_$c<> :: GHC.Classes.Ord a => Min a -> Min a -> Min a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <MP(A,A,A,1C(1,C(1,L)),A,A,A,A)><1L><1L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <3,FalseFalse>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (m['GHC.Types.Many] :: Min a)
+                (ds['GHC.Types.Many] :: Min a) ->
+              case ds `cast` (N:Min <a>_N) of wild {
+                GHC.Internal.Maybe.Nothing -> m
+                GHC.Internal.Maybe.Just ipv
+                -> case m `cast` (N:Min <a>_N) of wild1 {
+                     GHC.Internal.Maybe.Nothing -> wild `cast` (Sym N:Min <a>_N)
+                     GHC.Internal.Maybe.Just x
+                     -> case GHC.Classes.<= @a $dOrd x ipv of wild2 {
+                          GHC.Types.False -> wild `cast` (Sym N:Min <a>_N)
+                          GHC.Types.True -> wild1 `cast` (Sym N:Min <a>_N) } } }]
+350f0b3e4ba5562183446a3461e7cca9
+  $fMonoidMin_$cmconcat :: GHC.Classes.Ord a => [Min a] -> Min a
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <LP(A,A,A,SC(S,C(1,L)),A,A,A,A)><1L>,
+   Inline: (sat-args=0),
+   Unfolding: Core: StableUser <1,FalseFalse>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (xs['GHC.Types.Many] :: [Min a]) ->
+              GHC.Internal.Base.foldr
+                @(Min a)
+                @(Min a -> Min a)
+                (\ (ds['GHC.Types.Many] :: Min a)
+                   (ds1['GHC.Types.Many] :: Min a -> Min a)[OneShot]
+                   (v['GHC.Types.Many] :: Min a)[OneShot] ->
+                 case v `cast` (N:Min <a>_N) of nt { DEFAULT ->
+                 ds1
+                   (case ds `cast` (N:Min <a>_N) of wild {
+                      GHC.Internal.Maybe.Nothing -> nt `cast` (Sym N:Min <a>_N)
+                      GHC.Internal.Maybe.Just ipv
+                      -> case nt of wild1 {
+                           GHC.Internal.Maybe.Nothing -> wild `cast` (Sym N:Min <a>_N)
+                           GHC.Internal.Maybe.Just x
+                           -> case GHC.Classes.<= @a $dOrd x ipv of wild2 {
+                                GHC.Types.False -> wild `cast` (Sym N:Min <a>_N)
+                                GHC.Types.True -> wild1 `cast` (Sym N:Min <a>_N) } } }) })
+                (GHC.Internal.Base.id @(Min a))
+                xs
+                (GHC.Internal.Maybe.Nothing @a) `cast` (Sym N:Min <a>_N)]
+3298c200bc54a1b2d2597bb216adf8a8
+  $fSemigroupMax ::
+    GHC.Classes.Ord a => GHC.Internal.Base.Semigroup (Max a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(A,A,A,A,A,LC(L,C(1,L)),A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(Max a)
+                ($fMonoidMax_$c<> @a v)
+                ($fSemigroupMax_$csconcat @a v)
+                ($fSemigroupMax_$cstimes @a v)]
+67b767632a2ed1f8bfe6bb3e5568f972
+  $fSemigroupMax_$csconcat ::
+    GHC.Classes.Ord a => GHC.Internal.Base.NonEmpty (Max a) -> Max a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <SP(A,A,A,A,A,SC(S,C(1,L)),A,A)><1!P(1L,1L)>,
+   Inline: [2],
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (ds['GHC.Types.Many] :: GHC.Internal.Base.NonEmpty (Max a)) ->
+              case ds of wild { GHC.Internal.Base.:| ww ww1 ->
+              $w$csconcat @a $dOrd ww ww1 }]
+1dbd6e23ee2e2228be406ab604361afa
+  $fSemigroupMax_$cstimes ::
+    (GHC.Classes.Ord a, GHC.Internal.Real.Integral b) =>
+    b -> Max a -> Max a
+  [LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <SP(A,A,A,A,A,LC(L,C(1,L)),A,A)><SP(SP(SP(A,A,A,A,A,A,L),SP(SP(SC(S,C(1,L)),A),A,A,1C(1,C(1,L)),A,A,A,A),A),A,LC(L,C(1,L)),LC(L,C(1,L)),A,A,A,A,A)><L><1L>]
+6214c51093142d067c7cddf6cbb8e461
+  $fSemigroupMin ::
+    GHC.Classes.Ord a => GHC.Internal.Base.Semigroup (Min a)
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <LP(A,A,A,LC(L,C(1,L)),A,A,A,A)>, Inline: CONLIKE,
+   Unfolding: DFun: @a (v['GHC.Types.Many] :: GHC.Classes.Ord a).
+                @(Min a)
+                ($fMonoidMin_$c<> @a v)
+                ($fSemigroupMin_$csconcat @a v)
+                ($fSemigroupMin_$cstimes @a v)]
+9e59b5948251321211bee4ca29ceb376
+  $fSemigroupMin_$csconcat ::
+    GHC.Classes.Ord a => GHC.Internal.Base.NonEmpty (Min a) -> Min a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <LP(A,A,A,SC(S,C(1,L)),A,A,A,A)><1!P(1L,1L)>,
+   Inline: [2],
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (ds['GHC.Types.Many] :: GHC.Internal.Base.NonEmpty (Min a)) ->
+              case ds of wild { GHC.Internal.Base.:| ww ww1 ->
+              $w$csconcat1 @a $dOrd ww ww1 }]
+92c8e3f220201d74d0408c02fde6c2da
+  $fSemigroupMin_$cstimes ::
+    (GHC.Classes.Ord a, GHC.Internal.Real.Integral b) =>
+    b -> Min a -> Min a
+  [LambdaFormInfo: LFReEntrant 4, Arity: 4,
+   Strictness: <LP(A,A,A,LC(L,C(1,L)),A,A,A,A)><SP(1P(LP(A,A,A,A,A,A,L),SP(1P(SC(S,C(1,L)),A),A,A,1C(1,C(1,L)),A,A,A,A),A),A,LC(L,C(1,L)),LC(L,C(1,L)),A,A,A,A,A)><L><1L>]
+754345d024a956963e8f56d22122d564
+  $tc'Max :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                16674457946088394077#Word64
+                15172852850172438108#Word64
+                $trModule
+                $tc'Max2
+                1#
+                $tc'Max1]
+4c00267aef68a2e1c62bcd63ee127067
+  $tc'Max1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+c234d14e888c30efce6b4209c962bbb0
+  $tc'Max2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'Max3]
+bbd382ffbfaf291c0603c39ea43b9c45
+  $tc'Max3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'Max"#]
+933ef56789e411d566f17aa9b47e094d
+  $tc'Min :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                12944065211195786897#Word64
+                14822568235656564948#Word64
+                $trModule
+                $tc'Min2
+                1#
+                $tc'Min1]
+766ff97f3ba44a86554ba4b6cfaf8bea
+  $tc'Min1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+232c55136a735f044cd04704ff25df4c
+  $tc'Min2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'Min3]
+4c0649c404f3bb2e2b0db4d6f9bb194e
+  $tc'Min3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'Min"#]
+7e88b7c1d29710c08ce71148d2339a86
+  $tc'StateL :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                11154933096571219524#Word64
+                14852817269364339035#Word64
+                $trModule
+                $tc'StateL2
+                2#
+                $tc'StateL1]
+10a8ff6d99711fb8b4e254cb6d67e232
+  $tc'StateL1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+296292cbdd164b36c6e3df6f3da4b291
+  $tc'StateL2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'StateL3]
+421683c659e98f8df93ff748959a05c1
+  $tc'StateL3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'StateL"#]
+068546790100c8abac50462bb5581b76
+  $tc'StateR :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                13453825586755164574#Word64
+                13983967784274596995#Word64
+                $trModule
+                $tc'StateR2
+                2#
+                $tc'StateR1]
+0c170618ce46a1c25197fa912b323284
+  $tc'StateR1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+384993b3c2119cbd78692f0518e8ef40
+  $tc'StateR2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'StateR3]
+5a0664568b3184b45277fade3f27dc6a
+  $tc'StateR3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'StateR"#]
+c7c9125228013e1af15b0afaad830b8f
+  $tc'StateT :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                10769970036657112647#Word64
+                11295424639275735016#Word64
+                $trModule
+                $tc'StateT2
+                3#
+                $tc'StateT1]
+034f6082249a52fc69f52c0f3a7ea559
+  $tc'StateT1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+6d790250b9787ed9358e991fab7526fb
+  $tc'StateT2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'StateT3]
+361db93e3eafc5b146ba729599a17353
+  $tc'StateT3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'StateT"#]
+0b0d9b044a68452939c8190cda77220f
+  $tcMax :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                17373500214839407762#Word64
+                12362310388359476784#Word64
+                $trModule
+                $tcMax1
+                0#
+                GHC.Types.krep$*Arr*]
+6a69697e96d410e729eb2543b2abde6e
+  $tcMax1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcMax2]
+96d97ad5b1b422ac3ae1da6d6140857e
+  $tcMax2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Max"#]
+305eb3d918e2632453909d047b40ae16
+  $tcMin :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                4418651575035051470#Word64
+                11696266599732382553#Word64
+                $trModule
+                $tcMin1
+                0#
+                GHC.Types.krep$*Arr*]
+735dea65b57a0095e3da85b4d8473f3f
+  $tcMin1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcMin2]
+93174854edfe925f7f92909122694b73
+  $tcMin2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Min"#]
+0942fe63f793267e85f4e08c8ff58859
+  $tcStateL :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                600558826165938242#Word64
+                16477579673518259972#Word64
+                $trModule
+                $tcStateL1
+                0#
+                GHC.Types.krep$*->*->*]
+59677f818acf51e16b1cf290be5b73ad
+  $tcStateL1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcStateL2]
+df9824db22220bd51b5f2c2e8ed28d4f
+  $tcStateL2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "StateL"#]
+2c05ca1d0ab9e94be78668d640891767
+  $tcStateR :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                2591499415069121590#Word64
+                12947111437545431744#Word64
+                $trModule
+                $tcStateR1
+                0#
+                GHC.Types.krep$*->*->*]
+f0c96e9604468b1d0894cc29f5df66da
+  $tcStateR1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcStateR2]
+13ffbc1027e86bdbb130a22632466211
+  $tcStateR2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "StateR"#]
+2c6f80b49d3da57ef52b4cf9cb2880f3
+  $tcStateT :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                2700392068803917572#Word64
+                3324781772516372031#Word64
+                $trModule
+                $tcStateT2
+                0#
+                $tcStateT1]
+a4b1996b87be7bc6b7018915f4a2e118
+  $tcStateT1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+f2bf130bb16fc3027d4f4247328094ac
+  $tcStateT2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcStateT3]
+2462cdc24925e6e941097e1a7996da71
+  $tcStateT3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "StateT"#]
+1d6c94e9442115bf500cc4a553e8f685
+  $trModule :: GHC.Types.Module
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla> GHC.Types.Module $trModule3 $trModule1]
+b1db4b766e2d02329cce57bed4f9bb62
+  $trModule1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule2]
+cc5b60e6d1e4dd0346aaea01126f8a15
+  $trModule2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.Internal.Data.Functor.Utils"#]
+150c855d167f629a6ddb8ea190112ee5
+  $trModule3 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule4]
+7de10d5de4a7e6f7f0514c27cfd4a635
+  $trModule4 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "ghc-internal"#]
+2457c821bbf2b69b427b4a2e5ffca3f2
+  $w$csconcat :: GHC.Classes.Ord a => Max a -> [Max a] -> Max a
+  StrWork([!, !, !])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,A,A,A,A,SC(S,C(1,L)),A,A)><1L><1L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (ww['GHC.Types.Many] :: Max a)
+                (ww1['GHC.Types.Many] :: [Max a]) ->
+              letrec {
+                go1 :: Max a -> [Max a] -> Max a
+                  NotJoinPoint [Arity: 2, Strictness: <1L><1L>]
+                = \ (b['GHC.Types.Many] :: Max a)
+                    (ds1['GHC.Types.Many] :: [Max a])[OneShot] ->
+                  case ds1 of wild1 {
+                    [] -> b
+                    : c cs
+                    -> case (go1 c cs) `cast` (N:Max <a>_N) of wild {
+                         GHC.Internal.Maybe.Nothing -> b
+                         GHC.Internal.Maybe.Just ipv
+                         -> case b `cast` (N:Max <a>_N) of wild2 {
+                              GHC.Internal.Maybe.Nothing -> wild `cast` (Sym N:Max <a>_N)
+                              GHC.Internal.Maybe.Just x
+                              -> case GHC.Classes.>= @a $dOrd x ipv of wild3 {
+                                   GHC.Types.False -> wild `cast` (Sym N:Max <a>_N)
+                                   GHC.Types.True -> wild2 `cast` (Sym N:Max <a>_N) } } } }
+              } in
+              go1 ww ww1]
+ae633f92d22f4ab397ce01aae931e7a6
+  $w$csconcat1 :: GHC.Classes.Ord a => Min a -> [Min a] -> Min a
+  StrWork([~, !, !])
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <LP(A,A,A,SC(S,C(1,L)),A,A,A,A)><1L><1L>, Inline: [2],
+   Unfolding: Core: <vanilla>
+              \ @a
+                ($dOrd['GHC.Types.Many] :: GHC.Classes.Ord a)
+                (ww['GHC.Types.Many] :: Min a)
+                (ww1['GHC.Types.Many] :: [Min a]) ->
+              letrec {
+                go1 :: Min a -> [Min a] -> Min a
+                  NotJoinPoint [Arity: 2, Strictness: <1L><1L>]
+                = \ (b['GHC.Types.Many] :: Min a)
+                    (ds1['GHC.Types.Many] :: [Min a])[OneShot] ->
+                  case ds1 of wild1 {
+                    [] -> b
+                    : c cs
+                    -> case (go1 c cs) `cast` (N:Min <a>_N) of wild {
+                         GHC.Internal.Maybe.Nothing -> b
+                         GHC.Internal.Maybe.Just ipv
+                         -> case b `cast` (N:Min <a>_N) of wild2 {
+                              GHC.Internal.Maybe.Nothing -> wild `cast` (Sym N:Min <a>_N)
+                              GHC.Internal.Maybe.Just x
+                              -> case GHC.Classes.<= @a $dOrd x ipv of wild3 {
+                                   GHC.Types.False -> wild `cast` (Sym N:Min <a>_N)
+                                   GHC.Types.True -> wild2 `cast` (Sym N:Min <a>_N) } } } }
+              } in
+              go1 ww ww1]
+584796fa2618aef02aac6b4406c1248d
+  type Max :: * -> *
+  newtype Max a = Max {getMax :: GHC.Internal.Maybe.Maybe a}
+9f128b1733150fdd71d9a10f73aee1c8
+  type Min :: * -> *
+  newtype Min a = Min {getMin :: GHC.Internal.Maybe.Maybe a}
+c021d0758e95fd5947e8575f75538ace
+  type StateL :: * -> * -> *
+  newtype StateL s a = StateL {runStateL :: s -> (s, a)}
+bb58fbbd121c8eec6d68bd3216d11ef7
+  type StateR :: * -> * -> *
+  newtype StateR s a = StateR {runStateR :: s -> (s, a)}
+af49739abd2000c472acde57bd927299
+  type role StateT nominal representational nominal
+  type StateT :: * -> (* -> *) -> * -> *
+  newtype StateT s m a = StateT {runStateT :: s -> m (s, a)}
+42e8933a0d55cfd178a8187a2e0c22eb
+  getMax :: Max a -> GHC.Internal.Maybe.Maybe a
+  RecSel Left Max
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              getMax1
+                `cast`
+              (forall (a :: <*>_N).
+               <Max a>_R %<'GHC.Types.Many>_N ->_R N:Max <a>_N)]
+5ff6ec8ec64b553fbef355de62b722f3
+  getMax1 :: Max a -> Max a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a (ds['GHC.Types.Many] :: Max a) -> ds]
+eca6e7b58ced5d7966c6ebca6fb40566
+  getMin :: Min a -> GHC.Internal.Maybe.Maybe a
+  RecSel Left Min
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              getMin1
+                `cast`
+              (forall (a :: <*>_N).
+               <Min a>_R %<'GHC.Types.Many>_N ->_R N:Min <a>_N)]
+48bb9867d5c424cca38f4e2215a5308a
+  getMin1 :: Min a -> Min a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @a (ds['GHC.Types.Many] :: Min a) -> ds]
+b888ee842a9903baac82f32c9f10337e
+  runStateL :: StateL s a -> s -> (s, a)
+  RecSel Left StateL
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              runStateL1
+                `cast`
+              (forall (s :: <*>_N) (a :: <*>_N).
+               <StateL s a>_R %<'GHC.Types.Many>_N ->_R N:StateL <s>_R <a>_R)]
+36e3898d40c61db50758a75cfad69cfb
+  runStateL1 :: StateL s a -> StateL s a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @s @a (ds['GHC.Types.Many] :: StateL s a) -> ds]
+11644b9e7005d79582f5d0e51d3c3c30
+  runStateR :: StateR s a -> s -> (s, a)
+  RecSel Left StateR
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              runStateR1
+                `cast`
+              (forall (s :: <*>_N) (a :: <*>_N).
+               <StateR s a>_R %<'GHC.Types.Many>_N ->_R N:StateR <s>_R <a>_R)]
+7183917d125500147da757c4fd737834
+  runStateR1 :: StateR s a -> StateR s a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @s @a (ds['GHC.Types.Many] :: StateR s a) -> ds]
+314a389edb09b81f787cbff9ee7bd88d
+  runStateT :: StateT s m a -> s -> m (s, a)
+  RecSel Left StateT
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              runStateT1
+                `cast`
+              (forall (s :: <*>_N) (m :: <* -> *>_N) (a :: <*>_N).
+               <StateT s m a>_R
+               %<'GHC.Types.Many>_N ->_R N:StateT <s>_N <m>_R <a>_N)]
+db90949cadaeb3f27aeaded772d8d12a
+  runStateT1 :: StateT s m a -> StateT s m a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ @s @m :: * -> * @a (ds['GHC.Types.Many] :: StateT s m a) -> ds]
+instance GHC.Internal.Base.Applicative [StateL]
+  = $fApplicativeStateL
+instance GHC.Internal.Base.Applicative [StateR]
+  = $fApplicativeStateR
+instance GHC.Internal.Base.Applicative [StateT]
+  = $fApplicativeStateT
+instance GHC.Internal.Base.Functor [StateL] = $fFunctorStateL
+instance GHC.Internal.Base.Functor [StateR] = $fFunctorStateR
+instance GHC.Internal.Base.Functor [StateT] = $fFunctorStateT
+instance GHC.Internal.Base.Monad [StateT] = $fMonadStateT
+instance GHC.Internal.Base.Monoid [Max] = $fMonoidMax
+instance GHC.Internal.Base.Monoid [Min] = $fMonoidMin
+instance GHC.Internal.Base.Semigroup [Max] = $fSemigroupMax
+instance GHC.Internal.Base.Semigroup [Min] = $fSemigroupMin
+Warnings:
+  Deprecated names:
+  Deprecated exports:
+trusted: trustworthy
+require own pkg trusted: True
+docs:
+  Just module header:
+         Nothing
+       export docs:
+         []
+       declaration docs:
+         [StateT -> [text:
+                       -- | A state transformer monad parameterized by the state and inner monad.
+-- The implementation is copied from the transformers package with the
+-- return tuple swapped.
+--
+-- @since base-4.18.0.0
+                     identifiers:],
+          $fApplicativeStateL -> [text:
+                                    -- | @since base-4.0
+                                  identifiers:],
+          $fFunctorStateL -> [text:
+                                -- | @since base-4.0
+                              identifiers:],
+          $fApplicativeStateR -> [text:
+                                    -- | @since base-4.0
+                                  identifiers:],
+          $fFunctorStateR -> [text:
+                                -- | @since base-4.0
+                              identifiers:],
+          $fApplicativeStateT -> [text:
+                                    -- | @since base-4.18.0.0
+                                  identifiers:],
+          $fFunctorStateT -> [text:
+                                -- | @since base-4.18.0.0
+                              identifiers:],
+          $fMonadStateT -> [text:
+                              -- | @since base-4.18.0.0
+                            identifiers:],
+          $fMonoidMax -> [text:
+                            -- | @since base-4.8.0.0
+                          identifiers:],
+          $fSemigroupMax -> [text:
+                               -- | @since base-4.11.0.0
+                             identifiers:],
+          $fMonoidMin -> [text:
+                            -- | @since base-4.8.0.0
+                          identifiers:],
+          $fSemigroupMin -> [text:
+                               -- | @since base-4.11.0.0
+                             identifiers:]]
+       arg docs:
+         []
+       documentation structure:
+         avails:
+           [Max{Max, Max, getMax}]
+         avails:
+           [Min{Min, Min, getMin}]
+         avails:
+           [StateL{StateL, StateL, runStateL}]
+         avails:
+           [StateR{StateR, StateR, runStateR}]
+         avails:
+           [StateT{StateT, StateT, runStateT}]
+         avails:
+           [#.]
+       named chunks:
+       haddock options:
+       language:
+         Just Haskell2010
+       language extensions:
+         MonomorphismRestriction
+         DeepSubsumption
+         RelaxedPolyRec
+         ForeignFunctionInterface
+         DoAndIfThenElse
+         EmptyDataDecls
+         PatternGuards
+         DatatypeContexts
+         TraditionalRecordSyntax
+         StarIsType
+         CUSKs
+         FieldSelectors
+         ListTuplePuns
+extensible fields:
+

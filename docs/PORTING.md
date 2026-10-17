@@ -14459,3 +14459,30 @@ spans remain Int-sized. Little-endian arm64 context ABI, real32/big-endian,
 physical erasure,timing and general Haskell bottom/heap behavior are not proven.
 This is an internal dependency, not the full generic Crypto.Hash API. Ed448,
 signatures,other hashes and remaining local:613/Pandoc/calibre scope stay OPEN.
+
+
+### Many dictionaries and specialized algebra checkpoint
+
+The42 source slots cover two Functor,seventeen Foldable,four Traversable,
+thirteen specialized Inlines/Blocks algebra/IsString methods and six helpers/
+representation slots. No Applicative,Alternative,Monad or NFData instance for
+Many is invented. Independent replay matched all5127 original responses
+(5080 finite plus47 demand), actual GHC/Builder interfaces and64 source hashes.
+The source defaults preserve Seq tree/append/repetition shapes, strict middle
+versus lazy cycle fields, fold grouping, Max/Min >=/<= rather than Ord.max/min,
+NaN/signed-zero behavior, actual Monad Applicative superclass effects, signed64
+count wrapping and Text-packed IsString behavior.
+
+Saved Gradle65560 XML contains17713 actual zero-failure/error/skip cases:
+5128 Many including integrity plus12585 unchanged Generic/Walk/property/Visitor
+regressions. The5128-body isolated factory passed512MiB/2MiB stack. Own54 frozen
+hashes,thirteen major packaged classes and four exact notices pass; jar and
+installDist passed with identical core jars. Existing production files remain
+unchanged; five new Kotlin files implement this finite source surface.
+
+Explicit thunk/source-list adapters preserve represented demands; finite JVM
+List sizes remain Int-bounded and callback-driven thunk recursion is not an
+unbounded GHC stack-equivalence claim. Other Many Data/Eq/Ord/Read/Show/Typeable/
+Generic members,NumEnum/metadata/Builder/Data.Version,140 module exports,350
+expanded instance members and JSON supplement remain OPEN within local:611.
+The complete Pandoc/tests and later calibre goal is not complete.

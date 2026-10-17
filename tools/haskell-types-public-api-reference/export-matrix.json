@@ -1646,20 +1646,25 @@
       "source_line": 199,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 5,
-          "symbol": "Inlines"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "line": 144,
+          "symbol": "Many"
         },
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 35,
-          "symbol": "Blocks"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "line": 147,
+          "symbol": "unMany"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "missing_generic_type_surface",
-      "remaining_gap": "Only two specialized wrappers; source Many a is generic, with unMany and Data/Ord/Eq/Typeable/Foldable/Traversable/Functor/Show/Read/Generic dictionaries. Concrete two-wrapper evidence does not cover arbitrary element types."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-many-reference/source-manifest.json",
+          "scope": "42slots:Functor2/Foldable17/Traversable4/specializedalgebra13/helpers+representation6; source-classdefaults/callbackdemand/Seqshape/Int64/DoubleandBigIntegerproofs"
+        }
+      ],
+      "status": "implemented_finite_dictionary_matrix_awaiting_review",
+      "remaining_gap": "Generic Many carrier and42-slot slice implemented with independent originals, final17713Gradle/package passed, pending independent review. Data/Eq/Ord/Typeable/Show/Read/Generic members for arbitrary element dictionaries remain separate open gates; concrete Inlines/Blocks evidence is not silently generalized."
     },
     {
       "id": "Builder/Inlines",
@@ -1689,7 +1694,7 @@
         }
       ],
       "status": "representation_and_selected_instances",
-      "remaining_gap": "Audit full Many alias algebra, Functor/Foldable/Traversable/IsString and generic dependency contracts separately."
+      "remaining_gap": "Many42-slot specialized algebra/Functor/Foldable/Traversable/IsString author slice is implemented with originals, final17713Gradle/package passed, pending independent review. Existing List-backed aliases remain compatibility representations; generic Many class members/dependency contracts are not all certified."
     },
     {
       "id": "Builder/Blocks",
@@ -1719,7 +1724,7 @@
         }
       ],
       "status": "representation_and_selected_instances",
-      "remaining_gap": "Audit full Many alias algebra, Functor/Foldable/Traversable/IsString and generic dependency contracts separately."
+      "remaining_gap": "Many42-slot specialized algebra/Functor/Foldable/Traversable/IsString author slice is implemented with originals, final17713Gradle/package passed, pending independent review. Existing List-backed aliases remain compatibility representations; generic Many class members/dependency contracts are not all certified."
     },
     {
       "id": "Builder/singleton",
@@ -1728,20 +1733,20 @@
       "source_line": 207,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 5,
-          "symbol": "Inlines"
-        },
-        {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 35,
-          "symbol": "Blocks"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "line": 194,
+          "symbol": "singleton"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "generic_api_missing",
-      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-many-reference/source-manifest.json",
+          "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
+        }
+      ],
+      "status": "implemented_finite_dictionary_matrix_awaiting_review",
+      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/toList",
@@ -1750,20 +1755,20 @@
       "source_line": 204,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 5,
-          "symbol": "Inlines"
-        },
-        {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 35,
-          "symbol": "Blocks"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "line": 180,
+          "symbol": "toSourceList"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "generic_api_missing",
-      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-many-reference/source-manifest.json",
+          "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
+        }
+      ],
+      "status": "implemented_finite_dictionary_matrix_awaiting_review",
+      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/fromList",
@@ -1772,20 +1777,20 @@
       "source_line": 210,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 5,
-          "symbol": "Inlines"
-        },
-        {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 35,
-          "symbol": "Blocks"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "line": 195,
+          "symbol": "fromList"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "generic_api_missing",
-      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-many-reference/source-manifest.json",
+          "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
+        }
+      ],
+      "status": "implemented_finite_dictionary_matrix_awaiting_review",
+      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/isNull",
@@ -1794,20 +1799,20 @@
       "source_line": 214,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 5,
-          "symbol": "Inlines"
-        },
-        {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 35,
-          "symbol": "Blocks"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "line": 149,
+          "symbol": "isNull"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "generic_api_missing",
-      "remaining_gap": "Specialized constructors/values/isEmpty can implement selected behavior, but no generic Many source API/dictionary or independent full argument/demand proof exists."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-many-reference/source-manifest.json",
+          "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
+        }
+      ],
+      "status": "implemented_finite_dictionary_matrix_awaiting_review",
+      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/doc",
@@ -3135,7 +3140,7 @@
       "kotlin": [
         {
           "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
-          "line": 52,
+          "line": 55,
           "symbol": "bottomUp"
         }
       ],
@@ -3145,12 +3150,13 @@
       ],
       "finite_proof": [
         {
+          "commit": "1171e93b2c7666043e6bbfac387fd81f76f1b22c",
           "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
-          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+          "scope": "Independent807original/interface/schema/protocol replay and12585zero regression accepted; exactsybsource/license/package notices accepted"
         }
       ],
-      "status": "implemented_awaiting_independent_review",
-      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Four-function checkpoint independently accepted. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
     },
     {
       "id": "Generic/topDown",
@@ -3160,7 +3166,7 @@
       "kotlin": [
         {
           "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
-          "line": 54,
+          "line": 57,
           "symbol": "topDown"
         }
       ],
@@ -3170,12 +3176,13 @@
       ],
       "finite_proof": [
         {
+          "commit": "1171e93b2c7666043e6bbfac387fd81f76f1b22c",
           "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
-          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+          "scope": "Independent807original/interface/schema/protocol replay and12585zero regression accepted; exactsybsource/license/package notices accepted"
         }
       ],
-      "status": "implemented_awaiting_independent_review",
-      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Four-function checkpoint independently accepted. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
     },
     {
       "id": "Generic/bottomUpM",
@@ -3185,7 +3192,7 @@
       "kotlin": [
         {
           "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
-          "line": 49,
+          "line": 52,
           "symbol": "bottomUpM"
         }
       ],
@@ -3195,12 +3202,13 @@
       ],
       "finite_proof": [
         {
+          "commit": "1171e93b2c7666043e6bbfac387fd81f76f1b22c",
           "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
-          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+          "scope": "Independent807original/interface/schema/protocol replay and12585zero regression accepted; exactsybsource/license/package notices accepted"
         }
       ],
-      "status": "implemented_awaiting_independent_review",
-      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Four-function checkpoint independently accepted. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
     },
     {
       "id": "Generic/queryWith",
@@ -3210,7 +3218,7 @@
       "kotlin": [
         {
           "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocGeneric.kt",
-          "line": 79,
+          "line": 82,
           "symbol": "queryWith"
         }
       ],
@@ -3220,12 +3228,13 @@
       ],
       "finite_proof": [
         {
+          "commit": "1171e93b2c7666043e6bbfac387fd81f76f1b22c",
           "manifest": "tools/haskell-types-generic-reference/source-manifest.json",
-          "scope": "Author isolated808JUnit cases, final91143Gradle12585zero/package and807original byte-exact replay; full4functions through canonical source Data and existingAST adapters; independent review pending"
+          "scope": "Independent807original/interface/schema/protocol replay and12585zero regression accepted; exactsybsource/license/package notices accepted"
         }
       ],
-      "status": "implemented_awaiting_independent_review",
-      "remaining_gap": "Await independent acceptance of complete four-function checkpoint; final91143Gradle12585zero and packaging passed. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Four-function checkpoint independently accepted. Explicit source thunk/Data/Monad representations execute finite partial-field cases; strict existing Kotlin scalar records retain their documented boundary. This does not certify all Data/Typeable/GHC.Generic/NFData instance members or close the140/350/JSON audit."
     }
   ],
   "status_counts": {
@@ -3234,11 +3243,9 @@
     "implementation_present_proof_partial": 69,
     "missing_instance_surface": 3,
     "representation_partial": 1,
-    "accepted_finite_source_matrix": 25,
-    "missing_generic_type_surface": 1,
-    "generic_api_missing": 4,
-    "instance_surface_partial": 2,
-    "implemented_awaiting_independent_review": 4
+    "accepted_finite_source_matrix": 29,
+    "implemented_finite_dictionary_matrix_awaiting_review": 5,
+    "instance_surface_partial": 2
   },
   "package_supplement": [
     {

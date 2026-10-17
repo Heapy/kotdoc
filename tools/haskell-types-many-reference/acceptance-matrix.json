@@ -1,0 +1,746 @@
+{
+  "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+  "scope_slots": 42,
+  "slots": [
+    {
+      "owner": "Functor Many",
+      "method": "fmap",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "fmap"
+      },
+      "kotlin": "Many.fmap",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Functor Many",
+      "method": "<$",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "replace"
+      },
+      "kotlin": "Many.replace",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "fold",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "fold"
+      },
+      "kotlin": "ManyFoldable.fold",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldMap",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldMap"
+      },
+      "kotlin": "Many.foldMap",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldMap'",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldMapPrime"
+      },
+      "kotlin": "ManyFoldable.foldMapPrime",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldr",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldr"
+      },
+      "kotlin": "ManyFoldable.foldr",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldr'",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldrPrime"
+      },
+      "kotlin": "ManyFoldable.foldrPrime",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldl",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldl"
+      },
+      "kotlin": "ManyFoldable.foldl",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldl'",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldlPrime"
+      },
+      "kotlin": "ManyFoldable.foldlPrime",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldr1",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldr1"
+      },
+      "kotlin": "ManyFoldable.foldr1",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "foldl1",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "foldl1"
+      },
+      "kotlin": "ManyFoldable.foldl1",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "toList",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "toList"
+      },
+      "kotlin": "ManyFoldable.toList",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "null",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "null"
+      },
+      "kotlin": "ManyFoldable.null",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "length",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "length"
+      },
+      "kotlin": "ManyFoldable.length",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "elem",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "elem"
+      },
+      "kotlin": "ManyFoldable.elem",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "maximum",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "maximum"
+      },
+      "kotlin": "ManyFoldable.maximum",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "minimum",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "minimum"
+      },
+      "kotlin": "ManyFoldable.minimum",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "sum",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "sum"
+      },
+      "kotlin": "ManyFoldable.sum",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Foldable Many",
+      "method": "product",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalFoldable.iface.txt",
+        "OriginalFunctorUtils.iface.txt",
+        "OriginalSequenceInternal.hs:397-426"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "product"
+      },
+      "kotlin": "ManyFoldable.product",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Traversable Many",
+      "method": "traverse",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalTraversable.iface.txt",
+        "OriginalSequenceInternal.hs:428-510"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "traverse"
+      },
+      "kotlin": "ManyTraversable.traverse",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Traversable Many",
+      "method": "sequenceA",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalTraversable.iface.txt",
+        "OriginalSequenceInternal.hs:428-510"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "sequenceA"
+      },
+      "kotlin": "ManyTraversable.sequenceA",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Traversable Many",
+      "method": "mapM",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalTraversable.iface.txt",
+        "OriginalSequenceInternal.hs:428-510"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "mapM"
+      },
+      "kotlin": "ManyTraversable.mapM",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Traversable Many",
+      "method": "sequence",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251",
+        "OriginalTraversable.iface.txt",
+        "OriginalSequenceInternal.hs:428-510"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "sequence"
+      },
+      "kotlin": "ManyTraversable.sequence",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Semigroup Inlines",
+      "method": "<>",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "inline",
+        "method": "append"
+      },
+      "kotlin": "ManyInlines.append",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Semigroup Inlines",
+      "method": "sconcat",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "inline",
+        "method": "sconcat"
+      },
+      "kotlin": "ManyInlines.sconcat",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Semigroup Inlines",
+      "method": "stimes",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "inline",
+        "method": "stimes"
+      },
+      "kotlin": "ManyInlines.stimes",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Monoid Inlines",
+      "method": "mempty",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "inline",
+        "method": "mempty"
+      },
+      "kotlin": "ManyInlines.empty",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Monoid Inlines",
+      "method": "mappend",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "inline",
+        "method": "mappend"
+      },
+      "kotlin": "ManyInlines.mappend",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Monoid Inlines",
+      "method": "mconcat",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "inline",
+        "method": "mconcat"
+      },
+      "kotlin": "ManyInlines.mconcat",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Semigroup Blocks",
+      "method": "<>",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "block",
+        "method": "append"
+      },
+      "kotlin": "ManyBlocks.append",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Semigroup Blocks",
+      "method": "sconcat",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "block",
+        "method": "sconcat"
+      },
+      "kotlin": "ManyBlocks.sconcat",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Semigroup Blocks",
+      "method": "stimes",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "block",
+        "method": "stimes"
+      },
+      "kotlin": "ManyBlocks.stimes",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Monoid Blocks",
+      "method": "mempty",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "block",
+        "method": "mempty"
+      },
+      "kotlin": "ManyBlocks.empty",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Monoid Blocks",
+      "method": "mappend",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "block",
+        "method": "mappend"
+      },
+      "kotlin": "ManyBlocks.mappend",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Monoid Blocks",
+      "method": "mconcat",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "block",
+        "method": "mconcat"
+      },
+      "kotlin": "ManyBlocks.mconcat",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "IsString Inlines",
+      "method": "fromString",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "algebra",
+        "kind": "inline",
+        "method": "fromString"
+      },
+      "kotlin": "ManyInlines.fromString",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Builder helpers",
+      "method": "singleton",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "singleton"
+      },
+      "kotlin": "Many.singleton",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Builder helpers",
+      "method": "fromList",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "fromList"
+      },
+      "kotlin": "Many.fromList",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Builder helpers",
+      "method": "toList",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "toList"
+      },
+      "kotlin": "Many.toSourceList",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Builder helpers",
+      "method": "isNull",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "isNull"
+      },
+      "kotlin": "Many.isNull",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Many representation",
+      "method": "Many",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "constructor"
+      },
+      "kotlin": "Many.constructor",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    },
+    {
+      "owner": "Many representation",
+      "method": "unMany",
+      "status": "implemented_original_finite_parity_awaiting_review",
+      "source_evidence": [
+        "OriginalBuilder.iface.txt",
+        "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-251"
+      ],
+      "proof": {
+        "stream": "core",
+        "operation": "unMany"
+      },
+      "kotlin": "Many.unMany",
+      "criterion": "original output/error and source ordering; mapped source defaults plus represented callback/field demand"
+    }
+  ],
+  "remaining": {
+    "generic_source_instances": [
+      "Data Many",
+      "Eq Many",
+      "Ord Many",
+      "Typeable Many",
+      "Show Many",
+      "Read Many",
+      "Generic Many"
+    ],
+    "later_task611": [
+      "Num/Enum RowHeadColumns/RowSpan/ColSpan",
+      "HasMeta/ToMetaValue",
+      "remaining Builder exports",
+      "JSON.ToJSONFilter supplemental class/six instances",
+      "all350 expanded instance member matrix"
+    ],
+    "absent_by_source": [
+      "Applicative Many",
+      "Alternative Many",
+      "Monad Many",
+      "NFData Many"
+    ]
+  },
+  "proof_counts": {
+    "core": 1407,
+    "construction": 1596,
+    "algebra": 1288,
+    "numeric": 364,
+    "traversal": 425,
+    "demand": 47
+  },
+  "limitations": [
+    "Many.toList is a bounded JVM List convenience; Many.toSourceList/ManyFoldable.toList return GenericList with independent step/head/tail demand. Kotlin Collection.size remains Int-bounded.",
+    "Effect callbacks and input fields use explicit source thunks; arbitrary GHC heaps, compiler exception nondeterminism and infinite sequences are not certified.",
+    "Source Monad-constrained mapM/sequence take the actual Applicative superclass via ManyMonadEffects; this is not a Monad instance for Many.",
+    "Custom non-lawful Trace/Eq/Ord/Num/Shape dictionaries are call-structure and operand-direction witnesses, not class-law proofs."
+  ]
+}

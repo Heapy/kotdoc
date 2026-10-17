@@ -1,0 +1,413 @@
+Magic: Wanted 33214052,
+       got    33214052
+Version: Wanted 9122,
+         got    9122
+Way: Wanted ,
+     got    
+interface GHC.Internal.Data.Functor 9122
+  interface hash: a659da4c54751ee2d80accd33b9dc2ad
+  ABI hash: 189063a05bcbeaa277bded15bf96fe94
+  export-list hash: 63813b9e7d74c7bd3465607c0d3324cb
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: fab6d345fb59f26a84062ddc11ba2c4a
+  opt_hash: d4bd5770180ee3e5d15327f4d84fe9db
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  src_hash: 8825ff02abf65a9674d6151b48173000
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  $>
+  <$>
+  <&>
+  unzip
+  void
+  GHC.Internal.Base.Functor{GHC.Internal.Base.<$ GHC.Internal.Base.fmap}
+defaults:
+direct module dependencies: ghc-internal-9.1202.0:GHC.Internal.Base
+                            ghc-internal-9.1202.0:GHC.Internal.Data.Tuple
+boot module dependencies: (ghc-internal-9.1202.0,
+                           GHC.Internal.Enum {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception.Type {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.IO {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Num {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Real {-# SOURCE #-})
+direct package dependencies:
+plugin package dependencies:
+orphans: GHC.Internal.Base GHC.Prim.Ext
+family instance modules:
+import  -/  ghc-internal:GHC.Internal.Base 29ec812ead60248b1e26cd94a9165d97
+  exports: 713796e2e0f3bbf03b9e83554d1a1d39
+  <$ 302cb12220d9727167292ab75ed9d4f0
+  Functor b9d34ad3ee458699bdca49643ee59798
+  flip fe5f19eb6df7b41aec420860c9f57d29
+  fmap 593ace7e5c31c425b830d44ae2259206
+import  -/  ghc-internal:GHC.Internal.Data.Tuple cd1b54b4d597b86d48d8140984cba576
+  exports: c6d80f6b776d83d95f3caa4bd821c9db
+  fst 73f7acca8f93d248f302f3fb29604792
+  snd 9505031c18c64ffbb079e0624ca735e3
+fixities infixl 4 $>, infixl 4 <$>, infixl 1 <&>
+18282dc7b941dbf401447f3ae425673c
+  ($>) :: GHC.Internal.Base.Functor f => f a -> b -> f b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(A,1C(1,C(1,L)))><L><L>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                @b
+                ($dFunctor['GHC.Types.Many] :: GHC.Internal.Base.Functor f)
+                (eta['GHC.Types.Many] :: f a)
+                (eta1['GHC.Types.Many] :: b) ->
+              GHC.Internal.Base.<$ @f $dFunctor @b @a eta1 eta]
+fc30f422d853a11f032fc1be33cb8d6a
+  $trModule :: GHC.Types.Module
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla> GHC.Types.Module $trModule3 $trModule1]
+d124dc7d91f140ca406319540c49e32e
+  $trModule1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule2]
+a5d03a11208bbe16c62578fb5010d80f
+  $trModule2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.Internal.Data.Functor"#]
+e3496b96d9b49012912a774dd2e63ca7
+  $trModule3 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule4]
+357868d256217e672c166ae4ff27d240
+  $trModule4 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "ghc-internal"#]
+0650f3351e52725757abe0c1764e1300
+  (<$>) :: GHC.Internal.Base.Functor f => (a -> b) -> f a -> f b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <SP(1L,A)>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                @b
+                ($dFunctor['GHC.Types.Many] :: GHC.Internal.Base.Functor f) ->
+              GHC.Internal.Base.fmap @f $dFunctor @a @b]
+1fd8675ae521b4599684bae679cfe748
+  (<&>) :: GHC.Internal.Base.Functor f => f a -> (a -> b) -> f b
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(1C(1,C(1,L)),A)><L><L>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                @b
+                ($dFunctor['GHC.Types.Many] :: GHC.Internal.Base.Functor f)
+                (as['GHC.Types.Many] :: f a)
+                (f1['GHC.Types.Many] :: a -> b) ->
+              GHC.Internal.Base.fmap @f $dFunctor @a @b f1 as]
+aefb865598b12d87f0f0c976b09bee77
+  unzip :: GHC.Internal.Base.Functor f => f (a, b) -> (f a, f b)
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <SP(LC(L,C(1,L)),A)><L>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ @f :: * -> *
+                @a
+                @b
+                ($dFunctor['GHC.Types.Many] :: GHC.Internal.Base.Functor f)
+                (xs['GHC.Types.Many] :: f (a, b)) ->
+              (GHC.Internal.Base.fmap
+                 @f
+                 $dFunctor
+                 @(a, b)
+                 @a
+                 (GHC.Internal.Data.Tuple.fst @a @b)
+                 xs,
+               GHC.Internal.Base.fmap
+                 @f
+                 $dFunctor
+                 @(a, b)
+                 @b
+                 (GHC.Internal.Data.Tuple.snd @a @b)
+                 xs)]
+f56ce5c0a39da7ecf75f57d927d08511
+  void :: GHC.Internal.Base.Functor f => f a -> f ()
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <SP(A,1C(1,C(1,L)))><L>,
+   Unfolding: Core: <vanilla>
+              \ @f :: * -> *
+                @a
+                ($dFunctor['GHC.Types.Many] :: GHC.Internal.Base.Functor f)
+                (x['GHC.Types.Many] :: f a) ->
+              GHC.Internal.Base.<$ @f $dFunctor @() @a GHC.Tuple.() x]
+Warnings:
+  Deprecated names:
+  Deprecated exports:
+trusted: trustworthy
+require own pkg trusted: True
+docs:
+  Just module header:
+         Just text:
+                -- |
+-- Module      :  GHC.Internal.Data.Functor
+-- Copyright   :  (c) The University of Glasgow 2001
+-- License     :  BSD-style (see the file libraries/base/LICENSE)
+--
+-- Maintainer  :  libraries@haskell.org
+-- Stability   :  provisional
+-- Portability :  portable
+--
+--
+-- A type @f@ is a Functor if it provides a function @fmap@ which, given any types @a@ and @b@,
+-- lets you apply any function of type @(a -> b)@ to turn an @f a@ into an @f b@, preserving the
+-- structure of @f@.
+--
+-- ==== __Examples__
+--
+--  >>> fmap show (Just 1)  --  (a   -> b)      -> f a       -> f b
+--  Just "1"                --  (Int -> String) -> Maybe Int -> Maybe String
+--
+--  >>> fmap show Nothing   --  (a   -> b)      -> f a       -> f b
+--  Nothing                 --  (Int -> String) -> Maybe Int -> Maybe String
+--
+--  >>> fmap show [1,2,3]   --  (a   -> b)      -> f a       -> f b
+--  ["1","2","3"]           --  (Int -> String) -> [Int]     -> [String]
+--
+--  >>> fmap show []        --  (a   -> b)      -> f a       -> f b
+--  []                      --  (Int -> String) -> [Int]     -> [String]
+--
+-- The 'fmap' function is also available as the infix operator '<$>':
+--
+--  >>> fmap show (Just 1) --  (Int -> String) -> Maybe Int -> Maybe String
+--  Just "1"
+--
+--  >>> show <$> (Just 1)  --  (Int -> String) -> Maybe Int -> Maybe String
+--  Just "1"
+              identifiers:
+                {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:33:9-12}
+                GHC.Internal.Base.fmap
+                {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:33:65-67}
+                <$>
+       export docs:
+         []
+       declaration docs:
+         [$> -> [text:
+                   -- | Flipped version of '<$'.
+--
+-- @since base-4.7.0.0
+--
+-- ==== __Examples__
+--
+-- Replace the contents of a @'Data.Maybe.Maybe' 'Data.Int.Int'@ with a constant
+-- 'Data.String.String':
+--
+-- >>> Nothing $> "foo"
+-- Nothing
+--
+-- >>> Just 90210 $> "foo"
+-- Just "foo"
+--
+-- Replace the contents of an @'Data.Either.Either' 'Data.Int.Int' 'Data.Int.Int'@
+-- with a constant 'Data.String.String', resulting in an @'Data.Either.Either'
+-- 'Data.Int.Int' 'Data.String.String'@:
+--
+-- >>> Left 8675309 $> "foo"
+-- Left 8675309
+--
+-- >>> Right 8675309 $> "foo"
+-- Right "foo"
+--
+-- Replace each element of a list with a constant 'Data.String.String':
+--
+-- >>> [1,2,3] $> "foo"
+-- ["foo","foo","foo"]
+--
+-- Replace the second element of a pair with a constant 'Data.String.String':
+--
+-- >>> (1,2) $> "foo"
+-- (1,"foo")
+--
+                 identifiers:
+                   {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:131:26-27}
+                   GHC.Internal.Base.<$],
+          <$> -> [text:
+                    -- | An infix synonym for 'fmap'.
+--
+-- The name of this operator is an allusion to 'Prelude.$'.
+-- Note the similarities between their types:
+--
+-- >  ($)  ::              (a -> b) ->   a ->   b
+-- > (<$>) :: Functor f => (a -> b) -> f a -> f b
+--
+-- Whereas 'Prelude.$' is function application, '<$>' is function
+-- application lifted over a 'Functor'.
+--
+-- ==== __Examples__
+--
+-- Convert from a @'Data.Maybe.Maybe' 'Data.Int.Int'@ to a @'Data.Maybe.Maybe'
+-- 'Data.String.String'@ using 'Prelude.show':
+--
+-- >>> show <$> Nothing
+-- Nothing
+--
+-- >>> show <$> Just 3
+-- Just "3"
+--
+-- Convert from an @'Data.Either.Either' 'Data.Int.Int' 'Data.Int.Int'@ to an
+-- @'Data.Either.Either' 'Data.Int.Int'@ 'Data.String.String' using 'Prelude.show':
+--
+-- >>> show <$> Left 17
+-- Left 17
+--
+-- >>> show <$> Right 17
+-- Right "17"
+--
+-- Double each element of a list:
+--
+-- >>> (*2) <$> [1,2,3]
+-- [2,4,6]
+--
+-- Apply 'Prelude.even' to the second element of a pair:
+--
+-- >>> even <$> (2,2)
+-- (2,True)
+--
+                  identifiers:
+                    {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:60:28-31}
+                    GHC.Internal.Base.fmap
+                    {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:68:50-52}
+                    <$>
+                    {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:69:31-37}
+                    GHC.Internal.Base.Functor],
+          <&> -> [text:
+                    -- | Flipped version of '<$>'.
+--
+-- @
+-- ('<&>') = 'flip' 'fmap'
+-- @
+--
+-- @since base-4.11.0.0
+--
+-- ==== __Examples__
+-- Apply @(+1)@ to a list, a 'Data.Maybe.Just' and a 'Data.Either.Right':
+--
+-- >>> Just 2 <&> (+1)
+-- Just 3
+--
+-- >>> [1,2,3] <&> (+1)
+-- [2,3,4]
+--
+-- >>> Right 3 <&> (+1)
+-- Right 4
+--
+                  identifiers:
+                    {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:106:26-28}
+                    <$>
+                    {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:109:6-8}
+                    <&>
+                    {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:109:15-18}
+                    GHC.Internal.Base.flip
+                    {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:109:22-25}
+                    GHC.Internal.Base.fmap],
+          unzip -> [text:
+                      -- | Generalization of @Data.List.@'GHC.Internal.Data.List.unzip'.
+--
+-- ==== __Examples__
+--
+-- >>> unzip (Just ("Hello", "World"))
+-- (Just "Hello",Just "World")
+--
+-- >>> unzip [("I", "love"), ("really", "haskell")]
+-- (["I","really"],["love","haskell"])
+--
+-- @since base-4.19.0.0
+                    identifiers:],
+          void -> [text:
+                     -- | @'void' value@ discards or ignores the result of evaluation, such
+-- as the return value of an 'System.IO.IO' action.
+--
+-- ==== __Examples__
+--
+-- Replace the contents of a @'Data.Maybe.Maybe' 'Data.Int.Int'@ with unit:
+--
+-- >>> void Nothing
+-- Nothing
+--
+-- >>> void (Just 3)
+-- Just ()
+--
+-- Replace the contents of an @'Data.Either.Either' 'Data.Int.Int' 'Data.Int.Int'@
+-- with unit, resulting in an @'Data.Either.Either' 'Data.Int.Int' '()'@:
+--
+-- >>> void (Left 8675309)
+-- Left 8675309
+--
+-- >>> void (Right 8675309)
+-- Right ()
+--
+-- Replace every element of a list with unit:
+--
+-- >>> void [1,2,3]
+-- [(),(),()]
+--
+-- Replace the second element of a pair with unit:
+--
+-- >>> void (1,2)
+-- (1,())
+--
+-- Discard the result of an 'System.IO.IO' action:
+--
+-- >>> mapM print [1,2]
+-- 1
+-- 2
+-- [(),()]
+--
+-- >>> void $ mapM print [1,2]
+-- 1
+-- 2
+--
+                   identifiers:
+                     {libraries/ghc-internal/src/GHC/Internal/Data/Functor.hs:183:8-11}
+                     void]]
+       arg docs:
+         []
+       documentation structure:
+         avails:
+           [GHC.Internal.Base.Functor{GHC.Internal.Base.Functor,
+                                      GHC.Internal.Base.<$, GHC.Internal.Base.fmap}]
+         avails:
+           [$>]
+         avails:
+           [<$>]
+         avails:
+           [<&>]
+         avails:
+           [unzip]
+         avails:
+           [void]
+       named chunks:
+         "setup":
+           text:
+             -- $setup
+-- Allow the use of Prelude in doctests.
+-- >>> import Prelude hiding ((<$>))
+           identifiers:
+       haddock options:
+       language:
+         Just Haskell2010
+       language extensions:
+         MonomorphismRestriction
+         DeepSubsumption
+         RelaxedPolyRec
+         ForeignFunctionInterface
+         DoAndIfThenElse
+         EmptyDataDecls
+         PatternGuards
+         DatatypeContexts
+         TraditionalRecordSyntax
+         StarIsType
+         CUSKs
+         FieldSelectors
+         ListTuplePuns
+extensible fields:
+
