@@ -15925,3 +15925,29 @@ generation were rerun during metadata integration. The global test-inventory.jso
 snapshot remains deliberately unrefreshed and requires separate reviewed source/
 provenance reconciliation; PSS53 and other mappings were not added incidentally.
 FullFB2/622/623, dependency/platform suites and calibre remain OPEN.
+
+### PSS53 dependency assertion inventory join
+
+The dependency producer now separately maps the53 original PubKey.PSSSpec
+assertions to the accepted5e968eea SourceCases corpus and53 verbatim executed
+JUnit XML rows. Source Hspec order starts with three range assertions, while
+the corpus stores them at50–52; the bijection retains both orders, helper/vector/
+occurrence identity and independent expected hashes. Counts are25 sign+25 verify+
+three range assertions, not106 tests or new Pandoc Tasty registrations.
+
+Independent review checked all53 raw XML lines including LF against the original
+10136-case report, full report/log/command hashes,105 accepted Git source bindings
+and ten actual immutable PSS class hashes. The105 scoped inputs still match
+current files and do not include the separate RSA.Types/WHNF WIP; the whole core
+JAR/result remains explicitly historical accepted evidence. No historical compiled
+test-byte identity is invented. Fixed reviewed source/class/result/proof anchors
+reject coordinated metadata substitutions; this is not execution attestation.
+All20 inventory regression methods pass, including source/order/ordinal/expected/
+XML/root-promotion/tamper and no-tmp guards. No conversion/build/oracle rerun or
+expected change occurred in this inventory integration.
+
+The69 Cabal suite roots remain unmapped,226 dependency IDs/76 manifest coverage
+and4465 Pandoc Tasty leaves are unchanged. This maps one module's assertions,
+not the whole crypton component. Global test-inventory.json is not refreshed;
+remaining dependency/platform/RSASpec/Secrecy mappings and full622/613/623,
+Pandoc and calibre scope remain OPEN. RSA.Types, DocBook and other WIP are excluded.

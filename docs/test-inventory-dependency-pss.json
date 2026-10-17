@@ -1,0 +1,2026 @@
+{
+  "schema_version": 1,
+  "kind": "accepted_dependency_module_assertion_mapping",
+  "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+  "module": "PubKey.PSSSpec",
+  "scope": "Exactly53original PubKey.PSSSpec assertions mapped; crypton suite/root remains unmapped and full622/613/Pandoc/calibre open",
+  "counting_units": {
+    "original_source_assertions": 53,
+    "matched_kotlin_executions": 53,
+    "new_pandoc_tasty_leaves": 0,
+    "whole_crypton_suite_complete": false
+  },
+  "proof": {
+    "accepted_commit": "5e968eea11f0c58013415acafe060f43dada9b62",
+    "source_bindings": {
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoByteSpan.kt": "346cd982b668caf0578fab6f32fd5f9834ff5fcf9deb7b6ea274160d6d9844c3",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoHmac.kt": "b9fffbedded298efea389757684edfad3c2141b1e54418ddd61f7574bc68b39f",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoHmacAlgorithms.kt": "876bd42e617458bcbc703d9a6a372550e538a6e101ee32b2c3370acbbebf9ae0",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoMaskGen.kt": "bf63293a786d64db42b3b6d93092a0bc40693e62c83ca4eb1f37bfff2092da56",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoMd2.kt": "3b259b7077bec3b1890a76b5e015fdf69206991836eb2d8c906474551764bcbf",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoMd5.kt": "98b87da1272bee07c8d09bc6dd94fd3f24156f5f0b4c2ed138cac1d4e32e80f3",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoNumberBasic.kt": "613a572b05d105d7e6dd32834688fcecb9b00b7cf599ecfc20c44541b78821d2",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoNumberGenerate.kt": "8e499a7d99764e1b465107d0c5fc1b4f688ddd91d0ac3a68186430995482ade1",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoNumberSerialize.kt": "82a3fb973933fc80b49b7d9a0c67e43c7b5aaa60d8f70ead59a4f9d3190e3e87",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRandom.kt": "b280a14e86038583dc0a5c3639a9241d2fda3ed5a4cd44dc1b43c8a7a6baa744",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRipemd160.kt": "46ff5b3a929cd8ebf582205b5273abc2258e686102469051f648740822e5fd97",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRsa.kt": "a7bedd72b8df7bfe9e24d7b1f12645d05fedf35f65f16dd4616c28eb1a558acd",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRsaOaep.kt": "1b55f28b96811df0ace03fc0e82cd73fd47681a1e09adbdbb1c55b232c783c35",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPkcs15.kt": "929d3bb2fe2251cf399e34ab592ddd1725bfacc93a1f95113204bdc88976ec57",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPss.kt": "a61cbfb4a655939bcb385eef481a601b5d6c83bc702393a1926d1a2521ba77b7",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoSha3.kt": "2ca8bb01cbb6f434e7aeadfbbef76983ef0525f3c3f64a058f109fae0063a505",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoSha32.kt": "0fde085e2b379774050939e6e99af15782b19b48a4bb5f1a1a5f5db87f3ca1dd",
+      "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoSha512.kt": "8fc020ee5a79d0a9ba8f436f8539f2963450933c267e8acbf57e099489fa1b89",
+      "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt": "3311f21f22b1dfd7ac4b20149c9ec30bed2e45305b1b5f3b3534de72208837fd",
+      "core/src/test/kotlin/io/heapy/kotdoc/crypto/PssBoundaryReplay.kt": "4f7166f3b9a3667a996e5cb5b193ab463b1a874faa7413aa44e55ad59c968a23",
+      "core/src/test/kotlin/io/heapy/kotdoc/crypto/PssCallbackReplay.kt": "d87d065b7dfd84f22a396d925ddc01db39eb4b4ddff5caae1425318ed4103437",
+      "core/src/test/kotlin/io/heapy/kotdoc/crypto/PssDemandReplay.kt": "c0ce683eed3bc4e6891d3ff5b3e0e07f75acdc8a3a5f737f67f7967384de82cd",
+      "core/src/test/kotlin/io/heapy/kotdoc/crypto/PssDictionaryReplay.kt": "a2bd8febdf3914b794cd71dda110f2933a1866413c851b1168f527282141b7fd",
+      "core/src/test/kotlin/io/heapy/kotdoc/crypto/PssRandomReplay.kt": "f9f90484206dc423d7fd40cb34d35aeba14e6c445ecdd4a9c73bd3d7311e6277",
+      "core/src/test/kotlin/io/heapy/kotdoc/crypto/PssReplay.kt": "ea2acd5802fa9490fe04ded77d25d26f0e083477798e8d6a3960477f89fdbb04",
+      "core/src/test/resources/crypto-rsa-pss/BoundaryObservations.json.gz": "2c7464fa7129773ec2aef0c2c229595432294cac1af086652f523cf55359ddd1",
+      "core/src/test/resources/crypto-rsa-pss/CallbackObservations.json.gz": "8734cb8ad00143ae32591cafd956793707946e0374d427b02babb68a91e5715c",
+      "core/src/test/resources/crypto-rsa-pss/DemandObservations.json.gz": "dc7a6d78a3aa66d00a521b2f17d0579c795fccc755ff08b4765bf61edf0141a1",
+      "core/src/test/resources/crypto-rsa-pss/DictionaryObservations.json.gz": "df73bbef1a6505b1ae1a6de4468d34b41a33ff55c2bb595eeaa0be725140c80c",
+      "core/src/test/resources/crypto-rsa-pss/DigestObservations.json.gz": "c7defcfd7f2177d5a0d1dc9a1c6f71afc3ec38ba2137b78146eca1680dc9edb0",
+      "core/src/test/resources/crypto-rsa-pss/MutationObservations.json.gz": "196f773217815878e7d2c288fa40b1cc2541dcc3b96ebd814c819201216a6ab0",
+      "core/src/test/resources/crypto-rsa-pss/Observations.json.gz": "28e5b390c19d7f1bcefd4ee863fd03ec9b14e94c371f181b53ca7f9748fc233f",
+      "core/src/test/resources/crypto-rsa-pss/RandomExtraObservations.json.gz": "6c4f5c3994dbfd36325fe9b5aee030fd39a798ac34795d684030c2c82c7123ec",
+      "core/src/test/resources/crypto-rsa-pss/RandomObservations.json.gz": "c7f69b3b777b851dee6737bc43b8368e085ab56f181655088c3281eb58ea57b8",
+      "core/src/test/resources/crypto-rsa-pss/SourceCases.json.gz": "0bb5b60035134e959a3356f995a98501f2d39f829cf00455b27db66d4bd92d6b",
+      "licenses/crypton-BSD-3-Clause.txt": "a9554df9870ec3e4c0bdd98013c93d54c9159b250aeae43b0c26033a4c7fac0a",
+      "licenses/ram-BSD-3-Clause.txt": "3c884b61cafcadb60def61d439681ddb17d5f492d82d3ba9f870faf403814da8",
+      "tools/import-pss-fixtures.py": "d039657052935887040b27f7b172aae75511ab387ba47369c6a5f242dcbf03f0",
+      "tools/pss-reference/BoundaryCaptureCursor.json": "5601383f023ee2ff10f240f4ef5aed31e15dee2b2c0c86e74364da6053df77df",
+      "tools/pss-reference/BoundaryObservations.json": "83edbcd411e5a7df5c3d19b370fda211069065c87e28bc56d7ee8a591a7a6533",
+      "tools/pss-reference/BuildExtraOracles.sh": "b59484243830b257a0a4ed435bcd33cc39f74b82d693fd0bca470036bf9fa478",
+      "tools/pss-reference/BuildHaskell.sh": "df44fb6beb4ea1dae741ad581a5b9f7a850387f7c16ceb6e0fd415fd84b33eee",
+      "tools/pss-reference/CallbackCaptureCursor.json": "01d5b60c90e37610218a00194113c788e879c95e727556d397c8882a0c7a5134",
+      "tools/pss-reference/CallbackObservations.json": "6e7dd06f83107b9785f86cbd76aab61ba5f3085bc366f3cbd2ec9c92e3412cdf",
+      "tools/pss-reference/CaptureCursor.json": "008485661541c8fb9479be2783b8410a874cb5d72e7a4e21a56170b7a136406e",
+      "tools/pss-reference/CompilerProfile.json": "b2937fd0d639385d17ff1d109332c81c608f6026f7b85123a3d7dca9bcba0794",
+      "tools/pss-reference/DefinedDomainEvidence.json": "7b660b48806fd0e142ce584fc1c3fde9684efbe75b375574dc632a6e29b250e0",
+      "tools/pss-reference/DemandObservations.json": "2a49d88a54b89b696d3a3fc988fe0c639a32e0c640f32b5550ca560aacc5a590",
+      "tools/pss-reference/DictionaryCaptureCursor.json": "6ad91f219491fa521819fbbf0dcaeb6e9daf5a3e4b6e040a537cde061365e59d",
+      "tools/pss-reference/DictionaryObservations.json": "6090805ef8384285be200ad85b91e6d3a0441e823b344855509682af41ee7aa2",
+      "tools/pss-reference/DigestObservations.json": "78e3ff58d1de40c0fdd492398467158e860e0bd95de690df7a8130ff3036bf46",
+      "tools/pss-reference/ExcludedRandomDomains.json": "2dff45b9ead4cd12d1320faadb6bacdbc752fa16e7df54b8015157f691c95599",
+      "tools/pss-reference/ExportSourceCases.hs": "f92d630bd45436d241a075b1678f3e3e25eed7437090cf9b253ab921eb81053b",
+      "tools/pss-reference/MutationObservations.json": "402a6ec556e150262c36078f8da74faaf5d842ab19e36c9e7b6326187debd7ee",
+      "tools/pss-reference/Observations.json": "667b65eda4ebc495d89ce38ba42ebfd94d0c49049482f138e700fc3c1604c226",
+      "tools/pss-reference/ObservedPss.hs": "346804c619fc974b3c292ad9cd76a7f80b41928c74e137a418404ec51ceb94c7",
+      "tools/pss-reference/OriginalPssSpec.hs": "4b4530f3b8662ec2a577a01b77ac14b7e054ddbb5072f2845f4fcfe97ace8c43",
+      "tools/pss-reference/PssBoundaryReference.hs": "9a1097801a4a36018e6ae10571741c631e03754e15a5c14740851572107efaf6",
+      "tools/pss-reference/PssCallbackReference.hs": "086ac02f91a9bc55f92af41dc3a0a8f601fb8d83c895c8989d055fada0382878",
+      "tools/pss-reference/PssDemandReference.hs": "2a57c8f7bc13dfd7f3f484f8ea1ca7b8cc23b57c99055ae2c4459fa4fade62d8",
+      "tools/pss-reference/PssDictionaryReference.hs": "5bed4e8717c6e459bb8f5c97aa579410480cc5ef54bc5e666d89ab2e2c3f2034",
+      "tools/pss-reference/PssRandomReference.hs": "c7cafed69bdcfbb12ecf44caa1bca4221eeb4531886e710183dab434df67964a",
+      "tools/pss-reference/PssReference.hs": "bd7854a76c57893b0a9266b7c5ec6cf61f628e85a4e61837164680cceb7b67b6",
+      "tools/pss-reference/README.md": "5c23b99c64f283b98448ab0f3df699cdf58d07d6abd101e9e52f93c46c2b7c64",
+      "tools/pss-reference/RandomCaptureCursor.json": "4e30cf6c555348ceae92af0170865e11549bf6d9b117f2fb7ec23206b1955406",
+      "tools/pss-reference/RandomExtraObservations.json": "63cc7f19d775dff3f2f4280afc7ffb035c6784e536d5cf4538aeabaa54422860",
+      "tools/pss-reference/RandomObservations.json": "c5e874e1a3d6e1d96d7c5c0f4873fcbc8257909f72adbe264a5c396e3024b644",
+      "tools/pss-reference/SourceCases.json": "d562ea19441f2cc883a28b14b879d9e226897d5ca4ed575f58ba82bb2717fc57",
+      "tools/pss-reference/SourceMatrix.json": "8822146ba0e7b45bb53b911ddf8c8b110fb56a1a7df59d481b71ddacc517c6d1",
+      "tools/pss-reference/SourceQuirks.json": "dbb394efa9ebe61e7cb092bc7b102b25c3bd3171e81d9136a66bb47c05e6d5ce",
+      "tools/pss-reference/capture-boundary.py": "b982124d26f266897e7d18033416362a2341f7c4a10444f8ce362e9d95249b20",
+      "tools/pss-reference/capture-callback.py": "3716707300cb9470e158276d453b4d7ab5a3be279ff3a5ce56bdffed5a1f871b",
+      "tools/pss-reference/capture-demand.py": "946ffe2c19f2cd42c24f95d97009a70e25a1b4df55578a410f2286b5ade6b7f5",
+      "tools/pss-reference/capture-dictionary.py": "c8680fd14d436c93ca7f1af62259a7f32d08d0ce9ba81d18bfe0b3d2c2bd8c5d",
+      "tools/pss-reference/capture-digest.py": "ee4feb49b02ce7faab771cc412bef6b24cb401cdd05b8fdc053c92d1142e6f54",
+      "tools/pss-reference/capture-mutations.py": "6229defcbc361e172be542339258e813ad788c65939c2f9d51a3d11aae11bd56",
+      "tools/pss-reference/capture-random-extra.py": "fb6a825d85d81648fc98f4ad5c59f4661b3baa28b587395889442795f2c9e5a1",
+      "tools/pss-reference/capture-random.py": "316c1b360c262c28b6ace97651889448e6b8c4ee6bfb17c76819cbe8b8bc76d0",
+      "tools/pss-reference/capture.py": "e08ec5cfe473b58c6cac02b163e42e8f19961d7f70c6b24088567bcb0094b5d7",
+      "tools/pss-reference/history/pre-dictionary-params-root/CryptoRsaPss.kt": "cf7e75657d7a3d6238f429aa307c7c745b8a6f39de9215c9950459644e98bb56",
+      "tools/pss-reference/history/pre-dictionary-params-root/NativeRootRepro.json": "96124db586794f18ae8a14222cd4300a91119b336689c77a260de15a22a86010",
+      "tools/pss-reference/history/pre-empty-zip-demand/CryptoRsaPss.kt": "c59f74d9ea63260f34fe9300c53abd449d046bdf61d9b7311063e5c618f5fea5",
+      "tools/pss-reference/history/pre-empty-zip-demand/failure.log": "d4e0a9691868c2644cf3c09251c614bd23df2444bff1041186b3c42267df31a9",
+      "tools/pss-reference/history/pre-generic-salt-metadata-order/CryptoRsaPss.kt": "e3dc1461ad61e0cecdb95bd352b5575b15a2b00e41132a5f42798754ce7367a4",
+      "tools/pss-reference/history/pre-generic-salt-metadata-order/failure.log": "b68ec84b0401bac519e716b486e91b17a2eace4611a5495ec398f7c6790ce886",
+      "tools/pss-reference/history/pre-lazy-mask/CryptoRsaPss.kt": "5dacc68f647f3d31622eeebb4edea38e66fd463ee2d81b18df2f93c371bcf7c8",
+      "tools/pss-reference/history/pre-lazy-mask/failure.log": "e7043d5990bb2d55ea344c505898a4c18ed9200431373404aed17b2f46d60887",
+      "tools/pss-reference/history/pre-safer-range-demand/CryptoRsaPss.kt": "489c2debb8a51076f5a79bd9f662b0f93ec809fd6521af234e26782b67f9ce00",
+      "tools/pss-reference/history/pre-safer-range-demand/failure.log": "04e2f7e12d7d41169f6d9442af87ab108005e6594cfdb4e73ff2ed0111881b16",
+      "tools/pss-reference/history/pre-salt-guard-order/CryptoRsaPss.kt": "5beeafd9e0250dee996b993226ec194c8afc5316f5ef6ae6ad26ea8905fb19ca",
+      "tools/pss-reference/history/pre-salt-guard-order/failure.log": "5e98e607088ea09517f349b45079823e86c525bcf67f8804ababf222a18079ba",
+      "tools/pss-reference/history/pre-strict-observer-events/PssDictionaryReference.hs": "39da5c24a076cb6d28de43755856ed0f66afa8e048575aa3d8983d18cccb7fb6",
+      "tools/pss-reference/history/pre-strict-observer-events/failure.log": "1aeb136eefb37dc0528c9701bf71c8eda3799506d610edb9ad5b86dd20a3cd1e",
+      "tools/pss-reference/original/Crypto/PubKey/RSA/PSS.hs": "272e28d42f6e69d8e0721d39d38f8982360ab87e9554c4e22ed8f51842f4726f",
+      "tools/pss-reference/original/tests/PubKey/PSSSpec.hs": "bbb3e898976061a61fe7f8089bb6174b679c133646fb72fc005f338062af2f7d",
+      "vendor/crypton-2.0.1/Crypto/Hash.hs": "d9e45200017d52cb058f342a66a469b98424886eb756b4b7a1eaff2bc48bc47a",
+      "vendor/crypton-2.0.1/Crypto/Number/Generate.hs": "7ceba6d48aa7eb7dfaf9a02d79b8b27d24c23d484048f9f7d5317492100d0953",
+      "vendor/crypton-2.0.1/Crypto/PubKey/RSA/PSS.hs": "272e28d42f6e69d8e0721d39d38f8982360ab87e9554c4e22ed8f51842f4726f",
+      "vendor/crypton-2.0.1/Crypto/PubKey/RSA.hs": "2bce79fa9414155d7f9a49661532cb45d0ce51c1d006ccdce8b2f4d20cc2842f",
+      "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs": "bbb3e898976061a61fe7f8089bb6174b679c133646fb72fc005f338062af2f7d",
+      "tools/pss-reference/CurrentPins.json": "30405ca4473e790056ecc44e5fb36355755bf740df0c2a4480d3273d75d9152e",
+      "vendor/crypton-2.0.1/tests/Utils.hs": "6d542e70ab2bebd4f6d414dd7139c658eea231ccfd99ff089e8dd3592f8d4c5b",
+      "vendor/crypton-2.0.1/tests/Imports.hs": "1b5c4ce0891f01ab615dea4f059e86ce80b9333772d2b2f7e49e52e3bd56b1d8",
+      "vendor/crypton-2.0.1/tests/Spec.hs": "2fbd14b119a40eaca54f6255686c7cfbe8ff26a9c18d79ec474a61225232d324",
+      "vendor/crypton-2.0.1/crypton.cabal": "3a8bd84d0af9f2d3cd14c46f3560c4f8759123ffcb011fcd8ca57eb409aa5e10"
+    },
+    "corpus": {
+      "path": "core/src/test/resources/crypto-rsa-pss/SourceCases.json.gz",
+      "gzip_sha256": "0bb5b60035134e959a3356f995a98501f2d39f829cf00455b27db66d4bd92d6b",
+      "json_sha256": "d562ea19441f2cc883a28b14b879d9e226897d5ca4ed575f58ba82bb2717fc57",
+      "source_case_count": 53
+    },
+    "compiler_profile_source": "tools/pss-reference/CompilerProfile.json",
+    "core_artifact": {
+      "sha256": "bd78884871b505c46617fe6021122134bfc526d1c0fe356d683cff34c8e1cf2a",
+      "production_classes": {
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$CallbackState.class": "009956071d684f2d1ecf7279ef02954a2c2f5ed509fb5c23804dad6eacbbc41d",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$Dictionary.class": "de75d5675fe87900827f160621694e9305f4b0b77f243bff20ded010bd7eedd5",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$MaskAlgorithm.class": "0886669d0f97ca3f24ecc5080147b654f562320815f8a7b0b6b806eaf562b917",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$Params.class": "2d872b52e7119e3cdcae78fb6d55c39d838635224d73c7472fe9a70f66630557",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$Result$Failure.class": "150eea2e6570483727cabd26f7ecfd2c957a3fd5ed94145017f204eaedd0cc1a",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$Result$Success.class": "53b863ea76ea9dff540b5d6c5119aca208aa0a469826e7e89528f81035081290",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$Result.class": "a205da582e8538b9a0506d4d205d6479c4ba9e91d13810d93b5069c249ba23d0",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$SourceRandomCallback.class": "2ec91f0d43d9dd913f75637f7375749f964a3623c9ef2e98d03073cdf4d3e014",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss$SourceRandomOperations.class": "c547f19270ac4cbded2aacb44574b930a77ca710dc6adb250804072e4f74fc3b",
+        "io/heapy/kotdoc/crypto/CryptoRsaPss.class": "6bda266f14c6b7b204b8cb86d2fa7814042ebf47a0d95db4aedb8696cbaa5387"
+      },
+      "scope": "accepted immutable production core artifact, not a test JAR; compiled test bytecode is not retained/claimed"
+    },
+    "junit": {
+      "full_report_sha256": "764daa18561ad21738cea31a090a73307ea4f0b8abb84e06c12ba8e38ad370af",
+      "original_suite_start_tag": "<testsuite name=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" tests=\"10136\" skipped=\"0\" failures=\"0\" errors=\"0\" timestamp=\"2026-10-17T08:30:34.479Z\" hostname=\"ruslans-macbook-pro.tail872780.ts.net\" time=\"0.818\">",
+      "full_result": {
+        "tests": 10136,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      },
+      "selected_result": {
+        "tests": 53,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      },
+      "raw_cases": [
+        "  <testcase name=\"SourceCases/0\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/1\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/2\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/3\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/4\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/5\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/6\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/7\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/8\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/9\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/10\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/11\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/12\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/13\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/14\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/15\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/16\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/17\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/18\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/19\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/20\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/21\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/22\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/23\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/24\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/25\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/26\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/27\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/28\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/29\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/30\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/31\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/32\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/33\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/34\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/35\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/36\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/37\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/38\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/39\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/40\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/41\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/42\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/43\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/44\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/45\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/46\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/47\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/48\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+        "  <testcase name=\"SourceCases/49\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/50\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/51\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+        "  <testcase name=\"SourceCases/52\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n"
+      ],
+      "extraction": "53 original self-closing SourceCases testcase lines copied verbatim including whitespace/newline; original entire XML SHA/root attrs retained; no synthetic suite XML created"
+    },
+    "actual_command": "JAVA_HOME=/Users/yoda/.sdkman/candidates/java/21.0.12-librca ./gradlew --project-cache-dir /tmp/kotdoc-crypto-gradle --no-daemon --no-build-cache -Dorg.gradle.vfs.watch=false -Pkotlin.compiler.execution.strategy=in-process :core:test --tests io.heapy.kotdoc.crypto.CryptoRsaPssTest --tests io.heapy.kotdoc.crypto.CryptoRsaPkcs15Test --tests io.heapy.kotdoc.crypto.CryptoRsaTest --tests io.heapy.kotdoc.crypto.CryptoRsaOaepTest :core:jar :cli:installDist\n",
+    "terminal_log_sha256": "831444a8993d71d6a3143a117cc2ceec96f2e20daf8f7fcb11fc09b3745b94cc",
+    "historical_run": "accepted5e968eea shared Gradle25674; selected source53 are within10136PSS/32038relevant tests, no fresh execution by inventory"
+  },
+  "registrations": [
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature range\",\"the signature itself verifies\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature range",
+        "the signature itself verifies"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 1,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "signatureRangeTests",
+        "vector": "first valid vectorsKey1",
+        "index": null,
+        "key": "rsaKey1"
+      },
+      "source_case": "range/itself",
+      "corpus_index": 50,
+      "corpus_row_sha256": "2896046978ef88863aa2a48b2c2ed1ecf69e998478285d2ed515ce9b9c992809",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/50",
+        "dynamic_ordinal": 51,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/50\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature range\",\"the same signature plus n is refused\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature range",
+        "the same signature plus n is refused"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 2,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "signatureRangeTests",
+        "vector": "first valid vectorsKey1",
+        "index": null,
+        "key": "rsaKey1"
+      },
+      "source_case": "range/plusN",
+      "corpus_index": 51,
+      "corpus_row_sha256": "663d68e7fdcd1bf0c76d86374d94fa3af2cee6cd1597803c54bd61b108447465",
+      "expected_sha256": "af5fd803088fcdc627e5cd97fb88d7fcbbb02a705f38fd48b1ab5f4ffca50ae8",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/51",
+        "dynamic_ordinal": 52,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/51\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature range\",\"a signature representative equal to the modulus is refused\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature range",
+        "a signature representative equal to the modulus is refused"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 3,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "signatureRangeTests",
+        "vector": "first valid vectorsKey1",
+        "index": null,
+        "key": "rsaKey1"
+      },
+      "source_case": "range/equalN",
+      "corpus_index": 52,
+      "corpus_row_sha256": "99fdb544debad3e3294901a2ed3dc8cc4fe5db7dc952b25e94c3a0c7bf9b8bec",
+      "expected_sha256": "af5fd803088fcdc627e5cd97fb88d7fcbbb02a705f38fd48b1ab5f4ffca50ae8",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/52",
+        "dynamic_ordinal": 53,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/52\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature internal\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature internal",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 4,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorInt",
+        "index": 0,
+        "key": "rsaKeyInt"
+      },
+      "source_case": "internal/sign/0",
+      "corpus_index": 0,
+      "corpus_row_sha256": "891e8887c543b544a3de2c67d200ee73864c59602e65b25003e74534b1e5d820",
+      "expected_sha256": "ad6375684abd6c602a8c88a379be2a45786f71f26ff46f5b31ffa15b076522c6",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/0",
+        "dynamic_ordinal": 1,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/0\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify internal\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify internal",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 5,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorInt",
+        "index": 0,
+        "key": "rsaKeyInt"
+      },
+      "source_case": "internal/verify/0",
+      "corpus_index": 1,
+      "corpus_row_sha256": "4f92f9ab80ceea9259c9b4a7e95deb5de944ee24d2fb5ca1b65d4896c28ce257",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/1",
+        "dynamic_ordinal": 2,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/1\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1024\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1024",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 6,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey1",
+        "index": 0,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/sign/0",
+      "corpus_index": 2,
+      "corpus_row_sha256": "729b3aa21693d2f5dd0ade353deaf583888abe9bf80d083aee95a72a8555a206",
+      "expected_sha256": "f16b23d7f2cb243a78ad9afa02d0a8793f012bf6a82671af36058a97b342e3e5",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/2",
+        "dynamic_ordinal": 3,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/2\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1024\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1024",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 7,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey1",
+        "index": 1,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/sign/1",
+      "corpus_index": 4,
+      "corpus_row_sha256": "9e0c98e2b2c72d90924cce5f8c9780537393de11b4b2756a9b05953ad7e1621e",
+      "expected_sha256": "70d3dfdf88e50226d3393dcf5fb1685552edd0d3cf4994aab3488eba48fd54d8",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/4",
+        "dynamic_ordinal": 5,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/4\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1024\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1024",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 8,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey1",
+        "index": 2,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/sign/2",
+      "corpus_index": 6,
+      "corpus_row_sha256": "f074c1e9ed07a010a14ea49e9a5759d1b04b8c3110a64316d81899fc5ba9f592",
+      "expected_sha256": "fb64f536e24f389100dfa4065442a1e4616205d8f6f912df63dac07c828eae4a",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/6",
+        "dynamic_ordinal": 7,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/6\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1024\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1024",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 9,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey1",
+        "index": 3,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/sign/3",
+      "corpus_index": 8,
+      "corpus_row_sha256": "a04fca6c0be614b9c6b0b0f47579dc88361ab6a9913b70917f88d929cc838d03",
+      "expected_sha256": "c5357af35edd95a585c9c93ba87a14ae450e9bfa1d6b8a0212bc10c194af53e1",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/8",
+        "dynamic_ordinal": 9,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/8\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1024\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1024",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 10,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey1",
+        "index": 4,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/sign/4",
+      "corpus_index": 10,
+      "corpus_row_sha256": "de112f7523a88bbc7cfc70b40b553bd674ce3b62d03310ee50b12e3cee8b2b05",
+      "expected_sha256": "9de4ddadacfc379c73a83375342651bddf217e72e7bdfad6d2ce3e1f19db6d11",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/10",
+        "dynamic_ordinal": 11,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/10\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1024\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1024",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 11,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey1",
+        "index": 5,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/sign/5",
+      "corpus_index": 12,
+      "corpus_row_sha256": "3d0e8e138e807d60f693fb7d6351d7388248ee05206990a0c8b3e9f30bab5f9b",
+      "expected_sha256": "6add554588ecaf2fdf3eef9644bc26d59bdb035cd8fe65492e5a1026b2c1eb35",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/12",
+        "dynamic_ordinal": 13,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/12\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1024\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1024",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 12,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey1",
+        "index": 0,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/verify/0",
+      "corpus_index": 3,
+      "corpus_row_sha256": "d74ac340526865fea6bf3c32e47d6fe615bd10bc92ef9cbbab2e97649eb7b05c",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/3",
+        "dynamic_ordinal": 4,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/3\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1024\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1024",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 13,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey1",
+        "index": 1,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/verify/1",
+      "corpus_index": 5,
+      "corpus_row_sha256": "f330e9181785fd60bd89746859719bc72a3ac935567201afaad14b400a991e98",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/5",
+        "dynamic_ordinal": 6,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/5\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1024\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1024",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 14,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey1",
+        "index": 2,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/verify/2",
+      "corpus_index": 7,
+      "corpus_row_sha256": "ede1d75e21384fd13ce7be10103b7d039baaf9607446e805108e76c69713421f",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/7",
+        "dynamic_ordinal": 8,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/7\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1024\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1024",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 15,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey1",
+        "index": 3,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/verify/3",
+      "corpus_index": 9,
+      "corpus_row_sha256": "c8f13db305fcc677ed7e9674ad2e3ab9ab906f448594fd3a369ee654b7d2e388",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/9",
+        "dynamic_ordinal": 10,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/9\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1024\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1024",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 16,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey1",
+        "index": 4,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/verify/4",
+      "corpus_index": 11,
+      "corpus_row_sha256": "912012ca119847663c47cd5272ac5769056e4cef47f74b914d2399bcad0b5faa",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/11",
+        "dynamic_ordinal": 12,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/11\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1024\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1024",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 17,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey1",
+        "index": 5,
+        "key": "rsaKey1"
+      },
+      "source_case": "1024/verify/5",
+      "corpus_index": 13,
+      "corpus_row_sha256": "b582324f20c69d80e922693c3498d3dba9d0e3bc723fc1b6b5ce3ce53a5274ce",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/13",
+        "dynamic_ordinal": 14,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/13\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1025\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1025",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 18,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey2",
+        "index": 0,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/sign/0",
+      "corpus_index": 14,
+      "corpus_row_sha256": "3c040710d5fca6ca03e7241b03c962ceaa3986e7139b031ea5f992f155995ec4",
+      "expected_sha256": "5b21ef2c9acec19820ff99234f5c79641f2ddf7049f4db3d94a44a8ce02171c5",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/14",
+        "dynamic_ordinal": 15,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/14\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1025\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1025",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 19,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey2",
+        "index": 1,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/sign/1",
+      "corpus_index": 16,
+      "corpus_row_sha256": "f46092ee295a76a7a5ef42204e471064ec6cb0537190aa6d8606609b194ade31",
+      "expected_sha256": "05fde96e95e1ddde99aa1900f30b12920fe399da36114df2cb4e86d7d21d7ef7",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/16",
+        "dynamic_ordinal": 17,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/16\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1025\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1025",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 20,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey2",
+        "index": 2,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/sign/2",
+      "corpus_index": 18,
+      "corpus_row_sha256": "5182865dce18e7ab6fe0df5ea21d84027b8bed6321de9b2ef0b749f181a86a94",
+      "expected_sha256": "78c14bf853fd20919b01262cf41c135edcb0764b25c9a65e6cce2d731807e5fb",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/18",
+        "dynamic_ordinal": 19,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/18\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1025\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1025",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 21,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey2",
+        "index": 3,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/sign/3",
+      "corpus_index": 20,
+      "corpus_row_sha256": "8ec4b5fbeaf0f03e8e00a63e9c71ea830666b17787835138fed93bcab45b686a",
+      "expected_sha256": "441e6d4a1876d58a8203ac755c748e2a70989ce17db44d053c8358f042bb21bc",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/20",
+        "dynamic_ordinal": 21,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/20\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1025\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1025",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 22,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey2",
+        "index": 4,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/sign/4",
+      "corpus_index": 22,
+      "corpus_row_sha256": "a0c641d21e25c251399b24808322a36f35dc8605593d48f2e7c6b446e1669c5f",
+      "expected_sha256": "3e593f606ea073f239ea752a526303a5b0fcfe281a6d49964ee4b7fa48ed7003",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/22",
+        "dynamic_ordinal": 23,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/22\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1025\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1025",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 23,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey2",
+        "index": 5,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/sign/5",
+      "corpus_index": 24,
+      "corpus_row_sha256": "b7a79567f66faaf14bdaa04ad248cf3f678ab25329cd4cbbc6cebd542b1d91d6",
+      "expected_sha256": "4d46809c270b18a24c61da01186ded411f8fc1199ec0ffac76d43a929e0b6942",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/24",
+        "dynamic_ordinal": 25,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/24\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1025\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1025",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 24,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey2",
+        "index": 0,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/verify/0",
+      "corpus_index": 15,
+      "corpus_row_sha256": "ee2a795e498826cbdf9ae20293ef65321aaa74e23976e3d43dcfa378fd1d44a9",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/15",
+        "dynamic_ordinal": 16,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/15\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1025\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1025",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 25,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey2",
+        "index": 1,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/verify/1",
+      "corpus_index": 17,
+      "corpus_row_sha256": "28e07fcd1bde3de1bfd54bea87e94e739551964b060f892c3ac3b216152a6022",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/17",
+        "dynamic_ordinal": 18,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/17\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1025\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1025",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 26,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey2",
+        "index": 2,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/verify/2",
+      "corpus_index": 19,
+      "corpus_row_sha256": "b245480126bee78a4e51f4ee426c87a9c85c0ab7a64574533f0b618f00a39e58",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/19",
+        "dynamic_ordinal": 20,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/19\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1025\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1025",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 27,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey2",
+        "index": 3,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/verify/3",
+      "corpus_index": 21,
+      "corpus_row_sha256": "fd6c857ccc2a6d0c6d88347367d3b92e312e6902c54785a6bf7b5934f0124ade",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/21",
+        "dynamic_ordinal": 22,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/21\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1025\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1025",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 28,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey2",
+        "index": 4,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/verify/4",
+      "corpus_index": 23,
+      "corpus_row_sha256": "cd9a428c33f78aabf956c9266d5f79c5fc28d9309a909072d0bc1bfd72ed69ad",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/23",
+        "dynamic_ordinal": 24,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/23\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1025\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1025",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 29,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey2",
+        "index": 5,
+        "key": "rsaKey2"
+      },
+      "source_case": "1025/verify/5",
+      "corpus_index": 25,
+      "corpus_row_sha256": "c61f43e89565470ab977eebacc8ea82745c24105c5017760a562ba44d005118c",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/25",
+        "dynamic_ordinal": 26,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/25\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1026\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1026",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 30,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey3",
+        "index": 0,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/sign/0",
+      "corpus_index": 26,
+      "corpus_row_sha256": "0b41d904d2b3bb55c4d543b22ad6340b5b8079ee6c5092b9d45982c4177cc768",
+      "expected_sha256": "432d290ed025173d8ccfa89581124fd19c047f0f52ec945f97c50ad4158565b7",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/26",
+        "dynamic_ordinal": 27,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/26\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1026\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1026",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 31,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey3",
+        "index": 1,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/sign/1",
+      "corpus_index": 28,
+      "corpus_row_sha256": "b93fc72498a3ea200a87c920410903f9fea6c2bd13e60655be21b829c55ab532",
+      "expected_sha256": "d61408ff981b2a5cbcf05c2a2a8bf54c82ec3a135e85bbeb19282b67359defb2",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/28",
+        "dynamic_ordinal": 29,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/28\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1026\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1026",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 32,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey3",
+        "index": 2,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/sign/2",
+      "corpus_index": 30,
+      "corpus_row_sha256": "03c0f32a1bcb6b3815c90b1329b2c04f67cdee52208003d554ef84d019dcc963",
+      "expected_sha256": "aaee50a60d11e9a030868da24733ca30835f494127c882adc913b0a6a655446b",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/30",
+        "dynamic_ordinal": 31,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/30\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1026\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1026",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 33,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey3",
+        "index": 3,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/sign/3",
+      "corpus_index": 32,
+      "corpus_row_sha256": "7061f7f8673d77cc2578d533c2e05fecf34412d4ea9148a6e7afbf5fd351dc64",
+      "expected_sha256": "db93ee2668c0f538e4e1d691509a291b9a16e2a357bc06c04d6bf76f7cc53103",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/32",
+        "dynamic_ordinal": 33,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/32\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1026\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1026",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 34,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey3",
+        "index": 4,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/sign/4",
+      "corpus_index": 34,
+      "corpus_row_sha256": "7083a6b7ff050cc78af64faf3e0987e0081b570d2bf780cac133c010f8dd5b5f",
+      "expected_sha256": "1b311adc73a5987806b2ae87ec739b7d4eff9594b7f91ceac8713d77ec11d351",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/34",
+        "dynamic_ordinal": 35,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/34\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1026\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1026",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 35,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey3",
+        "index": 5,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/sign/5",
+      "corpus_index": 36,
+      "corpus_row_sha256": "d09038c212e39bfca7d0bbe498a98f94180b595c4cea06fc079d31c678f14b3d",
+      "expected_sha256": "e5e81a90d6eee18e8b7a0f5904b1d4137e414bcb6ba462244487c82fdd704108",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/36",
+        "dynamic_ordinal": 37,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/36\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1026\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1026",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 36,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey3",
+        "index": 0,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/verify/0",
+      "corpus_index": 27,
+      "corpus_row_sha256": "1e877db13ebfb2d3dbdde2b835f9f875c3a2aba7ad571baea5be787f1303bbb5",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/27",
+        "dynamic_ordinal": 28,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/27\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1026\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1026",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 37,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey3",
+        "index": 1,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/verify/1",
+      "corpus_index": 29,
+      "corpus_row_sha256": "fed81b011363e4d2d79a601de117364365a38304a72e4f3737ab4d0187f65943",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/29",
+        "dynamic_ordinal": 30,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/29\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1026\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1026",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 38,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey3",
+        "index": 2,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/verify/2",
+      "corpus_index": 31,
+      "corpus_row_sha256": "07869d2eb62d9723ad3741ab73e0613eb7d9d4ce5f87612ac0be4ae3dc21816d",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/31",
+        "dynamic_ordinal": 32,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/31\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1026\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1026",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 39,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey3",
+        "index": 3,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/verify/3",
+      "corpus_index": 33,
+      "corpus_row_sha256": "ca1943271ee04a3a4c31e0eb4e485960f3096e814756dcf442ff86b41a79e786",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/33",
+        "dynamic_ordinal": 34,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/33\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1026\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1026",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 40,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey3",
+        "index": 4,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/verify/4",
+      "corpus_index": 35,
+      "corpus_row_sha256": "6147b5206a0c1bb2ac4a9f0c2dcfe248ea261912a70108114d11398e6d52ea4c",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/35",
+        "dynamic_ordinal": 36,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/35\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1026\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1026",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 41,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey3",
+        "index": 5,
+        "key": "rsaKey3"
+      },
+      "source_case": "1026/verify/5",
+      "corpus_index": 37,
+      "corpus_row_sha256": "a52b046ffe6ebeeae4d550982e40d9f9285e686b270d942266619a4ffc432014",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/37",
+        "dynamic_ordinal": 38,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/37\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1031\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1031",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 42,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey8",
+        "index": 0,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/sign/0",
+      "corpus_index": 38,
+      "corpus_row_sha256": "1325e37bba281ad25b182171a83a7854b4827b36261e9d26a604d4fa2f4677c7",
+      "expected_sha256": "ef9eb003ca533a867b0f6844f0d579ad3e5e6ef6bb110dc84f06a4206f454bd5",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/38",
+        "dynamic_ordinal": 39,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/38\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1031\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1031",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 43,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey8",
+        "index": 1,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/sign/1",
+      "corpus_index": 40,
+      "corpus_row_sha256": "9e191dd36e275b457ba8777675f8297a247c6c9331324c5588bf6f7aa7f0a9e8",
+      "expected_sha256": "6ef03ce1c80abb69898f9adba53ce45ed43bec59509aecdd4dd69f6db2da7e9c",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/40",
+        "dynamic_ordinal": 41,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/40\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1031\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1031",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 44,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey8",
+        "index": 2,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/sign/2",
+      "corpus_index": 42,
+      "corpus_row_sha256": "3dfed058c0bddc1cd5fd9cca789e8f6a1c0d86a1a52baffac367048f4b6f1b28",
+      "expected_sha256": "4b0115232ca04ca1697a0ff44b6841dbc6f8fab863b9bad2587d5b091191747f",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/42",
+        "dynamic_ordinal": 43,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/42\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1031\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1031",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 45,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey8",
+        "index": 3,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/sign/3",
+      "corpus_index": 44,
+      "corpus_row_sha256": "b21ffcdd977b0a5b3264f6e2650a68cda2ed8d977af9bd9c65d0af8d193d2026",
+      "expected_sha256": "55be7ea40df69d2928ca0d7422db046b519805517c459e2e9ba7ea554a51a357",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/44",
+        "dynamic_ordinal": 45,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/44\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1031\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1031",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 46,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey8",
+        "index": 4,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/sign/4",
+      "corpus_index": 46,
+      "corpus_row_sha256": "1ea02aafdaab1b00ac36d5886caa882b3bfb2c76d828cfe5c8baf5b5bb4ee6dc",
+      "expected_sha256": "07322641f3a544b4030fe7a51a5642cde70c28237bb62468beb721e0cd4a32dd",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/46",
+        "dynamic_ordinal": 47,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/46\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"signature key 1031\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "signature key 1031",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 47,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doSignTest",
+        "vector": "vectorsKey8",
+        "index": 5,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/sign/5",
+      "corpus_index": 48,
+      "corpus_row_sha256": "4754b2b0bc7c8d76d3388477f145d4cdf72c4b529aeac2c220866e9d3dac90d2",
+      "expected_sha256": "8cd618f10aad06819233bf5e25ee26d6a8cb866e5512c9450285d0eabce6d3ba",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/48",
+        "dynamic_ordinal": 49,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/48\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1031\",\"0\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1031",
+        "0"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 48,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey8",
+        "index": 0,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/verify/0",
+      "corpus_index": 39,
+      "corpus_row_sha256": "de9ab652c274b881cf1b3c7c230c48cfa9ce9cf293902109f74958891e40213e",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/39",
+        "dynamic_ordinal": 40,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/39\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1031\",\"1\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1031",
+        "1"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 49,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey8",
+        "index": 1,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/verify/1",
+      "corpus_index": 41,
+      "corpus_row_sha256": "3330aa6f38e71cfe5817f3445962348f6babcc5c0e2fd9946220786f101f5dff",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/41",
+        "dynamic_ordinal": 42,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/41\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.001\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1031\",\"2\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1031",
+        "2"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 50,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey8",
+        "index": 2,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/verify/2",
+      "corpus_index": 43,
+      "corpus_row_sha256": "e5b4c82133db212a8a4cc8573c05a8d75849b8497d0eee1c7599edcf4da3eb4a",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/43",
+        "dynamic_ordinal": 44,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/43\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1031\",\"3\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1031",
+        "3"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 51,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey8",
+        "index": 3,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/verify/3",
+      "corpus_index": 45,
+      "corpus_row_sha256": "b87723cc378bec7ddf3c0653e579acd9bdc3c249bbdf8b56a7e7bf788f931bd7",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/45",
+        "dynamic_ordinal": 46,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/45\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1031\",\"4\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1031",
+        "4"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 52,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey8",
+        "index": 4,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/verify/4",
+      "corpus_index": 47,
+      "corpus_row_sha256": "d0fca87326a4b0634ca2851b0e40415483152179e65940cf089840cde6450a5b",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/47",
+        "dynamic_ordinal": 48,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/47\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    },
+    {
+      "id": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton/module/PubKey.PSSSpec/spec/[\"RSA-PSS\",\"verify key 1031\",\"5\"]#1",
+      "suite_ref": "dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton",
+      "module": "PubKey.PSSSpec",
+      "components": [
+        "RSA-PSS",
+        "verify key 1031",
+        "5"
+      ],
+      "occurrence": 1,
+      "original_source_ordinal": 53,
+      "source": "vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs",
+      "expansion": {
+        "helper": "doVerifyTest",
+        "vector": "vectorsKey8",
+        "index": 5,
+        "key": "rsaKey8"
+      },
+      "source_case": "1031/verify/5",
+      "corpus_index": 49,
+      "corpus_row_sha256": "48243e5d7c434723ffe9ff7548594cb49d254c466f0d39c975697f37e06bf77f",
+      "expected_sha256": "8daf09a6fc31937457dd77e9c25ce4b21349d605b561a8c5d557841bf964c9a0",
+      "kotlin": {
+        "source": "core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt",
+        "class_name": "io.heapy.kotdoc.crypto.CryptoRsaPssTest",
+        "factory": "originalSource53",
+        "display_name": "SourceCases/49",
+        "dynamic_ordinal": 50,
+        "observer": "PssReplay.observe"
+      },
+      "execution_case_xml": "  <testcase name=\"SourceCases/49\" classname=\"io.heapy.kotdoc.crypto.CryptoRsaPssTest\" time=\"0.0\"/>\n",
+      "status": "mapped",
+      "binding": "accepted historical5e968eea source/factory/result/core artifact; current selected sources byte-identical, no new execution"
+    }
+  ],
+  "remaining": "Other crypton modules/RSASpec/Secrecy assertions, effective root flags/OS/toolchains, runtime/profile completeness and all other dependency mappings remain required. Synthetic observations and source retention do not add source assertions."
+}

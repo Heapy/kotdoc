@@ -357,6 +357,34 @@ Kotlin mappings remain open. The calibre source checkpoint below starts the
 separate factory/embedded and directional-format reconciliation; runtime closure
 remains pending. Full local:622 is incomplete.
 
+A separate bounded producer field, `accepted_module_assertion_mappings`, now
+links **53 original `PubKey.PSSSpec` assertions** to the accepted RSA.PSS checkpoint
+`5e968eea`: 25 literal signing assertions, 25 verification assertions and three
+signature-range assertions. `test-inventory-dependency-pss.json` preserves each
+module-local Hspec component path, occurrence and original source order, the
+separate interleaved `SourceCases` storage index, exact Kotlin factory/display
+identity, independent expected-payload hash and verbatim executed XML case.
+These are 53 source assertions with 53 matching Kotlin executions of the same
+assertions, not 106 source tests or additions to the 4,465 Pandoc Tasty leaves.
+They are already included within the historical PSS total of 10,136 JUnit cases.
+
+The proof binds accepted Git/source/corpus identities, the immutable accepted
+core JAR and its ten PSS production class hashes, and the exact selected 53 raw
+XML lines/full-report hash. Code-review pins independently derived from the
+actual accepted artifacts prevent re-sealed data maps from authorizing replaced
+classes/results/commands. Verification needs no original `/tmp` JAR/XML/oracle;
+no new conversion execution or fixture generation is claimed. Compiled historical
+PSS test bytecode is not retained or invented as evidence: the mapping uses the
+accepted source/factory/payload/result provenance. New RSA.Types work is outside
+that artifact/source boundary.
+
+All 69 Cabal suite roots remain unmapped as whole suites, including crypton's
+`test-crypton`; the 226 frozen dependency IDs and 76 captured manifests are
+unchanged. Other crypton modules, RSASpec/Secrecy mappings, root/profile/platform
+closure and remaining dependency tests stay open. The global generated
+`test-inventory.json` snapshot is deliberately not refreshed in this bounded
+change; its provenance and other mappings require a separate reviewed refresh.
+
 ## Calibre source registries and directional formats
 
 This checkpoint reads pinned calibre **9.16.0** at

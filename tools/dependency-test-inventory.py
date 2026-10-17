@@ -3,6 +3,8 @@
 import argparse
 from collections import Counter
 import hashlib
+import gzip
+import xml.etree.ElementTree as ET
 import importlib.util
 import json
 from pathlib import Path
@@ -151,11 +153,93 @@ def non_cabal_roots():
                                           status='unmapped',kotlin=None) for i,m in enumerate(re.finditer(r'^check_firings "([^"]+)" (\d+)\s*$',shell,re.M),1)]
     return rows
 
+# Bounded original assertion bridge, separate from Cabal root registration units.
+PSS_MAPPING='docs/test-inventory-dependency-pss.json'
+PSS_SUITE='dependency/cabal/vendor/crypton-2.0.1/crypton.cabal/test-crypton'
+PSS_COMMIT='5e968eea11f0c58013415acafe060f43dada9b62'
+# Code-review authority: independently derived from accepted5e968eea Git blobs,
+# actual immutable PSS core JAR bd788848..., and actual frozen JUnit XML. Data
+# self-hashes cannot authorize replacement sources/classes/results/commands.
+# These are provenance acceptance pins, not signatures or execution attestation.
+PSS_PROOF_PINS={
+    "sources": "c7d841e0feb0e3f4378be7acb382a5fdbf05ac307faefe9c5cba6f1c9cd244ee",
+    "core_classes": "373c31be41b3862f0b01b9ca97fd5a6c3b8c83974ed972f327a0a73288e22336",
+    "report": "d3b928610754c6e228355ed5030067f026a8868430da3c18c20494ed0da57df2",
+    "proof": "6a394a57995b09643018390b47d8c8a38eda681a780168e555340063d59b1e36"
+}
+
+
+def pss_digest(value):
+    return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+
+
+def pss_registration_order():
+    # Exact expansion of the pinned spec, not corpus/XML storage order.
+    rows=[]
+    def add(components,label,helper,vector,index,key):rows.append(dict(components=['RSA-PSS']+components,source_case=label,expansion=dict(helper=helper,vector=vector,index=index,key=key)))
+    for label,name in [('itself','the signature itself verifies'),('plusN','the same signature plus n is refused'),('equalN','a signature representative equal to the modulus is refused')]:
+        add(['signature range',name],'range/'+label,'signatureRangeTests','first valid vectorsKey1',None,'rsaKey1')
+    add(['signature internal','0'],'internal/sign/0','doSignTest','vectorInt',0,'rsaKeyInt')
+    add(['verify internal','0'],'internal/verify/0','doVerifyTest','vectorInt',0,'rsaKeyInt')
+    for width,key,vector in [('1024','rsaKey1','vectorsKey1'),('1025','rsaKey2','vectorsKey2'),('1026','rsaKey3','vectorsKey3'),('1031','rsaKey8','vectorsKey8')]:
+        for group,operation,helper in [('signature','sign','doSignTest'),('verify','verify','doVerifyTest')]:
+            for index in range(6):add([group+' key '+width,str(index)],width+'/'+operation+'/'+str(index),helper,vector,index,key)
+    return rows
+
+
+def validate_pss_mapping(data,suites):
+    if data['schema_version']!=1 or data['kind']!='accepted_dependency_module_assertion_mapping' or data['suite_ref']!=PSS_SUITE or data['module']!='PubKey.PSSSpec':raise ValueError('PSS module/root mapping identity differs')
+    root=[r for r in suites if r['id']==PSS_SUITE]
+    if len(root)!=1 or root[0]['status']!='unmapped' or root[0]['kotlin'] is not None:raise ValueError('PSS proof cannot promote entire crypton suite')
+    if not any(m['module']=='PubKey.PSSSpec' for m in root[0]['declared_other_modules']):raise ValueError('PSS module absent from declared crypton root')
+    if data['scope']!='Exactly53original PubKey.PSSSpec assertions mapped; crypton suite/root remains unmapped and full622/613/Pandoc/calibre open':raise ValueError('PSS scope cannot claim full dependency coverage')
+    units=dict(original_source_assertions=53,matched_kotlin_executions=53,new_pandoc_tasty_leaves=0,whole_crypton_suite_complete=False)
+    if pss_digest(data['counting_units'])!=pss_digest(units):raise ValueError('PSS source/execution/root counting differs')
+    proof=data['proof'];core=proof['core_artifact'];report=proof['junit']
+    if proof['accepted_commit']!=PSS_COMMIT or core['sha256']!='bd78884871b505c46617fe6021122134bfc526d1c0fe356d683cff34c8e1cf2a':raise ValueError('PSS immutable accepted artifact identity differs')
+    # New-only RSA.Types files are not inferred dependencies of the old artifact.
+    if any('CryptoRsaTypes' in path for path in proof['source_bindings']):raise ValueError('Unaccepted RSA.Types source in PSS proof')
+    for path,digest in proof['source_bindings'].items():
+        if source(path)['sha256']!=digest:raise ValueError('PSS accepted/current source hash drift: '+path)
+    corpus=proof['corpus'];raw=(ROOT/corpus['path']).read_bytes();plain=gzip.decompress(raw)
+    if hashlib.sha256(raw).hexdigest()!=corpus['gzip_sha256'] or hashlib.sha256(plain).hexdigest()!=corpus['json_sha256']:raise ValueError('PSS source corpus hash drift')
+    source_rows=json.loads(plain)
+    if len(source_rows)!=53 or corpus['source_case_count']!=53 or len({r['sourceCase'] for r in source_rows})!=53:raise ValueError('PSS source corpus labels/count differ')
+    indexed={row['sourceCase']:(index,row) for index,row in enumerate(source_rows)}
+    full=ET.fromstring(report['original_suite_start_tag']+'</testsuite>')
+    if full.get('name')!='io.heapy.kotdoc.crypto.CryptoRsaPssTest' or full.get('tests')!='10136' or any(full.get(k)!='0' for k in ('failures','errors','skipped')):raise ValueError('PSS historical whole-report result differs')
+    if report['full_result']!=dict(tests=10136,failures=0,errors=0,skips=0) or report['selected_result']!=dict(tests=53,failures=0,errors=0,skips=0):raise ValueError('PSS53 subset is not whole10136 result')
+    cases={}
+    for raw_case in report['raw_cases']:
+        case=ET.fromstring(raw_case.strip());name=case.get('name')
+        if case.tag!='testcase' or case.get('classname')!='io.heapy.kotdoc.crypto.CryptoRsaPssTest' or name in cases or any(case.find(tag) is not None for tag in ('failure','error','skipped')):raise ValueError('PSS duplicate/class/result XML case differs')
+        cases[name]=raw_case
+    if set(cases)!={f'SourceCases/{i}' for i in range(53)}:raise ValueError('PSS exact53 XML execution identities differ')
+    registrations=data['registrations'];expected=pss_registration_order()
+    if len(registrations)!=53:raise ValueError('PSS original leaf count differs')
+    seen_ids=set();seen_corpus=set()
+    for ordinal,(row,original) in enumerate(zip(registrations,expected),1):
+        identity=PSS_SUITE+'/module/PubKey.PSSSpec/spec/'+json.dumps(original['components'],separators=(',',':'))+'#1'
+        if row['id']!=identity or row['components']!=original['components'] or row['occurrence']!=1 or row['original_source_ordinal']!=ordinal or pss_digest(row['expansion'])!=pss_digest(original['expansion']) or row['source_case']!=original['source_case']:raise ValueError('PSS original registration/order/expansion differs')
+        if row['suite_ref']!=PSS_SUITE or row['module']!='PubKey.PSSSpec' or row['source']!='vendor/crypton-2.0.1/tests/PubKey/PSSSpec.hs' or row['status']!='mapped':raise ValueError('PSS leaf scope differs')
+        index,observed=indexed[original['source_case']];name=f'SourceCases/{index}';k=row['kotlin']
+        if any(type(row[field]) is not int for field in ('occurrence','original_source_ordinal','corpus_index')) or type(k['dynamic_ordinal']) is not int:raise ValueError('PSS ordinal must be an integer')
+        if row['corpus_index']!=index or row['corpus_row_sha256']!=pss_digest(observed) or row['expected_sha256']!=pss_digest(observed['expected']):raise ValueError('PSS original expectation/corpus join differs')
+        if k!=dict(source='core/src/test/kotlin/io/heapy/kotdoc/crypto/CryptoRsaPssTest.kt',class_name='io.heapy.kotdoc.crypto.CryptoRsaPssTest',factory='originalSource53',display_name=name,dynamic_ordinal=index+1,observer='PssReplay.observe') or row['execution_case_xml']!=cases[name]:raise ValueError('PSS Kotlin factory/ordinal/XML join differs')
+        seen_ids.add(identity);seen_corpus.add(index)
+    if len(seen_ids)!=53 or seen_corpus!=set(range(53)):raise ValueError('PSS original/execution join is not bijective')
+    # Independent accepted artifact/result/source pins, not re-sealable JSON maps.
+    actual=dict(sources=pss_digest(proof['source_bindings']),core_classes=pss_digest(core['production_classes']),report=pss_digest(report),proof=pss_digest(proof))
+    if actual!=PSS_PROOF_PINS:raise ValueError('PSS independent accepted proof identity differs')
+    return data
+
+
 def inventory():
     captured=validate_capture(json.loads(CAPTURE.read_text()))
     allfiles=sorted(p for p in (ROOT/'vendor').rglob('*') if p.is_file())
     catalog=[source(p.relative_to(ROOT)) for p in allfiles]
     suites=[suite_record(package,suite) for package in captured['packages'] for suite in package['test_suites']]
+    pss=validate_pss_mapping(json.loads((ROOT/PSS_MAPPING).read_text()),suites)
     entry_refs={}
     for s in suites:
         for e in s['entries']:
@@ -200,11 +284,12 @@ def inventory():
     if len({r['id'] for r in frozen})!=len(frozen):raise ValueError('Duplicate frozen dependency version')
     return dict(schema_version=1,capture=source(str(CAPTURE.relative_to(ROOT))),observer=source(OBSERVER),freeze=source(FREEZE),
                 scope='Complete retained-vendor Cabal root declarations, not complete upstream dependency suites/leaves. Frozen dependency and every retained vendor directory reconciled explicitly.',
-                counting_units=dict(declared='Cabal component roots',available='retained source entry candidates; no buildability inference',listed='registration listing; none added here',runtime='runtime leaf multiplicity; unknown here',assertion='source assertions and expectation origin; not extracted here'),
+                counting_units=dict(declared='Cabal component roots',available='retained source entry candidates; no buildability inference',listed='Whole-component registration listing unknown; selected PSS module source assertions separately mapped',runtime='Whole-root runtime multiplicity unknown; selected PSS53 executions separately retained',assertion='Root assertion totals unknown; separately accepted PSS53 module assertion mappings below'),
                 catalog=catalog,roots=roots,frozen_dependencies=frozen,cabal_test_suites=suites,
+                accepted_module_assertion_mappings=[dict(evidence_source=source(PSS_MAPPING),**pss)],
                 cabal_non_test_executables=[dict(source=source(p['path']),package=p['package'],executables=p['executables']) for p in captured['packages'] if p['executables']],
                 embedded_and_main_signals=signals,non_cabal_runner_candidates=runners,reviewed_non_cabal_routes=non_cabal_roots(),
-                gap='Embedded prompt grouping/execution semantics, standalone/build targets, generated factories, source/import registration closure, unavailable exact releases, platform/toolchain profiles, runtime leaves and every Kotlin mapping remain required. Calibre directional reconciliation is a separate next checkpoint.')
+                gap='Embedded prompt grouping/execution semantics, standalone/build targets, generated factories, source/import registration closure, unavailable exact releases, platform/toolchain profiles, runtime leaves and remaining Kotlin mappings remain required; selected PSS53 module assertions do not promote the whole crypton root. Calibre directional reconciliation is a separate next checkpoint.')
 
 
 if __name__=='__main__':
@@ -218,4 +303,4 @@ if __name__=='__main__':
         print('Verified original Cabal AST; no tests run')
     else:
         data=inventory()
-        print(len(data['roots']),'retained roots;',len(data['cabal_test_suites']),'declared suite roots;',len(data['frozen_dependencies']),'frozen dependencies;',len(data['embedded_and_main_signals']),'source signal files; no assertion coverage')
+        print(len(data['roots']),'retained roots;',len(data['cabal_test_suites']),'declared suite roots;',len(data['frozen_dependencies']),'frozen dependencies;',len(data['embedded_and_main_signals']),'source signal files; 53 selected PSS assertions mapped, whole-component coverage remains unknown')
