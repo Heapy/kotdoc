@@ -1,0 +1,59 @@
+{
+  "types": [
+    "SecretKey(ScrubbedBytes)",
+    "PublicKey(Bytes)",
+    "Signature(Bytes)"
+  ],
+  "sizes": {
+    "publicKeySize": 57,
+    "secretKeySize": 57,
+    "signatureSize": 114
+  },
+  "functions": [
+    "signature",
+    "publicKey",
+    "secretKey",
+    "toPublic",
+    "sign",
+    "unsafeSign",
+    "verify",
+    "generateSecretKey"
+  ],
+  "instances": {
+    "SecretKey": [
+      "Show",
+      "Eq",
+      "ByteArrayAccess",
+      "NFData",
+      "DebugShow"
+    ],
+    "PublicKey": [
+      "Show",
+      "Eq",
+      "ByteArrayAccess",
+      "NFData"
+    ],
+    "Signature": [
+      "Show",
+      "Eq",
+      "ByteArrayAccess",
+      "NFData"
+    ]
+  },
+  "lengthErrors": {
+    "secretKey": "CryptoError_SecretKeyStructureInvalid",
+    "publicKey": "CryptoError_PublicKeySizeInvalid",
+    "signature": "CryptoError_SecretKeyStructureInvalid"
+  },
+  "sourceQuirks": [
+    "secretKey pointer validation unconditional True",
+    "sign ignores supplied public, including bottom",
+    "unsafeSign uses supplied public",
+    "RNG one57byte request, no clamp",
+    "pure signatures only; context/prehash not exposed",
+    "no Crypto.ECC Curve_Ed448 instance"
+  ],
+  "originalExamples": 25,
+  "literalVectors": 8,
+  "remaining": "all other local613 and fullPandoc/calibre"
+}

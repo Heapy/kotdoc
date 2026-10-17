@@ -14605,3 +14605,32 @@ model is pinned64-bit GHC Int,not actual32-bit or arbitrary heap equivalence.
 Other count/Many generic classes,remainingBuilder/metadata/Data.Version,140
 exports,350 instance members and JSON supplement keep local:611 and the full
 Pandoc/calibre goal OPEN.
+
+
+### Complete public Ed448 wrapper checkpoint
+
+The pinned Crypto.PubKey.Ed448 module's three immutable byte types,three
+size constants57/57/114 and eight exports are translated on accepted raw
+engines. Independent original Haskell/RAM replay passed9056 observations/27
+pins and the unchanged25-example suite. Four raw profiles contribute36224
+comparisons;ownership,RNG,shared-error identity and original partition tests
+complete saved Gradle7980 XML36254 actual zero-failure/error/skip cases.
+Own25 frozen hashes,eleven packaged classes,no BigInteger/JNA references and
+four exact notices pass;jar/installDist passed. Raw engines remain unchanged.
+
+Safe sign ignores supplied public completely and rederives it;unsafeSign uses
+it. Wrong secret/signature lengths return source SecretKeyStructureInvalid,
+public length returns PublicKeySizeInvalid. The only existing API edit appends
+the required shared error case,retaining previous identities/ordinals. Generated
+secrets store one57-byte RNG request without clamp/retry. Constructors and public
+access own copies;RAM Show/Eq/DebugShow/NFData finite observations are retained.
+Explicit Lazy adapters reproduce observed demand,including ignored public and
+verify public-before-signature-before-message under the pinned optimized GHC.
+Ordinary Kotlin argument evaluation remains eager;no universal bottom/exception
+order equivalence is claimed. No nonexistent Crypto.ECC Curve_Ed448 is invented.
+
+Malformed RNG providers are outside source preconditions;JVM Cleaner scheduling,
+physical erasure,constant timing,huge pointer buffers,real32/big-endian ABI and
+raw engine UB/range limits remain explicit. System entropy is separate scope.
+Other signature families,number generation/primality,trust/chain and the rest
+of local:613 remain OPEN,as do full Pandoc623 and later calibre624/625/626.
