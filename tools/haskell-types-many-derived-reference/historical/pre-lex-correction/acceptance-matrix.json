@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "scope": "Four generic Builder.Many derived instances with arbitrary element dictionaries",
+  "source_instances": 4,
+  "class_members": 16,
+  "additional_adapters": ["Prelude.read"],
+  "source_declaration": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:199-200",
+  "derived_code_evidence": "OriginalBuilder.iface.txt",
+  "instances": [
+    {"class":"Eq","members":["==","/="],"implementation":"ManyEqDictionary","support":"Seq cached length guard, element == only; caller == or /= MINIMAL defaults","proof":["native.jsonl","demand-native.jsonl"]},
+    {"class":"Ord","members":["compare","<","<=",">",">=","min","max"],"implementation":"ManyOrdDictionary","support":"Seq lexicographic compare; GHC relational defaults and caller compare or <= MINIMAL; no element dictionary laws assumed","proof":["native.jsonl","demand-native.jsonl"]},
+    {"class":"Show","members":["showsPrec","show","showList"],"implementation":"ManyShowDictionary","support":"record constructor precedence, Seq fromList, element showList, lazy String/ShowS, caller show or showsPrec MINIMAL","proof":["native.jsonl","demand-native.jsonl","parser-demand-native.jsonl"]},
+    {"class":"Read","members":["readsPrec","readPrec","readList","readListPrec"],"implementation":"ManyReadDictionary","support":"GHC ReadP/ReadPrec Get/Look/Fail/Result/Final, context/reset, ordered duplicate alternatives, caller readsPrec or readPrec MINIMAL plus independent list overrides","proof":["native.jsonl","read-native.jsonl","parser-demand-native.jsonl"]}
+  ],
+  "original_observations": {"finite":2312,"demand":60,"read":4832,"parser_demand":44,"total":7248},
+  "jvm_adapter_checks": 4,
+  "integrity_checks": 1,
+  "expected_new_junit_cases": 7253,
+  "source_protocol": "Shared root/field thunks and explicit lazy GenericList/ManyReadInput represent source WHNF. ReadS alternatives/remainders retain order and multiplicity. Whole read only demands uniqueness, never materializes all parses.",
+  "finite_bridges": "String/CharacterString and typed Int/Char adapters are finite conveniences; no claim that JVM strict callback signatures express arbitrary Haskell bottom arguments.",
+  "limits": ["General GHC heap graphs, async exceptions and cyclic missing-MINIMAL defaults are not emulated", "ReadS full materialization and Haskell String conversion remain bounded by JVM memory; source lazy prefix APIs are provided", "Instrumented native sharing observations are tied to the recorded optimized compiler profile, not universal unsafePerformIO equivalence"],
+  "remaining_task611": ["Complete 140-export acceptance audit", "Complete 350 SOURCE INSTANCE member/default expansion", "Definition/Many Data and Typeable member closure", "Remaining count-derived supporting classes", "Data.Version", "Six ToJSONFilter instances and JSON supplement", "Legacy finite Builder orderedList deep consumer resource gate (consumer-resource-gates.md)"]
+}

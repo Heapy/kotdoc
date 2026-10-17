@@ -1,0 +1,77 @@
+OriginalReadP.hs
+-- Module      :  GHC.Internal.Text.ParserCombinators.ReadP
+-- Copyright   :  (c) The University of Glasgow 2002
+-- License     :  BSD-style (see the file libraries/base/LICENSE)
+--
+-- Maintainer  :  libraries@haskell.org
+-- Stability   :  provisional
+-- Portability :  non-portable (local universal quantification)
+--
+-- This is a library of parser combinators, originally written by Koen Claessen.
+-- It parses all alternatives in parallel, so it never keeps hold of
+-- the beginning of the input string, a common source of space leaks with
+-- other parsers.  The @('+++')@ choice combinator is genuinely commutative;
+-- it makes no difference which branch is \"shorter\".
+
+
+OriginalReadPrec.hs
+-- Module      :  GHC.Internal.Text.ParserCombinators.ReadPrec
+-- Copyright   :  (c) The University of Glasgow 2002
+-- License     :  BSD-style (see the file libraries/base/LICENSE)
+--
+-- Maintainer  :  libraries@haskell.org
+-- Stability   :  provisional
+-- Portability :  non-portable (uses Text.ParserCombinators.ReadP)
+--
+-- This library defines parser combinators for precedence parsing.
+
+
+OriginalRead.hs
+-- Module      :  GHC.Internal.Read
+-- Copyright   :  (c) The University of Glasgow, 1994-2002
+-- License     :  see libraries/base/LICENSE
+--
+-- Maintainer  :  ghc-devs@haskell.org
+-- Stability   :  internal
+-- Portability :  non-portable (GHC Extensions)
+--
+-- The 'Read' class and instances for basic data types.
+--
+
+OriginalShow.hs
+-- Module      :  GHC.Internal.Show
+-- Copyright   :  (c) The University of Glasgow, 1992-2002
+-- License     :  see libraries/base/LICENSE
+--
+-- Maintainer  :  ghc-devs@haskell.org
+-- Stability   :  internal
+-- Portability :  non-portable (GHC Extensions)
+--
+-- The 'Show' class, and related operations.
+--
+
+OriginalClasses.hs
+-- Module      :  GHC.Classes
+-- Copyright   :  (c) The University of Glasgow, 1992-2002
+-- License     :  see libraries/base/LICENSE
+--
+-- Maintainer  :  ghc-devs@haskell.org
+-- Stability   :  internal
+-- Portability :  non-portable (GHC extensions)
+--
+-- Basic classes.
+-- Do not import this module directly.  It is an GHC internal only
+-- module.  Some of its contents are instead available from @Prelude@
+-- and @GHC.Int@.
+--
+
+OriginalSequenceInternal.hs
+-- Module      :  Data.Sequence.Internal
+-- Copyright   :  (c) Ross Paterson 2005
+--                (c) Louis Wasserman 2009
+--                (c) Bertram Felgenhauer, David Feuer, Ross Paterson, and
+--                    Milan Straka 2014
+-- License     :  BSD-style
+-- Maintainer  :  libraries@haskell.org
+-- Portability :  portable
+

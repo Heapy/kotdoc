@@ -803,3 +803,81 @@ Derived Generic author gates now cover85 complete source/typed Rep and original 
 Derived Generic semantic shared gate2346 passed24,391 actual JUnit cases/zero failures/errors/skips: newGenericRep1,721 + priorNFData/Generic/properties/JSON/tables22,670. Semantic XML/JAR/hash/manifest snapshots are retained. The final notice-only gate adds the exact separate GHC compiler2002 LICENSE alongside existing base2004 LICENSE and source Utrecht/Oxford/Glasgow2011 attribution; fresh integrity/package/class-byte identity evidence is required before independent acceptance. No original expectations or production semantics changed for this provenance correction.
 
 The derived Generic custom-dispatch gate adds16 original observations without modifying the prior1,718 rows. Whole from/to application is deferred through PandocGenericRep; M1/K1 layer projection no longer forces method factories or contained roots. Lawful custom M1/K1 instances prove unused results/patterns, and four pinned NOINLINE/IORef observations independently match dispatch/root sharing. Historical exact source/frozen manifest/failure log authenticate the pre-fix40-case prefix and24,391+1 executions. Final isolated1,734 original rows +three JVM adapters pass; the corrective shared gate is expected24,408 and remains pending.
+
+## Generic Many Eq/Ord/Show/Read: complete family gate
+
+Derived GHC.Generic24 is independently accepted at
+31b716bc78a80e7be362f12a3c8a8d7a1edbbe9d. The next coherent gate is four generic
+Builder.Many instances (Builder.hs199–200): Eq2, Ord7, Show3 and Read4 members,
+plus Prelude.read. These arbitrary element dictionaries are distinct from the
+accepted concrete Inline/Block instances and Many42 algebra methods.
+
+The new tools/haskell-types-many-derived-reference/acceptance-matrix.json maps
+all sixteen members/defaults and independent supporting dictionary overrides.
+Original observations are 2,312 finite/default/Seq-shape,60 partial/NaN,4,832 Read
+and44 parser-demand:7,248. Four separately counted JVM adapters cover concurrent
+success/failure sharing, caller extrema identity, delayed method failures and
+parser/output sharing. Historical expected prefixes are byte-authenticated.
+All have passed isolated at512MiB heap/256KiB stack; shared source integrity,
+JUnit/package and independent review are still acceptance gates.
+
+Read preserves source Get/Look/Fail/Result/Final order and duplicate multiplicity,
+MINIMAL readsPrec/readPrec alternatives, independent readList/readListPrec,
+Seq context10, and partial/infinite raw-Char remainders. Whole read demands only
+uniqueness. Deep continuation and Final stream reconstruction use heap frames;
+shared heads/deferred tails avoid forwarding-thunk stack growth. This is an
+explicit represented source protocol, not a claim about arbitrary cyclic GHC
+heaps, asynchronous exceptions or strict JVM convenience callbacks.
+
+The census remains140 public exports and350 SOURCE INSTANCES, not350 methods.
+Complete member/default expansion, Data/Typeable closure, remaining count-derived
+classes, Data.Version and6 ToJSONFilter/JSON supplement remain open. The current
+checkpoint does not silently edit the accepted expanded-instances census pinned
+by the GenericRep manifest.
+
+A separate open resource gate was exposed by Org reader nested headlines at
+256/1024 depth and512MiB/256KiB: the legacy finite Builder.orderedList bridge
+repeatedly encodes/decodes GenericAstData and Many wrappers. This does not negate
+accepted source constructor/lazy-protocol observations, but those observations
+do not prove consumer resource bounds. See the new consumer-resource-gates.md;
+Org's fourteen unchanged deep fixtures and durable integration evidence must
+carry the reproducible proof. No existing Builder/GenericAstData implementation
+is changed by the generic Many dictionary checkpoint.
+
+Generic Many author shared gate3187 completed with33,300 actual JUnit cases,
+zero failures/errors/skips: new7,253 (7,248 original +4 JVM +1 integrity), prior
+Many5,128, Read16,954, Generic808, GenericRep1,738 and NFData1,419. Four native
+replays and actual GHC Builder interface are byte-exact;50 source bindings pass.
+Core/installDist JARs match,111 upstream notices plus root GPL are exact and all
+4,344 prior classes are unchanged. This is review-ready author evidence, not
+whole611 closure or independent acceptance. Existing production was not changed.
+
+Independent review rejected the33,300-case Many gate: structural token matching
+had skipped unexpected Number/String/Char lexical demand. The original four
+partial-input probes all require lex-tail errors. The rejected source/manifest/
+result/probes are preserved under historical/pre-lex-correction. No original
+7,248-case request/expected byte was changed. New ManyReadLex draft implements
+the complete relevant lexToken scanner branch family before structural mismatch;
+2,801 independently captured original lexical-demand cases, including all four
+review reproductions, pass alongside the previous7,248 at512MiB/256KiB. Whole
+correction source/package/JUnit freeze and independent re-review remain gates.
+This adds a lexer dependency, not a new count of Many instances or closed350
+source-instance members. Full140/350/Data/Typeable/Data.Version/JSON gates persist.
+
+The complete lexical proper-prefix/guard gate now has5,549 original rows, retaining
+the preceding2,801-row bytes. Old7,248 remain byte-identical; total12,797 original
+observations +four JVM adapters +integrity =12,802 new JUnit cases. All pass at
+512MiB/256KiB. Long lookahead/consume positions remove an artificial Int indexing
+boundary while retaining point(Int) compatibility. Final shared gate pending;
+this closes no additional source instance count beyond the four generic Many
+instances under review and does not close the whole611 audit.
+
+Corrective Many shared gate24052 passed38,849 actual cases/zero issues:
+12,802 new +26,047 prior dependency regressions. Five independent original
+executables and actualBuilder interface replay byte-exact;70 source bindings
+pass. Exact reviewer helper against immutable finalJAR at128MiB/256KiB reports
+lex-tail for all four inputs. Package/installDist match;112 upstream notices
+plus rootGPL are exact;4,497 unrelated classes are unchanged. Only uncommitted
+Many family code changed (49 own classes/one added lexer class). The rejected
+33,300 execution remains preserved; independent re-review and full611 remaining
+gates are still open.

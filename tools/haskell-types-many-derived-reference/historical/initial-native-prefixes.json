@@ -1,0 +1,18 @@
+{
+  "native.jsonl": {
+    "lines": 1930,
+    "sha256": "2e57e2b61378ea9d8eef4d063f242fc13801602694155c39b237ed055c8b841f"
+  },
+  "demand-native.jsonl": {
+    "lines": 120,
+    "sha256": "e13d267186e841067b6b5df83eeb502ed3d066eb699682ed108cbc5cdf3a42b7"
+  },
+  "read-native.jsonl": {
+    "lines": 4295,
+    "sha256": "3bea4eb2c1a7dc1a02a91e00daf493cd25f7017d2ef0331472cc53c67a7df846"
+  },
+  "parser-demand-native.jsonl": {
+    "lines": 76,
+    "sha256": "7d0b7f7f90152631da1905da4f899302e6c802ef32925e8c8ee0abbb28708da6"
+  }
+}

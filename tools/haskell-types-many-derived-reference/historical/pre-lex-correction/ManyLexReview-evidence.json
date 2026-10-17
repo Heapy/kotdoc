@@ -1,0 +1,16 @@
+{
+  "finding": "Unexpected number/string/char lexP demand omitted before token mismatch",
+  "original_source": "GHC Read.lexP delegated lexical scanner; token() ManyDerivedRead.kt does not scan number/string/char branches",
+  "original_command": "/tmp/many-lex-review",
+  "kotlin_command": "java21 -cp /tmp/many-lex-review.jar:/tmp/kotdoc-many-derived-final-results/core-final.jar:cli/build/install/cli/lib/* ManyLexReviewKt",
+  "original_output": "(\"Many 1\",\"lex-tail\")\n(\"Many \\\"a\",\"lex-tail\")\n(\"Many 'a\",\"lex-tail\")\n(\"Many {unMany = fromList 1\",\"lex-tail\")\n",
+  "kotlin_output": "Many 1: true\nMany \"a: true\nMany 'a: true\nMany {unMany = fromList 1: true\n",
+  "sha256": {
+    "/tmp/ManyLexReview.hs": "0d4b9833300cd68effe73671721188342f59b9749b012196ed74bafa3b91a85c",
+    "/tmp/ManyLexReview.kt": "71ba3a6d55f0801c027e53336ce6763a0a1acf6a6b7f3d67dfd5c742547593bb",
+    "/tmp/kotdoc-many-derived-final-results/core-final.jar": "099ec5604abfaceb62c65d68bcb42e353657310a8fdfdb824e9406c09fccd99b",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/ManyDerivedRead.kt": "6e8670e2d727bc7b10817bea73078d5b89783998eb7fc1cdcd393fe987a03821"
+  },
+  "prior_replay": "Own 7248 original responses +actual Builder iface +50 hashes PASS; no expectation or source mutations",
+  "integration": "rejected; no commit or ledger change"
+}

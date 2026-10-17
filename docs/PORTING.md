@@ -15320,3 +15320,51 @@ actual2GiB allocation/hash execution. General heap/async/bottom/timing/physical
 erasure equivalence is unproved. Shared Digest Data reflection, full HMAC, RSA
 padding/Types/signatures,SystemDRG/OS entropy,trust/chain and remaining613/full
 Pandoc/calibre stay OPEN.
+
+
+### Generic Many Eq / Ord / Show / Read and lexical dependency (reviewed)
+
+Independent review accepts four generic Builder.Many instances: Eq2,Ord7,Show3,
+Read4 members plus Prelude.read, using caller element dictionaries without law
+assumptions. Seq cached-length Eq, lexicographic Ord/source relational defaults,
+nonlawful NaN/override dispatch, caller identity extrema, lazy ShowS/showList,
+record precedence, independent Read defaults and ordered duplicate/remainder
+results are retained. ReadP/ReadPrec CPS nodes, symmetric choice and Final
+streams use heap frames; whole read demands uniqueness rather than expanding
+all parses. Explicit source thunks/partial or infinite Char lists are separate
+from finite String/CharacterString/typed fixture bridges.
+
+Review rejected the initially green33300 checkpoint: structural token matching
+omitted lexP number/string/Char scanning before a mismatch. Four own partial
+inputs (Many followed by number,unterminated String/Char, or numeric Seq field)
+returned Nil instead of the original lex-tail error. A third new module now
+scans the full source lexical dependency, including numeric bases/fraction/
+exponent lookahead, quoted/control/ASCII/numeric escapes,string gaps and biased
+SOH/SO matching. Payloads of nonstructural tokens remain unused as in the
+original Punc/Ident patterns; this is not a new general Lexeme/Number API.
+Long positions avoid artificial signed Int lookahead overflow. Own exact four
+repros against final immutable JAR at128MiB/256KiB now match original lex-tail.
+
+Own five native executables/actual Builder interface replay passed12797 original
+observations/70 hashes:2312finite+60demand+4832Read+44parser+5549lexical. All old7248
+expectations and initial2801 lexer prefix bytes are authenticated unchanged.
+New lexical cases cover three grammar contexts,EOF/partial heads/tails,proper
+escape prefixes,maxChar guards,safe infinite suffixes and4096-character lexemes.
+Rejected source/manifests and33300 XML/JAR remain bound historical evidence.
+
+Own63 frozen hashes and six saved24052 XMLs contain38849actual/zero failures,
+errors or skips (12802new=12797original+4JVM adapters+integrity). Immutable JAR
+SHA327d51a4734386acbab314ab68e53b24b6ecc2a4477041d79e0080188ec81ff3,112 exact
+upstream notices plus rootGPL pass.4528 common class files remain byte-identical
+(4497 unrelated and31 own Many);49 uncommitted Many classes changed and one
+lexer class was added versus post-MD5 baseline. Author installDist identity and
+bounded512MiB/256KiB proof retained; no duplicate shared Gradle. Existing
+accepted production modules and expanded-instances audit were not edited.
+
+General cyclic GHC heaps,async exceptions,missing-MINIMAL cycles and unrestricted
+ReadS/full String materialization are outside this bounded model; instrumentation
+sharing is tied to the pinned optimized source profile. Separate legacy finite
+Builder.orderedList Org depth256/1024 resource gate remains OPEN, not resolved
+by lazy-protocol proofs. Full140exports/350SOURCE INSTANCE member expansion,
+Data/Typeable/count support,Data.Version,six ToJSONFilter/JSON supplement and
+whole611/Pandoc/calibre remain OPEN.

@@ -1,0 +1,20 @@
+{
+  "sources": {
+    "OriginalReadP.hs": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Text/ParserCombinators/ReadP.hs",
+    "OriginalReadPrec.hs": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Text/ParserCombinators/ReadPrec.hs",
+    "OriginalRead.hs": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Read.hs",
+    "OriginalShow.hs": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-internal/src/GHC/Internal/Show.hs",
+    "OriginalClasses.hs": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-prim/GHC/Classes.hs",
+    "OriginalGhcPrimLICENSE": "https://raw.githubusercontent.com/ghc/ghc/ghc-9.12.2-release/libraries/ghc-prim/LICENSE",
+    "OriginalSequenceInternal.hs": "Copied verbatim from tools/haskell-types-many-reference/OriginalSequenceInternal.hs (pinned containers source)",
+    "OriginalBuilder.iface.txt": "Actual GHC9.12.2 --show-iface of pinned pandoc-types1.23.1.2 Builder.hi, built at optimization2 by recorded cabal.project.freeze"
+  },
+  "compiler_profile": "GHC9.12.2, aarch64-osx, optimization2; full frozen dependencies in cabal.project.freeze",
+  "production": "Kotlin only; Haskell programs are independent dev/test oracles",
+  "notice_mapping": {
+    "OriginalRuntimeAttribution.txt": "licenses/GHC-Read-Show-Attribution.txt",
+    "OriginalGhcPrimLICENSE": "licenses/GHC-prim-LICENSE.txt",
+    "GHC base LICENSE": "licenses/GHC-base-BSD-3-Clause.txt",
+    "containers LICENSE": "licenses/Containers-BSD-3-Clause.txt"
+  }
+}

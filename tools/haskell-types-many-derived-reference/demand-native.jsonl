@@ -1,0 +1,120 @@
+"show-root/0"
+{"result":""}
+"show-root/1"
+{"result":"M"}
+"show-root/5"
+{"result":"Many "}
+"show-root/14"
+{"result":"Many {unMany ="}
+"show-root/22"
+{"result":"Many {unMany = fromLis"}
+"show-root/23"
+{"result":"Many {unMany = fromList"}
+"show-root/24"
+{"result":"Many {unMany = fromList "}
+"show-root/25"
+{"exception":"root"}
+"show-root/30"
+{"exception":"root"}
+"show-head/0"
+{"result":""}
+"show-head/1"
+{"result":"M"}
+"show-head/22"
+{"result":"Many {unMany = fromLis"}
+"show-head/23"
+{"result":"Many {unMany = fromList"}
+"show-head/24"
+{"result":"Many {unMany = fromList "}
+"show-head/25"
+{"result":"Many {unMany = fromList ["}
+"show-head/30"
+{"exception":"head"}
+"show-tail/0"
+{"result":""}
+"show-tail/1"
+{"result":"M"}
+"show-tail/22"
+{"result":"Many {unMany = fromLis"}
+"show-tail/23"
+{"result":"Many {unMany = fromList"}
+"show-tail/24"
+{"result":"Many {unMany = fromList "}
+"show-tail/25"
+{"result":"Many {unMany = fromList ["}
+"show-tail/26"
+{"result":"Many {unMany = fromList [1"}
+"show-tail/27"
+{"exception":"middle"}
+"show-tail/30"
+{"exception":"middle"}
+"show-listroot/0"
+{"result":""}
+"show-listroot/1"
+{"exception":"listroot"}
+"show-listroot/2"
+{"exception":"listroot"}
+"show-listroot/10"
+{"exception":"listroot"}
+"show-listtail/0"
+{"result":""}
+"show-listtail/1"
+{"result":"["}
+"show-listtail/10"
+{"result":"[Many {unM"}
+"show-listtail/28"
+{"result":"[Many {unMany = fromList [1]"}
+"show-listtail/29"
+{"result":"[Many {unMany = fromList [1]}"}
+"show-listtail/30"
+{"exception":"listtail"}
+"show-listtail/31"
+{"exception":"listtail"}
+"show-listtail/32"
+{"exception":"listtail"}
+"show-ignore-root"
+{"result":"Many {unMany = fromList CUSTOM}"}
+"show-ignore-head"
+{"result":"Many {unMany = fromList CUSTOM}"}
+"eq-ignore-head"
+{"result":"True"}
+"ne-ignore-head"
+{"result":"False"}
+"compare-ignore-head"
+{"result":"EQ"}
+"eq-size-beforehead"
+{"result":"False"}
+"eq-leftroot"
+{"exception":"left"}
+"eq-lefttree-rightroot"
+{"exception":"lefttree"}
+"compare-empty-badhead"
+{"result":"LT"}
+"compare-badhead-empty"
+{"result":"GT"}
+"compare-lefttree-rightroot"
+{"exception":"lefttree"}
+"eq-cached-length"
+{"result":"False"}
+"compare-ignores-cache"
+{"result":"EQ"}
+"eq-strict-prefix"
+{"exception":"prefix"}
+"eq-strict-suffix"
+{"exception":"suffix"}
+"eq-prefix-before-suffix"
+{"exception":"prefix"}
+"nan/eq"
+{"result":"False"}
+"nan/ne"
+{"result":"True"}
+"nan/compare"
+{"result":"GT"}
+"nan/lt"
+{"result":"True"}
+"nan/le"
+{"result":"False"}
+"nan/gt"
+{"result":"True"}
+"nan/ge"
+{"result":"False"}
