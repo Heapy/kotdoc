@@ -14693,3 +14693,32 @@ models are finite compiler observations. Kotlin Int-sized bit counts,host GHC
 Int64,virtual request boundaries,unbounded memory,timing and physical scrubbing
 limits remain explicit. Prime/Probabilistic/SHA512-ChaChaDRG,other signatures,
 trust/chain and full local:613/Pandoc623/calibre624–626 remain OPEN.
+
+
+### RST reader CSV/grid prerequisites checkpoint
+
+Kotlin RstCsv and RstGridTable provide the reader-used low-level parsing
+closure. CSV91 source lines retain all delimiter/quote/escape/keep-space,empty
+first-cell,newline/error behavior;250 independent originals supply direct
+evidence where no dedicated upstream CSV unit module was found. The cached
+gridtables0.1.1.0 source/provenance is retained;all27 original assertions execute
+in Kotlin,including the rows accessor and two exact post-grid parser compositions.
+Twenty-two appended full ArrayTable frames compare bounds,ContentCell and
+ContinuationCell pointers,spans and column specs instead of lossy row-only data.
+Earlier309 payloads remain unchanged.
+
+Own source review and native replay passed331 observations and all27 original
+assertions,with55 source/tool/runtime/dependency pins. Saved Gradle72954 XML
+has331 actual zero-failure/error/skip cases;the same factory passed512MiB/256KiB.
+Own32 frozen hashes,eighteen packaged helper classes and verbatim gridtables
+MIT notice pass;jar/installDist passed. Four deep originals cover CSV10000 rows/
+65536 quoted characters and grid4096 rows/columns. Unicode widths use accepted
+doclayout behavior;the source CSV versus standard Parsec primitive distinction
+and partial raw array bounds remain explicit. No CLI format registration or
+existing production implementation changed.
+
+Unused polymorphic mapCells/general Array API are not claimed ported. Higher
+Pandoc Parsing.GridTable302 adapter/cell-block callbacks,full1962-line RST
+reader,37 original tests,three Old goldens,directives/runtime/CLI remain OPEN.
+Incomplete reader drafts stay outsidecore and outside this commit. Full618,
+Pandoc623 and calibre624–626 are not completed by this prerequisite slice.

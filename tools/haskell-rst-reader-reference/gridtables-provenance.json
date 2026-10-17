@@ -1,0 +1,39 @@
+{
+  "entry": {
+    "type": "configured",
+    "id": "grdtbls-0.1.1.0-8ff59a97",
+    "pkg-name": "gridtables",
+    "pkg-version": "0.1.1.0",
+    "flags": {},
+    "style": "global",
+    "pkg-src": {
+      "type": "repo-tar",
+      "repo": {
+        "type": "secure-repo",
+        "uri": "http://hackage.haskell.org/"
+      }
+    },
+    "pkg-cabal-sha256": "98d1371f9cce31605a250ba63121d5b219df8655576ed054cfa2bb3275965cdc",
+    "pkg-src-sha256": "e8a16adf5729e2a3ec8428cd432e29c3851462eb32d4287aa86625be26b54c64",
+    "depends": [
+      "array-0.5.8.0-24d2",
+      "base-4.21.0.0-958c",
+      "containers-0.7-f896",
+      "dclyt-0.6-b976364b",
+      "parsec-3.1.18.0-7fb1",
+      "text-2.1.2-b3a1"
+    ],
+    "exe-depends": [],
+    "component-name": "lib"
+  },
+  "tarSha256": "e8a16adf5729e2a3ec8428cd432e29c3851462eb32d4287aa86625be26b54c64",
+  "sourcePins": {
+    "original-gridtables/gridtables.cabal": "3c4b901eb93b75bcb206bc52f7a8646ba604d60776de839a774780c2d4087fd7",
+    "original-gridtables/LICENSE": "5471867a4437f280cb57c2497af9196f1c5577333f55f9db889ae054e861dbec",
+    "original-gridtables/test/test-gridtables.hs": "57d6a24756a589d582b0701a44f280946c1d1e30112e6a00b4af5e477bae7b38",
+    "original-gridtables/src/Text/GridTable.hs": "3d92fbdfb484f87ef3f142fd65786f27305cdcfd8d77992e0a6816ddcba563dd",
+    "original-gridtables/src/Text/GridTable/ArrayTable.hs": "68a1e0164a5b87b53a02faf76df49479992ed25f055ff9c52fd426e99c83d1e7",
+    "original-gridtables/src/Text/GridTable/Parse.hs": "4c72863c74f27c924c2c5941d449ed68ccadd22f20b6ad2530c955c510a6fa10",
+    "original-gridtables/src/Text/GridTable/Trace.hs": "ce3f9f3052522685373e6c27067cfeaa18e4cdb9a5848e35a890f9c7cc0a21b4"
+  }
+}

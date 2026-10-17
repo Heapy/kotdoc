@@ -1,0 +1,5 @@
+{
+  "upstream/pandoc/src/Text/Pandoc/Readers/RST.hs": "bb87912889bd4606cfab8604e78a2e611eb1183bf0e3a22d8dec0f8b8cbc7d50",
+  "upstream/pandoc/test/Tests/Readers/RST.hs": "2fbc46be31b64ddb598736a1557e1fa04e44206cb827341a799bca8f20c593a6",
+  "upstream/pandoc/src/Text/Pandoc/CSV.hs": "62c1d3d51c50376a6e099ed29b057760f28b2156721b31a924fbfe481066330d"
+}
