@@ -1,0 +1,91 @@
+{
+  "ChaChaDRG": {
+    "exports": [
+      "ChaChaDRG",
+      "initialize",
+      "initializeWords"
+    ],
+    "private": [
+      "generate"
+    ],
+    "instances": [
+      "DRG",
+      "NFData"
+    ],
+    "wordSerialization": "5 Word64 pokeElemOff host endian",
+    "nonpositive": "empty/original state without state demand"
+  },
+  "Probabilistic": {
+    "exports": [
+      "probabilisticFrom"
+    ],
+    "private": [
+      "secret"
+    ],
+    "seed": "take40 SHA512(secret32 ++ material)",
+    "secret": "lazy process lifetime unsafeDoIO getRandomBytes32 NOINLINE"
+  },
+  "RandomTypes": {
+    "classes": [
+      "MonadRandom",
+      "DRG"
+    ],
+    "type": "MonadPseudoRandom",
+    "instances": [
+      "Functor",
+      "Applicative",
+      "Monad",
+      "MonadRandom"
+    ],
+    "functions": [
+      "withDRG"
+    ],
+    "remaining": [
+      "MonadRandom IO actual OS entropy"
+    ]
+  },
+  "RandomSeed": {
+    "type": "Seed ByteArrayAccess",
+    "constant": 40,
+    "private": [
+      "seedLength",
+      "conditional scrubbedHash512"
+    ],
+    "functions": [
+      "seedNew",
+      "seedToInteger",
+      "seedFromInteger",
+      "seedFromBinary",
+      "drgNew",
+      "drgNewSeed",
+      "drgNewTest",
+      "withRandomBytes"
+    ],
+    "profiles": [
+      "ordinary entropy40",
+      "INSECURE_ENTROPY entropy64 SHA512 take40"
+    ],
+    "remaining": [
+      "SystemDRG/getSystemDRG",
+      "OS Entropy backends"
+    ]
+  },
+  "originalTests": {
+    "dedicated": [],
+    "consumers": [
+      "tests/Utils.hs withTestDRG actual TestDRG generator",
+      "tests/NumberSpec.hs",
+      "tests/AFISSpec.hs",
+      "tests/PubKey/ElGamalSpec.hs",
+      "tests/PubKey/RabinSpec.hs"
+    ],
+    "notClaimedComplete": [
+      "all consumer suites until Kotlin executed"
+    ]
+  },
+  "remaining": [
+    "Prime9exports420primes",
+    "other signatures/trust/chain",
+    "full613/Pandoc623/calibre624-626"
+  ]
+}

@@ -9,7 +9,7 @@ import java.math.BigInteger
 
 /** Source capability classes and pinned curve-family instances. */
 object CryptoEcc {
-    enum class Error { CryptoError_PointSizeInvalid,CryptoError_PointFormatInvalid,CryptoError_PublicKeySizeInvalid,CryptoError_SecretKeySizeInvalid,CryptoError_PointCoordinatesInvalid,CryptoError_PointSubgroupInvalid,CryptoError_ScalarMultiplicationInvalid,CryptoError_EcScalarOutOfBounds,CryptoError_SharedSecretSizeInvalid,CryptoError_SecretKeyStructureInvalid }
+    enum class Error { CryptoError_PointSizeInvalid,CryptoError_PointFormatInvalid,CryptoError_PublicKeySizeInvalid,CryptoError_SecretKeySizeInvalid,CryptoError_PointCoordinatesInvalid,CryptoError_PointSubgroupInvalid,CryptoError_ScalarMultiplicationInvalid,CryptoError_EcScalarOutOfBounds,CryptoError_SharedSecretSizeInvalid,CryptoError_SecretKeyStructureInvalid,CryptoError_SeedSizeInvalid }
     sealed interface Failable<out T> {
         data class Passed<T>(val value: T): Failable<T>
         data class Failed(val error: Error): Failable<Nothing>

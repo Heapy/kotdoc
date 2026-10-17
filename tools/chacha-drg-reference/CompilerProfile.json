@@ -1,0 +1,17 @@
+{
+  "compiler": "GHC9.12.2",
+  "optimization": "-O2 Cabal optimization2",
+  "host": "aarch64-osx little-endian",
+  "nativeWord64Serialization": "pokeElemOff native byte order",
+  "kotlinBackend": "accepted Kotlin StateSimple8round rekey and SHA512",
+  "ordinary": "verified byte-identical original library",
+  "privateObserver": "moduleheader rename/exportsecret only",
+  "controlled": "mechanically explicit secret argument; no derivation expression changed",
+  "insecure": "original whole Random.hs module rename+CPP define; not actual iOS ABI",
+  "limits": [
+    "OS/SystemDRG not ported",
+    "actual32bit/bigendian/giantallocation",
+    "finite sequential demand observations",
+    "accepted portable/raw optimized backend limits"
+  ]
+}

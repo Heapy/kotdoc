@@ -1,0 +1,19 @@
+{
+  "status": "NOT_ACCEPTED:22518 green tests missed generic pair-root demand",
+  "testCount": 22518,
+  "unchangedOriginalCorpus": {
+    "path": "core/src/test/resources/crypto-chacha-drg/data.jsonl.gz",
+    "sha256": "dec3155fa2157ccbf24615afc0e865ac110ec3f4150806b0773f8d068e6c476b",
+    "cases": 3311
+  },
+  "previousProduction": {
+    "path": "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRandom.kt",
+    "sha256": "7e45b9b9412e6870f86525158c1975ad806deabd32acd4bf9faa67b857590e48"
+  },
+  "xml": {
+    "TEST-io.heapy.kotdoc.crypto.CryptoChaChaCoreTest.xml": "0b7a16279457b696975442e708a5a92df507039de08983ed143b55d7fcf8c5be",
+    "TEST-io.heapy.kotdoc.crypto.CryptoChaChaTest.xml": "0e363fdfbb5018d131802b1228130f1a636b00f6f94aa9cc9a2a13bf88c47d13",
+    "TEST-io.heapy.kotdoc.crypto.CryptoRandomTest.xml": "be3bf0c8b3a96fd0a0200835542e221ff590a62a0a3455b4c1bf703f252f4c3d"
+  },
+  "jarSha256": "b8ede6d052e1a06ea0c71d75abfd06ec874c17848687c75c636b816454fae084"
+}

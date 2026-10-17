@@ -14961,3 +14961,50 @@ RST packaged baseline stays immutable, with separate fresh consumer XML/class
 binding for current helpers. Full 140-export audit, 350 source-instance member
 expansion (350 is not a method count), generic Many/count-derived contracts,
 Data.Version/JSON supplement and rest611/full Pandoc/calibre remain OPEN.
+
+
+### ChaChaDRG, pure Random.Types, Seed and Probabilistic checkpoint
+
+Kotlin now implements both ChaChaDRG initializers/private generation and DRG/
+NFData, pure Random.Types Functor/Applicative/Monad/MonadRandom/withDRG, Seed
+serialization/error contracts and eight non-System Crypto.Random helpers, plus
+Probabilistic derivation. Accepted ChaCha Simple8 rekey/SHA512 are reused. The
+only existing API change is the source-required SeedSizeInvalid enum append.
+Seed Integer conversion is modulo2^320 with40 big-endian bytes; initializeWords
+retains host Word64 ordering. Both seedNew CPP branches execute original source
+in development tests, including wrong-length custom provider responses without
+an invented guard. OS Entropy/SystemDRG/MonadRandomIO remain explicit callbacks.
+
+Own independent original replay passed3311 rows/26pins and both mechanical source
+transforms;438 crypton implementation/test files and RAM provenance match, with
+six visibility-only Cabal declarations. The process-secret observer changes only
+the module header; controlled replay retains its independently observed secret
+and checks unchanged derivation expressions, including600 paired observations.
+The200 actual Utils.TestDRG samples are retained; consumer NumberSpec/AFIS/ElGamal/
+Rabin suites are not counted complete merely from reading them.
+
+Independent review rejected two initially green checkpoints. The22518-case run
+missed generic DRG dictionary pair-root demand: ignored withRandomBytes/fmap
+returned42 in source but threw in Kotlin. Pair roots and independent value/state
+projections now memoize success and failure;400 original custom-dictionary probes
+cover25 operation shapes/four dictionary modes/four repeated forcing orders. The
+22926-case run then missed process-secret initializer failure sharing: Kotlin
+standard lazy retried entropy, unlike the source shared NOINLINE thunk. The
+secret now uses the same failure-retaining memo. Three actual source process
+lifetimes supply30 sequential observations (permanent failure, would-recover,
+success), preserving ignored/zero demand, once-only entropy, exception identity
+and copied successful secret bytes. Both previous XML/JAR snapshots and original
+3311/400 gzip bytes remain authenticated and unchanged. Own exact former repros
+now match source42/42 and entropy-call count1.
+
+Final8392 saved XML contains22938 actual cases, zero failures/errors/skips:
+12secret+408custom+3338DRG+2684publicChaCha+16496raw. Own39 frozen hashes, immutable
+JAR/11family classes and all106 byte-exact notices passed; jar/installDist identity
+passed. No redundant shared Gradle was required during review. Source process
+lifetime requires retaining one supplied CryptoProbabilistic instance; the host
+provides entropy. Conditional scrubbed SHA512 performs logical context clearing,
+not a JVM physical-erasure guarantee. Finite sequential synchronous failure and
+projection observations do not prove general async/concurrent/bottom equivalence.
+Actual32-bit/big-endian/iOS/giant buffers, logical132/C136 allocation/backend
+limits, OS/SystemDRG, Prime/Probabilistic consumers, signatures/trust/chain and
+rest613/full Pandoc623/calibre624–626 remain OPEN.

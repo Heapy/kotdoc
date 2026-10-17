@@ -1,0 +1,20 @@
+{
+  "status": "NOT_ACCEPTED:pair-root fixed but process-secret failed initializer retried",
+  "testCount": 22926,
+  "previousSource": {
+    "path": "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoProbabilistic.kt",
+    "sha256": "0bac201d783b58d8e6fb246431872394bd6578eeb73410818d304b6afb2758cc"
+  },
+  "unchangedFixtures": {
+    "core/src/test/resources/crypto-chacha-drg/data.jsonl.gz": "dec3155fa2157ccbf24615afc0e865ac110ec3f4150806b0773f8d068e6c476b",
+    "core/src/test/resources/crypto-chacha-drg-demand/data.jsonl.gz": "063877f8241a505671d1462161f895deb3ac53e29911b934000b5098a7f12a7f"
+  },
+  "xml": {
+    "TEST-io.heapy.kotdoc.crypto.CryptoRandomDemandTest.xml": "bb2121a0d7160a849c6f295f3ffec6b8e965cbec46181e8dbfea5e56170d9edb",
+    "TEST-io.heapy.kotdoc.crypto.CryptoChaChaCoreTest.xml": "57e632d208da7b40f24c367cd4b1ee70f7680502633637a90bce0bf80eb822d8",
+    "TEST-io.heapy.kotdoc.crypto.CryptoChaChaTest.xml": "043eee0e81ddb09b803fe6b0d4385241da9d46362f8b35683a54b1a3c5bac4e5",
+    "TEST-io.heapy.kotdoc.crypto.CryptoRandomTest.xml": "6d81402c5ca10b6500a1d7bb641ed04794fe76533b4679e1abcdf47b0ed5e9d7"
+  },
+  "jarSha256": "e1c1ca118e6c916b89a3e4273ec1b63e648db7baca09211da9e3feb9cfc9bc95",
+  "earlierBaseline": "tools/chacha-drg-reference/demand-fix/PreviousReview.json"
+}
