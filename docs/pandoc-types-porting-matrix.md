@@ -593,3 +593,34 @@ verified; installed core JAR is identical. Saved XML/command/log/frozen hashes a
 at /tmp/kotdoc-many-final-results. The 42-slot checkpoint is frozen for independent
 review; no source expectation or existing production file changed. The enclosing
 140/350/JSON and generic Many instance gates above remain open.
+
+
+Many42-slot checkpoint independently accepted at
+5adcfdb5972f62bb81bdfbc4531610b790e0f94e (17,713 actual regression cases).
+The earlier author/pending wording records its historical preparation stage.
+
+Count Num/Enum author checkpoint adds three distinct typed dictionaries:
+RowHeadColumns, RowSpan and ColSpan; seven Num and eight Enum methods each,
+45 slots total. Exact source/default/runtime mapping and original case IDs are
+in tools/haskell-types-count-reference/acceptance-matrix.json. Original native
+responses:9,930 finite (including351 Cell/TableBody bridge cases and complete
+10,000-element ranges) plus48 newtype/demand observations. Isolated Kotlin
+JUnit bodies:9,980 including source integrity and one explicit sharing adapter.
+Source construct/match thunks preserve represented ignored-root/field behavior;
+strict value-class convenience boundaries are explicit. Ranges expose lazy
+GenericList views, including zero-step infinite streams through bounded source
+observations. Long arithmetic wraps exactly; fromInteger accepts BigInteger;
+legacy AST Long fields remain unchanged. No Real/Integral/Bounded instances are
+invented. This checkpoint awaits final shared Gradle and independent review.
+Other generic Many/count derived classes, metadata/Builder/Data.Version, all
+140exports/350expanded instance members and JSON supplement remain open.
+
+
+Count author final shared gate: Gradle96735 `BUILD SUCCESSFUL in1m47s`,
+27,693 actual cases/zero failures/errors/skips:9,980 Count +5,128 Many +808
+Generic +5,715 Walk +52 pure demand +6,000 original properties +10 Visitor.
+Final38 source hashes and9,978 native responses/interfaces pass; package
+eight major classes/two exact notices/identical installed core JAR pass.
+Saved XML/command/log/package proof: /tmp/kotdoc-count-final-results.
+The45-slot checkpoint is frozen for independent review; all remaining gates
+listed above remain open. No accepted production or original expectation changed.

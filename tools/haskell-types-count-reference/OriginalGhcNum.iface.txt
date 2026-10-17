@@ -1,0 +1,878 @@
+Magic: Wanted 33214052,
+       got    33214052
+Version: Wanted 9122,
+         got    9122
+Way: Wanted ,
+     got    
+interface GHC.Internal.Num 9122
+  interface hash: 1b2f4ed9264ad4fc3809f2a5be08c10c
+  ABI hash: 67698e6e339010ee3a443f0e69b912f7
+  export-list hash: 93d6faa025f33d5fc883321a7a610005
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 3390e194b1b0d46e93649c53b588de70
+  opt_hash: d4bd5770180ee3e5d15327f4d84fe9db
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  src_hash: a0b730345fc8e11bf3987e0a2dfb3a91
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  GHC.Num.Integer.integerAbs
+  GHC.Num.Integer.integerAdd
+  GHC.Num.Integer.integerAnd
+  GHC.Num.Integer.integerBit
+  GHC.Num.Integer.integerBit#
+  GHC.Num.Integer.integerCheck
+  GHC.Num.Integer.integerCheck#
+  GHC.Num.Integer.integerCompare
+  GHC.Num.Integer.integerComplement
+  GHC.Num.Integer.integerDecodeDouble#
+  GHC.Num.Integer.integerDiv
+  GHC.Num.Integer.integerDivMod
+  GHC.Num.Integer.integerDivMod#
+  GHC.Num.Integer.integerEncodeDouble
+  GHC.Num.Integer.integerEncodeDouble#
+  GHC.Num.Integer.integerEncodeFloat#
+  GHC.Num.Integer.integerEq
+  GHC.Num.Integer.integerEq#
+  GHC.Num.Integer.integerFromAddr
+  GHC.Num.Integer.integerFromAddr#
+  GHC.Num.Integer.integerFromBigNat#
+  GHC.Num.Integer.integerFromBigNatNeg#
+  GHC.Num.Integer.integerFromBigNatSign#
+  GHC.Num.Integer.integerFromByteArray
+  GHC.Num.Integer.integerFromByteArray#
+  GHC.Num.Integer.integerFromInt
+  GHC.Num.Integer.integerFromInt#
+  GHC.Num.Integer.integerFromInt64#
+  GHC.Num.Integer.integerFromNatural
+  GHC.Num.Integer.integerFromWord
+  GHC.Num.Integer.integerFromWord#
+  GHC.Num.Integer.integerFromWord64#
+  GHC.Num.Integer.integerFromWordList
+  GHC.Num.Integer.integerFromWordNeg#
+  GHC.Num.Integer.integerFromWordSign#
+  GHC.Num.Integer.integerGcd
+  GHC.Num.Integer.integerGcde
+  GHC.Num.Integer.integerGcde#
+  GHC.Num.Integer.integerGe
+  GHC.Num.Integer.integerGe#
+  GHC.Num.Integer.integerGt
+  GHC.Num.Integer.integerGt#
+  GHC.Num.Integer.integerIsNegative
+  GHC.Num.Integer.integerIsNegative#
+  GHC.Num.Integer.integerIsOne
+  GHC.Num.Integer.integerIsPowerOf2#
+  GHC.Num.Integer.integerIsZero
+  GHC.Num.Integer.integerLcm
+  GHC.Num.Integer.integerLe
+  GHC.Num.Integer.integerLe#
+  GHC.Num.Integer.integerLog2
+  GHC.Num.Integer.integerLog2#
+  GHC.Num.Integer.integerLogBase
+  GHC.Num.Integer.integerLogBase#
+  GHC.Num.Integer.integerLogBaseWord
+  GHC.Num.Integer.integerLogBaseWord#
+  GHC.Num.Integer.integerLt
+  GHC.Num.Integer.integerLt#
+  GHC.Num.Integer.integerMod
+  GHC.Num.Integer.integerMul
+  GHC.Num.Integer.integerNe
+  GHC.Num.Integer.integerNe#
+  GHC.Num.Integer.integerNegate
+  GHC.Num.Integer.integerOne
+  GHC.Num.Integer.integerOr
+  GHC.Num.Integer.integerPopCount#
+  GHC.Num.Integer.integerPowMod#
+  GHC.Num.Integer.integerQuot
+  GHC.Num.Integer.integerQuotRem
+  GHC.Num.Integer.integerQuotRem#
+  GHC.Num.Integer.integerRecipMod#
+  GHC.Num.Integer.integerRem
+  GHC.Num.Integer.integerShiftL
+  GHC.Num.Integer.integerShiftL#
+  GHC.Num.Integer.integerShiftR
+  GHC.Num.Integer.integerShiftR#
+  GHC.Num.Integer.integerSignum
+  GHC.Num.Integer.integerSignum#
+  GHC.Num.Integer.integerSizeInBase#
+  GHC.Num.Integer.integerSqr
+  GHC.Num.Integer.integerSub
+  GHC.Num.Integer.integerTestBit
+  GHC.Num.Integer.integerTestBit#
+  GHC.Num.Integer.integerToAddr
+  GHC.Num.Integer.integerToAddr#
+  GHC.Num.Integer.integerToBigNatClamp#
+  GHC.Num.Integer.integerToBigNatSign#
+  GHC.Num.Integer.integerToInt
+  GHC.Num.Integer.integerToInt#
+  GHC.Num.Integer.integerToInt64#
+  GHC.Num.Integer.integerToMutableByteArray
+  GHC.Num.Integer.integerToMutableByteArray#
+  GHC.Num.Integer.integerToNatural
+  GHC.Num.Integer.integerToNaturalClamp
+  GHC.Num.Integer.integerToNaturalThrow
+  GHC.Num.Integer.integerToWord
+  GHC.Num.Integer.integerToWord#
+  GHC.Num.Integer.integerToWord64#
+  GHC.Num.Integer.integerXor
+  GHC.Num.Integer.integerZero
+  GHC.Num.Natural.naturalAdd
+  GHC.Num.Natural.naturalAnd
+  GHC.Num.Natural.naturalAndNot
+  GHC.Num.Natural.naturalBit
+  GHC.Num.Natural.naturalBit#
+  GHC.Num.Natural.naturalCheck
+  GHC.Num.Natural.naturalCheck#
+  GHC.Num.Natural.naturalClearBit
+  GHC.Num.Natural.naturalClearBit#
+  GHC.Num.Natural.naturalCompare
+  GHC.Num.Natural.naturalComplementBit
+  GHC.Num.Natural.naturalComplementBit#
+  GHC.Num.Natural.naturalEncodeDouble#
+  GHC.Num.Natural.naturalEncodeFloat#
+  GHC.Num.Natural.naturalEq
+  GHC.Num.Natural.naturalEq#
+  GHC.Num.Natural.naturalFromAddr
+  GHC.Num.Natural.naturalFromAddr#
+  GHC.Num.Natural.naturalFromBigNat#
+  GHC.Num.Natural.naturalFromByteArray#
+  GHC.Num.Natural.naturalFromWord
+  GHC.Num.Natural.naturalFromWord#
+  GHC.Num.Natural.naturalFromWord2#
+  GHC.Num.Natural.naturalFromWordList
+  GHC.Num.Natural.naturalGcd
+  GHC.Num.Natural.naturalGe
+  GHC.Num.Natural.naturalGe#
+  GHC.Num.Natural.naturalGt
+  GHC.Num.Natural.naturalGt#
+  GHC.Num.Natural.naturalIsOne
+  GHC.Num.Natural.naturalIsPowerOf2#
+  GHC.Num.Natural.naturalIsZero
+  GHC.Num.Natural.naturalLcm
+  GHC.Num.Natural.naturalLe
+  GHC.Num.Natural.naturalLe#
+  GHC.Num.Natural.naturalLog2
+  GHC.Num.Natural.naturalLog2#
+  GHC.Num.Natural.naturalLogBase
+  GHC.Num.Natural.naturalLogBase#
+  GHC.Num.Natural.naturalLogBaseWord
+  GHC.Num.Natural.naturalLogBaseWord#
+  GHC.Num.Natural.naturalLt
+  GHC.Num.Natural.naturalLt#
+  GHC.Num.Natural.naturalMul
+  GHC.Num.Natural.naturalNe
+  GHC.Num.Natural.naturalNe#
+  GHC.Num.Natural.naturalNegate
+  GHC.Num.Natural.naturalOne
+  GHC.Num.Natural.naturalOr
+  GHC.Num.Natural.naturalPopCount
+  GHC.Num.Natural.naturalPopCount#
+  GHC.Num.Natural.naturalPowMod
+  GHC.Num.Natural.naturalQuot
+  GHC.Num.Natural.naturalQuotRem
+  GHC.Num.Natural.naturalQuotRem#
+  GHC.Num.Natural.naturalRem
+  GHC.Num.Natural.naturalSetBit
+  GHC.Num.Natural.naturalSetBit#
+  GHC.Num.Natural.naturalShiftL
+  GHC.Num.Natural.naturalShiftL#
+  GHC.Num.Natural.naturalShiftR
+  GHC.Num.Natural.naturalShiftR#
+  GHC.Num.Natural.naturalSignum
+  GHC.Num.Natural.naturalSizeInBase#
+  GHC.Num.Natural.naturalSqr
+  GHC.Num.Natural.naturalSub
+  GHC.Num.Natural.naturalSubThrow
+  GHC.Num.Natural.naturalSubUnsafe
+  GHC.Num.Natural.naturalTestBit
+  GHC.Num.Natural.naturalTestBit#
+  GHC.Num.Natural.naturalToAddr
+  GHC.Num.Natural.naturalToAddr#
+  GHC.Num.Natural.naturalToBigNat#
+  GHC.Num.Natural.naturalToMutableByteArray#
+  GHC.Num.Natural.naturalToWord
+  GHC.Num.Natural.naturalToWord#
+  GHC.Num.Natural.naturalToWordClamp
+  GHC.Num.Natural.naturalToWordClamp#
+  GHC.Num.Natural.naturalToWordMaybe#
+  GHC.Num.Natural.naturalXor
+  GHC.Num.Natural.naturalZero
+  quotRemInteger
+  subtract
+  Num{* + - abs fromInteger negate signum}
+  GHC.Num.Integer.Integer{GHC.Num.Integer.IN GHC.Num.Integer.IP GHC.Num.Integer.IS}
+  GHC.Num.Natural.Natural{GHC.Num.Natural.NB GHC.Num.Natural.NS}
+defaults:
+direct module dependencies: ghc-internal-9.1202.0:GHC.Internal.Base
+                            ghc-internal-9.1202.0:GHC.Internal.Integer
+                            ghc-internal-9.1202.0:GHC.Internal.Natural
+boot module dependencies: (ghc-internal-9.1202.0,
+                           GHC.Internal.Enum {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Exception.Type {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.IO {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Num {-# SOURCE #-})
+                          (ghc-internal-9.1202.0, GHC.Internal.Real {-# SOURCE #-})
+direct package dependencies: ghc-bignum-1.3
+plugin package dependencies:
+orphans: GHC.Internal.Base GHC.Prim.Ext
+family instance modules:
+import  -/  GHC.Num.Integer 082374b95012b3c3b627a4d058f7d4ab
+import  -/  GHC.Num.Natural 6db2a880316a079535af81bb23915e67
+import  -/  ghc-internal:GHC.Internal.Base 29ec812ead60248b1e26cd94a9165d97
+  exports: 713796e2e0f3bbf03b9e83554d1a1d39
+  id 9a1db68e97baa159475d6711c3e11314
+  otherwise c896f2b20cdef1fcdf5030a536a26aee
+import  -/  ghc-internal:GHC.Internal.Integer da735c92e8f9c5a39bbb341e0bb48888
+  exports: 8f6659226511a7dd487ac33ca53c617f
+import  -/  ghc-internal:GHC.Internal.Natural 4eb5228bea495bbc454db37ce5c70098
+  exports: bc023747cfd815a48fd792ef31ffca8d
+import  -/  GHC.Classes 94513e804d2e9dfa3393f6f9ff56cf25
+addDependentFile "rts/include/MachDeps.h" e28d7a407f393205ecee2856bc413c66
+addDependentFile "/private/var/lib/gitlab-runner/builds/t1_GbeWmC/0/ghc/ghc/_build/stage1/rts/build/include/ghcautoconf.h" b14788eeb0221295520fa3b73919cece
+addDependentFile "rts/include/ghcversion.h" adcf0f1adbca4ae2cfa005686af892ad
+addDependentFile "_build/stage1/libraries/ghc-internal/build/autogen/cabal_macros.h" f0f78a23d9c51f8d5d3d13e0aebbb5e4
+fixities infixl 7 *, infixl 6 +, infixl 6 -
+22c359c51260236143efe747ec2e5ce4
+  $dm- :: Num a => a -> a -> a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <SP(1C(1,C(1,L)),A,A,MC(1,L),A,A,A)><L><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: Compulsory <0,TrueTrue>
+              \ @a
+                ($dNum['GHC.Types.Many] :: Num a)
+                (x['GHC.Types.Many] :: a)
+                (y['GHC.Types.Many] :: a) ->
+              + @a $dNum x (negate @a $dNum y)]
+041390e112579f50ab84b6bf09ad3996
+  $dmnegate :: Num a => a -> a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 2, Arity: 2,
+   Strictness: <SP(A,1C(1,C(1,L)),A,A,A,A,MC(1,L))><L>,
+   Inline: (sat-args=1),
+   Unfolding: Core: Compulsory <0,TrueTrue>
+              \ @a ($dNum['GHC.Types.Many] :: Num a) (x['GHC.Types.Many] :: a) ->
+              - @a $dNum (fromInteger @a $dNum (GHC.Num.Integer.IS 0#)) x]
+1dfe88a56e5c2c9a080dbe0a7aa85e53
+  $fNumInt :: Num GHC.Types.Int
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFCon[C:Num],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @GHC.Types.Int
+                $fNumInt_$c+
+                $fNumInt_$c-
+                $fNumInt_$c*
+                $fNumInt_$cnegate
+                $fNumInt_$cabs
+                $fNumInt_$csignum
+                $fNumInt_$cfromInteger]
+474d237488d25016410cd70695a1637d
+  $fNumInt1 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# -1#]
+fbd3f78257873f4d880d783f618c7dd4
+  $fNumInt2 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# 0#]
+44a1f5a765a4bd82e90effee36328c61
+  $fNumInt3 :: GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.I#],
+   Unfolding: Core: <vanilla> GHC.Types.I# 1#]
+f1fcdf3092ce514d6334d7bb1c89f54a
+  $fNumInt_$c* :: GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <1!P(L)><1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Int)
+                (ds1['GHC.Types.Many] :: GHC.Types.Int) ->
+              case ds of wild { GHC.Types.I# x ->
+              case ds1 of wild1 { GHC.Types.I# y ->
+              GHC.Types.I# (GHC.Prim.*# x y) } }]
+4120ffca1687cd5d83e5be6ff0747ed4
+  $fNumInt_$c+ :: GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <1!P(L)><1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Int)
+                (ds1['GHC.Types.Many] :: GHC.Types.Int) ->
+              case ds of wild { GHC.Types.I# x ->
+              case ds1 of wild1 { GHC.Types.I# y ->
+              GHC.Types.I# (GHC.Prim.+# x y) } }]
+8964453fb75d107e2c5487866ff135bb
+  $fNumInt_$c- :: GHC.Types.Int -> GHC.Types.Int -> GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <1!P(L)><1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Int)
+                (ds1['GHC.Types.Many] :: GHC.Types.Int) ->
+              case ds of wild { GHC.Types.I# x ->
+              case ds1 of wild1 { GHC.Types.I# y ->
+              GHC.Types.I# (GHC.Prim.-# x y) } }]
+634c40a9dd5e4cdb4b59bf345321a9b2
+  $fNumInt_$cabs :: GHC.Types.Int -> GHC.Types.Int
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (n['GHC.Types.Many] :: GHC.Types.Int) ->
+              case n of wild { GHC.Types.I# x ->
+              case GHC.Prim.>=# x 0# of lwild {
+                DEFAULT -> GHC.Types.I# (GHC.Prim.negateInt# x) 1# -> wild } }]
+938c03ecf7e79fe1f0a201a0cf660d63
+  $fNumInt_$cfromInteger :: GHC.Num.Integer.Integer -> GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1L>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (i['GHC.Types.Many] :: GHC.Num.Integer.Integer) ->
+              case GHC.Num.Integer.integerToInt# i of ds { DEFAULT ->
+              GHC.Types.I# ds }]
+79460b8405f93d618dc6e1066b292631
+  $fNumInt_$cnegate :: GHC.Types.Int -> GHC.Types.Int
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Int) ->
+              case ds of wild { GHC.Types.I# x ->
+              GHC.Types.I# (GHC.Prim.negateInt# x) }]
+ecba0340fdf4116c74a606b885913226
+  $fNumInt_$csignum :: GHC.Types.Int -> GHC.Types.Int
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (n['GHC.Types.Many] :: GHC.Types.Int) ->
+              case n of wild { GHC.Types.I# x ->
+              case GHC.Prim.<# x 0# of lwild {
+                DEFAULT -> case x of wild1 { DEFAULT -> $fNumInt3 0# -> $fNumInt2 }
+                1# -> $fNumInt1 } }]
+1491692ebeacf752e437249d7ca156f5
+  $fNumInteger :: Num GHC.Num.Integer.Integer
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFCon[C:Num],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @GHC.Num.Integer.Integer
+                GHC.Num.Integer.integerAdd
+                GHC.Num.Integer.integerSub
+                GHC.Num.Integer.integerMul
+                GHC.Num.Integer.integerNegate
+                GHC.Num.Integer.integerAbs
+                GHC.Num.Integer.integerSignum
+                $fNumInteger_$cfromInteger]
+d7cb8bdfa7e883b9af6cf7b26c2e5a45
+  $fNumInteger_$cfromInteger ::
+    GHC.Num.Integer.Integer -> GHC.Num.Integer.Integer
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1L>,
+   Unfolding: Core: <vanilla>
+              \ (i['GHC.Types.Many] :: GHC.Num.Integer.Integer) -> i]
+43cedf2d723edf25832eadf3785d1b04
+  $fNumNatural :: Num GHC.Num.Natural.Natural
+  DFunId
+  [TagSig: <TagProper>, LambdaFormInfo: LFCon[C:Num],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @GHC.Num.Natural.Natural
+                GHC.Num.Natural.naturalAdd
+                GHC.Num.Natural.naturalSubThrow
+                GHC.Num.Natural.naturalMul
+                GHC.Num.Natural.naturalNegate
+                (GHC.Internal.Base.id @GHC.Num.Natural.Natural)
+                GHC.Num.Natural.naturalSignum
+                GHC.Num.Integer.integerToNaturalThrow]
+08420963e097e37821b0c2f90352958f
+  $fNumWord :: Num GHC.Types.Word
+  DFunId
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFCon[C:Num],
+   Inline: CONLIKE,
+   Unfolding: DFun:.
+                @GHC.Types.Word
+                $fNumWord_$c+
+                $fNumWord_$c-
+                $fNumWord_$c*
+                $fNumWord_$cnegate
+                $fNumWord_$cabs
+                $fNumWord_$csignum
+                $fNumWord_$cfromInteger]
+df671756d7f535cf88c8fa0a11cfe85c
+  $fNumWord1 :: GHC.Types.Word
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.W#],
+   Unfolding: Core: <vanilla> GHC.Types.W# 0##]
+bb0fd9e43e98e599f7ce0f52d8583436
+  $fNumWord2 :: GHC.Types.Word
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.W#],
+   Unfolding: Core: <vanilla> GHC.Types.W# 1##]
+f6f609d958a4a11f96b30af6a86e34e4
+  $fNumWord_$c* :: GHC.Types.Word -> GHC.Types.Word -> GHC.Types.Word
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <1!P(L)><1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Word)
+                (ds1['GHC.Types.Many] :: GHC.Types.Word) ->
+              case ds of wild { GHC.Types.W# x# ->
+              case ds1 of wild1 { GHC.Types.W# y# ->
+              GHC.Types.W# (GHC.Prim.timesWord# x# y#) } }]
+92ffff09cbe93f44a78408dce746dcba
+  $fNumWord_$c+ :: GHC.Types.Word -> GHC.Types.Word -> GHC.Types.Word
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <1!P(L)><1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Word)
+                (ds1['GHC.Types.Many] :: GHC.Types.Word) ->
+              case ds of wild { GHC.Types.W# x# ->
+              case ds1 of wild1 { GHC.Types.W# y# ->
+              GHC.Types.W# (GHC.Prim.plusWord# x# y#) } }]
+79fde4bc47ae1931cf352e36d2d921c3
+  $fNumWord_$c- :: GHC.Types.Word -> GHC.Types.Word -> GHC.Types.Word
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 2,
+   Arity: 2, Strictness: <1!P(L)><1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <2,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Word)
+                (ds1['GHC.Types.Many] :: GHC.Types.Word) ->
+              case ds of wild { GHC.Types.W# x# ->
+              case ds1 of wild1 { GHC.Types.W# y# ->
+              GHC.Types.W# (GHC.Prim.minusWord# x# y#) } }]
+3cddc4c0db048fe11c95b25a07245003
+  $fNumWord_$cabs :: GHC.Types.Word -> GHC.Types.Word
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueTrue>
+              \ (x['GHC.Types.Many] :: GHC.Types.Word) -> x]
+717d2e131264e197ec92508363caf4fc
+  $fNumWord_$cfromInteger ::
+    GHC.Num.Integer.Integer -> GHC.Types.Word
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1L>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (i['GHC.Types.Many] :: GHC.Num.Integer.Integer) ->
+              case GHC.Num.Integer.integerToWord# i of ds { DEFAULT ->
+              GHC.Types.W# ds }]
+00f26d2f85cebdf255922d2671f50534
+  $fNumWord_$cnegate :: GHC.Types.Word -> GHC.Types.Word
+  [HasNoCafRefs, TagSig: <TagProper>, LambdaFormInfo: LFReEntrant 1,
+   Arity: 1, Strictness: <1!P(L)>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Word) ->
+              case ds of wild { GHC.Types.W# x# ->
+              GHC.Types.W#
+                (GHC.Prim.int2Word#
+                   (GHC.Prim.negateInt# (GHC.Prim.word2Int# x#))) }]
+5f6c8e6068bd54db51410c048bd9c2e7
+  $fNumWord_$csignum :: GHC.Types.Word -> GHC.Types.Word
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 1, Arity: 1,
+   Strictness: <1!P(1L)>, CPR: 1,
+   Unfolding: Core: StableSystem <1,TrueFalse>
+              \ (ds['GHC.Types.Many] :: GHC.Types.Word) ->
+              case ds of wild { GHC.Types.W# ds1 ->
+              case ds1 of ds2 { DEFAULT -> $fNumWord2 0## -> $fNumWord1 } }]
+20c4376e431caa68ab69b107b1423f85
+  $tc'C:Num :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                2063685847259656696#Word64
+                8520983584970795628#Word64
+                $trModule
+                $tc'C:Num2
+                1#
+                $tc'C:Num1]
+65fb915f13f7e5b03444fcf658a1276c
+  $tc'C:Num1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+09793e6e9f47df24077c16956f997898
+  $tc'C:Num2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tc'C:Num3]
+a11ea4d5d9b812096ec233fd2e2b9221
+  $tc'C:Num3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "'C:Num"#]
+575498e51d7052d2be14d09d3d620249
+  $tcNum :: GHC.Types.TyCon
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TyCon],
+   Unfolding: Core: <vanilla>
+              GHC.Types.TyCon
+                3796974152003402305#Word64
+                3596089887402416922#Word64
+                $trModule
+                $tcNum2
+                0#
+                $tcNum1]
+2298dfe51ef4eefaac85c79e9d094d80
+  $tcNum1 :: GHC.Types.KindRep
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.KindRepFun], Inline: [~]]
+3fdbb29a5fea3b284a34c987e926ced0
+  $tcNum2 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $tcNum3]
+31d36f603ea3dadbd4e9ab7253e3dc76
+  $tcNum3 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "Num"#]
+c4f69d43dbf9726477a207fb1cf979e9
+  $trModule :: GHC.Types.Module
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.Module],
+   Unfolding: Core: <vanilla> GHC.Types.Module $trModule3 $trModule1]
+212a45c8ee8bee77392b8abd32b2c3ec
+  $trModule1 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule2]
+99675414ad4fb827b3a04339d2aadeb3
+  $trModule2 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "GHC.Internal.Num"#]
+d86d59c4ac08011fc442dea145eadee5
+  $trModule3 :: GHC.Types.TrName
+  [HasNoCafRefs, TagSig: <TagProper>,
+   LambdaFormInfo: LFCon[GHC.Types.TrNameS],
+   Unfolding: Core: <vanilla> GHC.Types.TrNameS $trModule4]
+909aa0e95b9cf66aba85401ed66da27a
+  $trModule4 :: GHC.Prim.Addr#
+  [HasNoCafRefs, LambdaFormInfo: LFUnlifted,
+   Unfolding: Core: <vanilla> "ghc-internal"#]
+c89e8101b756aab365536a40755279d4
+  type Num :: * -> GHC.Types.Constraint
+  class Num a where
+    (+) :: a -> a -> a
+    (-) :: a -> a -> a
+    (*) :: a -> a -> a
+    negate :: a -> a
+    abs :: a -> a
+    signum :: a -> a
+    fromInteger :: GHC.Num.Integer.Integer -> a
+    {-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+3683a98cda30880e755d4b2dba863867
+  quotRemInteger ::
+    GHC.Num.Integer.Integer
+    -> GHC.Num.Integer.Integer
+    -> (# GHC.Num.Integer.Integer, GHC.Num.Integer.Integer #)
+  [TagSig: <TagTuple[TagDunno, TagDunno]>,
+   LambdaFormInfo: LFReEntrant 2, Arity: 2, Strictness: <1L><SL>,
+   CPR: 1, Unfolding: Core: <vanilla> GHC.Num.Integer.integerQuotRem#]
+4f92e22093008611c69aa6ec657c08b5
+  subtract :: Num a => a -> a -> a
+  [HasNoCafRefs, LambdaFormInfo: LFReEntrant 3, Arity: 3,
+   Strictness: <1P(A,1C(1,C(1,L)),A,A,A,A,A)><L><L>,
+   Inline: (sat-args=2),
+   Unfolding: Core: StableUser <2,FalseTrue>
+              \ @a
+                ($dNum['GHC.Types.Many] :: Num a)
+                (x['GHC.Types.Many] :: a)
+                (y['GHC.Types.Many] :: a) ->
+              - @a $dNum y x]
+instance Num [GHC.Types.Int] = $fNumInt
+instance Num [GHC.Num.Integer.Integer] = $fNumInteger
+instance Num [GHC.Num.Natural.Natural] = $fNumNatural
+instance Num [GHC.Types.Word] = $fNumWord
+Warnings:
+  Deprecated names: quotRemInteger "Use integerQuotRem# instead"
+  Deprecated exports:
+trusted: trustworthy
+require own pkg trusted: True
+docs:
+  Just module header:
+         Just text:
+                -- |
+-- Module      :  GHC.Internal.Num
+-- Copyright   :  (c) The University of Glasgow 1994-2002
+-- License     :  see libraries/base/LICENSE
+--
+-- Maintainer  :  ghc-devs@haskell.org
+-- Stability   :  internal
+-- Portability :  non-portable (GHC Extensions)
+--
+-- The 'Num' class and the 'Integer' type.
+--
+              identifiers:
+                {libraries/ghc-internal/src/GHC/Internal/Num.hs:15:9-11}
+                Num
+                {libraries/ghc-internal/src/GHC/Internal/Num.hs:15:29-35}
+                GHC.Num.Integer.Integer
+       export docs:
+         []
+       declaration docs:
+         [fromInteger -> [text:
+                            -- | Conversion from an 'Integer'.
+-- An integer literal represents the application of the function
+-- 'fromInteger' to the appropriate value of type 'Integer',
+-- so such literals have type @('Num' a) => a@.
+                          identifiers:
+                            {libraries/ghc-internal/src/GHC/Internal/Num.hs:83:30-36}
+                            GHC.Num.Integer.Integer
+                            {libraries/ghc-internal/src/GHC/Internal/Num.hs:85:9-19}
+                            fromInteger
+                            {libraries/ghc-internal/src/GHC/Internal/Num.hs:85:56-62}
+                            GHC.Num.Integer.Integer
+                            {libraries/ghc-internal/src/GHC/Internal/Num.hs:86:38-40}
+                            Num],
+          negate -> [text:
+                       -- | Unary negation.
+                     identifiers:],
+          Num -> [text:
+                    -- | Basic numeric class.
+--
+-- The Haskell Report defines no laws for 'Num'. However, @('+')@ and @('*')@ are
+-- customarily expected to define a ring and have the following properties:
+--
+-- [__Associativity of @('+')@__]: @(x + y) + z@ = @x + (y + z)@
+-- [__Commutativity of @('+')@__]: @x + y@ = @y + x@
+-- [__@'fromInteger' 0@ is the additive identity__]: @x + fromInteger 0@ = @x@
+-- [__'negate' gives the additive inverse__]: @x + negate x@ = @fromInteger 0@
+-- [__Associativity of @('*')@__]: @(x * y) * z@ = @x * (y * z)@
+-- [__@'fromInteger' 1@ is the multiplicative identity__]:
+-- @x * fromInteger 1@ = @x@ and @fromInteger 1 * x@ = @x@
+-- [__Distributivity of @('*')@ with respect to @('+')@__]:
+-- @a * (b + c)@ = @(a * b) + (a * c)@ and @(b + c) * a@ = @(b * a) + (c * a)@
+-- [__Coherence with 'toInteger'__]: if the type also implements 'GHC.Real.Integral', then
+-- 'fromInteger' is a left inverse for 'GHC.Internal.Real.toInteger', i.e. @fromInteger (toInteger i) == i@
+--
+-- Note that it /isn't/ customarily expected that a type instance of both 'Num'
+-- and 'Ord' implement an ordered ring. Indeed, in @base@ only 'Integer' and
+-- 'Data.Ratio.Rational' do.
+                  identifiers:
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:49:44-46}
+                    Num
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:49:62}
+                    +
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:49:74}
+                    *
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:52:27}
+                    +
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:53:27}
+                    +
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:54:9-19}
+                    fromInteger
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:55:8-13}
+                    negate
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:56:27}
+                    *
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:57:9-19}
+                    fromInteger
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:59:28}
+                    *
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:59:52}
+                    +
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:62:5-15}
+                    fromInteger
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:64:76-78}
+                    Num
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:65:9-11}
+                    GHC.Classes.Ord
+                    {libraries/ghc-internal/src/GHC/Internal/Num.hs:65:65-71}
+                    GHC.Num.Integer.Integer],
+          subtract -> [text:
+                         -- | the same as @'flip' ('-')@.
+--
+-- Because @-@ is treated specially in the Haskell grammar,
+-- @(-@ /e/@)@ is not a section, but an application of prefix negation.
+-- However, @('subtract'@ /exp/@)@ is equivalent to the disallowed section.
+                       identifiers:
+                         {libraries/ghc-internal/src/GHC/Internal/Num.hs:94:20-23}
+                         GHC.Internal.Base.flip
+                         {libraries/ghc-internal/src/GHC/Internal/Num.hs:94:28}
+                         -
+                         {libraries/ghc-internal/src/GHC/Internal/Num.hs:98:16-23}
+                         subtract],
+          abs -> [text:
+                    -- | Absolute value.
+                  identifiers:],
+          signum -> [text:
+                       -- | Sign of a number.
+-- The functions 'abs' and 'signum' should satisfy the law:
+--
+-- > abs x * signum x == x
+--
+-- For real numbers, the 'signum' is either @-1@ (negative), @0@ (zero)
+-- or @1@ (positive).
+                     identifiers:
+                       {libraries/ghc-internal/src/GHC/Internal/Num.hs:76:23-25}
+                       abs
+                       {libraries/ghc-internal/src/GHC/Internal/Num.hs:76:33-38}
+                       signum
+                       {libraries/ghc-internal/src/GHC/Internal/Num.hs:80:31-36}
+                       signum],
+          $fNumInt -> [text:
+                         -- | @since base-2.01
+                       identifiers:],
+          $fNumInteger -> [text:
+                             -- | @since base-2.01
+                           identifiers:],
+          $fNumNatural -> [text:
+                             -- | Note that `Natural`'s 'Num' instance isn't a ring: no element but 0 has an
+-- additive inverse. It is a semiring though.
+--
+-- @since base-4.8.0.0
+                           identifiers:
+                             {libraries/ghc-internal/src/GHC/Internal/Num.hs:139:17-23}
+                             GHC.Num.Natural.Natural
+                             {libraries/ghc-internal/src/GHC/Internal/Num.hs:139:29-31}
+                             Num],
+          $fNumWord -> [text:
+                          -- | @since base-2.01
+                        identifiers:]]
+       arg docs:
+         []
+       documentation structure:
+         avails:
+           [Num{Num, *, +, -, abs, fromInteger, negate, signum}]
+         avails:
+           [subtract]
+         avails:
+           [quotRemInteger]
+         re-exported module(s): [GHC.Num.Integer]
+           [GHC.Num.Integer.integerAbs, GHC.Num.Integer.integerAdd,
+            GHC.Num.Integer.integerAnd, GHC.Num.Integer.integerBit,
+            GHC.Num.Integer.integerBit#, GHC.Num.Integer.integerCheck,
+            GHC.Num.Integer.integerCheck#, GHC.Num.Integer.integerCompare,
+            GHC.Num.Integer.integerComplement,
+            GHC.Num.Integer.integerDecodeDouble#, GHC.Num.Integer.integerDiv,
+            GHC.Num.Integer.integerDivMod, GHC.Num.Integer.integerDivMod#,
+            GHC.Num.Integer.integerEncodeDouble,
+            GHC.Num.Integer.integerEncodeDouble#,
+            GHC.Num.Integer.integerEncodeFloat#, GHC.Num.Integer.integerEq,
+            GHC.Num.Integer.integerEq#, GHC.Num.Integer.integerFromAddr,
+            GHC.Num.Integer.integerFromAddr#,
+            GHC.Num.Integer.integerFromBigNat#,
+            GHC.Num.Integer.integerFromBigNatNeg#,
+            GHC.Num.Integer.integerFromBigNatSign#,
+            GHC.Num.Integer.integerFromByteArray,
+            GHC.Num.Integer.integerFromByteArray#,
+            GHC.Num.Integer.integerFromInt, GHC.Num.Integer.integerFromInt#,
+            GHC.Num.Integer.integerFromInt64#,
+            GHC.Num.Integer.integerFromNatural,
+            GHC.Num.Integer.integerFromWord, GHC.Num.Integer.integerFromWord#,
+            GHC.Num.Integer.integerFromWord64#,
+            GHC.Num.Integer.integerFromWordList,
+            GHC.Num.Integer.integerFromWordNeg#,
+            GHC.Num.Integer.integerFromWordSign#, GHC.Num.Integer.integerGcd,
+            GHC.Num.Integer.integerGcde, GHC.Num.Integer.integerGcde#,
+            GHC.Num.Integer.integerGe, GHC.Num.Integer.integerGe#,
+            GHC.Num.Integer.integerGt, GHC.Num.Integer.integerGt#,
+            GHC.Num.Integer.integerIsNegative,
+            GHC.Num.Integer.integerIsNegative#, GHC.Num.Integer.integerIsOne,
+            GHC.Num.Integer.integerIsPowerOf2#, GHC.Num.Integer.integerIsZero,
+            GHC.Num.Integer.integerLcm, GHC.Num.Integer.integerLe,
+            GHC.Num.Integer.integerLe#, GHC.Num.Integer.integerLog2,
+            GHC.Num.Integer.integerLog2#, GHC.Num.Integer.integerLogBase,
+            GHC.Num.Integer.integerLogBase#,
+            GHC.Num.Integer.integerLogBaseWord,
+            GHC.Num.Integer.integerLogBaseWord#, GHC.Num.Integer.integerLt,
+            GHC.Num.Integer.integerLt#, GHC.Num.Integer.integerMod,
+            GHC.Num.Integer.integerMul, GHC.Num.Integer.integerNe,
+            GHC.Num.Integer.integerNe#, GHC.Num.Integer.integerNegate,
+            GHC.Num.Integer.integerOne, GHC.Num.Integer.integerOr,
+            GHC.Num.Integer.integerPopCount#, GHC.Num.Integer.integerPowMod#,
+            GHC.Num.Integer.integerQuot, GHC.Num.Integer.integerQuotRem,
+            GHC.Num.Integer.integerQuotRem#, GHC.Num.Integer.integerRecipMod#,
+            GHC.Num.Integer.integerRem, GHC.Num.Integer.integerShiftL,
+            GHC.Num.Integer.integerShiftL#, GHC.Num.Integer.integerShiftR,
+            GHC.Num.Integer.integerShiftR#, GHC.Num.Integer.integerSignum,
+            GHC.Num.Integer.integerSignum#, GHC.Num.Integer.integerSizeInBase#,
+            GHC.Num.Integer.integerSqr, GHC.Num.Integer.integerSub,
+            GHC.Num.Integer.integerTestBit, GHC.Num.Integer.integerTestBit#,
+            GHC.Num.Integer.integerToAddr, GHC.Num.Integer.integerToAddr#,
+            GHC.Num.Integer.integerToBigNatClamp#,
+            GHC.Num.Integer.integerToBigNatSign#, GHC.Num.Integer.integerToInt,
+            GHC.Num.Integer.integerToInt#, GHC.Num.Integer.integerToInt64#,
+            GHC.Num.Integer.integerToMutableByteArray,
+            GHC.Num.Integer.integerToMutableByteArray#,
+            GHC.Num.Integer.integerToNatural,
+            GHC.Num.Integer.integerToNaturalClamp,
+            GHC.Num.Integer.integerToNaturalThrow,
+            GHC.Num.Integer.integerToWord, GHC.Num.Integer.integerToWord#,
+            GHC.Num.Integer.integerToWord64#, GHC.Num.Integer.integerXor,
+            GHC.Num.Integer.integerZero,
+            GHC.Num.Integer.Integer{GHC.Num.Integer.Integer,
+                                    GHC.Num.Integer.IN, GHC.Num.Integer.IP, GHC.Num.Integer.IS}]
+         re-exported module(s): [GHC.Num.Natural]
+           [GHC.Num.Natural.naturalAdd, GHC.Num.Natural.naturalAnd,
+            GHC.Num.Natural.naturalAndNot, GHC.Num.Natural.naturalBit,
+            GHC.Num.Natural.naturalBit#, GHC.Num.Natural.naturalCheck,
+            GHC.Num.Natural.naturalCheck#, GHC.Num.Natural.naturalClearBit,
+            GHC.Num.Natural.naturalClearBit#, GHC.Num.Natural.naturalCompare,
+            GHC.Num.Natural.naturalComplementBit,
+            GHC.Num.Natural.naturalComplementBit#,
+            GHC.Num.Natural.naturalEncodeDouble#,
+            GHC.Num.Natural.naturalEncodeFloat#, GHC.Num.Natural.naturalEq,
+            GHC.Num.Natural.naturalEq#, GHC.Num.Natural.naturalFromAddr,
+            GHC.Num.Natural.naturalFromAddr#,
+            GHC.Num.Natural.naturalFromBigNat#,
+            GHC.Num.Natural.naturalFromByteArray#,
+            GHC.Num.Natural.naturalFromWord, GHC.Num.Natural.naturalFromWord#,
+            GHC.Num.Natural.naturalFromWord2#,
+            GHC.Num.Natural.naturalFromWordList, GHC.Num.Natural.naturalGcd,
+            GHC.Num.Natural.naturalGe, GHC.Num.Natural.naturalGe#,
+            GHC.Num.Natural.naturalGt, GHC.Num.Natural.naturalGt#,
+            GHC.Num.Natural.naturalIsOne, GHC.Num.Natural.naturalIsPowerOf2#,
+            GHC.Num.Natural.naturalIsZero, GHC.Num.Natural.naturalLcm,
+            GHC.Num.Natural.naturalLe, GHC.Num.Natural.naturalLe#,
+            GHC.Num.Natural.naturalLog2, GHC.Num.Natural.naturalLog2#,
+            GHC.Num.Natural.naturalLogBase, GHC.Num.Natural.naturalLogBase#,
+            GHC.Num.Natural.naturalLogBaseWord,
+            GHC.Num.Natural.naturalLogBaseWord#, GHC.Num.Natural.naturalLt,
+            GHC.Num.Natural.naturalLt#, GHC.Num.Natural.naturalMul,
+            GHC.Num.Natural.naturalNe, GHC.Num.Natural.naturalNe#,
+            GHC.Num.Natural.naturalNegate, GHC.Num.Natural.naturalOne,
+            GHC.Num.Natural.naturalOr, GHC.Num.Natural.naturalPopCount,
+            GHC.Num.Natural.naturalPopCount#, GHC.Num.Natural.naturalPowMod,
+            GHC.Num.Natural.naturalQuot, GHC.Num.Natural.naturalQuotRem,
+            GHC.Num.Natural.naturalQuotRem#, GHC.Num.Natural.naturalRem,
+            GHC.Num.Natural.naturalSetBit, GHC.Num.Natural.naturalSetBit#,
+            GHC.Num.Natural.naturalShiftL, GHC.Num.Natural.naturalShiftL#,
+            GHC.Num.Natural.naturalShiftR, GHC.Num.Natural.naturalShiftR#,
+            GHC.Num.Natural.naturalSignum, GHC.Num.Natural.naturalSizeInBase#,
+            GHC.Num.Natural.naturalSqr, GHC.Num.Natural.naturalSub,
+            GHC.Num.Natural.naturalSubThrow, GHC.Num.Natural.naturalSubUnsafe,
+            GHC.Num.Natural.naturalTestBit, GHC.Num.Natural.naturalTestBit#,
+            GHC.Num.Natural.naturalToAddr, GHC.Num.Natural.naturalToAddr#,
+            GHC.Num.Natural.naturalToBigNat#,
+            GHC.Num.Natural.naturalToMutableByteArray#,
+            GHC.Num.Natural.naturalToWord, GHC.Num.Natural.naturalToWord#,
+            GHC.Num.Natural.naturalToWordClamp,
+            GHC.Num.Natural.naturalToWordClamp#,
+            GHC.Num.Natural.naturalToWordMaybe#, GHC.Num.Natural.naturalXor,
+            GHC.Num.Natural.naturalZero,
+            GHC.Num.Natural.Natural{GHC.Num.Natural.Natural,
+                                    GHC.Num.Natural.NB, GHC.Num.Natural.NS}]
+         re-exported module(s): [GHC.Internal.Natural]
+           [GHC.Num.Natural.Natural{GHC.Num.Natural.Natural}]
+         re-exported module(s): [GHC.Internal.Integer]
+           [GHC.Num.Integer.Integer{GHC.Num.Integer.Integer}]
+       named chunks:
+       haddock options:
+         not-home
+       language:
+         Just Haskell2010
+       language extensions:
+         Cpp
+         MonomorphismRestriction
+         DeepSubsumption
+         RelaxedPolyRec
+         ForeignFunctionInterface
+         UnboxedTuples
+         UnboxedSums
+         DoAndIfThenElse
+         MagicHash
+         EmptyDataDecls
+         PatternGuards
+         DatatypeContexts
+         TraditionalRecordSyntax
+         StarIsType
+         CUSKs
+         FieldSelectors
+         ListTuplePuns
+extensible fields:
+

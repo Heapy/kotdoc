@@ -1,0 +1,1 @@
+Canonical Count production/test files have been installed under core. The seven Kotlin drafts in this directory are development copies only; exclude them from the review commit. Original source/oracle artifacts live in the parent directory.

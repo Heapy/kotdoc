@@ -538,15 +538,30 @@
       "source_line": 219,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
-          "line": 54,
-          "symbol": "TableBody"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocCounts.kt",
+          "line": 10,
+          "symbol": "RowHeadColumns"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocCounts.kt",
+          "line": 15,
+          "symbol": "CountDictionary"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/CountBridge.kt",
+          "line": 5,
+          "symbol": "CountBridge"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "missing_instance_surface",
-      "remaining_gap": "Stored as Long. Read/Show/EqOrd concrete behavior has accepted evidence, but distinct source Num/Enum/newtype/Data/Generic APIs and all method bounds/errors remain missing/unverified."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-count-reference/source-manifest.json",
+          "scope": "3distinctcounttypes/45NumEnumslots;9930originalfinite+48demandresponses and351legacyASTbridgecases"
+        }
+      ],
+      "status": "implemented_num_enum_awaiting_review",
+      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independent review pending. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
     },
     {
       "id": "Definition/Alignment",
@@ -795,15 +810,30 @@
       "source_line": 265,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
-          "line": 52,
-          "symbol": "Cell"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocCounts.kt",
+          "line": 11,
+          "symbol": "RowSpan"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocCounts.kt",
+          "line": 15,
+          "symbol": "CountDictionary"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/CountBridge.kt",
+          "line": 5,
+          "symbol": "CountBridge"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "missing_instance_surface",
-      "remaining_gap": "Stored as Long. Read/Show/EqOrd concrete behavior has accepted evidence, but distinct source Num/Enum/newtype/Data/Generic APIs and all method bounds/errors remain missing/unverified."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-count-reference/source-manifest.json",
+          "scope": "3distinctcounttypes/45NumEnumslots;9930originalfinite+48demandresponses and351legacyASTbridgecases"
+        }
+      ],
+      "status": "implemented_num_enum_awaiting_review",
+      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independent review pending. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
     },
     {
       "id": "Definition/ColSpan",
@@ -812,15 +842,30 @@
       "source_line": 269,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
-          "line": 52,
-          "symbol": "Cell"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocCounts.kt",
+          "line": 12,
+          "symbol": "ColSpan"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocCounts.kt",
+          "line": 15,
+          "symbol": "CountDictionary"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/CountBridge.kt",
+          "line": 5,
+          "symbol": "CountBridge"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "missing_instance_surface",
-      "remaining_gap": "Stored as Long. Read/Show/EqOrd concrete behavior has accepted evidence, but distinct source Num/Enum/newtype/Data/Generic APIs and all method bounds/errors remain missing/unverified."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-count-reference/source-manifest.json",
+          "scope": "3distinctcounttypes/45NumEnumslots;9930originalfinite+48demandresponses and351legacyASTbridgecases"
+        }
+      ],
+      "status": "implemented_num_enum_awaiting_review",
+      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independent review pending. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
     },
     {
       "id": "Definition/QuoteType",
@@ -1663,8 +1708,8 @@
           "scope": "42slots:Functor2/Foldable17/Traversable4/specializedalgebra13/helpers+representation6; source-classdefaults/callbackdemand/Seqshape/Int64/DoubleandBigIntegerproofs"
         }
       ],
-      "status": "implemented_finite_dictionary_matrix_awaiting_review",
-      "remaining_gap": "Generic Many carrier and42-slot slice implemented with independent originals, final17713Gradle/package passed, pending independent review. Data/Eq/Ord/Typeable/Show/Read/Generic members for arbitrary element dictionaries remain separate open gates; concrete Inlines/Blocks evidence is not silently generalized."
+      "status": "accepted_finite_dictionary_matrix",
+      "remaining_gap": "Generic Many carrier and42-slot slice implemented with independent originals, final17713Gradle/package passed, accepted at5adcfdb5972f62bb81bdfbc4531610b790e0f94e. Data/Eq/Ord/Typeable/Show/Read/Generic members for arbitrary element dictionaries remain separate open gates; concrete Inlines/Blocks evidence is not silently generalized."
     },
     {
       "id": "Builder/Inlines",
@@ -1694,7 +1739,7 @@
         }
       ],
       "status": "representation_and_selected_instances",
-      "remaining_gap": "Many42-slot specialized algebra/Functor/Foldable/Traversable/IsString author slice is implemented with originals, final17713Gradle/package passed, pending independent review. Existing List-backed aliases remain compatibility representations; generic Many class members/dependency contracts are not all certified."
+      "remaining_gap": "Many42-slot specialized algebra/Functor/Foldable/Traversable/IsString author slice is implemented with originals, final17713Gradle/package accepted at5adcfdb5972f62bb81bdfbc4531610b790e0f94e. Existing List-backed aliases remain compatibility representations; generic Many class members/dependency contracts are not all certified."
     },
     {
       "id": "Builder/Blocks",
@@ -1724,7 +1769,7 @@
         }
       ],
       "status": "representation_and_selected_instances",
-      "remaining_gap": "Many42-slot specialized algebra/Functor/Foldable/Traversable/IsString author slice is implemented with originals, final17713Gradle/package passed, pending independent review. Existing List-backed aliases remain compatibility representations; generic Many class members/dependency contracts are not all certified."
+      "remaining_gap": "Many42-slot specialized algebra/Functor/Foldable/Traversable/IsString author slice is implemented with originals, final17713Gradle/package accepted at5adcfdb5972f62bb81bdfbc4531610b790e0f94e. Existing List-backed aliases remain compatibility representations; generic Many class members/dependency contracts are not all certified."
     },
     {
       "id": "Builder/singleton",
@@ -1745,8 +1790,8 @@
           "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
         }
       ],
-      "status": "implemented_finite_dictionary_matrix_awaiting_review",
-      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
+      "status": "accepted_finite_dictionary_matrix",
+      "remaining_gap": "Independent finite parity and17713Gradle/package accepted at5adcfdb5972f62bb81bdfbc4531610b790e0f94e. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/toList",
@@ -1767,8 +1812,8 @@
           "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
         }
       ],
-      "status": "implemented_finite_dictionary_matrix_awaiting_review",
-      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
+      "status": "accepted_finite_dictionary_matrix",
+      "remaining_gap": "Independent finite parity and17713Gradle/package accepted at5adcfdb5972f62bb81bdfbc4531610b790e0f94e. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/fromList",
@@ -1789,8 +1834,8 @@
           "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
         }
       ],
-      "status": "implemented_finite_dictionary_matrix_awaiting_review",
-      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
+      "status": "accepted_finite_dictionary_matrix",
+      "remaining_gap": "Independent finite parity and17713Gradle/package accepted at5adcfdb5972f62bb81bdfbc4531610b790e0f94e. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/isNull",
@@ -1811,8 +1856,8 @@
           "scope": "Many42-slot source matrix; generic helpers/constructor/selector and independent source-list step/head/tail through2^40elements"
         }
       ],
-      "status": "implemented_finite_dictionary_matrix_awaiting_review",
-      "remaining_gap": "Author finite parity and17713Gradle/package passed; independent acceptance pending. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
+      "status": "accepted_finite_dictionary_matrix",
+      "remaining_gap": "Independent finite parity and17713Gradle/package accepted at5adcfdb5972f62bb81bdfbc4531610b790e0f94e. Source-list adapters and finite JVM List convenience have explicit different size/demand bounds; no arbitrary GHC heap equivalence claim."
     },
     {
       "id": "Builder/doc",
@@ -3241,10 +3286,10 @@
     "representation_and_selected_instances": 27,
     "api_mapping_unverified": 4,
     "implementation_present_proof_partial": 69,
-    "missing_instance_surface": 3,
+    "implemented_num_enum_awaiting_review": 3,
     "representation_partial": 1,
     "accepted_finite_source_matrix": 29,
-    "implemented_finite_dictionary_matrix_awaiting_review": 5,
+    "accepted_finite_dictionary_matrix": 5,
     "instance_surface_partial": 2
   },
   "package_supplement": [

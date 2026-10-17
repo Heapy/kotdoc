@@ -14576,3 +14576,32 @@ historical snapshot checks,not falsely regenerated current green evidence.
 Integration.json binds the verbatim old helper snapshot to the narrow current
 change. General identifier consumers/Unicode profiles,DocumentShared and global
 CLI gaps remain separate;local:612/618/621 and full Pandoc/calibre stay OPEN.
+
+
+### Count Num/Enum dictionaries checkpoint
+
+RowHeadColumns,RowSpan and ColSpan now have their actual derived Num7/Enum8
+dictionaries:45 source slots. Independent replay matched9930 finite original
+responses and48 demand observations,actual GHC/Definition interfaces and38
+pins. Int64 arithmetic/fromInteger wrap,succ/pred error strings,newtype pattern
+non-strictness,enum endpoint/zero-step/overflow behavior and source-list thunks
+are preserved.351 original Cell/TableBody bridges retain represented values
+without positivity checks or replacing the existing AST Long field ABI.
+Nine complete ranges include ascending/descending10000-element results;other
+ranges retain ordered prefixes with explicit truncation,not false finite claims
+for zero-step streams.
+
+Saved Gradle96735 seven XMLs contain27693 actual zero-failure/error/skip cases:
+9980 Count (9978 originals,integrity,one sharing adapter) plus17713 accepted
+Many/Generic/Walk/property/Visitor regressions. The9980-body isolated factory
+passed512MiB/256KiB. Own36 frozen hashes,eight major packaged classes and two
+exact notices pass;jar/installDist passed with identical core jars. Three new
+main files supply distinct value wrappers,dictionaries and explicit AST bridges;
+no accepted production implementation or expected fixture was rewritten.
+
+No Real,Integral or Bounded wrapper instance is invented. Strict JVM value
+conveniences and explicit construct/match thunk adapters are distinct;the source
+model is pinned64-bit GHC Int,not actual32-bit or arbitrary heap equivalence.
+Other count/Many generic classes,remainingBuilder/metadata/Data.Version,140
+exports,350 instance members and JSON supplement keep local:611 and the full
+Pandoc/calibre goal OPEN.
