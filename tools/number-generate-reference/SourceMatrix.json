@@ -1,0 +1,58 @@
+{
+  "source": "Crypto.Number.Generate",
+  "types": {
+    "GenTopPolicy": [
+      "SetHighest",
+      "SetTwoHighest"
+    ]
+  },
+  "functions": [
+    "generateParams",
+    "generatePrefix",
+    "generateMax",
+    "generateBetween"
+  ],
+  "privateContracts": [
+    "copyAndFreeze input ownership",
+    "bit/top/mask/odd order",
+    "simple range<127 biased modulo",
+    "normal rejection sampling",
+    "overgeneration r/r-range/r-2range",
+    "exact100 attempt error strings",
+    "inclusive unsorted generateBetween"
+  ],
+  "originalPropertyFamilies": [
+    "generate-param",
+    "generate-param2",
+    "generate-param-odd",
+    "generate-range"
+  ],
+  "remaining": {
+    "number": [
+      "Prime9exports",
+      "Random.Probabilistic/DRG dependencies"
+    ],
+    "signatures": [
+      "RSA/Prim/PKCS15/PSS/OAEP",
+      "DSA",
+      "ECDSA/legacyECC.ECDSA",
+      "Ed25519/EdDSA",
+      "Rabin",
+      "ElGamal"
+    ],
+    "trust": [
+      "X509.Validation",
+      "Validation.Signature",
+      "Validation.Types",
+      "Validation.Cache",
+      "trust/chain operations"
+    ],
+    "fullGoal": [
+      "remaininglocal613",
+      "Pandoc623 allformats/tests",
+      "calibre624 MOBI6/KF8/oldKindle",
+      "calibre625 otherformats/tests",
+      "626finaldelivery"
+    ]
+  }
+}

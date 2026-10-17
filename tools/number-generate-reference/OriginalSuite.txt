@@ -1,0 +1,12 @@
+
+generate-param [✔]
+  +++ OK, passed 200 tests.
+generate-param2 [✔]
+  +++ OK, passed 200 tests.
+generate-param-odd [✔]
+  +++ OK, passed 200 tests.
+generate-range [✔]
+  +++ OK, passed 200 tests.
+
+Finished in <elapsed> seconds
+4 examples, 0 failures

@@ -14664,3 +14664,32 @@ source dictionary/list/root adapters do not claim arbitrary infinite maps,GHC
 heaps or universal multi-bottom exception ordering. Remaining generic Many/count
 classes,Builder/Data.Version/JSONfilter,140 exports and350 instance members keep
 local:611 and the complete Pandoc/calibre goal OPEN.
+
+
+### Complete Number.Generate checkpoint
+
+All four exports and two GenTopPolicy constructors/Show/Eq are translated.
+Independent actual Haskell replay passed37127 rows/26 pins and all four original
+NumberSpec property families at200 trials each.800 recorded actual TestDRG/
+Arbitrary samples supply externally observed bytes and translated source
+property checks,not a Kotlin ChaChaDRG or entropy implementation. RNG request
+length/order,retained provider buffers,top/mask/odd ordering,prefix versus suffix,
+simple biased modulo,normal/overgeneration acceptance and exact100-retry errors
+match source. Inclusive unsorted bounds remain accepted without new policy.
+
+Saved Gradle50208 XML contains37955 actual zero-failure/error/skip cases.
+Own25 frozen hashes,three packaged classes and two exact crypton/RAM notices
+pass;jar/installDist passed. Integer uses the existing Basic/Serialize BigInteger
+boundary as appropriate to source arbitrary-precision Integer;specialized word
+engines are not replaced. No accepted production implementation changed.
+
+Original bits1/SetTwoHighest performs a logical out-of-bounds store. Ordinary
+numeric rows retain result1 unchanged;Kotlin returns that prefix safely without
+claiming heap-memory parity. Own separate transformed guarded-oracle replay
+passed120 probes:eight trailing sentinels change34→162,112 remain intact.
+This controlled allocation proves the store,not ordinary GHC allocator/GC layout.
+Malformed RNG lengths are outside provider preconditions;explicit Lazy demand
+models are finite compiler observations. Kotlin Int-sized bit counts,host GHC
+Int64,virtual request boundaries,unbounded memory,timing and physical scrubbing
+limits remain explicit. Prime/Probabilistic/SHA512-ChaChaDRG,other signatures,
+trust/chain and full local:613/Pandoc623/calibre624–626 remain OPEN.

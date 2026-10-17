@@ -1,0 +1,11 @@
+{
+  "haskell": "GHC9.12.2 -O2; unmodified crypton2.0.1/ram0.22.1; integer-gmp backend",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "nativeIntBits": 64,
+  "kotlinBitsParameter": "Int32; finite observed widths through4096, virtual request-only probes nearInt32 limits",
+  "ordinaryOracle": "original module; unmodified expectations",
+  "guardObserver": "guarded private copy allocation plus equivalent public imports; original tweak body unchanged",
+  "sourceBoundary": "bits1/SetTwoHighest out-of-logical-copy store; numeric prefix only in Kotlin",
+  "productionRandom": "caller-supplied exact-length byte provider; DRG/entropy not claimed ported"
+}
