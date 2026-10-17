@@ -1,0 +1,98 @@
+{
+  "modules": {
+    "Crypto.PubKey.MaskGenFunction": {
+      "publicFunctions": [
+        "mgf1"
+      ],
+      "aliases": [
+        "MaskGenAlgorithm"
+      ],
+      "localFunctions": [
+        "hashCounter"
+      ]
+    },
+    "Crypto.PubKey.RSA.OAEP": {
+      "publicFunctions": [
+        "defaultOAEPParams",
+        "encryptWithSeed",
+        "encrypt",
+        "decrypt",
+        "decryptSafer"
+      ],
+      "privateFunctions": [
+        "unpad"
+      ],
+      "nestedFunctions": [
+        "step",
+        "select"
+      ],
+      "constructor": "OAEPParams",
+      "selectors": [
+        "oaepHash",
+        "oaepMaskGenAlg",
+        "oaepLabel"
+      ]
+    }
+  },
+  "originalSuite": {
+    "examples": 23,
+    "vectors": 7,
+    "literalEncryptDecrypt": 14,
+    "rejects": 6,
+    "range": 3,
+    "ordinarySourceIndices": [
+      8134,
+      8135,
+      8136,
+      8137,
+      8138,
+      8139,
+      8140,
+      8141,
+      8142,
+      8143,
+      8144,
+      8145,
+      8146,
+      8147,
+      8148,
+      8149,
+      8150,
+      8151,
+      8152,
+      8153,
+      8154,
+      8155,
+      8156
+    ]
+  },
+  "corpora": {
+    "ordinary": 8157,
+    "generic": 1104,
+    "pairedErrors": 720,
+    "pureRng": 480,
+    "ioCallback": 288,
+    "virtualBounds": 130,
+    "seedAccess": 192,
+    "pureRetry": 16,
+    "ioRetry": 12
+  },
+  "isolatedBehavioralAssertions": 11100,
+  "acceptedDependenciesUnchanged": [
+    "CryptoRsa",
+    "CryptoModular",
+    "CryptoRandom",
+    "CryptoHmac",
+    "hash cores",
+    "X509 RSA records"
+  ],
+  "remaining": [
+    "PKCS15",
+    "PSS",
+    "full RSA.Types",
+    "SystemDRG/OS entropy",
+    "other signatures",
+    "X509 trust/chain",
+    "remaining613/Pandoc/calibre"
+  ]
+}

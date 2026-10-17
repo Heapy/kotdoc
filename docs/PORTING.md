@@ -15475,3 +15475,53 @@ scrubbing/erasure are not proved. Accepted engine unspecified native tails and
 optimized-backend gates remain distinct. Missing MD2/MD4/RIPEMD160/Tiger/Whirlpool/
 Blake2/Skein families, shared Digest Data, RSA padding/fullTypes/signatures,
 SystemDRG/OS entropy,trust/chain and rest613/fullPandoc/calibre remain OPEN.
+
+
+### MaskGenFunction / RSA.OAEP complete source checkpoint (reviewed)
+
+Independent review accepts MGF1/function alias/local hashCounter and OAEP Params
+constructor/three selectors,default params,five public functions and private
+unpad/step/select closure. Generic hash/MGF/seed ByteArrayAccess,strict scans,
+encoded Right-root versus bytes demand and separate pure-State/IO projections
+are preserved. Existing RSA/hash/DRG dependencies were not edited. Public concrete
+encrypt snapshots own input bytes; explicit deferred/borrowed providers retain
+their documented caller-owned lifetime boundaries.
+
+Own nine original executable replays passed11099 observations:8157 ordinary,1104
+generic,720 paired-bottom,480 pure RNG,288 IO,130 virtual arithmetic,192 generic
+access,16 pure retries and12 IO retries. The8157 rows are generated/expanded
+source observations; only their last23 rows map the full original OAEPSpec
+examples (seven literal vectors encrypt/decrypt,six rejects,three range checks).
+The original23-example suite also passes unchanged;8157 is not an upstream test
+count. All expectation corpora remain byte-identical to frozen artifacts.
+
+Source-order records preserve independently observed seed/length-before-init,
+RSA modulus/exponent-before-encoding,label-hash-before-private-decode,empty
+zipWith skipping unused MGF and IO previous-state sequencing. Own six exact
+source-order rows compiled against immutable final JAR pass128MiB/256KiB.
+Source100-retry errors and eventual success after99 are exercised for pure/IO
+projections. The IO bridge reuses accepted generateBlinderAction unchanged;
+callback effects and returned lazy ByteString/strict Blinder roots stay separate.
+
+Own70 final hashes,90 source/fixture pins,verbatim original module/test extraction
+and437 byte-identical development package files (only seven Cabal visibility
+exports differ) pass. Some --verify capture scripts update operational cursor
+files; after all nine terminate their hashes again equal the frozen final values,
+without expected-payload mutation. Saved17212 XML11190actual/zero failures/errors/
+skips contains11100behavioral cases plus90 integrity pins. Immutable core JAR
+SHA779e5b53d5cc14037e635d7ae70767ee8700bf313f7f90d4c035b0275afb59f9
+with10 classes/112 byte-exact repository notices passes; author installDist
+identity and isolated256KiB proof are retained under
+/tmp/kotdoc-rsa-oaep-final-results. One explicitly owned development runner is
+outside production. No duplicate shared Gradle or unrelated WIP was included.
+
+Virtual divMod/maxCounter/four-byte counter boundaries are arithmetic evidence,
+not actual2GiB output allocations or hashing. Valid nonnegative callback buffer/
+allocation dimensions and JVM array-backed lengths are required; source Long
+key sizes outside representable output allocation remain unproved. Inherited
+native tails/backend/ABI limits,arbitrary custom ByteArray allocators,retained
+foreign pointers,heap/timing/physical scrubbing,async and universal bottom
+equivalence are not claimed. Source full-scan/XOR behavior is not a JVM timing
+guarantee. PKCS15/PSS,fullRSA.Types,SystemDRG/OS entropy,other signatures,missing
+hash families/optimized backends,Digest Data,X509 trust/chain and full613/
+Pandoc623/calibre624–626 remain OPEN.

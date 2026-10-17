@@ -1,0 +1,33 @@
+
+RSA-OAEP
+  internal
+    0 [✔]
+    0 [✔]
+  encryption key 1024 bits
+    0 [✔]
+    1 [✔]
+    2 [✔]
+    3 [✔]
+    4 [✔]
+    5 [✔]
+  decryption key 1024 bits
+    0 [✔]
+    1 [✔]
+    2 [✔]
+    3 [✔]
+    4 [✔]
+    5 [✔]
+  rejected blocks
+    the untouched block still decrypts [✔]
+    a leading octet that is not 00 [✔]
+    a corrupted masked seed [✔]
+    a corrupted masked db [✔]
+    a corrupted final octet [✔]
+    a ciphertext of the wrong length [✔]
+  ciphertext range
+    the ciphertext itself decrypts [✔]
+    the same ciphertext plus n is refused [✔]
+    a ciphertext representative equal to the modulus is refused [✔]
+
+Finished in <elapsed> seconds
+23 examples, 0 failures

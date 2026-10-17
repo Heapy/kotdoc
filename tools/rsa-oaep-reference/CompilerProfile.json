@@ -1,0 +1,75 @@
+{
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "machine": "arm64",
+  "byteorder": "little",
+  "portableFlags": [
+    "-O2",
+    "-shared",
+    "-fPIC",
+    "no WITH_* backend macros"
+  ],
+  "haskell": {
+    "ghc": "9.12.2",
+    "optimization": "-O2",
+    "packages": [
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      },
+      {
+        "pkg-name": "crypton",
+        "pkg-version": "2.0.1",
+        "flags": {
+          "check_alignment": false,
+          "integer-gmp": true,
+          "old_toolchain_inliner": false,
+          "support_aesni": true,
+          "support_deepseq": true,
+          "support_pclmuldq": true,
+          "support_rdrand": true,
+          "support_sse": false,
+          "use_target_attributes": true
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "MD5 native raw layout little-endian aarch64C88/public96; tail8 unspecified",
+    "Actual big-endian ABI is not exercised",
+    "Virtual2GiB arithmetic, not actual2GiB hash"
+  ],
+  "scope": "MGF1/OAEP original Haskell; selected O2 error order, inherited actual native backend profile",
+  "executables": {
+    "/tmp/kotdoc-oaep-haskell-oracle": "00c80ccf559d517b6cd98f8808c3984fea541043cd34894d53d5805bd107297f",
+    "/tmp/kotdoc-oaep-demand-oracle": "0a29fc19c5b269e89fe55b73ba364b42b273513f857083cb2ce82ac991e7b27e",
+    "/tmp/kotdoc-oaep-random-oracle": "d79361ea71507932d2b14c8ec4e755a5f40767cf012fbeff5b4791f8421c0139",
+    "/tmp/kotdoc-oaep-callback-oracle": "a561b660aaabd8466defe1b049bd3b6eabeeaee56dbc92fd933ff461c7922d7e",
+    "/tmp/kotdoc-mgf-access-oracle": "784e0dbc657611d3484289d23c57e88bdd95e5b3f86a08ce3775cbdcf799ef34"
+  }
+}

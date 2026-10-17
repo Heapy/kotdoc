@@ -1,0 +1,188 @@
+{
+  "fixes": [
+    {
+      "corpus": "DemandObservations.json",
+      "index": 63,
+      "request": {
+        "operation": "mgf",
+        "digest": 0,
+        "size": 1,
+        "length": 0,
+        "seed": [],
+        "message": [
+          2
+        ],
+        "cipher": [
+          0
+        ],
+        "label": [],
+        "seedBottom": true
+      },
+      "independentExpected": {
+        "events": [],
+        "results": [
+          "\"seed\"-bottom",
+          "\"seed\"-bottom"
+        ]
+      },
+      "fix": "MGF seed root before initializer"
+    },
+    {
+      "corpus": "DemandObservations.json",
+      "index": 65,
+      "request": {
+        "operation": "mgf",
+        "digest": 0,
+        "size": 1,
+        "length": 0,
+        "seed": [],
+        "message": [
+          2
+        ],
+        "cipher": [
+          0
+        ],
+        "label": [],
+        "lengthBottom": true
+      },
+      "independentExpected": {
+        "events": [],
+        "results": [
+          "\"length\"-bottom",
+          "\"length\"-bottom"
+        ]
+      },
+      "fix": "Selected GHC output length demand before seeded context"
+    },
+    {
+      "corpus": "DemandObservations.json",
+      "index": 211,
+      "request": {
+        "operation": "encryptBytes",
+        "digest": 0,
+        "size": 8,
+        "length": 0,
+        "seed": [],
+        "message": [
+          2
+        ],
+        "cipher": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "label": [],
+        "nBottom": true
+      },
+      "independentExpected": {
+        "events": [],
+        "results": [
+          "\"n\"-bottom",
+          "\"n\"-bottom"
+        ]
+      },
+      "fix": "OAEP ep public modulus before encoded message"
+    },
+    {
+      "corpus": "DemandObservations.json",
+      "index": 212,
+      "request": {
+        "operation": "encryptBytes",
+        "digest": 0,
+        "size": 8,
+        "length": 0,
+        "seed": [],
+        "message": [
+          2
+        ],
+        "cipher": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "label": [],
+        "eBottom": true
+      },
+      "independentExpected": {
+        "events": [],
+        "results": [
+          "\"e\"-bottom",
+          "\"e\"-bottom"
+        ]
+      },
+      "fix": "Selected OAEP caller demands public exponent before encoded message"
+    },
+    {
+      "corpus": "DemandObservations.json",
+      "index": 234,
+      "request": {
+        "operation": "decryptRoot",
+        "digest": 0,
+        "size": 2,
+        "length": 9,
+        "seed": [],
+        "message": [
+          2
+        ],
+        "cipher": [
+          0,
+          0
+        ],
+        "label": [],
+        "fault": ""
+      },
+      "independentExpected": {
+        "events": [
+          "init1",
+          "finalize",
+          "mask:1:[]",
+          "init2"
+        ],
+        "results": [
+          "divide by zero",
+          "divide by zero"
+        ]
+      },
+      "fix": "Expected label hash first; empty masked seed skips seed-mask callback"
+    },
+    {
+      "corpus": "CallbackObservations.json",
+      "index": 168,
+      "request": {
+        "operation": "decryptSafer",
+        "size": 1,
+        "mode": "normal",
+        "projection": "ignore",
+        "messageBottom": false,
+        "message": [
+          7
+        ],
+        "cipher": [
+          0
+        ]
+      },
+      "independentExpected": {
+        "draws": [
+          1,
+          16
+        ],
+        "results": [
+          42,
+          42
+        ]
+      },
+      "fix": "IO bridge forces previous state token before next callback, preserving the first one-byte draw"
+    }
+  ],
+  "notes": "These were draft mismatches; original expected rows were never rewritten. Final JAR must reproduce these independent observations. No pre-fix immutable JAR is claimed."
+}
