@@ -1,0 +1,37 @@
+{
+  "orgInput": {
+    "total": 58,
+    "availableOutputRoutes": 46,
+    "missingOutputRoutes": 12,
+    "pendingWriters": [
+      "markdown",
+      "latex",
+      "asciidoc"
+    ]
+  },
+  "orgWriterIntegration": {
+    "total": 27,
+    "previouslyAvailable": 5,
+    "newlyAvailableViaOrgReader": 9,
+    "availableNow": 14,
+    "remaining": 13,
+    "newCommands": [
+      "pandoc/command/4171.md/#1",
+      "pandoc/command/4171.md/#2",
+      "pandoc/command/4171.md/#3",
+      "pandoc/command/7810.md/#1",
+      "pandoc/command/7810.md/#2",
+      "pandoc/command/7810.md/#3",
+      "pandoc/command/8513.md/#1",
+      "pandoc/command/8513.md/#2",
+      "pandoc/command/8513.md/#3"
+    ],
+    "pendingDependencies": [
+      "markdown reader",
+      "html reader",
+      "ipynb reader",
+      "citeproc/global CLI"
+    ]
+  },
+  "source": "canonical original Tests.Command extraction; no expected bytes changed"
+}

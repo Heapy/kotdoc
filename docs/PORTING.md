@@ -15368,3 +15368,53 @@ Builder.orderedList Org depth256/1024 resource gate remains OPEN, not resolved
 by lazy-protocol proofs. Full140exports/350SOURCE INSTANCE member expansion,
 Data/Typeable/count support,Data.Version,six ToJSONFilter/JSON supplement and
 whole611/Pandoc/calibre remain OPEN.
+
+
+### Full Org reader and narrow CLI registration (reviewed)
+
+Independent review accepts the pinned ten-module Org reader closure (3798 lines,
+284 signatures, not284 separately covered branches): block/inline grammar,
+parser-state/ReaderT rollback, final-state Futures, metadata/macros, document-tree
+selection/exclusion, TODO/planning/properties, citations/notes, tables/grid,
+includes and used LaTeX/runtime callbacks. Production is Kotlin; original modules
+and executables are test oracles. Existing production changes only Main's narrow
+Org input registry/inference/default HTML/dispatch.
+
+Own read-only254-pin/24-mechanical-transform source verification and3541 original
+observations passed, including all312 original leaves/eight include effects,552
+helpers,973 expanded,1541 exact text2.1.2/GHC16 profile cases,49 boundary,38 effects,
+60 metadata observations and16 deep observations. The four alternative Show
+observations remain additional evidence, not replacement expectations. Primary
+3537 observations plus one verbatim Old/org-select-tags golden yield3538 reader
+JUnit cases. Author persistent3524 non-deep and14 deep cases pass512MiB/256KiB;
+our same full native process completed normally, without restart or timeout.
+Six additional own original App/immutable Kotlin controls passed: missing-argument
+macro reorder,forward note/link,disabled author metadata,tag pruning,Unicode
+duplicate IDs and missing-include warning bytes.
+
+Own145 frozen hashes and six saved69831 XMLs contain8892actual/zero failures,
+errors or skips (3538reader+5354accepted writer). Durable reader39285 and writer1918
+exit/report/stdout/classpath bindings verify446/446 and65/65 comparisons with46
+and five full original commands. Nine Org-to-Org routes now bring the writer
+inventory to14available/13pending; reader12 routes still need missing writers.
+Historical Main f59b390 blob/current narrow diff and immutable core JAR
+SHA177bd06e58066c30ec5aef43d6af51be513755a6e0833331d79cd3f4d8cb32d9
+are authenticated. Author4299 prior core classes remain unchanged; only three
+old Main classes change in CLI. All113 packaged notice payloads verify; the one
+notice differing from today's checkout is byte-exact pre-lex Many attribution,
+retained in the accepted historical snapshot, while current Many adds Lex.
+MD5's additive notice/unselected test-fixture timing is explicitly captured;
+this Org JAR has no MD5 classes/runtime fixtures and is not a whole-worktree freeze.
+
+Local iterative metadata fragments preserve disabled-metadata demand and avoid
+recursive old-map forcing through4096 lines/all MetaValue and Block forms. A local
+nested-headline OrderedList constructor matches Builder.hs473–478 and avoids
+repeated finite Generic AST bridge wrappers. Accepted shared Builder/Many code
+was not changed: the demonstrated finite Builder.orderedList depth256/1024
+consumer resource defect remains an actionable611/612 follow-up, separate from
+source lazy-protocol proofs. Shared DocumentShared/resource/identifier/general IO
+gates remain open. Org includes use file-only source behavior; HTTP/TLS/default
+transport and arbitrary OS/async/bottom profiles are not completed. Global CLI
+verbosity/-M/templates and remaining621 behavior stay open. Twelve Org-input and
+thirteen Org-output missing reader/writer/citeproc routes, full618/Pandoc623 and
+calibre624/625/626 remain OPEN. No full CLI or Pandoc completion is claimed.

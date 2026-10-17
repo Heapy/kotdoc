@@ -1,0 +1,203 @@
+{
+  "source": {
+    "productionModules": 10,
+    "lines": 3798,
+    "topLevelSignatures": 284,
+    "originalReaderLeaves": 312,
+    "oldReaderGoldens": 1
+  },
+  "junit": {
+    "exitCode": 0,
+    "total": 8892,
+    "suites": [
+      {
+        "file": "TEST-io.heapy.kotdoc.readers.org.OrgReaderHelperTest.xml",
+        "tests": 552,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-io.heapy.kotdoc.writers.OrgWriterTest.xml",
+        "tests": 5345,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-io.heapy.kotdoc.readers.org.OrgReaderEffectTest.xml",
+        "tests": 38,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-io.heapy.kotdoc.readers.org.OrgReaderTest.xml",
+        "tests": 2890,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-io.heapy.kotdoc.readers.org.OrgReaderMetaCollectionTest.xml",
+        "tests": 58,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "file": "TEST-io.heapy.kotdoc.writers.OrgWriterDemandTest.xml",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "ownInstalledHashesUnchanged": 42,
+    "immutableCopiedCoreMatchesCurrent": true,
+    "coreJarSha256": "177bd06e58066c30ec5aef43d6af51be513755a6e0833331d79cd3f4d8cb32d9",
+    "capturedAt": "2026-10-17T05:03:04.265945+00:00",
+    "identityScope": "current build JAR matched immutable copy at capture, before source/Gradle release to MD5; later builds may overwrite shared build outputs",
+    "xmlSha256": {
+      "/tmp/kotdoc-org-reader/final-results/xml/TEST-io.heapy.kotdoc.readers.org.OrgReaderHelperTest.xml": "ef7e72c35108d6846671cd98939381ea0c21370bb8c6e6ff30cfa53d797bd5d5",
+      "/tmp/kotdoc-org-reader/final-results/xml/TEST-io.heapy.kotdoc.writers.OrgWriterTest.xml": "7bbf3b05334540ecc338959cc95b49d5b0ee8d683b5d7321f6dcc68045afde1f",
+      "/tmp/kotdoc-org-reader/final-results/xml/TEST-io.heapy.kotdoc.readers.org.OrgReaderEffectTest.xml": "028b3cda319e9a05c50dd4327a4a7cc4cbd0c5df9c84480482d611a6b032ff65",
+      "/tmp/kotdoc-org-reader/final-results/xml/TEST-io.heapy.kotdoc.readers.org.OrgReaderTest.xml": "d428a6d7ee598d083b9df63145800c52ac439f94329c9e84a279228abc42cee4",
+      "/tmp/kotdoc-org-reader/final-results/xml/TEST-io.heapy.kotdoc.readers.org.OrgReaderMetaCollectionTest.xml": "53b895b36023e0a4d5460eff7ac5f0ee1fb05e6140740dec3700d892e6e89e6d",
+      "/tmp/kotdoc-org-reader/final-results/xml/TEST-io.heapy.kotdoc.writers.OrgWriterDemandTest.xml": "bed13e3eceac0415f64b4b829e42f1dfdb99df9dc26b2dfa3f22687fb63cde25"
+    },
+    "logSha256": "6ed6650bfc4f1d510581c8413cfbe81f121ac78958d4edb0ae783881ecd44b23"
+  },
+  "native": {
+    "exitCode": 0,
+    "observations": 3541,
+    "logSha256": "74276faca4fe0075b1806f667e0ca8059b66c2df7e02c5f839416e4048fea61b",
+    "log": "/tmp/kotdoc-org-reader/final-native-replay.log",
+    "note": "Current verify-oracle replay body is unchanged; later verifier additions only authenticate extra dependencies in --check-source.",
+    "primaryObservationsExcludingFourAlternatives": 3537
+  },
+  "bounded": {
+    "heap": "512MiB",
+    "stack": "256KiB",
+    "nonDeepPersistentAdapters": 3524,
+    "deepInputs": 14,
+    "deepExitCode": 0,
+    "deepLogSha256": "0a0a87db232b10401bc28e7c78abdf32868c294601c59f226326d5ea9d894020",
+    "currentFullNestedInputs": 2,
+    "currentFullNestedExitCode": 0
+  },
+  "readerCLI": {
+    "exitCode": 0,
+    "compared": 446,
+    "pendingMissingWriters": 12,
+    "completeOriginalCommands": 46,
+    "status": {
+      "pid": 52588,
+      "start": 1792212799.9719,
+      "command": [
+        "/opt/homebrew/opt/python@3.15/bin/python3.15",
+        "/Users/yoda/dev/pet/kotdoc/tools/haskell-org-reader-reference/check-cli.py",
+        "--classpath",
+        "/tmp/kotdoc-org-reader/final-installed-cli/lib/cli-0.1.0-SNAPSHOT.jar:/tmp/kotdoc-org-reader/final-installed-cli/lib/kotlin-stdlib-2.4.21.jar:/tmp/kotdoc-org-reader/final-installed-cli/lib/annotations-13.0.jar:/tmp/kotdoc-org-reader/final-installed-cli/lib/core-0.1.0-SNAPSHOT.jar:/tmp/kotdoc-org-reader/final-installed-cli/lib/kotlinx-serialization-core-jvm-1.11.0.jar:/tmp/kotdoc-org-reader/final-installed-cli/lib/kotlinx-serialization-json-jvm-1.11.0.jar:/tmp/kotdoc-org-reader/final-installed-cli/lib/jna-5.19.1.jar:/tmp/kotdoc-org-reader/final-installed-cli/lib/icu4j-78.1.jar",
+        "--report",
+        "/tmp/kotdoc-org-reader/final-reader-cli/report.json",
+        "--fixtures",
+        "app.jsonl.gz",
+        "app-io.jsonl.gz"
+      ],
+      "classpath": [
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/cli-0.1.0-SNAPSHOT.jar",
+          "sha256": "b2d082397570f093dd421fb993f4c0c6686c287ec58ad179de4e8293cdde51d7"
+        },
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/kotlin-stdlib-2.4.21.jar",
+          "sha256": "bd8250210584cb659847dce9cda660f8e9906e5def7fbebcea93dc6dcb6a88a3"
+        },
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/annotations-13.0.jar",
+          "sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478"
+        },
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/core-0.1.0-SNAPSHOT.jar",
+          "sha256": "177bd06e58066c30ec5aef43d6af51be513755a6e0833331d79cd3f4d8cb32d9"
+        },
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/kotlinx-serialization-core-jvm-1.11.0.jar",
+          "sha256": "f4a801c647d4351327cd9e1ac4113e2be9ea37a64ab0abae269c25a52e28f35d"
+        },
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/kotlinx-serialization-json-jvm-1.11.0.jar",
+          "sha256": "563a25b4eb5c9128ae9c2479f3d1a5c44dcd176112b91cf03682e906eba5c935"
+        },
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/jna-5.19.1.jar",
+          "sha256": "4fb141dd8ef6b0585ffceea4bc49602fbc6312fa977e2c488794ea3e6aafecae"
+        },
+        {
+          "path": "/tmp/kotdoc-org-reader/final-installed-cli/lib/icu4j-78.1.jar",
+          "sha256": "bbb70d3be23110d7295823eee0c2e896ac3b619b3c0f26168f65eb972df51d2a"
+        }
+      ],
+      "checker": {
+        "path": "/Users/yoda/dev/pet/kotdoc/tools/haskell-org-reader-reference/check-cli.py",
+        "sha256": "d899e41fe8b85ebf8eabe22f021a8a8d805cebbd15f0ee9b7e033609d74079f4"
+      },
+      "fixtures": [
+        {
+          "path": "/Users/yoda/dev/pet/kotdoc/tools/haskell-org-reader-reference/fixtures/app.jsonl.gz",
+          "sha256": "5dcdae1e093e8885a6b98af519e70e1edb6832236a568617b72e1fe30513282b"
+        },
+        {
+          "path": "/Users/yoda/dev/pet/kotdoc/tools/haskell-org-reader-reference/fixtures/app-io.jsonl.gz",
+          "sha256": "300c2edf25a826bff255c2c0e964690fdc3524908e0fa6f3c06d868dfb0ba545"
+        }
+      ],
+      "stage": "terminal",
+      "childPid": 52589,
+      "exitCode": 0,
+      "finished": 1792213866.217856,
+      "stdoutSha256": "d0166c62e3cb9be92231a3d01078f77cc71d687448cab88401ebf14f199a572b",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reportSha256": "0c7d9a9d6a6d27efa0eeebf75e8d31104e25adb070a999d9174f8d22b9a861a3"
+  },
+  "writerCLI": {
+    "compared": 65,
+    "completeOriginalCommands": 5,
+    "terminal": {
+      "finished": "2026-10-17T04:55:52.146878+00:00",
+      "allPassed": true,
+      "results": [
+        {
+          "name": "org",
+          "command": [
+            "/opt/homebrew/opt/python@3.15/bin/python3.15",
+            "/Users/yoda/dev/pet/kotdoc/tools/check-org-writer-cli.py",
+            "--cli",
+            "/tmp/kotdoc-org-reader/final-installed-cli/bin/cli",
+            "--fixtures",
+            "tools/haskell-org-writer-reference/fixtures/cli-observations.jsonl.gz",
+            "--report",
+            "/tmp/kotdoc-org-reader/final-writer-cli/org-report.json"
+          ],
+          "started": "2026-10-17T04:53:23.580686+00:00",
+          "status": "passed",
+          "pid": 52654,
+          "finished": "2026-10-17T04:55:52.146128+00:00",
+          "exitCode": 0,
+          "stdoutSha256": "ed11b7fac041d2863d03c61c331237c13ef01b3211f1925f90b890a9c5ea39de",
+          "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "reportSha256": "679833dc3b262754ecc59910b2f408d44e2d5495c1a4a28e24a6981aec1f2a5a"
+  },
+  "remaining": [
+    "12 Org-input command routes require markdown/latex/asciidoc writers",
+    "13 of27 Org-writer commands still require other readers and/or citeproc",
+    "global HTTP/general IO and CLI verbosity/-M/template gaps remain separate612/613/621 work",
+    "shared finite Builder orderedList AST bridge resource gap remains611/612; Org-local constructor only",
+    "full618/allPandoc/calibre goals remain open"
+  ]
+}

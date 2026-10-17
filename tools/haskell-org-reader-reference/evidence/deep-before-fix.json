@@ -1,0 +1,16 @@
+{
+  "exitCode": 1,
+  "cases": 14,
+  "passed": 10,
+  "failed": [
+    "author-lines/1024",
+    "author-lines/4096",
+    "headlines-depth/256",
+    "headlines-depth/1024"
+  ],
+  "heap": "512MiB",
+  "stack": "256KiB",
+  "rawLogSha256": "4789664bc501e014e44ea32d4e6fd78c07f67e76b5286f2746c85005453f9a50",
+  "profile": "immutable accepted Org writer distribution + cli-isolated pre-fix draft",
+  "scope": "finite Org reader consumer; no shared Builder changes"
+}

@@ -1,0 +1,58 @@
+{
+  "correction": "First crypto report listed only eight unselected fixtures; later disclosed one additive BSD2 notice already included in the copied Org package. No claim that all additions occurred after packaging.",
+  "jarSha256": "177bd06e58066c30ec5aef43d6af51be513755a6e0833331d79cd3f4d8cb32d9",
+  "currentJarIdentical": true,
+  "rootNoticeCount": 112,
+  "packagedNoticeCount": 113,
+  "md5ProductionClasses": [],
+  "md5RuntimeFixtures": [],
+  "externalAdditions": [
+    {
+      "path": "licenses/crypton-md5-BSD-2-Clause.txt",
+      "sha256": "09106c5c5503d64f6f7a48e2c7c284825c00fc71cc704d80f4a0b510684e3710",
+      "mtimeNs": 1792212759969597054
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/LiteralObservations.json.gz",
+      "sha256": "9126e1d0ce38f7906594b5823500cc37ed6d8a831d4dd727e8d69d6c7462a776",
+      "mtimeNs": 1792212800871940971
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/DemandObservations.json.gz",
+      "sha256": "e4796e1d905dca1c43fa0923e558a2f68dfa1a5687c9ef3800dad96da15e9d2e",
+      "mtimeNs": 1792212800872194559
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/TraceObservations.tsv.gz",
+      "sha256": "a1e0a86e233c88fb8fcf0ac6d9509dba2086cfc552263840531ebb434d0d1088",
+      "mtimeNs": 1792212800688751268
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/HaskellObservations.json.gz",
+      "sha256": "cd1e14fb0178c4d5ab03e77fe181e8778264c431ff400e218809aa88a3934087",
+      "mtimeNs": 1792212800865918242
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/CounterObservations.tsv.gz",
+      "sha256": "803969bc1ad9161c188b01b3a69bd3d83303dc7c58c2713ead5e88c506559e8e",
+      "mtimeNs": 1792212800680409041
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/AliasObservations.tsv.gz",
+      "sha256": "51da925b225ad59a144c3f92cff138d17e100f59bc57308b81b2c4bbdb0a3b14",
+      "mtimeNs": 1792212800684957702
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/NativeObservations.tsv.gz",
+      "sha256": "a0960835ab589d26d9dc6d2a0e5b007c940d5a58552d39fbd65b05c0fe534e68",
+      "mtimeNs": 1792212800665687703
+    },
+    {
+      "path": "core/src/test/resources/crypto-md5/PrefixBoundary.tsv.gz",
+      "sha256": "e22720dd399d9a68f539e817d5f93f0ee07e7aecd2b5bbc1ba179f1e91b220c8",
+      "mtimeNs": 1792212800693944524
+    }
+  ],
+  "ownedInstalledPaths": "42 own hashes remain unchanged; separate pre-gradle-source-hashes.json",
+  "scope": "No production source/class changes from MD5; exact notice bytes included. Test fixtures are unrelated and not selected by Org tests."
+}

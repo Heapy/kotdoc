@@ -1,0 +1,292 @@
+[
+  {
+    "name": "command/10071.md#1",
+    "command": "pandoc -f org -t native --preserve-tabs",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/10730.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/10836.md#1",
+    "command": "pandoc -f org -t latex",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/11188.md#1",
+    "command": "pandoc -f org --to=native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/11188.md#2",
+    "command": "pandoc -f org --to=native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/11188.md#3",
+    "command": "pandoc -f org --to=native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/11188.md#4",
+    "command": "pandoc -f org --to=markdown",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/3314.md#1",
+    "command": "pandoc -f org -t html5",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/3401.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/3401.md#2",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/3499.md#1",
+    "command": "pandoc -f org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/3510.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/3706.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/3706.md#2",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4171.md#1",
+    "command": "pandoc -f org -t org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4171.md#2",
+    "command": "pandoc -f org -t org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4171.md#3",
+    "command": "pandoc -f org -t org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4186.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4186.md#2",
+    "command": "pandoc -f org -t html",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4284.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4284.md#2",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4284.md#3",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4284.md#4",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4748.md#1",
+    "command": "pandoc -f org -t rst",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/4885.md#1",
+    "command": "pandoc -f org -t markdown",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/5128.md#1",
+    "command": "pandoc -f org -t rst --columns=78",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/5178.md#2",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/6308.md#1",
+    "command": "pandoc -f org -t asciidoc",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/6441.md#1",
+    "command": "pandoc -f org -t html",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/6466.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/7329.md#4",
+    "command": "pandoc -f org -t markdown",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/7520.md#1",
+    "command": "pandoc -f org -t native -s",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/7557.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/7810.md#1",
+    "command": "pandoc -f org -t org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/7810.md#2",
+    "command": "pandoc -f org -t org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/7810.md#3",
+    "command": "pandoc -f org -t org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8201.md#1",
+    "command": "pandoc -f org -t html",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8204.md#2",
+    "command": "pandoc --from=org --to=markdown --standalone",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8204.md#3",
+    "command": "pandoc --from=org --to=markdown --standalone",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8236.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8302.md#1",
+    "command": "pandoc -f org -t markdown",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8513.md#1",
+    "command": "pandoc --from org --to org --columns=72",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8513.md#2",
+    "command": "pandoc --from org-auto_identifiers --to org --columns=78",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8513.md#3",
+    "command": "pandoc --from org-auto_identifiers --to org --columns=40",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8659.md#1",
+    "command": "pandoc -f org -t html",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8659.md#2",
+    "command": "pandoc -f org -t html",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8689.md#1",
+    "command": "pandoc -f org -t markdown+implicit_figures",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8869.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8997.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/8997.md#2",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9042.md#1",
+    "command": "pandoc -f org",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9042.md#2",
+    "command": "pandoc -f org+fancy_lists",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9279.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9279.md#2",
+    "command": "pandoc -f org -t markdown",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9279.md#3",
+    "command": "pandoc -f org -t markdown",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9279.md#4",
+    "command": "pandoc -f org -t markdown",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9475.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  },
+  {
+    "name": "command/9639.md#1",
+    "command": "pandoc -f org -t native",
+    "originalNormMatches": true
+  }
+]

@@ -1,0 +1,3804 @@
+[
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org.hs",
+    "line": 25,
+    "name": "readOrg",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgReader.kt",
+      "OrgBlocks.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org.hs",
+    "line": 40,
+    "name": "parseOrg",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgReader.kt",
+      "OrgBlocks.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 38,
+    "name": "hline",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 48,
+    "name": "headerStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 52,
+    "name": "tableStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 55,
+    "name": "gridTableStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 59,
+    "name": "latexEnvStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 71,
+    "name": "listCounterCookie",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 80,
+    "name": "bulletListStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 89,
+    "name": "eol",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 92,
+    "name": "orderedListStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 117,
+    "name": "drawerStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 121,
+    "name": "metaLineStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 124,
+    "name": "commentLineStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 129,
+    "name": "exampleLineStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 132,
+    "name": "noteMarker",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/BlockStarts.hs",
+    "line": 141,
+    "name": "endOfBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlockStarts.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 57,
+    "name": "blockList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 65,
+    "name": "meta",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 70,
+    "name": "blocks",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 73,
+    "name": "block",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 93,
+    "name": "horizontalRule",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 109,
+    "name": "attrFromBlockAttributes",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 117,
+    "name": "stringyMetaAttribute",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 129,
+    "name": "blockAttributes",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 160,
+    "name": "keyValues",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 181,
+    "name": "orgBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 218,
+    "name": "admonitionBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 228,
+    "name": "exampleBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 238,
+    "name": "rawBlockLines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 241,
+    "name": "parseBlockLines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 250,
+    "name": "rawBlockContent",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 255,
+    "name": "rawBlockContent'",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 288,
+    "name": "ignHeaders",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 293,
+    "name": "exportBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 299,
+    "name": "verseBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 319,
+    "name": "metadataBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 331,
+    "name": "codeBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 359,
+    "name": "babelResultsBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 370,
+    "name": "codeHeaderArgs",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 379,
+    "name": "switchesAsAttributes",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 402,
+    "name": "switchPolarity",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 406,
+    "name": "switch",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 414,
+    "name": "whitespaceSwitch",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 421,
+    "name": "genericSwitch",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 432,
+    "name": "lineNumberSwitch",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 435,
+    "name": "blockOption",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 441,
+    "name": "orgParamValue",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 459,
+    "name": "dynamicBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 473,
+    "name": "blockParameters",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 488,
+    "name": "genericDrawer",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 508,
+    "name": "drawerLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 511,
+    "name": "drawerEnd",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 522,
+    "name": "figure",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 550,
+    "name": "endOfParagraph",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 559,
+    "name": "example",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 565,
+    "name": "exampleCode",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 573,
+    "name": "specialLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 577,
+    "name": "printbibliographyLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 583,
+    "name": "include",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 641,
+    "name": "rawExportLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 652,
+    "name": "rawOrgLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 657,
+    "name": "commentLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 686,
+    "name": "table",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 714,
+    "name": "orgTable",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 721,
+    "name": "orgToPandocTable",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 744,
+    "name": "tableRows",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 747,
+    "name": "tableContentRow",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 751,
+    "name": "tableContentCell",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 755,
+    "name": "tableAlignRow",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 763,
+    "name": "columnPropertyCell",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 775,
+    "name": "tableAlignFromChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 782,
+    "name": "tableHline",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 786,
+    "name": "endOfCell",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 789,
+    "name": "rowsToTable",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 796,
+    "name": "normalizeTable",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 811,
+    "name": "rowToContent",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 840,
+    "name": "latexFragment",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 864,
+    "name": "noteBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 877,
+    "name": "paraOrPlain",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 896,
+    "name": "list",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 899,
+    "name": "definitionList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 905,
+    "name": "bulletList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 911,
+    "name": "indented",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 917,
+    "name": "orderedList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 923,
+    "name": "definitionListItem",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 946,
+    "name": "checkbox",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 958,
+    "name": "checkboxToInlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 965,
+    "name": "listItem",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 982,
+    "name": "prependInlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Blocks.hs",
+    "line": 991,
+    "name": "listContinuation",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgBlocks.kt",
+      "OrgBlocksBasic.kt",
+      "OrgBlocksDelimited.kt",
+      "OrgLists.kt",
+      "OrgTables.kt",
+      "OrgGridTable.kt",
+      "OrgInclude.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 39,
+    "name": "documentTree",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 68,
+    "name": "toTag",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 77,
+    "name": "toPropertyKey",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 84,
+    "name": "toPropertyValue",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 88,
+    "name": "isNonNil",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 108,
+    "name": "headline",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 161,
+    "name": "unprunedHeadlineToBlocks",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 185,
+    "name": "headlineToBlocks",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 197,
+    "name": "removeExplicitlyExcludedNodes",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 204,
+    "name": "includeRootAndSelected",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 209,
+    "name": "docContainsSelectTags",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 214,
+    "name": "includeAncestorsAndSelected",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 224,
+    "name": "headlineContainsSelectTags",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 228,
+    "name": "headlineContainsExcludeTags",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 232,
+    "name": "isArchiveTag",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 238,
+    "name": "isCommentTitle",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 243,
+    "name": "archivedHeadlineToBlocks",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 251,
+    "name": "headlineToHeaderWithList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 276,
+    "name": "headlineToHeaderWithContents",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 283,
+    "name": "headlineToHeader",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 300,
+    "name": "todoKeyword",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 308,
+    "name": "todoKeywordToInlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 315,
+    "name": "propertiesToAttr",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 334,
+    "name": "tagsToInlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 343,
+    "name": "tagSpan",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 348,
+    "name": "planningToBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 370,
+    "name": "timestamp",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 385,
+    "name": "emptyPlanning",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 389,
+    "name": "planningInfo",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/DocumentTree.hs",
+    "line": 403,
+    "name": "propertiesDrawer",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgDocumentTree.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 26,
+    "name": "exportSettings",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 33,
+    "name": "exportSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 73,
+    "name": "genericExportSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 87,
+    "name": "booleanSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 91,
+    "name": "integerSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 99,
+    "name": "archivedTreeSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 117,
+    "name": "complementableListSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 147,
+    "name": "subSupSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 163,
+    "name": "texSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 179,
+    "name": "ignoredSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 183,
+    "name": "ignoreAndWarn",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 191,
+    "name": "elispBoolean",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ExportSettings.hs",
+    "line": 202,
+    "name": "optionString",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgExportSettings.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 46,
+    "name": "pushToInlineCharStack",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 50,
+    "name": "popInlineCharStack",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 54,
+    "name": "surroundingEmphasisChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 58,
+    "name": "startEmphasisNewlinesCounting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 62,
+    "name": "decEmphasisNewlinesCount",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 66,
+    "name": "newlinesCountWithinLimits",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 71,
+    "name": "resetEmphasisNewlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 75,
+    "name": "addToNotesTable",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 81,
+    "name": "inline",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 127,
+    "name": "inlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 131,
+    "name": "specialChars",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 138,
+    "name": "isStrEnd",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 172,
+    "name": "whitespace",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 178,
+    "name": "linebreak",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 181,
+    "name": "str",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 192,
+    "name": "endline",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 211,
+    "name": "orgCite",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 226,
+    "name": "adjustCiteStyle",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 239,
+    "name": "addPrefixToFirstItem",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 248,
+    "name": "addSuffixToLastItem",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 258,
+    "name": "citeItems",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 261,
+    "name": "citeItem",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 278,
+    "name": "orgCiteKey",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 283,
+    "name": "orgCiteKeyChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 289,
+    "name": "rawAffix",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 300,
+    "name": "citePrefix",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 304,
+    "name": "citeSuffix",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 308,
+    "name": "citeStyle",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 314,
+    "name": "orgCiteStyle",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 333,
+    "name": "orgCiteVariants",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 366,
+    "name": "spnl",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 370,
+    "name": "cite",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 381,
+    "name": "orgRefCite",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 387,
+    "name": "normalOrgRefCite",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 411,
+    "name": "linkLikeOrgRefCite",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 434,
+    "name": "orgRefCiteKey",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 448,
+    "name": "orgRefCiteMode",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 459,
+    "name": "footnote",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 465,
+    "name": "inlineNote",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 475,
+    "name": "referencedNote",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 487,
+    "name": "linkOrImage",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 494,
+    "name": "explicitOrImageLink",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 510,
+    "name": "selflinkOrImage",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 521,
+    "name": "plainLink",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 526,
+    "name": "angleLink",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 533,
+    "name": "linkTarget",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 536,
+    "name": "possiblyEmptyLinkTarget",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 539,
+    "name": "applyCustomLinkFormat",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 548,
+    "name": "linkToInlinesF",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 557,
+    "name": "internalLink",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 570,
+    "name": "anchor",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 577,
+    "name": "solidify",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 585,
+    "name": "inlineCodeBlock",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 610,
+    "name": "emphasizedText",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 621,
+    "name": "enclosedByPair",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 628,
+    "name": "enclosedByPair1",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 635,
+    "name": "emph",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 638,
+    "name": "strong",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 641,
+    "name": "strikeout",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 644,
+    "name": "underline",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 647,
+    "name": "verbatim",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 650,
+    "name": "code",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 655,
+    "name": "isAfterString",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 662,
+    "name": "subscript",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 668,
+    "name": "superscript",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 673,
+    "name": "math",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 679,
+    "name": "displayMath",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 684,
+    "name": "updatePositions",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 694,
+    "name": "symbol",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 697,
+    "name": "emphasisBetween",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 708,
+    "name": "verbatimBetween",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 718,
+    "name": "mathTextBetween",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 730,
+    "name": "math1CharBetween",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 740,
+    "name": "rawMathBetween",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 747,
+    "name": "emphasisStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 759,
+    "name": "emphasisEnd",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 772,
+    "name": "mathStart",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 776,
+    "name": "mathEnd",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 784,
+    "name": "enclosedInlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 790,
+    "name": "enclosedRaw",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 801,
+    "name": "many1TillNOrLessNewlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 823,
+    "name": "emphasisForbiddenBorderChars",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 827,
+    "name": "emphasisAllowedNewlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 833,
+    "name": "mathPostChars",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 837,
+    "name": "mathForbiddenBorderChars",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 841,
+    "name": "mathAllowedNewlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 845,
+    "name": "afterEmphasisPreChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 852,
+    "name": "notAfterForbiddenBorderChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 859,
+    "name": "subOrSuperExpr",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 874,
+    "name": "simpleSubOrSuperText",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 882,
+    "name": "inlineLaTeX",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 925,
+    "name": "maybeRight",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 928,
+    "name": "inlineLaTeXCommand",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 943,
+    "name": "exportSnippet",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 950,
+    "name": "macro",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 971,
+    "name": "smartQuotes",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 981,
+    "name": "specialStrings",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 990,
+    "name": "singleQuoted",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Inlines.hs",
+    "line": 1001,
+    "name": "doubleQuoted",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgInlines.kt",
+      "OrgInlineMarkup.kt",
+      "OrgInlineLinks.kt",
+      "OrgInlineCitations.kt",
+      "OrgInlineLaTeX.kt",
+      "OrgInlineSmart.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 43,
+    "name": "metaExport",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 52,
+    "name": "removeMeta",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 60,
+    "name": "metaLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 63,
+    "name": "keywordLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 70,
+    "name": "metaKey",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 79,
+    "name": "keywordHandlers",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 129,
+    "name": "parseThen",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 138,
+    "name": "collectLines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 161,
+    "name": "collectAsList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 173,
+    "name": "metaExportSnippet",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 177,
+    "name": "addLinkFormatter",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 189,
+    "name": "parseFormat",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 202,
+    "name": "tagList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 207,
+    "name": "setExcludedTags",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 214,
+    "name": "setSelectedTags",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 221,
+    "name": "setEmphasisPreChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 226,
+    "name": "setEmphasisPostChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 232,
+    "name": "emphChars",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 237,
+    "name": "lineOfInlines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 243,
+    "name": "todoSequence",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Meta.hs",
+    "line": 282,
+    "name": "macroDefinition",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgMeta.kt",
+      "OrgMetaCollections.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 165,
+    "name": "defaultOrgParserState",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 195,
+    "name": "optionsToParserState",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 207,
+    "name": "registerTodoSequence",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 214,
+    "name": "activeTodoSequences",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 221,
+    "name": "activeTodoMarkers",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 224,
+    "name": "lookupMacro",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 227,
+    "name": "registerMacro",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/ParserState.hs",
+    "line": 290,
+    "name": "defaultExportSettings",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgModel.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 131,
+    "name": "anyLine",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 139,
+    "name": "parseFromString",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 147,
+    "name": "skipSpaces1",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 151,
+    "name": "newline",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 158,
+    "name": "blanklines",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 165,
+    "name": "inList",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 171,
+    "name": "withContext",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 187,
+    "name": "getExportSetting",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 193,
+    "name": "updateLastForbiddenCharPos",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 199,
+    "name": "updateLastPreCharPos",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 208,
+    "name": "orgArgKey",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 214,
+    "name": "orgArgWord",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 218,
+    "name": "orgArgWordChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 221,
+    "name": "orgTagWord",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 224,
+    "name": "orgTagWordChar",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 227,
+    "name": "orgAnchor",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Parsing.hs",
+    "line": 236,
+    "name": "recordAnchorId",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgParsing.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Shared.hs",
+    "line": 28,
+    "name": "isImageFilename",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgShared.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Shared.hs",
+    "line": 41,
+    "name": "cleanLinkText",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgShared.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Shared.hs",
+    "line": 69,
+    "name": "originalLang",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgShared.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Shared.hs",
+    "line": 77,
+    "name": "translateLang",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgShared.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  },
+  {
+    "file": "upstream/pandoc/src/Text/Pandoc/Readers/Org/Shared.hs",
+    "line": 90,
+    "name": "exportsCode",
+    "status": "source-audited translation; final3538reader JUnit and available511App comparisons passed; see matrix for inherited/global gaps",
+    "implementationFiles": [
+      "OrgShared.kt"
+    ],
+    "coverage": "original312; expanded973; helpers552; effects38; profile1541; boundary49; deep14 pending; metadata collectors58 where applicable"
+  }
+]

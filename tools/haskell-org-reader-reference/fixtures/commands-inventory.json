@@ -1,0 +1,408 @@
+[
+  {
+    "path": "upstream/pandoc/test/command/10071.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native --preserve-tabs",
+    "orgInput": "explicit",
+    "sourceSha256": "64248460b5aed7ed9e7ed151e15871a760fbab49329203ccf32ac6847aaade46"
+  },
+  {
+    "path": "upstream/pandoc/test/command/10730.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "594a611a85819344011607b6883d5fcd2a8a02f1fb05f845fb45de43ad7da27d"
+  },
+  {
+    "path": "upstream/pandoc/test/command/10836.md",
+    "number": 1,
+    "command": "% pandoc -f org -t latex",
+    "orgInput": "explicit",
+    "sourceSha256": "8dcf764c5ef450cd8b147ca32ebc9380a12a14b57f0bf468d4d2201237a80b92"
+  },
+  {
+    "path": "upstream/pandoc/test/command/11188.md",
+    "number": 1,
+    "command": "% pandoc -f org --to=native",
+    "orgInput": "explicit",
+    "sourceSha256": "9de0fd101feb7ddd8fec5c08989368d58f577c827bf5e4c61f32941007c098ed"
+  },
+  {
+    "path": "upstream/pandoc/test/command/11188.md",
+    "number": 2,
+    "command": "% pandoc -f org --to=native",
+    "orgInput": "explicit",
+    "sourceSha256": "9de0fd101feb7ddd8fec5c08989368d58f577c827bf5e4c61f32941007c098ed"
+  },
+  {
+    "path": "upstream/pandoc/test/command/11188.md",
+    "number": 3,
+    "command": "% pandoc -f org --to=native",
+    "orgInput": "explicit",
+    "sourceSha256": "9de0fd101feb7ddd8fec5c08989368d58f577c827bf5e4c61f32941007c098ed"
+  },
+  {
+    "path": "upstream/pandoc/test/command/11188.md",
+    "number": 4,
+    "command": "% pandoc -f org --to=markdown",
+    "orgInput": "explicit",
+    "sourceSha256": "9de0fd101feb7ddd8fec5c08989368d58f577c827bf5e4c61f32941007c098ed"
+  },
+  {
+    "path": "upstream/pandoc/test/command/3314.md",
+    "number": 1,
+    "command": "% pandoc -f org -t html5",
+    "orgInput": "explicit",
+    "sourceSha256": "2308df627dafe055cd099d71b10e1d2a321fc43a0f49e6e51b6097205a1f2a52"
+  },
+  {
+    "path": "upstream/pandoc/test/command/3401.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "5d2132601534ad72eec0e8ffc73ee1b3fb6c7ee4de9fffb29c2efc08c4fc90f9"
+  },
+  {
+    "path": "upstream/pandoc/test/command/3401.md",
+    "number": 2,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "5d2132601534ad72eec0e8ffc73ee1b3fb6c7ee4de9fffb29c2efc08c4fc90f9"
+  },
+  {
+    "path": "upstream/pandoc/test/command/3499.md",
+    "number": 1,
+    "command": "% pandoc -f org",
+    "orgInput": "explicit",
+    "sourceSha256": "befee7e72f90e01e00276d3dcafbab617c1bbfcc1d3fde20189b692a0fe979c5"
+  },
+  {
+    "path": "upstream/pandoc/test/command/3510.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "0d2c1ce04320f61bcc116a8925cfe399389ef77b69e8a77fb60b7aa8ce179ab4"
+  },
+  {
+    "path": "upstream/pandoc/test/command/3706.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "96b27ccb93e4a834037640decc33c5d664c0fd43bf32c4727dac97084977a037"
+  },
+  {
+    "path": "upstream/pandoc/test/command/3706.md",
+    "number": 2,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "96b27ccb93e4a834037640decc33c5d664c0fd43bf32c4727dac97084977a037"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4171.md",
+    "number": 1,
+    "command": "% pandoc -f org -t org",
+    "orgInput": "explicit",
+    "sourceSha256": "4231b026a0abb9a03690a8491365cc0e1b264379efa0d0ca1d0f7f20c3213c4b"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4171.md",
+    "number": 2,
+    "command": "% pandoc -f org -t org",
+    "orgInput": "explicit",
+    "sourceSha256": "4231b026a0abb9a03690a8491365cc0e1b264379efa0d0ca1d0f7f20c3213c4b"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4171.md",
+    "number": 3,
+    "command": "% pandoc -f org -t org",
+    "orgInput": "explicit",
+    "sourceSha256": "4231b026a0abb9a03690a8491365cc0e1b264379efa0d0ca1d0f7f20c3213c4b"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4186.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "13dbae8feaf2f5fd563f0829268a6289a7c6fa15d628c3c58950ed15cbb205e3"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4186.md",
+    "number": 2,
+    "command": "% pandoc -f org -t html",
+    "orgInput": "explicit",
+    "sourceSha256": "13dbae8feaf2f5fd563f0829268a6289a7c6fa15d628c3c58950ed15cbb205e3"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4284.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "71079301916776a1ae1f21243f94352cb8d5943ca71f5526d1f242e78894ad7b"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4284.md",
+    "number": 2,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "71079301916776a1ae1f21243f94352cb8d5943ca71f5526d1f242e78894ad7b"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4284.md",
+    "number": 3,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "71079301916776a1ae1f21243f94352cb8d5943ca71f5526d1f242e78894ad7b"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4284.md",
+    "number": 4,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "71079301916776a1ae1f21243f94352cb8d5943ca71f5526d1f242e78894ad7b"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4748.md",
+    "number": 1,
+    "command": "% pandoc -f org -t rst",
+    "orgInput": "explicit",
+    "sourceSha256": "098840a88a2f6fcc69d7f6549028e872a36a213b23e8ed28a089ea55105bb5cc"
+  },
+  {
+    "path": "upstream/pandoc/test/command/4885.md",
+    "number": 1,
+    "command": "% pandoc -f org -t markdown",
+    "orgInput": "explicit",
+    "sourceSha256": "d92946f5f4268217b133d59169c577afca6159527cff56568c62618df917340c"
+  },
+  {
+    "path": "upstream/pandoc/test/command/5128.md",
+    "number": 1,
+    "command": "% pandoc -f org -t rst --columns=78",
+    "orgInput": "explicit",
+    "sourceSha256": "835a97bff1ec8000a6b9ee6104b09e7594e1eadfc9b94e7c23d62c527d0a9303"
+  },
+  {
+    "path": "upstream/pandoc/test/command/5178.md",
+    "number": 2,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "51836205e1ee624bcbaa6e4ec0ef7810dd4de1eee8a4a0f544f51845a1197be8"
+  },
+  {
+    "path": "upstream/pandoc/test/command/6308.md",
+    "number": 1,
+    "command": "% pandoc -f org -t asciidoc",
+    "orgInput": "explicit",
+    "sourceSha256": "20df8630fbeeaf0c9a8949b695eb230e783b077dcb3eed81fc89bf6c4238f3c7"
+  },
+  {
+    "path": "upstream/pandoc/test/command/6441.md",
+    "number": 1,
+    "command": "% pandoc -f org -t html",
+    "orgInput": "explicit",
+    "sourceSha256": "0d9242801292f39f44ed222bb4945e44881ab2ba82f65d86ebcdc6352b9df5ff"
+  },
+  {
+    "path": "upstream/pandoc/test/command/6466.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "71ab8c7de6c253c61ac655cc59568395d61e7430ae5d8a095fec81d786342c8f"
+  },
+  {
+    "path": "upstream/pandoc/test/command/7329.md",
+    "number": 4,
+    "command": "% pandoc -f org -t markdown",
+    "orgInput": "explicit",
+    "sourceSha256": "c8985b6cd2d33af5b3a05a2ed74b0502f0720a018ec9c89d8836f5b9dee677b6"
+  },
+  {
+    "path": "upstream/pandoc/test/command/7520.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native -s",
+    "orgInput": "explicit",
+    "sourceSha256": "7300d2cf708466b087ac82b3c310713e029a4667d48ea001c43709246df2391d"
+  },
+  {
+    "path": "upstream/pandoc/test/command/7557.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "f308147f3f468fb57cf7519fef6808b3c843641f7c9ad806b8eccc53a45bf0da"
+  },
+  {
+    "path": "upstream/pandoc/test/command/7810.md",
+    "number": 1,
+    "command": "% pandoc -f org -t org",
+    "orgInput": "explicit",
+    "sourceSha256": "0c83face849e318192753c0ed678b9b2230fee1fd84b228f5864b90cedb43344"
+  },
+  {
+    "path": "upstream/pandoc/test/command/7810.md",
+    "number": 2,
+    "command": "% pandoc -f org -t org",
+    "orgInput": "explicit",
+    "sourceSha256": "0c83face849e318192753c0ed678b9b2230fee1fd84b228f5864b90cedb43344"
+  },
+  {
+    "path": "upstream/pandoc/test/command/7810.md",
+    "number": 3,
+    "command": "% pandoc -f org -t org",
+    "orgInput": "explicit",
+    "sourceSha256": "0c83face849e318192753c0ed678b9b2230fee1fd84b228f5864b90cedb43344"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8201.md",
+    "number": 1,
+    "command": "% pandoc -f org -t html",
+    "orgInput": "explicit",
+    "sourceSha256": "9eaec92b6a575abe26d99a9adaa83cc1a5082966d82c0d5d859dc5ad3ecd9455"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8204.md",
+    "number": 2,
+    "command": "% pandoc --from=org --to=markdown --standalone",
+    "orgInput": "explicit",
+    "sourceSha256": "faad6ae2750a7bfe2a69622a2d34edfc7f5ad5d3c3d71720d0555b58fa4e5644"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8204.md",
+    "number": 3,
+    "command": "% pandoc --from=org --to=markdown --standalone",
+    "orgInput": "explicit",
+    "sourceSha256": "faad6ae2750a7bfe2a69622a2d34edfc7f5ad5d3c3d71720d0555b58fa4e5644"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8236.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "72d04eb530fff94b0c29377fbd00c0d7a539d3f4e6f5575bcc99807dc4d5cdd4"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8302.md",
+    "number": 1,
+    "command": "% pandoc -f org -t markdown",
+    "orgInput": "explicit",
+    "sourceSha256": "bdbc9f95a182a2cbdbfb71fef2bea29d0f489b546ae9f9d7f44e12ab45947172"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8513.md",
+    "number": 1,
+    "command": "% pandoc --from org --to org --columns=72",
+    "orgInput": "explicit",
+    "sourceSha256": "5442d4c8f4ef2617c0bac367e21e253f9bf5b84b24bd03317e39bdfe45b8f2ba"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8513.md",
+    "number": 2,
+    "command": "% pandoc --from org-auto_identifiers --to org --columns=78",
+    "orgInput": "explicit",
+    "sourceSha256": "5442d4c8f4ef2617c0bac367e21e253f9bf5b84b24bd03317e39bdfe45b8f2ba"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8513.md",
+    "number": 3,
+    "command": "% pandoc --from org-auto_identifiers --to org --columns=40",
+    "orgInput": "explicit",
+    "sourceSha256": "5442d4c8f4ef2617c0bac367e21e253f9bf5b84b24bd03317e39bdfe45b8f2ba"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8659.md",
+    "number": 1,
+    "command": "% pandoc -f org -t html",
+    "orgInput": "explicit",
+    "sourceSha256": "e93c613d36dd5b0a57fd8a4e5c977d73198bbf671c02c6dd7025329d2e131190"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8659.md",
+    "number": 2,
+    "command": "% pandoc -f org -t html",
+    "orgInput": "explicit",
+    "sourceSha256": "e93c613d36dd5b0a57fd8a4e5c977d73198bbf671c02c6dd7025329d2e131190"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8689.md",
+    "number": 1,
+    "command": "% pandoc -f org -t markdown+implicit_figures",
+    "orgInput": "explicit",
+    "sourceSha256": "ccb3363bca03ec4f56a393d9b312df046dcc60db7008a29e036431a971d66aad"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8869.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "8514d5bab29cffd7d5888707987cad83c86ffd94ec63b1be6cf1f5cb345aef8c"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8997.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "3c2400827fde4e21dcb69a958a87787a7dd97ed285d3f34557b490ec35a9ad24"
+  },
+  {
+    "path": "upstream/pandoc/test/command/8997.md",
+    "number": 2,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "3c2400827fde4e21dcb69a958a87787a7dd97ed285d3f34557b490ec35a9ad24"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9042.md",
+    "number": 1,
+    "command": "% pandoc -f org",
+    "orgInput": "explicit",
+    "sourceSha256": "4d9981863bae1d51f49d049b5b58206500fc4fa2407401f63cfac0965ab6c792"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9042.md",
+    "number": 2,
+    "command": "% pandoc -f org+fancy_lists",
+    "orgInput": "explicit",
+    "sourceSha256": "4d9981863bae1d51f49d049b5b58206500fc4fa2407401f63cfac0965ab6c792"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9279.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "27ccc28828452981a614a998bc9149e63b19705278deea4bedbdf0806ceefead"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9279.md",
+    "number": 2,
+    "command": "% pandoc -f org -t markdown",
+    "orgInput": "explicit",
+    "sourceSha256": "27ccc28828452981a614a998bc9149e63b19705278deea4bedbdf0806ceefead"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9279.md",
+    "number": 3,
+    "command": "% pandoc -f org -t markdown",
+    "orgInput": "explicit",
+    "sourceSha256": "27ccc28828452981a614a998bc9149e63b19705278deea4bedbdf0806ceefead"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9279.md",
+    "number": 4,
+    "command": "% pandoc -f org -t markdown",
+    "orgInput": "explicit",
+    "sourceSha256": "27ccc28828452981a614a998bc9149e63b19705278deea4bedbdf0806ceefead"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9475.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "39219b64352b0ebf8a0c868422bc57378c5621ee3cfd504334b4218f949bd2eb"
+  },
+  {
+    "path": "upstream/pandoc/test/command/9639.md",
+    "number": 1,
+    "command": "% pandoc -f org -t native",
+    "orgInput": "explicit",
+    "sourceSha256": "ad6a87c0b25408e3ff7ef9cbd62306bdd8b5f8df0da8abca6e8f87b38968d475"
+  }
+]

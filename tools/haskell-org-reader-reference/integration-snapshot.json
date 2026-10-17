@@ -1,0 +1,159 @@
+{
+  "acceptedBaselineCommit": "f59b3901497713bd000e9ba58f2c1ad732a3cfe0",
+  "sourceCopies": [
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgInlineMarkup.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgInlineMarkup.kt",
+      "sha256": "5fa5eb9c3ee77fa32345824307475e331f8c4e195f9af81f498d6147586da080"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgInclude.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgInclude.kt",
+      "sha256": "dd30d50f5e6864b6ec6704a7a1de0882c20c2fd16fa5cfddb6254f14d5fa4be4"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgLists.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgLists.kt",
+      "sha256": "6cf7fe44e2c5e724b47d0863648a6aff7e358efadbdde3c60ce01f07881f4fd0"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgInlineLaTeX.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgInlineLaTeX.kt",
+      "sha256": "830de9c1046ac3734442a44c2a161a232b738cd3b1b0deb57cc59b328f59205f"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgInlines.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgInlines.kt",
+      "sha256": "e74a0567422d0a01048d47d1ca32f90ea4a56e315fdc82e45d73df9833a666c4"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgCliReader.kt",
+      "installed": "cli/src/main/kotlin/io/heapy/kotdoc/cli/OrgCliReader.kt",
+      "sha256": "fddfa99612ae94ea2dffa7383bd46079426095e454ca36dfa5e5873d3f5c077c"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgInlineCitations.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgInlineCitations.kt",
+      "sha256": "e4eb10087c2709c61ef6f9ff6ca516ece867eae3e26e9227616a16a2fdd6ca38"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/Main.kt",
+      "installed": "cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt",
+      "sha256": "a7f8084ef38c052f9da41a11ee70153a0af4456b5816f238cd995013f93f0de0"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgModel.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgModel.kt",
+      "sha256": "404aca929c867e176818aac447d89e6de2d52e2fc6b6d8ff7a302586627ec48c"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgReader.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/OrgReader.kt",
+      "sha256": "5751dc894464cafa3883a5179fb6163b5154c6f683ded3b65c63cc87df32c056"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgParsing.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgParsing.kt",
+      "sha256": "75b3c56eb7ad365488a858cd0a6d75eb526dbea13a01a35967cd0703fb4610ed"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgShared.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgShared.kt",
+      "sha256": "792e827e13cf81ceba116c40e8f70415f834e663682a89d70192a0ed0a3edbe0"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgGridTable.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgGridTable.kt",
+      "sha256": "e86e1c9f84e4960e68a6cd9f64895867a9d3365889908fdd6913bf2530723766"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgBlocksBasic.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgBlocksBasic.kt",
+      "sha256": "b1d76ef410db1210cc24630b166b7a323343e6640bd01703e6a0493019a27b23"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgTables.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgTables.kt",
+      "sha256": "604eb130f7e4f1126368dc02a3c6fdc428ebfb2e08686ac1227a2db77f32300c"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgMeta.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgMeta.kt",
+      "sha256": "67f845e95f8e7bd2675244e6cb4582ed78059fb726de2140093a97230972d5d7"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgBlocksDelimited.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgBlocksDelimited.kt",
+      "sha256": "9c2bc47f7817305ebfec0296c9a6d9adcf54f37c41b4314dd4356e22effc2efb"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgDocumentTree.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgDocumentTree.kt",
+      "sha256": "ccb5b207191ee97c73965098146b7c5947683ccb08ba60d7655d959f5b9065c9"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgPureData.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgPureData.kt",
+      "sha256": "9577144795ee4deeed4153a7d6a813132bc1b7bde441b272d2f4c0dd5f2abe3e"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgBlocks.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgBlocks.kt",
+      "sha256": "b2d9135fbd51e5721712209fad0e55f56b40300be115340f8629fef3bdd6a3af"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgBlockStarts.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgBlockStarts.kt",
+      "sha256": "cade9fcbe6aa56ae62e28ebbe60decf227e0f3d072278dd3d1b500fbd6bd414a"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgInlineLinks.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgInlineLinks.kt",
+      "sha256": "f6423f1997b46b8a626d08b1813065d60dfd36f4d78fd82686c6f33030dfb20f"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgInlineSmart.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgInlineSmart.kt",
+      "sha256": "ac95f24e1eb0141a40cd71d36e833b3b3b44668e6a3c8c6930efbba985653ee0"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgMetaCollections.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgMetaCollections.kt",
+      "sha256": "def2bcd44463bf70ba219bc6400d0691bdae173b233848f1521b6b710d0046f5"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/work-in-progress/OrgExportSettings.kt",
+      "installed": "core/src/main/kotlin/io/heapy/kotdoc/readers/org/OrgExportSettings.kt",
+      "sha256": "2776f7f368cdf1c271e384c42ab76db398dc7b24c207e0a9def902ccf178054c"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/test-drafts/OrgReaderHelperTest.kt",
+      "installed": "core/src/test/kotlin/io/heapy/kotdoc/readers/org/OrgReaderHelperTest.kt",
+      "sha256": "55d521e989c3caae05ed4d63228802cfcbb901b8bad4f2bd722fd1e8a30eb0ce"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/test-drafts/OrgReaderMetaCollectionTest.kt",
+      "installed": "core/src/test/kotlin/io/heapy/kotdoc/readers/org/OrgReaderMetaCollectionTest.kt",
+      "sha256": "62b1a8235738a9396bc28a0876dd778e39fc9ad0152e8e029ffd182db3b9b179"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/test-drafts/OrgTestRuntime.kt",
+      "installed": "core/src/test/kotlin/io/heapy/kotdoc/readers/org/OrgTestRuntime.kt",
+      "sha256": "733ad0f4cc6df90117ee2d5b396996f288a68c4488b44b9f26f9bdd9599e901d"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/test-drafts/OrgReaderEffectTest.kt",
+      "installed": "core/src/test/kotlin/io/heapy/kotdoc/readers/org/OrgReaderEffectTest.kt",
+      "sha256": "cfe9a00f0739e4df863384973486c5e40718322ac22534acf5b6f0f61af35eba"
+    },
+    {
+      "draft": "tools/haskell-org-reader-reference/test-drafts/OrgReaderTest.kt",
+      "installed": "core/src/test/kotlin/io/heapy/kotdoc/readers/org/OrgReaderTest.kt",
+      "sha256": "4cf17c6e8ee0df154d63da3b7b0f8c96bbc45537e8dad5e7b13b0cc875dcf265"
+    }
+  ],
+  "historicalMain": "evidence/class-integration-binding.json",
+  "package": "evidence/package.json",
+  "testResults": "evidence/final-proof.json",
+  "scope": "42 owned installed source/test/resource files; unrelated MD5 additions separately recorded; historical manifests are unchanged"
+}

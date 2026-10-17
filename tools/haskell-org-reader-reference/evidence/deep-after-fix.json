@@ -1,0 +1,16 @@
+{
+  "exitCode": 0,
+  "cases": 14,
+  "passed": 14,
+  "heap": "512MiB",
+  "stack": "256KiB",
+  "rawLogSha256": "0a0a87db232b10401bc28e7c78abdf32868c294601c59f226326d5ea9d894020",
+  "artifact": "/tmp/kotdoc-org-reader/deep-fix.jar",
+  "artifactSha256": "043d64e17e6e1531f55744b035c53d6d00c30bd5729149a1e4590f503be8a7b9",
+  "currentFullNestedProof": {
+    "cases": 2,
+    "exitCode": 0,
+    "logSha256": "81600ba4494901ce528700d862f19ee815960835e85eede50b6a2c157d321066"
+  },
+  "scope": "finite reader input parity; final current-artifact JUnit covers same14cases"
+}

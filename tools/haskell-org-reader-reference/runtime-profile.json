@@ -1,0 +1,149 @@
+{
+  "ghc": "9.12.2",
+  "pandocCommit": "e51c9c6054c8f4ec5c3209d5abe10939dfe2963e",
+  "pandocTypesCommit": "b2cbcefc4547296f47b8120740997a9c021d756f",
+  "textProfile": "text-2.1.2-b3a1",
+  "ghcCharacterProfile": "Unicode16 simple Char predicates/case",
+  "plan": {
+    "path": "/tmp/kotdoc-test-inventory-runtime/build/cache/plan.json",
+    "sha256": "bcb915f6eedb15b49cbab896396697264a21e8015810c760069c312a4f38575a"
+  },
+  "packages": [
+    {
+      "name": "parsec",
+      "unit": "parsec-3.1.18.0-7fb1",
+      "path": "/private/tmp/kotdoc-haskell/ghc/lib/ghc-9.12.2/lib/package.conf.d/parsec-3.1.18.0-7fb1.conf",
+      "sha256": "77d9a684a855b32bcabe1471e23996fa67855d3f2a6a525214a9b84f59f8ca2f"
+    },
+    {
+      "name": "text",
+      "unit": "text-2.1.2-b3a1",
+      "path": "/private/tmp/kotdoc-haskell/ghc/lib/ghc-9.12.2/lib/package.conf.d/text-2.1.2-b3a1.conf",
+      "sha256": "2fccdf3b0c13adebbe26e875168044e58acc9953e209662f3e0a69646a88e5c2"
+    },
+    {
+      "name": "filepath",
+      "unit": "filepath-1.5.4.0-9906",
+      "path": "/private/tmp/kotdoc-haskell/ghc/lib/ghc-9.12.2/lib/package.conf.d/filepath-1.5.4.0-9906.conf",
+      "sha256": "7778841397eb3be293db0f28ab1e0daa8d6757685fdbb68c6d46582eababc99f"
+    },
+    {
+      "name": "base",
+      "unit": "base-4.21.0.0-958c",
+      "path": "/private/tmp/kotdoc-haskell/ghc/lib/ghc-9.12.2/lib/package.conf.d/base-4.21.0.0-958c.conf",
+      "sha256": "fbf455bf865b532a8388bde3daad940e9c37026843c61148758c9549961d1ff5"
+    },
+    {
+      "name": "pandoc-types",
+      "unit": "pndc-typs-1.23.1.2-1065ea37",
+      "path": "/tmp/kotdoc-haskell/cabal-state/store/ghc-9.12.2-ea3d/package.db/pndc-typs-1.23.1.2-1065ea37.conf",
+      "sha256": "0a1f9fb0ea8d992e5292c67a2f86ea12dd0441bf8234b0c76cc40eec574e7045"
+    },
+    {
+      "name": "gridtables",
+      "unit": "grdtbls-0.1.1.0-8ff59a97",
+      "path": "/tmp/kotdoc-haskell/cabal-state/store/ghc-9.12.2-ea3d/package.db/grdtbls-0.1.1.0-8ff59a97.conf",
+      "sha256": "986d6925eadc3f044973573fe442742812bfffd49ba3e60f4709246a50069881"
+    },
+    {
+      "name": "pandoc-types",
+      "unit": "pandoc-types-1.23.1.2-inplace",
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/packagedb/ghc-9.12.2/pandoc-types-1.23.1.2-inplace.conf",
+      "sha256": "1765301adcc146308ea2991a8a4960bd8f8467888588c204e0acf34bfd4b0b4a"
+    },
+    {
+      "name": "pandoc",
+      "unit": "pandoc-3.12.1-inplace",
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/packagedb/ghc-9.12.2/pandoc-3.12.1-inplace.conf",
+      "sha256": "20a9bf687e853917354ee6e3029b19cf312ae0f217aa230ab012355629f90d25"
+    },
+    {
+      "name": "texmath",
+      "unit": "texmath-0.13.3.1-inplace",
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/packagedb/ghc-9.12.2/texmath-0.13.3.1-inplace.conf",
+      "sha256": "75a96b3466b04ab0fb6d5cd2b73cec2079f8346c8e63473064f9495c6a91fc2c"
+    }
+  ],
+  "privateRegistration": {
+    "path": "/tmp/kotdoc-org-reader/package-db/pandoc-3.12.1-inplace.conf",
+    "sha256": "e1a4ac5400db66a6e541d5688d48cf39e4f8401adcff37f726b97887460f21b5",
+    "transformation": "only hidden-modules moved to exposed-modules; same unit id ABI/import/library dirs/binaries"
+  },
+  "copiedOriginalBinary": {
+    "path": "/tmp/kotdoc-org-reader/final-oracle",
+    "sha256": "7bdec996e87ccec52cf0f3bc8cbfc08e11c1e21b33cbb7f9e511ac59db1061a1"
+  },
+  "textMappingSource": {
+    "path": "vendor/text-2.1.2/src/Data/Text/Internal/Fusion/CaseMapping.hs",
+    "sha256": "f939679161321c8961445c3060132bfc59c911db2c95a7b6fa12e66ccdbda9ad"
+  },
+  "oracleBinaries": [
+    {
+      "path": "/tmp/kotdoc-org-reader/final-oracle",
+      "sha256": "7bdec996e87ccec52cf0f3bc8cbfc08e11c1e21b33cbb7f9e511ac59db1061a1"
+    },
+    {
+      "path": "/tmp/kotdoc-org-reader/helper-oracle",
+      "sha256": "b437873a7091a7913c66640e6e89a0fa291e8bdd6471d1d531fe43c642940d16"
+    },
+    {
+      "path": "/tmp/kotdoc-org-reader/effect-oracle",
+      "sha256": "7cba7f33d017d9ae6cc81d5b927bfff23cde17d0d6614e4b8d7f7fa7f66f52b0"
+    },
+    {
+      "path": "/tmp/kotdoc-org-reader/meta-helper-show-oracle2",
+      "sha256": "9948b096514c4263c06166500d42818d72dc7ec70cc2cee1c79161a48ca12924"
+    },
+    {
+      "path": "/tmp/kotdoc-org-reader/command-oracle",
+      "sha256": "50e2c1b3037bcfd0dd5be70573a261ed23bc751cd1f71907205a4e6ccb2f36cd"
+    }
+  ],
+  "compiledLibraryArtifacts": [
+    {
+      "path": "/private/tmp/kotdoc-haskell/cabal-state/store/ghc-9.12.2-ea3d/grdtbls-0.1.1.0-8ff59a97/lib/libHSgrdtbls-0.1.1.0-8ff59a97.a",
+      "sha256": "28fbd3b8025284691011298210ea2b2f8168329fbc7d87ea8eed55040d080966"
+    },
+    {
+      "path": "/private/tmp/kotdoc-haskell/cabal-state/store/ghc-9.12.2-ea3d/lib/libHSgrdtbls-0.1.1.0-8ff59a97-ghc9.12.2.dylib",
+      "sha256": "4f36af878424f36a12c76777977774c622f03731837be587e344c2b9aa848fda"
+    },
+    {
+      "path": "/private/tmp/kotdoc-haskell/cabal-state/store/ghc-9.12.2-ea3d/lib/libHSpndc-typs-1.23.1.2-1065ea37-ghc9.12.2.dylib",
+      "sha256": "63b76e2b8e8cf2a0c0aee4cbf46ac8d2a91a9c7383e003182155706414b0d869"
+    },
+    {
+      "path": "/private/tmp/kotdoc-haskell/cabal-state/store/ghc-9.12.2-ea3d/pndc-typs-1.23.1.2-1065ea37/lib/libHSpndc-typs-1.23.1.2-1065ea37.a",
+      "sha256": "0b036d6e55a10e637692ec4a1f26937027905f0c94373a233b7b834d48400b57"
+    },
+    {
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-3.12.1/noopt/build/libHSpandoc-3.12.1-inplace-ghc9.12.2.dylib",
+      "sha256": "38d167a89cd7c81f625ff3fe30815afee5ae675fdc66af46a58e1f57f891cd01"
+    },
+    {
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-3.12.1/noopt/build/libHSpandoc-3.12.1-inplace.a",
+      "sha256": "50bbf433fdfb836e95a5de3ca425ace54e0fec66fe54d9017f60d476894be7f9"
+    },
+    {
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-types-1.23.1.2/opt/build/libHSpandoc-types-1.23.1.2-inplace-ghc9.12.2.dylib",
+      "sha256": "db7f1a9fcd4b224f8c1b35d7a0816bc0d26dc5332185d6bfab2ed5aecb191398"
+    },
+    {
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-types-1.23.1.2/opt/build/libHSpandoc-types-1.23.1.2-inplace.a",
+      "sha256": "d5631aa18b324a83c1d4bab03adcf52b8e424bc7b6f74ae0295e639580a53f8e"
+    },
+    {
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/texmath-0.13.3.1/build/libHStexmath-0.13.3.1-inplace-ghc9.12.2.dylib",
+      "sha256": "b77a3ab5b27a1073ffc42c31fb92431854a8d4d6c637793cc2cf430c6b590b1c"
+    },
+    {
+      "path": "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/texmath-0.13.3.1/build/libHStexmath-0.13.3.1-inplace.a",
+      "sha256": "044271f7279076af4fe1ebe457bf1d491d67ce9e546544b17c1875980519ac4f"
+    }
+  ],
+  "oracleDynamicDependencies": "/tmp/kotdoc-org-reader/final-oracle:\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)\n\t/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.12)\n\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t/usr/lib/libffi.dylib (compatibility version 1.0.0, current version 40.0.0)\n\t/System/Library/Frameworks/Security.framework/Versions/A/Security (compatibility version 1.0.0, current version 62460.1.2)\n\t/usr/lib/libcharset.1.dylib (compatibility version 1.0.0, current version 1.0.0)\n",
+  "originalCli": {
+    "path": "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-3.12.1/t/test-pandoc/noopt/build/test-pandoc/test-pandoc",
+    "sha256": "d83c5643647220a53b7897b463477260f4fe3167be23760c4304367f5577de39"
+  }
+}
