@@ -1,0 +1,56 @@
+[
+  {
+    "request": {
+      "op": "generate",
+      "size": "2",
+      "e": "0",
+      "seed": 0,
+      "budget": 0
+    },
+    "pid": 79857,
+    "observation": "did not return in2seconds despite budget0; own diagnostic child killed",
+    "exit": -9,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "request": {
+      "op": "generate",
+      "size": "2",
+      "e": "1",
+      "seed": 0,
+      "budget": 0
+    },
+    "pid": 79936,
+    "observation": "did not return in2seconds despite budget0; own diagnostic child killed",
+    "exit": -9,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "request": {
+      "op": "generate",
+      "size": "2",
+      "e": "2",
+      "seed": 0,
+      "budget": 0
+    },
+    "pid": 80039,
+    "exit": 0,
+    "stdout": "{\"inner\":[],\"outer\":[[1,[]]],\"value\":{\"error\":\"rng budget\"}}\n",
+    "stderr": ""
+  },
+  {
+    "request": {
+      "op": "generate",
+      "size": "2",
+      "e": "17",
+      "seed": 0,
+      "budget": 0
+    },
+    "pid": 80041,
+    "exit": 0,
+    "stdout": "{\"inner\":[],\"outer\":[[1,[]]],\"value\":{\"error\":\"rng budget\"}}\n",
+    "stderr": ""
+  }
+]

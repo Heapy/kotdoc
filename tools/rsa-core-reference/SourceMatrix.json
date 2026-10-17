@@ -1,0 +1,141 @@
+{
+  "scope": [
+    "Crypto.PubKey.RSA complete3generationfunctions",
+    "Crypto.PubKey.RSA.Prim complete2public+4privatehelpers"
+  ],
+  "exports": [
+    "generateWith",
+    "generate",
+    "generateBlinder",
+    "dp",
+    "ep"
+  ],
+  "privateHelpers": [
+    "dpSlow",
+    "dpFast",
+    "dpFastNoBlinder",
+    "multiplication"
+  ],
+  "reuse": [
+    "X509RsaPublicKey fields/Eq/Show",
+    "X509RsaPrivateKey lazy secret fields/Eq/redactedShow/debugShow",
+    "CryptoNumberPrime",
+    "CryptoNumberGenerate",
+    "CryptoModular",
+    "CryptoSerialize",
+    "CryptoChaChaDrg/CryptoProbabilistic"
+  ],
+  "originalRawPartition": {
+    "generateWithVectors": 3,
+    "privateExponentExampleCombinations": 40,
+    "blinderProperties": 2,
+    "trialsPerProperty": 100
+  },
+  "remaining": {
+    "rsa": [
+      "complete standalone RSA.Types Read/Data/Generic/NFData/KeyPair surface",
+      "PKCS15 padding/signatures",
+      "OAEP",
+      "PSS",
+      "MGF1"
+    ],
+    "hashes": [
+      "SHA1",
+      "SHA224/SHA256",
+      "remaining hash algorithms and HMAC"
+    ],
+    "random": [
+      "SystemDRG lazy256chunks",
+      "Entropy Source/Backend/Unsafe/Unix/Windows/RDRand",
+      "MonadRandom IO/System mappings"
+    ],
+    "signatures": [
+      "DSA",
+      "legacy and modern ECDSA including deterministicNonce/HMAC",
+      "Ed25519 signing/public module (accepted Edwards25519 is arithmetic, not this signature API)",
+      "generic EdDSA context/prehash/custom-hash module",
+      "ElGamal",
+      "Rabin Basic/Modified/RW"
+    ],
+    "x509": [
+      "Validation.Signature allalgorithms",
+      "Validation.Cache",
+      "Validation.Types",
+      "Validation.hs trust/chain policies"
+    ],
+    "fullGoal": [
+      "remaining613",
+      "Pandoc623/alltestsformats",
+      "calibre624MOBI6/KF8",
+      "calibre625otherformats",
+      "626delivery"
+    ]
+  },
+  "boundaries": [
+    "Integer algorithm is BigInteger, not Java RSA engine",
+    "GHC Int64 vs Kotlin array and BigInteger bit capacity checked limits",
+    "X509 record reuse does not claim full standalone Types instances",
+    "portable/selectedaccepteddependency ABI/timing/erasure bounds remain",
+    "generateBlinder is strict value convenience; generateBlinderDeferred executes callback effects and memoizes the source lazy result"
+  ],
+  "observations": {
+    "ordinaryRows": 2481,
+    "originalTestDRGSamples": 100,
+    "additionalStrictnessRows": 8,
+    "customDRGRows": 60,
+    "effectfulCallbackRows": 4,
+    "originalPropertiesExecutedOnKotlin": {
+      "holdsInverse": 100,
+      "leavesDecryptionUnchanged": 100
+    },
+    "unchangedOriginalSuite": {
+      "examples": 37,
+      "maxSuccess": 100,
+      "KotlinPartition": "three generateWith vectors; forty private exponents; two blinder properties only"
+    },
+    "strictRootRows": {
+      "pureCustomDrg": 224,
+      "effectfulCallback": 84,
+      "projections": [
+        "WHNF only",
+        "r",
+        "inverse",
+        "Show",
+        "ignored result",
+        "state",
+        "repeated root/fields",
+        "state/root/state"
+      ],
+      "instrumentation": "custom dictionary counts source calls; original RSA implementation unchanged"
+    },
+    "finiteRetryRows": {
+      "generation": 88,
+      "blinderMax": 60,
+      "generationBudgets": [
+        100,
+        1000,
+        5000
+      ],
+      "eventualSuccessRetries": [
+        0,
+        1,
+        100,
+        1000,
+        2500
+      ],
+      "smallStackBytes": 262144,
+      "source": "unchanged original RSA, caller-controlled finite DRG errors and successful streams; not a transformed loop observer"
+    }
+  },
+  "sourceDemandBoundary": {
+    "pureStateInvalidExponent": "e<=1 discards lazy generatePQ and repeats without DRG demand; explicit Kotlin loop avoids stack overflow",
+    "effectfulCallbackInvalidExponent": "first one-byte candidate request before invalid exponent check",
+    "strictBlinder": "r and inverse fields precede dpFast body in selected GHC profile",
+    "multiplicationWorker": "modulus, right, left; finite synchronous error probes only",
+    "retryImplementation": "RSA-local iterative computation under shared lazy result; final generator remains lazy; large-range maxAction reuses accepted iterative Number.Generate"
+  },
+  "strictConstructors": {
+    "Blinder": "!Integer !Integer; force both fields at returned value root",
+    "PublicKey/PrivateKey": "no strict fields; preserve lazy existing records"
+  }
+}

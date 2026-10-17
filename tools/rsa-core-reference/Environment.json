@@ -1,0 +1,59 @@
+{
+  "compiler": "GHC 9.12.2 -O2",
+  "platform": "aarch64-osx little endian; Haskell Int64",
+  "originalArchiveSha256": "9e2fcd5c9326d85076cb48cee7fdd9add98384d9d9b79af0ccba0ae9d99c5914",
+  "libraryProject": "/tmp/kotdoc-prime-haskell-oracle.project",
+  "libraryBuildDirectory": "/tmp/kotdoc-prime-haskell-build",
+  "libraryOverlay": "438 unchanged original crypton files; seven visibility-only Cabal exports; accepted Prime oracle overlay",
+  "libraryOverlayVerifier": "tools/prime-reference/prepare-haskell-oracle.py --check",
+  "integerGmp": "1.1, flag enabled; nextPrime/MillerRabin compat paths disabled by pinned source",
+  "developmentExecutables": {
+    "ordinary": "/tmp/kotdoc-rsa-core-reference",
+    "demand": "/tmp/kotdoc-rsa-demand",
+    "callback": "/tmp/kotdoc-rsa-callback",
+    "strictRoot": "/tmp/kotdoc-rsa-root-demand",
+    "callbackRoot": "/tmp/kotdoc-rsa-callback-root",
+    "retry": "/tmp/kotdoc-rsa-retry",
+    "blinderRetry": "/tmp/kotdoc-rsa-blinder-retry"
+  },
+  "buildCommand": [
+    "/tmp/kotdoc-haskell/cabal",
+    "exec",
+    "--project-file=/tmp/kotdoc-prime-haskell-oracle.project",
+    "--builddir=/tmp/kotdoc-prime-haskell-build",
+    "--",
+    "ghc",
+    "-O2",
+    "-package",
+    "crypton-2.0.1",
+    "-package",
+    "ram",
+    "-package",
+    "aeson",
+    "-package",
+    "hspec",
+    "-package",
+    "QuickCheck",
+    "-itools/rsa-core-reference",
+    "-itools/prime-reference",
+    "-ivendor/crypton-2.0.1/tests",
+    "-outputdir",
+    "/tmp/kotdoc-rsa-core-haskell-build",
+    "-o",
+    "/tmp/kotdoc-rsa-core-reference",
+    "tools/rsa-core-reference/RsaReference.hs"
+  ],
+  "environment": {
+    "PATH_PREFIX": "/tmp/kotdoc-haskell/ghc/bin",
+    "CABAL_DIR": "/tmp/kotdoc-haskell/cabal-state"
+  },
+  "ordinaryUnchangedSuite": "--suite --seed 613 --qc-max-success 100: 37 examples / zero failures",
+  "boundedObserver": "outer-loop attempt counter only; no original-return or termination claim",
+  "history": [
+    "preliminary/Failed33532.json",
+    "preliminary/GenerateNonterminationObservations.json"
+  ],
+  "strictRootProbeCompiler": "GHC9.12.2 -O2 -package crypton-2.0.1 -package ram -package aeson; same accepted Cabal project/builddir; original Crypto.PubKey.RSA imported unchanged",
+  "retryProbeCompiler": "GHC9.12.2-O2, same accepted Cabal project/builddir, packages crypton-2.0.1/ram/aeson; RsaRetry.hs and RsaBlinderRetry.hs import original RSA unchanged",
+  "kotlinRetryProof": "kotlin -J-Xss256k;88generation+60blinder rows"
+}

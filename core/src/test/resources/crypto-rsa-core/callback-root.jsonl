@@ -1,0 +1,84 @@
+{"mode":"callback0","n":"-3","projection":"root","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"-3","projection":"r","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"-3","projection":"inverse","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"-3","projection":"show","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"-3","projection":"ignore","results":[{"calls":[16],"value":"42"}]}
+{"mode":"callback0","n":"-3","projection":"repeatedRoot","results":[{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"0","projection":"root","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback0","n":"0","projection":"r","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback0","n":"0","projection":"inverse","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback0","n":"0","projection":"show","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback0","n":"0","projection":"ignore","results":[{"calls":[16],"value":"42"}]}
+{"mode":"callback0","n":"0","projection":"repeatedRoot","results":[{"calls":[16],"value":"divide by zero"},{"calls":[16],"value":"divide by zero"},{"calls":[16],"value":"divide by zero"},{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback0","n":"1","projection":"root","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"1","projection":"r","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"1","projection":"inverse","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"1","projection":"show","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"1","projection":"ignore","results":[{"calls":[16],"value":"42"}]}
+{"mode":"callback0","n":"1","projection":"repeatedRoot","results":[{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"2","projection":"root","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"2","projection":"r","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"2","projection":"inverse","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"2","projection":"show","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"2","projection":"ignore","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback0","n":"2","projection":"repeatedRoot","results":[{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3","projection":"root","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3","projection":"r","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3","projection":"inverse","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3","projection":"show","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3","projection":"ignore","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback0","n":"3","projection":"repeatedRoot","results":[{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"15","projection":"root","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"15","projection":"r","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"15","projection":"inverse","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"15","projection":"show","results":[{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"15","projection":"ignore","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback0","n":"15","projection":"repeatedRoot","results":[{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"},{"calls":[1,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3233","projection":"root","results":[{"calls":[2,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3233","projection":"r","results":[{"calls":[2,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3233","projection":"inverse","results":[{"calls":[2,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3233","projection":"show","results":[{"calls":[2,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback0","n":"3233","projection":"ignore","results":[{"calls":[2,16],"value":"42"}]}
+{"mode":"callback0","n":"3233","projection":"repeatedRoot","results":[{"calls":[2,16],"value":"CoprimesAssertionError"},{"calls":[2,16],"value":"CoprimesAssertionError"},{"calls":[2,16],"value":"CoprimesAssertionError"},{"calls":[2,16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"-3","projection":"root","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"-3","projection":"r","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"-3","projection":"inverse","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"-3","projection":"show","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"-3","projection":"ignore","results":[{"calls":[16],"value":"42"}]}
+{"mode":"callback1","n":"-3","projection":"repeatedRoot","results":[{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"0","projection":"root","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback1","n":"0","projection":"r","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback1","n":"0","projection":"inverse","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback1","n":"0","projection":"show","results":[{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback1","n":"0","projection":"ignore","results":[{"calls":[16],"value":"42"}]}
+{"mode":"callback1","n":"0","projection":"repeatedRoot","results":[{"calls":[16],"value":"divide by zero"},{"calls":[16],"value":"divide by zero"},{"calls":[16],"value":"divide by zero"},{"calls":[16],"value":"divide by zero"}]}
+{"mode":"callback1","n":"1","projection":"root","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"1","projection":"r","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"1","projection":"inverse","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"1","projection":"show","results":[{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"1","projection":"ignore","results":[{"calls":[16],"value":"42"}]}
+{"mode":"callback1","n":"1","projection":"repeatedRoot","results":[{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"},{"calls":[16],"value":"CoprimesAssertionError"}]}
+{"mode":"callback1","n":"2","projection":"root","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback1","n":"2","projection":"r","results":[{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"2","projection":"inverse","results":[{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"2","projection":"show","results":[{"calls":[1,16],"value":"Blinder 1 1"}]}
+{"mode":"callback1","n":"2","projection":"ignore","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback1","n":"2","projection":"repeatedRoot","results":[{"calls":[1,16],"value":"42"},{"calls":[1,16],"value":"42"},{"calls":[1,16],"value":"1"},{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"3","projection":"root","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback1","n":"3","projection":"r","results":[{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"3","projection":"inverse","results":[{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"3","projection":"show","results":[{"calls":[1,16],"value":"Blinder 1 1"}]}
+{"mode":"callback1","n":"3","projection":"ignore","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback1","n":"3","projection":"repeatedRoot","results":[{"calls":[1,16],"value":"42"},{"calls":[1,16],"value":"42"},{"calls":[1,16],"value":"1"},{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"15","projection":"root","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback1","n":"15","projection":"r","results":[{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"15","projection":"inverse","results":[{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"15","projection":"show","results":[{"calls":[1,16],"value":"Blinder 1 1"}]}
+{"mode":"callback1","n":"15","projection":"ignore","results":[{"calls":[1,16],"value":"42"}]}
+{"mode":"callback1","n":"15","projection":"repeatedRoot","results":[{"calls":[1,16],"value":"42"},{"calls":[1,16],"value":"42"},{"calls":[1,16],"value":"1"},{"calls":[1,16],"value":"1"}]}
+{"mode":"callback1","n":"3233","projection":"root","results":[{"calls":[2,16],"value":"42"}]}
+{"mode":"callback1","n":"3233","projection":"r","results":[{"calls":[2,16],"value":"257"}]}
+{"mode":"callback1","n":"3233","projection":"inverse","results":[{"calls":[2,16],"value":"2365"}]}
+{"mode":"callback1","n":"3233","projection":"show","results":[{"calls":[2,16],"value":"Blinder 257 2365"}]}
+{"mode":"callback1","n":"3233","projection":"ignore","results":[{"calls":[2,16],"value":"42"}]}
+{"mode":"callback1","n":"3233","projection":"repeatedRoot","results":[{"calls":[2,16],"value":"42"},{"calls":[2,16],"value":"42"},{"calls":[2,16],"value":"257"},{"calls":[2,16],"value":"2365"}]}

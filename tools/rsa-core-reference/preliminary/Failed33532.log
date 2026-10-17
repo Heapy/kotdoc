@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/yoda/dev/pet/kotdoc/tools/rsa-core-reference/capture.py", line 38, in <module>
+    result=execute(req)
+  File "/Users/yoda/dev/pet/kotdoc/tools/rsa-core-reference/capture.py", line 7, in execute
+    p=subprocess.run([str(exe)],input='\n'.join(json.dumps(r,separators=(',',':'))for r in requests)+'\n',text=True,capture_output=True,check=True)
+  File "/opt/homebrew/Cellar/python@3.15/3.15.0/Frameworks/Python.framework/Versions/3.15/lib/python3.15/subprocess.py", line 692, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/tmp/kotdoc-rsa-core-reference']' died with <Signals.SIGKILL: 9>.

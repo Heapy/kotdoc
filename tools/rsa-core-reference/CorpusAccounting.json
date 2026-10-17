@@ -1,0 +1,51 @@
+{
+  "separate": {
+    "originalSamples": 100,
+    "additionalDemand": 8,
+    "customDictionaryDemand": 60,
+    "effectfulCallback": 4
+  },
+  "classification": "expected source errors count as parity observations, not successful key generations; boundedGenerate is transformed observer only",
+  "mainFixture": {
+    "with": {
+      "total": 1078,
+      "errors": 81
+    },
+    "ep": {
+      "total": 775,
+      "errors": 311
+    },
+    "dp": {
+      "total": 92,
+      "errors": 11
+    },
+    "slow": {
+      "total": 75,
+      "errors": 4
+    },
+    "fastNo": {
+      "total": 75,
+      "errors": 19
+    },
+    "fast": {
+      "total": 35,
+      "errors": 14
+    },
+    "multiply": {
+      "total": 125,
+      "errors": 25
+    },
+    "generate": {
+      "total": 120,
+      "errors": 60
+    },
+    "blinder": {
+      "total": 90,
+      "errors": 30
+    },
+    "boundedGenerate": {
+      "total": 16,
+      "errors": 16
+    }
+  }
+}

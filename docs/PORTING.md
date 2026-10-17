@@ -15188,3 +15188,55 @@ WHNF via GenericRepRoot/callbacks. Infinite/black-hole/async/parallel heap behav
 and compiler-independent error order are not claimed. Full140-export audit,350
 SOURCE-instance member expansion, remaining Many/count Data/Typeable/Read/Show/
 EqOrd,Data.Version/JSON/filter supplement and rest611/Pandoc/calibre remain OPEN.
+
+
+### Raw RSA generation and integer primitives checkpoint
+
+The three Crypto.PubKey.RSA generation functions and two RSA.Prim exports/four
+private helpers now have Kotlin paths, reusing accepted X509 RSA records and
+Integer/Prime/DRG dependencies. CRT/non-CRT, optional blinding, private exponent
+fast formula/fallback, q inverse fallback and exact serialization/error demand
+are retained without extra prime/CRT validation or blinder retry. This is raw
+RSA, not padding/signatures or full standalone RSA.Types instance completion.
+
+Own final original replay passed2589 original request rows,308 strict-root rows
+and148 finite retry rows/72 pins. The original100 Utils.TestDRG samples execute
+both blinder properties (200 instances); three source key vectors and40 private
+exponent combinations are mapped. Unchanged native RSASpec37 examples/100 trials
+is supporting evidence only for unported padding/signature partitions. Pure
+State adapters and effectful callback projections are deliberately separate.
+Source e<=1 pure generation repeats without prime/DRG/size demand; callback
+generation requests a candidate before exponent rejection. Mechanical bounded
+loop observations are not ordinary return values or termination proofs. The first
+unknown-row33532 SIGKILL and explicit noncompletion observations remain preserved.
+
+Review rejected initially green75282 XML: generated Blinder deferred carriers
+escaped without its two strict Integer fields being demanded at root. Callback
+generateBlinder now returns a strict value; generateBlinderDeferred preserves
+effects-now/lazy-IO-result behavior. Pure mapped value forces r before rm1/u,
+while ignored value/state projections remain independent. Own original/Kotlin
+root-only modulus0 repro now throws divide by zero on both paths.
+
+Review then rejected75599 XML: pure outer key rejection and q==p retries grew
+the stack; at256KiB the exact probes failed after114/87draws instead of reaching
+the original caller budget5000. An adjacent maxAction100-rejection path also
+overflowed before its source error. RSA-local iterative memoized computations
+now retain lazy dictionary roots/successor/final state and reuse accepted iterative
+GenerateMax. Own corrected immutable-JAR repros reach budget on draw5001 for both
+generation branches, and exact GenerateMax error after100draws.88 generation/
+60 max-blinder original cases cover eventual success up to2500 retries, repeated
+projections and dictionary pair/byte/state errors, under256KiB. Accepted generic
+DRG/Prime/Generate dependencies were not edited.
+
+Both rejected38/46-file source snapshots/JAR/XML remain retained and hash-bound;
+all seven prior expectation files remain byte-exact. Final59633 XML contains75759
+actual cases with zero failures/errors/skips across seven suites (3124RSA). Own58
+frozen hashes, immutable JAR SHA/four RSA classes and108 byte-exact repository
+notices pass; installDist JAR matches. No duplicate shared Gradle was needed.
+
+Selected GHC9.12.2/-O2 demand/error order is bounded synchronous evidence, not
+universal bottom/async/concurrency/heap/timing/physical-erasure equivalence.
+Checked sizes reject unsupported JVM array/BigInteger-index dimensions rather
+than wrapping source Int64; giant allocations/other ABIs remain unproven. Full
+RSA.Types Read/Data/Generic/NFData/KeyPair,PKCS15/OAEP/PSS/MGF1,other hashes/HMAC,
+SystemDRG/OS entropy,signatures/trust/chain and rest613/Pandoc/calibre remain OPEN.

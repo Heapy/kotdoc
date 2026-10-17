@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/tmp/kotdoc-rsa-core-reference",
+    "--suite",
+    "--seed",
+    "613",
+    "--qc-max-success",
+    "100"
+  ],
+  "examples": 37,
+  "failures": 0,
+  "logSha256": "9e82679dae5721aaf319d69815e3bbfa8557e96eb7ff0a632f1258d7b304488c",
+  "scope": "unchanged original RSASpec all tests; only raw partition mapped to Kotlin here"
+}

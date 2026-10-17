@@ -1,0 +1,8 @@
+{
+  "toolSession": 33532,
+  "exit": 1,
+  "childSignal": "SIGKILL",
+  "exactPendingRequest": "unknown: old communicate-based capture had no request cursor",
+  "classification": "failed capture, never a pass; not attributed conclusively to one input",
+  "separateEvidence": "GenerateNonterminationObservations.json and source lazy-State generateWith guard proof"
+}
