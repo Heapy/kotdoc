@@ -1,0 +1,1406 @@
+[
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "ignore",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "ignore",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "ignore",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "ignore",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "ignore",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "alternative",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "alternative",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "alternative",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "alternative",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "alternative",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "value",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": "PublicKey {public_size = 1, public_n = -2, public_e = 3}"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "value",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "value",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": "PublicKey {public_size = 1, public_n = -2, public_e = 3}"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "value",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "value",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 1
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 4
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputTail"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputTail"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readProjected",
+      "input": "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "ignore",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "ignore",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "ignore",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "ignore",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "ignore",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "alternative",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "alternative",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "alternative",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "alternative",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "alternative",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "value",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "value",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "value",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "value",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "value",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 1
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 4
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputTail"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputTail"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "readProjected",
+      "input": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "ignore",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "ignore",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "ignore",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "ignore",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "ignore",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "alternative",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "alternative",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "alternative",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "alternative",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "alternative",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "value",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "value",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "value",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "value",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "value",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 1
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [],
+      "prefixLength": 4
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputTail"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputTail"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputTail"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "precedence"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "precedence"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 0
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 1
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "readProjected",
+      "input": "KeyPair (PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9})",
+      "projection": "remainder",
+      "bad": [
+        "inputRoot",
+        "precedence"
+      ],
+      "prefixLength": 4
+    },
+    "expected": {
+      "exception": "inputRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "read",
+      "input": "PublicKey {public_size = 1, public_n = 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999, public_e = 3}"
+    },
+    "expected": [
+      [
+        "PublicKey {public_size = 1, public_n = 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999, public_e = 3}",
+        ""
+      ]
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "read",
+      "input": "((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((PublicKey {public_size = 1, public_n = -2, public_e = 3}))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))"
+    },
+    "expected": [
+      [
+        "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+        ""
+      ]
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "readList",
+      "input": "[PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3},PublicKey {public_size = 1, public_n = -2, public_e = 3}] tail"
+    },
+    "expected": [
+      [
+        [
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}",
+          "PublicKey {public_size = 1, public_n = -2, public_e = 3}"
+        ],
+        " tail"
+      ]
+    ]
+  }
+]

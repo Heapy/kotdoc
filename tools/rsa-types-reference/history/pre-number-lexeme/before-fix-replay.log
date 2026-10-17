@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.IllegalStateException: row 273 expected={"exception":"inputTail"} got=false request={"type":"PublicKey","site":"public_size","token":"-1.2","method":"read","projection":"alternative","input":"PublicKey {public_size = -1.2","end":"tail","prefixLength":3}
+	at io.heapy.kotdoc.crypto.RsaTypesLexProofKt.main(RsaTypesLexProof.kt:45)

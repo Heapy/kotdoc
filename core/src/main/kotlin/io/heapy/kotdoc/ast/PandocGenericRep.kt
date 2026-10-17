@@ -32,7 +32,6 @@ internal object GenericRepIntrinsic {
     fun force(value:Any?):Any? {
         val root=SourceThunk{value}()
         when(root){
-            is GenericRepRoot->root.forceGenericRepRoot()
             is Many<*>->tree(root.tree.get())
             is ManySequence<*>->tree(root.tree.get())
         }

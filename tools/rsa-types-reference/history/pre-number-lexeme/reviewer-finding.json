@@ -1,0 +1,121 @@
+{
+  "status": "REJECTED: negative number lexP demand mismatch",
+  "jarSha256": "51f1e09049d2adca31f8a8e0da7f78c80de338fd69022abbf66087d54b921e56",
+  "original": [
+    {
+      "request": {
+        "type": "PublicKey",
+        "op": "readProjected",
+        "projection": "alternative",
+        "input": "PublicKey {public_size = -1.2",
+        "bad": [
+          "inputTail"
+        ]
+      },
+      "actual": {
+        "exception": "inputTail"
+      }
+    },
+    {
+      "request": {
+        "type": "PublicKey",
+        "op": "readProjected",
+        "projection": "alternative",
+        "input": "PublicKey {public_size = -1e2",
+        "bad": [
+          "inputTail"
+        ]
+      },
+      "actual": {
+        "exception": "inputTail"
+      }
+    },
+    {
+      "request": {
+        "type": "PublicKey",
+        "op": "readProjected",
+        "projection": "alternative",
+        "input": "PublicKey {public_size = (-1.2",
+        "bad": [
+          "inputTail"
+        ]
+      },
+      "actual": {
+        "exception": "inputTail"
+      }
+    },
+    {
+      "request": {
+        "type": "PublicKey",
+        "op": "readProjected",
+        "projection": "alternative",
+        "input": "PublicKey {public_size = -1e+2",
+        "bad": [
+          "inputTail"
+        ]
+      },
+      "actual": {
+        "exception": "inputTail"
+      }
+    },
+    {
+      "request": {
+        "type": "PublicKey",
+        "op": "readProjected",
+        "projection": "alternative",
+        "input": "PublicKey {public_size = -hello",
+        "bad": [
+          "inputTail"
+        ]
+      },
+      "actual": {
+        "exception": "inputTail"
+      }
+    },
+    {
+      "request": {
+        "type": "PublicKey",
+        "op": "readProjected",
+        "projection": "alternative",
+        "input": "PublicKey {public_size = -\"abc",
+        "bad": [
+          "inputTail"
+        ]
+      },
+      "actual": {
+        "exception": "inputTail"
+      }
+    },
+    {
+      "request": {
+        "type": "PublicKey",
+        "op": "readProjected",
+        "projection": "alternative",
+        "input": "PublicKey {public_size = -'a",
+        "bad": [
+          "inputTail"
+        ]
+      },
+      "actual": {
+        "exception": "inputTail"
+      }
+    }
+  ],
+  "kotlinCommand": [
+    "/Users/yoda/.sdkman/candidates/java/21.0.12-librca/bin/java",
+    "-Xmx128m",
+    "-Xss256k",
+    "-cp",
+    "/tmp/rsa-types-lex-review.jar:/tmp/kotdoc-rsa-types-whnf-fix/core-0.1.0-SNAPSHOT.jar:/tmp/kotdoc-asciidoc-borrowed-final/installed-cli/lib/*",
+    "RsaTypesLexReviewKt"
+  ],
+  "kotlinStdout": "-1.2:false\n-1e2:false\n(-1.2:false\n-1e+2:false\n-hello:false\n-\"abc:false\n-'a:false\n",
+  "kotlinExit": 0,
+  "source": "/tmp/RsaTypesLexReview.kt",
+  "whnfCorrection": "five decisive paths and eight once-dispatch success/failure host probes PASS; full Types checkpoint not accepted",
+  "sourceContracts": [
+    "tools/haskell-types-many-derived-reference/OriginalRead.hs:557-575,616-617",
+    "tools/haskell-types-many-derived-reference/OriginalLex.hs:183-190,452-474",
+    "core/src/main/kotlin/io/heapy/kotdoc/crypto/CryptoRsaTypesRead.kt:18-37"
+  ]
+}

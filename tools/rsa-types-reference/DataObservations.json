@@ -1,0 +1,10180 @@
+[
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "shape",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": []
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": []
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": []
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfold",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": []
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapT",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": []
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": []
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": []
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQr",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": []
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQ",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "Int",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": []
+    },
+    "expected": "Int"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "Int"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "Int"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "Int"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "Int"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapM",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMp",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMo",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PublicKey",
+      "fields": [
+        {
+          "integer": "1"
+        },
+        {
+          "integer": "2"
+        },
+        {
+          "integer": "3"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast1",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "dataCast2",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "index": "-1"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "index": "0"
+    },
+    "expected": "Int"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "index": "1"
+    },
+    "expected": "Integer"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "index": "2"
+    },
+    "expected": "Integer"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "index": "3"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "index": "6"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "gmapQi",
+      "index": "7"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "shape",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": []
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": []
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": []
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfold",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": []
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapT",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": []
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": []
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": []
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQr",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": []
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQ",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PublicKey",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer",
+      "Integer"
+    ]
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": []
+    },
+    "expected": "PublicKey"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "PublicKey"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "PublicKey"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "PublicKey"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "PublicKey"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapM",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMp",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMo",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "PrivateKey",
+      "fields": [
+        {
+          "constructor": "PublicKey",
+          "fields": [
+            {
+              "integer": "1"
+            },
+            {
+              "integer": "2"
+            },
+            {
+              "integer": "3"
+            }
+          ]
+        },
+        {
+          "integer": "4"
+        },
+        {
+          "integer": "5"
+        },
+        {
+          "integer": "6"
+        },
+        {
+          "integer": "7"
+        },
+        {
+          "integer": "8"
+        },
+        {
+          "integer": "9"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast1",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "dataCast2",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "index": "-1"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "index": "0"
+    },
+    "expected": "PublicKey"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "index": "1"
+    },
+    "expected": "Integer"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "index": "2"
+    },
+    "expected": "Integer"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "index": "3"
+    },
+    "expected": "Integer"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "index": "6"
+    },
+    "expected": "Integer"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "gmapQi",
+      "index": "7"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "shape",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": []
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": []
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": []
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfold",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": []
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "k"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapT",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": []
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": []
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": []
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQr",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": []
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQ",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": [
+      "PrivateKey"
+    ]
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": []
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "query"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapM",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMp",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": []
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "transform"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMo",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "constructor": "KeyPair",
+      "fields": [
+        {
+          "constructor": "PrivateKey",
+          "fields": [
+            {
+              "constructor": "PublicKey",
+              "fields": [
+                {
+                  "integer": "1"
+                },
+                {
+                  "integer": "2"
+                },
+                {
+                  "integer": "3"
+                }
+              ]
+            },
+            {
+              "integer": "4"
+            },
+            {
+              "integer": "5"
+            },
+            {
+              "integer": "6"
+            },
+            {
+              "integer": "7"
+            },
+            {
+              "integer": "8"
+            },
+            {
+              "integer": "9"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast1",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "dataCast2",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "index": "-1"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "index": "0"
+    },
+    "expected": "PrivateKey"
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "index": "1"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "index": "2"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "index": "3"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "index": "6"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "gmapQi",
+      "index": "7"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": []
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": []
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": []
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "z"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gfoldlIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "z"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": []
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "exception": "constr"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "constr"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": []
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "exception": "constr"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "GHC.Internal.Data.Data.gunfold: Constructor True is not of type Integer."
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "constr"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": []
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapT",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": []
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapTRoot",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": []
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQl",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": []
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQr",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": []
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQ",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": []
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": []
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": {
+      "exception": "root"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapM",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "23"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": []
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMp",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": []
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMo",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMpFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapMoFail",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast1",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": []
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "root"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "constr"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "query"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "root",
+        "transform"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "dataCast2",
+      "bad": [
+        "constr",
+        "z"
+      ]
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "index": "-1"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "index": "0"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "index": "1"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "index": "2"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "index": "3"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "index": "6"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gmapQi",
+      "index": "7"
+    },
+    "expected": {
+      "exception": "Maybe.fromJust: Nothing"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": {
+      "integer": "0"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": {
+      "integer": "0"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "0"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "0",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "z"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": {
+      "integer": "-1"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": {
+      "integer": "-1"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "-1"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "-1",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "z"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": {
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": {
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "shape",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfold",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": 0
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": []
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": [
+        "constructorValue"
+      ]
+    },
+    "expected": "z"
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "gunfoldIgnore",
+      "integer": "115792089237316195423570985008687907853269984665640564039457584007913129639953",
+      "constructor": "integer",
+      "bad": [
+        "z"
+      ]
+    },
+    "expected": {
+      "exception": "z"
+    }
+  }
+]

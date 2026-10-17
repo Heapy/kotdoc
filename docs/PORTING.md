@@ -15951,3 +15951,63 @@ and4465 Pandoc Tasty leaves are unchanged. This maps one module's assertions,
 not the whole crypton component. Global test-inventory.json is not refreshed;
 remaining dependency/platform/RSASpec/Secrecy mappings and full622/613/623,
 Pandoc and calibre scope remain OPEN. RSA.Types, DocBook and other WIP are excluded.
+
+### RSA.Types and common intrinsic WHNF integration
+
+The complete pinned Crypto.PubKey.RSA.Types checkpoint is independently accepted
+for five source types and five selectors/conversions, with all declared
+Show/DebugShow/Read/Eq/Data/Generic/NFData members and defaults mapped. Blinder
+and Error retain accepted identities; KeyPair has no invented Generic instance.
+Lazy source records and explicit X509 bridges remain distinct: PrivateKey.asX509
+demands its public root. Selected GHC9.12.2-O2/aarch64/Int64/support_deepseq
+identities and bounded source-protocol adapters are documented, not universal
+heap, ABI, asynchronous-exception, erasure or timing equivalence.
+
+Independent review rejected the original112366-case candidate because global
+rwhnf/force/deepseq could miss a represented KeyPair root. Common
+DeepSeqData.sourceWHNF now dispatches GenericRepRoot; the duplicate dispatch in
+GenericRepIntrinsic is removed. Five original reviewer paths now throw the
+source privateRoot, and eight adjacent success/failure carrier cases dispatch
+once and share failures. SourceThunk/DataThunk/GenericRepField/GenericRepThunk
+enter the common route. Exact prior NFData/Generic/Data manifests and production
+source snapshots remain historical; current53/60/100 pins bind current sources
+without fallback. Supplementary Data first-run stale-integrity failure remains
+retained; its corrective11-case XML passes.
+
+A second review rejected premature numeric-token failure in derived Read. All
+Int/Integer record/newtype sites now complete the unchanged accepted ManyReadLex
+scanner before conversion. Seven independent negative-number/string/character/
+identifier partial-input repros now throw inputTail as the original does.
+Independent native replay passes all6900 lexical cases across21 sites and four
+Read methods, plus all4215 prior method observations. Original nine raw corpora
+and nine gzip payloads remain byte-identical; rejected source/JAR/XML/row273 and
+old failure evidence remain retained. No shared lexer or public API was changed.
+
+Final51942 XML has15219 actual cases, zero failures/errors/skips: Types4328,
+Lex6900, rootInterop15, NFData1419, GenericRep1738, Generic808 and Data11. The
+prior116348-case RSA/X509 regression is reused only through class-byte identity:
+exactly seven TypesRead classes changed, all other classes match its immutable
+JAR. Final core SHA256
+43e9cb589f489de3a792cdf2ffb55285006f0f9a8f8864fdf92a503f0af2143c;
+116 packaged notices are byte-exact. Coordinator verified100 frozen paths,
+currentTypes105 pins and immutable XML/JAR bindings. Targeted fresh-JAR probes
+ran at128MiB/256KiB; no duplicate Gradle build was needed.
+
+The original Secrecy suite passes upstream (38 supporting examples); precisely
+six RSA assertions are mapped and asserted in Kotlin. Original RSASpec37 remains
+31 accepted PKCS15 plus six raw-RSA supporting assertions, not37 new Types tests.
+Generic retains all101 raw observations:99 literal, exactly two named PrivateKey
+multi-bottom contexts accept an independently observed alternative under the
+pinned imprecise pure-exception contract. Every defined payload and single-fault
+case remains exact; there is no generalized exception-order relaxation.
+
+One coherent commit includes the shared correction because its current integrity
+manifest and interop test depend on the new Types facade. No DocBook, Textile,
+JSON draft or unrelated inventory is included. Full611/613/623, source-instance
+member expansion, OS/SystemDRG, shared Digest Data, other signatures/trust/chain,
+all remaining Pandoc tests and calibre624–626 remain OPEN.
+
+Staged whitespace checking stopped on two lines of the pinned original GHC
+InstalledTypes.iface.txt (trailing spaces and its final blank line). Its exact
+CompilerProfile SHA was verified and preserved deliberately; every other staged
+path passes whitespace checking. No generated interface evidence was normalized.

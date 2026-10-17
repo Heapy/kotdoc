@@ -58,6 +58,7 @@ private abstract class SourceNFData<A>:PlannedNFData<A> {
 object DeepSeqData {
     internal fun sourceWHNF(value:Any?):Any? {
         when(value) {
+            is GenericRepRoot -> value.forceGenericRepRoot()
             is DeepSeqNode -> (named(value.declaration) as SourceNFData<Any?>).whnf { value }
             is GenericList<*> -> value.step()
             is DeepSeqMap -> value.forceSpine()

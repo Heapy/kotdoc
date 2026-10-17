@@ -1,0 +1,4 @@
+Exception in thread "main" java.lang.IllegalStateException: row14 {"type":"PublicKey","op":"gfoldl","bad":["z"]}
+expected=["Int","Integer","Integer"]
+actual={"exception":"z"}
+	at io.heapy.kotdoc.crypto.RsaTypesDataReplay.main(RsaTypesDataReplay.kt:53)

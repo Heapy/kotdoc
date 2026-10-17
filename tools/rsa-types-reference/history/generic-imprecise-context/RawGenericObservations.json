@@ -1,0 +1,1209 @@
+[
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToRoot",
+      "repErrors": []
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        ""
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:L"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:RL"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:RR"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToShow",
+      "repErrors": []
+    },
+    "expected": "PublicKey {public_size = 1, public_n = -2, public_e = 3}"
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToShow",
+      "repErrors": [
+        ""
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:L"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:RL"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:RR"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": []
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        ""
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "L"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:LL"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:LRL"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:LRR"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:RLL"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:RLR"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:RRL"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "field:RRR"
+      ]
+    },
+    "expected": 42
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "",
+        "L"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "",
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "L",
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "L",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "L",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "L",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "LR",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "LR",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "LR",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "R",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "R",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "RL",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": []
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = <secret>, private_p = <secret>, private_q = <secret>, private_dP = <secret>, private_dQ = <secret>, private_qinv = <secret>}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        ""
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "L"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:LL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:LL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:LRL"
+      ]
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = <secret>, private_p = <secret>, private_q = <secret>, private_dP = <secret>, private_dQ = <secret>, private_qinv = <secret>}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:LRR"
+      ]
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = <secret>, private_p = <secret>, private_q = <secret>, private_dP = <secret>, private_dQ = <secret>, private_qinv = <secret>}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:RLL"
+      ]
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = <secret>, private_p = <secret>, private_q = <secret>, private_dP = <secret>, private_dQ = <secret>, private_qinv = <secret>}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:RLR"
+      ]
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = <secret>, private_p = <secret>, private_q = <secret>, private_dP = <secret>, private_dQ = <secret>, private_qinv = <secret>}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:RRL"
+      ]
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = <secret>, private_p = <secret>, private_q = <secret>, private_dP = <secret>, private_dQ = <secret>, private_qinv = <secret>}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "field:RRR"
+      ]
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = <secret>, private_p = <secret>, private_q = <secret>, private_dP = <secret>, private_dQ = <secret>, private_qinv = <secret>}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "",
+        "L"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "",
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "L",
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "L",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "L",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "L",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "LR",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "LR",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "LR",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "R",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "R",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "RL",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": []
+    },
+    "expected": "PrivateKey {private_pub = PublicKey {public_size = 1, public_n = -2, public_e = 3}, private_d = 4, private_p = 5, private_q = 6, private_dP = 7, private_dQ = 8, private_qinv = 9}"
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        ""
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "L"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "field:LL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:LL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "field:LRL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:LRL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "field:LRR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:LRR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "field:RLL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:RLL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "field:RLR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:RLR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "field:RRL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:RRL"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "field:RRR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:field:RRR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "",
+        "L"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "",
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "L",
+        "LR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "L",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "L",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "L",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:L"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "LR",
+        "R"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "LR",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "LR",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:LR"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "R",
+        "RL"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "R",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:R"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "genericToDebug",
+      "repErrors": [
+        "RL",
+        "RR"
+      ]
+    },
+    "expected": {
+      "exception": "rep:RL"
+    }
+  }
+]

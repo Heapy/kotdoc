@@ -1,0 +1,197 @@
+{
+  "status": "source-complete isolated implementation; final full JUnit/package/independent review pending",
+  "source": "vendor/crypton-2.0.1/Crypto/PubKey/RSA/Types.hs",
+  "types": {
+    "Blinder": {
+      "fields": [
+        "!Integer",
+        "!Integer"
+      ],
+      "target": "CryptoRsa.Blinder (accepted identity); CryptoRsaTypesEq.blinder/CryptoRsaTypesShow.blinder",
+      "instances": [
+        "Eq(==,/=)",
+        "Show(showsPrec,show,showList)"
+      ]
+    },
+    "Error": {
+      "constructors": [
+        "MessageSizeIncorrect",
+        "MessageTooLong",
+        "MessageNotRecognized",
+        "SignatureTooLong",
+        "InvalidParameters"
+      ],
+      "target": "CryptoRsaOaep.Error (accepted exact identity); CryptoRsaTypesEq.error/CryptoRsaTypesShow.error",
+      "instances": [
+        "Eq(==,/=)",
+        "Show(showsPrec,show,showList)"
+      ]
+    },
+    "PublicKey": {
+      "fields": [
+        "public_size::Int(lazy)",
+        "public_n::Integer(lazy)",
+        "public_e::Integer(lazy)"
+      ],
+      "target": "CryptoRsaTypes.PublicKey",
+      "instances": [
+        "Show",
+        "Read",
+        "Eq",
+        "Data",
+        "Generic",
+        "NFData"
+      ],
+      "NFDataOrder": [
+        "n",
+        "e",
+        "size"
+      ]
+    },
+    "PrivateKey": {
+      "fields": [
+        "private_pub(lazy)",
+        "private_d(lazy)",
+        "private_p(lazy)",
+        "private_q(lazy)",
+        "private_dP(lazy)",
+        "private_dQ(lazy)",
+        "private_qinv(lazy)"
+      ],
+      "target": "CryptoRsaTypes.PrivateKey",
+      "instances": [
+        "Read",
+        "Eq",
+        "Data",
+        "Generic",
+        "Show(custom secret-redacted)",
+        "DebugShow",
+        "NFData"
+      ],
+      "NFDataOrder": [
+        "pub",
+        "d",
+        "p",
+        "q",
+        "dP",
+        "dQ",
+        "qinv"
+      ]
+    },
+    "KeyPair": {
+      "fields": [
+        "PrivateKey(newtype)"
+      ],
+      "target": "CryptoRsaTypes.KeyPair",
+      "instances": [
+        "Read",
+        "Eq",
+        "Data",
+        "NFData(GND)",
+        "Show(custom)",
+        "DebugShow"
+      ],
+      "notInstances": [
+        "Generic",
+        "Generic1"
+      ],
+      "NFDataOrder": [
+        "represented PrivateKey"
+      ]
+    }
+  },
+  "functions": {
+    "toPublicKey": "CryptoRsaTypes.toPublicKey",
+    "toPrivateKey": "CryptoRsaTypes.toPrivateKey",
+    "private_size": "CryptoRsaTypes.privateSize",
+    "private_n": "CryptoRsaTypes.privateN",
+    "private_e": "CryptoRsaTypes.privateE"
+  },
+  "ReadMembers": [
+    "readsPrec",
+    "readPrec",
+    "readList",
+    "readListPrec"
+  ],
+  "ShowMembers": [
+    "showsPrec",
+    "show",
+    "showList"
+  ],
+  "DataMembers": [
+    "gfoldl",
+    "gunfold",
+    "toConstr",
+    "dataTypeOf",
+    "dataCast1",
+    "dataCast2",
+    "gmapT",
+    "gmapQl",
+    "gmapQr",
+    "gmapQ",
+    "gmapQi",
+    "gmapM",
+    "gmapMp",
+    "gmapMo"
+  ],
+  "GenericMembers": [
+    "Rep(associated)",
+    "from",
+    "to",
+    "Datatype:datatypeName,moduleName,packageName,isNewtype",
+    "Constructor:conName,conFixity,conIsRecord",
+    "Selector:selName,selSourceUnpackedness,selSourceStrictness,selDecidedStrictness"
+  ],
+  "dependencies": {
+    "IntegerData": "CryptoRsaTypesData.integer, pinned OriginalData.hs935-947",
+    "IntegerIntRead": "CryptoRsaTypesRead, pinned OriginalRead/OriginalLex and accepted ManyReadPrec protocol",
+    "Typeable": "source unit/module/name identities for three derived Data records; exact crypton-2.0.1-inplace profile",
+    "bridge": "explicit asX509 forces public root of PrivateKey; no implicit arbitrary partial conversion equivalence"
+  },
+  "originalTests": {
+    "SecrecySpecRSA": {
+      "actualOriginal": 6,
+      "KotlinMapped": 6,
+      "assertions": [
+        "PrivateKey:Show hides",
+        "PrivateKey:DebugShow reveals",
+        "PrivateKey:readDebug roundtrip",
+        "KeyPair:same three"
+      ]
+    },
+    "RSASpec37": "supporting accepted identity/proofs only;31PKCS15+6rawRSA; not37 new instance tests"
+  },
+  "corpusCounts": {
+    "Observations": 695,
+    "DataObservations": 703,
+    "EqObservations": 856,
+    "StreamObservations": 1500,
+    "GenericObservations": 101,
+    "ProjectedObservations": 93,
+    "MemberObservations": 257,
+    "TypeInfoObservations": 10
+  },
+  "totalMethodObservations": 4215,
+  "originalAdditionalSecrecyAssertions": 6,
+  "genericRaw": "101 retained;99 exact and2 named source-imprecise context alternatives; no expected rewriting",
+  "limits": [
+    "GHC9.12.2-O2/aarch64/Int64/support_deepseq=true",
+    "no allcompiler multi-bottom exception-order claim",
+    "bounded4096digit/512parenthesis/128list at256KiB stack, not universal resource guarantee",
+    "no unsafe pointer/physical identity/timing/erasure/32-bitOS parity claim"
+  ],
+  "remainingOutsideCheckpoint": [
+    "shared Digest Data",
+    "OS/SystemDRG/entropy platforms",
+    "other signatures/trust/chain/rest613",
+    "allPandoc623 thenMOBI624/allcalibre625/final626"
+  ],
+  "Read_lexical_correction": {
+    "contract": "complete unchanged lexP before convertInt across Int/Integer/all numeric sites",
+    "reference": "LexicalBoundary.json",
+    "original_rows": 6900,
+    "methods": 4,
+    "sites": 21,
+    "shared_lexer_modified": false
+  }
+}

@@ -1,0 +1,4 @@
+Exception in thread "main" java.lang.IllegalStateException: row162 {"type":"PublicKey","op":"gmapQi","index":"-1"}
+expected={"exception":"Maybe.fromJust: Nothing"}
+actual={"exception":"null"}
+	at io.heapy.kotdoc.crypto.RsaTypesDataReplay.main(RsaTypesDataReplay.kt:53)

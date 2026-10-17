@@ -26,7 +26,7 @@ def main():
  paths=[x for x in HERE.rglob('*')if x.is_file()and 'work-in-progress'not in x.parts and '__pycache__'not in x.parts and x.name not in ['source-manifest.json','README.md']]
  paths += [ROOT/n for n in ['upstream/pandoc-types/src/Text/Pandoc/Definition.hs','upstream/pandoc-types/test/test-pandoc-types.hs','licenses/deepseq-BSD-3-Clause.txt','licenses/pandoc-types-BSD-3-Clause.txt','licenses/Containers-BSD-3-Clause.txt','licenses/text-BSD-2-Clause.txt','vendor/text-2.1.2/src/Data/Text.hs','tools/haskell-types-generic-reference/source-manifest.json']]
  paths += [ROOT/'core/src/main/kotlin/io/heapy/kotdoc/ast'/n for n in ['PandocDeepSeq.kt','DeepSeqData.kt','GenericDefinitionData.kt','GenericData.kt','GenericAstData.kt','PandocCounts.kt']]
- paths += [ROOT/'core/src/test/kotlin/io/heapy/kotdoc/ast'/n for n in ['DeepSeqReplay.kt','DeepSeqDemandReplay.kt','DeepSeqExtendedReplay.kt','OriginalTypesDeepSeqTest.kt']]
+ paths += [ROOT/'core/src/test/kotlin/io/heapy/kotdoc/ast'/n for n in ['DeepSeqReplay.kt','DeepSeqDemandReplay.kt','DeepSeqExtendedReplay.kt','OriginalTypesDeepSeqTest.kt','IntrinsicRootInteropTest.kt']]
  paths += list((ROOT/'core/src/test/resources/pandoc-types/deepseq').glob('*'))
  if a.record:(HERE/'source-manifest.json').write_text(json.dumps({'schema':1,'explicit_NFData_instances':23,'rnf_members':23,'native_finite':308,'native_demand':680,'native_extended':118,'typed_finite_replays':308,'JVM_adapter_tests':4,'sha256':{str(x.relative_to(ROOT)):sha(x.read_bytes())for x in sorted(set(paths))}},indent=2)+'\n')
  m=json.loads((HERE/'source-manifest.json').read_text())

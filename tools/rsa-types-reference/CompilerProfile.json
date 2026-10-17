@@ -1,0 +1,28 @@
+{
+  "compiler": "GHC9.12.2",
+  "optimization": "-O2",
+  "architecture": "aarch64-darwin",
+  "sourceIntBits": 64,
+  "cryptonUnit": "crypton-2.0.1-inplace",
+  "flags": {
+    "check_alignment": false,
+    "integer-gmp": true,
+    "old_toolchain_inliner": false,
+    "support_aesni": true,
+    "support_deepseq": true,
+    "support_pclmuldq": true,
+    "support_rdrand": true,
+    "support_sse": false,
+    "use_target_attributes": true
+  },
+  "sourceRoot": "/tmp/kotdoc-prime-haskell-source",
+  "sourceTypesSha256": "981b2b3499d1f2fad8ad97a5be332b013b9c39aa77502e997c64084b4dd0a5b7",
+  "installedInterfaceSha256": "f34d035786189175bef038fb1e4eb17c968ea525a1cdeb4ff2a9539da2b0c1a7",
+  "executables": {
+    "/tmp/kotdoc-rsa-types-oracle": "5510383cdcf6cfabd5b6a4f4ee68599096503fb9a7eb514cfc72f9f09fc88e88",
+    "/tmp/kotdoc-rsa-types-data-oracle": "d5c29e42873ab7d5f88586848298444b8ba4a49fd71edaa9bc6c61aa39e39442",
+    "/tmp/kotdoc-rsa-types-secrecy": "38e8a99ba08fe854276482eef5b1d10231c263ccef48e49c88689a7ffa2010d0",
+    "/tmp/kotdoc-rsa-types-export": "c573b706ec53afd055c15f3292ee8fd803aece15cd51419bba4ab65d5367456b"
+  },
+  "limits": "Finite selected profile; no universal compiler multi-bottom order, OS32 ABI, erasure/timing/unsafe-memory claims."
+}

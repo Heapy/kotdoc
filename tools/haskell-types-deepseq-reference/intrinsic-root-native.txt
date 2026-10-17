@@ -1,0 +1,12 @@
+root:privateRoot
+rwhnf:privateRoot
+force:privateRoot
+deepseq-result:privateRoot
+strictApply-result:privateRoot
+own-rnf:privateRoot
+ignored-result:RETURNED
+record-lazy-root:RETURNED
+record-lazy-rwhnf:RETURNED
+record-lazy-rnf:publicField
+force-ignored-dictionary:representedRoot
+deepseq-ignored-input:RETURNED

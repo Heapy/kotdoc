@@ -1,0 +1,34 @@
+{
+  "languageSource": "/tmp/kotdoc-haskell/ghc/share/doc/ghc-9.12.2/html/libraries/base-4.21.0.0-958c/Control-Exception.html",
+  "sha256": "1f020a21ff1bffd8e719eae2e759a307abc2023df3abb6ddce851684e13ea600",
+  "contract": "Control.Exception evaluate docs: pure error/throw exceptions are imprecise; optimizer may select either pending error. evaluate imposes IO sequencing, but does not specify order of two pure errors within its argument.",
+  "exactAmbiguousInputs": [
+    {
+      "type": "PrivateKey",
+      "op": "genericToRoot",
+      "repErrors": [
+        "LR",
+        "R"
+      ]
+    },
+    {
+      "type": "PrivateKey",
+      "op": "genericToShow",
+      "repErrors": [
+        "LR",
+        "R"
+      ]
+    }
+  ],
+  "nativeDifferentContextWitness": {
+    "type": "PrivateKey",
+    "op": "genericToDebug",
+    "repErrors": [
+      "LR",
+      "R"
+    ]
+  },
+  "nativeRootShow": "rep:R",
+  "nativeDebugAndInstalledInterfaceDepthFirst": "rep:LR",
+  "requirements": "Keep all101 raw expected and original failing baseline. Exact parity required on every single fault and defined payload. Only named two multi-bottom context observations accept source-observed alternative; no generalized error-order relaxation."
+}

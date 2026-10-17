@@ -1,0 +1,3483 @@
+[
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 0,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 0,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 0,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 0,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 0,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 1,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 1,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 1,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 1,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 1,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 2,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 2,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 2,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 2,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 2,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 3,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 3,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 3,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 3,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 3,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 4,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 4,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 4,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 4,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "error": 4,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "errorRoot"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "right:errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "bad": [
+        "errorRoot"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "eq",
+      "bad": [
+        "errorRoot"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "errorRoot"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "r"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "right:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "inverse"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "right:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [
+        "r"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [
+        "r"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "r"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [
+        "r"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "inverse"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [
+        "inverse"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [
+        "inverse"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "r"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "bad": [
+        "inverse"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "inverse"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "right": {
+        "r": "99"
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "eq",
+      "right": {
+        "inverse": "99"
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 0,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 0,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 0,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 0,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 0,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 1,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 1,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 1,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 1,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 1,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 2,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 2,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 2,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 2,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 2,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 3,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 3,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 3,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 3,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 3,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 4,
+      "right": {
+        "error": 0
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 4,
+      "right": {
+        "error": 1
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 4,
+      "right": {
+        "error": 2
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 4,
+      "right": {
+        "error": 3
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "error": 4,
+      "right": {
+        "error": 4
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "errorRoot"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "right:errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "bad": [
+        "errorRoot"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "ne",
+      "bad": [
+        "errorRoot"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "errorRoot"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": false
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "r"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "right:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "inverse"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "right:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [
+        "r"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [
+        "r"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "r"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [
+        "r"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "inverse"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [
+        "inverse"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [
+        "inverse"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "r"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "bad": [
+        "inverse"
+      ],
+      "errorPrefix": "left:",
+      "right": {
+        "bad": [
+          "inverse"
+        ],
+        "errorPrefix": "right:"
+      }
+    },
+    "expected": {
+      "exception": "left:inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "right": {
+        "r": "99"
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "ne",
+      "right": {
+        "inverse": "99"
+      }
+    },
+    "expected": true
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "B"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "B"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "B"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-2) (-3)TAIL"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-2) (-3)TAIL"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "suffix"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "B"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "B"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "B"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-2) (-3)TAIL"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Blinder (-2) (-3)TAIL"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "suffix"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "("
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "("
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "("
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinde"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinde"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinde"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinder ("
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinder ("
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinder ("
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinder (-2) (-3))TAIL"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "r"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "inverse"
+    }
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "(Blinder (-2) (-3))TAIL"
+  },
+  {
+    "request": {
+      "type": "Blinder",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "suffix"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 0,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 1,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 7,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 10,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 0,
+      "prefixLength": 30,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "suffix"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 0,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 1,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 7,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 10,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 10,
+      "prefixLength": 30,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "suffix"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 0,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": ""
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 1,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "M"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 7,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "Message"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 10,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSiz"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "r"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "inverse"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": "MessageSizeIncorrectTAIL"
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "errorRoot"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "errorRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "Error",
+      "op": "showPrefix",
+      "precedence": 11,
+      "prefixLength": 30,
+      "bad": [
+        "suffix"
+      ],
+      "r": "-2",
+      "inverse": "-3"
+    },
+    "expected": {
+      "exception": "suffix"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": []
+    },
+    "expected": -2
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "exception": "pairRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "privateRoot"
+      ]
+    },
+    "expected": {
+      "exception": "privateRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "pub"
+      ]
+    },
+    "expected": {
+      "exception": "pub"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "publicRoot"
+      ]
+    },
+    "expected": {
+      "exception": "publicRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "size"
+      ]
+    },
+    "expected": -2
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "n"
+      ]
+    },
+    "expected": {
+      "exception": "n"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "e"
+      ]
+    },
+    "expected": -2
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairN",
+      "bad": [
+        "d"
+      ]
+    },
+    "expected": -2
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": []
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "exception": "pairRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "privateRoot"
+      ]
+    },
+    "expected": {
+      "exception": "privateRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "pub"
+      ]
+    },
+    "expected": {
+      "exception": "pub"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "publicRoot"
+      ]
+    },
+    "expected": {
+      "exception": "publicRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "size"
+      ]
+    },
+    "expected": {
+      "exception": "size"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "n"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "e"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairSize",
+      "bad": [
+        "d"
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": []
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "exception": "pairRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "privateRoot"
+      ]
+    },
+    "expected": {
+      "exception": "privateRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "pub"
+      ]
+    },
+    "expected": {
+      "exception": "pub"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "publicRoot"
+      ]
+    },
+    "expected": {
+      "exception": "publicRoot"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "size"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "n"
+      ]
+    },
+    "expected": 3
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "e"
+      ]
+    },
+    "expected": {
+      "exception": "e"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "selector",
+      "selector": "pairE",
+      "bad": [
+        "d"
+      ]
+    },
+    "expected": 3
+  }
+]

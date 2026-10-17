@@ -1,0 +1,29 @@
+{
+  "source_contract": "OriginalRead.readNumber lexP then convertInt; complete token even if conversion rejects",
+  "original_sources": {
+    "OriginalRead.hs": "readNumber557-568,convertInt571-575,Integer616-617",
+    "OriginalLex.hs": "lex183-190,lexNumber427-474,numberToInteger87-90"
+  },
+  "shared_lexer": "core/src/main/kotlin/io/heapy/kotdoc/ast/ManyReadLex.kt",
+  "shared_lexer_sha256": "14bd03e44891f93517e6d9f053ef763c41b79a5ebdc18f234ef486babf6c1b6e",
+  "shared_lexer_unchanged_from_prior": "14bd03e44891f93517e6d9f053ef763c41b79a5ebdc18f234ef486babf6c1b6e",
+  "observer": "LexReference.hs imports actual unchanged crypton2.0.1 Read instances",
+  "profile": "GHC9.12.2 -O2 aarch64Darwin,Int64; same crypton build as CompilerProfile.json",
+  "oracle_executable": "/tmp/kotdoc-rsa-types-lex-fix/original",
+  "oracle_sha256": "c33c6d827a03be2cfdabe434dcb0c7a8f79f45a617d48a731cfa4a5270a3ef16",
+  "rows": 6900,
+  "numeric_sites": 21,
+  "Read_methods": [
+    "readsPrec",
+    "readPrec",
+    "readList",
+    "readListPrec"
+  ],
+  "input_end_domains": [
+    "definedEOF",
+    "undefinedTail",
+    "undefinedHead",
+    "undefinedRoot"
+  ],
+  "limits": "Bounded partial-input observations; no universal multiple-bottom compiler exception ordering or unbounded resource proof; original Read class methods unchanged."
+}

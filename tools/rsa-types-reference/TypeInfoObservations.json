@@ -1,0 +1,142 @@
+[
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "typeInfo",
+      "bad": []
+    },
+    "expected": {
+      "module": "Crypto.PubKey.RSA.Types",
+      "name": "PublicKey",
+      "package": "crypton-2.0.1-inplace"
+    }
+  },
+  {
+    "request": {
+      "type": "PublicKey",
+      "op": "typeInfo",
+      "bad": [
+        "publicRoot",
+        "privateRoot",
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "module": "Crypto.PubKey.RSA.Types",
+      "name": "PublicKey",
+      "package": "crypton-2.0.1-inplace"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "typeInfo",
+      "bad": []
+    },
+    "expected": {
+      "module": "Crypto.PubKey.RSA.Types",
+      "name": "PrivateKey",
+      "package": "crypton-2.0.1-inplace"
+    }
+  },
+  {
+    "request": {
+      "type": "PrivateKey",
+      "op": "typeInfo",
+      "bad": [
+        "publicRoot",
+        "privateRoot",
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "module": "Crypto.PubKey.RSA.Types",
+      "name": "PrivateKey",
+      "package": "crypton-2.0.1-inplace"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "typeInfo",
+      "bad": []
+    },
+    "expected": {
+      "module": "Crypto.PubKey.RSA.Types",
+      "name": "KeyPair",
+      "package": "crypton-2.0.1-inplace"
+    }
+  },
+  {
+    "request": {
+      "type": "KeyPair",
+      "op": "typeInfo",
+      "bad": [
+        "publicRoot",
+        "privateRoot",
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "module": "Crypto.PubKey.RSA.Types",
+      "name": "KeyPair",
+      "package": "crypton-2.0.1-inplace"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "typeInfo",
+      "bad": []
+    },
+    "expected": {
+      "module": "GHC.Num.Integer",
+      "name": "Integer",
+      "package": "ghc-bignum"
+    }
+  },
+  {
+    "request": {
+      "type": "Integer",
+      "op": "typeInfo",
+      "bad": [
+        "publicRoot",
+        "privateRoot",
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "module": "GHC.Num.Integer",
+      "name": "Integer",
+      "package": "ghc-bignum"
+    }
+  },
+  {
+    "request": {
+      "type": "Int",
+      "op": "typeInfo",
+      "bad": []
+    },
+    "expected": {
+      "module": "GHC.Types",
+      "name": "Int",
+      "package": "ghc-prim"
+    }
+  },
+  {
+    "request": {
+      "type": "Int",
+      "op": "typeInfo",
+      "bad": [
+        "publicRoot",
+        "privateRoot",
+        "pairRoot"
+      ]
+    },
+    "expected": {
+      "module": "GHC.Types",
+      "name": "Int",
+      "package": "ghc-prim"
+    }
+  }
+]
