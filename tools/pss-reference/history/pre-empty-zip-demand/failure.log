@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.IllegalStateException: row366 request={"op":"verify","maskMode":"normal","size":1,"signature":[188]} expected={"events":[],"results":[{"valid":false},{"valid":false}]} actual={"results":[{"valid":false},{"valid":false}],"events":["mask","maskLength:-4","seed:[188]"]}
+	at io.heapy.kotdoc.crypto.PssDictionaryReplay.main(PssDictionaryReplay.kt:47)

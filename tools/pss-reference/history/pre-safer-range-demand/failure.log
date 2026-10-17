@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.IllegalStateException: row538 request={"op":"signSafer","mode":"pairBottom","projection":"root","size":64,"bottom":"key"} expected={"draws":[],"results":[{"exception":"key"},{"exception":"key"}]} actual={"results":[{"exception":"pair-bottom"},{"exception":"pair-bottom"}],"draws":[]}
+	at io.heapy.kotdoc.crypto.PssRandomReplay.main(PssRandomReplay.kt:36)

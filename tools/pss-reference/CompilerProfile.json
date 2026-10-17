@@ -1,0 +1,21 @@
+{
+  "original": "GHC9.12.2-O2/aarch64 macOS, crypton2.0.1 and ram0.22.1 existing dependency build",
+  "kotlin": "info: kotlinc-jvm 2.4.21 (JRE 21.0.12+10-LTS)",
+  "gradleKotlin": "2.4.21",
+  "java": "21.0.12-librca",
+  "baselineJar": "/tmp/kotdoc-pkcs15-final-results/core-0.1.0-SNAPSHOT.jar",
+  "baselineJarSha256": "263d12251b2839aec4a51925b3fa7c07015a5b1a0d1ab85cf0c4752ed598728a",
+  "executables": {
+    "/tmp/kotdoc-pss-haskell-oracle": "cd8abd98785d65425e95d3f56a03fecfa95d6919316d9ff646e51bf2ca77e2be",
+    "/tmp/kotdoc-pss-sourcecase-oracle": "ef668a3f340b1a413e000e8429e7d2a8f52d54d7701af63b196f7860088e62ad",
+    "/tmp/kotdoc-pss-demand-oracle": "15c5438f2aa0106ec664fda3682fc9a88caeeb00bd962caf88ed8c209b5ba3b9",
+    "/tmp/kotdoc-pss-dictionary-oracle": "8ec706948cb0564b3101821344db8ffbef2f8ee4b1f74ffa87af09d0a1dd5bf6",
+    "/tmp/kotdoc-pss-random-oracle": "a7d2cba14ba67177f26dbd9bd02c5b7443f1f518a8691d9c3781533de64a2f4f",
+    "/tmp/kotdoc-pss-callback-oracle": "20e04abe3533bbec8d8128b7dac59655a7e0a3ec80fdcf1f207de7d1db12677f",
+    "/tmp/kotdoc-pss-boundary-oracle": "b22fe59e5140ae93fac5afbcc243c7885b01deece4e568379779d3d3a4856c3e"
+  },
+  "sourceObserver": "ObservedPss.hs changes module name/export list only; original PSS function bodies unchanged",
+  "ordinary": "Original library execution; source-suite module name/export list only",
+  "synthetic": "custom HashAlgorithm/DRG/MonadRandom dictionaries are independent development observers, not production implementations; hash context8/output4 bounded",
+  "history": "all failing draft sources/logs and faulty lazy-event observer retained; expected corpus not patched"
+}

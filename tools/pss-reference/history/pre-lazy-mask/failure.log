@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.IllegalStateException: row344 request={"op":"signBytes","faults":["mask","message"],"salt":[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],"message":[1,2,3],"signature":[]} expected=["mask","mask"] actual=["message","message"]
+	at io.heapy.kotdoc.crypto.PssDemandReplay.main(PssDemandReplay.kt:23)

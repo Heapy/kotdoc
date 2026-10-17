@@ -1,0 +1,112 @@
+{
+  "status": "complete source implementation; isolated full JUnit and final package/review pending",
+  "sourceDefinitions12": [
+    "defaultPSSParams",
+    "defaultPSSParamsSHA1",
+    "signDigestWithSalt",
+    "signWithSalt",
+    "sign",
+    "signDigest",
+    "signSafer",
+    "signDigestSafer",
+    "verify",
+    "verifyDigest",
+    "emTruncate",
+    "normalizeToKeySize"
+  ],
+  "exportedFunctions10": {
+    "defaultPSSParams": "defaultParams(engine) / defaultParams(Dictionary,witness)",
+    "defaultPSSParamsSHA1": "defaultParamsSHA1",
+    "signWithSalt": "signWithSalt / signWithSaltDeferred",
+    "signDigestWithSalt": "signDigestWithSalt / signDigestWithSaltDeferred",
+    "sign": "sign / signIo / signSourceIo / signAction / signSourceAction",
+    "signDigest": "signDigest / corresponding Io/SourceIo/Action/SourceAction",
+    "signSafer": "signSafer / corresponding Io/SourceIo/Action/SourceAction",
+    "signDigestSafer": "signDigestSafer / corresponding Io/SourceIo/Action/SourceAction",
+    "verify": "verify / verifyDeferred",
+    "verifyDigest": "verifyDigest / verifyDigestDeferred"
+  },
+  "paramsFields4": {
+    "pssHash": "Params.witness (source value); independent Dictionary carries the HashAlgorithm constraint",
+    "pssMaskGenAlg": "Params.mask -> MaskAlgorithm lazy seed/length/result",
+    "pssSaltLength": "Params.saltLength -> Lazy<Long>",
+    "pssTrailerField": "Params.trailer -> Lazy<Byte>"
+  },
+  "privateHelpers2": {
+    "emTruncate": "signed64 bits-1 low3bits, truncate encoded size by1 when bits=1mod8",
+    "normalizeToKeySize": "first octet mask; empty input ignores bits; finite ByteArray bridge"
+  },
+  "originalSuite": {
+    "literalVectors": 25,
+    "keyWidths": [
+      1024,
+      1025,
+      1026,
+      1031
+    ],
+    "signExamples": 25,
+    "verifyExamples": 25,
+    "rangeExamples": 3,
+    "total": 53,
+    "sourceExpected": "verbatim literal signatures plus source asserted True/False; module-export-only test copy"
+  },
+  "corpusCounts": {
+    "SourceCases": 53,
+    "Observations": 2564,
+    "DemandObservations": 1452,
+    "DictionaryObservations": 732,
+    "RandomObservations": 868,
+    "RandomExtraObservations": 24,
+    "CallbackObservations": 540,
+    "MutationObservations": 2226,
+    "DigestObservations": 600,
+    "BoundaryObservations": 974
+  },
+  "totalCorpora": 10033,
+  "availableHashAdapters": [
+    "MD2",
+    "MD5",
+    "SHA1",
+    "SHA224",
+    "SHA256",
+    "SHA384",
+    "SHA512",
+    "SHA512t_224",
+    "SHA512t_256",
+    "SHA3_224",
+    "SHA3_256",
+    "SHA3_384",
+    "SHA3_512",
+    "RIPEMD160",
+    "Keccak_224",
+    "Keccak_256",
+    "Keccak_384",
+    "Keccak_512"
+  ],
+  "contractChecks": [
+    "salt actual byte length before direct hashDigestSize and key/range guard",
+    "dictionary separate from source lazy Params root; method may ignore or force witness",
+    "explicit salt ignores configured saltLength, no added salt<=digest restriction",
+    "emTruncate/Word8 normalization and shortest zip; empty left zip ignores MGF",
+    "verify guards exact length -> representative<n -> pre -> trailer -> PS -> marker -> salt length -> hash equality",
+    "safer run root demands key/modulus before RNG dictionary pair root; ignored pure result remains lazy",
+    "source-lazy Int64 RNG counts and pure/IO effects; standard Int adapter remains separate",
+    "persistent RNG state, independent fields, pair root and synchronous failure sharing",
+    "all default/mutable hash context callback traces incl ignored IO unit results",
+    "public input/provider/output snapshots implement immutable ByteString bridge"
+  ],
+  "domains": {
+    "excludedBeforeNative": 12,
+    "excluded": "empty-provider safer root/state/bytes at sizes10/64; Generate p0 access; ignored pure projection is defined",
+    "virtual": "974 helper/root rows,594 signed64 guard arithmetic checks; no giant hash/payload allocation",
+    "digest": "typed source Digest represented by bytes from accepted hash engine or source digestFromByteString width check; no claim about unsafe forged Digest buffers",
+    "host": "materialized ByteArray Int-sized; source-lazy callbacks/operations carry full Int64 requests without giant allocation; native negative/huge standard RNG unsigned ABI not executed",
+    "profiling": "GHC9.12.2-O2 selected finite demand/effects; no universal bottom/heap/async/timing/erasure/StableName proof"
+  },
+  "remaining": [
+    "independent checkpoint review",
+    "RSA.Types/SystemDRG/OS entropy/other signatures/trust/chain/rest613",
+    "missing hash families and optimized conditional backends remain separate",
+    "allPandoc623 then MOBI624/allcalibre625/final626"
+  ]
+}

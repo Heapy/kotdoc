@@ -1,0 +1,281 @@
+{
+  "unusedBitNormalizationObservations": [
+    {
+      "index": 348,
+      "request": {
+        "op": "verify",
+        "size": 23,
+        "n": "383123885216472214589586756787577295904684780545900543",
+        "salt": [],
+        "saltLength": 0,
+        "trailer": 0,
+        "message": [
+          1,
+          2,
+          3
+        ],
+        "signature": [
+          3,
+          107,
+          41,
+          71,
+          105,
+          108,
+          116,
+          76,
+          131,
+          126,
+          64,
+          170,
+          40,
+          245,
+          91,
+          230,
+          152,
+          204,
+          130,
+          240,
+          140,
+          41,
+          0
+        ],
+        "mutation": "flip0/2"
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "index": 370,
+      "request": {
+        "op": "verify",
+        "size": 23,
+        "n": "383123885216472214589586756787577295904684780545900543",
+        "salt": [],
+        "saltLength": 0,
+        "trailer": 188,
+        "message": [
+          1,
+          2,
+          3
+        ],
+        "signature": [
+          3,
+          107,
+          41,
+          71,
+          105,
+          108,
+          116,
+          76,
+          131,
+          126,
+          64,
+          170,
+          40,
+          245,
+          91,
+          230,
+          152,
+          204,
+          130,
+          240,
+          140,
+          41,
+          188
+        ],
+        "mutation": "flip0/2"
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "index": 392,
+      "request": {
+        "op": "verify",
+        "size": 23,
+        "n": "383123885216472214589586756787577295904684780545900543",
+        "salt": [],
+        "saltLength": 0,
+        "trailer": 255,
+        "message": [
+          1,
+          2,
+          3
+        ],
+        "signature": [
+          3,
+          107,
+          41,
+          71,
+          105,
+          108,
+          116,
+          76,
+          131,
+          126,
+          64,
+          170,
+          40,
+          245,
+          91,
+          230,
+          152,
+          204,
+          130,
+          240,
+          140,
+          41,
+          255
+        ],
+        "mutation": "flip0/2"
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "index": 414,
+      "request": {
+        "op": "verify",
+        "size": 23,
+        "n": "383123885216472214589586756787577295904684780545900543",
+        "salt": [
+          7
+        ],
+        "saltLength": 1,
+        "trailer": 0,
+        "message": [
+          1,
+          2,
+          3
+        ],
+        "signature": [
+          2,
+          147,
+          98,
+          77,
+          119,
+          208,
+          212,
+          221,
+          244,
+          212,
+          167,
+          18,
+          85,
+          21,
+          199,
+          35,
+          225,
+          30,
+          142,
+          181,
+          5,
+          111,
+          0
+        ],
+        "mutation": "flip0/2"
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "index": 436,
+      "request": {
+        "op": "verify",
+        "size": 23,
+        "n": "383123885216472214589586756787577295904684780545900543",
+        "salt": [
+          7
+        ],
+        "saltLength": 1,
+        "trailer": 188,
+        "message": [
+          1,
+          2,
+          3
+        ],
+        "signature": [
+          2,
+          147,
+          98,
+          77,
+          119,
+          208,
+          212,
+          221,
+          244,
+          212,
+          167,
+          18,
+          85,
+          21,
+          199,
+          35,
+          225,
+          30,
+          142,
+          181,
+          5,
+          111,
+          188
+        ],
+        "mutation": "flip0/2"
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "index": 458,
+      "request": {
+        "op": "verify",
+        "size": 23,
+        "n": "383123885216472214589586756787577295904684780545900543",
+        "salt": [
+          7
+        ],
+        "saltLength": 1,
+        "trailer": 255,
+        "message": [
+          1,
+          2,
+          3
+        ],
+        "signature": [
+          2,
+          147,
+          98,
+          77,
+          119,
+          208,
+          212,
+          221,
+          244,
+          212,
+          167,
+          18,
+          85,
+          21,
+          199,
+          35,
+          225,
+          30,
+          142,
+          181,
+          5,
+          111,
+          255
+        ],
+        "mutation": "flip0/2"
+      },
+      "expected": {
+        "valid": true
+      }
+    }
+  ],
+  "domain": "identity exponent synthetic positive odd modulus, exact size and representative<n; source normalize clears unused bits, with no separate unused-bit rejection. Preserve observations; no added hardening or real-key security claim."
+}

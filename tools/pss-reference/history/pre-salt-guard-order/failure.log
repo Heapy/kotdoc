@@ -1,0 +1,2 @@
+Exception in thread "main" java.lang.IllegalStateException: row160 request={"op":"signRoot","faults":["key","salt"],"salt":[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],"message":[1,2,3],"signature":[]} expected=["salt","salt"] actual=["key","key"]
+	at io.heapy.kotdoc.crypto.PssDemandReplay.main(PssDemandReplay.kt:23)

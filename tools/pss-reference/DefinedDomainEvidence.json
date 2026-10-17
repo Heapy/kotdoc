@@ -1,0 +1,24 @@
+{
+  "signed64GuardMathChecks": 594,
+  "sourceCrtInverseDomains": [
+    {
+      "profile": "original sourceCRT",
+      "mode": "normal",
+      "rBytes": 128,
+      "uBytes": 16,
+      "rLessThanN": true,
+      "gcdProductN": 1
+    },
+    {
+      "profile": "original sourceCRT",
+      "mode": "short",
+      "rBytes": 127,
+      "uBytes": 15,
+      "rLessThanN": true,
+      "gcdProductN": 1
+    }
+  ],
+  "excludedEmptySafer": "12 requests classified before execution: private_n>1; generateMax topNothing/oddFalse uses Generate.hs67 p0 of actual zero-length buffer; salt successor demands this state for root/state/bytes; ignored pure result makes no RNG call",
+  "negativeAndHugeLengths": "only custom ignoreLength dictionary/callback executed; actual fixed2-byte salt, no native allocation/UInt32 conversion requested",
+  "observerMemory": "custom HashAlgorithm context8/digest4, exact bounded update input ranges; virtual guards never materialize hash/payload"
+}

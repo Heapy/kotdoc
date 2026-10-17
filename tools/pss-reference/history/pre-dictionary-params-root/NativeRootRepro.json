@@ -1,0 +1,26 @@
+[
+  {
+    "request": {
+      "op": "signRoot",
+      "faults": [
+        "params"
+      ]
+    },
+    "expected": [
+      "42",
+      "42"
+    ]
+  },
+  {
+    "request": {
+      "op": "signBytes",
+      "faults": [
+        "params"
+      ]
+    },
+    "expected": [
+      "params",
+      "params"
+    ]
+  }
+]

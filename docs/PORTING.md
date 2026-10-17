@@ -15732,3 +15732,43 @@ Native/host ABI, unsafe pointers, full heap/async/bottom equivalence, physical
 scrubbing and constant-time behavior are not claimed. PSS/fullRSA.Types,
 SystemDRG/OS entropy, other signatures/trust/chain, rest613/fullPandoc623 and
 calibre624–626 remain OPEN. AsciiDoc/types WIP is excluded from this checkpoint.
+
+### RSA.PSS source module checkpoint (independently reviewed)
+
+The pinned crypton2.0.1 RSA.PSS module is implemented in Kotlin: all10 exports,
+four lazy Params fields, emTruncate/normalizeToKeySize and18 available hash
+adapters. The review checked source guard and demand order, independent
+HashAlgorithm dictionaries versus Params witnesses, lazy MGF seed/length/result,
+pure State versus IO effects, state/value projections, bounded blinder retries,
+signature range/trailer/PS/salt checks, byte ownership and shared payload errors.
+No additional canonicality or salt-length validation replaces source behavior.
+
+Final Gradle25674 succeeded:32038 actual XML tests, zero failures/errors/skips
+(PSS10136, PKCS157587, rawRSA3124, OAEP11191). PSS comprises10033 independent
+observations, three host ownership/memoization tests and100 source pins. The53
+original PSSSpec examples (25 signing,25 verification,3 range) are mapped
+separately from generated observations. Independent review replayed the53-case
+literal exporter,40 selected paired-demand cases, all732 custom-dictionary cases
+and24 exact max100/error/eventual102draw controls. Fresh immutable-JAR probes at
+128MiB/256KiB confirmed ignored Params/message at a signing Right-root, salt-first
+errors, short-signature rejection, ignored-length IO effects and once-only shared
+payload failure. The source bodies/export-only observer transformation and100
+pins pass; all87 owned hashes and unchanged expected hashes are retained.
+
+Evidence: /tmp/kotdoc-pss-final-results contains immutable XML/JAR, command/log,
+owned/expected hashes and package report. Core JAR SHA256
+bd78884871b505c46617fe6021122134bfc526d1c0fe356d683cff34c8e1cf2a matches installDist;
+all4811 preinstall classes are byte-identical, only10 PSS classes are added.
+All115 upstream notice payloads plus rootGPL are byte-exact. Earlier failed
+demand/order drafts and observations remain in tools/pss-reference/history.
+
+Twelve precisely classified empty-provider safer root/state/bytes cases are
+excluded before native execution because the blinder path accesses p0 of empty
+storage; ignored pure projections remain defined controls. The974 helper/root
+bounds cases include signed64 arithmetic, not giant allocation/hash/RNG evidence.
+Materialized ByteArray dimensions remain Int-sized. Typed Digest inputs retain
+their valid-width source domain. No universal termination, arbitrary bottom,
+async/heap/ABI/backend, physical erasure or JVM constant-time proof is claimed.
+FullRSA.Types, SystemDRG/OS entropy, other signatures/trust/chain, missing hash
+backends/shared DigestData, rest613, fullPandoc623 and calibre624–626 remain OPEN.
+AsciiDoc and JSON drafts are excluded from this checkpoint.
