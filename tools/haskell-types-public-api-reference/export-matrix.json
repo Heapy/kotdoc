@@ -60,6 +60,10 @@
         {
           "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
           "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        },
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Meta/Pandoc Semigroup3/Monoid3 each;25metadata methodslots+10helpers author proof pending review"
         }
       ],
       "status": "representation_and_selected_instances",
@@ -90,6 +94,10 @@
         {
           "commit": "efeebad8f6d307e9245978f9ed631af431ea1b99",
           "scope": "25 EqOrd dictionaries \u00d79 methods; accepted finite matrix"
+        },
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Meta/Pandoc Semigroup3/Monoid3 each;25metadata methodslots+10helpers author proof pending review"
         }
       ],
       "status": "representation_and_selected_instances",
@@ -132,15 +140,20 @@
       "source_line": 134,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
-          "line": 5,
-          "symbol": "Pandoc"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 22,
+          "symbol": "nullMeta"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "api_mapping_unverified",
-      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
     },
     {
       "id": "Definition/isNullMeta",
@@ -149,15 +162,20 @@
       "source_line": 137,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
-          "line": 5,
-          "symbol": "Pandoc"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 23,
+          "symbol": "isNullMeta"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "api_mapping_unverified",
-      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
     },
     {
       "id": "Definition/lookupMeta",
@@ -166,15 +184,20 @@
       "source_line": 143,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt",
-          "line": 5,
-          "symbol": "Pandoc"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 24,
+          "symbol": "lookupMeta"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "api_mapping_unverified",
-      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
     },
     {
       "id": "Definition/docTitle",
@@ -183,15 +206,20 @@
       "source_line": 147,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 13,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 25,
           "symbol": "docTitle"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Direct source body matches the intended helper/pattern; complete independent case/demand/Unicode proof and member surface audit still required."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
     },
     {
       "id": "Definition/docAuthors",
@@ -200,15 +228,20 @@
       "source_line": 158,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 16,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 33,
           "symbol": "docAuthors"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Direct source body matches the intended helper/pattern; complete independent case/demand/Unicode proof and member surface audit still required."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
     },
     {
       "id": "Definition/docDate",
@@ -217,15 +250,20 @@
       "source_line": 170,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 14,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 26,
           "symbol": "docDate"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Direct source body matches the intended helper/pattern; complete independent case/demand/Unicode proof and member surface audit still required."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
     },
     {
       "id": "Definition/Block",
@@ -265,7 +303,7 @@
       "kotlin": [
         {
           "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 39,
+          "line": 29,
           "symbol": "SimpleFigure"
         }
       ],
@@ -560,8 +598,8 @@
           "scope": "3distinctcounttypes/45NumEnumslots;9930originalfinite+48demandresponses and351legacyASTbridgecases"
         }
       ],
-      "status": "implemented_num_enum_awaiting_review",
-      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independent review pending. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
+      "status": "accepted_num_enum_dictionary_matrix",
+      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independently accepted atdb0341b4533491b61eb9998a6e5fb26919a5d7c9. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
     },
     {
       "id": "Definition/Alignment",
@@ -832,8 +870,8 @@
           "scope": "3distinctcounttypes/45NumEnumslots;9930originalfinite+48demandresponses and351legacyASTbridgecases"
         }
       ],
-      "status": "implemented_num_enum_awaiting_review",
-      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independent review pending. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
+      "status": "accepted_num_enum_dictionary_matrix",
+      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independently accepted atdb0341b4533491b61eb9998a6e5fb26919a5d7c9. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
     },
     {
       "id": "Definition/ColSpan",
@@ -864,8 +902,8 @@
           "scope": "3distinctcounttypes/45NumEnumslots;9930originalfinite+48demandresponses and351legacyASTbridgecases"
         }
       ],
-      "status": "implemented_num_enum_awaiting_review",
-      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independent review pending. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
+      "status": "accepted_num_enum_dictionary_matrix",
+      "remaining_gap": "Num/Enum source defaults, Int64 overflow, BigInteger conversion, lazy ranges and explicit newtype thunk adapters implemented; independently accepted atdb0341b4533491b61eb9998a6e5fb26919a5d7c9. Existing AST Long fields preserved through explicit bridge. Other derived count class members remain separate gates."
     },
     {
       "id": "Definition/QuoteType",
@@ -1866,17 +1904,20 @@
       "source_line": 271,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 49,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 18,
           "symbol": "doc"
         }
       ],
-      "original_tests": [
-        "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
+      "original_tests": [],
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Original source function/direct finite and unusedargument demand proof"
+        }
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
     },
     {
       "id": "Builder/ToMetaValue",
@@ -1885,20 +1926,25 @@
       "source_line": 274,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 31,
-          "symbol": "toMetaValue"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/MetadataConversions.kt",
+          "line": 7,
+          "symbol": "ToMetaValue"
         },
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 7,
-          "symbol": "setMeta"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 5,
+          "symbol": "HasMeta"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "instance_surface_partial",
-      "remaining_gap": "Expand each source instance/method: HasMeta Meta missing; ToMetaValue Text versus Haskell String/Map String collision and recursive conversions need independent typed cases and laziness/source error proof."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "All9ToMetaValue and2HasMeta dictionaries/13methods, recursive typed native recipes andcustomdictionary demand; metadata25methodslots/10helpers"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Author full finite/demand/interface proof passes; shared Gradle and independent review pending. Source Text/String and Map Text/Map String remain distinct explicit dictionaries; source compiler typeclass selection is caller-explicit."
     },
     {
       "id": "Builder/HasMeta",
@@ -1907,20 +1953,25 @@
       "source_line": 304,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
-          "line": 31,
-          "symbol": "toMetaValue"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/MetadataConversions.kt",
+          "line": 7,
+          "symbol": "ToMetaValue"
         },
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 7,
-          "symbol": "setMeta"
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 5,
+          "symbol": "HasMeta"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "instance_surface_partial",
-      "remaining_gap": "Expand each source instance/method: HasMeta Meta missing; ToMetaValue Text versus Haskell String/Map String collision and recursive conversions need independent typed cases and laziness/source error proof."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "All9ToMetaValue and2HasMeta dictionaries/13methods, recursive typed native recipes andcustomdictionary demand; metadata25methodslots/10helpers"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Author full finite/demand/interface proof passes; shared Gradle and independent review pending. Source Text/String and Map Text/Map String remain distinct explicit dictionaries; source compiler typeclass selection is caller-explicit."
     },
     {
       "id": "Builder/setTitle",
@@ -1929,15 +1980,20 @@
       "source_line": 318,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 9,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 19,
           "symbol": "setTitle"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source function exists; complete direct original examples, Unicode/deep/partial boundary proof not yet assigned."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Original source function/direct finite and unusedargument demand proof"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
     },
     {
       "id": "Builder/setAuthors",
@@ -1946,15 +2002,20 @@
       "source_line": 321,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 10,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 20,
           "symbol": "setAuthors"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source function exists; complete direct original examples, Unicode/deep/partial boundary proof not yet assigned."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Original source function/direct finite and unusedargument demand proof"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
     },
     {
       "id": "Builder/setDate",
@@ -1963,15 +2024,20 @@
       "source_line": 324,
       "kotlin": [
         {
-          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Metadata.kt",
-          "line": 11,
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt",
+          "line": 21,
           "symbol": "setDate"
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source function exists; complete direct original examples, Unicode/deep/partial boundary proof not yet assigned."
+      "finite_proof": [
+        {
+          "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
+          "scope": "Original source function/direct finite and unusedargument demand proof"
+        }
+      ],
+      "status": "implemented_metadata_awaiting_review",
+      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
     },
     {
       "id": "Builder/text",
@@ -3284,13 +3350,13 @@
   ],
   "status_counts": {
     "representation_and_selected_instances": 27,
-    "api_mapping_unverified": 4,
-    "implementation_present_proof_partial": 69,
-    "implemented_num_enum_awaiting_review": 3,
+    "implemented_metadata_awaiting_review": 12,
+    "implementation_present_proof_partial": 62,
+    "api_mapping_unverified": 1,
+    "accepted_num_enum_dictionary_matrix": 3,
     "representation_partial": 1,
     "accepted_finite_source_matrix": 29,
-    "accepted_finite_dictionary_matrix": 5,
-    "instance_surface_partial": 2
+    "accepted_finite_dictionary_matrix": 5
   },
   "package_supplement": [
     {

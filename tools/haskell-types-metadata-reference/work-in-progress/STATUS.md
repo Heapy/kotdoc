@@ -1,0 +1,1 @@
+Canonical production and test files are installed under core. Kotlin copies here are development drafts only, excluded from the review commit. LegacyMetadataMismatch.kt is committed from the parent tools directory, not this duplicate. Source/helper and Map contract before/after evidence is preserved in the parent directory.

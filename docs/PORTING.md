@@ -14634,3 +14634,33 @@ physical erasure,constant timing,huge pointer buffers,real32/big-endian ABI and
 raw engine UB/range limits remain explicit. System entropy is separate scope.
 Other signature families,number generation/primality,trust/chain and the rest
 of local:613 remain OPEN,as do full Pandoc623 and later calibre624/625/626.
+
+
+### Metadata dictionaries, helpers and legacy demand correction
+
+Nine ToMetaValue,two HasMeta and Meta/Pandoc algebra dictionaries cover15
+instances/25 method slots,with ten public helpers. Independent replay matched
+5084 finite original responses,55 demand probes,actual GHC/Definition/Builder
+interfaces and51 pins. Source String/Text overlap,mapKeys packing collisions,
+right-biased Meta union,ordered key/value demand,large counts through2^200 and
+deep4096 structures retain finite original expectations. Only docTitle/docDate/
+docAuthors bodies change in existing Metadata.kt: head-before-tail and grouped
+author-prefix behavior now follow source;all other legacy helpers are unchanged.
+
+The initial34870 run passed32859 cases but a separate JVM Map contract probe
+found structural Entry equality/hashCode missing. The corrected immutable-entry
+adapter leaves all5084/55 original payloads unchanged. Final76981 nine XMLs
+contain32860 actual zero-failure/error/skip cases:5145 metadata plus27715
+Count/Many/Generic/Walk/property/Visitor/Builder regressions. Metadata comprises
+5139 originals,three legacy cases,integrity,sharing and one Map contract case.
+The isolated5145-body factory passed512MiB/256KiB. Own Java21 execution against
+the retained immutable final JAR confirms symmetric Map/entry equality,equal
+hashes and real HashSet lookup. Initial XML/source/reproducer evidence remains
+separate rather than overwritten.
+
+Own43 frozen hashes,seven major classes and four exact notices pass;jar and
+installDist passed with identical core jars. Lazy finite ordered maps and explicit
+source dictionary/list/root adapters do not claim arbitrary infinite maps,GHC
+heaps or universal multi-bottom exception ordering. Remaining generic Many/count
+classes,Builder/Data.Version/JSONfilter,140 exports and350 instance members keep
+local:611 and the complete Pandoc/calibre goal OPEN.

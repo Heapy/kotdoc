@@ -1,0 +1,110 @@
+"convert-bool-root"
+{"exception":"bool"}
+"convert-text-root"
+{"exception":"text"}
+"convert-string-root"
+{"exception":"string"}
+"convert-string-head"
+{"exception":"char"}
+"convert-list-root"
+{"exception":"list"}
+"convert-list-head"
+"root"
+"convert-list-tail"
+"root"
+"convert-list-demand-head"
+{"exception":"head"}
+"convert-map-value"
+"root"
+"convert-map-keys"
+"[\"x\"]"
+"convert-map-demand-value"
+{"exception":"value"}
+"convert-inlines-head"
+"root"
+"convert-blocks-head"
+"root"
+"convert-inlines-root"
+{"exception":"many"}
+"convert-blocks-root"
+{"exception":"many"}
+"meta-set-unused"
+"Nothing"
+"meta-set-null"
+"False"
+"meta-set-overwrite"
+"Just (MetaBool True)"
+"meta-delete-poison"
+"Meta {unMeta = fromList []}"
+"meta-delete-key-empty"
+{"exception":"key"}
+"meta-lookup-key-empty"
+{"exception":"key"}
+"meta-insert-key-empty"
+{"exception":"key"}
+"meta-lookup-found-lazy"
+"root"
+"doc-title-list-tail"
+"[Str \"a\"]"
+"doc-title-block-head-vs-tail"
+{"exception":"head"}
+"doc-date-block-head-vs-tail"
+{"exception":"head"}
+"doc-title-single-payload"
+"[Str \"a\"]"
+"doc-authors-first-group"
+"[[Str \"i\"]]"
+"doc-authors-early-string"
+{"exception":"later"}
+"doc-author-block-head-vs-tail"
+{"exception":"head"}
+"pandoc-set-unused"
+"[Plain []]"
+"pandoc-delete-preserve-head"
+"root"
+"doc-ignore-block-head"
+"root"
+"doc-force-block-root"
+{"exception":"many"}
+"set-title-unused"
+"Nothing"
+"set-authors-unused"
+"Nothing"
+"set-date-unused"
+"Nothing"
+"meta-append-winning-value"
+"Just (MetaBool True)"
+"meta-append-order"
+{"exception":"right"}
+"pandoc-append-order"
+{"exception":"left"}
+"meta-concat-order"
+{"exception":"right"}
+"pandoc-concat-order"
+{"exception":"left"}
+"meta-sconcat-tail-first"
+{"exception":"head"}
+"pandoc-sconcat-tail-first"
+{"exception":"head"}
+"pandoc-sconcat-head-before-later-tail"
+{"exception":"head"}
+"meta-stimes-zero"
+{"exception":"value"}
+"pandoc-stimes-negative"
+{"exception":"value"}
+"meta-stimes-one"
+{"exception":"value"}
+"pandoc-stimes-two-lazy-head"
+"root"
+"custom-list-ignore-value"
+"MetaList [MetaBool True]"
+"custom-hasmeta-ignore-value"
+"Just (MetaBool True)"
+"string-map-discarded-value"
+"MetaMap (fromList [(\"\\65533\",MetaBool True)])"
+"meta-stimes-count-vs-value"
+{"exception":"value"}
+"pandoc-stimes-count"
+{"exception":"count"}
+"meta-append-unused-value"
+"False"

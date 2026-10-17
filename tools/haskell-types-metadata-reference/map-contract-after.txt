@@ -1,0 +1,4 @@
+symmetric equality: true
+equal map hashes: true
+equal entry sets: true
+HashSet lookup: true

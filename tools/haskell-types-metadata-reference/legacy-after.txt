@@ -1,0 +1,3 @@
+doc-title-block-head-vs-tail:exception:head
+doc-date-block-head-vs-tail:exception:head
+doc-authors-first-group:[[Str "i"]]

@@ -1,0 +1,39 @@
+// Source metadata field representations for Text.Pandoc.Definition/Builder.
+// Copyright (c) 2006-2023 John MacFarlane. BSD-3-Clause; see licenses/.
+// Map source semantics: ©Daan Leijen 2002, Andriy Palamarchuk 2008. BSD-style.
+package io.heapy.kotdoc.ast
+
+/** Lazy values, finite ordered keys. A map's structure never demands its values. */
+class MetadataMap<A> private constructor(private val cells:java.util.SortedMap<String,()->A>):AbstractMap<String,A>() {
+ override val size get()=cells.size
+ override fun containsKey(key:String)=cells.containsKey(key)
+ override fun get(key:String):A?=cells[key]?.invoke()
+ override val entries:Set<Map.Entry<String,A>> get()=object:AbstractSet<Map.Entry<String,A>>(){
+  override val size get()=cells.size
+  override fun iterator():Iterator<Map.Entry<String,A>> = cells.entries.map{entry->object:Map.Entry<String,A>{override val key=entry.key;override val value get()=entry.value();override fun equals(other:Any?)=other is Map.Entry<*,*>&&key==other.key&&value==other.value;override fun hashCode()=key.hashCode() xor (value?.hashCode()?:0)}}.iterator()
+ }
+ fun inserted(key:String,value:()->A):MetadataMap<A> = MetadataMap(java.util.TreeMap(cells).also{it[key]=memo(value)})
+ internal fun unionRight(other:MetadataMap<A>):MetadataMap<A> = MetadataMap(java.util.TreeMap(cells).also{it.putAll(other.cells)})
+ fun deleted(key:String):MetadataMap<A> = MetadataMap(java.util.TreeMap(cells).also{it.remove(key)})
+ fun <B> mapped(convert:(()->A)->B):MetadataMap<B> = MetadataMap(java.util.TreeMap<String,()->B>(order).also{out->for((k,v)in cells)out[k]=memo{convert(v)}})
+ companion object {
+  internal fun <A> memo(f:()->A):()->A {val value=GenericMemo(f);return value::get}
+  val order:Comparator<String> = Comparator{a,b->var i=0;var j=0;while(i<a.length&&j<b.length){val x=a.codePointAt(i);val y=b.codePointAt(j);val d=x.compareTo(y);if(d!=0)return@Comparator d;i+=Character.charCount(x);j+=Character.charCount(y)};(a.length-i).compareTo(b.length-j)}
+  fun <A> empty():MetadataMap<A> = MetadataMap(java.util.TreeMap(order))
+  fun <A> fromMap(map:Map<String,A>):MetadataMap<A> = if(map is MetadataMap<A>)map else fromEntries(map.keys.map{key->key to {map.getValue(key)}})
+  fun <A> fromEntries(entries:Iterable<Pair<String,()->A>>):MetadataMap<A> = MetadataMap(java.util.TreeMap<String,()->A>(order).also{out->for((key,value)in entries)out[key]=memo(value)})
+ }
+}
+/** The Definition Pandoc constructor has StrictData fields, but lazy list elements. */
+class MetadataDocument(meta:()->MetadataMap<MetaValue>,blocks:()->GenericList<Block>) {
+ val meta=meta()
+ val blocks=blocks().also{it.step()}
+ fun toAst():Pandoc=Pandoc(meta,blocks)
+ companion object {fun fromAst(value:Pandoc)=MetadataDocument({MetadataMap.fromMap(value.meta)},{GenericList.view(value.blocks)})}
+}
+internal fun <A,B> metadataMapList(input:()->List<A>,f:(()->A)->B):GenericList<B> = GenericList.defer{
+ when(val node=GenericList.view(input()).step()){
+  GenericList.Step.Nil->GenericList.empty()
+  is GenericList.Step.Cons->GenericList.cons({f(node::head)},{metadataMapList(node::tail,f)})
+ }
+}

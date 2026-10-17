@@ -624,3 +624,50 @@ eight major classes/two exact notices/identical installed core JAR pass.
 Saved XML/command/log/package proof: /tmp/kotdoc-count-final-results.
 The45-slot checkpoint is frozen for independent review; all remaining gates
 listed above remain open. No accepted production or original expectation changed.
+
+
+Count45-slot checkpoint independently accepted at
+db0341b4533491b61eb9998a6e5fb26919a5d7c9:27,693 actual regression cases,
+9,978 raw original responses/interfaces/package and38source pins.
+
+Metadata author checkpoint covers15 dictionaries/25 method slots and10 public
+helpers. The nine ToMetaValue instances retain distinct Text/String and
+Map Text/Map String dictionaries, recursive typed conversions and custom
+source dictionary demand. HasMeta Meta and Pandoc each have setMeta/deleteMeta.
+Meta/Pandoc each include actual Semigroup3 and Monoid3 defaults. The complete
+source-to-member/helper/original-case matrix is
+tools/haskell-types-metadata-reference/acceptance-matrix.json.
+
+Original5,084 finite responses and55 partial/demand observations match Kotlin;
+actual GHC Base/Definition/Builder interfaces match. Isolated actual JUnit bodies
+pass5,144 cases at512MiB/256KiB:5,139 originals,3 legacy helper regressions,
+integrity and one sharing adapter. Before/after legacy repros preserve independent
+source expectations. Only docTitle/docDate/docAuthors bodies in Metadata.kt
+delegate to the new API; other functions and SimpleFigure stay byte-identical.
+Source optimized defaults' strictness and imprecise-exception order are recorded
+for the pinned build, rather than falsely promoted to universal Haskell semantics.
+Explicit source root/list adapters and finite ordered keys with lazy Map values
+are separate from strict scalar/JVM Collection convenience boundaries.
+This metadata slice awaits shared Gradle and independent review. Other generic
+Many/count derived classes, remaining Builder exports, Data.Version, JSONfilter
+and full140exports/350expanded instances remain open.
+
+Metadata final adapter gate adds a separate JVM Map/Entry contract test after
+a source-preserved before/after repro found unequal hashes/entry sets and failed
+HashSet lookup for equal maps. Entry equality/hashCode are now structural.
+The actual isolated factory now passes5,145 cases, including that extra Kotlin
+contract test; all5,084 finite and55 original demand expectations stay unchanged.
+The earlier5,144 author gate and shared34870/32,859 results remain historical
+pre-correction evidence; the corrected shared run is recorded separately below.
+
+
+Metadata author final shared gate: corrective Gradle76981 BUILD SUCCESSFUL
+in1m24s,32,860 actual cases/zero failures/errors/skips. Metadata5,145 plus
+accepted Count/Many/Generic/Walk/properties/Visitor27,693 and Builder22. Final
+5,084 finite +55 native demand responses and actual interfaces match;51pins
+pass. The extra case after the earlier32,859 gate is a Kotlin Map/Entry/HashSet
+contract test, not a fabricated original response. Seven major packaged classes,
+four byte-exact notices and identical installed core JAR pass. Nine XMLs,
+commands/logs/package/immutable JAR/frozen hashes: /tmp/kotdoc-metadata-final-results.
+The complete25-method/10-helper slice is frozen pending independent review.
+All other140/350/JSON and derived-class/Builder/Data.Version gates stay open.

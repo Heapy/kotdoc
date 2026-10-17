@@ -10,19 +10,9 @@ fun Pandoc.setTitle(title: Inlines): Pandoc = setMeta("title", MetaValue.MetaInl
 fun Pandoc.setAuthors(authors: List<Inlines>): Pandoc = setMeta("author", MetaValue.MetaList(authors.map { MetaValue.MetaInlines(it.values) }))
 fun Pandoc.setDate(date: Inlines): Pandoc = setMeta("date", MetaValue.MetaInlines(date.values))
 
-fun docTitle(meta: Map<String, MetaValue>): List<Inline> = textMetadata(meta["title"])
-fun docDate(meta: Map<String, MetaValue>): List<Inline> = textMetadata(meta["date"])
-
-fun docAuthors(meta: Map<String, MetaValue>): List<List<Inline>> = when (val value = meta["author"]) {
-    is MetaValue.MetaString -> listOf(listOf(Inline.Str(value.value)))
-    is MetaValue.MetaInlines -> listOf(value.content)
-    // Upstream groups by representation, preserving order within each group.
-    is MetaValue.MetaList -> value.values.filterIsInstance<MetaValue.MetaInlines>().map { it.content } +
-        value.values.filterIsInstance<MetaValue.MetaBlocks>().mapNotNull { (it.content.singleOrNull() as? Block.Plain)?.content } +
-        value.values.filterIsInstance<MetaValue.MetaBlocks>().mapNotNull { (it.content.singleOrNull() as? Block.Para)?.content } +
-        value.values.filterIsInstance<MetaValue.MetaString>().map { listOf(Inline.Str(it.value)) }
-    else -> emptyList()
-}
+fun docTitle(meta: Map<String, MetaValue>): List<Inline> = PandocMetadata.docTitle { MetadataMap.fromMap(meta) }
+fun docDate(meta: Map<String, MetaValue>): List<Inline> = PandocMetadata.docDate { MetadataMap.fromMap(meta) }
+fun docAuthors(meta: Map<String, MetaValue>): List<List<Inline>> = PandocMetadata.docAuthors { MetadataMap.fromMap(meta) }
 
 private fun textMetadata(value: MetaValue?): List<Inline> = when (value) {
     is MetaValue.MetaString -> listOf(Inline.Str(value.value))
