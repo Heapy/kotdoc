@@ -15892,3 +15892,36 @@ No universal heap/async/ABI/bottom/termination claim follows. Full618/612/621,
 all remaining Pandoc623 tests/formats and calibre624–626 remain OPEN. The next
 independent text writer candidate is DocBook4/5, whose early source review and
 original26unit/fourOld execution inventory are prepared, not a Kotlin port.
+
+### FB2 nine-assertion current inventory binding
+
+The FB2 execution bridge now distinguishes historical Gradle evidence from an
+actual isolated JUnit ConsoleLauncher run of the unchanged Reader/Writer factory
+tests and LogAssertions helper. The current run has nine original assertions,
+zero failures/errors/skips, against accepted PSS core JAR SHA256
+bd78884871b505c46617fe6021122134bfc526d1c0fe356d683cff34c8e1cf2a.
+Portable evidence embeds the actual test JAR,54 selected production classes,
+486 accepted production source bindings, complete class identities, exact
+commands/toolchain/dependencies and raw Jupiter XML factory/ordinal identities.
+It is not relabeled Gradle output and validation does not require /tmp artifacts.
+
+Independent review rejected the first validator's self-consistency-only checks:
+fake executable, substituted test bytecode and changed production bytes/maps
+were accepted. Reviewed versioned pins now anchor actual immutable test/core
+artifacts, exact commands/tools/dependencies and accepted5e968eea Git source
+blobs. The three original negative repros reject;24 regression methods pass,
+including retained legacy-positive/no-tmp tests and grouped tamper guards.
+Coordinator independently checked actual JAR/classes,486 production+3 test Git
+blobs, dependency/JDK/Kotlin identities and all six owned file hashes. These
+code-review pins are a reproducible artifact acceptance rule, not signatures or
+cryptographic attestation of who ran a command. Pin changes require new review.
+
+The old execution JSON is byte-exact to its accepted Git blob; both old XML
+reports and the later source-drift failure (exit1,setUpClass,Ran0) remain explicit
+history. Original tests/fixtures/expectations and nine assertion mappings are
+unchanged. Producer verification reports nine executed mappings and ten other
+FB2 obligations unmapped. No conversion assertions, Gradle or full snapshot
+generation were rerun during metadata integration. The global test-inventory.json
+snapshot remains deliberately unrefreshed and requires separate reviewed source/
+provenance reconciliation; PSS53 and other mappings were not added incidentally.
+FullFB2/622/623, dependency/platform suites and calibre remain OPEN.

@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Finite nine-leaf source/execution bridge regressions; no conversion execution."""
 import copy
+import base64
+import io
+import zipfile
+from unittest.mock import patch
 import hashlib
 import importlib.util
 import json
@@ -18,6 +22,8 @@ class FB2InventoryTests(unittest.TestCase):
     def setUpClass(cls):
         cls.data=f.inventory();cls.rows=cls.data['unit_leaves']
         cls.execution=json.loads((ROOT/f.EXECUTION).read_text())
+        cls.evidence=json.loads((ROOT/cls.execution['evidence']['path']).read_text())
+        cls.history=json.loads((ROOT/cls.execution['history']['path']).read_text())
 
     def test_exact_nine_runtime_unit_leaves_and_executed_assertions(self):
         self.assertEqual(len(self.rows),9);self.assertEqual(len({r['id'] for r in self.rows}),9)
@@ -99,6 +105,147 @@ class FB2InventoryTests(unittest.TestCase):
         self.assertEqual(native['leaves'][-1]['status'],'unmapped')
         native['leaves'].pop(0)
         with self.assertRaisesRegex(ValueError,'root omitted'):f.apply_runtime_bridge(native,self.data)
+
+    def test_console_mode_is_explicit_and_raw_engine_names_are_not_gradle_names(self):
+        self.assertEqual((self.execution['schema_version'],self.execution['execution_mode']),(2,'junit-console'))
+        self.assertNotIn('actual_shared_command',self.execution)
+        self.assertEqual(ET.fromstring(self.execution['reports'][0]['xml_without_hostname']).get('name'),'JUnit Jupiter')
+        self.assertTrue(all('()[' in c.get('name') for c in ET.fromstring(self.execution['reports'][0]['xml_without_hostname']).findall('testcase')))
+
+    def console_check(self,evidence=None,history=None,saved=None):
+        return f._validate_console_evidence(saved or self.execution,self.rows,evidence or self.evidence,history or self.history)
+
+    def test_console_missing_extra_factory_and_mutable_classpath_rejected(self):
+        for mode in ('missing','extra','mutable','unrecorded'):
+            evidence=copy.deepcopy(self.evidence);saved=copy.deepcopy(self.execution);run=evidence['run_command']
+            if mode=='missing':
+                index=run.index('--select-method');del run[index:index+2]
+            elif mode=='extra':run+=['--select-class','unrelated.Test']
+            else:
+                index=run.index('--class-path')+1
+                run[index]+=':'+('core/build/classes/kotlin/main' if mode=='mutable' else '/tmp/unrecorded.jar')
+            saved['actual_command_args']=run
+            with self.assertRaises(ValueError):self.console_check(evidence=evidence,saved=saved)
+
+    def test_console_evidence_hash_or_unknown_mode_rejected(self):
+        for mode in ('hash','mode'):
+            saved=copy.deepcopy(self.execution)
+            if mode=='hash':saved['evidence']['sha256']='0'*64
+            else:saved['execution_mode']='pretend-gradle'
+            with self.assertRaises(ValueError):f.validate_execution(saved,self.rows)
+
+    def test_console_jars_and_bytecode_identity_rejected(self):
+        for mode in ('core','test','class'):
+            evidence=copy.deepcopy(self.evidence)
+            if mode=='core':evidence['core_package']['sha256']='0'*64
+            elif mode=='test':evidence['test_jar']['sha256']='0'*64
+            else:evidence['core_package']['selected_classes'][next(iter(evidence['core_package']['selected_classes']))]='0'*64
+            with self.assertRaises(ValueError):self.console_check(evidence=evidence)
+
+    def test_console_test_jar_cannot_overlay_production_classes(self):
+        evidence=copy.deepcopy(self.evidence);entries=f._archive(evidence['test_jar']);buffer=io.BytesIO()
+        with zipfile.ZipFile(buffer,'w',zipfile.ZIP_DEFLATED) as archive:
+            for name,raw in entries.items():archive.writestr(name,raw)
+            archive.writestr('io/heapy/kotdoc/ast/Builder.class',b'unreviewed')
+        raw=buffer.getvalue();evidence['test_jar']=dict(base64=base64.b64encode(raw).decode(),sha256=hashlib.sha256(raw).hexdigest())
+        with self.assertRaisesRegex(ValueError,'other source families'):self.console_check(evidence=evidence)
+
+    def test_console_test_helper_fixture_and_core_source_drift_rejected(self):
+        for key in ('test_sources','fixtures_and_original_sources'):
+            evidence=copy.deepcopy(self.evidence);evidence[key][next(iter(evidence[key]))]='0'*64
+            with self.assertRaisesRegex(ValueError,'source/hash drift'):self.console_check(evidence=evidence)
+        evidence=copy.deepcopy(self.evidence);evidence['core_package']['source_bindings'][next(iter(evidence['core_package']['source_bindings']))]='0'*64
+        with self.assertRaisesRegex(ValueError,'source/hash drift'):self.console_check(evidence=evidence)
+
+    def test_console_duplicate_lost_case_error_and_raw_report_drift_rejected(self):
+        for mode in ('duplicate','lost','error'):
+            saved=copy.deepcopy(self.execution);report=saved['reports'][0];tree=ET.fromstring(report['xml_without_hostname']);cases=tree.findall('testcase')
+            if mode=='duplicate':cases[0].set('name',cases[1].get('name'));cases[0].set('classname',cases[1].get('classname'))
+            elif mode=='lost':tree.remove(cases[0]);tree.set('tests','8')
+            else:ET.SubElement(cases[0],'error')
+            report['xml_without_hostname']=ET.tostring(tree,encoding='unicode');report['xml_without_hostname_sha256']=hashlib.sha256(report['xml_without_hostname'].encode()).hexdigest()
+            with self.assertRaises(ValueError):f.validate_execution(saved,self.rows)
+        evidence=copy.deepcopy(self.evidence);evidence['raw_jupiter_report']['xml']+='changed'
+        with self.assertRaisesRegex(ValueError,'raw XML hash drift'):self.console_check(evidence=evidence)
+
+    def test_console_original_registration_ordinal_join_cannot_change(self):
+        for mode in ('ordinal','original','result'):
+            evidence=copy.deepcopy(self.evidence);row=evidence['nine_results'][0]
+            row[{'ordinal':'ordinal','original':'originalRuntimeID','result':'result'}[mode]]=999 if mode=='ordinal' else 'changed'
+            with self.assertRaisesRegex(ValueError,'nine-way join'):self.console_check(evidence=evidence)
+
+    @staticmethod
+    def archive_record(entries):
+        buffer=io.BytesIO()
+        with zipfile.ZipFile(buffer,'w',zipfile.ZIP_DEFLATED) as archive:
+            for name,raw in entries.items():archive.writestr(name,raw)
+        raw=buffer.getvalue()
+        return dict(base64=base64.b64encode(raw).decode(),sha256=hashlib.sha256(raw).hexdigest())
+
+    def test_grouped_reviewer_substitutions_are_rejected_without_execution(self):
+        # Exact reviewer counterexamples. Substituted commands/bytecode are ONLY
+        # data passed to validation, never spawned, loaded or executed.
+        for mode in ('fake-executable','rehashed-test-bytecode','rehashed-production-bytecode'):
+            with self.subTest(mode=mode):
+                evidence=copy.deepcopy(self.evidence);saved=copy.deepcopy(self.execution)
+                if mode=='fake-executable':
+                    evidence['run_command'][0]='/bin/true';saved['actual_command_args']=evidence['run_command']
+                elif mode=='rehashed-test-bytecode':
+                    entries=f._archive(evidence['test_jar']);name=next(n for n in entries if n.endswith('FB2ReaderTest.class'))
+                    entries[name]=b'not executable class bytecode';evidence['test_jar']=self.archive_record(entries)
+                else:
+                    core=evidence['core_package'];entries=f._archive(core['selected_class_zip']);name=next(iter(core['selected_classes']))
+                    entries[name]=b'changed production';core['selected_class_zip']=self.archive_record(entries)
+                    core['selected_classes'][name]=core['classes'][name]=hashlib.sha256(entries[name]).hexdigest()
+                with self.assertRaisesRegex(ValueError,'identity differs'):
+                    self.console_check(evidence=evidence,saved=saved)
+
+    def test_grouped_toolchain_dependency_and_classmap_resealing_is_not_authority(self):
+        for mode in ('run-and-tool','compile-and-tool','dependency','unselected-class-map','tool-binary-identity'):
+            with self.subTest(mode=mode):
+                evidence=copy.deepcopy(self.evidence);saved=copy.deepcopy(self.execution)
+                if mode=='run-and-tool':
+                    evidence['run_command'][0]=evidence['toolchain']['runtime']['path']='/bin/true'
+                    saved['actual_command_args']=evidence['run_command']
+                elif mode=='compile-and-tool':
+                    evidence['compile_command'][0]=evidence['toolchain']['compiler']['path']='/bin/true'
+                elif mode=='dependency':
+                    name=next(n for n in evidence['dependencies'] if 'serialization-json' in n)
+                    evidence['dependencies'][name]='0'*64
+                elif mode=='unselected-class-map':
+                    core=evidence['core_package'];name=next(n for n in core['classes'] if n not in core['selected_classes']);core['classes'][name]='0'*64
+                else:evidence['toolchain']['runtime']['sha256']='0'*64
+                with self.assertRaisesRegex(ValueError,'reviewed artifact/tool identity differs'):
+                    self.console_check(evidence=evidence,saved=saved)
+
+    def test_console_verification_does_not_require_original_tmp_artifacts(self):
+        original=Path.read_bytes
+        def portable(path):
+            if str(path).startswith(('/tmp/','/private/tmp/')):
+                raise AssertionError('Verifier tried to read nonportable runtime artifact: '+str(path))
+            return original(path)
+        with patch.object(Path,'read_bytes',new=portable):
+            self.assertIs(f.validate_execution(self.execution,self.rows),self.execution)
+
+    def test_historical_gradle_mode_preserves_original_result_and_rejects_selector_loss(self):
+        old=json.loads(self.history['old_execution_json']);self.assertEqual(old['result'],self.execution['result'])
+        self.assertNotEqual(old['relevant_sources_before_and_after']['core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt'],self.execution['relevant_sources_before_and_after']['core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt'])
+        # Historical validator exercises the original artifact's exact source identities,
+        # not a bypass for current source drift or a rewrite of the historical data.
+        with patch.object(f,'source',side_effect=lambda path:dict(path=path,sha256=old['relevant_sources_before_and_after'][path])):
+            self.assertIs(f.validate_execution(old,self.rows),old)
+            changed=copy.deepcopy(old);changed['actual_shared_command']='no selectors'
+            with self.assertRaisesRegex(ValueError,'selectors missing'):f.validate_execution(changed,self.rows)
+
+    def test_historical_failed_checker_and_xml_are_immutable_not_promoted(self):
+        self.assertEqual(self.history['later_failed_validation']['exit'],1)
+        self.assertEqual(self.history['later_failed_validation']['executed_inventory_tests'],0)
+        for mode in ('xml','failure','old-json'):
+            history=copy.deepcopy(self.history)
+            if mode=='xml':history['raw_reports'][0]['xml']+='changed'
+            elif mode=='failure':history['later_failed_validation']['exit']=0
+            else:history['old_execution_json']+='changed'
+            with self.assertRaises(ValueError):self.console_check(history=history)
 
 
 if __name__=='__main__':unittest.main()

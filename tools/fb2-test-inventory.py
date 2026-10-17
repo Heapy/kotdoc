@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Finite FB2 nine-unit-leaf source/assertion bridge. No conversion or test execution."""
 import argparse
+import base64
+import io
+import zipfile
 import hashlib
 import importlib.util
 import json
@@ -189,29 +192,163 @@ def draft_inventory():
 EXECUTION='docs/test-inventory-fb2-execution.json'
 
 
+# Review authority is this versioned code, not mutable evidence JSON. These
+# fixed acceptance pins were independently derived from the actual nine-test
+# JAR, accepted PSS core JAR bd788848..., and accepted5e968eea Git source blobs.
+# Command/dependency/tool identities bind the actual recorded isolated run.
+# Updating a pin requires a new artifact/provenance review; transport self-hashes
+# below are not signatures, secret authentication, or authority to accept a run.
+REVIEWED_CONSOLE_PINS = {
+    "test_jar": "ea788511b8378f767d292af77cb42d8a5db370155b1926eb9b3d5174b1f58a47",
+    "core_classes": "f84b7e9e858f476fdf8e4849e223bdf51dcb5fecc45f8cf17fbee7a3c8c0689f",
+    "selected_classes": "1c590bdb0f292f742e865321b6b5eaa2da2a7cec566aa35bec216e13ee8b5e59",
+    "core_sources": "2100096831e4ee4b89b521b260a871ca5db12b41591dd442e49f7e7a017c6bea",
+    "test_sources": "a062d25c4680c5b966d6b4a96e9a795bee5bc050d9aff3ce5fbf5a0d5fd5d0da",
+    "compile_command": "0ec00d365106416fee10b0d02d1ed1911c3c37f1a79ba487c8e8fc99456f1acf",
+    "run_command": "261a04db313cbd0c9c217154f451480b87dcde8b217e183f832e2b1772dfa416",
+    "dependencies": "bbfaa36dcc43f046396c1f7e187d9c4526e8b32091eef487328a4c53889887b8",
+    "toolchain": "fc73f24b8390523327d36b567136c1d5005a9e67045add35158e2c0de6820280"
+}
+
+
+def _canonical_digest(value):
+    return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()).hexdigest()
+
+
+def _reviewed_console_identity(evidence):
+    core=evidence['core_package']
+    actual=dict(test_jar=evidence['test_jar']['sha256'],
+                core_classes=_canonical_digest(core['classes']),
+                selected_classes=_canonical_digest(core['selected_classes']),
+                core_sources=_canonical_digest(core['source_bindings']),
+                test_sources=_canonical_digest(evidence['test_sources']),
+                compile_command=_canonical_digest(evidence['compile_command']),
+                run_command=_canonical_digest(evidence['run_command']),
+                dependencies=_canonical_digest(evidence['dependencies']),
+                toolchain=_canonical_digest(evidence['toolchain']))
+    for name,expected in REVIEWED_CONSOLE_PINS.items():
+        if actual[name]!=expected:raise ValueError('FB2 reviewed artifact/tool identity differs: '+name)
+
+
+def _bound_json(binding):
+    path=binding['path']
+    if path not in ('docs/test-inventory-fb2-current-evidence.json','docs/test-inventory-fb2-history.json'):
+        raise ValueError('Unexpected FB2 evidence path')
+    raw=(ROOT/path).read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=binding['sha256']:raise ValueError('FB2 evidence hash drift')
+    return json.loads(raw)
+
+
+def _archive(record):
+    raw=base64.b64decode(record['base64'],validate=True)
+    if hashlib.sha256(raw).hexdigest()!=record['sha256']:raise ValueError('FB2 archived artifact hash drift')
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        names=archive.namelist()
+        if len(names)!=len(set(names)):raise ValueError('Duplicate FB2 archive entry')
+        return {name:archive.read(name) for name in names}
+
+
+def _validate_console_evidence(saved,rows,evidence,history):
+    if evidence.get('schema_version')!=1 or evidence.get('compile_exit')!=0 or evidence.get('run_exit')!=0:
+        raise ValueError('FB2 isolated compile/run did not succeed')
+    expected_sources={r['kotlin']['source']['path'] for r in rows}|{'core/src/test/kotlin/io/heapy/kotdoc/logging/LogAssertions.kt'}
+    if set(evidence['test_sources'])!=expected_sources:raise ValueError('FB2 compiled test/helper scope differs')
+    for path,digest in {**evidence['test_sources'],**evidence['fixtures_and_original_sources']}.items():
+        if source(path)['sha256']!=digest:raise ValueError('FB2 evidence source/hash drift: '+path)
+    expected_fixtures={READER,WRITER}|{f'upstream/pandoc/test/fb2/reader/{name}.{suffix}' for name in ('emphasis','titles','epigraph','poem','meta','notes') for suffix in ('fb2','native')}
+    if set(evidence['fixtures_and_original_sources'])!=expected_fixtures:raise ValueError('FB2 fixture/source scope differs')
+    run=evidence['run_command'];compile=evidence['compile_command']
+    tools=evidence['toolchain']
+    if run[0]!=tools['runtime']['path'] or compile[0]!=tools['compiler']['path'] or tools['runtime']['java_home']!=tools['compiler']['java_home'] or tools['runtime']['version']!='21.0.12+10-LTS' or tools['console']['version']!='1.11.4':
+        raise ValueError('FB2 typed command/tool identity differs')
+    if saved['actual_command_args']!=run:raise ValueError('FB2 actual command differs from retained evidence')
+    selectors=[run[i+1] for i,t in enumerate(run[:-1]) if t=='--select-method']
+    expected_selectors={r['kotlin']['class_name']+'#'+r['kotlin']['method'] for r in rows}
+    if len(selectors)!=2 or set(selectors)!=expected_selectors or any(t.startswith('--select-') and t!='--select-method' or t.startswith('--scan-') for t in run):
+        raise ValueError('Actual executed factory selectors missing/extra')
+    if '--fail-if-no-tests' not in run or '-Xmx512m' not in run or '-Xss256k' not in run:raise ValueError('FB2 runner guards/limits differ')
+    if set(t for t in compile if t.endswith('.kt'))!=expected_sources:raise ValueError('FB2 compile source scope differs')
+    test_path=compile[compile.index('-d')+1]
+    cp=run[run.index('--class-path')+1].split(':')
+    core=evidence['core_package'];dependencies=evidence['dependencies']
+    core_paths=[name for name,digest in dependencies.items() if digest==core['sha256']]
+    if len(core_paths)!=1 or cp[0]!=test_path or cp[1]!=core_paths[0] or core_paths[0] not in compile[compile.index('-cp')+1].split(':'):
+        raise ValueError('FB2 immutable core/test classpath binding differs')
+    if any(path not in dependencies for path in cp[1:]) or any(not path.endswith('.jar') or 'core/build' in path or '/build/classes/' in path for path in cp):raise ValueError('Mutable/non-JAR FB2 execution classpath')
+    console=run[run.index('-jar')+1]
+    if console!=tools['console']['path'] or dependencies.get(console)!=tools['console']['sha256']:
+        raise ValueError('FB2 typed JUnit tool identity differs')
+    if console not in dependencies or not console.endswith('kotdoc-junit-platform-console-1.11.4.jar'):raise ValueError('FB2 JUnit runner binding differs')
+    if core['sha256']!='bd78884871b505c46617fe6021122134bfc526d1c0fe356d683cff34c8e1cf2a' or core['sha256']!=core['package_verification']['jarSha256'] or core['accepted_commit']!='5e968eea11f0c58013415acafe060f43dada9b62':
+        # The full commit identity below is supplied by the accepted evidence, not a branch name.
+        raise ValueError('FB2 accepted package identity differs')
+    for path,digest in core['source_bindings'].items():
+        if not path.startswith('core/src/main/kotlin/') or source(path)['sha256']!=digest:raise ValueError('FB2 accepted core source/hash drift: '+path)
+    if len(core['source_bindings'])!=486:raise ValueError('FB2 accepted core source scope differs')
+    selected=_archive(core['selected_class_zip'])
+    if set(selected)!=set(core['selected_classes']):raise ValueError('FB2 production class archive scope differs')
+    for name,data in selected.items():
+        digest=hashlib.sha256(data).hexdigest()
+        if digest!=core['selected_classes'][name] or digest!=core['classes'].get(name):raise ValueError('FB2 production class identity differs')
+    if len(selected)!=54:raise ValueError('FB2 selected class family count differs')
+    tests=_archive(evidence['test_jar']);classes=[name for name in tests if name.endswith('.class')]
+    if not classes or any(not any(name.startswith(prefix) for prefix in ('io/heapy/kotdoc/formats/FB2ReaderTest','io/heapy/kotdoc/formats/FB2WriterTest','io/heapy/kotdoc/logging/LogAssertionsKt')) for name in classes):
+        raise ValueError('FB2 isolated test artifact contains other source families')
+    raw=evidence['raw_jupiter_report']['xml']
+    if hashlib.sha256(raw.encode()).hexdigest()!=evidence['raw_jupiter_report']['sha256']:raise ValueError('FB2 raw XML hash drift')
+    report=saved['reports'][0]
+    if report['original_sha256']!=evidence['raw_jupiter_report']['sha256'] or re.sub(r' hostname="[^"]*"','',raw)!=report['xml_without_hostname']:
+        raise ValueError('FB2 current raw report binding differs')
+    expected={(r['id'],r['kotlin']['class_name'],r['kotlin']['method'],r['kotlin']['dynamic_ordinal'],r['kotlin']['display_name']) for r in rows}
+    actual={(r['originalRuntimeID'],r['kotlinClass'],r['factory'],r['ordinal'],r['displayName']) for r in evidence['nine_results'] if r['result']=='PASS'}
+    if len(evidence['nine_results'])!=9 or actual!=expected:raise ValueError('FB2 retained original nine-way join differs')
+    old=history['old_execution_json']
+    if hashlib.sha256(old.encode()).hexdigest()!=history['old_execution_json_sha256']:raise ValueError('FB2 historical execution hash drift')
+    old=json.loads(old)
+    old_reports={r['original_sha256'] for r in old['reports']}
+    if len(history['raw_reports'])!=2 or {r['sha256'] for r in history['raw_reports']}!=old_reports or any(hashlib.sha256(r['xml'].encode()).hexdigest()!=r['sha256'] for r in history['raw_reports']):
+        raise ValueError('FB2 historical XML drift')
+    failed=history['later_failed_validation']
+    if failed['exit']!=1 or failed['executed_inventory_tests']!=0 or 'Ran 0 tests' not in failed['output'] or 'Builder.kt' not in failed['output'] or hashlib.sha256(failed['output'].encode()).hexdigest()!=failed['output_sha256']:
+        raise ValueError('FB2 historical failed check differs')
+    _reviewed_console_identity(evidence)
+
+
 def validate_execution(saved,rows):
     if saved.get('refresh_pending'):raise ValueError('FB2 execution refresh pending after Native integration')
-    selectors={tokens[i+1] for tokens in [shlex.split(saved.get('actual_shared_command',''))] for i,t in enumerate(tokens[:-1]) if t=='--tests'}
-    expected_selectors={r['kotlin']['class_name']+'.'+r['kotlin']['method'] for r in rows}
-    if not expected_selectors<=selectors:raise ValueError('Actual executed factory selectors missing')
-    if saved['schema_version']!=1 or saved['fresh_execution'] is not True or saved['result']!=dict(tests=9,failures=0,errors=0,skips=0):raise ValueError('Nine-case execution result differs')
+    mode=saved.get('execution_mode','gradle')
+    if (mode,saved['schema_version']) not in (('gradle',1),('junit-console',2)) or saved['fresh_execution'] is not True or saved['result']!=dict(tests=9,failures=0,errors=0,skips=0):raise ValueError('Nine-case execution result/mode differs')
     required={r['kotlin']['source']['path'] for r in rows}|{p['path'] for r in rows for p in r['production']}|{'core/build.gradle.kts'}
     if set(saved['relevant_sources_before_and_after'])!=required:raise ValueError('Executed source scope incomplete/unrelated')
     for path,expected in saved['relevant_sources_before_and_after'].items():
         if source(path)['sha256']!=expected:raise ValueError('Executed FB2 source/hash drift: '+path)
-    expected={cls:[r['kotlin']['display_name'] for r in rows if r['kotlin']['class_name']==cls] for cls in {r['kotlin']['class_name'] for r in rows}}
-    observed={}
+    if mode=='gradle':
+        selectors={tokens[i+1] for tokens in [shlex.split(saved.get('actual_shared_command',''))] for i,t in enumerate(tokens[:-1]) if t=='--tests'}
+        expected_selectors={r['kotlin']['class_name']+'.'+r['kotlin']['method'] for r in rows}
+        if not expected_selectors<=selectors:raise ValueError('Actual executed factory selectors missing')
+        expected={cls:[r['kotlin']['display_name'] for r in rows if r['kotlin']['class_name']==cls] for cls in {r['kotlin']['class_name'] for r in rows}}
+    else:
+        expected={(r['kotlin']['class_name'],r['kotlin']['method']+'()['+str(r['kotlin']['dynamic_ordinal'])+']') for r in rows}
+        if len(saved['reports'])!=1:raise ValueError('Expected one current Jupiter engine report')
+    observed={};console_cases=[]
     for report in saved['reports']:
         xml=report['xml_without_hostname']
         if hashlib.sha256(xml.encode()).hexdigest()!=report['xml_without_hostname_sha256']:raise ValueError('Captured XML hash drift')
-        tree=ET.fromstring(xml);cls=tree.get('name')
-        if cls not in expected or cls in observed:raise ValueError('Unexpected/duplicate executed test class')
-        cases=tree.findall('testcase')
-        if int(tree.get('tests','-1'))!=len(cases) or [x.get('name') for x in cases]!=expected[cls]:raise ValueError('Executed factory cases differ')
+        tree=ET.fromstring(xml);cls=tree.get('name');cases=tree.findall('testcase')
+        if int(tree.get('tests','-1'))!=len(cases):raise ValueError('Executed factory case count differs')
         if any(tree.get(k)!='0' for k in ('failures','errors','skipped')) or any(x.find(tag) is not None for x in cases for tag in ('failure','error','skipped')):raise ValueError('FB2 execution failure/skip')
-        if any(x.get('classname')!=cls for x in cases):raise ValueError('Executed case class differs')
-        observed[cls]=cases
-    if set(observed)!=set(expected):raise ValueError('Missing executed FB2 class')
+        if mode=='gradle':
+            if cls not in expected or cls in observed:raise ValueError('Unexpected/duplicate executed test class')
+            if [x.get('name') for x in cases]!=expected[cls] or any(x.get('classname')!=cls for x in cases):raise ValueError('Executed factory cases differ')
+            observed[cls]=cases
+        else:
+            if cls!='JUnit Jupiter':raise ValueError('Unexpected FB2 engine report')
+            console_cases.extend((c.get('classname'),c.get('name')) for c in cases)
+    if mode=='gradle':
+        if set(observed)!=set(expected):raise ValueError('Missing executed FB2 class')
+    else:
+        if len(console_cases)!=9 or set(console_cases)!=expected:raise ValueError('Executed factory cases differ')
+        _validate_console_evidence(saved,rows,_bound_json(saved['evidence']),_bound_json(saved['history']))
     return saved
 
 

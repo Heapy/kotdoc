@@ -1,15 +1,14 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "fresh_execution": true,
   "refresh_pending": false,
-  "execution_session": "coordinated post-Native integration Gradle",
-  "basis_root_commit": "8d67d9792861c17ff919e8ce0f3f416e5f1bf981",
+  "execution_session": "isolated unchanged FB2 test source compilation and exact factory ConsoleLauncher execution",
+  "basis_root_commit": "924e1df5bcf70e8aa9d6b5878a4bfab1ae2c4056",
   "result_commit": null,
-  "result_commit_semantics": "Fresh worktree execution awaiting integration; basis commit is not attribution of concurrent WIP to that commit.",
-  "selected_reproduction_command": "./gradlew :core:test --tests 'io.heapy.kotdoc.formats.FB2ReaderTest.all original FB2 reader golden tests' --tests 'io.heapy.kotdoc.formats.FB2WriterTest.original FB2 writer examples'",
-  "actual_shared_command": "JAVA_HOME=/Users/yoda/.sdkman/candidates/java/21.0.12-librca ./gradlew --no-daemon --no-build-cache --project-cache-dir /tmp/kotdoc-types-gradle -Dorg.gradle.vfs.watch=false -Pkotlin.compiler.execution.strategy=in-process :core:test --tests 'io.heapy.kotdoc.ast.OriginalTypes*Test' --tests 'io.heapy.kotdoc.ast.OriginalQuickCheckTest' --tests 'io.heapy.kotdoc.ast.OriginalSeededTypesArbitraryTest' --tests 'io.heapy.kotdoc.ast.UpstreamJsonTest' --tests 'io.heapy.kotdoc.ast.TablesTest' --tests 'io.heapy.kotdoc.ast.PandocReadTest' --tests 'io.heapy.kotdoc.formats.Native*Test' --tests 'io.heapy.kotdoc.formats.FB2ReaderTest.all original FB2 reader golden tests' --tests 'io.heapy.kotdoc.formats.FB2WriterTest.original FB2 writer examples' > /tmp/kotdoc-native-integration-test.log 2>&1",
-  "actual_command_provenance": "Exact shared command supplied by executing worker; only the two FB2 factory XML reports counted here.",
-  "jdk": "openjdk 21.0.12+10-LTS, /Users/yoda/.sdkman/candidates/java/21.0.12-librca",
+  "result_commit_semantics": "Fresh isolated revalidation against accepted immutable5e968eea core; no activeWIP compiled, awaiting independent inventory review.",
+  "selected_reproduction_command": "See actual_command_args; exact two ConsoleLauncher method selectors, no Gradle execution.",
+  "actual_command_provenance": "Existing JUnit ConsoleLauncher; immutable accepted core+isolated unchanged tests/helper; XML engine/factory ordinals are explicit.",
+  "jdk": "openjdk21.0.12+10-LTS;JUnitConsole1.11.4",
   "result": {
     "tests": 9,
     "failures": 0,
@@ -18,7 +17,7 @@
   },
   "relevant_sources_before_and_after": {
     "core/build.gradle.kts": "74f880f44fed255456274760fb8ddd5be53c39235e021fafdd0f83366fb462c1",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "9d46a4df889f535e88eec8c020f27f7b29c4c8c5fe7258b4c04c374628155fc5",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "16b8fc5df3bb805df7d83187dc1eca35172a497658139fad9d705bee4fdcf084",
     "core/src/main/kotlin/io/heapy/kotdoc/formats/FB2Reader.kt": "07c06011ffb799a1417044e0724258f577ee88381c9b9e8850cf095baf5ef4d6",
     "core/src/main/kotlin/io/heapy/kotdoc/formats/FB2Writer.kt": "783c0303753cc038185afe145405a7c424d52f160ecab317db42e8b5d6425287",
     "core/src/main/kotlin/io/heapy/kotdoc/formats/NativeReader.kt": "b57669cdfcc258a7796ea5c779a89c622b6e0db2f2b5bdb158820b70788f8053",
@@ -26,22 +25,44 @@
     "core/src/test/kotlin/io/heapy/kotdoc/formats/FB2ReaderTest.kt": "b1a701ec38fba3307dc93a57da2f97cf36b5d4c59171d1691b32be0ba80cc5df",
     "core/src/test/kotlin/io/heapy/kotdoc/formats/FB2WriterTest.kt": "e284310ab99666ad31f40c0a8a613be81a1c9b2127a2936e5945c95bae430806"
   },
-  "source_hash_semantics": "Relevant8test/production/Gradle files checked before/after execution. Other Read/native suite counts are not FB2 coverage.",
+  "source_hash_semantics": "Current existing8FB2 mapping sources bound; all486acceptedcore source hashes and compiled test/helper/fixture hashes preserved in portable evidence.",
   "reports": [
     {
-      "path": "core/build/test-results/test/TEST-io.heapy.kotdoc.formats.FB2ReaderTest.xml",
-      "original_sha256": "0d547fc8083ea2c1de3bf8bdc7d26196d32838ab85b572de300f9bff22e44ff0",
-      "xml_without_hostname": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<testsuite name=\"io.heapy.kotdoc.formats.FB2ReaderTest\" tests=\"6\" skipped=\"0\" failures=\"0\" errors=\"0\" timestamp=\"2026-10-16T20:32:17.574Z\" time=\"0.037\">\n  <properties/>\n  <testcase name=\"emphasis\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.025\"/>\n  <testcase name=\"titles\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.003\"/>\n  <testcase name=\"epigraph\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.001\"/>\n  <testcase name=\"poem\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.002\"/>\n  <testcase name=\"meta\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.002\"/>\n  <testcase name=\"notes\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.002\"/>\n  <system-out><![CDATA[]]></system-out>\n  <system-err><![CDATA[]]></system-err>\n</testsuite>\n",
-      "xml_without_hostname_sha256": "d7ae2bedf7f81a695d8196e40e20de161d522592538850a1042739af1ee6a0db",
-      "transformation": "Only hostname attribute removed; all case/result data preserved verbatim."
-    },
-    {
-      "path": "core/build/test-results/test/TEST-io.heapy.kotdoc.formats.FB2WriterTest.xml",
-      "original_sha256": "e0060e837107d4d9f231d26942494d5ea778cd43cbfe0c8ad650b557584a9f39",
-      "xml_without_hostname": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<testsuite name=\"io.heapy.kotdoc.formats.FB2WriterTest\" tests=\"3\" skipped=\"0\" failures=\"0\" errors=\"0\" timestamp=\"2026-10-16T20:32:17.612Z\" time=\"0.136\">\n  <properties/>\n  <testcase name=\"paragraph\" classname=\"io.heapy.kotdoc.formats.FB2WriterTest\" time=\"0.135\"/>\n  <testcase name=\"emphasis\" classname=\"io.heapy.kotdoc.formats.FB2WriterTest\" time=\"0.0\"/>\n  <testcase name=\"bullet list\" classname=\"io.heapy.kotdoc.formats.FB2WriterTest\" time=\"0.001\"/>\n  <system-out><![CDATA[]]></system-out>\n  <system-err><![CDATA[]]></system-err>\n</testsuite>\n",
-      "xml_without_hostname_sha256": "9bf48620f779f52ec758c7c3ebe6c47a85885483d780e73638bdbe9a21128318",
-      "transformation": "Only hostname attribute removed; all case/result data preserved verbatim."
+      "path": "docs/test-inventory-fb2-current-evidence.json#raw_jupiter_report",
+      "original_sha256": "922320ca345056b67c5397276543b9beccc5eec9e339fe63a2162165cb63bf10",
+      "xml_without_hostname": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<testsuite name=\"JUnit Jupiter\" tests=\"9\" skipped=\"0\" failures=\"0\" errors=\"0\" time=\"0.306\" timestamp=\"2026-10-17T11:54:39\">\n<properties>\n<property name=\"apple.awt.application.name\" value=\"ConsoleLauncher\"/>\n<property name=\"file.encoding\" value=\"UTF-8\"/>\n<property name=\"file.separator\" value=\"/\"/>\n<property name=\"java.class.path\" value=\"/tmp/kotdoc-junit-platform-console-1.11.4.jar\"/>\n<property name=\"java.class.version\" value=\"65.0\"/>\n<property name=\"java.home\" value=\"/Users/yoda/.sdkman/candidates/java/21.0.12-librca\"/>\n<property name=\"java.io.tmpdir\" value=\"/var/folders/yh/h124ks9x1vqd0v6sz6slshkc0000gn/T/\"/>\n<property name=\"java.library.path\" value=\"/Users/yoda/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.\"/>\n<property name=\"java.runtime.name\" value=\"OpenJDK Runtime Environment\"/>\n<property name=\"java.runtime.version\" value=\"21.0.12+10-LTS\"/>\n<property name=\"java.specification.name\" value=\"Java Platform API Specification\"/>\n<property name=\"java.specification.vendor\" value=\"Oracle Corporation\"/>\n<property name=\"java.specification.version\" value=\"21\"/>\n<property name=\"java.vendor\" value=\"BellSoft\"/>\n<property name=\"java.vendor.url\" value=\"https://bell-sw.com/\"/>\n<property name=\"java.vendor.url.bug\" value=\"https://bell-sw.com/support\"/>\n<property name=\"java.version\" value=\"21.0.12\"/>\n<property name=\"java.version.date\" value=\"2026-07-21\"/>\n<property name=\"java.vm.compressedOopsMode\" value=\"Zero based\"/>\n<property name=\"java.vm.info\" value=\"mixed mode, sharing\"/>\n<property name=\"java.vm.name\" value=\"OpenJDK 64-Bit Server VM\"/>\n<property name=\"java.vm.specification.name\" value=\"Java Virtual Machine Specification\"/>\n<property name=\"java.vm.specification.vendor\" value=\"Oracle Corporation\"/>\n<property name=\"java.vm.specification.version\" value=\"21\"/>\n<property name=\"java.vm.vendor\" value=\"BellSoft\"/>\n<property name=\"java.vm.version\" value=\"21.0.12+10-LTS\"/>\n<property name=\"jdk.debug\" value=\"release\"/>\n<property name=\"junit.docs.version\" value=\"1.11.4\"/>\n<property name=\"kotdoc.root\" value=\"/Users/yoda/dev/pet/kotdoc\"/>\n<property name=\"line.separator\" value=\"&#10;\"/>\n<property name=\"native.encoding\" value=\"UTF-8\"/>\n<property name=\"os.arch\" value=\"aarch64\"/>\n<property name=\"os.name\" value=\"Mac OS X\"/>\n<property name=\"os.version\" value=\"26.6.2\"/>\n<property name=\"path.separator\" value=\":\"/>\n<property name=\"stderr.encoding\" value=\"UTF-8\"/>\n<property name=\"stdout.encoding\" value=\"UTF-8\"/>\n<property name=\"sun.arch.data.model\" value=\"64\"/>\n<property name=\"sun.boot.library.path\" value=\"/Users/yoda/.sdkman/candidates/java/21.0.12-librca/lib\"/>\n<property name=\"sun.cpu.endian\" value=\"little\"/>\n<property name=\"sun.io.unicode.encoding\" value=\"UnicodeBig\"/>\n<property name=\"sun.java.command\" value=\"/tmp/kotdoc-junit-platform-console-1.11.4.jar execute --class-path /tmp/kotdoc-fb2-current-revalidation/existing-fb2-tests.jar:/tmp/kotdoc-pss-final-results/core-0.1.0-SNAPSHOT.jar:/tmp/kotdoc-junit-platform-console-1.11.4.jar:/Users/yoda/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm/1.6.3/2241746853abf04073e3ab0dcd9e6729d363b313/kotlinx-serialization-json-jvm-1.6.3.jar:/Users/yoda/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.7.3/1f226780b845ff9206474c05159245d861556249/kotlinx-serialization-core-jvm-1.7.3.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-test.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk8.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk7-sources.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk7.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-sources.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-js-sources.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk8-sources.jar --select-method io.heapy.kotdoc.formats.FB2ReaderTest#all original FB2 reader golden tests --select-method io.heapy.kotdoc.formats.FB2WriterTest#original FB2 writer examples --reports-dir /tmp/kotdoc-fb2-current-revalidation/xml --details tree --disable-ansi-colors --fail-if-no-tests\"/>\n<property name=\"sun.java.launcher\" value=\"SUN_STANDARD\"/>\n<property name=\"sun.jnu.encoding\" value=\"UTF-8\"/>\n<property name=\"sun.management.compiler\" value=\"HotSpot 64-Bit Tiered Compilers\"/>\n<property name=\"user.country\" value=\"US\"/>\n<property name=\"user.dir\" value=\"/Users/yoda/dev/pet/kotdoc\"/>\n<property name=\"user.home\" value=\"/Users/yoda\"/>\n<property name=\"user.language\" value=\"en\"/>\n<property name=\"user.name\" value=\"yoda\"/>\n<property name=\"user.timezone\" value=\"Europe/Minsk\"/>\n</properties>\n<testcase name=\"original FB2 writer examples()[3]\" classname=\"io.heapy.kotdoc.formats.FB2WriterTest\" time=\"0.002\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2WriterTest]/[test-factory:original FB2 writer examples()]/[dynamic-test:#3]\ndisplay-name: bullet list\n]]></system-out>\n</testcase>\n<testcase name=\"all original FB2 reader golden tests()[5]\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.003\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2ReaderTest]/[test-factory:all original FB2 reader golden tests()]/[dynamic-test:#5]\ndisplay-name: meta\n]]></system-out>\n</testcase>\n<testcase name=\"original FB2 writer examples()[1]\" classname=\"io.heapy.kotdoc.formats.FB2WriterTest\" time=\"0.127\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2WriterTest]/[test-factory:original FB2 writer examples()]/[dynamic-test:#1]\ndisplay-name: paragraph\n]]></system-out>\n</testcase>\n<testcase name=\"all original FB2 reader golden tests()[6]\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.002\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2ReaderTest]/[test-factory:all original FB2 reader golden tests()]/[dynamic-test:#6]\ndisplay-name: notes\n]]></system-out>\n</testcase>\n<testcase name=\"original FB2 writer examples()[2]\" classname=\"io.heapy.kotdoc.formats.FB2WriterTest\" time=\"0\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2WriterTest]/[test-factory:original FB2 writer examples()]/[dynamic-test:#2]\ndisplay-name: emphasis\n]]></system-out>\n</testcase>\n<testcase name=\"all original FB2 reader golden tests()[3]\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.002\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2ReaderTest]/[test-factory:all original FB2 reader golden tests()]/[dynamic-test:#3]\ndisplay-name: epigraph\n]]></system-out>\n</testcase>\n<testcase name=\"all original FB2 reader golden tests()[4]\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.026\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2ReaderTest]/[test-factory:all original FB2 reader golden tests()]/[dynamic-test:#4]\ndisplay-name: poem\n]]></system-out>\n</testcase>\n<testcase name=\"all original FB2 reader golden tests()[1]\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.097\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2ReaderTest]/[test-factory:all original FB2 reader golden tests()]/[dynamic-test:#1]\ndisplay-name: emphasis\n]]></system-out>\n</testcase>\n<testcase name=\"all original FB2 reader golden tests()[2]\" classname=\"io.heapy.kotdoc.formats.FB2ReaderTest\" time=\"0.004\">\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]/[class:io.heapy.kotdoc.formats.FB2ReaderTest]/[test-factory:all original FB2 reader golden tests()]/[dynamic-test:#2]\ndisplay-name: titles\n]]></system-out>\n</testcase>\n<system-out><![CDATA[\nunique-id: [engine:junit-jupiter]\ndisplay-name: JUnit Jupiter\n]]></system-out>\n</testsuite>\n",
+      "xml_without_hostname_sha256": "336272d08305a60dc39f993d337ede605779921d66b9f6d4c4ce58165f310120",
+      "transformation": "Only hostname attribute removed; raw engine/factory ordinal XML preserved in portable evidence."
     }
   ],
-  "shared_run_log_sha256": "1a909d2b63bbf342e90b57d248442ff8e67bb8a241f8c575730d097845a69d39"
+  "execution_mode": "junit-console",
+  "actual_command_args": [
+    "/Users/yoda/.sdkman/candidates/java/21.0.12-librca/bin/java",
+    "-Xmx512m",
+    "-Xss256k",
+    "-Dkotdoc.root=/Users/yoda/dev/pet/kotdoc",
+    "-jar",
+    "/tmp/kotdoc-junit-platform-console-1.11.4.jar",
+    "execute",
+    "--class-path",
+    "/tmp/kotdoc-fb2-current-revalidation/existing-fb2-tests.jar:/tmp/kotdoc-pss-final-results/core-0.1.0-SNAPSHOT.jar:/tmp/kotdoc-junit-platform-console-1.11.4.jar:/Users/yoda/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm/1.6.3/2241746853abf04073e3ab0dcd9e6729d363b313/kotlinx-serialization-json-jvm-1.6.3.jar:/Users/yoda/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.7.3/1f226780b845ff9206474c05159245d861556249/kotlinx-serialization-core-jvm-1.7.3.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-test.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk8.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk7-sources.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk7.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-sources.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-js-sources.jar:/Users/yoda/.sdkman/candidates/kotlin/current/lib/kotlin-stdlib-jdk8-sources.jar",
+    "--select-method",
+    "io.heapy.kotdoc.formats.FB2ReaderTest#all original FB2 reader golden tests",
+    "--select-method",
+    "io.heapy.kotdoc.formats.FB2WriterTest#original FB2 writer examples",
+    "--reports-dir",
+    "/tmp/kotdoc-fb2-current-revalidation/xml",
+    "--details",
+    "tree",
+    "--disable-ansi-colors",
+    "--fail-if-no-tests"
+  ],
+  "evidence": {
+    "path": "docs/test-inventory-fb2-current-evidence.json",
+    "sha256": "07798a53ce1156b7ef859e46f71b1ba6f43271687597b002e3fea4496b7405e2"
+  },
+  "history": {
+    "path": "docs/test-inventory-fb2-history.json",
+    "sha256": "b05e39db7524b63e3c9487f4d72c347feea1e45eecfd61e34852399825f05d94"
+  }
 }

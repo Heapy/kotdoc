@@ -482,26 +482,36 @@ Source/Kotlin constructor sequences are explicitly checked for the three finite
 inputs. Neither normalized text comparisons nor other corpus/oracle tests replace
 these original unit assertions.
 
-Execution provenance lives in `test-inventory-fb2-execution.json`: exactly six
-reader and three writer XML cases, class/display identities, original XML hashes,
-complete shared command, selected reproduction selectors and eight relevant source
-hashes checked before/after execution. XML copies remove only hostname metadata;
-case/result data is retained. Unrelated Read/native counts are not FB2 coverage.
-The prior post-Native integration shared run (92971, BUILD SUCCESSFUL in 2m12s)
-executed these nine cases with zero failures/errors/skips; only those nine are
-counted here. All eight before/after source hashes match. A `refresh_pending`
-record cannot promote mappings, and current source/hash mismatches fail
-verification. The fresh worktree result is not misattributed to its basis commit
-or unrelated Read WIP; result commit remains unset until integration.
+Execution provenance lives in `test-inventory-fb2-execution.json`. The current
+schema2 record explicitly uses **JUnit ConsoleLauncher**, with the two original
+factory method selectors and engine XML factory/ordinal identities. Exactly six
+reader and three writer assertions passed against the immutable accepted PSS
+core JAR (`5e968eea`, SHA256 `bd78884871b505c46617fe6021122134bfc526d1c0fe356d683cff34c8e1cf2a`),
+whose Builder source matches accepted `38dfec9a`. The unchanged two test sources
+and existing LogAssertions helper were compiled in isolation; no production
+source, fixture or expected output was recompiled or regenerated.
 
-Reproducible capture uses an explicit coordinated Gradle window:
+`test-inventory-fb2-current-evidence.json` retains exact compile/run commands,
+raw XML, test JAR bytes, selected production class bytes, all accepted core
+source/class identities and dependency hashes. Verification does not require
+the original `/tmp` JAR path. The nine original runtime IDs join exact
+class/factory/ordinal/display identities; the console report is not relabeled
+as Gradle class XML. The checker keeps the original Gradle mode separately. Independent fixed pins in the
+versioned validator bind the actual reviewed test JAR, accepted core class maps
+and Git source identities, exact commands, toolchain and dependencies. Evidence
+JSON self-hashes provide transport integrity; rewriting an archive and its own
+hash/map does not authorize a replacement artifact or run. Pin updates require
+separate review of the actual immutable artifacts/provenance. This boundary does
+not claim a digital signature or proof of who performed an execution.
 
-```sh
-python3 tools/fb2-test-inventory.py --freeze-execution-sources /tmp/fb2-before.json
-# Execute the two recorded factory selectors in the coordinated Gradle run.
-python3 tools/fb2-test-inventory.py --capture-execution /tmp/fb2-before.json --command-file /tmp/fb2-command.txt --log /tmp/fb2-gradle.log --jdk 21.0.12-librca
-python3 tools/check-test-inventory-fb2.py
-```
+`test-inventory-fb2-history.json` preserves the old execution JSON and both
+original XML reports with their exact hashes. The old nine-case result remains
+historical proof. Its later checker failure (exit1, setUpClass, zero checks run)
+was caused by Builder source drift after the accepted builder change, including
+the bullet-list helper used by the writer assertion. The new nine-case execution
+revalidates that dependency; replacing its old hash alone would not have been
+sufficient. A pending marker, source mismatch, changed artifact or failed/skipped
+case cannot promote a mapping. Unrelated suite counts are not FB2 coverage.
 
 **Ten other known FB2-related obligations remain unmapped**: eight Old CLI/goldens
 (basic, titles, images, images-embedded, math, meta, tables, testsuite), Command
@@ -510,11 +520,9 @@ source/runtime ID and expectation origin. Their CLI options/resources/normalizer
 stdout/stderr/status or image-size predicate are not discharged by the nine unit
 mappings. This is not all FB2, full Pandoc, global622 or subsequent calibre completion.
 
-FB2 execution refresh is currently **pending**: subsequent Native review requires
-a ToSources raw-CR correction. Retained run92971 XML/hashes describe only its
-executed NativeReader artifact. The prior generated snapshot is a non-final
-checkpoint and intentionally fails current execution validation while pending.
-After final source freeze, recapture eight before/after hashes and the same nine
-selected assertions, then regenerate and verify once. Proof logic/eleven focused
-checks and canonical/four targeted negative checks passed before marking pending;
-no future corrected artifact is attributed to that run.
+The previous raw-CR-pending prose was stale: the archived execution already has
+`refresh_pending=false` and its raw-CR XML hashes remain valid. The independent
+current revalidation above supplies new evidence for the later Builder change.
+The broader generated `test-inventory.json` snapshot has intentionally not been
+refreshed in this bounded change; its old provenance/hash bindings require a
+separate reviewed refresh, without relabeling unrelated mappings or active WIP.
