@@ -15008,3 +15008,47 @@ projection observations do not prove general async/concurrent/bottom equivalence
 Actual32-bit/big-endian/iOS/giant buffers, logical132/C136 allocation/backend
 limits, OS/SystemDRG, Prime/Probabilistic consumers, signatures/trust/chain and
 rest613/full Pandoc623/calibre624–626 remain OPEN.
+
+
+### Definition NFData dictionaries and source WHNF checkpoint
+
+All23 explicit NFData instances in pinned Definition.hs450–472 now have Kotlin
+dictionaries and typed finite bridges. These are23 rnf members selecting the
+original Generic default, not all350 source instances/member expansion. Supporting
+Text/list/tuple/Maybe/rawMap/scalar/newtype dictionaries preserve observed source
+demand; Text NFData uses WHNF rather than Data unpack traversal. Raw Map carriers
+retain strict size/key/subtree roots and key/value/left/right NF order. Finite
+AST Map bridges do not claim physical Map.fromList shape or partial-field error
+choice; raw carriers cover those observations. Many has no NFData instance.
+
+Own three original executable replays and actual GHC interface verification passed
+48 source pins:308 finite observations/all77 constructors,680 field/competing
+failures and118 extended/custom/support/deep observations. The308 finite rows
+also run through typed AST dictionaries. SourceThunk models intrinsic WHNF
+independently of custom NFData, which may ignore its argument; force/$!! retain
+lazy heads while observing strict constructor fields and newtype roots. Iterative
+NF and Map spine traversal cover retained50000-element bounded structures.
+
+Independent review rejected the initially green22645-case checkpoint: deepseq/$!!
+returned a deferred source-list root without observing its error. The common
+result now uses SourceThunk, forcing only WHNF of a demanded returned carrier,
+not its NF. Own original/Kotlin repro throws result root for both helpers.
+Twenty-four appended original probes cover result list/map/strict node/newtype/
+tuple, ignored result and input-first errors. Previous94 extended responses
+remain a byte-exact prefix authenticated against the rejected frozen manifest;
+earlier308/680 payloads and rejected JAR/XML/hash baseline are retained. A JVM
+adapter checks once-only dictionary/result/root work and shared failure identity.
+
+Final30496 saved XML has22670 actual cases, zero failures/errors/skips:1419NFData
+(1414original/typed assertions, four JVM adapters, integrity),808Generic,6000
+properties,14316remaining properties,113JSON and14Tables. Own41 frozen hashes,
+immutable core JAR SHA and106 byte-exact repository notices, including extracted
+deepseq license, passed; jar/installDist identity passed. No existing production
+file changed; no redundant shared Gradle was required. Production remains Kotlin.
+
+Evaluation order is the bounded GHC9.12.2/-O2 sequential profile; deepseq does not
+promise cross-compiler/parallel order. Arbitrary Haskell heap/bottom, async
+exceptions, concurrency, infinite inputs and physical Text arrays are not claimed.
+Custom JVM types encode source WHNF in callbacks. Generic Many/count-derived
+contracts, Data.Version, JSON/filter supplement, full140 exports/350-source-
+instance member audit and rest611/Pandoc/calibre remain OPEN.

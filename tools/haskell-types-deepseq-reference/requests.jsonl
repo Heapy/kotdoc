@@ -1,0 +1,308 @@
+{"operation":"rnf","kind":"Meta","input":"Meta {unMeta = fromList [(\"foo\",MetaBool True)]}"}
+{"operation":"force","kind":"Meta","input":"Meta {unMeta = fromList [(\"foo\",MetaBool True)]}"}
+{"operation":"deepseq","kind":"Meta","input":"Meta {unMeta = fromList [(\"foo\",MetaBool True)]}"}
+{"operation":"rwhnf","kind":"Meta","input":"Meta {unMeta = fromList [(\"foo\",MetaBool True)]}"}
+{"operation":"rnf","kind":"MetaValue","input":"MetaMap (fromList [(\"foo\",MetaBool True)])"}
+{"operation":"force","kind":"MetaValue","input":"MetaMap (fromList [(\"foo\",MetaBool True)])"}
+{"operation":"deepseq","kind":"MetaValue","input":"MetaMap (fromList [(\"foo\",MetaBool True)])"}
+{"operation":"rwhnf","kind":"MetaValue","input":"MetaMap (fromList [(\"foo\",MetaBool True)])"}
+{"operation":"rnf","kind":"MetaValue","input":"MetaList [MetaBool True,MetaString \"baz\"]"}
+{"operation":"force","kind":"MetaValue","input":"MetaList [MetaBool True,MetaString \"baz\"]"}
+{"operation":"deepseq","kind":"MetaValue","input":"MetaList [MetaBool True,MetaString \"baz\"]"}
+{"operation":"rwhnf","kind":"MetaValue","input":"MetaList [MetaBool True,MetaString \"baz\"]"}
+{"operation":"rnf","kind":"MetaValue","input":"MetaBool False"}
+{"operation":"force","kind":"MetaValue","input":"MetaBool False"}
+{"operation":"deepseq","kind":"MetaValue","input":"MetaBool False"}
+{"operation":"rwhnf","kind":"MetaValue","input":"MetaBool False"}
+{"operation":"rnf","kind":"MetaValue","input":"MetaString \"Hello\""}
+{"operation":"force","kind":"MetaValue","input":"MetaString \"Hello\""}
+{"operation":"deepseq","kind":"MetaValue","input":"MetaString \"Hello\""}
+{"operation":"rwhnf","kind":"MetaValue","input":"MetaString \"Hello\""}
+{"operation":"rnf","kind":"MetaValue","input":"MetaInlines [Space,SoftBreak]"}
+{"operation":"force","kind":"MetaValue","input":"MetaInlines [Space,SoftBreak]"}
+{"operation":"deepseq","kind":"MetaValue","input":"MetaInlines [Space,SoftBreak]"}
+{"operation":"rwhnf","kind":"MetaValue","input":"MetaInlines [Space,SoftBreak]"}
+{"operation":"rnf","kind":"MetaValue","input":"MetaBlocks [HorizontalRule,HorizontalRule]"}
+{"operation":"force","kind":"MetaValue","input":"MetaBlocks [HorizontalRule,HorizontalRule]"}
+{"operation":"deepseq","kind":"MetaValue","input":"MetaBlocks [HorizontalRule,HorizontalRule]"}
+{"operation":"rwhnf","kind":"MetaValue","input":"MetaBlocks [HorizontalRule,HorizontalRule]"}
+{"operation":"rnf","kind":"QuoteType","input":"SingleQuote"}
+{"operation":"force","kind":"QuoteType","input":"SingleQuote"}
+{"operation":"deepseq","kind":"QuoteType","input":"SingleQuote"}
+{"operation":"rwhnf","kind":"QuoteType","input":"SingleQuote"}
+{"operation":"rnf","kind":"QuoteType","input":"DoubleQuote"}
+{"operation":"force","kind":"QuoteType","input":"DoubleQuote"}
+{"operation":"deepseq","kind":"QuoteType","input":"DoubleQuote"}
+{"operation":"rwhnf","kind":"QuoteType","input":"DoubleQuote"}
+{"operation":"rnf","kind":"CitationMode","input":"AuthorInText"}
+{"operation":"force","kind":"CitationMode","input":"AuthorInText"}
+{"operation":"deepseq","kind":"CitationMode","input":"AuthorInText"}
+{"operation":"rwhnf","kind":"CitationMode","input":"AuthorInText"}
+{"operation":"rnf","kind":"CitationMode","input":"SuppressAuthor"}
+{"operation":"force","kind":"CitationMode","input":"SuppressAuthor"}
+{"operation":"deepseq","kind":"CitationMode","input":"SuppressAuthor"}
+{"operation":"rwhnf","kind":"CitationMode","input":"SuppressAuthor"}
+{"operation":"rnf","kind":"CitationMode","input":"NormalCitation"}
+{"operation":"force","kind":"CitationMode","input":"NormalCitation"}
+{"operation":"deepseq","kind":"CitationMode","input":"NormalCitation"}
+{"operation":"rwhnf","kind":"CitationMode","input":"NormalCitation"}
+{"operation":"rnf","kind":"Citation","input":"Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"123\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}"}
+{"operation":"force","kind":"Citation","input":"Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"123\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}"}
+{"operation":"deepseq","kind":"Citation","input":"Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"123\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}"}
+{"operation":"rwhnf","kind":"Citation","input":"Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"123\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}"}
+{"operation":"rnf","kind":"MathType","input":"DisplayMath"}
+{"operation":"force","kind":"MathType","input":"DisplayMath"}
+{"operation":"deepseq","kind":"MathType","input":"DisplayMath"}
+{"operation":"rwhnf","kind":"MathType","input":"DisplayMath"}
+{"operation":"rnf","kind":"MathType","input":"InlineMath"}
+{"operation":"force","kind":"MathType","input":"InlineMath"}
+{"operation":"deepseq","kind":"MathType","input":"InlineMath"}
+{"operation":"rwhnf","kind":"MathType","input":"InlineMath"}
+{"operation":"rnf","kind":"Inline","input":"Str \"Hello\""}
+{"operation":"force","kind":"Inline","input":"Str \"Hello\""}
+{"operation":"deepseq","kind":"Inline","input":"Str \"Hello\""}
+{"operation":"rwhnf","kind":"Inline","input":"Str \"Hello\""}
+{"operation":"rnf","kind":"Inline","input":"Emph [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Emph [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Emph [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Emph [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"Underline [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Underline [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Underline [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Underline [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"Strong [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Strong [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Strong [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Strong [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"Strikeout [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Strikeout [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Strikeout [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Strikeout [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"Superscript [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Superscript [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Superscript [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Superscript [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"Subscript [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Subscript [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Subscript [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Subscript [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"SmallCaps [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"SmallCaps [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"SmallCaps [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"SmallCaps [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"Quoted SingleQuote [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Quoted SingleQuote [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Quoted SingleQuote [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Quoted SingleQuote [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Inline","input":"Cite [Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"12\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}] [Str \"[cf\",Space,Str \"@jameson:unconscious\",Space,Str \"12]\"]"}
+{"operation":"force","kind":"Inline","input":"Cite [Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"12\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}] [Str \"[cf\",Space,Str \"@jameson:unconscious\",Space,Str \"12]\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Cite [Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"12\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}] [Str \"[cf\",Space,Str \"@jameson:unconscious\",Space,Str \"12]\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Cite [Citation {citationId = \"jameson:unconscious\", citationPrefix = [Str \"cf\"], citationSuffix = [Space,Str \"12\"], citationMode = NormalCitation, citationNoteNum = 0, citationHash = 0}] [Str \"[cf\",Space,Str \"@jameson:unconscious\",Space,Str \"12]\"]"}
+{"operation":"rnf","kind":"Inline","input":"Code (\"\",[],[(\"language\",\"haskell\")]) \"foo bar\""}
+{"operation":"force","kind":"Inline","input":"Code (\"\",[],[(\"language\",\"haskell\")]) \"foo bar\""}
+{"operation":"deepseq","kind":"Inline","input":"Code (\"\",[],[(\"language\",\"haskell\")]) \"foo bar\""}
+{"operation":"rwhnf","kind":"Inline","input":"Code (\"\",[],[(\"language\",\"haskell\")]) \"foo bar\""}
+{"operation":"rnf","kind":"Inline","input":"Space"}
+{"operation":"force","kind":"Inline","input":"Space"}
+{"operation":"deepseq","kind":"Inline","input":"Space"}
+{"operation":"rwhnf","kind":"Inline","input":"Space"}
+{"operation":"rnf","kind":"Inline","input":"SoftBreak"}
+{"operation":"force","kind":"Inline","input":"SoftBreak"}
+{"operation":"deepseq","kind":"Inline","input":"SoftBreak"}
+{"operation":"rwhnf","kind":"Inline","input":"SoftBreak"}
+{"operation":"rnf","kind":"Inline","input":"LineBreak"}
+{"operation":"force","kind":"Inline","input":"LineBreak"}
+{"operation":"deepseq","kind":"Inline","input":"LineBreak"}
+{"operation":"rwhnf","kind":"Inline","input":"LineBreak"}
+{"operation":"rnf","kind":"Inline","input":"RawInline (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"force","kind":"Inline","input":"RawInline (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"deepseq","kind":"Inline","input":"RawInline (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"rwhnf","kind":"Inline","input":"RawInline (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"rnf","kind":"Inline","input":"Link (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"site\"] (\"https://www.google.com\",\"google\")"}
+{"operation":"force","kind":"Inline","input":"Link (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"site\"] (\"https://www.google.com\",\"google\")"}
+{"operation":"deepseq","kind":"Inline","input":"Link (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"site\"] (\"https://www.google.com\",\"google\")"}
+{"operation":"rwhnf","kind":"Inline","input":"Link (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"site\"] (\"https://www.google.com\",\"google\")"}
+{"operation":"rnf","kind":"Inline","input":"Image (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"image\"] (\"my_img.png\",\"image\")"}
+{"operation":"force","kind":"Inline","input":"Image (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"image\"] (\"my_img.png\",\"image\")"}
+{"operation":"deepseq","kind":"Inline","input":"Image (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"image\"] (\"my_img.png\",\"image\")"}
+{"operation":"rwhnf","kind":"Inline","input":"Image (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"a\",Space,Str \"famous\",Space,Str \"image\"] (\"my_img.png\",\"image\")"}
+{"operation":"rnf","kind":"Inline","input":"Note [Para [Str \"Hello\"]]"}
+{"operation":"force","kind":"Inline","input":"Note [Para [Str \"Hello\"]]"}
+{"operation":"deepseq","kind":"Inline","input":"Note [Para [Str \"Hello\"]]"}
+{"operation":"rwhnf","kind":"Inline","input":"Note [Para [Str \"Hello\"]]"}
+{"operation":"rnf","kind":"Inline","input":"Span (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Hello\"]"}
+{"operation":"force","kind":"Inline","input":"Span (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Inline","input":"Span (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Inline","input":"Span (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Block","input":"Plain [Str \"Hello\"]"}
+{"operation":"force","kind":"Block","input":"Plain [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Block","input":"Plain [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Block","input":"Plain [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Block","input":"Para [Str \"Hello\"]"}
+{"operation":"force","kind":"Block","input":"Para [Str \"Hello\"]"}
+{"operation":"deepseq","kind":"Block","input":"Para [Str \"Hello\"]"}
+{"operation":"rwhnf","kind":"Block","input":"Para [Str \"Hello\"]"}
+{"operation":"rnf","kind":"Block","input":"LineBlock [[Str \"Hello\"],[Str \"Moin\"]]"}
+{"operation":"force","kind":"Block","input":"LineBlock [[Str \"Hello\"],[Str \"Moin\"]]"}
+{"operation":"deepseq","kind":"Block","input":"LineBlock [[Str \"Hello\"],[Str \"Moin\"]]"}
+{"operation":"rwhnf","kind":"Block","input":"LineBlock [[Str \"Hello\"],[Str \"Moin\"]]"}
+{"operation":"rnf","kind":"Block","input":"CodeBlock (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) \"Foo Bar\""}
+{"operation":"force","kind":"Block","input":"CodeBlock (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) \"Foo Bar\""}
+{"operation":"deepseq","kind":"Block","input":"CodeBlock (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) \"Foo Bar\""}
+{"operation":"rwhnf","kind":"Block","input":"CodeBlock (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) \"Foo Bar\""}
+{"operation":"rnf","kind":"Block","input":"RawBlock (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"force","kind":"Block","input":"RawBlock (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"deepseq","kind":"Block","input":"RawBlock (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"rwhnf","kind":"Block","input":"RawBlock (Format \"tex\") \"\\\\foo{bar}\""}
+{"operation":"rnf","kind":"Block","input":"BlockQuote [Para [Str \"Hello\"]]"}
+{"operation":"force","kind":"Block","input":"BlockQuote [Para [Str \"Hello\"]]"}
+{"operation":"deepseq","kind":"Block","input":"BlockQuote [Para [Str \"Hello\"]]"}
+{"operation":"rwhnf","kind":"Block","input":"BlockQuote [Para [Str \"Hello\"]]"}
+{"operation":"rnf","kind":"Block","input":"OrderedList (1,Decimal,Period) [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"force","kind":"Block","input":"OrderedList (1,Decimal,Period) [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"deepseq","kind":"Block","input":"OrderedList (1,Decimal,Period) [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"rwhnf","kind":"Block","input":"OrderedList (1,Decimal,Period) [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"rnf","kind":"Block","input":"BulletList [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"force","kind":"Block","input":"BulletList [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"deepseq","kind":"Block","input":"BulletList [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"rwhnf","kind":"Block","input":"BulletList [[Para [Str \"foo\"]],[Para [Str \"bar\"]]]"}
+{"operation":"rnf","kind":"Block","input":"DefinitionList [([Str \"foo\"],[[Para [Str \"bar\"]]]),([Str \"fizz\"],[[Para [Str \"pop\"]]])]"}
+{"operation":"force","kind":"Block","input":"DefinitionList [([Str \"foo\"],[[Para [Str \"bar\"]]]),([Str \"fizz\"],[[Para [Str \"pop\"]]])]"}
+{"operation":"deepseq","kind":"Block","input":"DefinitionList [([Str \"foo\"],[[Para [Str \"bar\"]]]),([Str \"fizz\"],[[Para [Str \"pop\"]]])]"}
+{"operation":"rwhnf","kind":"Block","input":"DefinitionList [([Str \"foo\"],[[Para [Str \"bar\"]]]),([Str \"fizz\"],[[Para [Str \"pop\"]]])]"}
+{"operation":"rnf","kind":"Block","input":"Header 2 (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Head\"]"}
+{"operation":"force","kind":"Block","input":"Header 2 (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Head\"]"}
+{"operation":"deepseq","kind":"Block","input":"Header 2 (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Head\"]"}
+{"operation":"rwhnf","kind":"Block","input":"Header 2 (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Str \"Head\"]"}
+{"operation":"rnf","kind":"Row","input":"Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"\",[],[]) AlignRight (RowSpan 2) (ColSpan 3) [Para [Str \"bar\"]]]"}
+{"operation":"force","kind":"Row","input":"Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"\",[],[]) AlignRight (RowSpan 2) (ColSpan 3) [Para [Str \"bar\"]]]"}
+{"operation":"deepseq","kind":"Row","input":"Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"\",[],[]) AlignRight (RowSpan 2) (ColSpan 3) [Para [Str \"bar\"]]]"}
+{"operation":"rwhnf","kind":"Row","input":"Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"\",[],[]) AlignRight (RowSpan 2) (ColSpan 3) [Para [Str \"bar\"]]]"}
+{"operation":"rnf","kind":"Caption","input":"Caption (Just [Str \"foo\"]) [Para [Str \"bar\"]]"}
+{"operation":"force","kind":"Caption","input":"Caption (Just [Str \"foo\"]) [Para [Str \"bar\"]]"}
+{"operation":"deepseq","kind":"Caption","input":"Caption (Just [Str \"foo\"]) [Para [Str \"bar\"]]"}
+{"operation":"rwhnf","kind":"Caption","input":"Caption (Just [Str \"foo\"]) [Para [Str \"bar\"]]"}
+{"operation":"rnf","kind":"TableHead","input":"TableHead (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"force","kind":"TableHead","input":"TableHead (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"deepseq","kind":"TableHead","input":"TableHead (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"rwhnf","kind":"TableHead","input":"TableHead (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"rnf","kind":"TableBody","input":"TableBody (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (RowHeadColumns 3) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []] [Row (\"id'\",[\"kls'\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"force","kind":"TableBody","input":"TableBody (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (RowHeadColumns 3) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []] [Row (\"id'\",[\"kls'\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"deepseq","kind":"TableBody","input":"TableBody (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (RowHeadColumns 3) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []] [Row (\"id'\",[\"kls'\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"rwhnf","kind":"TableBody","input":"TableBody (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (RowHeadColumns 3) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []] [Row (\"id'\",[\"kls'\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"rnf","kind":"TableFoot","input":"TableFoot (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"force","kind":"TableFoot","input":"TableFoot (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"deepseq","kind":"TableFoot","input":"TableFoot (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"rwhnf","kind":"TableFoot","input":"TableFoot (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) []]"}
+{"operation":"rnf","kind":"Cell","input":"Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignLeft (RowSpan 1) (ColSpan 1) [Para [Str \"bar\"]]"}
+{"operation":"force","kind":"Cell","input":"Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignLeft (RowSpan 1) (ColSpan 1) [Para [Str \"bar\"]]"}
+{"operation":"deepseq","kind":"Cell","input":"Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignLeft (RowSpan 1) (ColSpan 1) [Para [Str \"bar\"]]"}
+{"operation":"rwhnf","kind":"Cell","input":"Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignLeft (RowSpan 1) (ColSpan 1) [Para [Str \"bar\"]]"}
+{"operation":"rnf","kind":"RowHeadColumns","input":"RowHeadColumns 1"}
+{"operation":"force","kind":"RowHeadColumns","input":"RowHeadColumns 1"}
+{"operation":"deepseq","kind":"RowHeadColumns","input":"RowHeadColumns 1"}
+{"operation":"rwhnf","kind":"RowHeadColumns","input":"RowHeadColumns 1"}
+{"operation":"rnf","kind":"RowSpan","input":"RowSpan 1"}
+{"operation":"force","kind":"RowSpan","input":"RowSpan 1"}
+{"operation":"deepseq","kind":"RowSpan","input":"RowSpan 1"}
+{"operation":"rwhnf","kind":"RowSpan","input":"RowSpan 1"}
+{"operation":"rnf","kind":"ColSpan","input":"ColSpan 1"}
+{"operation":"force","kind":"ColSpan","input":"ColSpan 1"}
+{"operation":"deepseq","kind":"ColSpan","input":"ColSpan 1"}
+{"operation":"rwhnf","kind":"ColSpan","input":"ColSpan 1"}
+{"operation":"rnf","kind":"Block","input":"Table (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"short\"]) [Para [Str \"Demonstration\",Space,Str \"of\",Space,Str \"simple\",Space,Str \"table\",Space,Str \"syntax.\"]]) [(AlignDefault,ColWidthDefault),(AlignRight,ColWidthDefault),(AlignLeft,ColWidthDefault),(AlignCenter,ColWidthDefault),(AlignDefault,ColWidthDefault)] (TableHead (\"idh\",[\"klsh\"],[(\"k1h\",\"v1h\"),(\"k2h\",\"v2h\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Head\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Right\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Left\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Center\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Default\"]]]]) [TableBody (\"idb\",[\"klsb\"],[(\"k1b\",\"v1b\"),(\"k2b\",\"v2b\")]) (RowHeadColumns 1) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"ihead12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]]]] [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]]]]] (TableFoot (\"idf\",[\"klsf\"],[(\"k1f\",\"v1f\"),(\"k2f\",\"v2f\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"foot\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footright\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footleft\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footcenter\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footdefault\"]]]])"}
+{"operation":"force","kind":"Block","input":"Table (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"short\"]) [Para [Str \"Demonstration\",Space,Str \"of\",Space,Str \"simple\",Space,Str \"table\",Space,Str \"syntax.\"]]) [(AlignDefault,ColWidthDefault),(AlignRight,ColWidthDefault),(AlignLeft,ColWidthDefault),(AlignCenter,ColWidthDefault),(AlignDefault,ColWidthDefault)] (TableHead (\"idh\",[\"klsh\"],[(\"k1h\",\"v1h\"),(\"k2h\",\"v2h\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Head\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Right\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Left\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Center\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Default\"]]]]) [TableBody (\"idb\",[\"klsb\"],[(\"k1b\",\"v1b\"),(\"k2b\",\"v2b\")]) (RowHeadColumns 1) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"ihead12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]]]] [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]]]]] (TableFoot (\"idf\",[\"klsf\"],[(\"k1f\",\"v1f\"),(\"k2f\",\"v2f\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"foot\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footright\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footleft\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footcenter\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footdefault\"]]]])"}
+{"operation":"deepseq","kind":"Block","input":"Table (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"short\"]) [Para [Str \"Demonstration\",Space,Str \"of\",Space,Str \"simple\",Space,Str \"table\",Space,Str \"syntax.\"]]) [(AlignDefault,ColWidthDefault),(AlignRight,ColWidthDefault),(AlignLeft,ColWidthDefault),(AlignCenter,ColWidthDefault),(AlignDefault,ColWidthDefault)] (TableHead (\"idh\",[\"klsh\"],[(\"k1h\",\"v1h\"),(\"k2h\",\"v2h\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Head\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Right\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Left\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Center\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Default\"]]]]) [TableBody (\"idb\",[\"klsb\"],[(\"k1b\",\"v1b\"),(\"k2b\",\"v2b\")]) (RowHeadColumns 1) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"ihead12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]]]] [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]]]]] (TableFoot (\"idf\",[\"klsf\"],[(\"k1f\",\"v1f\"),(\"k2f\",\"v2f\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"foot\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footright\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footleft\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footcenter\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footdefault\"]]]])"}
+{"operation":"rwhnf","kind":"Block","input":"Table (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"short\"]) [Para [Str \"Demonstration\",Space,Str \"of\",Space,Str \"simple\",Space,Str \"table\",Space,Str \"syntax.\"]]) [(AlignDefault,ColWidthDefault),(AlignRight,ColWidthDefault),(AlignLeft,ColWidthDefault),(AlignCenter,ColWidthDefault),(AlignDefault,ColWidthDefault)] (TableHead (\"idh\",[\"klsh\"],[(\"k1h\",\"v1h\"),(\"k2h\",\"v2h\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Head\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Right\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Left\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Center\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"Default\"]]]]) [TableBody (\"idb\",[\"klsb\"],[(\"k1b\",\"v1b\"),(\"k2b\",\"v2b\")]) (RowHeadColumns 1) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"ihead12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"i12\"]]]] [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"12\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"123\"]]],Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"head1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"1\"]]]]] (TableFoot (\"idf\",[\"klsf\"],[(\"k1f\",\"v1f\"),(\"k2f\",\"v2f\")]) [Row (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"foot\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footright\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footleft\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footcenter\"]],Cell (\"a\",[\"b\"],[(\"c\",\"d\"),(\"e\",\"f\")]) AlignDefault (RowSpan 1) (ColSpan 1) [Plain [Str \"footdefault\"]]]])"}
+{"operation":"rnf","kind":"Block","input":"Figure (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"hello\"]) [Para [Str \"cap content\"]]) [Para [Str \"fig content\"]]"}
+{"operation":"force","kind":"Block","input":"Figure (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"hello\"]) [Para [Str \"cap content\"]]) [Para [Str \"fig content\"]]"}
+{"operation":"deepseq","kind":"Block","input":"Figure (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"hello\"]) [Para [Str \"cap content\"]]) [Para [Str \"fig content\"]]"}
+{"operation":"rwhnf","kind":"Block","input":"Figure (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) (Caption (Just [Str \"hello\"]) [Para [Str \"cap content\"]]) [Para [Str \"fig content\"]]"}
+{"operation":"rnf","kind":"Block","input":"Div (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Para [Str \"Hello\"]]"}
+{"operation":"force","kind":"Block","input":"Div (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Para [Str \"Hello\"]]"}
+{"operation":"deepseq","kind":"Block","input":"Div (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Para [Str \"Hello\"]]"}
+{"operation":"rwhnf","kind":"Block","input":"Div (\"id\",[\"kls\"],[(\"k1\",\"v1\"),(\"k2\",\"v2\")]) [Para [Str \"Hello\"]]"}
+{"operation":"rnf","kind":"Pandoc","input":"Pandoc (Meta {unMeta = fromList []}) []"}
+{"operation":"force","kind":"Pandoc","input":"Pandoc (Meta {unMeta = fromList []}) []"}
+{"operation":"deepseq","kind":"Pandoc","input":"Pandoc (Meta {unMeta = fromList []}) []"}
+{"operation":"rwhnf","kind":"Pandoc","input":"Pandoc (Meta {unMeta = fromList []}) []"}
+{"operation":"rnf","kind":"Inline","input":"Math InlineMath \"x\""}
+{"operation":"force","kind":"Inline","input":"Math InlineMath \"x\""}
+{"operation":"deepseq","kind":"Inline","input":"Math InlineMath \"x\""}
+{"operation":"rwhnf","kind":"Inline","input":"Math InlineMath \"x\""}
+{"operation":"rnf","kind":"Block","input":"HorizontalRule"}
+{"operation":"force","kind":"Block","input":"HorizontalRule"}
+{"operation":"deepseq","kind":"Block","input":"HorizontalRule"}
+{"operation":"rwhnf","kind":"Block","input":"HorizontalRule"}
+{"operation":"rnf","kind":"Format","input":"Format \"HTML\""}
+{"operation":"force","kind":"Format","input":"Format \"HTML\""}
+{"operation":"deepseq","kind":"Format","input":"Format \"HTML\""}
+{"operation":"rwhnf","kind":"Format","input":"Format \"HTML\""}
+{"operation":"rnf","kind":"ListNumberStyle","input":"DefaultStyle"}
+{"operation":"force","kind":"ListNumberStyle","input":"DefaultStyle"}
+{"operation":"deepseq","kind":"ListNumberStyle","input":"DefaultStyle"}
+{"operation":"rwhnf","kind":"ListNumberStyle","input":"DefaultStyle"}
+{"operation":"rnf","kind":"ListNumberStyle","input":"Example"}
+{"operation":"force","kind":"ListNumberStyle","input":"Example"}
+{"operation":"deepseq","kind":"ListNumberStyle","input":"Example"}
+{"operation":"rwhnf","kind":"ListNumberStyle","input":"Example"}
+{"operation":"rnf","kind":"ListNumberStyle","input":"Decimal"}
+{"operation":"force","kind":"ListNumberStyle","input":"Decimal"}
+{"operation":"deepseq","kind":"ListNumberStyle","input":"Decimal"}
+{"operation":"rwhnf","kind":"ListNumberStyle","input":"Decimal"}
+{"operation":"rnf","kind":"ListNumberStyle","input":"LowerRoman"}
+{"operation":"force","kind":"ListNumberStyle","input":"LowerRoman"}
+{"operation":"deepseq","kind":"ListNumberStyle","input":"LowerRoman"}
+{"operation":"rwhnf","kind":"ListNumberStyle","input":"LowerRoman"}
+{"operation":"rnf","kind":"ListNumberStyle","input":"UpperRoman"}
+{"operation":"force","kind":"ListNumberStyle","input":"UpperRoman"}
+{"operation":"deepseq","kind":"ListNumberStyle","input":"UpperRoman"}
+{"operation":"rwhnf","kind":"ListNumberStyle","input":"UpperRoman"}
+{"operation":"rnf","kind":"ListNumberStyle","input":"LowerAlpha"}
+{"operation":"force","kind":"ListNumberStyle","input":"LowerAlpha"}
+{"operation":"deepseq","kind":"ListNumberStyle","input":"LowerAlpha"}
+{"operation":"rwhnf","kind":"ListNumberStyle","input":"LowerAlpha"}
+{"operation":"rnf","kind":"ListNumberStyle","input":"UpperAlpha"}
+{"operation":"force","kind":"ListNumberStyle","input":"UpperAlpha"}
+{"operation":"deepseq","kind":"ListNumberStyle","input":"UpperAlpha"}
+{"operation":"rwhnf","kind":"ListNumberStyle","input":"UpperAlpha"}
+{"operation":"rnf","kind":"ListNumberDelim","input":"DefaultDelim"}
+{"operation":"force","kind":"ListNumberDelim","input":"DefaultDelim"}
+{"operation":"deepseq","kind":"ListNumberDelim","input":"DefaultDelim"}
+{"operation":"rwhnf","kind":"ListNumberDelim","input":"DefaultDelim"}
+{"operation":"rnf","kind":"ListNumberDelim","input":"Period"}
+{"operation":"force","kind":"ListNumberDelim","input":"Period"}
+{"operation":"deepseq","kind":"ListNumberDelim","input":"Period"}
+{"operation":"rwhnf","kind":"ListNumberDelim","input":"Period"}
+{"operation":"rnf","kind":"ListNumberDelim","input":"OneParen"}
+{"operation":"force","kind":"ListNumberDelim","input":"OneParen"}
+{"operation":"deepseq","kind":"ListNumberDelim","input":"OneParen"}
+{"operation":"rwhnf","kind":"ListNumberDelim","input":"OneParen"}
+{"operation":"rnf","kind":"ListNumberDelim","input":"TwoParens"}
+{"operation":"force","kind":"ListNumberDelim","input":"TwoParens"}
+{"operation":"deepseq","kind":"ListNumberDelim","input":"TwoParens"}
+{"operation":"rwhnf","kind":"ListNumberDelim","input":"TwoParens"}
+{"operation":"rnf","kind":"Alignment","input":"AlignLeft"}
+{"operation":"force","kind":"Alignment","input":"AlignLeft"}
+{"operation":"deepseq","kind":"Alignment","input":"AlignLeft"}
+{"operation":"rwhnf","kind":"Alignment","input":"AlignLeft"}
+{"operation":"rnf","kind":"Alignment","input":"AlignRight"}
+{"operation":"force","kind":"Alignment","input":"AlignRight"}
+{"operation":"deepseq","kind":"Alignment","input":"AlignRight"}
+{"operation":"rwhnf","kind":"Alignment","input":"AlignRight"}
+{"operation":"rnf","kind":"Alignment","input":"AlignCenter"}
+{"operation":"force","kind":"Alignment","input":"AlignCenter"}
+{"operation":"deepseq","kind":"Alignment","input":"AlignCenter"}
+{"operation":"rwhnf","kind":"Alignment","input":"AlignCenter"}
+{"operation":"rnf","kind":"Alignment","input":"AlignDefault"}
+{"operation":"force","kind":"Alignment","input":"AlignDefault"}
+{"operation":"deepseq","kind":"Alignment","input":"AlignDefault"}
+{"operation":"rwhnf","kind":"Alignment","input":"AlignDefault"}
+{"operation":"rnf","kind":"ColWidth","input":"ColWidthDefault"}
+{"operation":"force","kind":"ColWidth","input":"ColWidthDefault"}
+{"operation":"deepseq","kind":"ColWidth","input":"ColWidthDefault"}
+{"operation":"rwhnf","kind":"ColWidth","input":"ColWidthDefault"}
+{"operation":"rnf","kind":"ColWidth","input":"ColWidth 0.3"}
+{"operation":"force","kind":"ColWidth","input":"ColWidth 0.3"}
+{"operation":"deepseq","kind":"ColWidth","input":"ColWidth 0.3"}
+{"operation":"rwhnf","kind":"ColWidth","input":"ColWidth 0.3"}

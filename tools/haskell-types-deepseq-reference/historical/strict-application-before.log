@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.IllegalStateException: custom/strictApply-ignored expected{"result":"7"} actual{"exception":"input"}
+	at io.heapy.kotdoc.ast.DeepSeqExtendedReplayKt.main(DeepSeqExtendedReplay.kt:63)
+	at io.heapy.kotdoc.ast.DeepSeqExtendedReplayKt.main(DeepSeqExtendedReplay.kt)

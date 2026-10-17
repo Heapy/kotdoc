@@ -1,0 +1,474 @@
+[
+  {
+    "name": "force/ignored",
+    "expression": "show (const (7::Int) (force (error \"root\"::Inline)))"
+  },
+  {
+    "name": "force/root",
+    "expression": "show (force (error \"root\"::Inline) `seq` (7::Int))"
+  },
+  {
+    "name": "force/deep",
+    "expression": "show (force (Emph [error \"head\"]) `seq` (7::Int))"
+  },
+  {
+    "name": "force/identity",
+    "expression": "show (force (Emph [Space]))"
+  },
+  {
+    "name": "deepseq/ignored",
+    "expression": "show (const (7::Int) (deepseq (error \"first\"::Inline) (error \"second\"::Int)))"
+  },
+  {
+    "name": "deepseq/first",
+    "expression": "show (deepseq (error \"first\"::Inline) (error \"second\"::Int))"
+  },
+  {
+    "name": "deepseq/second",
+    "expression": "show (deepseq Space (error \"second\"::Int))"
+  },
+  {
+    "name": "strictApply/const",
+    "expression": "show (((const (7::Int)) $!! Emph [error \"head\"]))"
+  },
+  {
+    "name": "strictApply/function",
+    "expression": "show (((error \"function\"::Inline->Int) $!! Space))"
+  },
+  {
+    "name": "strictApply/both",
+    "expression": "show (((error \"function\"::Inline->Int) $!! (error \"input\"::Inline)))"
+  },
+  {
+    "name": "rwhnf/lazy-child",
+    "expression": "show (rwhnf (Emph [error \"head\"]))"
+  },
+  {
+    "name": "rwhnf/newtype",
+    "expression": "show (rwhnf (RowSpan (error \"int\")))"
+  },
+  {
+    "name": "custom/ignored",
+    "expression": "show (rnf (error \"ignored\"::Ignored))"
+  },
+  {
+    "name": "custom/list",
+    "expression": "show (rnf [error \"ignored\"::Ignored])"
+  },
+  {
+    "name": "custom/tuple",
+    "expression": "show (rnf ((error \"ignored\"::Ignored),Space))"
+  },
+  {
+    "name": "custom/list-tail",
+    "expression": "show (rnf ((error \"ignored\"::Ignored):error \"tail\"))"
+  },
+  {
+    "name": "list/head",
+    "expression": "show (rnf [error \"head\"::Inline])"
+  },
+  {
+    "name": "list/tail",
+    "expression": "show (rnf (Space:error \"tail\"))"
+  },
+  {
+    "name": "list/order",
+    "expression": "show (rnf ((error \"head\"::Inline):error \"tail\"))"
+  },
+  {
+    "name": "tuple/order",
+    "expression": "show (rnf ((error \"first\"::Inline),(error \"second\"::Inline)))"
+  },
+  {
+    "name": "triple/order",
+    "expression": "show (rnf (Space,(error \"second\"::Inline),(error \"third\"::Inline)))"
+  },
+  {
+    "name": "maybe/none",
+    "expression": "show (rnf (Nothing::Maybe Inline))"
+  },
+  {
+    "name": "maybe/just",
+    "expression": "show (rnf (Just (error \"just\"::Inline)))"
+  },
+  {
+    "name": "map/value",
+    "expression": "show (rnf (M.singleton \"k\" (error \"value\"::Inline)))"
+  },
+  {
+    "name": "map/key",
+    "expression": "show (rnf (MI.Bin 1 (error \"key\"::T.Text) Space MI.Tip MI.Tip))"
+  },
+  {
+    "name": "map/left",
+    "expression": "show (rnf (MI.Bin 1 (\"k\"::T.Text) Space (error \"left\") MI.Tip))"
+  },
+  {
+    "name": "map/right",
+    "expression": "show (rnf (MI.Bin 1 (\"k\"::T.Text) Space MI.Tip (error \"right\")))"
+  },
+  {
+    "name": "map/root-before-value",
+    "expression": "show (rnf (MI.Bin 1 (\"k\"::T.Text) (error \"value\"::Inline) (error \"left\") MI.Tip))"
+  },
+  {
+    "name": "map/value-before-left-value",
+    "expression": "show (rnf (MI.Bin 2 (\"m\"::T.Text) (error \"root-value\"::Inline) (MI.Bin 1 \"a\" (error \"left-value\") MI.Tip MI.Tip) MI.Tip))"
+  },
+  {
+    "name": "map/key-before-value",
+    "expression": "show (rnf (MI.Bin 1 (error \"key\"::T.Text) (error \"value\"::Inline) MI.Tip MI.Tip))"
+  },
+  {
+    "name": "deep/inline/0",
+    "expression": "show (rnf (iterate (Emph . (:[])) Space !! 0))"
+  },
+  {
+    "name": "deep/list/0",
+    "expression": "show (rnf (replicate 0 Space))"
+  },
+  {
+    "name": "deep/list-last/0",
+    "expression": "show (rnf (replicate 0 Space ++ [error \"last\"]))"
+  },
+  {
+    "name": "deep/map/0",
+    "expression": "show (rnf (M.fromDistinctAscList [(i,Space)|i<-[1..0::Int]]))"
+  },
+  {
+    "name": "deep/inline/1",
+    "expression": "show (rnf (iterate (Emph . (:[])) Space !! 1))"
+  },
+  {
+    "name": "deep/list/1",
+    "expression": "show (rnf (replicate 1 Space))"
+  },
+  {
+    "name": "deep/list-last/1",
+    "expression": "show (rnf (replicate 1 Space ++ [error \"last\"]))"
+  },
+  {
+    "name": "deep/map/1",
+    "expression": "show (rnf (M.fromDistinctAscList [(i,Space)|i<-[1..1::Int]]))"
+  },
+  {
+    "name": "deep/inline/32",
+    "expression": "show (rnf (iterate (Emph . (:[])) Space !! 32))"
+  },
+  {
+    "name": "deep/list/32",
+    "expression": "show (rnf (replicate 32 Space))"
+  },
+  {
+    "name": "deep/list-last/32",
+    "expression": "show (rnf (replicate 32 Space ++ [error \"last\"]))"
+  },
+  {
+    "name": "deep/map/32",
+    "expression": "show (rnf (M.fromDistinctAscList [(i,Space)|i<-[1..32::Int]]))"
+  },
+  {
+    "name": "deep/inline/4096",
+    "expression": "show (rnf (iterate (Emph . (:[])) Space !! 4096))"
+  },
+  {
+    "name": "deep/list/4096",
+    "expression": "show (rnf (replicate 4096 Space))"
+  },
+  {
+    "name": "deep/list-last/4096",
+    "expression": "show (rnf (replicate 4096 Space ++ [error \"last\"]))"
+  },
+  {
+    "name": "deep/map/4096",
+    "expression": "show (rnf (M.fromDistinctAscList [(i,Space)|i<-[1..4096::Int]]))"
+  },
+  {
+    "name": "deep/inline/50000",
+    "expression": "show (rnf (iterate (Emph . (:[])) Space !! 50000))"
+  },
+  {
+    "name": "deep/list/50000",
+    "expression": "show (rnf (replicate 50000 Space))"
+  },
+  {
+    "name": "deep/list-last/50000",
+    "expression": "show (rnf (replicate 50000 Space ++ [error \"last\"]))"
+  },
+  {
+    "name": "deep/map/50000",
+    "expression": "show (rnf (M.fromDistinctAscList [(i,Space)|i<-[1..50000::Int]]))"
+  },
+  {
+    "name": "deep/map-skew/1",
+    "expression": "show (rnf (foldr (\\i rest->MI.Bin 1 i Space rest MI.Tip) MI.Tip [1..1::Int]))"
+  },
+  {
+    "name": "deep/map-skew-tail/1",
+    "expression": "show (rnf (foldr (\\i rest->MI.Bin 1 i Space rest MI.Tip) (error \"tail\") [1..1::Int]))"
+  },
+  {
+    "name": "deep/map-skew/4096",
+    "expression": "show (rnf (foldr (\\i rest->MI.Bin 1 i Space rest MI.Tip) MI.Tip [1..4096::Int]))"
+  },
+  {
+    "name": "deep/map-skew-tail/4096",
+    "expression": "show (rnf (foldr (\\i rest->MI.Bin 1 i Space rest MI.Tip) (error \"tail\") [1..4096::Int]))"
+  },
+  {
+    "name": "deep/map-skew/50000",
+    "expression": "show (rnf (foldr (\\i rest->MI.Bin 1 i Space rest MI.Tip) MI.Tip [1..50000::Int]))"
+  },
+  {
+    "name": "deep/map-skew-tail/50000",
+    "expression": "show (rnf (foldr (\\i rest->MI.Bin 1 i Space rest MI.Tip) (error \"tail\") [1..50000::Int]))"
+  },
+  {
+    "name": "map/size-min",
+    "expression": "show (rnf (MI.Bin minBound (\"k\"::T.Text) Space MI.Tip MI.Tip))"
+  },
+  {
+    "name": "map/size-max",
+    "expression": "show (rnf (MI.Bin maxBound (\"k\"::T.Text) Space MI.Tip MI.Tip))"
+  },
+  {
+    "name": "double/nan",
+    "expression": "show (rnf (ColWidth (0/0)))"
+  },
+  {
+    "name": "double/positive-infinity",
+    "expression": "show (rnf (ColWidth (1/0)))"
+  },
+  {
+    "name": "double/negative-infinity",
+    "expression": "show (rnf (ColWidth ((-1)/0)))"
+  },
+  {
+    "name": "custom/deepseq-ignored",
+    "expression": "show (deepseq (error \"input\"::Ignored) (7::Int))"
+  },
+  {
+    "name": "custom/strictApply-ignored",
+    "expression": "show ((const (7::Int)) $!! (error \"input\"::Ignored))"
+  },
+  {
+    "name": "custom/strictApply-demanded",
+    "expression": "show ((\\x->x `seq` (7::Int)) $!! (error \"input\"::Ignored))"
+  },
+  {
+    "name": "custom/force",
+    "expression": "show (force (error \"input\"::Ignored) `seq` (7::Int))"
+  },
+  {
+    "name": "rnf/ignored",
+    "expression": "show (const (7::Int) (rnf (error \"root\"::Inline)))"
+  },
+  {
+    "name": "rwhnf/ignored",
+    "expression": "show (const (7::Int) (rwhnf (error \"root\"::Inline)))"
+  },
+  {
+    "name": "custom/force-ignored",
+    "expression": "show (const (7::Int) (force (error \"input\"::Ignored)))"
+  },
+  {
+    "name": "custom/pair-root",
+    "expression": "show (rnf (error \"pair\"::PairBox))"
+  },
+  {
+    "name": "custom/pair-second-ignored",
+    "expression": "show (rnf (PairBox Space (error \"second\")))"
+  },
+  {
+    "name": "custom/pair-first",
+    "expression": "show (rnf (PairBox (error \"first\") Space))"
+  },
+  {
+    "name": "custom/pair-deep",
+    "expression": "show (rnf (PairBox (Emph [error \"head\"]) (error \"second\")))"
+  },
+  {
+    "name": "custom/pair-force",
+    "expression": "show (force (PairBox Space (error \"second\")) `seq` (7::Int))"
+  },
+  {
+    "name": "custom/pair-apply-ignored",
+    "expression": "show ((const (7::Int)) $!! PairBox Space (error \"second\"))"
+  },
+  {
+    "name": "custom/pair-apply-second",
+    "expression": "show ((\\(PairBox _ b)->b `seq` (7::Int)) $!! PairBox Space (error \"second\"))"
+  },
+  {
+    "name": "custom/map-value-ignored",
+    "expression": "show (rnf (MI.Bin 1 (\"k\"::T.Text) (error \"value\"::Ignored) MI.Tip MI.Tip))"
+  },
+  {
+    "name": "custom/map-key-root",
+    "expression": "show (rnf (MI.Bin 1 (error \"key\"::Ignored) Space MI.Tip MI.Tip))"
+  },
+  {
+    "name": "custom/map-key-pair",
+    "expression": "show (rnf (MI.Bin 1 (PairBox Space (error \"second\")) Space MI.Tip MI.Tip))"
+  },
+  {
+    "name": "custom/map-key-pair-first",
+    "expression": "show (rnf (MI.Bin 1 (PairBox (error \"first\") Space) Space MI.Tip MI.Tip))"
+  },
+  {
+    "name": "custom/map-key-before-value",
+    "expression": "show (rnf (MI.Bin 1 (PairBox (error \"first\") Space) (error \"value\"::Inline) MI.Tip MI.Tip))"
+  },
+  {
+    "name": "scalar/Int/root",
+    "expression": "show (rnf (error \"scalar\"::Int))"
+  },
+  {
+    "name": "scalar/Int/defined",
+    "expression": "show (rnf ((0)::Int))"
+  },
+  {
+    "name": "scalar/Double/root",
+    "expression": "show (rnf (error \"scalar\"::Double))"
+  },
+  {
+    "name": "scalar/Double/defined",
+    "expression": "show (rnf ((0/0)::Double))"
+  },
+  {
+    "name": "scalar/Bool/root",
+    "expression": "show (rnf (error \"scalar\"::Bool))"
+  },
+  {
+    "name": "scalar/Bool/defined",
+    "expression": "show (rnf ((False)::Bool))"
+  },
+  {
+    "name": "scalar/Char/root",
+    "expression": "show (rnf (error \"scalar\"::Char))"
+  },
+  {
+    "name": "scalar/Char/defined",
+    "expression": "show (rnf (('x')::Char))"
+  },
+  {
+    "name": "scalar/Text/root",
+    "expression": "show (rnf (error \"scalar\"::T.Text))"
+  },
+  {
+    "name": "scalar/Text/defined",
+    "expression": "show (rnf ((\"unicode\u6f22\ud83d\ude00\")::T.Text))"
+  },
+  {
+    "name": "custom/strict-root/force/root",
+    "expression": "show (force (Ignored (Emph (error \"field\"))) `seq` (7::Int))"
+  },
+  {
+    "name": "custom/strict-root/force/head",
+    "expression": "show (force (Ignored (Emph [error \"head\"])) `seq` (7::Int))"
+  },
+  {
+    "name": "custom/strict-root/apply/root",
+    "expression": "show (((\\x->x `seq` (7::Int)) $!! Ignored (Emph (error \"field\"))))"
+  },
+  {
+    "name": "custom/strict-root/apply/head",
+    "expression": "show (((\\x->x `seq` (7::Int)) $!! Ignored (Emph [error \"head\"])))"
+  },
+  {
+    "name": "return/deepseq/list-root",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) ((error \"result root\"::[Int]))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/list-head",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) ([error \"head\"::Int])) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/map-root",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) ((error \"result root\"::M.Map T.Text Inline))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/map-value",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) (MI.Bin 1 (\"k\"::T.Text) (error \"value\"::Inline) MI.Tip MI.Tip)) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/map-size",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) (MI.Bin (error \"size\") (\"k\"::T.Text) Space MI.Tip MI.Tip)) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/map-left",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) (MI.Bin 1 (\"k\"::T.Text) Space (error \"left\") MI.Tip)) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/node-root",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) (Emph (error \"field\"))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/node-head",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) (Emph [error \"head\"])) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/newtype",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) (RowSpan (error \"int\"))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/tuple",
+    "expression": "show ((deepseq (error \"ignored\"::Ignored) (((error \"first\"::Inline),Space))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/deepseq/unused",
+    "expression": "show (const (7::Int) (deepseq (error \"input\"::Inline) (error \"result root\"::[Int])))"
+  },
+  {
+    "name": "return/deepseq/input-first",
+    "expression": "show ((deepseq (error \"input\"::Inline) (error \"result root\"::[Int])) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/list-root",
+    "expression": "show ((((const ((error \"result root\"::[Int]))) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/list-head",
+    "expression": "show ((((const ([error \"head\"::Int])) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/map-root",
+    "expression": "show ((((const ((error \"result root\"::M.Map T.Text Inline))) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/map-value",
+    "expression": "show ((((const (MI.Bin 1 (\"k\"::T.Text) (error \"value\"::Inline) MI.Tip MI.Tip)) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/map-size",
+    "expression": "show ((((const (MI.Bin (error \"size\") (\"k\"::T.Text) Space MI.Tip MI.Tip)) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/map-left",
+    "expression": "show ((((const (MI.Bin 1 (\"k\"::T.Text) Space (error \"left\") MI.Tip)) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/node-root",
+    "expression": "show ((((const (Emph (error \"field\"))) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/node-head",
+    "expression": "show ((((const (Emph [error \"head\"])) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/newtype",
+    "expression": "show ((((const (RowSpan (error \"int\"))) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/tuple",
+    "expression": "show ((((const (((error \"first\"::Inline),Space))) $!! (error \"ignored\"::Ignored))) `seq` (7::Int))"
+  },
+  {
+    "name": "return/apply/unused",
+    "expression": "show (const (7::Int) ((const (error \"result root\"::[Int])) $!! (error \"input\"::Inline)))"
+  },
+  {
+    "name": "return/apply/input-first",
+    "expression": "show (((const (error \"result root\"::[Int])) $!! (error \"input\"::Inline)) `seq` (7::Int))"
+  }
+]

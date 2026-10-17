@@ -758,3 +758,36 @@ and preserved Single public JVM descriptors pass. Saved command/log/18XML/
 baseline7fdd75fe remains immutable; separate fresh XML and unchanged reader
 source/class hashes bind its consumer regression to the new Builder/Many.
 Independent review is pending. Full task611 remains open.
+
+## Accepted Builder family and NFData author gate
+
+The constructor family is accepted at 38dfec9a4dfbadf49376e132705f7e167e819f41.
+Its 50 named export rows are now linked to that commit in export-matrix.json.
+The next coherent instance slice is all 23 explicit NFData declarations in
+Definition.hs450–472. Each selects deepseq 1.5.1.0's Generic rnf default; this is
+23 source instances and23 rnf members, not all 350 instances/member expansion.
+`tools/haskell-types-deepseq-reference/acceptance-matrix.json` maps every instance
+and all 680 named partial-field/competing-field observations.
+
+Author isolated proof: 308 original finite responses, repeated through 23 typed
+AST dictionaries (308 more cases), plus 680 partial/root/field/mixed cases and 94
+custom/supporting/deep expressions; 1,390 independent assertions. Three separate
+JVM adapter tests check cached values/failures and static source field dictionaries. The source runtime's explicit
+no-global-evaluation-order guarantee is retained; pinned optimized GHC error
+choices are tested independently. Custom ignored dictionaries require a thunk
+function argument for ($!!); a preserved failing uninstalled draft repro proves
+why eager Kotlin application was insufficient. Delayed unit adapters also cover
+ignored and demanded rnf/rwhnf results. Strict AST bridges promise fully defined
+finite values; source carriers preserve partial node/list/tuple/Maybe/rawMap
+behavior, including malformed size caches and 50,000-depth cases. No arbitrary
+Haskell heap/parallel/Text-array equivalence is claimed. Shared build/review is
+still pending. Generic Many/count-derived/Data/Typeable/Generic members,
+Data.Version, 6 ToJSONFilter, JSON supplement and full 140/350 audit remain open.
+
+SourceThunk now enforces intrinsic StrictData WHNF when a custom dictionary or force result demands its argument, independently of NFData selection. Four original force/$!! probes distinguish a failing list root from an unrequested failing head. Final isolated 1,390 original assertions plus three JVM adapter tests passed at 512 MiB/256 KiB. Shared JUnit includes one additional source integrity test (1,394 NFData cases).
+
+Author shared gate (Gradle 82591) passed 22,645 actual JUnit cases with no failures/errors/skips: NFData 1,394 + Generic 808 + original Walk properties 6,000 + remaining original properties 14,316 + JSON 113 + tables 14. Three native executables and the installed GHC DeepSeq interface replay byte-exact; source integrity covers 47 hashes. Core JAR/installDist are identical, with all 106 current notices verified byte-exact. No existing production implementation changed. Independent review remains required. This does not close the remaining generic/derived instance expansion, Data.Version, six JSON filter instances, JSON supplement or complete 140-export/350-source-instance audit.
+
+Independent NFData review rejected the preceding author gate: deepseq/$!! returned raw source carriers without applying intrinsic result WHNF. It is retained as a failed-coverage baseline. A common SourceThunk output boundary fixes both helpers without normalizing lazy children. The new 24 original return-carrier probes retain all earlier 94 responses byte-exact; 1,414 original/typed assertions and four JVM adapters now pass isolated. Shared corrective gate and independent re-review remain pending.
+
+Corrective author gate (Gradle 30496) passed 22,670 actual JUnit cases with no failures/errors/skips: NFData 1,419 (1,414 original/typed assertions + four JVM adapters + integrity), with the same remaining 21,251 regression cases. Source/native/interface verification covers 48 hashes. The reviewer's exact Java reproducer against the rebuilt JAR now reports result-root failures for both helpers at 128 MiB. Core/installDist byte equality and all 106 exact notices pass. The previous 22,645-case JAR/XML remains separately retained as a failed-coverage baseline. This correction is awaiting independent re-review; all whole-611 remaining gates stay open.

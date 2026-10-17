@@ -1,0 +1,6356 @@
+[
+  {
+    "name": "Pandoc/root/rnf",
+    "kind": "Pandoc",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Pandoc/root/rwhnf",
+    "kind": "Pandoc",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Pandoc/Pandoc/0/field/rnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Pandoc",
+    "field": 0
+  },
+  {
+    "name": "Pandoc/Pandoc/0/field/rwhnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Pandoc",
+    "field": 0
+  },
+  {
+    "name": "Pandoc/Pandoc/0/deep/rnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta ((M.singleton \"k\" (error \"deep\"))))) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Pandoc",
+    "field": 0
+  },
+  {
+    "name": "Pandoc/Pandoc/0/deep/rwhnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta ((M.singleton \"k\" (error \"deep\"))))) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Pandoc",
+    "field": 0
+  },
+  {
+    "name": "Pandoc/Pandoc/1/field/rnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta (M.empty))) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Pandoc",
+    "field": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/1/field/rwhnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta (M.empty))) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Pandoc",
+    "field": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/1/deep/rnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta (M.empty))) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Pandoc",
+    "field": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/1/deep/rwhnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta (M.empty))) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Pandoc",
+    "field": 1
+  },
+  {
+    "name": "Meta/root/rnf",
+    "kind": "Meta",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Meta/root/rwhnf",
+    "kind": "Meta",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Meta/Meta/0/field/rnf",
+    "kind": "Meta",
+    "expression": "(Meta (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Meta",
+    "field": 0
+  },
+  {
+    "name": "Meta/Meta/0/field/rwhnf",
+    "kind": "Meta",
+    "expression": "(Meta (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Meta",
+    "field": 0
+  },
+  {
+    "name": "Meta/Meta/0/deep/rnf",
+    "kind": "Meta",
+    "expression": "(Meta ((M.singleton \"k\" (error \"deep\"))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Meta",
+    "field": 0
+  },
+  {
+    "name": "Meta/Meta/0/deep/rwhnf",
+    "kind": "Meta",
+    "expression": "(Meta ((M.singleton \"k\" (error \"deep\"))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Meta",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/root/rnf",
+    "kind": "MetaValue",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "MetaValue/root/rwhnf",
+    "kind": "MetaValue",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "MetaValue/MetaMap/0/field/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaMap (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "MetaMap",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaMap/0/field/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaMap (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "MetaMap",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaMap/0/deep/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaMap ((M.singleton \"k\" (error \"deep\"))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "MetaMap",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaMap/0/deep/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaMap ((M.singleton \"k\" (error \"deep\"))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "MetaMap",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaList/0/field/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaList (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "MetaList",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaList/0/field/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaList (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "MetaList",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaList/0/deep/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaList ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "MetaList",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaList/0/deep/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaList ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "MetaList",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaBool/0/field/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaBool (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "MetaBool",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaBool/0/field/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaBool (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "MetaBool",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaString/0/field/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaString (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "MetaString",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaString/0/field/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaString (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "MetaString",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaInlines/0/field/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaInlines (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "MetaInlines",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaInlines/0/field/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaInlines (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "MetaInlines",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaInlines/0/deep/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaInlines ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "MetaInlines",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaInlines/0/deep/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaInlines ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "MetaInlines",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaBlocks/0/field/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaBlocks (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "MetaBlocks",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaBlocks/0/field/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaBlocks (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "MetaBlocks",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaBlocks/0/deep/rnf",
+    "kind": "MetaValue",
+    "expression": "(MetaBlocks ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "MetaBlocks",
+    "field": 0
+  },
+  {
+    "name": "MetaValue/MetaBlocks/0/deep/rwhnf",
+    "kind": "MetaValue",
+    "expression": "(MetaBlocks ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "MetaBlocks",
+    "field": 0
+  },
+  {
+    "name": "ListNumberStyle/root/rnf",
+    "kind": "ListNumberStyle",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "ListNumberStyle/root/rwhnf",
+    "kind": "ListNumberStyle",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "ListNumberDelim/root/rnf",
+    "kind": "ListNumberDelim",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "ListNumberDelim/root/rwhnf",
+    "kind": "ListNumberDelim",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Format/root/rnf",
+    "kind": "Format",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Format/root/rwhnf",
+    "kind": "Format",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Format/Format/0/field/rnf",
+    "kind": "Format",
+    "expression": "(Format (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Format",
+    "field": 0
+  },
+  {
+    "name": "Format/Format/0/field/rwhnf",
+    "kind": "Format",
+    "expression": "(Format (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Format",
+    "field": 0
+  },
+  {
+    "name": "RowHeadColumns/root/rnf",
+    "kind": "RowHeadColumns",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "RowHeadColumns/root/rwhnf",
+    "kind": "RowHeadColumns",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "RowHeadColumns/RowHeadColumns/0/field/rnf",
+    "kind": "RowHeadColumns",
+    "expression": "(RowHeadColumns (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "RowHeadColumns",
+    "field": 0
+  },
+  {
+    "name": "RowHeadColumns/RowHeadColumns/0/field/rwhnf",
+    "kind": "RowHeadColumns",
+    "expression": "(RowHeadColumns (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "RowHeadColumns",
+    "field": 0
+  },
+  {
+    "name": "Alignment/root/rnf",
+    "kind": "Alignment",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Alignment/root/rwhnf",
+    "kind": "Alignment",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "ColWidth/root/rnf",
+    "kind": "ColWidth",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "ColWidth/root/rwhnf",
+    "kind": "ColWidth",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "ColWidth/ColWidth/0/field/rnf",
+    "kind": "ColWidth",
+    "expression": "(ColWidth (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "ColWidth",
+    "field": 0
+  },
+  {
+    "name": "ColWidth/ColWidth/0/field/rwhnf",
+    "kind": "ColWidth",
+    "expression": "(ColWidth (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "ColWidth",
+    "field": 0
+  },
+  {
+    "name": "Row/root/rnf",
+    "kind": "Row",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Row/root/rwhnf",
+    "kind": "Row",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Row/Row/0/field/rnf",
+    "kind": "Row",
+    "expression": "(Row (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Row",
+    "field": 0
+  },
+  {
+    "name": "Row/Row/0/field/rwhnf",
+    "kind": "Row",
+    "expression": "(Row (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Row",
+    "field": 0
+  },
+  {
+    "name": "Row/Row/0/deep/rnf",
+    "kind": "Row",
+    "expression": "(Row ((error \"deep\",[],[])) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Row",
+    "field": 0
+  },
+  {
+    "name": "Row/Row/0/deep/rwhnf",
+    "kind": "Row",
+    "expression": "(Row ((error \"deep\",[],[])) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Row",
+    "field": 0
+  },
+  {
+    "name": "Row/Row/1/field/rnf",
+    "kind": "Row",
+    "expression": "(Row ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Row",
+    "field": 1
+  },
+  {
+    "name": "Row/Row/1/field/rwhnf",
+    "kind": "Row",
+    "expression": "(Row ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Row",
+    "field": 1
+  },
+  {
+    "name": "Row/Row/1/deep/rnf",
+    "kind": "Row",
+    "expression": "(Row ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Row",
+    "field": 1
+  },
+  {
+    "name": "Row/Row/1/deep/rwhnf",
+    "kind": "Row",
+    "expression": "(Row ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Row",
+    "field": 1
+  },
+  {
+    "name": "TableHead/root/rnf",
+    "kind": "TableHead",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "TableHead/root/rwhnf",
+    "kind": "TableHead",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "TableHead/TableHead/0/field/rnf",
+    "kind": "TableHead",
+    "expression": "(TableHead (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableHead",
+    "field": 0
+  },
+  {
+    "name": "TableHead/TableHead/0/field/rwhnf",
+    "kind": "TableHead",
+    "expression": "(TableHead (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableHead",
+    "field": 0
+  },
+  {
+    "name": "TableHead/TableHead/0/deep/rnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((error \"deep\",[],[])) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "TableHead",
+    "field": 0
+  },
+  {
+    "name": "TableHead/TableHead/0/deep/rwhnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((error \"deep\",[],[])) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "TableHead",
+    "field": 0
+  },
+  {
+    "name": "TableHead/TableHead/1/field/rnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableHead",
+    "field": 1
+  },
+  {
+    "name": "TableHead/TableHead/1/field/rwhnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableHead",
+    "field": 1
+  },
+  {
+    "name": "TableHead/TableHead/1/deep/rnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "TableHead",
+    "field": 1
+  },
+  {
+    "name": "TableHead/TableHead/1/deep/rwhnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "TableHead",
+    "field": 1
+  },
+  {
+    "name": "TableBody/root/rnf",
+    "kind": "TableBody",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "TableBody/root/rwhnf",
+    "kind": "TableBody",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "TableBody/TableBody/0/field/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"field\") ((RowHeadColumns (0))) ([]) ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 0
+  },
+  {
+    "name": "TableBody/TableBody/0/field/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"field\") ((RowHeadColumns (0))) ([]) ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 0
+  },
+  {
+    "name": "TableBody/TableBody/0/deep/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"deep\",[],[])) ((RowHeadColumns (0))) ([]) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "TableBody",
+    "field": 0
+  },
+  {
+    "name": "TableBody/TableBody/0/deep/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"deep\",[],[])) ((RowHeadColumns (0))) ([]) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "TableBody",
+    "field": 0
+  },
+  {
+    "name": "TableBody/TableBody/1/field/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) (error \"field\") ([]) ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 1
+  },
+  {
+    "name": "TableBody/TableBody/1/field/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) (error \"field\") ([]) ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 1
+  },
+  {
+    "name": "TableBody/TableBody/2/field/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 2
+  },
+  {
+    "name": "TableBody/TableBody/2/field/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 2
+  },
+  {
+    "name": "TableBody/TableBody/2/deep/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([error \"deep\"]) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "TableBody",
+    "field": 2
+  },
+  {
+    "name": "TableBody/TableBody/2/deep/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([error \"deep\"]) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "TableBody",
+    "field": 2
+  },
+  {
+    "name": "TableBody/TableBody/3/field/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([]) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 3
+  },
+  {
+    "name": "TableBody/TableBody/3/field/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([]) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableBody",
+    "field": 3
+  },
+  {
+    "name": "TableBody/TableBody/3/deep/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([]) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "TableBody",
+    "field": 3
+  },
+  {
+    "name": "TableBody/TableBody/3/deep/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([]) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "TableBody",
+    "field": 3
+  },
+  {
+    "name": "TableFoot/root/rnf",
+    "kind": "TableFoot",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "TableFoot/root/rwhnf",
+    "kind": "TableFoot",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "TableFoot/TableFoot/0/field/rnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableFoot",
+    "field": 0
+  },
+  {
+    "name": "TableFoot/TableFoot/0/field/rwhnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableFoot",
+    "field": 0
+  },
+  {
+    "name": "TableFoot/TableFoot/0/deep/rnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((error \"deep\",[],[])) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "TableFoot",
+    "field": 0
+  },
+  {
+    "name": "TableFoot/TableFoot/0/deep/rwhnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((error \"deep\",[],[])) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "TableFoot",
+    "field": 0
+  },
+  {
+    "name": "TableFoot/TableFoot/1/field/rnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "TableFoot",
+    "field": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/1/field/rwhnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "TableFoot",
+    "field": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/1/deep/rnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "TableFoot",
+    "field": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/1/deep/rwhnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "TableFoot",
+    "field": 1
+  },
+  {
+    "name": "Caption/root/rnf",
+    "kind": "Caption",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Caption/root/rwhnf",
+    "kind": "Caption",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Caption/Caption/0/field/rnf",
+    "kind": "Caption",
+    "expression": "(Caption (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Caption",
+    "field": 0
+  },
+  {
+    "name": "Caption/Caption/0/field/rwhnf",
+    "kind": "Caption",
+    "expression": "(Caption (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Caption",
+    "field": 0
+  },
+  {
+    "name": "Caption/Caption/0/deep/rnf",
+    "kind": "Caption",
+    "expression": "(Caption ((Just (error \"deep\"))) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Caption",
+    "field": 0
+  },
+  {
+    "name": "Caption/Caption/0/deep/rwhnf",
+    "kind": "Caption",
+    "expression": "(Caption ((Just (error \"deep\"))) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Caption",
+    "field": 0
+  },
+  {
+    "name": "Caption/Caption/1/field/rnf",
+    "kind": "Caption",
+    "expression": "(Caption (Nothing) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Caption",
+    "field": 1
+  },
+  {
+    "name": "Caption/Caption/1/field/rwhnf",
+    "kind": "Caption",
+    "expression": "(Caption (Nothing) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Caption",
+    "field": 1
+  },
+  {
+    "name": "Caption/Caption/1/deep/rnf",
+    "kind": "Caption",
+    "expression": "(Caption (Nothing) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Caption",
+    "field": 1
+  },
+  {
+    "name": "Caption/Caption/1/deep/rwhnf",
+    "kind": "Caption",
+    "expression": "(Caption (Nothing) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Caption",
+    "field": 1
+  },
+  {
+    "name": "Cell/root/rnf",
+    "kind": "Cell",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Cell/root/rwhnf",
+    "kind": "Cell",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Cell/Cell/0/field/rnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"field\") ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 0
+  },
+  {
+    "name": "Cell/Cell/0/field/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"field\") ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 0
+  },
+  {
+    "name": "Cell/Cell/0/deep/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"deep\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Cell",
+    "field": 0
+  },
+  {
+    "name": "Cell/Cell/0/deep/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"deep\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Cell",
+    "field": 0
+  },
+  {
+    "name": "Cell/Cell/1/field/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"field\") ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 1
+  },
+  {
+    "name": "Cell/Cell/1/field/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"field\") ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 1
+  },
+  {
+    "name": "Cell/Cell/2/field/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) (error \"field\") ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 2
+  },
+  {
+    "name": "Cell/Cell/2/field/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) (error \"field\") ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 2
+  },
+  {
+    "name": "Cell/Cell/3/field/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 3
+  },
+  {
+    "name": "Cell/Cell/3/field/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 3
+  },
+  {
+    "name": "Cell/Cell/4/field/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 4
+  },
+  {
+    "name": "Cell/Cell/4/field/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Cell",
+    "field": 4
+  },
+  {
+    "name": "Cell/Cell/4/deep/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Cell",
+    "field": 4
+  },
+  {
+    "name": "Cell/Cell/4/deep/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Cell",
+    "field": 4
+  },
+  {
+    "name": "RowSpan/root/rnf",
+    "kind": "RowSpan",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "RowSpan/root/rwhnf",
+    "kind": "RowSpan",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "RowSpan/RowSpan/0/field/rnf",
+    "kind": "RowSpan",
+    "expression": "(RowSpan (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "RowSpan",
+    "field": 0
+  },
+  {
+    "name": "RowSpan/RowSpan/0/field/rwhnf",
+    "kind": "RowSpan",
+    "expression": "(RowSpan (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "RowSpan",
+    "field": 0
+  },
+  {
+    "name": "ColSpan/root/rnf",
+    "kind": "ColSpan",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "ColSpan/root/rwhnf",
+    "kind": "ColSpan",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "ColSpan/ColSpan/0/field/rnf",
+    "kind": "ColSpan",
+    "expression": "(ColSpan (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "ColSpan",
+    "field": 0
+  },
+  {
+    "name": "ColSpan/ColSpan/0/field/rwhnf",
+    "kind": "ColSpan",
+    "expression": "(ColSpan (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "ColSpan",
+    "field": 0
+  },
+  {
+    "name": "Block/root/rnf",
+    "kind": "Block",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Block/root/rwhnf",
+    "kind": "Block",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Block/Plain/0/field/rnf",
+    "kind": "Block",
+    "expression": "(Plain (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Plain",
+    "field": 0
+  },
+  {
+    "name": "Block/Plain/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Plain (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Plain",
+    "field": 0
+  },
+  {
+    "name": "Block/Plain/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(Plain ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Plain",
+    "field": 0
+  },
+  {
+    "name": "Block/Plain/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Plain ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Plain",
+    "field": 0
+  },
+  {
+    "name": "Block/Para/0/field/rnf",
+    "kind": "Block",
+    "expression": "(Para (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Para",
+    "field": 0
+  },
+  {
+    "name": "Block/Para/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Para (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Para",
+    "field": 0
+  },
+  {
+    "name": "Block/Para/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(Para ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Para",
+    "field": 0
+  },
+  {
+    "name": "Block/Para/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Para ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Para",
+    "field": 0
+  },
+  {
+    "name": "Block/LineBlock/0/field/rnf",
+    "kind": "Block",
+    "expression": "(LineBlock (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "LineBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/LineBlock/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(LineBlock (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "LineBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/LineBlock/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(LineBlock ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "LineBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/LineBlock/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(LineBlock ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "LineBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/CodeBlock/0/field/rnf",
+    "kind": "Block",
+    "expression": "(CodeBlock (error \"field\") (\"x\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "CodeBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/CodeBlock/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(CodeBlock (error \"field\") (\"x\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "CodeBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/CodeBlock/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(CodeBlock ((error \"deep\",[],[])) (\"x\"))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "CodeBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/CodeBlock/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(CodeBlock ((error \"deep\",[],[])) (\"x\"))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "CodeBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/CodeBlock/1/field/rnf",
+    "kind": "Block",
+    "expression": "(CodeBlock ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "CodeBlock",
+    "field": 1
+  },
+  {
+    "name": "Block/CodeBlock/1/field/rwhnf",
+    "kind": "Block",
+    "expression": "(CodeBlock ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "CodeBlock",
+    "field": 1
+  },
+  {
+    "name": "Block/RawBlock/0/field/rnf",
+    "kind": "Block",
+    "expression": "(RawBlock (error \"field\") (\"x\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "RawBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/RawBlock/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(RawBlock (error \"field\") (\"x\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "RawBlock",
+    "field": 0
+  },
+  {
+    "name": "Block/RawBlock/1/field/rnf",
+    "kind": "Block",
+    "expression": "(RawBlock ((Format (\"x\"))) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "RawBlock",
+    "field": 1
+  },
+  {
+    "name": "Block/RawBlock/1/field/rwhnf",
+    "kind": "Block",
+    "expression": "(RawBlock ((Format (\"x\"))) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "RawBlock",
+    "field": 1
+  },
+  {
+    "name": "Block/BlockQuote/0/field/rnf",
+    "kind": "Block",
+    "expression": "(BlockQuote (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "BlockQuote",
+    "field": 0
+  },
+  {
+    "name": "Block/BlockQuote/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(BlockQuote (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "BlockQuote",
+    "field": 0
+  },
+  {
+    "name": "Block/BlockQuote/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(BlockQuote ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "BlockQuote",
+    "field": 0
+  },
+  {
+    "name": "Block/BlockQuote/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(BlockQuote ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "BlockQuote",
+    "field": 0
+  },
+  {
+    "name": "Block/OrderedList/0/field/rnf",
+    "kind": "Block",
+    "expression": "(OrderedList (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "OrderedList",
+    "field": 0
+  },
+  {
+    "name": "Block/OrderedList/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(OrderedList (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "OrderedList",
+    "field": 0
+  },
+  {
+    "name": "Block/OrderedList/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((error \"deep\",(DefaultStyle),(DefaultDelim))) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "OrderedList",
+    "field": 0
+  },
+  {
+    "name": "Block/OrderedList/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((error \"deep\",(DefaultStyle),(DefaultDelim))) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "OrderedList",
+    "field": 0
+  },
+  {
+    "name": "Block/OrderedList/1/field/rnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((0,(DefaultStyle),(DefaultDelim))) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "OrderedList",
+    "field": 1
+  },
+  {
+    "name": "Block/OrderedList/1/field/rwhnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((0,(DefaultStyle),(DefaultDelim))) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "OrderedList",
+    "field": 1
+  },
+  {
+    "name": "Block/OrderedList/1/deep/rnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((0,(DefaultStyle),(DefaultDelim))) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "OrderedList",
+    "field": 1
+  },
+  {
+    "name": "Block/OrderedList/1/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((0,(DefaultStyle),(DefaultDelim))) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "OrderedList",
+    "field": 1
+  },
+  {
+    "name": "Block/BulletList/0/field/rnf",
+    "kind": "Block",
+    "expression": "(BulletList (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "BulletList",
+    "field": 0
+  },
+  {
+    "name": "Block/BulletList/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(BulletList (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "BulletList",
+    "field": 0
+  },
+  {
+    "name": "Block/BulletList/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(BulletList ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "BulletList",
+    "field": 0
+  },
+  {
+    "name": "Block/BulletList/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(BulletList ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "BulletList",
+    "field": 0
+  },
+  {
+    "name": "Block/DefinitionList/0/field/rnf",
+    "kind": "Block",
+    "expression": "(DefinitionList (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "DefinitionList",
+    "field": 0
+  },
+  {
+    "name": "Block/DefinitionList/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(DefinitionList (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "DefinitionList",
+    "field": 0
+  },
+  {
+    "name": "Block/DefinitionList/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(DefinitionList ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "DefinitionList",
+    "field": 0
+  },
+  {
+    "name": "Block/DefinitionList/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(DefinitionList ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "DefinitionList",
+    "field": 0
+  },
+  {
+    "name": "Block/Header/0/field/rnf",
+    "kind": "Block",
+    "expression": "(Header (error \"field\") ((\"x\",[],[])) ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Header",
+    "field": 0
+  },
+  {
+    "name": "Block/Header/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (error \"field\") ((\"x\",[],[])) ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Header",
+    "field": 0
+  },
+  {
+    "name": "Block/Header/1/field/rnf",
+    "kind": "Block",
+    "expression": "(Header (0) (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Header",
+    "field": 1
+  },
+  {
+    "name": "Block/Header/1/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (0) (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Header",
+    "field": 1
+  },
+  {
+    "name": "Block/Header/1/deep/rnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((error \"deep\",[],[])) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Header",
+    "field": 1
+  },
+  {
+    "name": "Block/Header/1/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((error \"deep\",[],[])) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Header",
+    "field": 1
+  },
+  {
+    "name": "Block/Header/2/field/rnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Header",
+    "field": 2
+  },
+  {
+    "name": "Block/Header/2/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Header",
+    "field": 2
+  },
+  {
+    "name": "Block/Header/2/deep/rnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Header",
+    "field": 2
+  },
+  {
+    "name": "Block/Header/2/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Header",
+    "field": 2
+  },
+  {
+    "name": "Block/Table/0/field/rnf",
+    "kind": "Block",
+    "expression": "(Table (error \"field\") ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 0
+  },
+  {
+    "name": "Block/Table/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Table (error \"field\") ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 0
+  },
+  {
+    "name": "Block/Table/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"deep\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 0
+  },
+  {
+    "name": "Block/Table/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"deep\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 0
+  },
+  {
+    "name": "Block/Table/1/field/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"field\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 1
+  },
+  {
+    "name": "Block/Table/1/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"field\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 1
+  },
+  {
+    "name": "Block/Table/1/deep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"deep\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 1
+  },
+  {
+    "name": "Block/Table/1/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"deep\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 1
+  },
+  {
+    "name": "Block/Table/2/field/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"field\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 2
+  },
+  {
+    "name": "Block/Table/2/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"field\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 2
+  },
+  {
+    "name": "Block/Table/2/deep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"deep\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 2
+  },
+  {
+    "name": "Block/Table/2/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"deep\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 2
+  },
+  {
+    "name": "Block/Table/3/field/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"field\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 3
+  },
+  {
+    "name": "Block/Table/3/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"field\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 3
+  },
+  {
+    "name": "Block/Table/3/deep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"deep\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 3
+  },
+  {
+    "name": "Block/Table/3/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"deep\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 3
+  },
+  {
+    "name": "Block/Table/4/field/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"field\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 4
+  },
+  {
+    "name": "Block/Table/4/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"field\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 4
+  },
+  {
+    "name": "Block/Table/4/deep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"deep\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 4
+  },
+  {
+    "name": "Block/Table/4/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"deep\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 4
+  },
+  {
+    "name": "Block/Table/5/field/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 5
+  },
+  {
+    "name": "Block/Table/5/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Table",
+    "field": 5
+  },
+  {
+    "name": "Block/Table/5/deep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"deep\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 5
+  },
+  {
+    "name": "Block/Table/5/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"deep\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Table",
+    "field": 5
+  },
+  {
+    "name": "Block/Figure/0/field/rnf",
+    "kind": "Block",
+    "expression": "(Figure (error \"field\") ((Caption (Nothing) ([]))) ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Figure",
+    "field": 0
+  },
+  {
+    "name": "Block/Figure/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure (error \"field\") ((Caption (Nothing) ([]))) ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Figure",
+    "field": 0
+  },
+  {
+    "name": "Block/Figure/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"deep\",[],[])) ((Caption (Nothing) ([]))) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Figure",
+    "field": 0
+  },
+  {
+    "name": "Block/Figure/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"deep\",[],[])) ((Caption (Nothing) ([]))) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Figure",
+    "field": 0
+  },
+  {
+    "name": "Block/Figure/1/field/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Figure",
+    "field": 1
+  },
+  {
+    "name": "Block/Figure/1/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Figure",
+    "field": 1
+  },
+  {
+    "name": "Block/Figure/1/deep/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption ((Just (error \"deep\"))) ([]))) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Figure",
+    "field": 1
+  },
+  {
+    "name": "Block/Figure/1/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption ((Just (error \"deep\"))) ([]))) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Figure",
+    "field": 1
+  },
+  {
+    "name": "Block/Figure/2/field/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Figure",
+    "field": 2
+  },
+  {
+    "name": "Block/Figure/2/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Figure",
+    "field": 2
+  },
+  {
+    "name": "Block/Figure/2/deep/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Figure",
+    "field": 2
+  },
+  {
+    "name": "Block/Figure/2/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Figure",
+    "field": 2
+  },
+  {
+    "name": "Block/Div/0/field/rnf",
+    "kind": "Block",
+    "expression": "(Div (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Div",
+    "field": 0
+  },
+  {
+    "name": "Block/Div/0/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Div (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Div",
+    "field": 0
+  },
+  {
+    "name": "Block/Div/0/deep/rnf",
+    "kind": "Block",
+    "expression": "(Div ((error \"deep\",[],[])) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Div",
+    "field": 0
+  },
+  {
+    "name": "Block/Div/0/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Div ((error \"deep\",[],[])) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Div",
+    "field": 0
+  },
+  {
+    "name": "Block/Div/1/field/rnf",
+    "kind": "Block",
+    "expression": "(Div ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Div",
+    "field": 1
+  },
+  {
+    "name": "Block/Div/1/field/rwhnf",
+    "kind": "Block",
+    "expression": "(Div ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Div",
+    "field": 1
+  },
+  {
+    "name": "Block/Div/1/deep/rnf",
+    "kind": "Block",
+    "expression": "(Div ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Div",
+    "field": 1
+  },
+  {
+    "name": "Block/Div/1/deep/rwhnf",
+    "kind": "Block",
+    "expression": "(Div ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Div",
+    "field": 1
+  },
+  {
+    "name": "QuoteType/root/rnf",
+    "kind": "QuoteType",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "QuoteType/root/rwhnf",
+    "kind": "QuoteType",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "MathType/root/rnf",
+    "kind": "MathType",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "MathType/root/rwhnf",
+    "kind": "MathType",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Inline/root/rnf",
+    "kind": "Inline",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Inline/root/rwhnf",
+    "kind": "Inline",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Inline/Str/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Str (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Str",
+    "field": 0
+  },
+  {
+    "name": "Inline/Str/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Str (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Str",
+    "field": 0
+  },
+  {
+    "name": "Inline/Emph/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Emph (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Emph",
+    "field": 0
+  },
+  {
+    "name": "Inline/Emph/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Emph (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Emph",
+    "field": 0
+  },
+  {
+    "name": "Inline/Emph/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Emph ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Emph",
+    "field": 0
+  },
+  {
+    "name": "Inline/Emph/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Emph ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Emph",
+    "field": 0
+  },
+  {
+    "name": "Inline/Underline/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Underline (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Underline",
+    "field": 0
+  },
+  {
+    "name": "Inline/Underline/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Underline (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Underline",
+    "field": 0
+  },
+  {
+    "name": "Inline/Underline/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Underline ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Underline",
+    "field": 0
+  },
+  {
+    "name": "Inline/Underline/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Underline ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Underline",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strong/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Strong (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Strong",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strong/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Strong (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Strong",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strong/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Strong ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Strong",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strong/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Strong ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Strong",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strikeout/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Strikeout (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Strikeout",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strikeout/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Strikeout (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Strikeout",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strikeout/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Strikeout ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Strikeout",
+    "field": 0
+  },
+  {
+    "name": "Inline/Strikeout/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Strikeout ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Strikeout",
+    "field": 0
+  },
+  {
+    "name": "Inline/Superscript/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Superscript (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Superscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/Superscript/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Superscript (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Superscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/Superscript/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Superscript ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Superscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/Superscript/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Superscript ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Superscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/Subscript/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Subscript (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Subscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/Subscript/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Subscript (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Subscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/Subscript/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Subscript ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Subscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/Subscript/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Subscript ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Subscript",
+    "field": 0
+  },
+  {
+    "name": "Inline/SmallCaps/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(SmallCaps (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "SmallCaps",
+    "field": 0
+  },
+  {
+    "name": "Inline/SmallCaps/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(SmallCaps (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "SmallCaps",
+    "field": 0
+  },
+  {
+    "name": "Inline/SmallCaps/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(SmallCaps ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "SmallCaps",
+    "field": 0
+  },
+  {
+    "name": "Inline/SmallCaps/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(SmallCaps ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "SmallCaps",
+    "field": 0
+  },
+  {
+    "name": "Inline/Quoted/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Quoted (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Quoted",
+    "field": 0
+  },
+  {
+    "name": "Inline/Quoted/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Quoted (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Quoted",
+    "field": 0
+  },
+  {
+    "name": "Inline/Quoted/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(Quoted ((SingleQuote)) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Quoted",
+    "field": 1
+  },
+  {
+    "name": "Inline/Quoted/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Quoted ((SingleQuote)) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Quoted",
+    "field": 1
+  },
+  {
+    "name": "Inline/Quoted/1/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Quoted ((SingleQuote)) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Quoted",
+    "field": 1
+  },
+  {
+    "name": "Inline/Quoted/1/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Quoted ((SingleQuote)) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Quoted",
+    "field": 1
+  },
+  {
+    "name": "Inline/Cite/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Cite (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Cite",
+    "field": 0
+  },
+  {
+    "name": "Inline/Cite/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Cite (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Cite",
+    "field": 0
+  },
+  {
+    "name": "Inline/Cite/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Cite ([error \"deep\"]) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Cite",
+    "field": 0
+  },
+  {
+    "name": "Inline/Cite/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Cite ([error \"deep\"]) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Cite",
+    "field": 0
+  },
+  {
+    "name": "Inline/Cite/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(Cite ([]) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Cite",
+    "field": 1
+  },
+  {
+    "name": "Inline/Cite/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Cite ([]) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Cite",
+    "field": 1
+  },
+  {
+    "name": "Inline/Cite/1/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Cite ([]) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Cite",
+    "field": 1
+  },
+  {
+    "name": "Inline/Cite/1/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Cite ([]) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Cite",
+    "field": 1
+  },
+  {
+    "name": "Inline/Code/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Code (error \"field\") (\"x\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Code",
+    "field": 0
+  },
+  {
+    "name": "Inline/Code/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Code (error \"field\") (\"x\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Code",
+    "field": 0
+  },
+  {
+    "name": "Inline/Code/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Code ((error \"deep\",[],[])) (\"x\"))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Code",
+    "field": 0
+  },
+  {
+    "name": "Inline/Code/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Code ((error \"deep\",[],[])) (\"x\"))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Code",
+    "field": 0
+  },
+  {
+    "name": "Inline/Code/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(Code ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Code",
+    "field": 1
+  },
+  {
+    "name": "Inline/Code/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Code ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Code",
+    "field": 1
+  },
+  {
+    "name": "Inline/Math/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Math (error \"field\") (\"x\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Math",
+    "field": 0
+  },
+  {
+    "name": "Inline/Math/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Math (error \"field\") (\"x\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Math",
+    "field": 0
+  },
+  {
+    "name": "Inline/Math/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(Math ((DisplayMath)) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Math",
+    "field": 1
+  },
+  {
+    "name": "Inline/Math/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Math ((DisplayMath)) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Math",
+    "field": 1
+  },
+  {
+    "name": "Inline/RawInline/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(RawInline (error \"field\") (\"x\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "RawInline",
+    "field": 0
+  },
+  {
+    "name": "Inline/RawInline/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(RawInline (error \"field\") (\"x\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "RawInline",
+    "field": 0
+  },
+  {
+    "name": "Inline/RawInline/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(RawInline ((Format (\"x\"))) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "RawInline",
+    "field": 1
+  },
+  {
+    "name": "Inline/RawInline/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(RawInline ((Format (\"x\"))) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "RawInline",
+    "field": 1
+  },
+  {
+    "name": "Inline/Link/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Link (error \"field\") ([]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Link",
+    "field": 0
+  },
+  {
+    "name": "Inline/Link/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link (error \"field\") ([]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Link",
+    "field": 0
+  },
+  {
+    "name": "Inline/Link/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"deep\",[],[])) ([]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Link",
+    "field": 0
+  },
+  {
+    "name": "Inline/Link/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"deep\",[],[])) ([]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Link",
+    "field": 0
+  },
+  {
+    "name": "Inline/Link/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) (error \"field\") ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Link",
+    "field": 1
+  },
+  {
+    "name": "Inline/Link/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) (error \"field\") ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Link",
+    "field": 1
+  },
+  {
+    "name": "Inline/Link/1/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([error \"deep\"]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Link",
+    "field": 1
+  },
+  {
+    "name": "Inline/Link/1/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([error \"deep\"]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Link",
+    "field": 1
+  },
+  {
+    "name": "Inline/Link/2/field/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([]) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Link",
+    "field": 2
+  },
+  {
+    "name": "Inline/Link/2/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([]) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Link",
+    "field": 2
+  },
+  {
+    "name": "Inline/Link/2/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([]) ((error \"deep\",\"x\")))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Link",
+    "field": 2
+  },
+  {
+    "name": "Inline/Link/2/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([]) ((error \"deep\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Link",
+    "field": 2
+  },
+  {
+    "name": "Inline/Image/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Image (error \"field\") ([]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Image",
+    "field": 0
+  },
+  {
+    "name": "Inline/Image/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image (error \"field\") ([]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Image",
+    "field": 0
+  },
+  {
+    "name": "Inline/Image/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"deep\",[],[])) ([]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Image",
+    "field": 0
+  },
+  {
+    "name": "Inline/Image/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"deep\",[],[])) ([]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Image",
+    "field": 0
+  },
+  {
+    "name": "Inline/Image/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) (error \"field\") ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Image",
+    "field": 1
+  },
+  {
+    "name": "Inline/Image/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) (error \"field\") ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Image",
+    "field": 1
+  },
+  {
+    "name": "Inline/Image/1/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([error \"deep\"]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Image",
+    "field": 1
+  },
+  {
+    "name": "Inline/Image/1/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([error \"deep\"]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Image",
+    "field": 1
+  },
+  {
+    "name": "Inline/Image/2/field/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([]) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Image",
+    "field": 2
+  },
+  {
+    "name": "Inline/Image/2/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([]) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Image",
+    "field": 2
+  },
+  {
+    "name": "Inline/Image/2/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([]) ((error \"deep\",\"x\")))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Image",
+    "field": 2
+  },
+  {
+    "name": "Inline/Image/2/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([]) ((error \"deep\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Image",
+    "field": 2
+  },
+  {
+    "name": "Inline/Note/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Note (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Note",
+    "field": 0
+  },
+  {
+    "name": "Inline/Note/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Note (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Note",
+    "field": 0
+  },
+  {
+    "name": "Inline/Note/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Note ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Note",
+    "field": 0
+  },
+  {
+    "name": "Inline/Note/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Note ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Note",
+    "field": 0
+  },
+  {
+    "name": "Inline/Span/0/field/rnf",
+    "kind": "Inline",
+    "expression": "(Span (error \"field\") ([]))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Span",
+    "field": 0
+  },
+  {
+    "name": "Inline/Span/0/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Span (error \"field\") ([]))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Span",
+    "field": 0
+  },
+  {
+    "name": "Inline/Span/0/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Span ((error \"deep\",[],[])) ([]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Span",
+    "field": 0
+  },
+  {
+    "name": "Inline/Span/0/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Span ((error \"deep\",[],[])) ([]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Span",
+    "field": 0
+  },
+  {
+    "name": "Inline/Span/1/field/rnf",
+    "kind": "Inline",
+    "expression": "(Span ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Span",
+    "field": 1
+  },
+  {
+    "name": "Inline/Span/1/field/rwhnf",
+    "kind": "Inline",
+    "expression": "(Span ((\"x\",[],[])) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Span",
+    "field": 1
+  },
+  {
+    "name": "Inline/Span/1/deep/rnf",
+    "kind": "Inline",
+    "expression": "(Span ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Span",
+    "field": 1
+  },
+  {
+    "name": "Inline/Span/1/deep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Span ((\"x\",[],[])) ([error \"deep\"]))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Span",
+    "field": 1
+  },
+  {
+    "name": "Citation/root/rnf",
+    "kind": "Citation",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "Citation/root/rwhnf",
+    "kind": "Citation",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Citation/Citation/0/field/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"field\") ([]) ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 0
+  },
+  {
+    "name": "Citation/Citation/0/field/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"field\") ([]) ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 0
+  },
+  {
+    "name": "Citation/Citation/1/field/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"field\") ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 1
+  },
+  {
+    "name": "Citation/Citation/1/field/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"field\") ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 1
+  },
+  {
+    "name": "Citation/Citation/1/deep/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"deep\"]) ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Citation",
+    "field": 1
+  },
+  {
+    "name": "Citation/Citation/1/deep/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"deep\"]) ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Citation",
+    "field": 1
+  },
+  {
+    "name": "Citation/Citation/2/field/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"field\") ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 2
+  },
+  {
+    "name": "Citation/Citation/2/field/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"field\") ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 2
+  },
+  {
+    "name": "Citation/Citation/2/deep/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"deep\"]) ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "deep",
+    "constructor": "Citation",
+    "field": 2
+  },
+  {
+    "name": "Citation/Citation/2/deep/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"deep\"]) ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "deep",
+    "constructor": "Citation",
+    "field": 2
+  },
+  {
+    "name": "Citation/Citation/3/field/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) (error \"field\") (0) (0))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 3
+  },
+  {
+    "name": "Citation/Citation/3/field/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) (error \"field\") (0) (0))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 3
+  },
+  {
+    "name": "Citation/Citation/4/field/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) ((AuthorInText)) (error \"field\") (0))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 4
+  },
+  {
+    "name": "Citation/Citation/4/field/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) ((AuthorInText)) (error \"field\") (0))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 4
+  },
+  {
+    "name": "Citation/Citation/5/field/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) ((AuthorInText)) (0) (error \"field\"))",
+    "operation": "rnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 5
+  },
+  {
+    "name": "Citation/Citation/5/field/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) ((AuthorInText)) (0) (error \"field\"))",
+    "operation": "rwhnf",
+    "mode": "field",
+    "constructor": "Citation",
+    "field": 5
+  },
+  {
+    "name": "CitationMode/root/rnf",
+    "kind": "CitationMode",
+    "expression": "error \"root\"",
+    "operation": "rnf",
+    "mode": "root"
+  },
+  {
+    "name": "CitationMode/root/rwhnf",
+    "kind": "CitationMode",
+    "expression": "error \"root\"",
+    "operation": "rwhnf",
+    "mode": "root"
+  },
+  {
+    "name": "Pandoc/Pandoc/0-1/pairRoot/rnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Pandoc",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/0-1/pairRoot/rwhnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Pandoc",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/0-1/pairDeep/rnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta ((M.singleton \"k\" (error \"first\"))))) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Pandoc",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/0-1/pairDeep/rwhnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta ((M.singleton \"k\" (error \"first\"))))) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Pandoc",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/0-1/mixed/rnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta ((M.singleton \"k\" (error \"first\"))))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Pandoc",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Pandoc/Pandoc/0-1/mixed/rwhnf",
+    "kind": "Pandoc",
+    "expression": "(Pandoc ((Meta ((M.singleton \"k\" (error \"first\"))))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Pandoc",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Row/Row/0-1/pairRoot/rnf",
+    "kind": "Row",
+    "expression": "(Row (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Row",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Row/Row/0-1/pairRoot/rwhnf",
+    "kind": "Row",
+    "expression": "(Row (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Row",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Row/Row/0-1/pairDeep/rnf",
+    "kind": "Row",
+    "expression": "(Row ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Row",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Row/Row/0-1/pairDeep/rwhnf",
+    "kind": "Row",
+    "expression": "(Row ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Row",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Row/Row/0-1/mixed/rnf",
+    "kind": "Row",
+    "expression": "(Row ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Row",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Row/Row/0-1/mixed/rwhnf",
+    "kind": "Row",
+    "expression": "(Row ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Row",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableHead/TableHead/0-1/pairRoot/rnf",
+    "kind": "TableHead",
+    "expression": "(TableHead (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableHead",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableHead/TableHead/0-1/pairRoot/rwhnf",
+    "kind": "TableHead",
+    "expression": "(TableHead (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableHead",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableHead/TableHead/0-1/pairDeep/rnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "TableHead",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableHead/TableHead/0-1/pairDeep/rwhnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "TableHead",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableHead/TableHead/0-1/mixed/rnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "TableHead",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableHead/TableHead/0-1/mixed/rwhnf",
+    "kind": "TableHead",
+    "expression": "(TableHead ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "TableHead",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableBody/TableBody/0-1/pairRoot/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"first\") (error \"second\") ([]) ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableBody/TableBody/0-1/pairRoot/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"first\") (error \"second\") ([]) ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableBody/TableBody/0-1/mixed/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) (error \"second\") ([]) ([]))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableBody/TableBody/0-1/mixed/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) (error \"second\") ([]) ([]))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableBody/TableBody/0-2/pairRoot/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"first\") ((RowHeadColumns (0))) (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/0-2/pairRoot/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"first\") ((RowHeadColumns (0))) (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/0-2/pairDeep/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) ([error \"second\"]) ([]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/0-2/pairDeep/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) ([error \"second\"]) ([]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/0-2/mixed/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/0-2/mixed/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/0-3/pairRoot/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"first\") ((RowHeadColumns (0))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/0-3/pairRoot/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody (error \"first\") ((RowHeadColumns (0))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/0-3/pairDeep/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) ([]) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/0-3/pairDeep/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) ([]) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/0-3/mixed/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/0-3/mixed/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((error \"first\",[],[])) ((RowHeadColumns (0))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/1-2/pairRoot/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) (error \"first\") (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/1-2/pairRoot/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) (error \"first\") (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "TableBody/TableBody/1-3/pairRoot/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) (error \"first\") ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/1-3/pairRoot/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) (error \"first\") ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/2-3/pairRoot/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/2-3/pairRoot/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableBody",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/2-3/pairDeep/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([error \"first\"]) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "TableBody",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/2-3/pairDeep/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([error \"first\"]) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "TableBody",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/2-3/mixed/rnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([error \"first\"]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "TableBody/TableBody/2-3/mixed/rwhnf",
+    "kind": "TableBody",
+    "expression": "(TableBody ((\"x\",[],[])) ((RowHeadColumns (0))) ([error \"first\"]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "TableBody",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "TableFoot/TableFoot/0-1/pairRoot/rnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "TableFoot",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/0-1/pairRoot/rwhnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "TableFoot",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/0-1/pairDeep/rnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "TableFoot",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/0-1/pairDeep/rwhnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "TableFoot",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/0-1/mixed/rnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "TableFoot",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "TableFoot/TableFoot/0-1/mixed/rwhnf",
+    "kind": "TableFoot",
+    "expression": "(TableFoot ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "TableFoot",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Caption/Caption/0-1/pairRoot/rnf",
+    "kind": "Caption",
+    "expression": "(Caption (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Caption",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Caption/Caption/0-1/pairRoot/rwhnf",
+    "kind": "Caption",
+    "expression": "(Caption (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Caption",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Caption/Caption/0-1/pairDeep/rnf",
+    "kind": "Caption",
+    "expression": "(Caption ((Just (error \"first\"))) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Caption",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Caption/Caption/0-1/pairDeep/rwhnf",
+    "kind": "Caption",
+    "expression": "(Caption ((Just (error \"first\"))) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Caption",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Caption/Caption/0-1/mixed/rnf",
+    "kind": "Caption",
+    "expression": "(Caption ((Just (error \"first\"))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Caption",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Caption/Caption/0-1/mixed/rwhnf",
+    "kind": "Caption",
+    "expression": "(Caption ((Just (error \"first\"))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Caption",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Cell/Cell/0-1/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") (error \"second\") ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Cell/Cell/0-1/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") (error \"second\") ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Cell/Cell/0-1/mixed/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) (error \"second\") ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Cell/Cell/0-1/mixed/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) (error \"second\") ((RowSpan (0))) ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Cell/Cell/0-2/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") ((AlignLeft)) (error \"second\") ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Cell/Cell/0-2/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") ((AlignLeft)) (error \"second\") ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Cell/Cell/0-2/mixed/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) (error \"second\") ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Cell/Cell/0-2/mixed/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) (error \"second\") ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Cell/Cell/0-3/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") ((AlignLeft)) ((RowSpan (0))) (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/0-3/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") ((AlignLeft)) ((RowSpan (0))) (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/0-3/mixed/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) ((RowSpan (0))) (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/0-3/mixed/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) ((RowSpan (0))) (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/0-4/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/0-4/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell (error \"first\") ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/0-4/pairDeep/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/0-4/pairDeep/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/0-4/mixed/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/0-4/mixed/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((error \"first\",[],[])) ((AlignLeft)) ((RowSpan (0))) ((ColSpan (0))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Cell",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/1-2/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"first\") (error \"second\") ((ColSpan (0))) ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Cell/Cell/1-2/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"first\") (error \"second\") ((ColSpan (0))) ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Cell/Cell/1-3/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"first\") ((RowSpan (0))) (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/1-3/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"first\") ((RowSpan (0))) (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/1-4/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"first\") ((RowSpan (0))) ((ColSpan (0))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/1-4/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) (error \"first\") ((RowSpan (0))) ((ColSpan (0))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/2-3/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) (error \"first\") (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/2-3/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) (error \"first\") (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Cell/Cell/2-4/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) (error \"first\") ((ColSpan (0))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/2-4/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) (error \"first\") ((ColSpan (0))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/3-4/pairRoot/rnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Cell/Cell/3-4/pairRoot/rwhnf",
+    "kind": "Cell",
+    "expression": "(Cell ((\"x\",[],[])) ((AlignLeft)) ((RowSpan (0))) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cell",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Block/CodeBlock/0-1/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(CodeBlock (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "CodeBlock",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/CodeBlock/0-1/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(CodeBlock (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "CodeBlock",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/CodeBlock/0-1/mixed/rnf",
+    "kind": "Block",
+    "expression": "(CodeBlock ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "CodeBlock",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/CodeBlock/0-1/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(CodeBlock ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "CodeBlock",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/RawBlock/0-1/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(RawBlock (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "RawBlock",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/RawBlock/0-1/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(RawBlock (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "RawBlock",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/OrderedList/0-1/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(OrderedList (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "OrderedList",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/OrderedList/0-1/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(OrderedList (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "OrderedList",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/OrderedList/0-1/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((error \"first\",(DefaultStyle),(DefaultDelim))) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "OrderedList",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/OrderedList/0-1/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((error \"first\",(DefaultStyle),(DefaultDelim))) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "OrderedList",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/OrderedList/0-1/mixed/rnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((error \"first\",(DefaultStyle),(DefaultDelim))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "OrderedList",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/OrderedList/0-1/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(OrderedList ((error \"first\",(DefaultStyle),(DefaultDelim))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "OrderedList",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Header/0-1/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Header (error \"first\") (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Header",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Header/0-1/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (error \"first\") (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Header",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Header/0-2/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Header (error \"first\") ((\"x\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Header",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Header/0-2/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (error \"first\") ((\"x\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Header",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Header/1-2/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Header (0) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Header",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Header/1-2/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (0) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Header",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Header/1-2/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Header",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Header/1-2/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Header",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Header/1-2/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Header",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Header/1-2/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Header (0) ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Header",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/0-1/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") (error \"second\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Table/0-1/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") (error \"second\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Table/0-1/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption ((Just (error \"second\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Table/0-1/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption ((Just (error \"second\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Table/0-1/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) (error \"second\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Table/0-1/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) (error \"second\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Table/0-2/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/0-2/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/0-2/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([error \"second\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/0-2/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([error \"second\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/0-2/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/0-2/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/0-3/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/0-3/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/0-3/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"second\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/0-3/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"second\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/0-3/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/0-3/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/0-4/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/0-4/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/0-4/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/0-4/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/0-4/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/0-4/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/0-5/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/0-5/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table (error \"first\") ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/0-5/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/0-5/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/0-5/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/0-5/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/1-2/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/1-2/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/1-2/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([error \"second\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/1-2/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([error \"second\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/1-2/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/1-2/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) (error \"second\") ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Table/1-3/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/1-3/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/1-3/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((error \"second\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/1-3/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((error \"second\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/1-3/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/1-3/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/1-4/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/1-4/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/1-4/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/1-4/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/1-4/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/1-4/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/1-5/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/1-5/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) (error \"first\") ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/1-5/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/1-5/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/1-5/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/1-5/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/2-3/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"first\") (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/2-3/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"first\") (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/2-3/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((error \"second\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/2-3/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((error \"second\",[],[])) ([]))) ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/2-3/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/2-3/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) (error \"second\") ([]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Block/Table/2-4/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"first\") ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/2-4/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"first\") ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/2-4/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/2-4/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/2-4/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/2-4/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/2-5/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"first\") ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/2-5/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) (error \"first\") ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/2-5/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/2-5/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/2-5/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/2-5/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([error \"first\"]) ((TableHead ((\"x\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/3-4/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"first\") (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/3-4/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"first\") (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/3-4/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/3-4/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) ([error \"second\"]) ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/3-4/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/3-4/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) (error \"second\") ((TableFoot ((\"x\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Block/Table/3-5/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"first\") ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/3-5/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) (error \"first\") ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/3-5/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/3-5/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) ([]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/3-5/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/3-5/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((error \"first\",[],[])) ([]))) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/4-5/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 4,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/4-5/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Table",
+    "field": 4,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/4-5/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"first\"]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 4,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/4-5/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"first\"]) ((TableFoot ((error \"second\",[],[])) ([]))))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Table",
+    "field": 4,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/4-5/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"first\"]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 4,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Table/4-5/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Table ((\"x\",[],[])) ((Caption (Nothing) ([]))) ([]) ((TableHead ((\"x\",[],[])) ([]))) ([error \"first\"]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Table",
+    "field": 4,
+    "secondField": 5
+  },
+  {
+    "name": "Block/Figure/0-1/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Figure (error \"first\") (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Figure/0-1/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure (error \"first\") (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Figure/0-1/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) ((Caption ((Just (error \"second\"))) ([]))) ([]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Figure/0-1/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) ((Caption ((Just (error \"second\"))) ([]))) ([]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Figure/0-1/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) (error \"second\") ([]))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Figure/0-1/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) (error \"second\") ([]))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Figure/0-2/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Figure (error \"first\") ((Caption (Nothing) ([]))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/0-2/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure (error \"first\") ((Caption (Nothing) ([]))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/0-2/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/0-2/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) ((Caption (Nothing) ([]))) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/0-2/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) ((Caption (Nothing) ([]))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/0-2/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((error \"first\",[],[])) ((Caption (Nothing) ([]))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Figure",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/1-2/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Figure",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/1-2/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Figure",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/1-2/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Figure",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/1-2/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Figure",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/1-2/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Figure",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Figure/1-2/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Figure ((\"x\",[],[])) ((Caption ((Just (error \"first\"))) ([]))) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Figure",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Block/Div/0-1/pairRoot/rnf",
+    "kind": "Block",
+    "expression": "(Div (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Div",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Div/0-1/pairRoot/rwhnf",
+    "kind": "Block",
+    "expression": "(Div (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Div",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Div/0-1/pairDeep/rnf",
+    "kind": "Block",
+    "expression": "(Div ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Div",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Div/0-1/pairDeep/rwhnf",
+    "kind": "Block",
+    "expression": "(Div ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Div",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Div/0-1/mixed/rnf",
+    "kind": "Block",
+    "expression": "(Div ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Div",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Block/Div/0-1/mixed/rwhnf",
+    "kind": "Block",
+    "expression": "(Div ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Div",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Quoted/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Quoted (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Quoted",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Quoted/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Quoted (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Quoted",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Cite/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Cite (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Cite",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Cite/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Cite (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Cite",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Cite/0-1/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Cite ([error \"first\"]) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Cite",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Cite/0-1/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Cite ([error \"first\"]) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Cite",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Cite/0-1/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Cite ([error \"first\"]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Cite",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Cite/0-1/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Cite ([error \"first\"]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Cite",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Code/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Code (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Code",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Code/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Code (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Code",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Code/0-1/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Code ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Code",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Code/0-1/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Code ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Code",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Math/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Math (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Math",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Math/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Math (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Math",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/RawInline/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(RawInline (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "RawInline",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/RawInline/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(RawInline (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "RawInline",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Link/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Link (error \"first\") (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Link/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link (error \"first\") (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Link/0-1/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) ([error \"second\"]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Link/0-1/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) ([error \"second\"]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Link/0-1/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Link/0-1/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Link/0-2/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Link (error \"first\") ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/0-2/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link (error \"first\") ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/0-2/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) ([]) ((error \"second\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/0-2/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) ([]) ((error \"second\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/0-2/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/0-2/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((error \"first\",[],[])) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Link",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/1-2/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Link",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/1-2/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Link",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/1-2/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([error \"first\"]) ((error \"second\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Link",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/1-2/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([error \"first\"]) ((error \"second\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Link",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/1-2/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([error \"first\"]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Link",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Link/1-2/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Link ((\"x\",[],[])) ([error \"first\"]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Link",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Image (error \"first\") (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Image/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image (error \"first\") (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Image/0-1/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) ([error \"second\"]) ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Image/0-1/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) ([error \"second\"]) ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Image/0-1/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Image/0-1/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) (error \"second\") ((\"x\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Image/0-2/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Image (error \"first\") ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/0-2/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image (error \"first\") ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/0-2/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) ([]) ((error \"second\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/0-2/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) ([]) ((error \"second\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/0-2/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) ([]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/0-2/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((error \"first\",[],[])) ([]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Image",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/1-2/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Image",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/1-2/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Image",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/1-2/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([error \"first\"]) ((error \"second\",\"x\")))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Image",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/1-2/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([error \"first\"]) ((error \"second\",\"x\")))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Image",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/1-2/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([error \"first\"]) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Image",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Image/1-2/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Image ((\"x\",[],[])) ([error \"first\"]) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Image",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Inline/Span/0-1/pairRoot/rnf",
+    "kind": "Inline",
+    "expression": "(Span (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Span",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Span/0-1/pairRoot/rwhnf",
+    "kind": "Inline",
+    "expression": "(Span (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Span",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Span/0-1/pairDeep/rnf",
+    "kind": "Inline",
+    "expression": "(Span ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Span",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Span/0-1/pairDeep/rwhnf",
+    "kind": "Inline",
+    "expression": "(Span ((error \"first\",[],[])) ([error \"second\"]))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Span",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Span/0-1/mixed/rnf",
+    "kind": "Inline",
+    "expression": "(Span ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Span",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Inline/Span/0-1/mixed/rwhnf",
+    "kind": "Inline",
+    "expression": "(Span ((error \"first\",[],[])) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Span",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Citation/Citation/0-1/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") (error \"second\") ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Citation/Citation/0-1/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") (error \"second\") ([]) ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 1
+  },
+  {
+    "name": "Citation/Citation/0-2/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) (error \"second\") ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/0-2/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) (error \"second\") ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/0-3/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) ([]) (error \"second\") (0) (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/0-3/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) ([]) (error \"second\") (0) (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/0-4/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) ([]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/0-4/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) ([]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/0-5/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) ([]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/0-5/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (error \"first\") ([]) ([]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 0,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/1-2/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") (error \"second\") ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/1-2/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") (error \"second\") ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/1-2/pairDeep/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([error \"second\"]) ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "pairDeep",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/1-2/pairDeep/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([error \"second\"]) ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "pairDeep",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/1-2/mixed/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) (error \"second\") ((AuthorInText)) (0) (0))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/1-2/mixed/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) (error \"second\") ((AuthorInText)) (0) (0))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 2
+  },
+  {
+    "name": "Citation/Citation/1-3/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") ([]) (error \"second\") (0) (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/1-3/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") ([]) (error \"second\") (0) (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/1-3/mixed/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([]) (error \"second\") (0) (0))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/1-3/mixed/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([]) (error \"second\") (0) (0))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/1-4/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") ([]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/1-4/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") ([]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/1-4/mixed/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/1-4/mixed/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/1-5/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") ([]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/1-5/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") (error \"first\") ([]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/1-5/mixed/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/1-5/mixed/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([error \"first\"]) ([]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 1,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/2-3/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"first\") (error \"second\") (0) (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/2-3/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"first\") (error \"second\") (0) (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/2-3/mixed/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"first\"]) (error \"second\") (0) (0))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/2-3/mixed/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"first\"]) (error \"second\") (0) (0))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 3
+  },
+  {
+    "name": "Citation/Citation/2-4/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"first\") ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/2-4/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"first\") ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/2-4/mixed/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"first\"]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/2-4/mixed/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"first\"]) ((AuthorInText)) (error \"second\") (0))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/2-5/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"first\") ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/2-5/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) (error \"first\") ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/2-5/mixed/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"first\"]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/2-5/mixed/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([error \"first\"]) ((AuthorInText)) (0) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "mixed",
+    "constructor": "Citation",
+    "field": 2,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/3-4/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) (error \"first\") (error \"second\") (0))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/3-4/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) (error \"first\") (error \"second\") (0))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 3,
+    "secondField": 4
+  },
+  {
+    "name": "Citation/Citation/3-5/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) (error \"first\") (0) (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/3-5/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) (error \"first\") (0) (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 3,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/4-5/pairRoot/rnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) ((AuthorInText)) (error \"first\") (error \"second\"))",
+    "operation": "rnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 4,
+    "secondField": 5
+  },
+  {
+    "name": "Citation/Citation/4-5/pairRoot/rwhnf",
+    "kind": "Citation",
+    "expression": "(Citation (\"x\") ([]) ([]) ((AuthorInText)) (error \"first\") (error \"second\"))",
+    "operation": "rwhnf",
+    "mode": "pairRoot",
+    "constructor": "Citation",
+    "field": 4,
+    "secondField": 5
+  }
+]

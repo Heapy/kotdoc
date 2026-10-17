@@ -529,9 +529,15 @@
         }
       ],
       "original_tests": [],
-      "finite_proof": [],
-      "status": "api_mapping_unverified",
-      "remaining_gap": "Equivalent empty Attr/Map, isEmpty/get operations exist, but named public source contract, independent examples and partial-value behavior are not yet verified."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Definition/Caption",
@@ -2102,9 +2108,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/str",
@@ -2121,9 +2133,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/emph",
@@ -2140,9 +2158,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/underline",
@@ -2159,9 +2183,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/strong",
@@ -2178,9 +2208,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/strikeout",
@@ -2197,9 +2233,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/superscript",
@@ -2216,9 +2258,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/subscript",
@@ -2235,9 +2283,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/smallcaps",
@@ -2254,9 +2308,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/singleQuoted",
@@ -2273,9 +2333,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/doubleQuoted",
@@ -2292,9 +2358,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/cite",
@@ -2311,9 +2383,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/codeWith",
@@ -2330,9 +2408,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/code",
@@ -2349,9 +2433,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/space",
@@ -2368,9 +2458,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/softbreak",
@@ -2387,9 +2483,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/linebreak",
@@ -2406,9 +2508,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/math",
@@ -2425,9 +2533,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/displayMath",
@@ -2444,9 +2558,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/rawInline",
@@ -2463,9 +2583,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/link",
@@ -2482,9 +2608,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/linkWith",
@@ -2501,9 +2633,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/image",
@@ -2520,9 +2658,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/imageWith",
@@ -2539,9 +2683,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/note",
@@ -2558,9 +2708,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/spanWith",
@@ -2577,9 +2733,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/trimInlines",
@@ -2596,9 +2758,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/para",
@@ -2615,9 +2783,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/plain",
@@ -2634,9 +2808,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/lineBlock",
@@ -2653,9 +2833,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/codeBlockWith",
@@ -2672,9 +2858,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/codeBlock",
@@ -2691,9 +2883,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/rawBlock",
@@ -2710,9 +2908,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/blockQuote",
@@ -2729,9 +2933,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/bulletList",
@@ -2748,9 +2958,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/orderedListWith",
@@ -2767,9 +2983,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/orderedList",
@@ -2786,9 +3008,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/definitionList",
@@ -2805,9 +3033,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/header",
@@ -2824,9 +3058,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/headerWith",
@@ -2843,9 +3083,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/horizontalRule",
@@ -2862,9 +3108,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/cell",
@@ -3074,10 +3326,15 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        },
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/figureWith",
@@ -3098,10 +3355,15 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        },
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/caption",
@@ -3118,9 +3380,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/simpleCaption",
@@ -3137,9 +3405,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/emptyCaption",
@@ -3156,9 +3430,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/simpleFigureWith",
@@ -3179,10 +3459,15 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        },
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/simpleFigure",
@@ -3203,10 +3488,15 @@
         {
           "commit": "66722c107b7663ded9c8f510a41e05c3e131a970",
           "scope": "Original Figure property and305 Figure examples; does not certify every Builder argument combination"
+        },
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
         }
       ],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/divWith",
@@ -3223,9 +3513,15 @@
       "original_tests": [
         "core/src/test/kotlin/io/heapy/kotdoc/ast/BuilderTest.kt:source-derived examples (not blanket original-native proof)"
       ],
-      "finite_proof": [],
-      "status": "implementation_present_proof_partial",
-      "remaining_gap": "Source implementation found; exact input/output/whitespace/alias/constructor behavior needs per-export independent native mapping, not merely the matching name."
+      "finite_proof": [
+        {
+          "commit": "38dfec9a4dfbadf49376e132705f7e167e819f41",
+          "scope": "49 Builder exports+Definition.nullAttr;17630finite+270demand+305Figure+fivelegacy+JVMadapter/integrity;167326regression cases",
+          "matrix": "tools/haskell-types-builder-reference/acceptance-matrix.json"
+        }
+      ],
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Function source protocol and finite AST bridge accepted; strict conveniences are not arbitrary Haskell bottom/heap equivalence. Package-wide remaining source-instance/member audit remains separate."
     },
     {
       "id": "Builder/normalizeTableHead",
@@ -3489,9 +3785,8 @@
   ],
   "status_counts": {
     "representation_and_selected_instances": 27,
-    "accepted_finite_source_matrix": 53,
-    "implementation_present_proof_partial": 50,
-    "api_mapping_unverified": 1,
+    "accepted_finite_source_matrix": 103,
+    "implementation_present_proof_partial": 1,
     "accepted_num_enum_dictionary_matrix": 3,
     "representation_partial": 1,
     "accepted_finite_dictionary_matrix": 5
