@@ -1,0 +1,87 @@
+[
+  {
+    "request": "compat 100",
+    "out": "unsupported",
+    "exit": 0
+  },
+  {
+    "request": "mr 0 0",
+    "out": "error:Miller-Rabin requires tested value to be > 3",
+    "exit": 0
+  },
+  {
+    "request": "mr 0 1",
+    "out": "error:Miller-Rabin requires tested value to be > 3",
+    "exit": 0
+  },
+  {
+    "request": "mr 0 2",
+    "out": "error:Miller-Rabin requires tested value to be > 3",
+    "exit": 0
+  },
+  {
+    "request": "mr 0 3",
+    "out": "error:Miller-Rabin requires tested value to be > 3",
+    "exit": 0
+  },
+  {
+    "request": "mr 0 4",
+    "out": "False",
+    "exit": 0
+  },
+  {
+    "request": "mr 0 5",
+    "out": "error:Miller-Rabin tries need to be > 0",
+    "exit": 0
+  },
+  {
+    "request": "mr 1 -3",
+    "out": "error:Miller-Rabin requires tested value to be > 3",
+    "exit": 0
+  },
+  {
+    "request": "naive -3",
+    "out": "error:cannot compute negative square root",
+    "exit": 0
+  },
+  {
+    "request": "naive 0",
+    "out": "False",
+    "exit": 0
+  },
+  {
+    "request": "fermat -1 2 -3",
+    "out": "True",
+    "exit": 0
+  },
+  {
+    "request": "coprime 0 0",
+    "out": "False",
+    "exit": 0
+  },
+  {
+    "request": "coprime -3 0",
+    "out": "False",
+    "exit": 0
+  },
+  {
+    "request": "find -3",
+    "out": "3",
+    "exit": 0
+  },
+  {
+    "request": "find 2",
+    "out": "3",
+    "exit": 0
+  },
+  {
+    "request": "fixed 1 2465",
+    "out": "False",
+    "exit": 0
+  },
+  {
+    "request": "fixed 30 2909",
+    "out": "True",
+    "exit": 0
+  }
+]

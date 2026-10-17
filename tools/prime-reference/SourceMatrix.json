@@ -1,0 +1,76 @@
+{
+  "exports": [
+    "generatePrime",
+    "generateSafePrime",
+    "isProbablyPrime",
+    "findPrimeFrom",
+    "findPrimeFromWith",
+    "primalityTestMillerRabin",
+    "primalityTestNaive",
+    "primalityTestFermat",
+    "isCoprime"
+  ],
+  "privateDefinitions": [
+    "probablyPrime",
+    "roundsForDrawn",
+    "findPrimeFromWithRounds",
+    "findPrimeFromDrawn",
+    "firstPrimes",
+    "divides"
+  ],
+  "table": {
+    "entries": 420,
+    "first": 2,
+    "last": 2903
+  },
+  "profile": {
+    "compiler": "GHC 9.12.2 -O2",
+    "host": "aarch64-osx little endian",
+    "integerGmp": "1.1",
+    "integerGmpFlag": true,
+    "nextPrime": "GmpUnsupported",
+    "millerRabin": "GmpUnsupported"
+  },
+  "originalTests": {
+    "totalNativeExamples": 45,
+    "trialsPerProperty": 100,
+    "primalityExamples": 7,
+    "generationProperties": 4,
+    "generationSamplesPerPair": 100,
+    "squareRootConsumerSamples": 100
+  },
+  "semantics": [
+    "inclusive odd walk/predicate short circuit",
+    "all 9 drawn-round threshold boundaries",
+    "fresh outer DRG draw on candidate overflow",
+    "per material stream/lazy witness tail/rejection state",
+    "Fermat inclusive end/negative empty range",
+    "negative naive strict sqrti failure",
+    "signed gcde profile and zero denominator projection",
+    "PrimeSizeInvalid before random request"
+  ],
+  "remaining": [
+    "SystemDRG/OS entropy",
+    "other integer-gmp algorithm profiles",
+    "other signature/trust/chain operations and full task613",
+    "full Pandoc/calibre goal"
+  ],
+  "limits": [
+    "Kotlin Int32 versus GHC Int64",
+    "actual32bit/big endian/huge allocation",
+    "universal bottom/concurrency/physical erasure/timing"
+  ],
+  "privateMappings": {
+    "probablyPrime": "probablyPrime",
+    "roundsForDrawn": "roundsForDrawn",
+    "findPrimeFromWithRounds": "findPrimeFromWithRounds",
+    "findPrimeFromDrawn": "findPrimeFromDrawn",
+    "firstPrimes": "firstPrimes",
+    "divides": "divides"
+  },
+  "profilesExcluded": [
+    "integer-gmp<1.1 nextPrime/MillerRabin supported branches",
+    "integer-gmp flag off changes other dependencies",
+    "actual32-bit/big-endian ABI"
+  ]
+}

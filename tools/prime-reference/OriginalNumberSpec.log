@@ -1,0 +1,79 @@
+
+primality
+  agrees with trial division on the odd numbers from 5 to 5001 [✔]
+  calls the Carmichael numbers composite [✔]
+  calls the strong pseudoprimes to base 2 composite [✔]
+  sees through them from isProbablyPrime too [✔]
+  calls a 512-bit prime prime and a 512-bit composite composite [✔]
+  answers for the small numbers and the edges of the shortcut [✔]
+  reaches the same verdict every time it is asked [✔]
+exponentiation
+  agrees with the fast one on the corners [✔]
+  agrees with repetitive squaring on the corners [✔]
+  agrees with the fast one [✔]
+    +++ OK, passed 100 tests.
+  agrees with the fast one on a modulus a key would have [✔]
+    +++ OK, passed 100 tests.
+inverse
+  agrees with the plain inverse on the corners [✔]
+  agrees with the plain inverse [✔]
+    +++ OK, passed 100 tests.
+  agrees with the plain inverse on a prime modulus [✔]
+    +++ OK, passed 100 tests.
+  inverts [✔]
+    +++ OK, passed 100 tests; 1 discarded.
+num-bits [✔]
+  +++ OK, passed 100 tests.
+num-bits2 [✔]
+  +++ OK, passed 100 tests.
+num-bytes [✔]
+  +++ OK, passed 100 tests.
+num-bytes-small [✔]
+  +++ OK, passed 100 tests.
+generate-param [✔]
+  +++ OK, passed 100 tests.
+generate-param2 [✔]
+  +++ OK, passed 100 tests.
+generate-param-odd [✔]
+  +++ OK, passed 100 tests.
+generate-range [✔]
+  +++ OK, passed 100 tests.
+generate-prime [✔]
+  +++ OK, passed 100 tests.
+generate-prime-is-prime [✔]
+  +++ OK, passed 100 tests.
+generate-safe-prime-is-prime [✔]
+  +++ OK, passed 100 tests.
+generate-safe-prime [✔]
+  +++ OK, passed 100 tests.
+as-power-of-2-and-odd [✔]
+  +++ OK, passed 100 tests.
+squareRoot [✔]
+  +++ OK, passed 100 tests.
+marshalling-be [✔]
+  +++ OK, passed 100 tests.
+marshalling-le [✔]
+  +++ OK, passed 100 tests.
+be-rev-le [✔]
+  +++ OK, passed 100 tests.
+be-rev-le-40 [✔]
+  +++ OK, passed 100 tests.
+le-rev-be [✔]
+  +++ OK, passed 100 tests.
+le-rev-be-40 [✔]
+  +++ OK, passed 100 tests.
+marshalling-kat-to-bytearray
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+  4 [✔]
+marshalling-kat-to-integer
+  0 [✔]
+  1 [✔]
+  2 [✔]
+  3 [✔]
+  4 [✔]
+
+Finished in 11.5525 seconds
+45 examples, 0 failures

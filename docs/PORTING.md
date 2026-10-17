@@ -15052,3 +15052,45 @@ exceptions, concurrency, infinite inputs and physical Text arrays are not claime
 Custom JVM types encode source WHNF in callbacks. Generic Many/count-derived
 contracts, Data.Version, JSON/filter supplement, full140 exports/350-source-
 instance member audit and rest611/Pandoc/calibre remain OPEN.
+
+
+### Complete Number.Prime module, selected fallback profile
+
+All nine Crypto.Number.Prime exports and six private/table definitions are now
+Kotlin, using the actual pinned integer-gmp1.1 GmpUnsupported nextPrime/MillerRabin
+profile. This does not disable all GMP helpers: original gcde/powmod dependencies
+retain their own implementations. Own source extraction verifies every definition
+and all420 prime literals2..2903 against original/Kotlin/native output. Integer
+APIs appropriately use BigInteger; no Java probablePrime/nextProbablePrime is used.
+
+Own independent native replay passed14334 observations/47 source-fixture pins,
+plus12954 exact bounded sieve/trial-division observations. Source review covered
+inclusive odd search, predicate-only-after-primality, candidate redraw on overflow,
+all round thresholds, guard/error demand, Fermat inclusive bases and negative empty
+range, strict negative naive sqrti, coprime/gcde signs and lazy witness consumption.
+MR30 composite2465 consumes one witness draw; prime2909 consumes30 witnesses plus
+rejection draws. Different materials restart a derived stream from the same
+retained process secret rather than sharing witness positions.
+
+Ordinary MR captures retain an independently observed process secret via a
+module-header-only observer. A separate mechanically imported Prime observer
+logs actual DRG lengths/bytes; unobserved trace is null, not empty. The preliminary
+MR1(1729) True versus fixed-secret False capture remains preserved as a genuine
+process-secret difference, not rewritten expectations. Actual unchanged original
+NumberSpec completed45 examples/100 trials per property. Kotlin explicitly maps
+all seven primality examples, four prime/safe-prime properties and squareRoot
+consumer using100 actual original DRG/bit-size samples; other NumberSpec mappings
+remain in accepted Generate/Serialize/Modular suites.
+
+Saved89710 XML contains126451 actual cases with zero failures/errors/skips:
+14390Prime,37955Generate,57574Serial and16532Modular. Own40 frozen hashes, immutable
+JAR hash, three Prime classes and106 repository notices plus root GPL byte-exact
+checks passed; jar/installDist identity passed. No accepted dependency was edited,
+and no duplicate shared Gradle run was needed for review.
+
+Kotlin Int parameters remain narrower than source GHC Int64; huge allocations,
+actual32-bit/big-endian, other integer-gmp branches and universal bottom/heap/
+concurrency/physical-erasure/timing equivalence are not established. The bounded
+math proof is not universal large-number primality certification. OS/SystemDRG,
+remaining hashes/signatures/trust/chain and full613/Pandoc623/calibre624–626 stay
+OPEN; completion of this selected Prime module profile does not close that scope.

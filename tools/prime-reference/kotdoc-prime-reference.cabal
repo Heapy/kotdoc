@@ -1,0 +1,27 @@
+cabal-version: 2.4
+name: kotdoc-prime-reference
+version: 0.1.0.0
+build-type: Simple
+executable prime-reference
+  main-is: PrimeReference.hs
+  hs-source-dirs: .
+  other-modules: ObservedPrime, PrimeProbabilistic, ProcessPrime, ProcessProbabilistic
+  build-depends: base, crypton, ram, bytestring, QuickCheck ==2.16.0.0
+  default-language: Haskell2010
+  ghc-options: -O2
+
+executable number-spec
+  main-is: NumberSuite.hs
+  hs-source-dirs: . ../../vendor/crypton-2.0.1/tests
+  other-modules: NumberSpec, Imports, Utils
+  build-depends: base, crypton, ram, bytestring, QuickCheck ==2.16.0.0, hspec ==2.11.18
+  default-language: Haskell2010
+  ghc-options: -O2
+
+executable number-samples
+  main-is: NumberSamples.hs
+  hs-source-dirs: . ../../vendor/crypton-2.0.1/tests
+  other-modules: Utils
+  build-depends: base, crypton, ram, bytestring, QuickCheck ==2.16.0.0, hspec ==2.11.18
+  default-language: Haskell2010
+  ghc-options: -O2

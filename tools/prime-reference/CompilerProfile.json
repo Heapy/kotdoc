@@ -1,0 +1,20 @@
+{
+  "compiler": "GHC9.12.2",
+  "optimization": "-O2 Cabal optimization2",
+  "host": "aarch64-osx little endian",
+  "integerGmp": "1.1",
+  "integerGmpFlag": true,
+  "sourceNextPrime": "GmpUnsupported",
+  "sourceMillerRabin": "GmpUnsupported",
+  "gcde": "GmpSupported",
+  "powModSec": "GmpUnsupported; source arithmetic fallback",
+  "ordinaryProcessObserver": "header/import changes only; independently captured actual secret",
+  "fixedObserver": "original Prime body unchanged, explicit secret plus traced actual DRG dictionary",
+  "countParameter": "source Int64; Kotlin Int32 subset",
+  "limitations": [
+    "actual32bit/bigendian/giantallocation",
+    "finite sequential bottom/demand evidence",
+    "accepted dependency timing/erasure/backend limitations"
+  ],
+  "nativeExecutableSha256": "1e5f5305b4a0494bc745746bc51a64908249041316e9fbd30d6d2641e514dd0f"
+}
