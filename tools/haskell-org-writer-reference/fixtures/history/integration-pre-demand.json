@@ -1,0 +1,79 @@
+{
+  "historicalSourceBindings": {
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt": {
+      "commit": "0ab79461cdcd6d8a1858002d0e02d7d45760cfa3",
+      "sha256": "ed8250948f9d0d36dfe27a378e8ef9ac1dd178da5f02263c8c60c3c2d00a6ff3"
+    },
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/HtmlCliOptions.kt": {
+      "commit": "0ab79461cdcd6d8a1858002d0e02d7d45760cfa3",
+      "sha256": "87cb377bfa9a9726f18d7b287bad6eb08a1a458cd3888026190ca9d749a12fac"
+    }
+  },
+  "currentSourceBindings": {
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt": "43d81a65df61988357f67d6259b4393d3d5e9b83720f61feb7bcabed5f8be24b",
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/HtmlCliOptions.kt": "0378ca8d8ec270e556f857505ddc2b726e9bfacb8d613cbf5074b6a68e2efdfe"
+  },
+  "ownership": "Only Org output registry/dispatch/inference and Org standalone/template-error recognition; accepted historical manifests unchanged",
+  "acceptedRegressionFixtures": [
+    "muse-writer",
+    "dokuwiki-reader",
+    "rst-writer"
+  ],
+  "pending": "22 Org-output commands need reader/citeproc routes; RST HTTP/general IO and global CLI gaps unchanged",
+  "currentPackageClasses": {
+    "io/heapy/kotdoc/cli/HtmlCliOptions.class": "6e6f2d2d4f35d802624a034291831688462a7695b192861ecab0ea408daacc81",
+    "io/heapy/kotdoc/cli/MainKt.class": "d1993546d4edb752cdb475a625b7407764329617a2f6b947a7cea10f9c03a32b",
+    "io/heapy/kotdoc/cli/OrgCliWriter.class": "aea08ccf64b4fe4319d9f834220e683c78ec94b9afe205e1577e7f0920941f5d",
+    "io/heapy/kotdoc/writers/OrgCaseFold.class": "4327a80fc9e3ccf5d7bb0537a5a26233de6895e3a8e7b0754a7fb029f11249da",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$Label.class": "1c495afc4f0144279d2e16f07c1e845871bc179d00a9d86ec79d7b6ac91fd2a4",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$balanced$2.class": "94142f78d906967b5b53abc1151185834854070cbeb7feecb84eb9c95ed06a02",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$integrated$1$modify$1.class": "f3b585bd61e89ca7bc9d0dd403659cdad4821e128a588bed52e43a214eca10fb",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$integrated$1$modify$2.class": "275f55b31ed5d5ab92cf860f8da3b754bfc8319c111ee9e483f56117052a2eac",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$labelDelimited$2.class": "78c7ef845cce873380a25a0fe7040126f851c4bcc9999ff02917962ff059dd35",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$labelIntegrated$1.class": "eb46a83cb3ee68ea475cb3f96693b497e9586fb8eedd6e586d24f7ccc245cb08",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$labelIntegrated$2.class": "98249d426faaeec10068e6087a8b280396a1fdd89b8455a3fbeb95b8b79b4d9b",
+    "io/heapy/kotdoc/writers/OrgCitationLocator$pPunct$1.class": "500d86de61aa797e4b5cd54c0a2bf25e5cd147157eabe822eb35de8b2407c708",
+    "io/heapy/kotdoc/writers/OrgCitationLocator.class": "50d70bbb1ac7003713c48b6080e213b9d2d96659c51e09f052ac14d1f0b9aec2",
+    "io/heapy/kotdoc/writers/OrgCitationLocatorKt.class": "ac4228e9c0a0f75e7d99a131107e1dbb288e9495a166b56cefafd6bf78ecc676",
+    "io/heapy/kotdoc/writers/OrgLocatorInfo.class": "ad405a709f049d3b6ab06568d593f72ff8493b0b00b205db29b05167261baea8",
+    "io/heapy/kotdoc/writers/OrgWriter$CaptionWork$BlockValue.class": "c46cd473d44e4dc7dec3f63416aa4a63560dacd0c70969e5bdbee2761bac3ad6",
+    "io/heapy/kotdoc/writers/OrgWriter$CaptionWork$Blocks.class": "6778af3ccf43a49c7ce3ec0b40097f13a1d2f45a5a8ef93e4a7033c1d36abbb3",
+    "io/heapy/kotdoc/writers/OrgWriter$CaptionWork.class": "085dac391b3d9b5e8d6229fc7e98493f0e0fdf07d4d463e586ebe1f574743204",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$captionRenderer$1.class": "958d0c633ccf0f1632841e28488cb25014d2a989d0cbd35fd0c3042ab45cbf19",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$div$1.class": "507ba495440cb748ca011c691a35ea454a42e1075d473f953ffc3e54cfa72aaf",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$item$1.class": "d8de41ea453b9b329cf539df056f488892d648b1f51bc48e53b6a529c3068d7e",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$renderBlock$1.class": "8d1b80e339734d4b09c47ef5ce9d8df12053c3d189ecc10c12b93626a46718f5",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$renderInline$1.class": "757e6554724ce5cbc7df94e2b8ab7926a5add37a530bd3eb351b13de8ed679bc",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$renderInlines$1.class": "8fb5ee947417bb9dc5891f0a4bb0478cfd07c373f8f961764af9c2ff9fa665dc",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$renderer$1.class": "536deca3dd180b9bebf6e45ed2aa04e90855873c384bc5258a36685081cf5dde",
+    "io/heapy/kotdoc/writers/OrgWriter$Session$tags$$inlined$filterIsInstance$1.class": "0b43d6cbc730b4f302e02cff0370939ecf8d477b86b46b775b327b2d9b00d845",
+    "io/heapy/kotdoc/writers/OrgWriter$Session.class": "332407ebe25809f3a05a379d982df037581c2eb7a6fd4ea766160f4cea682aaa",
+    "io/heapy/kotdoc/writers/OrgWriter$Work$B.class": "d11262021ec9cb3abcc94a1d9f1fb9b90719eda13638bbd43e14b40603a05698",
+    "io/heapy/kotdoc/writers/OrgWriter$Work$Blocks.class": "4e40bc0b652e0dadf929809a8ed28b3f47dee11dd4756598a5a3ce90ca1aaa90",
+    "io/heapy/kotdoc/writers/OrgWriter$Work$I.class": "ef2eab85b48f2531917342ef14a38d84175b74a53241de48b90e025dc5b9fe99",
+    "io/heapy/kotdoc/writers/OrgWriter$Work$Inlines.class": "393d8222691967d966399118db1593202636ba06393984fa2eee286a69cbbe29",
+    "io/heapy/kotdoc/writers/OrgWriter$Work.class": "2650baf479394a63f7e5a4bcc434f001d92fb43a94534872631e8071870c3a72",
+    "io/heapy/kotdoc/writers/OrgWriter.class": "604a12d088596911e12e0cf41acb0c7958e320aef23c89a0ccd6b0c99ae2beef"
+  },
+  "currentPackageResources": {
+    "io/heapy/kotdoc/org-casefold-2.1.2.json": "8e3e9a50a1a900d7aa295cc04dabd8c9dbe02f245929d9e6b3394c5d8d0d7569"
+  },
+  "currentPackageJars": {
+    "cli-0.1.0-SNAPSHOT.jar": "e7a23811e728c23b3c10180c6d4b604c099fcfed934b2d43f5c8d80cbb334558",
+    "kotlin-stdlib-2.4.21.jar": "bd8250210584cb659847dce9cda660f8e9906e5def7fbebcea93dc6dcb6a88a3",
+    "annotations-13.0.jar": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+    "core-0.1.0-SNAPSHOT.jar": "aab2096631b498a47b67bc083f32983e3f91ec938e8643f5c5e4d73519adc956",
+    "kotlinx-serialization-core-jvm-1.11.0.jar": "f4a801c647d4351327cd9e1ac4113e2be9ea37a64ab0abae269c25a52e28f35d",
+    "kotlinx-serialization-json-jvm-1.11.0.jar": "563a25b4eb5c9128ae9c2479f3d1a5c44dcd176112b91cf03682e906eba5c935",
+    "jna-5.19.1.jar": "4fb141dd8ef6b0585ffceea4bc49602fbc6312fa977e2c488794ea3e6aafecae",
+    "icu4j-78.1.jar": "bbb70d3be23110d7295823eee0c2e896ac3b619b3c0f26168f65eb972df51d2a"
+  },
+  "focusedXml": {
+    "TEST-io.heapy.kotdoc.writers.OrgWriterTest.xml": "482410a6b279fc0164edc277735c851a0f1b2e802d3a222270f77b932aec7f70",
+    "TEST-io.heapy.kotdoc.writers.DokuWikiWriterTest.xml": "0833ac7061fd9dc3c3f8c7414edff1796cc030d45b40fb1d958675949b126e29",
+    "TEST-io.heapy.kotdoc.writers.MuseWriterTest.xml": "e59c871d95436502197fd9b3ec5272e9acfa0d4e820f3e8e6f605e7f8d362e77",
+    "TEST-io.heapy.kotdoc.writers.RstWriterTest.xml": "40734dd95b63db90c190bf31d1e1075622332e3fddd4e84730b716fc7cbea563"
+  },
+  "focusedTests": 11832,
+  "proof": "/tmp/kotdoc-org-writer/final-results/results.json"
+}

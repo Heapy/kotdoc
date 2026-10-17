@@ -120,7 +120,7 @@ internal class HtmlCliOptions {
         append(key, text)
     }
 
-    fun standaloneFor(format: String) = standalone || (format in listOf("dokuwiki", "muse", "rst") && templateFile != null)
+    fun standaloneFor(format: String) = standalone || (format in listOf("dokuwiki", "muse", "org", "rst") && templateFile != null)
 
     fun finish(base: WriterOptions, format: String, input: String?, output: String?, resources: ResourceContext): WriterOptions {
         appendList("sourcefile", input ?: "-")
@@ -142,9 +142,9 @@ internal class HtmlCliOptions {
             templateFile?.let { path ->
                 when (val r = templates.compileWithPartials(path, templates.getTemplate(path))) {
                     is CompiledTemplate.Success -> r.template
-                    is CompiledTemplate.Failure -> if (format in listOf("muse", "rst")) throw PandocError.PandocTemplateError(r.error) else error(r.error)
+                    is CompiledTemplate.Failure -> if (format in listOf("muse", "org", "rst")) throw PandocError.PandocTemplateError(r.error) else error(r.error)
                 }
-            } ?: if (format in HtmlCliWriter.formats || format in listOf("dokuwiki", "muse", "rst")) templates.compileDefaultTemplate(format) else Template.Empty
+            } ?: if (format in HtmlCliWriter.formats || format in listOf("dokuwiki", "muse", "org", "rst")) templates.compileDefaultTemplate(format) else Template.Empty
         }
         return base.copy(template = template, variables = variables)
     }

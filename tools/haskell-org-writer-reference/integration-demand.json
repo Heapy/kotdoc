@@ -1,0 +1,81 @@
+{
+  "scope": "Full735line Org writer/used locator closure; additive source-demand correction only. No accepted reader/writer or historical expected bytes rewritten.",
+  "historicalSourceBindings": {
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt": {
+      "commit": "0ab79461cdcd6d8a1858002d0e02d7d45760cfa3",
+      "sha256": "ed8250948f9d0d36dfe27a378e8ef9ac1dd178da5f02263c8c60c3c2d00a6ff3"
+    },
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/HtmlCliOptions.kt": {
+      "commit": "0ab79461cdcd6d8a1858002d0e02d7d45760cfa3",
+      "sha256": "87cb377bfa9a9726f18d7b287bad6eb08a1a458cd3888026190ca9d749a12fac"
+    }
+  },
+  "currentSourceBindings": {
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/Main.kt": "43d81a65df61988357f67d6259b4393d3d5e9b83720f61feb7bcabed5f8be24b",
+    "cli/src/main/kotlin/io/heapy/kotdoc/cli/HtmlCliOptions.kt": "0378ca8d8ec270e556f857505ddc2b726e9bfacb8d613cbf5074b6a68e2efdfe",
+    "core/src/main/kotlin/io/heapy/kotdoc/writers/OrgWriter.kt": "3f4639f07392b77f6fadc933def0f7327eb47f3ff160f94329dec7f384c072c1"
+  },
+  "oldDistribution": "/tmp/kotdoc-org-writer/installed-cli",
+  "correctedDistribution": "/tmp/kotdoc-org-writer/corrected-installed-cli",
+  "oldCliTerminal": "/tmp/kotdoc-org-writer/final-cli-proof/terminal.json",
+  "correctedCliTerminal": "/tmp/kotdoc-org-writer/corrected-cli-proof-final/terminal.json",
+  "correctedCliReport": "/tmp/kotdoc-org-writer/corrected-cli-proof-final/org-report.json",
+  "correctedBuildStatus": "/tmp/kotdoc-org-writer/corrected-results/status.json",
+  "artifacts": {
+    "/tmp/kotdoc-org-writer/corrected-results/status.json": "286e3be9f13d200e33aadcfad809558c4ee98912ebaa4dd10f567f87a66a8c48",
+    "/tmp/kotdoc-org-writer/corrected-results/gradle.log": "31c50fda265fea3a30b3d166f3b89dd6c72838f96185b13cc5f38e4cb03853dd",
+    "/tmp/kotdoc-org-writer/corrected-results/xml/TEST-io.heapy.kotdoc.writers.OrgWriterDemandTest.xml": "c78ecb594d4df6d69a80cce20904783d65f9b7d5058725f74bf1c89fdfeae38c",
+    "/tmp/kotdoc-org-writer/corrected-results/xml/TEST-io.heapy.kotdoc.writers.OrgWriterTest.xml": "5192e65d06291c0ec7ce5b1c6084588d0a46a63d3a0e625d0db3eebfbf6c609b",
+    "/tmp/kotdoc-org-writer/corrected-isolated-evidence.json": "7663d1e5787fcdf75d84a798d47b53075859e0e2f3977f45ce527b2a1f031084",
+    "/tmp/kotdoc-org-writer/corrected-persistent-proof2.log": "3d67b0b0027127420fd3ad096a8066bc3180de4195a3219ee67b55c00262082a",
+    "/tmp/kotdoc-org-writer/demand-native-verify.log": "3eda6a220be2deb82a1527c6397ec523c4b4fef7d2dc36531ed3710f0182b719",
+    "/tmp/kotdoc-org-writer/corrected-package-resources.json": "e1679d82cfe59f507aa903589bb9dce56998cc23a31cef591a478a1e41eed485",
+    "/tmp/kotdoc-org-writer/execute-corrected-build.py": "9253e8cb88054ec0c2af7f5d86f91f10f9bf77f6bac406a8f7a4abdb12c6ccb5",
+    "/Users/yoda/dev/pet/kotdoc/tools/haskell-org-writer-reference/fixtures/demand-class-bindings.json.gz": "df6de47a3044bd4a6e1d1c983abcbca49dec5cc2c741f5b4e747ca96029b9105",
+    "/Users/yoda/dev/pet/kotdoc/tools/haskell-org-writer-reference/check-demand-integration.py": "af3f02cdf60a2da16e9baf573957e31e934d5c32ccfa3287be3051ff7e1b79da",
+    "/Users/yoda/dev/pet/kotdoc/tools/haskell-org-writer-reference/fixtures/history/integration-pre-demand.json": "cebcf32d65a45fa3e80d2e127c6457a6a5748fd2c429141ebd64d6d3bbea378a",
+    "/tmp/kotdoc-org-writer/final-results/results.json": "6e8fcdd9fda703c2ca853b53e566ad466a73d41e6f46835d90a4ddad3b69dcdc",
+    "/tmp/kotdoc-org-writer/final-gradle.log": "8225c9011db6dfbda58566434ab706be92d3c56482959cb9f72c531c62a3ee2b",
+    "/tmp/kotdoc-org-writer/final-cli-proof/rst.json": "b89e9f19601bf5f3a643d4ef8c86601caa84d43e4031ddad78226e1025b091f6",
+    "/tmp/kotdoc-org-writer/final-cli-proof/org-report.json": "679833dc3b262754ecc59910b2f408d44e2d5495c1a4a28e24a6981aec1f2a5a",
+    "/tmp/kotdoc-org-writer/final-cli-proof/muse.json": "72a96d5b27201f5545a8d7b098bbad07ff153d603c76db968d96e8cee9841908",
+    "/tmp/kotdoc-org-writer/final-cli-proof/org.stdout": "ed11b7fac041d2863d03c61c331237c13ef01b3211f1925f90b890a9c5ea39de",
+    "/tmp/kotdoc-org-writer/final-cli-proof/rst.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/kotdoc-org-writer/final-cli-proof/inputs.json": "1dd2cbeb322589fb955731321122b4361a51a7321888c4edda6f87824b3168a9",
+    "/tmp/kotdoc-org-writer/final-cli-proof/muse.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/kotdoc-org-writer/final-cli-proof/terminal.json": "6f46116b802417529b8ec48c1f34876f5e7c64a699b32942ebf9fe2d65dc127f",
+    "/tmp/kotdoc-org-writer/final-cli-proof/muse.stdout": "4ab49ba50cfa31a054a76903f151f1e7236d09f42a9dfa82db4adddf80871073",
+    "/tmp/kotdoc-org-writer/final-cli-proof/org.json": "b697d66cba493bdac205a561828a77056ce20acf5502d2dddab6ecfabeb60052",
+    "/tmp/kotdoc-org-writer/final-cli-proof/rst.stdout": "e1f67f88fcfd4fe539be5b66ac8147d34ca972099b821a16a72550de6e032784",
+    "/tmp/kotdoc-org-writer/final-cli-proof/org.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/kotdoc-org-writer/corrected-cli-proof-final/org-report.json": "679833dc3b262754ecc59910b2f408d44e2d5495c1a4a28e24a6981aec1f2a5a",
+    "/tmp/kotdoc-org-writer/corrected-cli-proof-final/org.stdout": "ed11b7fac041d2863d03c61c331237c13ef01b3211f1925f90b890a9c5ea39de",
+    "/tmp/kotdoc-org-writer/corrected-cli-proof-final/inputs.json": "2a0388b7d4d3efa2712a4d105764fda3143cd7f06632186933f75e05ba27cceb",
+    "/tmp/kotdoc-org-writer/corrected-cli-proof-final/terminal.json": "6c42f738b88baf8167a30e18bd0a02c1a07ab569e6ce1e82724333af9f062f0b",
+    "/tmp/kotdoc-org-writer/corrected-cli-proof-final/org.json": "b8ae2e4e01b10e5e1711201f12cd31954688d782b18a907887ea57649ffe7587",
+    "/tmp/kotdoc-org-writer/corrected-cli-proof-final/org.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/kotdoc-org-writer/corrected-pre-cli-freeze.json": "7843416130ed142e64e59f61e69fc663429613c60e2f015dda154924419c380b",
+    "/tmp/kotdoc-org-writer/frozen-paths.json": "56f9e4e2e11aaa93144c7886ca6ff0810ecd748f8be87d52ecc60ba929881447",
+    "/tmp/kotdoc-org-writer/corrected-cli-proof/prelaunch-failure.json": "6dfee8127b7c2359b4b42055522b87dc16acb7b6cecbdf36c407fefb4a07a266"
+  },
+  "accounting": {
+    "preFixRegression": 11832,
+    "preFixCliComparisons": 394,
+    "correctedOrgTests": 5354,
+    "finiteOriginalAndHelperBodies": 5352,
+    "fullDomainBodies": 2,
+    "additiveDemandObservations": 9,
+    "correctedCliComparisons": 65,
+    "completeOrgCommands": 5,
+    "originalWriterLeaves": 8,
+    "oldGoldens": 2
+  },
+  "classIdentity": "4285 common classes unchanged; only2 Org Session classes changed. All18 CLI classes unchanged. Old394 comparisons remain pre-fix evidence with non-Org class binding.",
+  "pending": [
+    "22 Org-output commands need missing readers/citeproc routes; Org reader not implemented here",
+    "612: shared DocumentShared.toLegacyTable eagerly forces unused alignment/width projections; separate blocksToInlines resource issue",
+    "RST HTTP/default generalIO routes and11 dependentcommands remain pending",
+    "621 general verbosity/-M/template option gaps unchanged"
+  ],
+  "prelaunchFailure": "Wrong fixture basename caused exit1 before any child; retained corrected-cli-proof/prelaunch-failure.json. Successful43004 used original immutable cli-observations."
+}

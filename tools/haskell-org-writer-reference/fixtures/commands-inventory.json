@@ -1,0 +1,731 @@
+[
+  {
+    "id": "pandoc/command/10919.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/10919.md",
+      "sha256": "c665868958f2f18bfb176144c17820a0741c184d7582a5a04800d5cdf3495b5d"
+    },
+    "code_sha256": "f62f0c73f21f6b7a062a3d9d6ebfed31a73708e0b02de2f141a50a07359c23bc",
+    "source_code": "% pandoc -t org+smart_quotes -s\n\"It's nice\" she said.\n^D\n#+options: ':t\n\n\"It's nice\" she said.",
+    "command": "pandoc -t org+smart_quotes -s",
+    "stdin": "\"It's nice\" she said.\n",
+    "expected_combined": "#+options: ':t\n\n\"It's nice\" she said.\n",
+    "expected_stdout": "#+options: ':t\n\n\"It's nice\" she said.\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/10919.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -t org+smart_quotes -s",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/10919.md/#2",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/10919.md",
+      "sha256": "c665868958f2f18bfb176144c17820a0741c184d7582a5a04800d5cdf3495b5d"
+    },
+    "code_sha256": "6819734bbf400759cf91bc32c881d8ba1b773bb2c395b1e22fc8391c044861c4",
+    "source_code": "% pandoc -t org+smart_quotes-special_strings -s\n\"It's nice\" she said.\n^D\n#+options: ':t\n#+options: -:nil\n\n\"It’s nice\" she said.",
+    "command": "pandoc -t org+smart_quotes-special_strings -s",
+    "stdin": "\"It's nice\" she said.\n",
+    "expected_combined": "#+options: ':t\n#+options: -:nil\n\n\"It’s nice\" she said.\n",
+    "expected_stdout": "#+options: ':t\n#+options: -:nil\n\n\"It’s nice\" she said.\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/10919.md: top-level CodeBlock #2",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -t org+smart_quotes-special_strings -s",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/3771.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/3771.md",
+      "sha256": "d41840ae6f859cc08fc4d6dfb22c3e3be5572d13ed6682442ec4ced0eae076a3"
+    },
+    "code_sha256": "969e862fb3db5ca23384f7c09470ac0c1aa917ef15cfec1d0fec8cb70e62e9ae",
+    "source_code": "% pandoc -f html -t org\n<div class=\"Section1\">\n  Today is a nice day.\n</div>\n<div id=\"forecast\">\n  Tomorrow will be rainy.\n</div>\n^D\nToday is a nice day.\n\n<<forecast>>\nTomorrow will be rainy.",
+    "command": "pandoc -f html -t org",
+    "stdin": "<div class=\"Section1\">\n  Today is a nice day.\n</div>\n<div id=\"forecast\">\n  Tomorrow will be rainy.\n</div>\n",
+    "expected_combined": "Today is a nice day.\n\n<<forecast>>\nTomorrow will be rainy.\n",
+    "expected_stdout": "Today is a nice day.\n\n<<forecast>>\nTomorrow will be rainy.\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/3771.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f html -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/4171.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/4171.md",
+      "sha256": "4231b026a0abb9a03690a8491365cc0e1b264379efa0d0ca1d0f7f20c3213c4b"
+    },
+    "code_sha256": "d092dec894253acbcc6caaebcc974435732b8cc46743608de4ca9a856514a26a",
+    "source_code": "% pandoc -f org -t org\nAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1] a\n\n[fn:1] b\n^D\nAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1]\na\n\n[fn:1] b",
+    "command": "pandoc -f org -t org",
+    "stdin": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1] a\n\n[fn:1] b\n",
+    "expected_combined": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1]\na\n\n[fn:1] b\n",
+    "expected_stdout": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1]\na\n\n[fn:1] b\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/4171.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f org -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/4171.md/#2",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/4171.md",
+      "sha256": "4231b026a0abb9a03690a8491365cc0e1b264379efa0d0ca1d0f7f20c3213c4b"
+    },
+    "code_sha256": "e60d80aa55bdd4ad4ab2c0b375c60b352995d494685ab08aac187c3c5b40d32e",
+    "source_code": "% pandoc -f org -t org\nAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n [fn:1] a\n\n[fn:1] b\n^D\nAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1]\na\n\n[fn:1] b",
+    "command": "pandoc -f org -t org",
+    "stdin": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n [fn:1] a\n\n[fn:1] b\n",
+    "expected_combined": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1]\na\n\n[fn:1] b\n",
+    "expected_stdout": "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [fn:1]\na\n\n[fn:1] b\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/4171.md: top-level CodeBlock #2",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f org -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/4171.md/#3",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/4171.md",
+      "sha256": "4231b026a0abb9a03690a8491365cc0e1b264379efa0d0ca1d0f7f20c3213c4b"
+    },
+    "code_sha256": "575f0b2d0912e67787acf4d20732c9aa95a161a2ba2914f7dcaab70c8e8b52ad",
+    "source_code": "% pandoc -f org -t org\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa - abc\n^D\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -\nabc",
+    "command": "pandoc -f org -t org",
+    "stdin": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa - abc\n",
+    "expected_combined": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -\nabc\n",
+    "expected_stdout": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -\nabc\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/4171.md: top-level CodeBlock #3",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f org -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/5178.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/5178.md",
+      "sha256": "51836205e1ee624bcbaa6e4ec0ef7810dd4de1eee8a4a0f544f51845a1197be8"
+    },
+    "code_sha256": "37af3e3c8e4d33551c2d9128751d59b6c898140798831070290c4cf3d6b9fa76",
+    "source_code": "% pandoc -f rst -t org\n.. code:: haskell\n   :number-lines: 42\n\n   main = putStrLn \"Hello World!\"\n   unsafePerformIO main\n^D\n#+begin_src haskell -n 42\nmain = putStrLn \"Hello World!\"\nunsafePerformIO main\n#+end_src",
+    "command": "pandoc -f rst -t org",
+    "stdin": ".. code:: haskell\n   :number-lines: 42\n\n   main = putStrLn \"Hello World!\"\n   unsafePerformIO main\n",
+    "expected_combined": "#+begin_src haskell -n 42\nmain = putStrLn \"Hello World!\"\nunsafePerformIO main\n#+end_src\n",
+    "expected_stdout": "#+begin_src haskell -n 42\nmain = putStrLn \"Hello World!\"\nunsafePerformIO main\n#+end_src\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/5178.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f rst -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/5178.md/#3",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/5178.md",
+      "sha256": "51836205e1ee624bcbaa6e4ec0ef7810dd4de1eee8a4a0f544f51845a1197be8"
+    },
+    "code_sha256": "995830941517fd39198870c3eef05835b25074ca5deb452b720f782981e61b0a",
+    "source_code": "% pandoc -f native -t org\n[CodeBlock (\"\",[\"commonlisp\",\"numberLines\"],[(\"org-language\",\"lisp\"),(\"startFrom\",\"20\")]) \"(+ 1 1)\\n\"\n,CodeBlock (\"\",[\"commonlisp\",\"numberLines\",\"continuedSourceBlock\"],[(\"org-language\",\"lisp\"),(\"startFrom\",\"10\")]) \"(+ 2 2)\\n\"]\n^D\n#+begin_src lisp -n 20\n(+ 1 1)\n#+end_src\n\n#+begin_src lisp +n 10\n(+ 2 2)\n#+end_src",
+    "command": "pandoc -f native -t org",
+    "stdin": "[CodeBlock (\"\",[\"commonlisp\",\"numberLines\"],[(\"org-language\",\"lisp\"),(\"startFrom\",\"20\")]) \"(+ 1 1)\\n\"\n,CodeBlock (\"\",[\"commonlisp\",\"numberLines\",\"continuedSourceBlock\"],[(\"org-language\",\"lisp\"),(\"startFrom\",\"10\")]) \"(+ 2 2)\\n\"]\n",
+    "expected_combined": "#+begin_src lisp -n 20\n(+ 1 1)\n#+end_src\n\n#+begin_src lisp +n 10\n(+ 2 2)\n#+end_src\n",
+    "expected_stdout": "#+begin_src lisp -n 20\n(+ 1 1)\n#+end_src\n\n#+begin_src lisp +n 10\n(+ 2 2)\n#+end_src\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/5178.md: top-level CodeBlock #3",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f native -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/6367.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/6367.md",
+      "sha256": "0165ce937960da2f5d20ee5db1737e00f7b1cf9c24f4fdf9bd6ccf1a6429f9f9"
+    },
+    "code_sha256": "3fd0759785ebe0dfac8283bff88a4948628923d2c98816b3200f527b9e0fde9e",
+    "source_code": "% pandoc -f ipynb -t org\n{\n \"cells\": [\n  {\n   \"cell_type\": \"markdown\",\n   \"metadata\": {},\n   \"source\": [\n    \"A Markdown cell\"\n   ]\n  },\n  {\n   \"cell_type\": \"code\",\n   \"execution_count\": 1,\n   \"metadata\": {},\n   \"outputs\": [\n    {\n     \"data\": {\n      \"text/plain\": [\n       \"2\"\n      ]\n     },\n     \"execution_count\": 1,\n     \"metadata\": {},\n     \"output_type\": \"execute_result\"\n    }\n   ],\n   \"source\": [\n    \"# A code cell\\n\",\n    \"1 + 1\"\n   ]\n  },\n  {\n   \"cell_type\": \"markdown\",\n   \"metadata\": {},\n   \"source\": [\n    \"Another Markdown cell\"\n   ]\n  }\n ],\n \"metadata\": {\n  \"kernelspec\": {\n   \"display_name\": \"Python 3\",\n   \"language\": \"python\",\n   \"name\": \"python3\"\n  },\n  \"language_info\": {\n   \"codemirror_mode\": {\n    \"name\": \"ipython\",\n    \"version\": 3\n   },\n   \"file_extension\": \".py\",\n   \"mimetype\": \"text/x-python\",\n   \"name\": \"python\",\n   \"nbconvert_exporter\": \"python\",\n   \"pygments_lexer\": \"ipython3\",\n   \"version\": \"3.8.2\"\n  }\n },\n \"nbformat\": 4,\n \"nbformat_minor\": 4\n}\n^D\nA Markdown cell\n\n#+begin_src jupyter-python\n# A code cell\n1 + 1\n#+end_src\n\n#+RESULTS:\n: 2\n\nAnother Markdown cell",
+    "command": "pandoc -f ipynb -t org",
+    "stdin": "{\n \"cells\": [\n  {\n   \"cell_type\": \"markdown\",\n   \"metadata\": {},\n   \"source\": [\n    \"A Markdown cell\"\n   ]\n  },\n  {\n   \"cell_type\": \"code\",\n   \"execution_count\": 1,\n   \"metadata\": {},\n   \"outputs\": [\n    {\n     \"data\": {\n      \"text/plain\": [\n       \"2\"\n      ]\n     },\n     \"execution_count\": 1,\n     \"metadata\": {},\n     \"output_type\": \"execute_result\"\n    }\n   ],\n   \"source\": [\n    \"# A code cell\\n\",\n    \"1 + 1\"\n   ]\n  },\n  {\n   \"cell_type\": \"markdown\",\n   \"metadata\": {},\n   \"source\": [\n    \"Another Markdown cell\"\n   ]\n  }\n ],\n \"metadata\": {\n  \"kernelspec\": {\n   \"display_name\": \"Python 3\",\n   \"language\": \"python\",\n   \"name\": \"python3\"\n  },\n  \"language_info\": {\n   \"codemirror_mode\": {\n    \"name\": \"ipython\",\n    \"version\": 3\n   },\n   \"file_extension\": \".py\",\n   \"mimetype\": \"text/x-python\",\n   \"name\": \"python\",\n   \"nbconvert_exporter\": \"python\",\n   \"pygments_lexer\": \"ipython3\",\n   \"version\": \"3.8.2\"\n  }\n },\n \"nbformat\": 4,\n \"nbformat_minor\": 4\n}\n",
+    "expected_combined": "A Markdown cell\n\n#+begin_src jupyter-python\n# A code cell\n1 + 1\n#+end_src\n\n#+RESULTS:\n: 2\n\nAnother Markdown cell\n",
+    "expected_stdout": "A Markdown cell\n\n#+begin_src jupyter-python\n# A code cell\n1 + 1\n#+end_src\n\n#+RESULTS:\n: 2\n\nAnother Markdown cell\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/6367.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f ipynb -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7132.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7132.md",
+      "sha256": "6c6f5e966046a13217ba38c46e63fce94921c86c7fb0234ef05216f15d5b9113"
+    },
+    "code_sha256": "baecfa460305e025fd126b4e5f0df3e54f152023a91d37aee11a2d6cffa665be",
+    "source_code": "% pandoc -f markdown -t org --columns=72\n- This line has exactly the wrong number of characters before the number 5.\n- Long line ending with a number (this time it is in parentheses and a 23)\n^D\n- This line has exactly the wrong number of characters before the\n  number 5.\n- Long line ending with a number (this time it is in parentheses and\n  a 23)",
+    "command": "pandoc -f markdown -t org --columns=72",
+    "stdin": "- This line has exactly the wrong number of characters before the number 5.\n- Long line ending with a number (this time it is in parentheses and a 23)\n",
+    "expected_combined": "- This line has exactly the wrong number of characters before the\n  number 5.\n- Long line ending with a number (this time it is in parentheses and\n  a 23)\n",
+    "expected_stdout": "- This line has exactly the wrong number of characters before the\n  number 5.\n- Long line ending with a number (this time it is in parentheses and\n  a 23)\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7132.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f markdown -t org --columns=72",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7329.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7329.md",
+      "sha256": "c8985b6cd2d33af5b3a05a2ed74b0502f0720a018ec9c89d8836f5b9dee677b6"
+    },
+    "code_sha256": "56a16eb879fce7987532e6d9063bd271f0d712f9b676c451a3200f9e2f3760b0",
+    "source_code": "% pandoc -f markdown -t org\n- @item1\n- @item1 [p. 12]\n- @item1 [p.12; see also @item2]\n- [@item1]\n- [-@item1]\n- [see @item1 p. 12]\n- [see @item1, p. 12]\n- [see @item1, p. 12 and *passim*]\n- [@item1;@item2]\n- [see @item1; @item2]\n^D\n- [cite/t:@item1]\n- [cite/t:@item1 p. 12]\n- [cite/t:@item1 p.12; see also @item2]\n- [cite:@item1]\n- [cite/na:@item1]\n- [cite:see @item1 p. 12]\n- [cite:see @item1 p. 12]\n- [cite:see @item1 p. 12 and /passim/]\n- [cite:@item1; @item2]\n- [cite:see @item1; @item2]",
+    "command": "pandoc -f markdown -t org",
+    "stdin": "- @item1\n- @item1 [p. 12]\n- @item1 [p.12; see also @item2]\n- [@item1]\n- [-@item1]\n- [see @item1 p. 12]\n- [see @item1, p. 12]\n- [see @item1, p. 12 and *passim*]\n- [@item1;@item2]\n- [see @item1; @item2]\n",
+    "expected_combined": "- [cite/t:@item1]\n- [cite/t:@item1 p. 12]\n- [cite/t:@item1 p.12; see also @item2]\n- [cite:@item1]\n- [cite/na:@item1]\n- [cite:see @item1 p. 12]\n- [cite:see @item1 p. 12]\n- [cite:see @item1 p. 12 and /passim/]\n- [cite:@item1; @item2]\n- [cite:see @item1; @item2]\n",
+    "expected_stdout": "- [cite/t:@item1]\n- [cite/t:@item1 p. 12]\n- [cite/t:@item1 p.12; see also @item2]\n- [cite:@item1]\n- [cite/na:@item1]\n- [cite:see @item1 p. 12]\n- [cite:see @item1 p. 12]\n- [cite:see @item1 p. 12 and /passim/]\n- [cite:@item1; @item2]\n- [cite:see @item1; @item2]\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7329.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f markdown -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7329.md/#2",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7329.md",
+      "sha256": "c8985b6cd2d33af5b3a05a2ed74b0502f0720a018ec9c89d8836f5b9dee677b6"
+    },
+    "code_sha256": "c559b24a6125fe841cccc8f00e6b1540dab837a9c5a4cfa958e7b52365be4656",
+    "source_code": "% pandoc -f markdown -t org -C --bibliography command/biblio.bib\n- [@item1]\n^D\n- (Doe 2005)\n\n<<refs>>\n\n<<ref-item1>>\nDoe, John. 2005. /First Book/. Cambridge University Press.",
+    "command": "pandoc -f markdown -t org -C --bibliography command/biblio.bib",
+    "stdin": "- [@item1]\n",
+    "expected_combined": "- (Doe 2005)\n\n<<refs>>\n\n<<ref-item1>>\nDoe, John. 2005. /First Book/. Cambridge University Press.\n",
+    "expected_stdout": "- (Doe 2005)\n\n<<refs>>\n\n<<ref-item1>>\nDoe, John. 2005. /First Book/. Cambridge University Press.\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7329.md: top-level CodeBlock #2",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f markdown -t org -C --bibliography command/biblio.bib",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7329.md/#3",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7329.md",
+      "sha256": "c8985b6cd2d33af5b3a05a2ed74b0502f0720a018ec9c89d8836f5b9dee677b6"
+    },
+    "code_sha256": "5a928d68920ee5b7f3feaadf33d33e3babf06ebe541f4123d7b4aa9a64d3294c",
+    "source_code": "% pandoc -f markdown -t org-citations -C --bibliography command/biblio.bib\n[@item1]\n^D\n(Doe 2005)\n\n<<refs>>\n\n<<ref-item1>>\nDoe, John. 2005. /First Book/. Cambridge University Press.",
+    "command": "pandoc -f markdown -t org-citations -C --bibliography command/biblio.bib",
+    "stdin": "[@item1]\n",
+    "expected_combined": "(Doe 2005)\n\n<<refs>>\n\n<<ref-item1>>\nDoe, John. 2005. /First Book/. Cambridge University Press.\n",
+    "expected_stdout": "(Doe 2005)\n\n<<refs>>\n\n<<ref-item1>>\nDoe, John. 2005. /First Book/. Cambridge University Press.\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7329.md: top-level CodeBlock #3",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f markdown -t org-citations -C --bibliography command/biblio.bib",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7482.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7482.md",
+      "sha256": "beb8d1aa7e557a4645f28dfcfcf88ade8fa6c1721b896dbcc52f6dbfc2a1b675"
+    },
+    "code_sha256": "b9c1d06d26c1bb4147461ea9361ec3963ab31b45ce2c84eac2c1902fc63ba885",
+    "source_code": "% pandoc -f html -t org\n<table border=0 cellpadding=0 cellspacing=0 width=206 style='border-collapse:\n collapse;width:154pt'>\n<!--StartFragment-->\n <col width=99 style='mso-width-source:userset;mso-width-alt:3157;width:74pt'>\n <col width=107 style='mso-width-source:userset;mso-width-alt:3413;width:80pt'>\n <tr height=23 style='height:17.0pt'>\n  <td height=23 align=left width=99 style='height:17.0pt;width:74pt'>Last N\n  credits</td>\n  <td align=left width=107 style='width:80pt'>Average grade</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 align=right style='height:16.0pt'>140</td>\n  <td align=right>17.06571429</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 class=xl63 align=right style='height:16.0pt'>84</td>\n  <td class=xl63 align=right>17.95595238</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 class=xl63 align=right style='height:16.0pt'>64</td>\n  <td class=xl63 align=right>18.9734375</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 align=right style='height:16.0pt'>36</td>\n  <td align=right>19.12777778</td>\n </tr>\n <tr height=27 style='mso-height-source:userset;height:20.0pt'>\n  <td height=27 align=right style='height:20.0pt'>29</td>\n  <td align=right>19.18275862</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 align=right style='height:16.0pt'>19</td>\n  <td align=right>19.00526316</td>\n </tr>\n<!--EndFragment-->\n</table>\n^D\n| Last N credits | Average grade |\n| 140            | 17.06571429   |\n| 84             | 17.95595238   |\n| 64             | 18.9734375    |\n| 36             | 19.12777778   |\n| 29             | 19.18275862   |\n| 19             | 19.00526316   |",
+    "command": "pandoc -f html -t org",
+    "stdin": "<table border=0 cellpadding=0 cellspacing=0 width=206 style='border-collapse:\n collapse;width:154pt'>\n<!--StartFragment-->\n <col width=99 style='mso-width-source:userset;mso-width-alt:3157;width:74pt'>\n <col width=107 style='mso-width-source:userset;mso-width-alt:3413;width:80pt'>\n <tr height=23 style='height:17.0pt'>\n  <td height=23 align=left width=99 style='height:17.0pt;width:74pt'>Last N\n  credits</td>\n  <td align=left width=107 style='width:80pt'>Average grade</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 align=right style='height:16.0pt'>140</td>\n  <td align=right>17.06571429</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 class=xl63 align=right style='height:16.0pt'>84</td>\n  <td class=xl63 align=right>17.95595238</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 class=xl63 align=right style='height:16.0pt'>64</td>\n  <td class=xl63 align=right>18.9734375</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 align=right style='height:16.0pt'>36</td>\n  <td align=right>19.12777778</td>\n </tr>\n <tr height=27 style='mso-height-source:userset;height:20.0pt'>\n  <td height=27 align=right style='height:20.0pt'>29</td>\n  <td align=right>19.18275862</td>\n </tr>\n <tr height=21 style='height:16.0pt'>\n  <td height=21 align=right style='height:16.0pt'>19</td>\n  <td align=right>19.00526316</td>\n </tr>\n<!--EndFragment-->\n</table>\n",
+    "expected_combined": "| Last N credits | Average grade |\n| 140            | 17.06571429   |\n| 84             | 17.95595238   |\n| 64             | 18.9734375    |\n| 36             | 19.12777778   |\n| 29             | 19.18275862   |\n| 19             | 19.00526316   |\n",
+    "expected_stdout": "| Last N credits | Average grade |\n| 140            | 17.06571429   |\n| 84             | 17.95595238   |\n| 64             | 18.9734375    |\n| 36             | 19.12777778   |\n| 29             | 19.18275862   |\n| 19             | 19.00526316   |\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7482.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f html -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7810.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7810.md",
+      "sha256": "0c83face849e318192753c0ed678b9b2230fee1fd84b228f5864b90cedb43344"
+    },
+    "code_sha256": "b8723cbffeae327b414249a34b04403d37eb309fb4316f07b15a17e1f48f0ad4",
+    "source_code": "% pandoc -f org -t org\n- \n  #+begin_example\n  aa\n  #+end_example\n- test\n^D\n- \n  #+begin_example\n  aa\n  #+end_example\n\n- test",
+    "command": "pandoc -f org -t org",
+    "stdin": "- \n  #+begin_example\n  aa\n  #+end_example\n- test\n",
+    "expected_combined": "- \n  #+begin_example\n  aa\n  #+end_example\n\n- test\n",
+    "expected_stdout": "- \n  #+begin_example\n  aa\n  #+end_example\n\n- test\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7810.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f org -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7810.md/#2",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7810.md",
+      "sha256": "0c83face849e318192753c0ed678b9b2230fee1fd84b228f5864b90cedb43344"
+    },
+    "code_sha256": "682a0bdef4f55eb641b91cc99e02f750e12b6326dd5d8b6376434a8e78eb47c9",
+    "source_code": "% pandoc -f org -t org\n- a\n- \n- a\n- a\n^D\n- a\n- \n- a\n- a",
+    "command": "pandoc -f org -t org",
+    "stdin": "- a\n- \n- a\n- a\n",
+    "expected_combined": "- a\n- \n- a\n- a\n",
+    "expected_stdout": "- a\n- \n- a\n- a\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7810.md: top-level CodeBlock #2",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f org -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/7810.md/#3",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/7810.md",
+      "sha256": "0c83face849e318192753c0ed678b9b2230fee1fd84b228f5864b90cedb43344"
+    },
+    "code_sha256": "3a6534e571c6eacdbeef167b90f519ff4f92f6520bb704046c027708f5156133",
+    "source_code": "% pandoc -f org -t org\n- a\n  - b\n  - b\n- a\n- a\n^D\n- a\n  - b\n  - b\n- a\n- a",
+    "command": "pandoc -f org -t org",
+    "stdin": "- a\n  - b\n  - b\n- a\n- a\n",
+    "expected_combined": "- a\n  - b\n  - b\n- a\n- a\n",
+    "expected_stdout": "- a\n  - b\n  - b\n- a\n- a\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/7810.md: top-level CodeBlock #3",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f org -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/8204.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/8204.md",
+      "sha256": "faad6ae2750a7bfe2a69622a2d34edfc7f5ad5d3c3d71720d0555b58fa4e5644"
+    },
+    "code_sha256": "b48fc56e6ffad32736eeb4266006f893363541d6498bb737c4eb38f40bcadf78",
+    "source_code": "% pandoc --to=org --standalone\n---\nabstract: |\n  This is an *abstract*.\n\n  It has multiple paragraphs.\n---\n^D\n#+begin_abstract\nThis is an /abstract/.\n\nIt has multiple paragraphs.\n\n#+end_abstract",
+    "command": "pandoc --to=org --standalone",
+    "stdin": "---\nabstract: |\n  This is an *abstract*.\n\n  It has multiple paragraphs.\n---\n",
+    "expected_combined": "#+begin_abstract\nThis is an /abstract/.\n\nIt has multiple paragraphs.\n\n#+end_abstract\n",
+    "expected_stdout": "#+begin_abstract\nThis is an /abstract/.\n\nIt has multiple paragraphs.\n\n#+end_abstract\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/8204.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc --to=org --standalone",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/8513.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/8513.md",
+      "sha256": "5442d4c8f4ef2617c0bac367e21e253f9bf5b84b24bd03317e39bdfe45b8f2ba"
+    },
+    "code_sha256": "d0fd7bbcd9b5e35a134078cf2ad102767cd51a969fd617fb6a18a448bea0a73f",
+    "source_code": "% pandoc --from org --to org --columns=72\n* Header with tag   :tag:\n^D\n* Header with tag                                                  :tag:\n:PROPERTIES:\n:CUSTOM_ID: header-with-tag\n:END:",
+    "command": "pandoc --from org --to org --columns=72",
+    "stdin": "* Header with tag   :tag:\n",
+    "expected_combined": "* Header with tag                                                  :tag:\n:PROPERTIES:\n:CUSTOM_ID: header-with-tag\n:END:\n",
+    "expected_stdout": "* Header with tag                                                  :tag:\n:PROPERTIES:\n:CUSTOM_ID: header-with-tag\n:END:\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/8513.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc --from org --to org --columns=72",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/8513.md/#2",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/8513.md",
+      "sha256": "5442d4c8f4ef2617c0bac367e21e253f9bf5b84b24bd03317e39bdfe45b8f2ba"
+    },
+    "code_sha256": "ba6960f18faf226ce4d4ff363ae84384d8e5568fe02e3571752d1058b0c9c616",
+    "source_code": "% pandoc --from org-auto_identifiers --to org --columns=78\n* Header with two tags                                           :first:second:\n^D\n* Header with two tags                                          :first:second:",
+    "command": "pandoc --from org-auto_identifiers --to org --columns=78",
+    "stdin": "* Header with two tags                                           :first:second:\n",
+    "expected_combined": "* Header with two tags                                          :first:second:\n",
+    "expected_stdout": "* Header with two tags                                          :first:second:\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/8513.md: top-level CodeBlock #2",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc --from org-auto_identifiers --to org --columns=78",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/8513.md/#3",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/8513.md",
+      "sha256": "5442d4c8f4ef2617c0bac367e21e253f9bf5b84b24bd03317e39bdfe45b8f2ba"
+    },
+    "code_sha256": "d5a4a1e91a41d787b82e012bc1a9d4f9af1dc0f05f9bacd195cbc9da76beb985",
+    "source_code": "% pandoc --from org-auto_identifiers --to org --columns=40\n* Header with tag and more words which are not that interesting   :tag:\n^D\n* Header with tag and more words which are not that interesting :tag:",
+    "command": "pandoc --from org-auto_identifiers --to org --columns=40",
+    "stdin": "* Header with tag and more words which are not that interesting   :tag:\n",
+    "expected_combined": "* Header with tag and more words which are not that interesting :tag:\n",
+    "expected_stdout": "* Header with tag and more words which are not that interesting :tag:\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/8513.md: top-level CodeBlock #3",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc --from org-auto_identifiers --to org --columns=40",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/9000.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/9000.md",
+      "sha256": "d6ee1c09e57f46018216b48e4eaaa2344ec07470f8714542623d10507c66c127"
+    },
+    "code_sha256": "9a2cab8196fc39bf1dce4a069fe5f2615da0516f4015b8d1adf8df2c58ce9fa0",
+    "source_code": "% pandoc -t org --wrap=auto --columns=20\n[This is a link with a long description that should not\nwrap](http://example.com) and\nsome regular text after it so we can see how wrapping works.\n^D\n[[http://example.com][This is a link with a long description that should not wrap]]\nand some regular\ntext after it so we\ncan see how wrapping\nworks.\n",
+    "command": "pandoc -t org --wrap=auto --columns=20",
+    "stdin": "[This is a link with a long description that should not\nwrap](http://example.com) and\nsome regular text after it so we can see how wrapping works.\n",
+    "expected_combined": "[[http://example.com][This is a link with a long description that should not wrap]]\nand some regular\ntext after it so we\ncan see how wrapping\nworks.\n",
+    "expected_stdout": "[[http://example.com][This is a link with a long description that should not wrap]]\nand some regular\ntext after it so we\ncan see how wrapping\nworks.\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/9000.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -t org --wrap=auto --columns=20",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/9159.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/9159.md",
+      "sha256": "62a7a6a0f4fc0ee05e098d9453a61f7742d8ab788aa0379d5ef80cf5c10b9bd3"
+    },
+    "code_sha256": "6f56ab9eb15f2c05964b17b14f392f11db9243cc66ca6eb0f5a2c5f0ac4c58c9",
+    "source_code": "% pandoc -t org -f markdown\n\\* See Blah\n\n\\# not comment\n\n\\| not table \\|\n^D\n​* See Blah\n\n​# not comment\n\n​| not table |\n",
+    "command": "pandoc -t org -f markdown",
+    "stdin": "\\* See Blah\n\n\\# not comment\n\n\\| not table \\|\n",
+    "expected_combined": "​* See Blah\n\n​# not comment\n\n​| not table |\n",
+    "expected_stdout": "​* See Blah\n\n​# not comment\n\n​| not table |\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/9159.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -t org -f markdown",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/9218.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/9218.md",
+      "sha256": "4b4e6277a02e1707c3bb2c90c463e4e6d8471270e456469c61970e4faf89d902"
+    },
+    "code_sha256": "72b9305a004416e2f52e932e07469b4c93d81c81e86bc6aa41dfaa1478afbea4",
+    "source_code": "% pandoc -f markdown -t org\n``` org\n** Click Application\n*** Imports\n\n#+begin_src py\nfrom addict import Dict\n#+end_src\n```\n^D\n#+begin_src org\n,** Click Application\n,*** Imports\n\n,#+begin_src py\nfrom addict import Dict\n,#+end_src\n#+end_src",
+    "command": "pandoc -f markdown -t org",
+    "stdin": "``` org\n** Click Application\n*** Imports\n\n#+begin_src py\nfrom addict import Dict\n#+end_src\n```\n",
+    "expected_combined": "#+begin_src org\n,** Click Application\n,*** Imports\n\n,#+begin_src py\nfrom addict import Dict\n,#+end_src\n#+end_src\n",
+    "expected_stdout": "#+begin_src org\n,** Click Application\n,*** Imports\n\n,#+begin_src py\nfrom addict import Dict\n,#+end_src\n#+end_src\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/9218.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f markdown -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/9475.md/#2",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/9475.md",
+      "sha256": "39219b64352b0ebf8a0c868422bc57378c5621ee3cfd504334b4218f949bd2eb"
+    },
+    "code_sha256": "eea70ad5f94d1de7ec304029cdfb33d193dc60785e8e0d3431e649e54d4d6ac4",
+    "source_code": "% pandoc -f native -t org\n[ Div\n    ( \"\" , [ \"note\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Note\" ] ]\n    , Para [ Str \"Useful\" , Space , Str \"note.\" ]\n    ]\n, Div\n    ( \"\" , [ \"warning\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Warning\" ] ]\n    , Para [ Str \"Be\" , Space , Str \"careful!\" ]\n    ]\n, Div\n    ( \"\" , [ \"tip\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Tip\" ] ]\n    , Para [ Str \"Try\" , Space , Str \"this\\8230\" ]\n    ]\n, Div\n    ( \"\" , [ \"caution\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Caution\" ] ]\n    , Para [ Str \"Caution\" ]\n    ]\n, Div\n    ( \"foo\" , [ \"important\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Important\" ] ]\n    , Para [ Str \"Important\" ]\n    ]\n]\n^D\n#+begin_note\nUseful note.\n#+end_note\n\n#+begin_warning\nBe careful!\n#+end_warning\n\n#+begin_tip\nTry this...\n#+end_tip\n\n#+begin_caution\nCaution\n#+end_caution\n\n#+name: foo\n#+begin_important\nImportant\n#+end_important",
+    "command": "pandoc -f native -t org",
+    "stdin": "[ Div\n    ( \"\" , [ \"note\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Note\" ] ]\n    , Para [ Str \"Useful\" , Space , Str \"note.\" ]\n    ]\n, Div\n    ( \"\" , [ \"warning\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Warning\" ] ]\n    , Para [ Str \"Be\" , Space , Str \"careful!\" ]\n    ]\n, Div\n    ( \"\" , [ \"tip\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Tip\" ] ]\n    , Para [ Str \"Try\" , Space , Str \"this\\8230\" ]\n    ]\n, Div\n    ( \"\" , [ \"caution\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Caution\" ] ]\n    , Para [ Str \"Caution\" ]\n    ]\n, Div\n    ( \"foo\" , [ \"important\" ] , [] )\n    [ Div ( \"\" , [ \"title\" ] , [] ) [ Para [ Str \"Important\" ] ]\n    , Para [ Str \"Important\" ]\n    ]\n]\n",
+    "expected_combined": "#+begin_note\nUseful note.\n#+end_note\n\n#+begin_warning\nBe careful!\n#+end_warning\n\n#+begin_tip\nTry this...\n#+end_tip\n\n#+begin_caution\nCaution\n#+end_caution\n\n#+name: foo\n#+begin_important\nImportant\n#+end_important\n",
+    "expected_stdout": "#+begin_note\nUseful note.\n#+end_note\n\n#+begin_warning\nBe careful!\n#+end_warning\n\n#+begin_tip\nTry this...\n#+end_tip\n\n#+begin_caution\nCaution\n#+end_caution\n\n#+name: foo\n#+begin_important\nImportant\n#+end_important\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/9475.md: top-level CodeBlock #2",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f native -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/figures-org.md/#1",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/figures-org.md",
+      "sha256": "42f3c145aac9a501d9c57fafb7e7fd5cb8b583f32a9e1f7a73f5b9d4077120b3"
+    },
+    "code_sha256": "444c2c1ef3124871b73320669bad1f3c1d100047b82f60549cef1781abc279da",
+    "source_code": "% pandoc -f native -t org\n[Figure (\"fig-id\",[],[]) (Caption Nothing []) [Para [Str \"content\"]]]\n\n^D\n<<fig-id>>\ncontent",
+    "command": "pandoc -f native -t org",
+    "stdin": "[Figure (\"fig-id\",[],[]) (Caption Nothing []) [Para [Str \"content\"]]]\n\n",
+    "expected_combined": "<<fig-id>>\ncontent\n",
+    "expected_stdout": "<<fig-id>>\ncontent\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/figures-org.md: top-level CodeBlock #1",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f native -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  },
+  {
+    "id": "pandoc/command/figures-org.md/#2",
+    "kind": "source-command-golden",
+    "source": {
+      "path": "upstream/pandoc/test/command/figures-org.md",
+      "sha256": "42f3c145aac9a501d9c57fafb7e7fd5cb8b583f32a9e1f7a73f5b9d4077120b3"
+    },
+    "code_sha256": "a83231d8417c13005a639511e46911e62c9658818bbef40f3f8e33f95b6404ba",
+    "source_code": "% pandoc -f native -t org\n[Figure (\"\",[],[]) (Caption Nothing []) [Para [Str \"content\"]]]\n\n^D\ncontent",
+    "command": "pandoc -f native -t org",
+    "stdin": "[Figure (\"\",[],[]) (Caption Nothing []) [Para [Str \"content\"]]]\n\n",
+    "expected_combined": "content\n",
+    "expected_stdout": "content\n",
+    "expected_stderr": "",
+    "expected_exit_status": 0,
+    "exit_marker_explicit": false,
+    "decomposition": "Conventional leading 2> stderr and final => integer; combined golden is authoritative, channel prefixes may collide with literal stdout.",
+    "expectation_origin": "upstream/pandoc/test/command/figures-org.md: top-level CodeBlock #2",
+    "upstream_execution": {
+      "cwd": "upstream/pandoc/test",
+      "shell": "pandoc -f native -t org",
+      "semantics": "Tests.Command.execTest: pandocToEmulate rewrites pandoc invocations; CR removed; stderr prefix and status appended"
+    },
+    "status": "unmapped",
+    "kotlin": null,
+    "gap": "No reviewed executable Kotlin CLI stdout/stderr/status assertion mapping. Reader-only or component observations do not discharge this command."
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "files": {
+    "tools/haskell-org-writer-reference/DemandOracle.hs": "8cde0d3466366fb457faec6b7cea071e2a3811996b77f1a05319d99561bb5737",
+    "tools/haskell-org-writer-reference/DemandExtraOracle.hs": "fa55f12fb739541f1ee50c23afb31abc742017395716d8a9882bee9d63c0b744",
+    "tools/haskell-org-writer-reference/DEMAND-NOTES.md": "068cfcb91df294636ab410e5de8b4b6d508268ecb8e0add69a5bd5242ff2a8a5",
+    "tools/haskell-org-writer-reference/check-demand.py": "c9756aa70b279177583767233d8b164a9682cfd65e360b09101a049b559f278b",
+    "tools/haskell-org-writer-reference/fixtures/demand-observations.jsonl.gz": "469cfe089b0d6fe854cd4ad49a6ea386406bb556edd125f6ce785a4c9adb6c98",
+    "tools/haskell-org-writer-reference/fixtures/demand-extra-observations.jsonl.gz": "22a97e48c1a43b9efef3c71c59b886e6b98a6bc5a2381350f31aaa42c4fc377e",
+    "tools/haskell-org-writer-reference/fixtures/history/OrgWriter-pre-demand.kt": "91c99a5e34b5de46a912faf8bd74c192d8c03e38ca89a3d52093629b9cbbf48b",
+    "tools/haskell-org-writer-reference/fixtures/history/pre-demand-freeze.json": "56f9e4e2e11aaa93144c7886ca6ff0810ecd748f8be87d52ecc60ba929881447",
+    "tools/haskell-org-writer-reference/fixtures/history/integration-pre-demand.json": "cebcf32d65a45fa3e80d2e127c6457a6a5748fd2c429141ebd64d6d3bbea378a",
+    "core/src/main/kotlin/io/heapy/kotdoc/writers/OrgWriter.kt": "3f4639f07392b77f6fadc933def0f7327eb47f3ff160f94329dec7f384c072c1",
+    "core/src/test/kotlin/io/heapy/kotdoc/writers/OrgWriterDemandTest.kt": "c0c07c86b33b5020a2fcb5c9e603324f9351d98078d7ab6e736b94103f96a6f2",
+    "core/src/test/resources/org-writer/demand-observations.jsonl.gz": "469cfe089b0d6fe854cd4ad49a6ea386406bb556edd125f6ce785a4c9adb6c98",
+    "core/src/test/resources/org-writer/demand-extra-observations.jsonl.gz": "22a97e48c1a43b9efef3c71c59b886e6b98a6bc5a2381350f31aaa42c4fc377e"
+  },
+  "runtime": {
+    "/tmp/kotdoc-org-writer/demand-oracle": "d5351c17f82419133c28b2773185c92494cab2de0dcfc3280d5fdcdfad3eec85",
+    "/tmp/kotdoc-org-writer/demand-extra-oracle": "5b3ee78ff49723748e85719ddedeb663f37165f4237a9743261c6b144ef47061"
+  }
+}

@@ -15094,3 +15094,51 @@ concurrency/physical-erasure/timing equivalence are not established. The bounded
 math proof is not universal large-number primality certification. OS/SystemDRG,
 remaining hashes/signatures/trust/chain and full613/Pandoc623/calibre624–626 stay
 OPEN; completion of this selected Prime module profile does not close that scope.
+
+
+### Complete Org writer and narrow output CLI checkpoint
+
+The pinned735-line Writers.Org module now has Kotlin paths for every Block/Inline
+branch, metadata/templates, footnote batches including nested notes, lists/tasks,
+Div/drawers/properties, tables/figures, citations/escaping and language mapping.
+The writer-used closure of334-line Citeproc.Locator, including its static locator
+map, is ported; full CSL Locale conversion is not claimed. The separate Text2.1.2
+casefold table has1557 mappings and retained full1114112-codepoint casefold/
+classifier proofs. CoreUnicodeText's distinct profile remains unchanged.
+
+Own full original replay passed5343 immutable module/test/helper observations and
+both exhaustive domain captures, including all eight original leaves/two Old
+goldens, realLength/header Int64/Unicode/deep4096 cases. Source review checked
+render/state/log order, note queues, template defaults, Locator token parsing and
+path/description escaping. All88 final frozen hashes match. No upstream program
+is a production conversion dependency.
+
+Before review freeze, author audit found a concrete table-demand bug: original
+Org ignores alignment/width tuple projections and uses only necessary column
+spine length, while shared DocumentShared.toLegacyTable eagerly projects them.
+Org now supplies local dummy specs by required count, renders caption first and
+avoids the count when all head/body/foot sections are absent. An empty TableBody
+or Row still requires normalization after caption, unlike no sections. Own nine
+original demand probes and additive source transformation checks pass; old5343
+finite expectations remain unchanged. Shared DocumentShared still has the
+reproduced eager-projection gap; its generic blocksToInlines resource/demand gap
+also remains in612. No shared helper was silently rewritten by this checkpoint.
+
+Initial44852 XML11832 zero and durable94708 CLI394 comparisons are retained as
+pre-local-fix evidence. Final23351 corrected XML has5354 actual zero-failure/
+error/skip cases (5352 observations plus two exhaustive-domain test bodies).
+Own integration verification proves4285 common classes unchanged and only two
+Org Session classes changed, including all18 CLI classes unchanged, binding
+earlier Muse/Doku/RST controls honestly. Corrected durable43004 proof has65 exact
+comparisons/five complete original commands, exit0/empty stderr; own report/log/
+immutable JAR hashes and106 byte-exact repository notices pass. The failed first
+prelaunch fixture-basename check is preserved and not counted as a test pass.
+
+Main/HtmlOptions changes only register Org output/inference/default template and
+its source template-error path. Of27 Org-output commands, five are fully executed;
+22 still need missing Markdown/default/Org/HTML/IPYNB readers or citeproc. Captured
+writer ASTs are not those full command executions. Org reader/full Locale, generic
+shared helper closure, HTTP/generalIO, global621 verbosity/-M/templates and the
+rest618/fullPandoc623/calibre624–626 remain OPEN. Finite deferred source adapters
+do not establish arbitrary Haskell-bottom/heap or beyond-JVM-output-capacity
+equivalence. No duplicate shared Gradle run was needed during independent review.

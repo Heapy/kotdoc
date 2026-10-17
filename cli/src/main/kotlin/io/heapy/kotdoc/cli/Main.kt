@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
         return
     }
     if (args.toList() == listOf("--list-output-formats")) {
-        println((listOf("dokuwiki", "fb2", "json", "muse", "native", "rst") + HtmlCliWriter.formats).sorted().joinToString("\n"))
+        println((listOf("dokuwiki", "fb2", "json", "muse", "native", "org", "rst") + HtmlCliWriter.formats).sorted().joinToString("\n"))
         return
     }
     try {
@@ -110,18 +110,18 @@ fun main(args: Array<String>) {
         }
         if (!explicitReader && input != null) {
             val inferred = FlavoredFormat.fromFilePaths(listOf(input))
-            val dokuOutput = FlavoredFormat.parse(to).name in listOf("dokuwiki", "muse", "rst") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("dokuwiki", "muse", "rst") } == true
+            val dokuOutput = FlavoredFormat.parse(to).name in listOf("dokuwiki", "muse", "org", "rst") || output?.let { FlavoredFormat.fromFilePaths(listOf(it))?.name in listOf("dokuwiki", "muse", "org", "rst") } == true
             if (inferred != null && (inferred.name in listOf("dokuwiki", "muse", "rst") || dokuOutput)) from = inferred.name
         }
         val inputFormat = FlavoredFormat.parse(from)
         if (!explicitWriter) {
             val inferred = output?.let { FlavoredFormat.fromFilePaths(listOf(it)) }
             if (inputFormat.name in listOf("dokuwiki", "muse", "rst")) to = inferred?.name ?: "html"
-            else if (inferred?.name in listOf("dokuwiki", "muse", "rst")) to = checkNotNull(inferred).name
+            else if (inferred?.name in listOf("dokuwiki", "muse", "org", "rst")) to = checkNotNull(inferred).name
         }
         val outputFormat = FlavoredFormat.parse(to)
         require(inputFormat.name in listOf("dokuwiki", "fb2", "json", "latex", "muse", "native", "rst")) { "Supported input formats: dokuwiki, fb2, json, latex, muse, native, rst (requested $from)" }
-        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "muse", "native", "rst") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
+        require(outputFormat.name in listOf("dokuwiki", "fb2", "json", "muse", "native", "org", "rst") || outputFormat.name in HtmlCliWriter.formats) { "Unsupported output format: $to" }
         val inputExtensions = ExtensionRegistry.config(inputFormat.name).apply(inputFormat)
         val outputExtensions = ExtensionRegistry.config(outputFormat.name).apply(outputFormat)
         from = inputFormat.name
@@ -161,6 +161,7 @@ fun main(args: Array<String>) {
             "dokuwiki" -> DokuWikiCli.write(writerOptions, document)
             "muse" -> MuseCliWriter.write(writerOptions, document)
             "rst" -> RstCliWriter.write(writerOptions, document)
+            "org" -> OrgCliWriter.write(writerOptions, document)
             "json" -> PandocJson.encode(document)
             "native" -> NativeWriter.write(document, writerOptions)
             in HtmlCliWriter.formats -> HtmlCliWriter.write(to, writerOptions, document)
