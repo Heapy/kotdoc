@@ -15772,3 +15772,47 @@ async/heap/ABI/backend, physical erasure or JVM constant-time proof is claimed.
 FullRSA.Types, SystemDRG/OS entropy, other signatures/trust/chain, missing hash
 backends/shared DigestData, rest613, fullPandoc623 and calibre624–626 remain OPEN.
 AsciiDoc and JSON drafts are excluded from this checkpoint.
+
+### JSON6 isolated decode/interface review (evidence only; not integrated)
+
+Independent review accepted only three corrections inside the uninstalled JSON6
+draft: complete manual Meta conversion before blocks lookup/conversion; each
+generated Citation field lookup together with its child parse before the next
+field; and a JSON-local fixed liftA3 implementing ap(liftA2 f a b)c without the
+extra Kotlin virtual method. Maybe Format KDoc now identifies its erased String
+payload; it does not supply source Format Eq/Ord or typed callback compatibility.
+
+The independent report /tmp/kotdoc-json6-decode-interface-independent-review.md
+(SHA256 ba1309f142336f81c53be115ae8da2b3e40a5735f9625f01858832ae3a8bbfb8)
+records72 verified hash bindings,121 field-order comparisons,253 dictionary,
+952 field-mutation,57 syntax/conversion and90 Map-effect comparisons, two author
+interface guards and four independent guards. These overlap and are not a JUnit
+total. Runs used only immutable correction/dependency/accepted-core JARs, with
+mutable build classes removed from the classpath. Coordinator rechecked all28
+frozen file hashes and the three JAR identities without executing any phase.
+
+Retained artifacts: /tmp/kotdoc-json6-decode-interface-final/correction.jar SHA256
+4411d3d8c428bd43be5342650dba02fe4b97ba9890eeb5224790b475e30f2977;
+dependency-candidates.jar SHA256
+708dc54823e40d40d1a5e2dacd556da888ef0a2a16f09e617c4ae3e6bb908487;
+accepted Data core JAR SHA256
+ac8e48679c07f3da604a42296c5b7f08c30c7ea26cc5430cdfa4c6d2f2c29113.
+The draft decode-interface-freeze.json SHA256 is
+5643ceba0781841476d2d00db4833d9b0483674d8f5f082d03edd082ea360825.
+Pre-fix39/121 failures, old sources/logs and unchanged expectations are retained.
+
+No candidate code, corpus, package or prerequisite baseline is accepted into Git
+by this evidence-only entry. The reference directory has no committed files;
+the28 reviewed paths depend on other unreviewed candidates. Their isolated JAR
+overlay is not a clean-checkout-reproducible source checkpoint. Sweeping that
+candidate tree into this commit would exceed the reviewed scope. Artifacts stay
+local pending a separately reviewed, retrievable prerequisite/source boundary.
+
+SharingDemandReference and builder/numeric phases remain STOPPED and unproved;
+saved1122/1496 rows and35-before/1-after failures are not acceptance. Nothing was
+rerun or repaired during this integration decision. Full partial/returned-carrier,
+default/member/constructor/deep coverage, source/interface/attribution closure,
+JUnit/package/distribution proof remain open. Accepted public Walk Applicative
+and PandocJson depth1024 decoder defects remain separate611/612 gaps. All140
+exports/350 source-instance member expansion, fullJSON6/611, Pandoc623 and
+calibre624–626 remain OPEN. This commit changes the ledger only.
