@@ -15142,3 +15142,49 @@ shared helper closure, HTTP/generalIO, global621 verbosity/-M/templates and the
 rest618/fullPandoc623/calibre624–626 remain OPEN. Finite deferred source adapters
 do not establish arbitrary Haskell-bottom/heap or beyond-JVM-output-capacity
 equivalence. No duplicate shared Gradle run was needed during independent review.
+
+
+### Derived GHC.Generic representation checkpoint
+
+All24 source-derived Generic instances (23 Definition types plus parameterized
+Builder.Many) now expose24 associated Rep types and48 from/to members. This is
+distinct from the earlier four Data traversals. Balanced D1/C1/S1/K1/U1/sum/product
+shapes follow actual GHC9.12.2 mkProd_P/mk1Sum/foldBal source, including metadata
+for24 datatypes/four methods,78 constructors/three methods and91 selectors/four
+methods. Boxed Int/Double/count DecidedUnpack fields remain K1, not unlifted URec.
+Many dictionaries add no invented Show/Read/Data/Typeable element constraints;
+Generic1 is not derived here. Build-specific package identity remains explicit.
+
+Own four original executable replays and actual GHC interface/source verification
+passed60 pins and1734 rows:85 complete shapes/metadata/field values/types/roundtrip
+cases,820 input/metadata demands,773 direct partial representations and56 custom/
+deep/rawIEEE/sharing observations. All78 constructors are covered; Many Int/Text/
+Bool/tuple/function and50000-deep values have distinct source carriers. Finite AST
+bridges are tested separately and do not claim every partial physical Seq/Map.
+
+Source review checked erased M1/K1 projection versus WHNF, sum selection, complete
+product-spine matching before strict fields, raw Many tree/digit roots without
+measuring Single/cells/middle, and custom whole-method application. Factories may
+be eager JVM methods; PandocGenericRep.from/to applications defer and memoize
+factory dispatch and intrinsic returned-carrier WHNF. Source GenericRepRoot
+protocol models custom constructor demand independently of Generic dictionaries.
+Historical product-spine/Many-root/custom-dispatch draft failures are retained.
+Prior85/820/773 corpora and40 custom-response prefix remain authenticated;16
+appended original cases include bounded NOINLINE/IORef effect-sharing evidence,
+not a universal unsafePerformIO guarantee.
+
+Final94862 XML contains24408 actual cases with zero failures/errors/skips:
+1738GenericRep (1734original rows,three JVM adapter checks,integrity) plus22670
+prior cases. Own52 frozen hashes, immutable JAR SHA,108 byte-exact notices and
+4299 unchanged prior non-GenericRep class entries pass; installDist JAR matches.
+Earlier24391 semantic and notice-only integrity snapshots remain separately
+preserved. GHC compiler2002 root license, base2004 license and exact Utrecht/
+Oxford/Glasgow attribution are retained and packaged distinctly. No existing
+production file changed; no duplicate shared Gradle run was required.
+
+Partial carriers must satisfy source types; JVM dynamic guards are not original
+ill-typed Haskell expectations. Arbitrary custom JVM classes provide intrinsic
+WHNF via GenericRepRoot/callbacks. Infinite/black-hole/async/parallel heap behavior
+and compiler-independent error order are not claimed. Full140-export audit,350
+SOURCE-instance member expansion, remaining Many/count Data/Typeable/Read/Show/
+EqOrd,Data.Version/JSON/filter supplement and rest611/Pandoc/calibre remain OPEN.

@@ -6,11 +6,11 @@ Generic4. Builder's Definition module re-export and imported(<>) operator are
 explicitly recorded separately. Operator behavior and all source instances still
 require the independent member/instance audit; they are not dropped from scope.
 All140 rows now have conservative classifications in export-matrix.json.
-Only25 Walk entries have an accepted finite source matrix, including the
-independently accepted9f9c6cb pure-demand/DefinitionList correction. Generic
-four-function rows are implemented and await independent review. Other rows distinguish
-representation, partial proof and missing behavior. No matching name closes a row.
-expanded-instances.json contains350 source-owned instance rows, including derived
+The current export matrix has103 accepted finite source-function rows, three
+accepted Num/Enum dictionary rows and five accepted finite dictionary rows.
+The other27 representation rows and two partial rows are not closed by names.
+Generic4 is independently accepted; the new24 derived Generic instances are a
+distinct source/member gate. expanded-instances.json contains350 source-owned instance rows, including derived
 and Template Haskell instances; their member audits remain explicit work.
 
 Read-only task snapshot: exact `kotgent task show local:611` in this project's cwd;
@@ -58,3 +58,5 @@ fields and list20000/Inline10000 deep tests. These author results are not yet an
 accepted Generic row or proof of every Data/Typeable/Generic/NFData class member.
 Full140 exports/350 expanded instances and JSON's ToJSONFilter supplement remain
 open, with Generic acceptance followed by generic Many/Num/Enum/metadata/API gates.
+
+Accepted Generic4 is1171e93b2c7666043e6bbfac387fd81f76f1b22c; NFData23 is7e9500f27942769cca9280fbde790859346f8093. The new derived-Generic instance checkpoint is distinct from Generic4 Data traversal. It adds author evidence for24 associated Rep types/48from-to members, with complete original metadata/shape, direct partial products and custom dictionaries. expanded-instances marks these24 as author evidence, not independent acceptance. NFData23 rows now reference accepted exact rnf evidence. Generic Many Eq/Ord/Read/Show/Data/Typeable and remaining Definition/count members, Data.Version, six ToJSONFilter and JSON supplement stay open;140-name classification is not closure.

@@ -1,0 +1,13 @@
+-- Module      :  GHC.Internal.Generics
+-- Copyright   :  (c) Universiteit Utrecht 2010-2011, University of Oxford 2012-2014
+-- License     :  see libraries/base/LICENSE
+--
+-- Maintainer  :  libraries@haskell.org
+-- Stability   :  internal
+-- Portability :  non-portable
+--
+{-
+(c) The University of Glasgow 2011
+
+-}
+

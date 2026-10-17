@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.IllegalStateException: TableBody/TableBody/race/child.child.right expected{"exception":"spine"} actual{"exception":"first"}
+	at io.heapy.kotdoc.ast.GenericRepDirectReplayKt.main(GenericRepDirectReplay.kt:66)
+	at io.heapy.kotdoc.ast.GenericRepDirectReplayKt.main(GenericRepDirectReplay.kt)

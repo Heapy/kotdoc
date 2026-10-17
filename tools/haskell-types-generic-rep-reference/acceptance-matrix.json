@@ -1,0 +1,402 @@
+{
+  "source_instances": 24,
+  "source_Generic_methods": 48,
+  "associated_Rep_types": 24,
+  "metadata_support": {
+    "Datatype_methods": 4,
+    "Datatype_bindings": 24,
+    "Constructor_methods": 3,
+    "Constructor_bindings": 78,
+    "Selector_methods": 4,
+    "Selector_bindings": 91
+  },
+  "source_total_instances_not_members": 350,
+  "source_finite_rows": 85,
+  "source_demand_rows": 820,
+  "source_direct_rep_rows": 773,
+  "source_custom_rows": 56,
+  "JVM_adapter_checks": 3,
+  "source_profile": "GHC9.12.2 -O2/pandoc-types1.23.1.2-inplace; finite bounded source carriers, no arbitrary GHC heap equivalence",
+  "instances": [
+    {
+      "type": "Pandoc",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:104",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Pandoc"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Meta",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:115",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Meta"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "MetaValue",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:126",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "MetaMap",
+        "MetaList",
+        "MetaBool",
+        "MetaString",
+        "MetaInlines",
+        "MetaBlocks"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "ListNumberStyle",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:184",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "DefaultStyle",
+        "Example",
+        "Decimal",
+        "LowerRoman",
+        "UpperRoman",
+        "LowerAlpha",
+        "UpperAlpha"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "ListNumberDelim",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:193",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "DefaultDelim",
+        "Period",
+        "OneParen",
+        "TwoParens"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Format",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:205",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Format"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "RowHeadColumns",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:219",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "RowHeadColumns"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Alignment",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:223",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "AlignLeft",
+        "AlignRight",
+        "AlignCenter",
+        "AlignDefault"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "ColWidth",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:229",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "ColWidth",
+        "ColWidthDefault"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Row",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:236",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Row"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "TableHead",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:240",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "TableHead"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "TableBody",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:246",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "TableBody"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "TableFoot",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:250",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "TableFoot"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Caption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:257",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Caption"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Cell",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:261",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Cell"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "RowSpan",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:265",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "RowSpan"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "ColSpan",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:269",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "ColSpan"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Block",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:273",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Plain",
+        "Para",
+        "LineBlock",
+        "CodeBlock",
+        "RawBlock",
+        "BlockQuote",
+        "OrderedList",
+        "BulletList",
+        "DefinitionList",
+        "Header",
+        "HorizontalRule",
+        "Table",
+        "Figure",
+        "Div"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "QuoteType",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:310",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "SingleQuote",
+        "DoubleQuote"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "MathType",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:344",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "DisplayMath",
+        "InlineMath"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Inline",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:347",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Str",
+        "Emph",
+        "Underline",
+        "Strong",
+        "Strikeout",
+        "Superscript",
+        "Subscript",
+        "SmallCaps",
+        "Quoted",
+        "Cite",
+        "Code",
+        "Space",
+        "SoftBreak",
+        "LineBreak",
+        "Math",
+        "RawInline",
+        "Link",
+        "Image",
+        "Note",
+        "Span"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Citation",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:370",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "Citation"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "CitationMode",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:382",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "constructors": [
+        "AuthorInText",
+        "SuppressAuthor",
+        "NormalCitation"
+      ],
+      "status": "author_original_isolated_matrix"
+    },
+    {
+      "type": "Many a",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:202",
+      "methods": [
+        "from",
+        "to"
+      ],
+      "associated_type": "Rep",
+      "element_constraints": [],
+      "witnesses": [
+        "Inline",
+        "Block",
+        "Int",
+        "Text",
+        "Bool",
+        "(Int,Maybe Text)",
+        "Int -> Int"
+      ],
+      "status": "author_original_isolated_matrix"
+    }
+  ],
+  "remaining": [
+    "generic Many Eq/Ord/Read/Show/Data/Typeable member expansion",
+    "Definition/count Data/Typeable full member expansion",
+    "Data.Version",
+    "six ToJSONFilter instances and JSON supplement",
+    "final140 exports/350 source-instance audit"
+  ]
+}
