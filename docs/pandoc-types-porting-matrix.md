@@ -881,3 +881,34 @@ plus rootGPL are exact;4,497 unrelated classes are unchanged. Only uncommitted
 Many family code changed (49 own classes/one added lexer class). The rejected
 33,300 execution remains preserved; independent re-review and full611 remaining
 gates are still open.
+
+### Data class dictionaries: 24 source instances, 336 member slots
+
+Generic Many correction was independently accepted at
+`0ba152e1345e55669d7cc7c011b043461d364c03`; its earlier pending/rejected notes above
+are historical evidence. The next Data family is separately under review.
+`tools/haskell-types-data-reference/acceptance-matrix.json` explicitly lists the
+23 Definition dictionaries and Builder.Many, each with all14 GHC Data members.
+It binds the original350-source-instance census without changing that census or
+confusing member expansion with instance count. Data dictionaries are distinct
+from the accepted four Generic traversal functions and24 GHC.Generic Rep instances.
+
+The current original-only Data corpora have1,003 response rows, with92 finite
+inputs producing1,748 comparisons; the complete replay makes2,659 original
+comparisons. There are two separate JVM dictionary-factory sharing assertions.
+The new JUnit registration intentionally has10 corpus-family cases plus one
+source-integrity case; internal comparisons are not inflated into JUnit counts.
+Evidence covers constructor programs/defaults, non-lawful custom dictionaries,
+callback function roots, State/Maybe/List order, ignored foreign Constr arguments,
+partial containers, strict fields/newtypes, returned carriers, shared failures,
+metadata String/error-message prefixes, primitive Int/Ratio/IEEE behavior and
+supporting dataCast1/2 results/payload demands. All pass isolated at512MiB/256KiB.
+
+SourceData canonical carriers and explicit lazy protocols are the behavior model;
+finite JVM String/Map Text/schema-valid DataNode bridges are identified separately.
+This checkpoint does not claim the complete Typeable reflection API, every
+supporting Data-module export/derived metadata class, arbitrary Haskell heaps,
+or native stack trace text. Full Typeable/count-derived/Data.Version/six
+ToJSONFilter gates, the140-export audit and remaining350-instance member expansion
+stay open. Final installed regression/package/source binding and independent Data
+review remain required before this family is accepted.

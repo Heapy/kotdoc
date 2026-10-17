@@ -1,0 +1,64 @@
+cabal-version: 3.0
+name: kotdoc-types-data-reference
+version: 0.1.0.0
+build-type: Simple
+license: BSD-3-Clause
+executable types-data-metadata-reference
+  main-is: DataMetadataReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, aeson ==2.2.3.0, bytestring
+
+executable types-data-demand-reference
+  main-is: DataDemandReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, aeson ==2.2.3.0, bytestring
+
+executable types-data-finite-reference
+  main-is: DataFiniteReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, aeson ==2.2.3.0, bytestring, mtl, text ==2.1.2, containers ==0.7
+
+executable types-data-custom-reference
+  main-is: DataCustomReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring
+
+executable types-data-support-reference
+  main-is: DataSupportReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring, text ==2.1.2, containers ==0.7
+
+executable types-data-carrier-reference
+  main-is: DataCarrierReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, aeson ==2.2.3.0, bytestring, text ==2.1.2, containers ==0.7
+
+executable types-data-numeric-reference
+  main-is: DataNumericReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring
+
+executable types-data-sharing-reference
+  main-is: DataSharingReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, pandoc-types ==1.23.1.2, aeson ==2.2.3.0, bytestring, text ==2.1.2, containers ==0.7
+
+executable types-data-metadata-partial-reference
+  main-is: DataMetadataPartialReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring
+
+executable types-data-cast-reference
+  main-is: DataCastReference.hs
+  default-language: Haskell2010
+  ghc-options: -O2 -rtsopts
+  build-depends: base >=4.21 && <4.22, aeson ==2.2.3.0, bytestring, containers ==0.7, text ==2.1.2

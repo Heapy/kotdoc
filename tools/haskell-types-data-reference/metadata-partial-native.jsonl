@@ -1,0 +1,8 @@
+["datatype-prefix","D"]
+["constructor-prefix","C"]
+["field-prefix","f"]
+["constr-type-prefix","D"]
+["index-ignores-names","1"]
+["fixity-demand","error"]
+["error-message-prefix","GHC.Intern"]
+["error-message-full","error"]

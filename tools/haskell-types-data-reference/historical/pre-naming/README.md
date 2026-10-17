@@ -1,0 +1,1 @@
+Rejected compile integration baseline47363: ast.PandocData conflicted with existing resources.PandocData in an accepted Org wildcard import. Original expectations and native semantics were unchanged. source-manifest.json is historical, not a validation of current installed paths. PandocData.kt retains the exact former API object source.

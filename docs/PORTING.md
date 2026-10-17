@@ -15525,3 +15525,35 @@ equivalence are not claimed. Source full-scan/XOR behavior is not a JVM timing
 guarantee. PKCS15/PSS,fullRSA.Types,SystemDRG/OS entropy,other signatures,missing
 hash families/optimized backends,Digest Data,X509 trust/chain and full613/
 Pandoc623/calibre624–626 remain OPEN.
+
+### Data class checkpoint: 24 instances / 336 member slots
+
+Accepted the source-derived Data protocol for23 Definition instances and generic
+Many, with14 class members/defaults each. The350 census counts source instances,
+not methods; this checkpoint does not close that census or all140 exports.
+Two new production files preserve arbitrary dictionary callbacks, lazy constructor
+metadata and payloads, source-derived gmap defaults, intrinsic returned-carrier
+roots and synchronous success/failure sharing. Concrete finite AST bridges and
+canonical Text/Map/Seq representations are distinct from unrestricted Typeable
+or arbitrary GHC heap equivalence.
+
+Independent review read the pinned defaults/derivation and implementation,
+replayed all10 original corpora (1003 response rows /2659 internal comparisons),
+verified99 source pins and all three actual GHC interfaces, and challenged four
+high-risk cases against the immutable final JAR at128MiB/256KiB: ignored bottom
+constructor, ignored numeric payload, foreign-tag final alternative and shared
+returned-carrier failure. All passed. Frozen79 paths and evidence hashes match;
+final48869 XML contains16778 cases with zero failures/errors/skips, including
+11 Data family/integrity cases rather than2659 separately counted JUnit cases.
+The snapshot JAR ac8e48679c07f3da604a42296c5b7f08c30c7ea26cc5430cdfa4c6d2f2c29113
+contains114 upstream notices plus root GPL, byte-checked independently. Author
+package proof records4578 unchanged prior classes/96 new AST classes and installed
+JAR identity. Evidence is retained in /tmp/kotdoc-data-final-results.
+
+Initial47363 naming-conflict failure, prior source/manifest and JAR remain
+preserved under historical/pre-naming and the evidence directory; the correction
+renamed only the new API to PandocDataClass. No accepted production file changed.
+The5 saved XML suites and immutable snapshot are used independently of later
+AsciiDoc/MD2 work. General Typeable, remaining instance/member expansion, count
+contracts, Data.Version, JSON filter/supplement, full611/Pandoc623 and calibre
+624–626 remain OPEN. No duplicate shared Gradle was run for this review.

@@ -1,0 +1,46 @@
+Data-family translated source attribution
+
+Verbatim copyright lines from the pinned originals follow.
+Full license texts: GHC-base-BSD-3-Clause.txt, GHC-Compiler-BSD.txt,
+ghc-bignum-BSD-3-Clause.txt, Containers-BSD-3-Clause.txt,
+text-BSD-2-Clause.txt and pandoc-types-BSD-3-Clause.txt.
+
+OriginalData.hs
+-- Copyright   :  (c) The University of Glasgow, CWI 2001--2004
+
+OriginalDerivGenerate.hs
+(c) The University of Glasgow 2006
+(c) The GRASP/AQUA Project, Glasgow University, 1992-1998
+
+OriginalReal.hs
+-- Copyright   :  (c) The University of Glasgow, 1994-2002
+
+OriginalFloat.hs
+-- Copyright   :  (c) The University of Glasgow 1994-2002
+--                Portions obtained from hbc (c) Lennart Augusstson
+
+OriginalInteger.hs
+-- Copyright   :  (c) Sylvain Henry 2019,
+--                (c) Herbert Valerio Riedel 2014
+
+vendor/text-2.1.2/src/Data/Text.hs
+-- Copyright   : (c) 2009, 2010, 2011, 2012 Bryan O'Sullivan,
+--               (c) 2009 Duncan Coutts,
+--               (c) 2008, 2009 Tom Harper
+--               (c) 2021 Andrew Lelechenko
+
+vendor/containers-0.7/src/Data/Map/Internal.hs
+-- Copyright   :  (c) Daan Leijen 2002
+--                (c) Andriy Palamarchuk 2008
+
+tools/haskell-types-generic-reference/OriginalSequenceInternal.hs
+-- Copyright   :  (c) Ross Paterson 2005
+--                (c) Louis Wasserman 2009
+--                (c) Bertram Felgenhauer, David Feuer, Ross Paterson, and
+--                    Milan Straka 2014
+
+upstream/pandoc-types/src/Text/Pandoc/Definition.hs
+Copyright (c) 2006-2023, John MacFarlane
+
+upstream/pandoc-types/src/Text/Pandoc/Builder.hs
+Copyright (C) 2010-2023 John MacFarlane
