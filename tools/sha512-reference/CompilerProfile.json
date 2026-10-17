@@ -1,0 +1,29 @@
+{
+  "nativeCompiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "flags": [
+    "-O2",
+    "-std=c99",
+    "-DNO_INLINE_ASM"
+  ],
+  "host": "arm64",
+  "byteOrder": "little",
+  "nativePortableBackend": "generic; neither WITH_ARMV8_SHA512 nor WITH_X86_SHA512_ASM defined",
+  "actualHaskellCompiler": "GHC9.12.2 -O2; unmodified crypton package; integer-gmp and RAM0.22.1",
+  "context": {
+    "cSize": 208,
+    "haskellSize": 256,
+    "uninitializedTailExcluded": 48
+  },
+  "limits": [
+    "actual32bit ABI and big-endian not executed",
+    "no universal strict-alias/timing/scrubbing proof",
+    "uint32 prefix loop overflow and insufficient pointers excluded"
+  ],
+  "verifiedProfiles": [
+    "portable generic -O0",
+    "portable generic -O2",
+    "portable generic -O3",
+    "actual ARMv8 dispatcher -O2, runtime availability=1"
+  ],
+  "actualHaskellBackend": "Cabal arch(aarch64): WITH_ARMV8_SHA512; actual runtime reports extension available"
+}

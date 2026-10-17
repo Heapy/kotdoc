@@ -14722,3 +14722,40 @@ Pandoc Parsing.GridTable302 adapter/cell-block callbacks,full1962-line RST
 reader,37 original tests,three Old goldens,directives/runtime/CLI remain OPEN.
 Incomplete reader drafts stay outsidecore and outside this commit. Full618,
 Pandoc623 and calibre624–626 are not completed by this prerequisite slice.
+
+
+### Portable SHA512-family bounded checkpoint
+
+All23 portable definitions (eleven exports,five chunk/prefix adapters,seven
+masked helpers),eighty constants and selected public SHA384/SHA512/SHA512t224/
+256 Hash/Digest contracts are translated. Only SHA384/SHA512 expose source
+prefix capability. Independent generic C replay passed9974 rows/33 pins with
+separate mechanical schedule/eighty-round observers matched to ordinary C.
+Own actual Haskell replay passed2892 rows including1600 original generator
+samples and the26-example HashSpec partition with eight properties×200.
+Author full-corpus generic O0/O2/O3 and actual ARM dispatcher O2 agree;the host
+reports the SHA512 extension available. Conditional instruction backends are
+reference profiles,not translated assembly claims.
+
+Saved Gradle95294 XML contains11608 actual zero-failure/error/skip cases.
+Own35 frozen hashes,seven packaged classes,absence of JDK digest/JNA calls and
+three exact notices pass;jar/installDist passed with identical core jars.
+Counter carry/bit-length wrap,masked comparisons,prefix truncation/negative
+uint32 conversion,input-output alias write order,derived IVs,immutable context
+copy and Digest Read/Show/Ord/length retain source behavior. Raw SHA512t>=512
+init retains the zero branch;finalize is bounded0..512 to exclude source local
+temporary over-read;public t is only224/256.
+
+Raw logical context is208 bytes;Haskell reserves256 with uninitialized48-byte
+tail excluded from public comparisons but retained as raw guards. Runtime
+algorithm dictionaries do not enforce Haskell phantom typing or arbitrary lazy
+list demands. Prefix loops are finite tested buffers. An actionable representation gap remains:
+Kotlin len+144 can overflow signed Int for otherwise valid ByteArray lengths
+above Int.MAX_VALUE-144,while the original uint32 bound still fits. Followup
+must use overflow-safe loop/index comparisons and virtual boundary probes;
+this does not require claiming a real huge allocation test. Other huge-buffer
+execution remains an unverified resource limit. This accepted bounded
+checkpoint is not full-module equivalence. Host endian/alignment/strict-alias casts,
+JVM timing/physical scrubbing and other ABIs remain explicit limits. ChaCha
+StateSimple/DRG/Probabilistic/Prime,other signatures/trust/chain and remaining
+local:613/full Pandoc623/calibre624–626 stay OPEN.

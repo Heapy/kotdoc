@@ -1,0 +1,141 @@
+{
+  "definitions": [
+    {
+      "name": "crypton_sha384_init",
+      "source": "cbits/crypton_sha512.c",
+      "line": 30
+    },
+    {
+      "name": "crypton_sha512_init",
+      "source": "cbits/crypton_sha512.c",
+      "line": 44
+    },
+    {
+      "name": "sha512_do_chunk_generic",
+      "source": "cbits/crypton_sha512.c",
+      "line": 94
+    },
+    {
+      "name": "sha512_do_chunk",
+      "source": "cbits/crypton_sha512.c",
+      "line": 157
+    },
+    {
+      "name": "crypton_sha384_update",
+      "source": "cbits/crypton_sha512.c",
+      "line": 175
+    },
+    {
+      "name": "crypton_sha512_update",
+      "source": "cbits/crypton_sha512.c",
+      "line": 180
+    },
+    {
+      "name": "crypton_sha384_finalize",
+      "source": "cbits/crypton_sha512.c",
+      "line": 232
+    },
+    {
+      "name": "crypton_sha384_finalize_prefix",
+      "source": "cbits/crypton_sha512.c",
+      "line": 240
+    },
+    {
+      "name": "crypton_sha512_finalize",
+      "source": "cbits/crypton_sha512.c",
+      "line": 248
+    },
+    {
+      "name": "crypton_sha512_get_index",
+      "source": "cbits/crypton_sha512.c",
+      "line": 279
+    },
+    {
+      "name": "crypton_sha512_incr_sz",
+      "source": "cbits/crypton_sha512.c",
+      "line": 284
+    },
+    {
+      "name": "crypton_sha512_select_digest",
+      "source": "cbits/crypton_sha512.c",
+      "line": 292
+    },
+    {
+      "name": "crypton_sha512t_init",
+      "source": "cbits/crypton_sha512.c",
+      "line": 305
+    },
+    {
+      "name": "crypton_sha512t_update",
+      "source": "cbits/crypton_sha512.c",
+      "line": 352
+    },
+    {
+      "name": "crypton_sha512t_finalize",
+      "source": "cbits/crypton_sha512.c",
+      "line": 357
+    },
+    {
+      "name": "constant_time_msb",
+      "source": "cbits/crypton_hash_prefix.h",
+      "line": 30
+    },
+    {
+      "name": "constant_time_lt",
+      "source": "cbits/crypton_hash_prefix.h",
+      "line": 35
+    },
+    {
+      "name": "constant_time_ge",
+      "source": "cbits/crypton_hash_prefix.h",
+      "line": 40
+    },
+    {
+      "name": "constant_time_is_zero",
+      "source": "cbits/crypton_hash_prefix.h",
+      "line": 45
+    },
+    {
+      "name": "constant_time_eq",
+      "source": "cbits/crypton_hash_prefix.h",
+      "line": 50
+    },
+    {
+      "name": "constant_time_msb_64",
+      "source": "cbits/crypton_hash_prefix.h",
+      "line": 55
+    },
+    {
+      "name": "constant_time_lt_64",
+      "source": "cbits/crypton_hash_prefix.h",
+      "line": 60
+    },
+    {
+      "name": "CRYPTON_HASHED(finalize_prefix)",
+      "source": "cbits/crypton_hash_prefix.c",
+      "line": 27
+    }
+  ],
+  "portableCount": 23,
+  "publicExports": 11,
+  "roundConstants": 80,
+  "algorithms": [
+    "SHA384",
+    "SHA512",
+    "SHA512t_224",
+    "SHA512t_256"
+  ],
+  "conditionalBackends": [
+    "WITH_ARMV8_SHA512",
+    "WITH_X86_SHA512_ASM"
+  ],
+  "rawTDomain": "init:all uint32;finalize:0..512 output bytes=floor(t/8);header documents multiples of8",
+  "prefixDomain": "readable len bytes; uint32 conversion; len+144 must not wrap for finite bridge",
+  "remaining": [
+    "ChaChaDRG/Probabilistic/Prime",
+    "signatures",
+    "trust/chain",
+    "full613",
+    "Pandoc623/calibre624-626"
+  ]
+}
