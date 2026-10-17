@@ -1,0 +1,44 @@
+--- accepted/PandocMany.kt
++++ current/PandocMany.kt
+@@ -16,9 +16,11 @@
+ internal sealed interface ManyTree<A>{
+  val size:Long
+  class Empty<A>:ManyTree<A>{override val size=0L}
+- class Single<A>(cell:()->ManyCell<A>,override val size:Long):ManyTree<A>{
++ class Single<A>(cell:()->ManyCell<A>,size:()->Long):ManyTree<A>{
+   private val field=ManyThunk(cell);val cell get()=field.get()
+-  constructor(cell:ManyCell<A>):this({cell},cell.size)
++  private val measured=ManyThunk(size);override val size:Long get()=measured.get()
++  constructor(cell:()->ManyCell<A>,size:Long):this(cell,{size})
++  constructor(cell:ManyCell<A>):this({cell},{cell.size})
+  }
+  class Deep<A>(prefix:()->List<ManyCell<A>>,middle:()->ManyTree<A>,suffix:()->List<ManyCell<A>>,override val size:Long):ManyTree<A>{
+   private val first=ManyThunk(prefix);val prefix get()=first.get()
+@@ -29,7 +31,7 @@
+  }
+ }
+ internal class ManyView<A,B>(first:()->A,second:()->B){private val a=ManyThunk(first);private val b=ManyThunk(second);val first get()=a.get();val second get()=b.get()}
+-private class ManyWork<A>(val tree:(()->ManyTree<A>)?=null,val cell:ManyCell<A>?=null)
++private class ManyWork<A>(val tree:(()->ManyTree<A>)?=null,val cell:(()->ManyCell<A>)?=null)
+ internal object ManyTrees {
+  fun <A> fromCells(cells:List<ManyCell<A>>):ManyTree<A>{
+   val n=cells.size
+@@ -158,15 +160,15 @@
+  internal fun cells(reverse:Boolean=false):Iterator<ManyCell.Leaf<A>> = object:Iterator<ManyCell.Leaf<A>> {
+   private val pending=ArrayDeque<ManyWork<A>>().also{it.addLast(ManyWork(tree={this@Many.tree.get()}))}
+   private var next:ManyCell.Leaf<A>?=null
+-  private fun push(cells:List<ManyCell<A>>){for(cell in if(reverse)cells else cells.asReversed())pending.addLast(ManyWork(cell=cell))}
++  private fun push(cells:List<ManyCell<A>>){for(index in if(reverse)cells.indices else cells.indices.reversed())pending.addLast(ManyWork(cell={cells[index]}))}
+   private fun prepare():Boolean {
+    if(next!=null)return true
+    while(pending.isNotEmpty()){
+-    val work=pending.removeLast();val cell=work.cell
++    val work=pending.removeLast();val cell=work.cell?.invoke()
+     if(cell!=null)when(cell){is ManyCell.Leaf->{next=cell;return true};is ManyCell.Node->push(cell.children)}
+     else when(val tree=work.tree!!()){
+      is ManyTree.Empty->Unit
+-     is ManyTree.Single->pending.addLast(ManyWork(cell=tree.cell))
++     is ManyTree.Single->pending.addLast(ManyWork(cell={tree.cell}))
+      is ManyTree.Deep->{push(if(reverse)tree.prefix else tree.suffix);pending.addLast(ManyWork(tree={tree.middle}));push(if(reverse)tree.suffix else tree.prefix)}
+     }
+    }

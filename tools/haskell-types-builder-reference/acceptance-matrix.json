@@ -1,0 +1,1048 @@
+{
+  "public_export_rows": 50,
+  "Builder_owned": 49,
+  "Definition_owned": 1,
+  "rows": [
+    {
+      "id": "Definition/nullAttr",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Definition.hs:201",
+      "symbol": "nullAttr",
+      "source_protocol": "PandocBuilders.nullAttr",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "nullAttr/root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/text",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:331",
+      "symbol": "text",
+      "source_protocol": "PandocBuilders.text",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "text/length",
+        "text/element-root",
+        "text/text/length",
+        "text/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/str",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:349",
+      "symbol": "str",
+      "source_protocol": "PandocBuilders.str",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "str/length",
+        "str/element-root",
+        "str/text/length",
+        "str/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/emph",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:352",
+      "symbol": "emph",
+      "source_protocol": "PandocBuilders.emph",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "emph/length",
+        "emph/element-root",
+        "emph/inlines/length",
+        "emph/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/underline",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:355",
+      "symbol": "underline",
+      "source_protocol": "PandocBuilders.underline",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "underline/length",
+        "underline/element-root",
+        "underline/inlines/length",
+        "underline/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/strong",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:358",
+      "symbol": "strong",
+      "source_protocol": "PandocBuilders.strong",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "strong/length",
+        "strong/element-root",
+        "strong/inlines/length",
+        "strong/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/strikeout",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:361",
+      "symbol": "strikeout",
+      "source_protocol": "PandocBuilders.strikeout",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "strikeout/length",
+        "strikeout/element-root",
+        "strikeout/inlines/length",
+        "strikeout/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/superscript",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:364",
+      "symbol": "superscript",
+      "source_protocol": "PandocBuilders.superscript",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "superscript/length",
+        "superscript/element-root",
+        "superscript/inlines/length",
+        "superscript/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/subscript",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:367",
+      "symbol": "subscript",
+      "source_protocol": "PandocBuilders.subscript",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "subscript/length",
+        "subscript/element-root",
+        "subscript/inlines/length",
+        "subscript/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/smallcaps",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:370",
+      "symbol": "smallcaps",
+      "source_protocol": "PandocBuilders.smallcaps",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "smallcaps/length",
+        "smallcaps/element-root",
+        "smallcaps/inlines/length",
+        "smallcaps/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/singleQuoted",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:373",
+      "symbol": "singleQuoted",
+      "source_protocol": "PandocBuilders.singleQuoted",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "singleQuoted/length",
+        "singleQuoted/element-root",
+        "singleQuoted/inlines/length",
+        "singleQuoted/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/doubleQuoted",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:376",
+      "symbol": "doubleQuoted",
+      "source_protocol": "PandocBuilders.doubleQuoted",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "doubleQuoted/length",
+        "doubleQuoted/element-root",
+        "doubleQuoted/inlines/length",
+        "doubleQuoted/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/cite",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:382",
+      "symbol": "cite",
+      "source_protocol": "PandocBuilders.cite",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "cite/length",
+        "cite/element-root",
+        "cite/citations/length",
+        "cite/citations/element-root",
+        "cite/inlines/length",
+        "cite/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/codeWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:386",
+      "symbol": "codeWith",
+      "source_protocol": "PandocBuilders.codeWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "codeWith/length",
+        "codeWith/element-root",
+        "codeWith/attr/length",
+        "codeWith/attr/element-root",
+        "codeWith/text/length",
+        "codeWith/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/code",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:390",
+      "symbol": "code",
+      "source_protocol": "PandocBuilders.code",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "code/length",
+        "code/element-root",
+        "code/text/length",
+        "code/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/space",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:393",
+      "symbol": "space",
+      "source_protocol": "PandocBuilders.space",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "space/length",
+        "space/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/softbreak",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:396",
+      "symbol": "softbreak",
+      "source_protocol": "PandocBuilders.softbreak",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "softbreak/length",
+        "softbreak/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/linebreak",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:399",
+      "symbol": "linebreak",
+      "source_protocol": "PandocBuilders.linebreak",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "linebreak/length",
+        "linebreak/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/math",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:403",
+      "symbol": "math",
+      "source_protocol": "PandocBuilders.math",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "math/length",
+        "math/element-root",
+        "math/text/length",
+        "math/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/displayMath",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:407",
+      "symbol": "displayMath",
+      "source_protocol": "PandocBuilders.displayMath",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "displayMath/length",
+        "displayMath/element-root",
+        "displayMath/text/length",
+        "displayMath/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/rawInline",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:410",
+      "symbol": "rawInline",
+      "source_protocol": "PandocBuilders.rawInline",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "rawInline/length",
+        "rawInline/element-root",
+        "rawInline/format/length",
+        "rawInline/format/element-root",
+        "rawInline/text/length",
+        "rawInline/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/link",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:413",
+      "symbol": "link",
+      "source_protocol": "PandocBuilders.link",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "link/length",
+        "link/element-root",
+        "link/url/length",
+        "link/url/element-root",
+        "link/title/length",
+        "link/title/element-root",
+        "link/inlines/length",
+        "link/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/linkWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:419",
+      "symbol": "linkWith",
+      "source_protocol": "PandocBuilders.linkWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "linkWith/length",
+        "linkWith/element-root",
+        "linkWith/attr/length",
+        "linkWith/attr/element-root",
+        "linkWith/url/length",
+        "linkWith/url/element-root",
+        "linkWith/title/length",
+        "linkWith/title/element-root",
+        "linkWith/inlines/length",
+        "linkWith/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/image",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:426",
+      "symbol": "image",
+      "source_protocol": "PandocBuilders.image",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "image/length",
+        "image/element-root",
+        "image/url/length",
+        "image/url/element-root",
+        "image/title/length",
+        "image/title/element-root",
+        "image/inlines/length",
+        "image/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/imageWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:432",
+      "symbol": "imageWith",
+      "source_protocol": "PandocBuilders.imageWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "imageWith/length",
+        "imageWith/element-root",
+        "imageWith/attr/length",
+        "imageWith/attr/element-root",
+        "imageWith/url/length",
+        "imageWith/url/element-root",
+        "imageWith/title/length",
+        "imageWith/title/element-root",
+        "imageWith/inlines/length",
+        "imageWith/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/note",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:439",
+      "symbol": "note",
+      "source_protocol": "PandocBuilders.note",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "note/length",
+        "note/element-root",
+        "note/blocks/length",
+        "note/blocks/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/spanWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:442",
+      "symbol": "spanWith",
+      "source_protocol": "PandocBuilders.spanWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "spanWith/length",
+        "spanWith/element-root",
+        "spanWith/attr/length",
+        "spanWith/attr/element-root",
+        "spanWith/inlines/length",
+        "spanWith/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/trimInlines",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:254",
+      "symbol": "trimInlines",
+      "source_protocol": "PandocBuilders.trimInlines",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 972,
+      "demand_native_cases": [
+        "trimInlines/length",
+        "trimInlines/element-root",
+        "trimInlines/inlines/length",
+        "trimInlines/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/para",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:447",
+      "symbol": "para",
+      "source_protocol": "PandocBuilders.para",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "para/length",
+        "para/element-root",
+        "para/inlines/length",
+        "para/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/plain",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:450",
+      "symbol": "plain",
+      "source_protocol": "PandocBuilders.plain",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "plain/length",
+        "plain/element-root",
+        "plain/inlines/length",
+        "plain/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/lineBlock",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:455",
+      "symbol": "lineBlock",
+      "source_protocol": "PandocBuilders.lineBlock",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "lineBlock/length",
+        "lineBlock/element-root",
+        "lineBlock/lines/length",
+        "lineBlock/lines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/codeBlockWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:459",
+      "symbol": "codeBlockWith",
+      "source_protocol": "PandocBuilders.codeBlockWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "codeBlockWith/length",
+        "codeBlockWith/element-root",
+        "codeBlockWith/attr/length",
+        "codeBlockWith/attr/element-root",
+        "codeBlockWith/text/length",
+        "codeBlockWith/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/codeBlock",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:463",
+      "symbol": "codeBlock",
+      "source_protocol": "PandocBuilders.codeBlock",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "codeBlock/length",
+        "codeBlock/element-root",
+        "codeBlock/text/length",
+        "codeBlock/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/rawBlock",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:466",
+      "symbol": "rawBlock",
+      "source_protocol": "PandocBuilders.rawBlock",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "rawBlock/length",
+        "rawBlock/element-root",
+        "rawBlock/format/length",
+        "rawBlock/format/element-root",
+        "rawBlock/text/length",
+        "rawBlock/text/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/blockQuote",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:469",
+      "symbol": "blockQuote",
+      "source_protocol": "PandocBuilders.blockQuote",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "blockQuote/length",
+        "blockQuote/element-root",
+        "blockQuote/blocks/length",
+        "blockQuote/blocks/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/bulletList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:480",
+      "symbol": "bulletList",
+      "source_protocol": "PandocBuilders.bulletList",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "bulletList/length",
+        "bulletList/element-root",
+        "bulletList/items/length",
+        "bulletList/items/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/orderedListWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:473",
+      "symbol": "orderedListWith",
+      "source_protocol": "PandocBuilders.orderedListWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "orderedListWith/length",
+        "orderedListWith/element-root",
+        "orderedListWith/attributes/length",
+        "orderedListWith/attributes/element-root",
+        "orderedListWith/items/length",
+        "orderedListWith/items/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/orderedList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:477",
+      "symbol": "orderedList",
+      "source_protocol": "PandocBuilders.orderedList",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "orderedList/length",
+        "orderedList/element-root",
+        "orderedList/items/length",
+        "orderedList/items/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/definitionList",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:483",
+      "symbol": "definitionList",
+      "source_protocol": "PandocBuilders.definitionList",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "definitionList/length",
+        "definitionList/element-root",
+        "definitionList/definitions/length",
+        "definitionList/definitions/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/header",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:486",
+      "symbol": "header",
+      "source_protocol": "PandocBuilders.header",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 42,
+      "demand_native_cases": [
+        "header/length",
+        "header/element-root",
+        "header/level/length",
+        "header/level/element-root",
+        "header/inlines/length",
+        "header/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/headerWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:491",
+      "symbol": "headerWith",
+      "source_protocol": "PandocBuilders.headerWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 42,
+      "demand_native_cases": [
+        "headerWith/length",
+        "headerWith/element-root",
+        "headerWith/attr/length",
+        "headerWith/attr/element-root",
+        "headerWith/level/length",
+        "headerWith/level/element-root",
+        "headerWith/inlines/length",
+        "headerWith/inlines/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/horizontalRule",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:494",
+      "symbol": "horizontalRule",
+      "source_protocol": "PandocBuilders.horizontalRule",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "horizontalRule/length",
+        "horizontalRule/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/figure",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:562",
+      "symbol": "figure",
+      "source_protocol": "PandocBuilders.figure",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "figure/length",
+        "figure/element-root",
+        "figure/caption/length",
+        "figure/caption/element-root",
+        "figure/blocks/length",
+        "figure/blocks/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/figureWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:565",
+      "symbol": "figureWith",
+      "source_protocol": "PandocBuilders.figureWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "figureWith/length",
+        "figureWith/element-root",
+        "figureWith/attr/length",
+        "figureWith/attr/element-root",
+        "figureWith/caption/length",
+        "figureWith/caption/element-root",
+        "figureWith/blocks/length",
+        "figureWith/blocks/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/caption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:568",
+      "symbol": "caption",
+      "source_protocol": "PandocBuilders.caption",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "caption/short-root",
+        "caption/blocks-root",
+        "caption/short-payload",
+        "caption/long-head"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/simpleCaption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:571",
+      "symbol": "simpleCaption",
+      "source_protocol": "PandocBuilders.simpleCaption",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "simpleCaption/blocks-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/emptyCaption",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:574",
+      "symbol": "emptyCaption",
+      "source_protocol": "PandocBuilders.emptyCaption",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "emptyCaption/root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/simpleFigureWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:580",
+      "symbol": "simpleFigureWith",
+      "source_protocol": "PandocBuilders.simpleFigureWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "Original p_figureRepresentation:305 native inputs and unchanged predicate; exact module example also captured",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "simpleFigureWith/length",
+        "simpleFigureWith/element-root",
+        "simpleFigureWith/attr/length",
+        "simpleFigureWith/attr/element-root",
+        "simpleFigureWith/inlines/length",
+        "simpleFigureWith/inlines/element-root",
+        "simpleFigureWith/url/length",
+        "simpleFigureWith/url/element-root",
+        "simpleFigureWith/title/length",
+        "simpleFigureWith/title/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/simpleFigure",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:585",
+      "symbol": "simpleFigure",
+      "source_protocol": "PandocBuilders.simpleFigure",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "Original p_figureRepresentation:305 native inputs and unchanged predicate; exact module example also captured",
+      "finite_native_cases": 63,
+      "demand_native_cases": [
+        "simpleFigure/length",
+        "simpleFigure/element-root",
+        "simpleFigure/inlines/length",
+        "simpleFigure/inlines/element-root",
+        "simpleFigure/url/length",
+        "simpleFigure/url/element-root",
+        "simpleFigure/title/length",
+        "simpleFigure/title/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    },
+    {
+      "id": "Builder/divWith",
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:588",
+      "symbol": "divWith",
+      "source_protocol": "PandocBuilders.divWith",
+      "source_file": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocBuilders.kt",
+      "finite_bridge": "BuilderReplay.builderExecute via PandocBuilders.toInlines/toBlocks or GenericAstData Caption/Attr",
+      "original_tests": "No standalone original registered test for this export; unchanged81-test registered suite is a separate regression gate.",
+      "finite_native_cases": 36,
+      "demand_native_cases": [
+        "divWith/length",
+        "divWith/element-root",
+        "divWith/attr/length",
+        "divWith/attr/element-root",
+        "divWith/blocks/length",
+        "divWith/blocks/element-root"
+      ],
+      "bounds": "Finite source values and explicit root/list/tuple/node/Seq adapters; strict-AST bridges are not equivalent on every undefined field."
+    }
+  ],
+  "private_Builder_helpers": [
+    {
+      "source": "upstream/pandoc-types/src/Text/Pandoc/Builder.hs:quoted",
+      "symbol": "quoted",
+      "kotlin": "PandocBuilders.quoted",
+      "proof": "singleQuoted/doubleQuoted finite and per-argument demand cases"
+    }
+  ],
+  "Seq_dependency_helpers": [
+    {
+      "source_symbol": "digitToTree",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:1281",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "digitToTree'",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:1289",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "pullL",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:1178",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "pullR",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:1184",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitAt",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3706",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitTreeE",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3735",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitTreeN",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3750",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitMiddleN",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3762",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitMiddleE",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3783",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitPrefixE",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3801",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitPrefixN",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3817",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitSuffixE",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3842",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "splitSuffixN",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:3858",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "dropWhileL",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:4049",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "dropWhileR",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:4056",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "spanl",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:4063",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "spanr",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:4070",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "breakl",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:4081",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    },
+    {
+      "source_symbol": "breakr",
+      "source": "tools/haskell-types-generic-reference/OriginalSequenceInternal.hs:4086",
+      "kotlin": "ManySplit weighted split/digit/pull or short-circuit first-match scans",
+      "proof": "17630 finite originals with exact foldMap tree traces;270 source demand observations",
+      "scope": "Only the required Builder.trimInlines consumer, not the whole containers API."
+    }
+  ],
+  "native_finite": 17630,
+  "native_demand": 270,
+  "legacy_regressions": 5,
+  "original_Figure_predicates": 305,
+  "JVM_sharing_contract_tests": 1,
+  "source_instance_census": 350,
+  "individual_class_method_expansion": "separate open gate;350 is source instances, not individual methods"
+}

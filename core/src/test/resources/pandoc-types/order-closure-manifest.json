@@ -2,7 +2,7 @@
   "sources": {
     "core/src/main/kotlin/io/heapy/kotdoc/ast/AstComparison.kt": "c720e019cbc96a9ce5e0734f26a1123b3745b5af468e3cd1111de250ef031064",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/AstShow.kt": "cfbda4715c1ca747975100cb26057a3be4c4c5d36cdd87d27248d5b98a1c79a4",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "9d46a4df889f535e88eec8c020f27f7b29c4c8c5fe7258b4c04c374628155fc5",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "16b8fc5df3bb805df7d83187dc1eca35172a497658139fad9d705bee4fdcf084",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/Format.kt": "858288f6ef460db7e292ac5f22051c4de0e8d4c61a3049811e854e78054b3d0b",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt": "2a87312003b0352a00da023947ec191c0f4e61bc3584e24484dec68d0ccdbb12",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt": "8f2ee9fc0e40beeec5bbd175ca8b50657320ee26f6e1de5c2750b8f8dc0a6483",

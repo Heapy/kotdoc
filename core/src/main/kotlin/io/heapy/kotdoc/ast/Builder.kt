@@ -93,15 +93,19 @@ object Builder {
 
     fun para(value: Inlines): Blocks = Blocks(listOf(Block.Para(value.values)))
     fun plain(value: Inlines): Blocks = if (value.values.isEmpty()) Blocks() else Blocks(listOf(Block.Plain(value.values)))
-    fun lineBlock(lines: List<Inlines>): Blocks = Blocks(listOf(Block.LineBlock(lines.map { it.values })))
+    fun lineBlock(lines: List<Inlines>): Blocks = PandocBuilders.toBlocks(PandocBuilders.lineBlock { BuilderStreams.map({lines}) { PandocBuilders.fromInlines(it()) } })
     fun codeBlockWith(attr: Attr, value: String): Blocks = Blocks(listOf(Block.CodeBlock(attr, value)))
     fun codeBlock(value: String): Blocks = codeBlockWith(Attr(), value)
     fun rawBlock(format: String, value: String): Blocks = Blocks(listOf(Block.RawBlock(format, value)))
     fun blockQuote(value: Blocks): Blocks = Blocks(listOf(Block.BlockQuote(value.values)))
-    fun orderedListWith(attr: ListAttributes, items: List<Blocks>): Blocks = Blocks(listOf(Block.OrderedList(attr, items.map { it.values })))
+    fun orderedListWith(attr: ListAttributes, items: List<Blocks>): Blocks = PandocBuilders.toBlocks(PandocBuilders.orderedListWith(PandocBuilders.listAttributes {attr}) { BuilderStreams.map({items}) { PandocBuilders.fromBlocks(it()) } })
     fun orderedList(items: List<Blocks>): Blocks = orderedListWith(ListAttributes(), items)
-    fun bulletList(items: List<Blocks>): Blocks = Blocks(listOf(Block.BulletList(items.map { it.values })))
-    fun definitionList(items: List<Pair<Inlines, List<Blocks>>>): Blocks = Blocks(listOf(Block.DefinitionList(items.map { (term, definitions) -> term.values to definitions.map { it.values } })))
+    fun bulletList(items: List<Blocks>): Blocks = PandocBuilders.toBlocks(PandocBuilders.bulletList { BuilderStreams.map({items}) { PandocBuilders.fromBlocks(it()) } })
+    fun definitionList(items: List<Pair<Inlines, List<Blocks>>>): Blocks = PandocBuilders.toBlocks(PandocBuilders.definitionList {
+        BuilderStreams.map({items}) { input -> val pair = GenericMemo(input)
+            GenericTuple2({PandocBuilders.fromInlines(pair.get().first)}, {BuilderStreams.map({pair.get().second}) { PandocBuilders.fromBlocks(it()) }})
+        }
+    })
     fun headerWith(attr: Attr, level: Long, value: Inlines): Blocks = Blocks(listOf(Block.Header(level, attr, value.values)))
     fun header(level: Long, value: Inlines): Blocks = headerWith(Attr(), level, value)
     val horizontalRule = Blocks(listOf(Block.HorizontalRule))

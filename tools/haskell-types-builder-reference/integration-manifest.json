@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "accepted_baseline": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+  "historical_expectations_unchanged": true,
+  "bindings": [
+    {
+      "family": "many",
+      "historical_manifest": "historical/Many-source-manifest-before.json",
+      "before_manifest_sha256": "11a67304bb0de265e6c18dc22ead867a45b4650b8f0e819a4ed8148c7c15bbea",
+      "after_manifest_sha256": "51312b95a4b85848573ff66c29c9fdea2eec179a5396a764c8560ba0b18c63eb",
+      "changes": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "before": "5474ae82a1b782428ae9513187eaa2946b2be84e1ec63e579bdfc0dd98176ca2",
+          "after": "16b8fc5df3bb805df7d83187dc1eca35172a497658139fad9d705bee4fdcf084"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "before": "ccfa16045fa070cddf75eb59a456a76ea9d8a816b5993eb6f43cf36d2a1e0b62",
+          "after": "913b4a58fc6a9971047802bf3e7b2fc311572e97afdbc7b8f782b02e2e43f559"
+        }
+      ]
+    },
+    {
+      "family": "metadata",
+      "historical_manifest": "historical/Metadata-source-manifest-before.json",
+      "before_manifest_sha256": "de2ce5aeb165879911d2df8fc0c45cf3356a222b252dbf7683b4af7eaebe86d5",
+      "after_manifest_sha256": "cf797cf7b32ef9a471b330513b51e7e3f6988ad1e926975541e90405560e7024",
+      "changes": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "before": "ccfa16045fa070cddf75eb59a456a76ea9d8a816b5993eb6f43cf36d2a1e0b62",
+          "after": "913b4a58fc6a9971047802bf3e7b2fc311572e97afdbc7b8f782b02e2e43f559"
+        }
+      ]
+    },
+    {
+      "family": "table",
+      "historical_manifest": "historical/Table-source-manifest-before.json",
+      "before_manifest_sha256": "b7d91948b76719dc2dcc2086e5b968498df0eb35e9eb5116cb0d5b248b3870f2",
+      "after_manifest_sha256": "9a1cb112d814b931aeb72f4a833220ee565683b2130ba5bcbe7059830dc59216",
+      "changes": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "before": "5474ae82a1b782428ae9513187eaa2946b2be84e1ec63e579bdfc0dd98176ca2",
+          "after": "16b8fc5df3bb805df7d83187dc1eca35172a497658139fad9d705bee4fdcf084"
+        },
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt",
+          "before": "ccfa16045fa070cddf75eb59a456a76ea9d8a816b5993eb6f43cf36d2a1e0b62",
+          "after": "913b4a58fc6a9971047802bf3e7b2fc311572e97afdbc7b8f782b02e2e43f559"
+        }
+      ]
+    },
+    {
+      "family": "EqOrd",
+      "historical_manifest": "historical/EqOrd-source-manifest-before.json",
+      "before_manifest_sha256": "1bdace8bc283ba3d3c951169f98f0ccb7dfced55e03876e7b82a2152bad29bde",
+      "after_manifest_sha256": "3e31a39002eec0cb660ea52c16a21d820df3cafffe010175734db9ab73e9d2c2",
+      "changes": [
+        {
+          "path": "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt",
+          "before": "9d46a4df889f535e88eec8c020f27f7b29c4c8c5fe7258b4c04c374628155fc5",
+          "after": "16b8fc5df3bb805df7d83187dc1eca35172a497658139fad9d705bee4fdcf084"
+        }
+      ],
+      "note": "Prior binding was already stale after accepted table delegation; expectations unchanged."
+    }
+  ],
+  "RST_consumer": {
+    "historical_manifest": "historical/RST-reader-manifest-before.json",
+    "historical_commit": "7fdd75fef48440f8ed6e031213c3f65f466fe946",
+    "current_dependencies": {
+      "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "16b8fc5df3bb805df7d83187dc1eca35172a497658139fad9d705bee4fdcf084",
+      "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt": "913b4a58fc6a9971047802bf3e7b2fc311572e97afdbc7b8f782b02e2e43f559"
+    },
+    "fresh_regression": [
+      "io.heapy.kotdoc.readers.RstReaderTest",
+      "io.heapy.kotdoc.readers.RstReaderCallbacksTest"
+    ],
+    "historical_manifest_unchanged": true
+  },
+  "patches": {
+    "Builder.kt.patch": "e41f7d69257d6f330f18c94f07eedd959b87f94d3d455151ee120ce460c18588",
+    "PandocMany.kt.patch": "32c235988315f4f98a4e87f94d9cea607c23805356f31dbf0f9f6cbb57f5e00d"
+  },
+  "scope": "Four Builder bodies; Many Single deferred size and child scheduling only. Old constructor JVM descriptors retained."
+}

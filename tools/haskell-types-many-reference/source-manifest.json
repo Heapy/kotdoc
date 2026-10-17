@@ -25,7 +25,7 @@
   },
   "sha256": {
     "core/src/main/kotlin/io/heapy/kotdoc/ast/AstShow.kt": "cfbda4715c1ca747975100cb26057a3be4c4c5d36cdd87d27248d5b98a1c79a4",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "5474ae82a1b782428ae9513187eaa2946b2be84e1ec63e579bdfc0dd98176ca2",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/Builder.kt": "16b8fc5df3bb805df7d83187dc1eca35172a497658139fad9d705bee4fdcf084",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/GenericData.kt": "16e813e3a596c346b23d42044b419f187292b0b3331b45195442a538fe58ade4",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/GenericMonad.kt": "1306197dfa9713515afb571f9a04074cea04068afac82c48a856011e3efc5430",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/ManyAlgebra.kt": "d327fa2b8fd2a1695131571a4859fd0efbb4c8f1ab334c54115bd27e59c702cb",
@@ -33,7 +33,7 @@
     "core/src/main/kotlin/io/heapy/kotdoc/ast/ManySpecialized.kt": "042efcfbd881e07feb529b0cdbe76b3d6b10227b6babfa7f288208763945de08",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/ManyTraversable.kt": "b343c9cebce4b824a7aecdc7e55a320eb260b7da2bd45580c6c52e733746b79b",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt": "2a87312003b0352a00da023947ec191c0f4e61bc3584e24484dec68d0ccdbb12",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt": "ccfa16045fa070cddf75eb59a456a76ea9d8a816b5993eb6f43cf36d2a1e0b62",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt": "913b4a58fc6a9971047802bf3e7b2fc311572e97afdbc7b8f782b02e2e43f559",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt": "8f2ee9fc0e40beeec5bbd175ca8b50657320ee26f6e1de5c2750b8f8dc0a6483",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocWalk.kt": "d095d97ead41e6ba522553e6b653c77187288ad058056a1339ed34dd09ece3eb",
     "core/src/main/kotlin/io/heapy/kotdoc/layout/Attributed.kt": "46c33e9cc89cf17d5db38f2848e20c42a4cc32243da57d0fcdf340a2604ab3d2",

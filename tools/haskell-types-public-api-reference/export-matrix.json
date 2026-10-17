@@ -150,10 +150,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Definition/isNullMeta",
@@ -172,10 +176,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Definition/lookupMeta",
@@ -194,10 +202,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Definition/docTitle",
@@ -216,10 +228,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Definition/docAuthors",
@@ -238,10 +254,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Definition/docDate",
@@ -260,10 +280,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Source helper branches,unicode/recursive/deep/demand;5145authorJUnitcases; legacytitle/date/authors delegation regressions"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Independent native finite/demand and isolated proof pass; shared Gradle/review pending. Explicit source-list/root adapters, not arbitrary GHC heaps or JVM Collection consumer equivalence."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Definition/Block",
@@ -1914,10 +1938,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Original source function/direct finite and unusedargument demand proof"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Builder/ToMetaValue",
@@ -1941,10 +1969,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "All9ToMetaValue and2HasMeta dictionaries/13methods, recursive typed native recipes andcustomdictionary demand; metadata25methodslots/10helpers"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Author full finite/demand/interface proof passes; shared Gradle and independent review pending. Source Text/String and Map Text/Map String remain distinct explicit dictionaries; source compiler typeclass selection is caller-explicit."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Builder/HasMeta",
@@ -1968,10 +2000,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "All9ToMetaValue and2HasMeta dictionaries/13methods, recursive typed native recipes andcustomdictionary demand; metadata25methodslots/10helpers"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Author full finite/demand/interface proof passes; shared Gradle and independent review pending. Source Text/String and Map Text/Map String remain distinct explicit dictionaries; source compiler typeclass selection is caller-explicit."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Builder/setTitle",
@@ -1990,10 +2026,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Original source function/direct finite and unusedargument demand proof"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Builder/setAuthors",
@@ -2012,10 +2052,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Original source function/direct finite and unusedargument demand proof"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Builder/setDate",
@@ -2034,10 +2078,14 @@
         {
           "manifest": "tools/haskell-types-metadata-reference/source-manifest.json",
           "scope": "Original source function/direct finite and unusedargument demand proof"
+        },
+        {
+          "commit": "c16c6e5adf6452008893bef387bf0248caad3cdf",
+          "scope": "25 metadata methods/10 helpers; independently accepted native/5145 assertions and corrected32860 regression"
         }
       ],
-      "status": "implemented_metadata_awaiting_review",
-      "remaining_gap": "Author finite/demand proof passes; shared Gradle and independent review pending. Remaining unrelated Builder exports and generic source classes stay open."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted metadata finite source contract; general instance/member expansion remains separate."
     },
     {
       "id": "Builder/text",
@@ -2836,10 +2884,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/simpleCell",
@@ -2859,10 +2911,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/emptyCell",
@@ -2882,10 +2938,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/cellWith",
@@ -2905,10 +2965,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/table",
@@ -2928,10 +2992,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/simpleTable",
@@ -2951,10 +3019,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/tableWith",
@@ -2974,10 +3046,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/figure",
@@ -3173,10 +3249,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/normalizeTableBody",
@@ -3200,10 +3280,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/normalizeTableFoot",
@@ -3227,10 +3311,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/placeRowSection",
@@ -3254,10 +3342,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Builder/clipRows",
@@ -3281,10 +3373,14 @@
         {
           "scope": "17559 independent finite responses;52 demand/deep observations;13500 original table predicates;9 legacy delegation regressions",
           "manifest": "tools/haskell-types-table-reference/acceptance-matrix.json"
+        },
+        {
+          "commit": "9f3fd55a359a481bbe6b8d1801314123f63a63bf",
+          "scope": "12 exports/3 helpers; original17559+52 and37101 regression independently accepted"
         }
       ],
-      "status": "implemented_tables_awaiting_review",
-      "remaining_gap": "Await final shared execution and independent review; explicit thunk/list/triple finite model, iterator compatibility is separate."
+      "status": "accepted_finite_source_matrix",
+      "remaining_gap": "Accepted finite source callback/list/triple contract; strict iterator compatibility is separate."
     },
     {
       "id": "Generic/bottomUp",
@@ -3393,12 +3489,11 @@
   ],
   "status_counts": {
     "representation_and_selected_instances": 27,
-    "implemented_metadata_awaiting_review": 12,
-    "implementation_present_proof_partial": 62,
+    "accepted_finite_source_matrix": 53,
+    "implementation_present_proof_partial": 50,
     "api_mapping_unverified": 1,
     "accepted_num_enum_dictionary_matrix": 3,
     "representation_partial": 1,
-    "accepted_finite_source_matrix": 29,
     "accepted_finite_dictionary_matrix": 5
   },
   "package_supplement": [

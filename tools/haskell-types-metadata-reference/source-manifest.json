@@ -19,7 +19,7 @@
     "core/src/main/kotlin/io/heapy/kotdoc/ast/MetadataConversions.kt": "055bab5027bfa9a074f5a639d00afb7eb2645ac11fffbfce6ba5fb22d98d43b9",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/MetadataSource.kt": "0d8637dca7d839f3014b571bf767742854123ff3afc711f9824e5ede15c9cdd4",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/Pandoc.kt": "2a87312003b0352a00da023947ec191c0f4e61bc3584e24484dec68d0ccdbb12",
-    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt": "ccfa16045fa070cddf75eb59a456a76ea9d8a816b5993eb6f43cf36d2a1e0b62",
+    "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMany.kt": "913b4a58fc6a9971047802bf3e7b2fc311572e97afdbc7b8f782b02e2e43f559",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocMetadata.kt": "9eb8248a56bddf994e0f7f3cf433cb87b61528b79944e0bff54b763e3047340d",
     "core/src/main/kotlin/io/heapy/kotdoc/ast/PandocRead.kt": "8f2ee9fc0e40beeec5bbd175ca8b50657320ee26f6e1de5c2750b8f8dc0a6483",
     "core/src/test/kotlin/io/heapy/kotdoc/ast/MetadataDemandReplay.kt": "9db1c5728718a61af96d5a9febfe17b0655f650ab24c8b2922f441b270667661",

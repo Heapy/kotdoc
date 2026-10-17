@@ -1,0 +1,7 @@
+Compiled from "PandocMany.kt"
+public final class io.heapy.kotdoc.ast.ManyTree$Single<A> implements io.heapy.kotdoc.ast.ManyTree<A> {
+  public io.heapy.kotdoc.ast.ManyTree$Single(kotlin.jvm.functions.Function0<? extends io.heapy.kotdoc.ast.ManyCell<A>>, long);
+  public long getSize();
+  public final io.heapy.kotdoc.ast.ManyCell<A> getCell();
+  public io.heapy.kotdoc.ast.ManyTree$Single(io.heapy.kotdoc.ast.ManyCell<A>);
+}

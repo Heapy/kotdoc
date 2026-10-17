@@ -14922,3 +14922,42 @@ callbacks are explicit; no substitute HTTP backend is claimed. Eleven of the
 distinct from the previously pending RST-writer commands with other inputs.
 General GHC IO/platform semantics, global CLI options and the rest of 612/613/
 618/621, full Pandoc623 and calibre624–626 remain OPEN.
+
+
+### Builder constructors and normalization checkpoint
+
+The remaining constructor/text/trim family maps 49 Builder-owned exports plus
+Definition.nullAttr (50 named rows), its private quoted helper and 19 required
+Seq split/drop dependency helpers. New PandocBuilders/BuilderStreams/ManySplit
+retain source GenericNode/lazy tuple fields and actual weighted Many trees;
+finite strict-AST bridges are separately identified conveniences. Source review
+checked constructor field order, plain emptiness, text grouping, trim predicate
+order, weighted split shapes and source unsigned endpoint comparison.
+
+Own original executable replay passed 17630 finite responses and 270 demand
+responses byte-exact, with source/artifact integrity. Original Figure expected
+values and its predicate contribute 305 cases. Five legacy reproductions show
+why lineBlock/orderedListWith/bulletList/definitionList now delegate; orderedList
+retains its existing delegation. Many iteration schedules child thunks instead
+of fetching siblings; Single cell measure is memoized and deferred. javap on
+the immutable JAR confirms the prior Function0/Long and ManyCell constructors
+and getSize/getCell descriptors remain present. New thunk-size constructor is
+additive. Source callbacks model partial fields explicitly; this is not arbitrary
+GHC heap/bottom or unbounded JVM-list equivalence.
+
+Saved Gradle23701 contains 167326 actual testcase elements across 18 XMLs, all
+zero failures/errors/skips; the new Builder suite contributes 18212 (17630 finite,
+270 demand, five legacy, 305 Figure, sharing/ABI and integrity). It also includes
+RST reader2865 and existing EqOrd/Many/Generic/Walk/count/metadata/table/property/
+JSON/Visitor regressions. Own 53 frozen hashes and immutable JAR hash, five major
+class entries and all 105 byte-exact notices passed. No redundant Gradle run was
+needed.
+
+Historical Many/metadata/table/order manifests and source snapshots remain
+retained. Own structural comparison proves current manifests change only the
+declared Builder/PandocMany hashes, not observation payloads; the older EqOrd
+Builder hash was already stale before this checkpoint and is recorded honestly.
+RST packaged baseline stays immutable, with separate fresh consumer XML/class
+binding for current helpers. Full 140-export audit, 350 source-instance member
+expansion (350 is not a method count), generic Many/count-derived contracts,
+Data.Version/JSON supplement and rest611/full Pandoc/calibre remain OPEN.

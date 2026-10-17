@@ -700,3 +700,61 @@ was solely the new integrity adapter's relative path, corrected to kotdoc.root;
 all original behavior/expectations and production stayed unchanged. Saved
 evidence/frozen39paths: /tmp/kotdoc-tables-final-results. Independent review is
 pending; this table slice does not close full140/350/JSON or remaining classes.
+
+
+## Accepted table family and next constructor family
+
+Table12-export/3-helper slice is independently accepted at
+9f3fd55a359a481bbe6b8d1801314123f63a63bf (37,101 actual regression cases).
+The next constructor family is49 Builder-owned exports plus Definition.nullAttr
+(50 named export rows), not50 Builder-owned exports. The original140 owned-export
+census and350 source-instance census remain unchanged. The350 count denotes
+source instances, not350 individual class methods; complete member/default
+expansion remains an explicit gate. New source callbacks/GenericNode/lazy tuple
+and list carriers are separate from finite strict-AST bridges. Existing Builder
+convenience signatures are not asserted equivalent on undefined-field inputs.
+
+## Remaining Builder constructor family (author checkpoint)
+
+The author gate covers 49 Builder-owned exports plus Definition.nullAttr, with
+per-export source/protocol/finite-bridge/original-test/demand mappings in
+`tools/haskell-types-builder-reference/acceptance-matrix.json`. The raw original
+17,630 finite responses and 270 demand observations replay byte-exact. This
+includes the module example, original Figure predicate inputs (305 independent
+native expected results), private quoted and weighted Seq split/drop dependencies.
+
+Five preserved legacy repros require exactly four existing body delegations:
+lineBlock, orderedListWith, bulletList and definitionList. orderedList retains
+its existing delegation. Source partial-node probes also prove two dependency
+fixes: schedule Many child thunks only when visited, and defer Single cell size
+until requested. Early prefix/length observations now succeed while later
+forcing preserves the original node error. Existing Long constructor signatures
+are retained, and memoized cell/size/failure sharing has a separate JVM test.
+Source callbacks/GenericNode/list/tuple carriers express demand; strict AST
+conveniences remain finite-value bridges, not universal bottom equivalence.
+
+Historical Builder/Many sources and Many/metadata/table manifests are retained
+verbatim. A separate integration manifest records changed current dependency
+bindings and exact patches. Original observations remain unchanged. Full 140
+owned exports, 350 source instances and their member/default expansion, generic
+Many/count-derived representation classes, Data.Version and JSON supplement
+remain separate gates. This author checkpoint awaits fresh shared regression
+and independent review; it is not completion of task611.
+
+Builder author final gate: Gradle23701 SUCCESS3m8s, 167,326 actual JUnit cases
+across18 classes, zero failures/errors/skips. New Builder18,212 comprises17,630
+finite+270 demand+5legacy+305 unchanged Figure predicates+1 JVM sharing/ABI
+adapter+1integrity check. Fresh dependents include Many5,128, Generic808,
+EqOrd81,325, Walk5,767, original properties20,316, tables17,635, count9,980,
+metadata5,145, Builder22, Visitor10, JSON113 and RST2,865. Native Builder,
+Many, metadata and table responses replay byte-exact; all corresponding current
+source checks and original81-registration/payload checks pass. The EqOrd current
+Builder pin was already stale after the accepted table commit; its original
+manifest is preserved and the sole current binding change is explicit.
+
+Core/installed JAR identity, all105 exact packaged notices, five new classes
+and preserved Single public JVM descriptors pass. Saved command/log/18XML/
+53frozen hashes/native log/JAR: /tmp/kotdoc-builders-final-results. RST historical
+baseline7fdd75fe remains immutable; separate fresh XML and unchanged reader
+source/class hashes bind its consumer regression to the new Builder/Many.
+Independent review is pending. Full task611 remains open.

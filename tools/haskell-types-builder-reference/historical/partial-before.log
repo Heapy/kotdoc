@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.IllegalStateException: trim-partial-node-length: {"exception":"node"} != "7"
+	at io.heapy.kotdoc.ast.BuilderDemandReplayKt.main(BuilderDemandReplay.kt:113)
+	at io.heapy.kotdoc.ast.BuilderDemandReplayKt.main(BuilderDemandReplay.kt)
