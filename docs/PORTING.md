@@ -14821,3 +14821,35 @@ Other invalid-span/pointer,ABI,phantom/demand,timing and scrubbing limits remain
 FullSHA512/module equivalence beyond represented contracts and local:613/
 Pandoc/calibre closure are not inferred;remaining ChaCha/DRG/Prime/signature/
 trust/chain work stays OPEN.
+
+
+### Complete portable ChaCha core checkpoint
+
+All16 portable crypton_chacha.c definitions (thirteen entries,three private),
+32 sigma/tau constant bytes,QR and get_state view are translated. Own replay
+passed15862 ordinary/observed raw rows and33 pins,including double-round/state
+traces,all source-produced cache phases,counter carry/seek,initialization and
+input/output/state aliases,partial-overlap portable forward loops and random
+rekey/split/zero requests. Aligned generate writes the block before counter
+advance;unaligned/combine temporary paths advance before copying,as in source.
+Random returns block40..55 and rekeys from0..39 after each at-most16 bytes,
+discarding unused bytes;it is not ordinary stream generation.
+
+Own actual Haskell676 KAT/property/carry observations and the unchanged79-example
+ChaChaSpec suite passed,including three property families×200.600 recorded
+original generator samples and translated predicates execute in Kotlin. Author
+full raw O0/O2/O3 replay agrees. Saved Gradle65218 XML has16496 actual zero-
+failure/error/skip cases;own36 frozen hashes,three packaged classes,three exact
+notices and absence of JDK cipher/JNA calls pass. Jar/installDist passed with
+identical core jars. No accepted production engine changed.
+
+Actual arm64 C context sizeof is136,while Haskell initializes132 logical bytes.
+Controlled sentinels prove the four trailing stores,not ordinary heap/GC memory
+parity;raw Kotlin models the full136-byte object. High-bit uint32-to-int rounds
+are finite Clang observations,not universal ISO-C conversion proof. Direct core
+alignment,portable alias order and valid context/span domains remain explicit;
+arbitrarily forged cache metadata is not uniformly classified as valid/invalid.
+Real32/big-endian,optimized raw backends,JVM timing and physical scrubbing remain
+limits. NEON/SSE/assembly instruction ports,public ChaCha two state types/seven
+functions/class-counter wrappers,DRG/Probabilistic/Prime/signatures/trust/chain
+and rest613/full Pandoc623/calibre624–626 remain OPEN.

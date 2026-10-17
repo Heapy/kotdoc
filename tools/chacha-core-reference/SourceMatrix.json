@@ -1,0 +1,130 @@
+{
+  "definitions": [
+    {
+      "name": "chacha_asm_state",
+      "source": "cbits/crypton_chacha.c",
+      "line": 82,
+      "conditional": true
+    },
+    {
+      "name": "chacha_core",
+      "source": "cbits/crypton_chacha.c",
+      "line": 115,
+      "conditional": false
+    },
+    {
+      "name": "hchacha_core",
+      "source": "cbits/crypton_chacha.c",
+      "line": 160,
+      "conditional": false
+    },
+    {
+      "name": "chacha_init_key_state",
+      "source": "cbits/crypton_chacha.c",
+      "line": 195,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_init_core",
+      "source": "cbits/crypton_chacha.c",
+      "line": 221,
+      "conditional": false
+    },
+    {
+      "name": "crypton_hchacha_init_core",
+      "source": "cbits/crypton_chacha.c",
+      "line": 242,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_init",
+      "source": "cbits/crypton_chacha.c",
+      "line": 255,
+      "conditional": false
+    },
+    {
+      "name": "crypton_hchacha",
+      "source": "cbits/crypton_chacha.c",
+      "line": 264,
+      "conditional": false
+    },
+    {
+      "name": "crypton_xchacha_init",
+      "source": "cbits/crypton_chacha.c",
+      "line": 281,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_combine",
+      "source": "cbits/crypton_chacha.c",
+      "line": 297,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_counter64",
+      "source": "cbits/crypton_chacha.c",
+      "line": 399,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_counter32",
+      "source": "cbits/crypton_chacha.c",
+      "line": 406,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_set_counter64",
+      "source": "cbits/crypton_chacha.c",
+      "line": 411,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_set_counter32",
+      "source": "cbits/crypton_chacha.c",
+      "line": 424,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_generate",
+      "source": "cbits/crypton_chacha.c",
+      "line": 434,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_generate_simple_block",
+      "source": "cbits/crypton_chacha.c",
+      "line": 524,
+      "conditional": false
+    },
+    {
+      "name": "crypton_chacha_random",
+      "source": "cbits/crypton_chacha.c",
+      "line": 545,
+      "conditional": false
+    }
+  ],
+  "portable": 16,
+  "exports": 13,
+  "private": 3,
+  "macros": [
+    "QR",
+    "ALIGNED64",
+    "crypton_chacha_get_state",
+    "CHACHA_SIMD_OK"
+  ],
+  "constantBytes": 32,
+  "profiles": [
+    "portableGeneric",
+    "conditionalNEON",
+    "conditionalSSE2",
+    "conditionalCRYPTOGAMSassembly"
+  ],
+  "remaining": [
+    "publicChaCha2types7functions4methods2instances",
+    "ChaChaDRG",
+    "Random.Probabilistic",
+    "Prime9exports420primes",
+    "signatures/trust/chain",
+    "full613/Pandoc623/calibre624-626"
+  ]
+}

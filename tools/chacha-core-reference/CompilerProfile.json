@@ -1,0 +1,25 @@
+{
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "flags": [
+    "-O2",
+    "-std=c99",
+    "-DNO_INLINE_ASM"
+  ],
+  "host": "arm64",
+  "byteOrder": "little",
+  "wordBits": 32,
+  "counterBits": 64,
+  "stateSize": 64,
+  "contextSize": 136,
+  "haskellLogicalContextSize": 132,
+  "alignment": "native allocations asserted8-aligned; span offsets select byte alignment",
+  "nativeBackend": "portable scalar only; no SIMD/assembly macros defined",
+  "actualHaskellBackend": "unmodified crypton Cabal aarch64 package enables NEON/assembly per original flags; observations are public bytes, not raw backend equivalence",
+  "highBitRandomRounds": "clang uint32-to-int conversion observed as two-complement low32bits; not universalISO-C guarantee",
+  "remaining": [
+    "actual32bit/big-endian ABI",
+    "optimized raw backend profiles",
+    "publicChaCha/DRG/Probabilistic",
+    "full613/Pandoc/calibre"
+  ]
+}
