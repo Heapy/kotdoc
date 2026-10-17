@@ -14550,3 +14550,29 @@ The archive's absent LICENSE.txt remains transparently documented under the
 accepted MIT notice provenance. Public Ed448 three types/three sizes/eight
 functions and full original public suite are the next gate. No source modern
 Curve_Ed448 instance is invented;remaining local:613/Pandoc/calibre stay OPEN.
+
+
+### Identifier consumer text-profile correction
+
+The confirmed U+1C89 identifier mismatch is fixed for the three current
+DokuWikiIdentifiers consumers: DokuWiki reader,Muse reader and Muse writer.
+Only the helper's lowercase dependency changes to accepted LaTeXReaderText
+text-2.1.2;the complete GHC Unicode16 flags and identifier pipeline are retained.
+CoreUnicodeText's distinct text-2.1.3/1460-mapping implementation is valid and
+unchanged. Original runtime text-2.1.2 has1433 mappings;all27 profile deltas,
+inline/emoji/flags and duplicate/collision cases have independent expectations.
+
+Own original replay passed648 observations and exhaustive lowercase enumeration;
+650 new JUnit cases comprise648 observations plus two complete1114112-input
+domain assertions. Saved Gradle58407 XML has11241 actual zero-failure/error/skip
+cases including unchanged Doku/Muse/RST regressions. Isolated650 passed512MiB/
+256KiB. Own full copied CLI replay passed33 exact original observations with
+controls and five full4172/5107/8182 commands;durable exit0/empty stderr and
+all copied-JAR pins were checked. All20 frozen hashes,packaged helper,both
+case profiles,flags/notices and historical accepted helper Git blob match.
+
+Old format fixtures/manifests remain unchanged;their old live-helper pins are
+historical snapshot checks,not falsely regenerated current green evidence.
+Integration.json binds the verbatim old helper snapshot to the narrow current
+change. General identifier consumers/Unicode profiles,DocumentShared and global
+CLI gaps remain separate;local:612/618/621 and full Pandoc/calibre stay OPEN.

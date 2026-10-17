@@ -1,0 +1,8 @@
+{
+  "historicalCommit": "bde1b710f266a540da8f732414538b26b5d0bbd5",
+  "currentHelper": "core/src/main/kotlin/io/heapy/kotdoc/readers/DokuWikiIdentifiers.kt",
+  "historicalHelperSha256": "c2c5bbc996d6982d6d276df74c9f244e8d6672f625c37bb3ae86a1f2c5677676",
+  "currentHelperSha256": "ba6d49dfbda0260f16d6d37d389b62f1675d0e821137e840b1ba8ca5d14e8a00",
+  "changedBehavior": "Only text-2.1.2 lowercase selection; existing Unicode16 flags and Shared identifier algorithm retained.",
+  "historicalManifestPolicy": "Old manifests/expectations unchanged; old live-helper source-pin checks are historical snapshot checks, not current integration checks."
+}

@@ -1,0 +1,76 @@
+[
+  {
+    "name": "muse-reader",
+    "args": [
+      "-f",
+      "muse+auto_identifiers",
+      "-t",
+      "json"
+    ],
+    "input": "* Ᲊ\n",
+    "results": [
+      {
+        "command": [
+          "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-3.12.1/t/test-pandoc/noopt/build/test-pandoc/test-pandoc",
+          "--emulate",
+          "-f",
+          "muse+auto_identifiers",
+          "-t",
+          "json"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Header\",\"c\":[1,[\"Ᲊ\",[],[]],[{\"t\":\"Str\",\"c\":\"Ᲊ\"}]]}]}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/tmp/kotdoc-rst-writer/installed-cli-final/bin/cli",
+          "-f",
+          "muse+auto_identifiers",
+          "-t",
+          "json"
+        ],
+        "exitCode": 0,
+        "stdout": "{\"pandoc-api-version\":[1,23,1,2],\"meta\":{},\"blocks\":[{\"t\":\"Header\",\"c\":[1,[\"ᲊ\",[],[]],[{\"t\":\"Str\",\"c\":\"Ᲊ\"}]]}]}\n",
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "muse-writer",
+    "args": [
+      "-f",
+      "native",
+      "-t",
+      "muse"
+    ],
+    "input": "[Header 1 (\"Ᲊ\",[],[]) [Str \"Ᲊ\"]]",
+    "results": [
+      {
+        "command": [
+          "/tmp/kotdoc-test-inventory-runtime/build/build/aarch64-osx/ghc-9.12.2/pandoc-3.12.1/t/test-pandoc/noopt/build/test-pandoc/test-pandoc",
+          "--emulate",
+          "-f",
+          "native",
+          "-t",
+          "muse"
+        ],
+        "exitCode": 0,
+        "stdout": "* Ᲊ\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/tmp/kotdoc-rst-writer/installed-cli-final/bin/cli",
+          "-f",
+          "native",
+          "-t",
+          "muse"
+        ],
+        "exitCode": 0,
+        "stdout": "#Ᲊ\n* Ᲊ\n",
+        "stderr": ""
+      }
+    ]
+  }
+]

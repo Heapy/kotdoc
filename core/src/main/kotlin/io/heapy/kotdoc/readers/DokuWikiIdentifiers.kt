@@ -3,10 +3,11 @@
 package io.heapy.kotdoc.readers
 
 import io.heapy.kotdoc.ast.*
+import io.heapy.kotdoc.latex.LaTeXReaderText
 import io.heapy.kotdoc.options.ExtensionName
 import io.heapy.kotdoc.options.Extensions
 
-/** GHC's pinned Unicode categories, independent of the host ICU version. */
+/** Pandoc's text-2.1.2 lowercase profile and GHC Unicode-16 categories. */
 internal object DokuWikiIdentifiers {
     private val rows = checkNotNull(javaClass.getResource("/io/heapy/kotdoc/dokuwiki-identifier-flags.tsv"))
         .readText().lineSequence().filter(String::isNotEmpty).map { it.split('\t').map(String::toInt) }.toList()
@@ -27,7 +28,7 @@ internal object DokuWikiIdentifiers {
             }.walkInlines(inlines) else inlines
         val gfm=ExtensionName.GfmAutoIdentifiers in extensions
         val filtered=buildString {
-            for(original in UnicodeText.toLower(DocumentShared.stringifyInlines(unemoji)).codePoints().toArray()) {
+            for(original in LaTeXReaderText.toLower(DocumentShared.stringifyInlines(unemoji)).codePoints().toArray()) {
                 val point=if(gfm && flags(original) and 4 != 0)45 else original
                 val bits=flags(point)
                 if(bits and 6 != 0 || point==45 || point==95 || if(gfm)bits and 8 != 0 else point==46)appendCodePoint(point)
